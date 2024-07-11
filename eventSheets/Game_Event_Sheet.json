@@ -1,0 +1,2383 @@
+{
+	"name": "Game_Event_Sheet",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Vector_Y_Speed_Up",
+			"type": "number",
+			"initialValue": "-200",
+			"comment": "Up Movement",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 304028444689078
+		},
+		{
+			"eventType": "variable",
+			"name": "Vector_Y_Speed_Down",
+			"type": "number",
+			"initialValue": "200",
+			"comment": "Down Movement",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 382792902129101
+		},
+		{
+			"eventType": "variable",
+			"name": "minerInventoryValue",
+			"type": "string",
+			"initialValue": "Text",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 898561386943010
+		},
+		{
+			"eventType": "variable",
+			"name": "minerInventoryWeight",
+			"type": "string",
+			"initialValue": "Text",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 345157577216506
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player Inputs",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 123262634233626,
+							"parameters": {
+								"key": 68
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 914058030908076,
+							"parameters": {
+								"key": 39
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Miner_Box",
+							"sid": 481744152872213,
+							"parameters": {
+								"instance-variable": "RIGHT",
+								"value": "true"
+							}
+						},
+						{
+							"type": "script",
+							"script": ""
+						}
+					],
+					"sid": 504765856800544,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 831528947419273
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Miner_Box",
+							"sid": 746452939706425,
+							"parameters": {
+								"instance-variable": "RIGHT",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 864791273283039
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 723583731612081,
+							"parameters": {
+								"key": 65
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 655783742886532,
+							"parameters": {
+								"key": 37
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Miner_Box",
+							"sid": 996019752130084,
+							"parameters": {
+								"instance-variable": "LEFT",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 617969331879068,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 175050443386333
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Miner_Box",
+							"sid": 468134006193981,
+							"parameters": {
+								"instance-variable": "LEFT",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 327099450829981
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 868515274517654,
+							"parameters": {
+								"key": 87
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 786496504221452,
+							"parameters": {
+								"key": 38
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Miner_Box",
+							"sid": 913380296161660,
+							"parameters": {
+								"instance-variable": "UP",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 950233614418145,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 344441149942606
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Miner_Box",
+							"sid": 182102123896213,
+							"parameters": {
+								"instance-variable": "UP",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 568111216230693
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 163201733264048,
+							"parameters": {
+								"key": 83
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 115153147479367,
+							"parameters": {
+								"key": 40
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Miner_Box",
+							"sid": 400555742662999,
+							"parameters": {
+								"instance-variable": "DOWN",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 986549283536154,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 689012076574021
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Miner_Box",
+							"sid": 160173700579797,
+							"parameters": {
+								"instance-variable": "DOWN",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 474636836041658
+				}
+			],
+			"sid": 355145578378289
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player Movement",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "Miner_Box",
+							"sid": 707451095674864,
+							"behaviorType": "Platform"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Animations",
+							"sid": 637700828555291,
+							"parameters": {
+								"instance-variable": "ANIM",
+								"value": "\"Move\""
+							}
+						}
+					],
+					"sid": 344006584023434
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 945530617682188,
+							"parameters": {
+								"instance-variable": "RIGHT"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Miner_Box",
+							"sid": 690240669300046,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "right"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Animations",
+							"sid": 571934671546804,
+							"parameters": {
+								"instance-variable": "DIR",
+								"value": "\"Right\""
+							}
+						}
+					],
+					"sid": 535303584140594
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 911117805411936
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 860252087735152,
+							"parameters": {
+								"instance-variable": "LEFT"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Miner_Box",
+							"sid": 897203373487299,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "left"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Animations",
+							"sid": 117937307652182,
+							"parameters": {
+								"instance-variable": "DIR",
+								"value": "\"Left\""
+							}
+						}
+					],
+					"sid": 386431653336411
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 773612002327283
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 923680549156005,
+							"parameters": {
+								"instance-variable": "UP"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-vector-y",
+							"objectClass": "Miner_Box",
+							"sid": 468894682189117,
+							"behaviorType": "Platform",
+							"parameters": {
+								"vector-y": "Vector_Y_Speed_Up"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Animations",
+							"sid": 309153241605916,
+							"parameters": {
+								"instance-variable": "DIR",
+								"value": "\"Up\""
+							}
+						}
+					],
+					"sid": 702971222367606
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 845927984984820
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 217472624290972,
+							"parameters": {
+								"instance-variable": "DOWN"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-vector-y",
+							"objectClass": "Miner_Box",
+							"sid": 475395784853319,
+							"behaviorType": "Platform",
+							"parameters": {
+								"vector-y": "Vector_Y_Speed_Down"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Animations",
+							"sid": 219419237616926,
+							"parameters": {
+								"instance-variable": "DIR",
+								"value": "\"Down\""
+							}
+						}
+					],
+					"sid": 940039236294376
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 741383426188002
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Animations",
+							"sid": 591473444708382,
+							"parameters": {
+								"instance-variable": "ANIM",
+								"value": "\"Idle\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Animations",
+							"sid": 699719208156733,
+							"parameters": {
+								"instance-variable": "DIR",
+								"value": "\"Front\""
+							}
+						}
+					],
+					"sid": 421884878380229
+				}
+			],
+			"sid": 986645220395432
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player Drill",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 529978585348646,
+							"parameters": {
+								"key": 83
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Animations",
+							"sid": 647292546138698,
+							"parameters": {
+								"instance-variable": "DIR",
+								"comparison": 0,
+								"value": "\"Down\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 457997797122736,
+							"parameters": {
+								"object-to-create": "Miner_Drill",
+								"layer": "\"Player\"",
+								"x": "Miner_Box.x +16",
+								"y": "Miner_Box.y +64",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 471348459087076
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 102910378858820
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Miner_Drill",
+							"sid": 473872403463421
+						}
+					],
+					"sid": 780443299996810
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 698528019935587,
+							"parameters": {
+								"key": 40
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Animations",
+							"sid": 812076124902260,
+							"parameters": {
+								"instance-variable": "DIR",
+								"comparison": 0,
+								"value": "\"Down\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 532014245010122,
+							"parameters": {
+								"object-to-create": "Miner_Drill",
+								"layer": "\"Player\"",
+								"x": "Miner_Box.x +16",
+								"y": "Miner_Box.y +64",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 925632722978412
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 109093577860185
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Miner_Drill",
+							"sid": 664152398363308
+						}
+					],
+					"sid": 412039757111475
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 989993994235617,
+							"parameters": {
+								"key": 68
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Animations",
+							"sid": 987974585887232,
+							"parameters": {
+								"instance-variable": "DIR",
+								"comparison": 0,
+								"value": "\"Right\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 216113343804267,
+							"parameters": {
+								"object-to-create": "Miner_Drill",
+								"layer": "\"Player\"",
+								"x": "Miner_Box.x +64",
+								"y": "Miner_Box.y +16",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 837258845420260
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 260890620695369
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Miner_Drill",
+							"sid": 696947874433363
+						}
+					],
+					"sid": 290183894445864
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 624491753121174,
+							"parameters": {
+								"key": 39
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Animations",
+							"sid": 363196930423015,
+							"parameters": {
+								"instance-variable": "DIR",
+								"comparison": 0,
+								"value": "\"Right\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 230626224305858,
+							"parameters": {
+								"object-to-create": "Miner_Drill",
+								"layer": "\"Player\"",
+								"x": "Miner_Box.x +64",
+								"y": "Miner_Box.y +16",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 312001009788461
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 986117476121163
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Miner_Drill",
+							"sid": 333134895381424
+						}
+					],
+					"sid": 424958311998283
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 917203725162860,
+							"parameters": {
+								"key": 65
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Animations",
+							"sid": 778692882770477,
+							"parameters": {
+								"instance-variable": "DIR",
+								"comparison": 0,
+								"value": "\"Left\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 376197399206123,
+							"parameters": {
+								"object-to-create": "Miner_Drill",
+								"layer": "\"Player\"",
+								"x": "Miner_Box.x - 32",
+								"y": "Miner_Box.y +16",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 727804350217923
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 144232545405719
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Miner_Drill",
+							"sid": 875100405129503
+						}
+					],
+					"sid": 130768401225061
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 409736321210925,
+							"parameters": {
+								"key": 37
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Animations",
+							"sid": 796793817854114,
+							"parameters": {
+								"instance-variable": "DIR",
+								"comparison": 0,
+								"value": "\"Left\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 701497406158162,
+							"parameters": {
+								"object-to-create": "Miner_Drill",
+								"layer": "\"Player\"",
+								"x": "Miner_Box.x - 32",
+								"y": "Miner_Box.y +16",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 942537073484911
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 298051176604642
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Miner_Drill",
+							"sid": 140986067373685
+						}
+					],
+					"sid": 326079745553415
+				}
+			],
+			"sid": 393155889809501
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Mining",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Drill",
+							"sid": 986445635467892,
+							"parameters": {
+								"object": "Mining_Blocks_Family"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Animations",
+							"sid": 699635885230800,
+							"parameters": {
+								"instance-variable": "DIR",
+								"comparison": 0,
+								"value": "\"Right\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Animations",
+							"sid": 701824506988036,
+							"parameters": {
+								"instance-variable": "ANIM",
+								"value": "\"Drill\""
+							}
+						}
+					],
+					"sid": 566283638402170
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Drill",
+							"sid": 849025646477172,
+							"parameters": {
+								"object": "Mining_Blocks_Family"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Animations",
+							"sid": 652405292999748,
+							"parameters": {
+								"instance-variable": "DIR",
+								"comparison": 0,
+								"value": "\"Left\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Animations",
+							"sid": 422504249824627,
+							"parameters": {
+								"instance-variable": "ANIM",
+								"value": "\"Drill\""
+							}
+						}
+					],
+					"sid": 531644377528600
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Drill",
+							"sid": 529358235324637,
+							"parameters": {
+								"object": "Mining_Blocks_Family"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Animations",
+							"sid": 891423394619674,
+							"parameters": {
+								"instance-variable": "DIR",
+								"comparison": 0,
+								"value": "\"Down\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Animations",
+							"sid": 999932488195612,
+							"parameters": {
+								"instance-variable": "ANIM",
+								"value": "\"Drill\""
+							}
+						}
+					],
+					"sid": 548076111126430
+				},
+				{
+					"eventType": "comment",
+					"text": "DIRT"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Drill",
+							"sid": 392123718002844,
+							"parameters": {
+								"object": "Dirt_Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Dirt_Block",
+							"sid": 145386020892495,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "0.1"
+							}
+						},
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Dirt_Block)\n"
+						}
+					],
+					"sid": 238625586762362
+				},
+				{
+					"eventType": "comment",
+					"text": "COAL "
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Drill",
+							"sid": 352937597649072,
+							"parameters": {
+								"object": "Coal_Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Coal_Block",
+							"sid": 922086332022910,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "1"
+							}
+						},
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Coal_Block);\n"
+						}
+					],
+					"sid": 249263617515972
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Coal_Block",
+							"sid": 427291643313157,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 229194629450949,
+							"parameters": {
+								"object": "Coal_Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 739914883027842,
+							"parameters": {
+								"object-to-create": "Coal",
+								"layer": "\"Player\"",
+								"x": "Coal_Block.X",
+								"y": "Coal_Block.Y",
+								"create-hierarchy": false,
+								"template-name": "\"Coal\""
+							}
+						}
+					],
+					"sid": 453598557268416
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 248790171070060,
+							"parameters": {
+								"object": "Coal"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 718362093987139,
+							"parameters": {
+								"object": "Coal"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Coal",
+							"sid": 158317693327121,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "2"
+							}
+						},
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Coal)\naddToInventory(minerInventory, miningItems.Coal_Inv, 1)"
+						},
+						{
+							"id": "create-item",
+							"objectClass": "Inventory",
+							"sid": 713485644931665,
+							"parameters": {
+								"type": "\"Coal_Inv\"",
+								"quantity": "1",
+								"inventory-id": "\"Inventory_Miner\"",
+								"slot-id": "\"\""
+							}
+						}
+					],
+					"sid": 201918156532959
+				},
+				{
+					"eventType": "comment",
+					"text": "QUARTZ"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Drill",
+							"sid": 557745299303831,
+							"parameters": {
+								"object": "Quartz_Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Quartz_Block",
+							"sid": 718978777111428,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "1"
+							}
+						},
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Quartz_Block);\n"
+						}
+					],
+					"sid": 241830169287069
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Quartz_Block",
+							"sid": 813933471085374,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 530262712720537,
+							"parameters": {
+								"object": "Quartz_Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 583571479777466,
+							"parameters": {
+								"object-to-create": "Quartz",
+								"layer": "\"Player\"",
+								"x": "Quartz_Block.X",
+								"y": "Quartz_Block.Y",
+								"create-hierarchy": false,
+								"template-name": "\"Quartz\""
+							}
+						}
+					],
+					"sid": 385088643276045
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 996914950816772,
+							"parameters": {
+								"object": "Quartz"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 857832705956278,
+							"parameters": {
+								"object": "Quartz"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Quartz",
+							"sid": 474476280298057,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "2"
+							}
+						},
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Quartz)\naddToInventory(minerInventory, miningItems.Quartz_Inv, 1)"
+						},
+						{
+							"id": "create-item",
+							"objectClass": "Inventory",
+							"sid": 783605692167215,
+							"parameters": {
+								"type": "\"Quartz_Inv\"",
+								"quantity": "1",
+								"inventory-id": "\"Inventory_Miner\"",
+								"slot-id": "\"\""
+							}
+						}
+					],
+					"sid": 766513628002303
+				},
+				{
+					"eventType": "comment",
+					"text": "ALUMINIUM"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Drill",
+							"sid": 995824371154825,
+							"parameters": {
+								"object": "Aluminium_Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Aluminium_Block",
+							"sid": 165315276297676,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "1"
+							}
+						},
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Aluminium_Block);\n"
+						}
+					],
+					"sid": 612949683370854
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Aluminium_Block",
+							"sid": 735029155889693,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 692466029816072,
+							"parameters": {
+								"object": "Aluminium_Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 532880740960816,
+							"parameters": {
+								"object-to-create": "Aluminium_Ore",
+								"layer": "\"Player\"",
+								"x": "Aluminium_Block.X",
+								"y": "Aluminium_Block.Y",
+								"create-hierarchy": false,
+								"template-name": "\"Aluminium\""
+							}
+						}
+					],
+					"sid": 421264862696841
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 376680704773841,
+							"parameters": {
+								"object": "Aluminium_Ore"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 164640482312466,
+							"parameters": {
+								"object": "Aluminium_Ore"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Aluminium_Ore",
+							"sid": 898639550005119,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "2"
+							}
+						},
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Aluminium_Ore)\naddToInventory(minerInventory, miningItems.Aluminium_Ore_Inv, 1)"
+						},
+						{
+							"id": "create-item",
+							"objectClass": "Inventory",
+							"sid": 640304258194909,
+							"parameters": {
+								"type": "\"Aluminium_Ore_Inv\"",
+								"quantity": "1",
+								"inventory-id": "\"Inventory_Miner\"",
+								"slot-id": "\"\""
+							}
+						}
+					],
+					"sid": 792253835654241
+				}
+			],
+			"sid": 798652257225397
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Inventory Management",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Item_ID",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 845764424234378
+				},
+				{
+					"eventType": "variable",
+					"name": "Item_Type",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 831520726176516
+				},
+				{
+					"eventType": "variable",
+					"name": "Item_Quantity",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 251225432905071
+				},
+				{
+					"eventType": "comment",
+					"text": "// Miner Inventory"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 132757544141052,
+							"parameters": {
+								"key": 73
+							}
+						}
+					],
+					"actions": [],
+					"sid": 362300765350122,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-inventory-shown",
+									"objectClass": "Inventory",
+									"sid": 713362021036794,
+									"parameters": {
+										"param0": "\"Inventory_Miner\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "hide-inventory",
+									"objectClass": "Inventory",
+									"sid": 516856635493321,
+									"parameters": {
+										"param0": "\"Inventory_Miner\""
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Value_Weight_Text",
+									"sid": 100938787761521,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 151054288601441
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 902713904519429
+								}
+							],
+							"actions": [
+								{
+									"id": "show-inventory",
+									"objectClass": "Inventory",
+									"sid": 605686782189640,
+									"parameters": {
+										"param0": "\"Inventory_Miner\"",
+										"param1": "\"HUD\"",
+										"param2": "HUD_Main.X + 42",
+										"param3": "HUD_Main.Y + 64"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Value_Weight_Text",
+									"sid": 216706729992252,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 368480786333897
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 803304797826499,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Inventory_text"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 198090643907500,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-inventory-shown",
+									"objectClass": "Inventory",
+									"sid": 523661713802076,
+									"parameters": {
+										"param0": "\"Inventory_Miner\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "hide-inventory",
+									"objectClass": "Inventory",
+									"sid": 527638828178291,
+									"parameters": {
+										"param0": "\"Inventory_Miner\""
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Value_Weight_Text",
+									"sid": 528026554156842,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 884869030660429
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 404261275113167
+								}
+							],
+							"actions": [
+								{
+									"id": "show-inventory",
+									"objectClass": "Inventory",
+									"sid": 406237421253640,
+									"parameters": {
+										"param0": "\"Inventory_Miner\"",
+										"param1": "\"HUD\"",
+										"param2": "HUD_Main.X + 42",
+										"param3": "HUD_Main.Y + 64"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Value_Weight_Text",
+									"sid": 439365292937919,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 181062447153868
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 817090715429061,
+							"parameters": {
+								"mouse-button": "right",
+								"click-type": "clicked",
+								"object-clicked": "Inventory_Sprites"
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 513544996059898,
+							"parameters": {
+								"key": 16
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 804748900507287,
+							"parameters": {
+								"variable": "Item_ID",
+								"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.X, Mouse.Y)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 353813440719350,
+							"parameters": {
+								"variable": "Item_Type",
+								"value": "Inventory.ItemType(Item_ID)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 188712314470391,
+							"parameters": {
+								"variable": "Item_Quantity",
+								"value": "Inventory.ItemQuantity(Item_ID)"
+							}
+						},
+						{
+							"type": "script",
+							"script": "console.log(localVars.Item_Quantity)\nremoveFromInventory(minerInventory, miningItems[localVars.Item_Type], localVars.Item_Quantity)"
+						},
+						{
+							"id": "destroy-item",
+							"objectClass": "Inventory",
+							"sid": 156031330056120,
+							"parameters": {
+								"param0": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.X, Mouse.Y)"
+							}
+						}
+					],
+					"sid": 112462139058611
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 511286540994038,
+							"parameters": {
+								"mouse-button": "right",
+								"click-type": "clicked",
+								"object-clicked": "Inventory_Sprites"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 703408788916203,
+							"parameters": {
+								"variable": "Item_ID",
+								"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.X, Mouse.Y)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 774476264793819,
+							"parameters": {
+								"variable": "Item_Type",
+								"value": "Inventory.ItemType(Item_ID)"
+							}
+						},
+						{
+							"id": "set-item-quantity",
+							"objectClass": "Inventory",
+							"sid": 242960856131872,
+							"parameters": {
+								"param0": "Item_ID",
+								"param1": "Inventory.ItemQuantity(Item_ID) -1"
+							}
+						},
+						{
+							"type": "script",
+							"script": "\nremoveFromInventory(minerInventory, miningItems[localVars.Item_Type], 1)\n"
+						}
+					],
+					"sid": 833722388094990
+				},
+				{
+					"eventType": "comment",
+					"text": "Consumables Inventory"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 977115377560959,
+							"parameters": {
+								"key": 67
+							}
+						}
+					],
+					"actions": [],
+					"sid": 148302832503259,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-inventory-shown",
+									"objectClass": "Inventory",
+									"sid": 675246544261008,
+									"parameters": {
+										"param0": "\"Inventory_Consumables\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "hide-inventory",
+									"objectClass": "Inventory",
+									"sid": 950373945851380,
+									"parameters": {
+										"param0": "\"Inventory_Consumables\""
+									}
+								}
+							],
+							"sid": 232339420389936
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 434338067194072
+								}
+							],
+							"actions": [
+								{
+									"id": "show-inventory",
+									"objectClass": "Inventory",
+									"sid": 707743871671956,
+									"parameters": {
+										"param0": "\"Inventory_Consumables\"",
+										"param1": "\"HUD\"",
+										"param2": "HUD_Main.X + 207",
+										"param3": "HUD_Main.Y + 64"
+									}
+								}
+							],
+							"sid": 105678353491426
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 991809537058336,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Consumables_Text"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 818871771306859,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-inventory-shown",
+									"objectClass": "Inventory",
+									"sid": 433514314388956,
+									"parameters": {
+										"param0": "\"Inventory_Consumables\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "hide-inventory",
+									"objectClass": "Inventory",
+									"sid": 933913697102305,
+									"parameters": {
+										"param0": "\"Inventory_Consumables\""
+									}
+								}
+							],
+							"sid": 709942760334330
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 739251112196793
+								}
+							],
+							"actions": [
+								{
+									"id": "show-inventory",
+									"objectClass": "Inventory",
+									"sid": 169819929845650,
+									"parameters": {
+										"param0": "\"Inventory_Consumables\"",
+										"param1": "\"HUD\"",
+										"param2": "HUD_Main.X + 207",
+										"param3": "HUD_Main.Y + 64"
+									}
+								}
+							],
+							"sid": 480457622234611
+						}
+					]
+				}
+			],
+			"sid": 455912892116319
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Global Events",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Inventory Setup"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 821521572297788
+						}
+					],
+					"actions": [
+						{
+							"id": "create-inventory",
+							"objectClass": "Inventory",
+							"sid": 623510745455877,
+							"parameters": {
+								"id": "\"Inventory_Miner\"",
+								"columns": "5",
+								"rows": "5"
+							}
+						},
+						{
+							"id": "create-inventory",
+							"objectClass": "Inventory",
+							"sid": 911087665066754,
+							"parameters": {
+								"id": "\"Inventory_Consumables\"",
+								"columns": "5",
+								"rows": "1"
+							}
+						},
+						{
+							"id": "create-inventory",
+							"objectClass": "Inventory",
+							"sid": 968884837220999,
+							"parameters": {
+								"id": "\"Inventory_Global\"",
+								"columns": "10",
+								"rows": "10"
+							}
+						},
+						{
+							"id": "design-inventory",
+							"objectClass": "Inventory",
+							"sid": 595637853252469,
+							"parameters": {
+								"id": "\"Inventory_Miner\"",
+								"slot-object": "minerInventory_Slot_Art",
+								"slot-width": "32",
+								"slot-height": "32",
+								"quantity-text-object": "SpriteFont",
+								"text-offset-x": "30",
+								"text-offset-y": "12"
+							}
+						},
+						{
+							"id": "design-inventory",
+							"objectClass": "Inventory",
+							"sid": 493233964318665,
+							"parameters": {
+								"id": "\"Inventory_Consumables\"",
+								"slot-object": "Consumables_Slot_Art",
+								"slot-width": "32",
+								"slot-height": "32",
+								"quantity-text-object": "SpriteFont",
+								"text-offset-x": "30",
+								"text-offset-y": "12"
+							}
+						},
+						{
+							"id": "design-inventory",
+							"objectClass": "Inventory",
+							"sid": 903908085840418,
+							"parameters": {
+								"id": "\"Inventory_Global\"",
+								"slot-object": "GlobalInventory_Slot_Art",
+								"slot-width": "32",
+								"slot-height": "32",
+								"quantity-text-object": "SpriteFont",
+								"text-offset-x": "30",
+								"text-offset-y": "12"
+							}
+						}
+					],
+					"sid": 820816451460762,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-item-type",
+									"objectClass": "Inventory",
+									"sid": 305492380653782,
+									"parameters": {
+										"type": "\"Coal_Inv\"",
+										"icon": "Coal_Inv_Sprite",
+										"max-stack": "10",
+										"destroy-at-stack-0": "yes"
+									}
+								},
+								{
+									"id": "create-item-type",
+									"objectClass": "Inventory",
+									"sid": 761298997604113,
+									"parameters": {
+										"type": "\"Quartz_Inv\"",
+										"icon": "Quartz_Inv_Sprite",
+										"max-stack": "10",
+										"destroy-at-stack-0": "yes"
+									}
+								},
+								{
+									"id": "create-item-type",
+									"objectClass": "Inventory",
+									"sid": 876688486390750,
+									"parameters": {
+										"type": "\"Aluminium_Ore_Inv\"",
+										"icon": "Aluminium_Ore_Inv_Sprite",
+										"max-stack": "10",
+										"destroy-at-stack-0": "yes"
+									}
+								},
+								{
+									"id": "create-item-type",
+									"objectClass": "Inventory",
+									"sid": 632951231542986,
+									"parameters": {
+										"type": "\"Dynamite_Inv\"",
+										"icon": "Dynamite_Inv_Sprite",
+										"max-stack": "10",
+										"destroy-at-stack-0": "yes"
+									}
+								}
+							],
+							"sid": 600851367349786
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "//Animation "
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 975108152676737
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 631504762713703,
+							"parameters": {
+								"object": "Miner_Animations",
+								"layer": "\"Player\"",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Miner_Animations",
+							"sid": 658481509639199,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Miner_Box",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 215528164269866
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 752147574086178
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Miner_Animations",
+							"sid": 742589122020026,
+							"parameters": {
+								"animation": "Self.ANIM & \"_\" & Self.DIR",
+								"from": "beginning"
+							}
+						},
+						{
+							"type": "script",
+							"script": "runtime.globalVars.minerInventoryValue = String(minerInventory.value);\nruntime.globalVars.minerInventoryWeight = String(minerInventory.weight);\n"
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Value_Weight_Text",
+							"sid": 527064616210856,
+							"parameters": {
+								"text": "\"Value: \" & minerInventoryValue & \" Weight: \" & minerInventoryWeight"
+							}
+						}
+					],
+					"sid": 557502173694722
+				}
+			],
+			"sid": 769195620327841
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Buildings",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "SHOP"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 649768316662365,
+							"parameters": {
+								"object": "Shop_Door"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Enter_Shop_Text",
+							"sid": 377666394855117,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 633327738156948
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 675906802812131
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Enter_Shop_Text",
+							"sid": 421445441464058,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 551811888896505
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 493618194729786,
+							"parameters": {
+								"key": 70
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 228820495106082,
+							"parameters": {
+								"object": "Shop_Door"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "hide-inventory",
+							"objectClass": "Inventory",
+							"sid": 370988002631440,
+							"parameters": {
+								"param0": "\"Inventory_Consumables\""
+							}
+						},
+						{
+							"id": "hide-inventory",
+							"objectClass": "Inventory",
+							"sid": 101038347244904,
+							"parameters": {
+								"param0": "\"Inventory_Miner\""
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 427278720475998,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 116182692762204,
+							"parameters": {
+								"layout": "Shop"
+							}
+						}
+					],
+					"sid": 841879878911906
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 854293075111203,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Shop_Door"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 959577224616308,
+							"parameters": {
+								"object": "Shop_Door"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "hide-inventory",
+							"objectClass": "Inventory",
+							"sid": 803509971433873,
+							"parameters": {
+								"param0": "\"Inventory_Consumables\""
+							}
+						},
+						{
+							"id": "hide-inventory",
+							"objectClass": "Inventory",
+							"sid": 520382211904722,
+							"parameters": {
+								"param0": "\"Inventory_Miner\""
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 377283397063059,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 167418952649510,
+							"parameters": {
+								"layout": "Shop"
+							}
+						}
+					],
+					"sid": 848228295295904
+				},
+				{
+					"eventType": "comment",
+					"text": "WAREHOUSE"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 940378357988610,
+							"parameters": {
+								"object": "Warehouse_Door"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Enter_Warehouse_Text",
+							"sid": 160297540065805,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 514660060684430
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 435470931627485
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Enter_Warehouse_Text",
+							"sid": 266630100915410,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 194476323545343
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 430586895450511,
+							"parameters": {
+								"key": 70
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 566316591533182,
+							"parameters": {
+								"object": "Warehouse_Door"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "hide-inventory",
+							"objectClass": "Inventory",
+							"sid": 289394205681104,
+							"parameters": {
+								"param0": "\"Inventory_Consumables\""
+							}
+						},
+						{
+							"id": "hide-inventory",
+							"objectClass": "Inventory",
+							"sid": 856594092035862,
+							"parameters": {
+								"param0": "\"Inventory_Miner\""
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 410662022142030,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 709400326404630,
+							"parameters": {
+								"layout": "Warehouse"
+							}
+						}
+					],
+					"sid": 324828526932080
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 848125332058912,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Warehouse_Door"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 841086356899817,
+							"parameters": {
+								"object": "Warehouse_Door"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "hide-inventory",
+							"objectClass": "Inventory",
+							"sid": 825250224557307,
+							"parameters": {
+								"param0": "\"Inventory_Consumables\""
+							}
+						},
+						{
+							"id": "hide-inventory",
+							"objectClass": "Inventory",
+							"sid": 114387463237694,
+							"parameters": {
+								"param0": "\"Inventory_Miner\""
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 793387646595211,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 596885167374340,
+							"parameters": {
+								"layout": "Warehouse"
+							}
+						}
+					],
+					"sid": 625156061067286
+				}
+			],
+			"sid": 673306627574670
+		}
+	],
+	"sid": 196935397098049
+}

@@ -1,0 +1,91 @@
+{
+	"name": "Shop_Event_Sheet",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 193075194876718,
+					"parameters": {
+						"key": 27
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 685190364705375,
+					"parameters": {
+						"layout": "Game"
+					}
+				},
+				{
+					"id": "load",
+					"objectClass": "System",
+					"sid": 772497908298526,
+					"parameters": {
+						"slot": "\"mysave\""
+					}
+				}
+			],
+			"sid": 626434510535892
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 645001325604215,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Add_Dynamite"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-item",
+					"objectClass": "Inventory",
+					"sid": 765648925339160,
+					"parameters": {
+						"type": "\"Dynamite_Inv\"",
+						"quantity": "1",
+						"inventory-id": "\"Inventory_Consumables\"",
+						"slot-id": "\"\""
+					}
+				}
+			],
+			"sid": 156822066175318
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Button",
+					"sid": 473164344282456
+				}
+			],
+			"actions": [
+				{
+					"id": "create-item",
+					"objectClass": "Inventory",
+					"sid": 337064792320411,
+					"parameters": {
+						"type": "\"Dynamite_Inv\"",
+						"quantity": "1",
+						"inventory-id": "\"Inventory_Consumables\"",
+						"slot-id": "\"\""
+					}
+				}
+			],
+			"sid": 465263666218441
+		}
+	],
+	"sid": 842858612308038
+}
