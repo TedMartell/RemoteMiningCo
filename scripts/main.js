@@ -3,7 +3,7 @@ runOnStartup(async runtime =>
 {
     // Code to run on the loading screen.
     // Note layouts, objects etc. are not yet available.
-    
+    log.console('Fuck you!');
     runtime.addEventListener("beforeprojectstart", () => OnBeforeProjectStart(runtime));
 });
 
