@@ -5,45 +5,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 865169779471996
-				}
-			],
-			"actions": [
-				{
-					"id": "show-inventory",
-					"objectClass": "Inventory",
-					"sid": 637637797754832,
-					"parameters": {
-						"param0": "\"Inventory_Miner\"",
-						"param1": "0",
-						"param2": "Miner_Base.X +24",
-						"param3": "Miner_Base.Y +57"
-					}
-				},
-				{
-					"id": "show-inventory",
-					"objectClass": "Inventory",
-					"sid": 828551574047096,
-					"parameters": {
-						"param0": "\"Inventory_Global\"",
-						"param1": "0",
-						"param2": "0",
-						"param3": "0"
-					}
-				},
-				{
-					"callFunction": "LoadInventory",
-					"sid": 549068838145463
-				}
-			],
-			"sid": 538033915245868
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "key-is-down",
 					"objectClass": "Keyboard",
 					"sid": 928691240517988,
@@ -64,7 +25,7 @@
 				{
 					"id": "load",
 					"objectClass": "System",
-					"sid": 874025409160285,
+					"sid": 548153107242841,
 					"parameters": {
 						"slot": "\"mysave\""
 					}
@@ -90,10 +51,6 @@
 						"from": "\"Inventory_Miner\"",
 						"to": "\"Inventory_Global\""
 					}
-				},
-				{
-					"callFunction": "SaveInventory",
-					"sid": 520972753649326
 				}
 			],
 			"sid": 978940252575666
@@ -112,10 +69,10 @@
 				{
 					"id": "set-item",
 					"objectClass": "LocalStorage",
-					"sid": 643385112262534,
+					"sid": 102723019256382,
 					"parameters": {
 						"key": "\"inventory\"",
-						"value": "Inventory.ThisInventoryId"
+						"value": "Inventory.AsJSON"
 					}
 				}
 			],
@@ -142,6 +99,168 @@
 				}
 			],
 			"sid": 769760078033621
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 653728126160797,
+					"parameters": {
+						"key": 71
+					}
+				}
+			],
+			"actions": [],
+			"sid": 399765733347578,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-inventory-shown",
+							"objectClass": "Inventory",
+							"sid": 424139810511113,
+							"parameters": {
+								"param0": "\"Inventory_Global\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "hide-inventory",
+							"objectClass": "Inventory",
+							"sid": 838210354055448,
+							"parameters": {
+								"param0": "\"Inventory_Global\""
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Value_Weight_Text",
+							"sid": 756884165051079,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 393836591810726
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 894673845671780
+						}
+					],
+					"actions": [
+						{
+							"id": "show-inventory",
+							"objectClass": "Inventory",
+							"sid": 955284791909795,
+							"parameters": {
+								"param0": "\"Inventory_Global\"",
+								"param1": "\"warehouse\"",
+								"param2": "0",
+								"param3": "0"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Value_Weight_Text",
+							"sid": 499295877786602,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 834315058402691
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 125872093123500,
+					"parameters": {
+						"key": 73
+					}
+				}
+			],
+			"actions": [],
+			"sid": 432751670831204,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-inventory-shown",
+							"objectClass": "Inventory",
+							"sid": 160348255261552,
+							"parameters": {
+								"param0": "\"Inventory_Miner\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "hide-inventory",
+							"objectClass": "Inventory",
+							"sid": 905167000706641,
+							"parameters": {
+								"param0": "\"Inventory_Miner\""
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Value_Weight_Text",
+							"sid": 731050516524936,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 124803235253109
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 213293496426188
+						}
+					],
+					"actions": [
+						{
+							"id": "show-inventory",
+							"objectClass": "Inventory",
+							"sid": 489800382823966,
+							"parameters": {
+								"param0": "\"Inventory_Miner\"",
+								"param1": "\"warehouse\"",
+								"param2": "300",
+								"param3": "0"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Value_Weight_Text",
+							"sid": 422656729876946,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 925984124704448
+				}
+			]
 		}
 	],
 	"sid": 817926889311537

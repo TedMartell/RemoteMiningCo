@@ -992,6 +992,35 @@
 					"sid": 238625586762362
 				},
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Explosion_Area",
+							"sid": 112983847255262,
+							"parameters": {
+								"object": "Dirt_Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Dirt_Block",
+							"sid": 247683719702370,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "Explosion_Area.Explosion_Damage"
+							}
+						},
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Dirt_Block)\n"
+						}
+					],
+					"sid": 584261102406532
+				},
+				{
 					"eventType": "comment",
 					"text": "COAL "
 				},
@@ -1023,6 +1052,35 @@
 						}
 					],
 					"sid": 249263617515972
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Explosion_Area",
+							"sid": 201112649409938,
+							"parameters": {
+								"object": "Coal_Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Coal_Block",
+							"sid": 731424285143069,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "Explosion_Area.Explosion_Damage"
+							}
+						},
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Coal_Block)\n"
+						}
+					],
+					"sid": 413777512998908
 				},
 				{
 					"eventType": "block",
@@ -1148,6 +1206,35 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Explosion_Area",
+							"sid": 951491948616550,
+							"parameters": {
+								"object": "Quartz_Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Quartz_Block",
+							"sid": 214388942941590,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "Explosion_Area.Explosion_Damage"
+							}
+						},
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Quartz_Block);\n"
+						}
+					],
+					"sid": 460941621239572
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "compare-instance-variable",
 							"objectClass": "Quartz_Block",
 							"sid": 813933471085374,
@@ -1263,6 +1350,35 @@
 						}
 					],
 					"sid": 612949683370854
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Explosion_Area",
+							"sid": 373109852686523,
+							"parameters": {
+								"object": "Aluminium_Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Aluminium_Block",
+							"sid": 915001567897167,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "Explosion_Area.Explosion_Damage"
+							}
+						},
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Aluminium_Block);\n"
+						}
+					],
+					"sid": 811981422403935
 				},
 				{
 					"eventType": "block",
@@ -1904,10 +2020,6 @@
 								"text-offset-x": "30",
 								"text-offset-y": "12"
 							}
-						},
-						{
-							"callFunction": "LoadInventory",
-							"sid": 168964997996508
 						}
 					],
 					"sid": 820816451460762,
@@ -2140,19 +2252,19 @@
 							}
 						},
 						{
-							"id": "save",
-							"objectClass": "System",
-							"sid": 427278720475998,
-							"parameters": {
-								"slot": "\"mysave\""
-							}
-						},
-						{
 							"id": "go-to-layout",
 							"objectClass": "System",
 							"sid": 116182692762204,
 							"parameters": {
 								"layout": "Shop"
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 104396310997054,
+							"parameters": {
+								"slot": "\"mysave\""
 							}
 						}
 					],
@@ -2198,19 +2310,19 @@
 							}
 						},
 						{
-							"id": "save",
-							"objectClass": "System",
-							"sid": 377283397063059,
-							"parameters": {
-								"slot": "\"mysave\""
-							}
-						},
-						{
 							"id": "go-to-layout",
 							"objectClass": "System",
 							"sid": 167418952649510,
 							"parameters": {
 								"layout": "Shop"
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 168565654117887,
+							"parameters": {
+								"slot": "\"mysave\""
 							}
 						}
 					],
@@ -2303,11 +2415,11 @@
 							}
 						},
 						{
-							"id": "save",
+							"id": "wait",
 							"objectClass": "System",
-							"sid": 410662022142030,
+							"sid": 962947940991462,
 							"parameters": {
-								"slot": "\"mysave\""
+								"seconds": "0.1"
 							}
 						},
 						{
@@ -2316,6 +2428,14 @@
 							"sid": 709400326404630,
 							"parameters": {
 								"layout": "Warehouse"
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 804625856575001,
+							"parameters": {
+								"slot": "\"mysave\""
 							}
 						}
 					],
@@ -2361,11 +2481,11 @@
 							}
 						},
 						{
-							"id": "save",
+							"id": "wait",
 							"objectClass": "System",
-							"sid": 793387646595211,
+							"sid": 363778252581130,
 							"parameters": {
-								"slot": "\"mysave\""
+								"seconds": "0.1"
 							}
 						},
 						{
@@ -2375,12 +2495,110 @@
 							"parameters": {
 								"layout": "Warehouse"
 							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 691368489681124,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
 						}
 					],
 					"sid": 625156061067286
 				}
 			],
 			"sid": 673306627574670
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Consumables",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Consumable_ID",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 920331686843449
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 108315821114330,
+							"parameters": {
+								"key": 88
+							}
+						},
+						{
+							"id": "is-item-type-in-inventory",
+							"objectClass": "Inventory",
+							"sid": 468793222349399,
+							"parameters": {
+								"inventory-id": "\"Inventory_Consumables\"",
+								"type": "\"Dynamite_Inv\"",
+								"quantity": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 203908172286815,
+							"parameters": {
+								"object-to-create": "Explosion_Area",
+								"layer": "\"Player\"",
+								"x": "Miner_Box.x +32",
+								"y": "Miner_Box.y +32",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 594895837312843,
+							"parameters": {
+								"variable": "Consumable_ID",
+								"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 0)"
+							}
+						},
+						{
+							"id": "set-item-quantity",
+							"objectClass": "Inventory",
+							"sid": 545179087528463,
+							"parameters": {
+								"param0": "Consumable_ID",
+								"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 290585519204628,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Explosion_Area",
+							"sid": 590141188393817
+						}
+					],
+					"sid": 881952387361236
+				}
+			],
+			"sid": 435002656982759
 		}
 	],
 	"sid": 196935397098049
