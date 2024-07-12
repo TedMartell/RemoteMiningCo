@@ -32,6 +32,10 @@
 						"param2": "0",
 						"param3": "0"
 					}
+				},
+				{
+					"callFunction": "LoadInventory",
+					"sid": 549068838145463
 				}
 			],
 			"sid": 538033915245868
@@ -86,9 +90,58 @@
 						"from": "\"Inventory_Miner\"",
 						"to": "\"Inventory_Global\""
 					}
+				},
+				{
+					"callFunction": "SaveInventory",
+					"sid": 520972753649326
 				}
 			],
 			"sid": 978940252575666
+		},
+		{
+			"functionName": "SaveInventory",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 643385112262534,
+					"parameters": {
+						"key": "\"inventory\"",
+						"value": "Inventory.ThisInventoryId"
+					}
+				}
+			],
+			"sid": 254916093749629
+		},
+		{
+			"functionName": "LoadInventory",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 640191027084764,
+					"parameters": {
+						"key": "\"inventory\""
+					}
+				}
+			],
+			"sid": 769760078033621
 		}
 	],
 	"sid": 817926889311537
