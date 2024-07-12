@@ -3,6 +3,26 @@
 	"events": [
 		{
 			"eventType": "variable",
+			"name": "GAME_NAME",
+			"type": "string",
+			"initialValue": "motherload-2-online",
+			"comment": "Name of the game on the signalling server.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 531659674394466
+		},
+		{
+			"eventType": "variable",
+			"name": "INSTANCE_NAME",
+			"type": "string",
+			"initialValue": "default",
+			"comment": "Name of the instance on the signalling server.",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 738898131216977
+		},
+		{
+			"eventType": "variable",
 			"name": "Vector_Y_Speed_Up",
 			"type": "number",
 			"initialValue": "-200",
@@ -2377,6 +2397,763 @@
 				}
 			],
 			"sid": 673306627574670
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Chat log",
+			"description": "A function to easily add a log message to the chat log textarea.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Since a lot of events need to add something to the ChatLog, this function saves us repeating the actions to add a new line to the end of the chat log and scroll to the bottom so we can still see updates even after they go past the object height."
+				},
+				{
+					"functionName": "AddLog",
+					"functionDescription": "Automatically converted from 'AddLog'",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "message",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 299970749025652
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "ChatLog",
+							"sid": 348654278813743,
+							"parameters": {
+								"text": "(Self.Text & newline) & message"
+							}
+						},
+						{
+							"id": "scroll-to-bottom",
+							"objectClass": "ChatLog",
+							"sid": 685878538486908
+						}
+					],
+					"sid": 703942297851291
+				}
+			],
+			"sid": 151517995537375
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Signalling",
+			"description": "Manages connecting to the signalling server and joining the room.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "On the start of the layout, connect to the signalling server."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 415639440349667
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "ChatLog",
+							"sid": 703791791967846,
+							"parameters": {
+								"text": "\"Connecting to server...\""
+							}
+						},
+						{
+							"id": "connect",
+							"objectClass": "Multiplayer",
+							"sid": 365185846354184,
+							"parameters": {
+								"server": "\"wss://multiplayer.construct.net\""
+							}
+						}
+					],
+					"sid": 444034548184649
+				},
+				{
+					"eventType": "comment",
+					"text": "Once we successfully connect to the signalling server, request to log in with the username entered on the login screen."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-connected",
+							"objectClass": "Multiplayer",
+							"sid": 675195416457466
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "AddLog",
+							"sid": 224303285885805,
+							"parameters": [
+								"\"Connected, logging in...\""
+							]
+						},
+						{
+							"id": "log-in",
+							"objectClass": "Multiplayer",
+							"sid": 603820549456202,
+							"parameters": {
+								"alias": "MyUsername"
+							}
+						}
+					],
+					"sid": 254909084787011
+				},
+				{
+					"eventType": "comment",
+					"text": "Once successfully logged in, request to join the room name the user entered on the login screen. Note the user's current alias is displayed back to them, because it's possible the signalling server changed our name if it was already taken."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-logged-in",
+							"objectClass": "Multiplayer",
+							"sid": 190204311673096
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "AddLog",
+							"sid": 956072002825206,
+							"parameters": [
+								"\"Logged in as '\" & Multiplayer.MyAlias & \"', joining room '\" & RoomName & \"'...\""
+							]
+						},
+						{
+							"id": "join-room",
+							"objectClass": "Multiplayer",
+							"sid": 730949242153762,
+							"parameters": {
+								"game": "GAME_NAME",
+								"instance": "INSTANCE_NAME",
+								"room": "lowercase(RoomName)",
+								"max-peers": "0"
+							}
+						}
+					],
+					"sid": 131662514075355
+				},
+				{
+					"eventType": "comment",
+					"text": "Upon joining the room, display a different status depending on if we are the host, and add our own name to the list of peers on the right. The appropriate group of events for either the host or a peer is activated and the chat text box is enabled."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-joined-room",
+							"objectClass": "Multiplayer",
+							"sid": 503269972556161
+						}
+					],
+					"actions": [
+						{
+							"id": "set-read-only",
+							"objectClass": "ChatTextBox",
+							"sid": 464794276297342,
+							"parameters": {
+								"mode": "not-read-only"
+							}
+						},
+						{
+							"id": "set-focused",
+							"objectClass": "ChatTextBox",
+							"sid": 408109364826872
+						}
+					],
+					"sid": 700164510162745,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-host",
+									"objectClass": "Multiplayer",
+									"sid": 620548134199890
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 492334786037458,
+									"parameters": {
+										"group-name": "\"Host\"",
+										"state": "activated"
+									}
+								},
+								{
+									"callFunction": "AddLog",
+									"sid": 866947550322187,
+									"parameters": [
+										"\"Joined the chat room as the host\""
+									]
+								},
+								{
+									"id": "add-item",
+									"objectClass": "PeerList",
+									"sid": 160627570030843,
+									"parameters": {
+										"text": "Multiplayer.MyAlias & \" (host)\""
+									}
+								}
+							],
+							"sid": 163356169309904
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 261447080806074
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 566265911412156,
+									"parameters": {
+										"group-name": "\"Peer\"",
+										"state": "activated"
+									}
+								},
+								{
+									"callFunction": "AddLog",
+									"sid": 443387197594743,
+									"parameters": [
+										"\"Joined the chat room as a peer\""
+									]
+								},
+								{
+									"id": "add-item",
+									"objectClass": "PeerList",
+									"sid": 911736944486616,
+									"parameters": {
+										"text": "Multiplayer.MyAlias"
+									}
+								}
+							],
+							"sid": 149427466450522
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "If we leave, disconnect or encounter an error, print that to the chat log as well."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-left-room",
+							"objectClass": "Multiplayer",
+							"sid": 868192264377294
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "AddLog",
+							"sid": 328865118625160,
+							"parameters": [
+								"\"Left the chat room\""
+							]
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "ChatTextBox",
+							"sid": 201839833537524,
+							"parameters": {
+								"mode": "disabled"
+							}
+						},
+						{
+							"id": "clear",
+							"objectClass": "PeerList",
+							"sid": 964141240644697
+						}
+					],
+					"sid": 960106978436698
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-disconnected",
+							"objectClass": "Multiplayer",
+							"sid": 400744946993028
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "AddLog",
+							"sid": 892876353784940,
+							"parameters": [
+								"\"Disconnected from signalling server\""
+							]
+						}
+					],
+					"sid": 544529643656345
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-error",
+							"objectClass": "Multiplayer",
+							"sid": 364271051189463
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "AddLog",
+							"sid": 726280442537108,
+							"parameters": [
+								"\"Signalling error: \" & Multiplayer.ErrorMessage"
+							]
+						}
+					],
+					"sid": 280860004628328
+				}
+			],
+			"sid": 677629787751778
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Chat",
+			"description": "Manages sending chat messages and joining/leaving peers",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Common",
+					"description": "Events that are common to both the host and peers.",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "When someone joins the chat, log a message in the chat box and add them to the peer list on the right."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-peer-connected",
+									"objectClass": "Multiplayer",
+									"sid": 401685172365810
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AddLog",
+									"sid": 153381471950529,
+									"parameters": [
+										"\"'\" & Multiplayer.PeerAlias & \"' joined\""
+									]
+								},
+								{
+									"id": "add-item",
+									"objectClass": "PeerList",
+									"sid": 511554629915239,
+									"parameters": {
+										"text": "Multiplayer.PeerAlias"
+									}
+								}
+							],
+							"sid": 814448258925570
+						},
+						{
+							"eventType": "comment",
+							"text": "When someone leaves the chat, log a message in the chat box and remove them from the peer list on the right."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-peer-disconnected",
+									"objectClass": "Multiplayer",
+									"sid": 165043645949288
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AddLog",
+									"sid": 697717758757385,
+									"parameters": [
+										"\"'\" & Multiplayer.PeerAlias & \"' left\""
+									]
+								}
+							],
+							"sid": 339828584636080,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "To remove the right name we check every item in the list, and remove the item index where the item text matches the name of the peer who left."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 677043834648402,
+											"parameters": {
+												"count": "PeerList.ItemCount"
+											}
+										},
+										{
+											"id": "compare-item-text-at",
+											"objectClass": "PeerList",
+											"sid": 201259019551034,
+											"parameters": {
+												"index": "loopindex",
+												"text-to-compare": "Multiplayer.PeerAlias",
+												"case-sensitivity": "case-sensitive"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "remove",
+											"objectClass": "PeerList",
+											"sid": 448305539360489,
+											"parameters": {
+												"index": "loopindex"
+											}
+										}
+									],
+									"sid": 753407687015334
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Log a message if we get kicked. This can happen if we could not connect to the host or if the host quit during the chat."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-kicked",
+									"objectClass": "Multiplayer",
+									"sid": 723881201331713
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AddLog",
+									"sid": 925766154102498,
+									"parameters": [
+										"\"Kicked (either could not connect to host or host quit)\""
+									]
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "ChatTextBox",
+									"sid": 462493773608779,
+									"parameters": {
+										"mode": "disabled"
+									}
+								},
+								{
+									"id": "clear",
+									"objectClass": "PeerList",
+									"sid": 923100499066805
+								}
+							],
+							"sid": 376305354012492
+						}
+					],
+					"sid": 661397009246763
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Peer",
+					"description": "Events specific to chat room peers (i.e. non-host users).",
+					"isActiveOnStart": false,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Non-empty chat messages can be sent with the 'Send' button or just hitting return."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 344538868741712,
+									"parameters": {
+										"key": 13
+									}
+								}
+							],
+							"actions": [],
+							"sid": 826270711342129,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "When we are a peer, we send our chat message to the host. The host will relay it to everyone else in the room."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-text",
+											"objectClass": "ChatTextBox",
+											"sid": 764987862294065,
+											"parameters": {
+												"text": "\"\"",
+												"case": "case-insensitive"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "AddLog",
+											"sid": 476265299646044,
+											"parameters": [
+												"\"<\" & Multiplayer.MyAlias & \"> \" & ChatTextBox.Text"
+											]
+										},
+										{
+											"id": "send-message",
+											"objectClass": "Multiplayer",
+											"sid": 359892547684744,
+											"parameters": {
+												"peer-id": "\"\"",
+												"tag": "\"chat\"",
+												"message": "ChatTextBox.Text",
+												"mode": "reliable-ordered"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "ChatTextBox",
+											"sid": 792131789885466,
+											"parameters": {
+												"text": "\"\""
+											}
+										}
+									],
+									"sid": 614681343063484
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "comment",
+							"text": "When we receive a chat message from someone else, add it to the chat log."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-peer-message",
+									"objectClass": "Multiplayer",
+									"sid": 277109458428372,
+									"parameters": {
+										"tag": "\"chat\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AddLog",
+									"sid": 200769964438611,
+									"parameters": [
+										"\"<\" & Multiplayer.FromAlias & \"> \" & Multiplayer.Message"
+									]
+								}
+							],
+							"sid": 426323709849437
+						},
+						{
+							"eventType": "comment",
+							"text": "When the host disconnects, the peer no longer has access to the chat, so log a message and clear the chat state."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-host-disconnected",
+									"objectClass": "Multiplayer",
+									"sid": 541265404413353
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AddLog",
+									"sid": 439362626167439,
+									"parameters": [
+										"\"Host disconnected\""
+									]
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "ChatTextBox",
+									"sid": 509791310677608,
+									"parameters": {
+										"mode": "disabled"
+									}
+								},
+								{
+									"id": "clear",
+									"objectClass": "PeerList",
+									"sid": 307181213033900
+								}
+							],
+							"sid": 975322378203116
+						}
+					],
+					"sid": 554507941754444
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Host",
+					"description": "Events specific to the chat room host.",
+					"isActiveOnStart": false,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Non-empty chat messages can be sent with the 'Send' button or just hitting return."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 907964751333891,
+									"parameters": {
+										"key": 13
+									}
+								}
+							],
+							"actions": [],
+							"sid": 182497108244893,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "When we are the host, we immediately broadcast our own chat messages to everyone else in the room."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-text",
+											"objectClass": "ChatTextBox",
+											"sid": 292998032405144,
+											"parameters": {
+												"text": "\"\"",
+												"case": "case-insensitive"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "AddLog",
+											"sid": 576528461339961,
+											"parameters": [
+												"\"<\" & Multiplayer.MyAlias & \"> \" & ChatTextBox.Text"
+											]
+										},
+										{
+											"id": "broadcast-message",
+											"objectClass": "Multiplayer",
+											"sid": 485264493420368,
+											"parameters": {
+												"from-id": "\"\"",
+												"tag": "\"chat\"",
+												"message": "ChatTextBox.Text",
+												"mode": "reliable-ordered"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "ChatTextBox",
+											"sid": 955740734454669,
+											"parameters": {
+												"text": "\"\""
+											}
+										}
+									],
+									"sid": 827870000885240
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "comment",
+							"text": "When we receive a chat message from someone else, we add it to the chat log, but then we must also relay it to everyone else in the chat room so they can all see what each other are sending. Note that the 'Broadcast' action does not send to the 'From ID' peer - there's no point sending them back the same message they just sent to us."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-peer-message",
+									"objectClass": "Multiplayer",
+									"sid": 376722695021322,
+									"parameters": {
+										"tag": "\"chat\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AddLog",
+									"sid": 809945351541894,
+									"parameters": [
+										"\"<\" & Multiplayer.FromAlias & \"> \" & Multiplayer.Message"
+									]
+								},
+								{
+									"id": "broadcast-message",
+									"objectClass": "Multiplayer",
+									"sid": 675571777443227,
+									"parameters": {
+										"from-id": "Multiplayer.FromID",
+										"tag": "\"chat\"",
+										"message": "Multiplayer.Message",
+										"mode": "reliable-ordered"
+									}
+								}
+							],
+							"sid": 836276510558539
+						}
+					],
+					"sid": 569883220992209
+				}
+			],
+			"sid": 950927299607963
 		}
 	],
 	"sid": 196935397098049
