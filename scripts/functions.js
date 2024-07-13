@@ -60,3 +60,18 @@ export function removeFromInventory(inventory, item, quantity) {
 export function getInventory(inventory) {
     return inventory;
 }
+
+export function moveAllItems(sourceInventory, destinationInventory) {
+    for (const [itemName, quantity] of Object.entries(sourceInventory.items)) {
+        // Get item details from a predefined items list
+        const item = miningItems[itemName];
+
+        // Remove from source inventory
+        const removed = removeFromInventory(sourceInventory, item, quantity);
+
+        // If successfully removed, add to destination inventory
+        if (removed) {
+            addToInventory(destinationInventory, item, quantity);
+        }
+    }
+}

@@ -51,6 +51,10 @@
 						"from": "\"Inventory_Miner\"",
 						"to": "\"Inventory_Global\""
 					}
+				},
+				{
+					"type": "script",
+					"script": "moveAllItems(minerInventory, globalInventory)"
 				}
 			],
 			"sid": 978940252575666
@@ -241,11 +245,11 @@
 						{
 							"id": "show-inventory",
 							"objectClass": "Inventory",
-							"sid": 489800382823966,
+							"sid": 157195564121368,
 							"parameters": {
 								"param0": "\"Inventory_Miner\"",
 								"param1": "\"warehouse\"",
-								"param2": "300",
+								"param2": "500",
 								"param3": "0"
 							}
 						},
@@ -261,6 +265,26 @@
 					"sid": 925984124704448
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 698871136509846,
+					"parameters": {
+						"key": 79
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "addToInventory(minerInventory, miningItems.Coal_Inv, 1)"
+				}
+			],
+			"sid": 883475330517858
 		}
 	],
 	"sid": 817926889311537

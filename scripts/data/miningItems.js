@@ -1,16 +1,16 @@
 export const miningItems = {
 Coal_Inv: {
-    name: 'Coal',
+    name: 'Coal_Inv',
     value: 1,
     weight: 1,
 },
 Quartz_Inv: {
-    name: 'Quartz',
+    name: 'Quartz_Inv',
     value: 1,
     weight: 1, 
 },
 Aluminium_Ore_Inv: {
-    name: 'Aluminium Ore',
+    name: 'Aluminium_Ore_Inv',
     value: 2,
     weight: 1,
 },
