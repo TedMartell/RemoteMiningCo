@@ -75,3 +75,18 @@ export function moveAllItems(sourceInventory, destinationInventory) {
         }
     }
 }
+
+// Function to move a specified quantity of a specific item
+export function moveItemWithQuantity(sourceInventory, destinationInventory, itemName, quantity) {
+    const item = miningItems[itemName];
+    if (!item) {
+        console.log(`Item ${itemName} does not exist in miningItems.`);
+        return;
+    }
+
+    const removed = removeFromInventory(sourceInventory, item, quantity);
+    if (removed) {
+        addToInventory(destinationInventory, item, quantity);
+    }
+}
+
