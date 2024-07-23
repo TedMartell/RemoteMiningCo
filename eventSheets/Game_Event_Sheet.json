@@ -63,1320 +63,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": false,
-			"title": "Player Inputs",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 123262634233626,
-							"parameters": {
-								"key": 68
-							}
-						},
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 914058030908076,
-							"parameters": {
-								"key": 39
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Miner_Box",
-							"sid": 481744152872213,
-							"parameters": {
-								"instance-variable": "RIGHT",
-								"value": "true"
-							}
-						},
-						{
-							"type": "script",
-							"script": ""
-						}
-					],
-					"sid": 504765856800544,
-					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 831528947419273
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Miner_Box",
-							"sid": 746452939706425,
-							"parameters": {
-								"instance-variable": "RIGHT",
-								"value": "false"
-							}
-						}
-					],
-					"sid": 864791273283039
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 723583731612081,
-							"parameters": {
-								"key": 65
-							}
-						},
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 655783742886532,
-							"parameters": {
-								"key": 37
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Miner_Box",
-							"sid": 996019752130084,
-							"parameters": {
-								"instance-variable": "LEFT",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 617969331879068,
-					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 175050443386333
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Miner_Box",
-							"sid": 468134006193981,
-							"parameters": {
-								"instance-variable": "LEFT",
-								"value": "false"
-							}
-						}
-					],
-					"sid": 327099450829981
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 868515274517654,
-							"parameters": {
-								"key": 87
-							}
-						},
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 786496504221452,
-							"parameters": {
-								"key": 38
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Miner_Box",
-							"sid": 913380296161660,
-							"parameters": {
-								"instance-variable": "UP",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 950233614418145,
-					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 344441149942606
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Miner_Box",
-							"sid": 182102123896213,
-							"parameters": {
-								"instance-variable": "UP",
-								"value": "false"
-							}
-						}
-					],
-					"sid": 568111216230693
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 163201733264048,
-							"parameters": {
-								"key": 83
-							}
-						},
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 115153147479367,
-							"parameters": {
-								"key": 40
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Miner_Box",
-							"sid": 400555742662999,
-							"parameters": {
-								"instance-variable": "DOWN",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 986549283536154,
-					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 689012076574021
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Miner_Box",
-							"sid": 160173700579797,
-							"parameters": {
-								"instance-variable": "DOWN",
-								"value": "false"
-							}
-						}
-					],
-					"sid": 474636836041658
-				}
-			],
-			"sid": 355145578378289
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Player Movement",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-moving",
-							"objectClass": "Miner_Box",
-							"sid": 707451095674864,
-							"behaviorType": "Platform"
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Miner_Animations",
-							"sid": 637700828555291,
-							"parameters": {
-								"instance-variable": "ANIM",
-								"value": "\"Move\""
-							}
-						}
-					],
-					"sid": 344006584023434
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Miner_Box",
-							"sid": 945530617682188,
-							"parameters": {
-								"instance-variable": "RIGHT"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "simulate-control",
-							"objectClass": "Miner_Box",
-							"sid": 690240669300046,
-							"behaviorType": "Platform",
-							"parameters": {
-								"control": "right"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Miner_Animations",
-							"sid": 571934671546804,
-							"parameters": {
-								"instance-variable": "DIR",
-								"value": "\"Right\""
-							}
-						}
-					],
-					"sid": 535303584140594
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 911117805411936
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Miner_Box",
-							"sid": 860252087735152,
-							"parameters": {
-								"instance-variable": "LEFT"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "simulate-control",
-							"objectClass": "Miner_Box",
-							"sid": 897203373487299,
-							"behaviorType": "Platform",
-							"parameters": {
-								"control": "left"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Miner_Animations",
-							"sid": 117937307652182,
-							"parameters": {
-								"instance-variable": "DIR",
-								"value": "\"Left\""
-							}
-						}
-					],
-					"sid": 386431653336411
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 773612002327283
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Miner_Box",
-							"sid": 923680549156005,
-							"parameters": {
-								"instance-variable": "UP"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-vector-y",
-							"objectClass": "Miner_Box",
-							"sid": 468894682189117,
-							"behaviorType": "Platform",
-							"parameters": {
-								"vector-y": "Vector_Y_Speed_Up"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Miner_Animations",
-							"sid": 309153241605916,
-							"parameters": {
-								"instance-variable": "DIR",
-								"value": "\"Up\""
-							}
-						}
-					],
-					"sid": 702971222367606
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 845927984984820
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Miner_Box",
-							"sid": 217472624290972,
-							"parameters": {
-								"instance-variable": "DOWN"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-vector-y",
-							"objectClass": "Miner_Box",
-							"sid": 475395784853319,
-							"behaviorType": "Platform",
-							"parameters": {
-								"vector-y": "Vector_Y_Speed_Down"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Miner_Animations",
-							"sid": 219419237616926,
-							"parameters": {
-								"instance-variable": "DIR",
-								"value": "\"Down\""
-							}
-						}
-					],
-					"sid": 940039236294376
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 741383426188002
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Miner_Animations",
-							"sid": 591473444708382,
-							"parameters": {
-								"instance-variable": "ANIM",
-								"value": "\"Idle\""
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Miner_Animations",
-							"sid": 699719208156733,
-							"parameters": {
-								"instance-variable": "DIR",
-								"value": "\"Front\""
-							}
-						}
-					],
-					"sid": 421884878380229
-				}
-			],
-			"sid": 986645220395432
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Player Drill",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 529978585348646,
-							"parameters": {
-								"key": 83
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Miner_Animations",
-							"sid": 647292546138698,
-							"parameters": {
-								"instance-variable": "DIR",
-								"comparison": 0,
-								"value": "\"Down\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 457997797122736,
-							"parameters": {
-								"object-to-create": "Miner_Drill",
-								"layer": "\"Player\"",
-								"x": "Miner_Box.x +16",
-								"y": "Miner_Box.y +64",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						}
-					],
-					"sid": 471348459087076
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 102910378858820
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "Miner_Drill",
-							"sid": 473872403463421
-						}
-					],
-					"sid": 780443299996810
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 698528019935587,
-							"parameters": {
-								"key": 40
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Miner_Animations",
-							"sid": 812076124902260,
-							"parameters": {
-								"instance-variable": "DIR",
-								"comparison": 0,
-								"value": "\"Down\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 532014245010122,
-							"parameters": {
-								"object-to-create": "Miner_Drill",
-								"layer": "\"Player\"",
-								"x": "Miner_Box.x +16",
-								"y": "Miner_Box.y +64",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						}
-					],
-					"sid": 925632722978412
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 109093577860185
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "Miner_Drill",
-							"sid": 664152398363308
-						}
-					],
-					"sid": 412039757111475
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 989993994235617,
-							"parameters": {
-								"key": 68
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Miner_Animations",
-							"sid": 987974585887232,
-							"parameters": {
-								"instance-variable": "DIR",
-								"comparison": 0,
-								"value": "\"Right\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 216113343804267,
-							"parameters": {
-								"object-to-create": "Miner_Drill",
-								"layer": "\"Player\"",
-								"x": "Miner_Box.x +64",
-								"y": "Miner_Box.y +16",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						}
-					],
-					"sid": 837258845420260
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 260890620695369
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "Miner_Drill",
-							"sid": 696947874433363
-						}
-					],
-					"sid": 290183894445864
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 624491753121174,
-							"parameters": {
-								"key": 39
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Miner_Animations",
-							"sid": 363196930423015,
-							"parameters": {
-								"instance-variable": "DIR",
-								"comparison": 0,
-								"value": "\"Right\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 230626224305858,
-							"parameters": {
-								"object-to-create": "Miner_Drill",
-								"layer": "\"Player\"",
-								"x": "Miner_Box.x +64",
-								"y": "Miner_Box.y +16",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						}
-					],
-					"sid": 312001009788461
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 986117476121163
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "Miner_Drill",
-							"sid": 333134895381424
-						}
-					],
-					"sid": 424958311998283
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 917203725162860,
-							"parameters": {
-								"key": 65
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Miner_Animations",
-							"sid": 778692882770477,
-							"parameters": {
-								"instance-variable": "DIR",
-								"comparison": 0,
-								"value": "\"Left\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 376197399206123,
-							"parameters": {
-								"object-to-create": "Miner_Drill",
-								"layer": "\"Player\"",
-								"x": "Miner_Box.x - 32",
-								"y": "Miner_Box.y +16",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						}
-					],
-					"sid": 727804350217923
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 144232545405719
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "Miner_Drill",
-							"sid": 875100405129503
-						}
-					],
-					"sid": 130768401225061
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 409736321210925,
-							"parameters": {
-								"key": 37
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Miner_Animations",
-							"sid": 796793817854114,
-							"parameters": {
-								"instance-variable": "DIR",
-								"comparison": 0,
-								"value": "\"Left\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 701497406158162,
-							"parameters": {
-								"object-to-create": "Miner_Drill",
-								"layer": "\"Player\"",
-								"x": "Miner_Box.x - 32",
-								"y": "Miner_Box.y +16",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						}
-					],
-					"sid": 942537073484911
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 298051176604642
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "Miner_Drill",
-							"sid": 140986067373685
-						}
-					],
-					"sid": 326079745553415
-				}
-			],
-			"sid": 393155889809501
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Mining",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Drill",
-							"sid": 986445635467892,
-							"parameters": {
-								"object": "Mining_Blocks_Family"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Miner_Animations",
-							"sid": 699635885230800,
-							"parameters": {
-								"instance-variable": "DIR",
-								"comparison": 0,
-								"value": "\"Right\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Miner_Animations",
-							"sid": 701824506988036,
-							"parameters": {
-								"instance-variable": "ANIM",
-								"value": "\"Drill\""
-							}
-						}
-					],
-					"sid": 566283638402170
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Drill",
-							"sid": 849025646477172,
-							"parameters": {
-								"object": "Mining_Blocks_Family"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Miner_Animations",
-							"sid": 652405292999748,
-							"parameters": {
-								"instance-variable": "DIR",
-								"comparison": 0,
-								"value": "\"Left\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Miner_Animations",
-							"sid": 422504249824627,
-							"parameters": {
-								"instance-variable": "ANIM",
-								"value": "\"Drill\""
-							}
-						}
-					],
-					"sid": 531644377528600
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Drill",
-							"sid": 529358235324637,
-							"parameters": {
-								"object": "Mining_Blocks_Family"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Miner_Animations",
-							"sid": 891423394619674,
-							"parameters": {
-								"instance-variable": "DIR",
-								"comparison": 0,
-								"value": "\"Down\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Miner_Animations",
-							"sid": 999932488195612,
-							"parameters": {
-								"instance-variable": "ANIM",
-								"value": "\"Drill\""
-							}
-						}
-					],
-					"sid": 548076111126430
-				},
-				{
-					"eventType": "comment",
-					"text": "DIRT"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Drill",
-							"sid": 392123718002844,
-							"parameters": {
-								"object": "Dirt_Block"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-instvar",
-							"objectClass": "Dirt_Block",
-							"sid": 145386020892495,
-							"parameters": {
-								"instance-variable": "HP",
-								"value": "0.1"
-							}
-						},
-						{
-							"type": "script",
-							"script": "destroyBlock(runtime.objects.Dirt_Block)\n"
-						}
-					],
-					"sid": 238625586762362
-				},
-				{
-					"eventType": "comment",
-					"text": "COAL "
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Drill",
-							"sid": 352937597649072,
-							"parameters": {
-								"object": "Coal_Block"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-instvar",
-							"objectClass": "Coal_Block",
-							"sid": 922086332022910,
-							"parameters": {
-								"instance-variable": "HP",
-								"value": "1"
-							}
-						},
-						{
-							"type": "script",
-							"script": "destroyBlock(runtime.objects.Coal_Block);\n"
-						}
-					],
-					"sid": 249263617515972
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Coal_Block",
-							"sid": 427291643313157,
-							"parameters": {
-								"instance-variable": "HP",
-								"comparison": 3,
-								"value": "0"
-							}
-						},
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 229194629450949,
-							"parameters": {
-								"object": "Coal_Block"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 739914883027842,
-							"parameters": {
-								"object-to-create": "Coal",
-								"layer": "\"Player\"",
-								"x": "Coal_Block.X",
-								"y": "Coal_Block.Y",
-								"create-hierarchy": false,
-								"template-name": "\"Coal\""
-							}
-						}
-					],
-					"sid": 453598557268416
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 248790171070060,
-							"parameters": {
-								"object": "Coal"
-							}
-						},
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 718362093987139,
-							"parameters": {
-								"object": "Coal"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-instvar",
-							"objectClass": "Coal",
-							"sid": 158317693327121,
-							"parameters": {
-								"instance-variable": "HP",
-								"value": "2"
-							}
-						},
-						{
-							"type": "script",
-							"script": "destroyBlock(runtime.objects.Coal)\naddToInventory(minerInventory, miningItems.Coal_Inv, 1)"
-						},
-						{
-							"id": "create-item",
-							"objectClass": "Inventory",
-							"sid": 713485644931665,
-							"parameters": {
-								"type": "\"Coal_Inv\"",
-								"quantity": "1",
-								"inventory-id": "\"Inventory_Miner\"",
-								"slot-id": "\"\""
-							}
-						}
-					],
-					"sid": 201918156532959
-				},
-				{
-					"eventType": "comment",
-					"text": "QUARTZ"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Drill",
-							"sid": 557745299303831,
-							"parameters": {
-								"object": "Quartz_Block"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-instvar",
-							"objectClass": "Quartz_Block",
-							"sid": 718978777111428,
-							"parameters": {
-								"instance-variable": "HP",
-								"value": "1"
-							}
-						},
-						{
-							"type": "script",
-							"script": "destroyBlock(runtime.objects.Quartz_Block);\n"
-						}
-					],
-					"sid": 241830169287069
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Quartz_Block",
-							"sid": 813933471085374,
-							"parameters": {
-								"instance-variable": "HP",
-								"comparison": 3,
-								"value": "0"
-							}
-						},
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 530262712720537,
-							"parameters": {
-								"object": "Quartz_Block"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 583571479777466,
-							"parameters": {
-								"object-to-create": "Quartz",
-								"layer": "\"Player\"",
-								"x": "Quartz_Block.X",
-								"y": "Quartz_Block.Y",
-								"create-hierarchy": false,
-								"template-name": "\"Quartz\""
-							}
-						}
-					],
-					"sid": 385088643276045
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 996914950816772,
-							"parameters": {
-								"object": "Quartz"
-							}
-						},
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 857832705956278,
-							"parameters": {
-								"object": "Quartz"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-instvar",
-							"objectClass": "Quartz",
-							"sid": 474476280298057,
-							"parameters": {
-								"instance-variable": "HP",
-								"value": "2"
-							}
-						},
-						{
-							"type": "script",
-							"script": "destroyBlock(runtime.objects.Quartz)\naddToInventory(minerInventory, miningItems.Quartz_Inv, 1)"
-						},
-						{
-							"id": "create-item",
-							"objectClass": "Inventory",
-							"sid": 783605692167215,
-							"parameters": {
-								"type": "\"Quartz_Inv\"",
-								"quantity": "1",
-								"inventory-id": "\"Inventory_Miner\"",
-								"slot-id": "\"\""
-							}
-						}
-					],
-					"sid": 766513628002303
-				},
-				{
-					"eventType": "comment",
-					"text": "ALUMINIUM"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Drill",
-							"sid": 995824371154825,
-							"parameters": {
-								"object": "Aluminium_Block"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-instvar",
-							"objectClass": "Aluminium_Block",
-							"sid": 165315276297676,
-							"parameters": {
-								"instance-variable": "HP",
-								"value": "1"
-							}
-						},
-						{
-							"type": "script",
-							"script": "destroyBlock(runtime.objects.Aluminium_Block);\n"
-						}
-					],
-					"sid": 612949683370854
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Aluminium_Block",
-							"sid": 735029155889693,
-							"parameters": {
-								"instance-variable": "HP",
-								"comparison": 3,
-								"value": "0"
-							}
-						},
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 692466029816072,
-							"parameters": {
-								"object": "Aluminium_Block"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 532880740960816,
-							"parameters": {
-								"object-to-create": "Aluminium_Ore",
-								"layer": "\"Player\"",
-								"x": "Aluminium_Block.X",
-								"y": "Aluminium_Block.Y",
-								"create-hierarchy": false,
-								"template-name": "\"Aluminium\""
-							}
-						}
-					],
-					"sid": 421264862696841
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 376680704773841,
-							"parameters": {
-								"object": "Aluminium_Ore"
-							}
-						},
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 164640482312466,
-							"parameters": {
-								"object": "Aluminium_Ore"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-instvar",
-							"objectClass": "Aluminium_Ore",
-							"sid": 898639550005119,
-							"parameters": {
-								"instance-variable": "HP",
-								"value": "2"
-							}
-						},
-						{
-							"type": "script",
-							"script": "destroyBlock(runtime.objects.Aluminium_Ore)\naddToInventory(minerInventory, miningItems.Aluminium_Ore_Inv, 1)"
-						},
-						{
-							"id": "create-item",
-							"objectClass": "Inventory",
-							"sid": 640304258194909,
-							"parameters": {
-								"type": "\"Aluminium_Ore_Inv\"",
-								"quantity": "1",
-								"inventory-id": "\"Inventory_Miner\"",
-								"slot-id": "\"\""
-							}
-						}
-					],
-					"sid": 792253835654241
-				}
-			],
-			"sid": 798652257225397
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "Inventory Management",
 			"description": "",
 			"isActiveOnStart": true,
@@ -1429,6 +116,7 @@
 					],
 					"actions": [],
 					"sid": 362300765350122,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -1460,7 +148,8 @@
 									}
 								}
 							],
-							"sid": 151054288601441
+							"sid": 151054288601441,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -1492,7 +181,8 @@
 									}
 								}
 							],
-							"sid": 368480786333897
+							"sid": 368480786333897,
+							"disabled": true
 						}
 					]
 				},
@@ -1512,6 +202,7 @@
 					],
 					"actions": [],
 					"sid": 198090643907500,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -1543,7 +234,8 @@
 									}
 								}
 							],
-							"sid": 884869030660429
+							"sid": 884869030660429,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -1575,7 +267,8 @@
 									}
 								}
 							],
-							"sid": 181062447153868
+							"sid": 181062447153868,
+							"disabled": true
 						}
 					]
 				},
@@ -1642,7 +335,8 @@
 							}
 						}
 					],
-					"sid": 112462139058611
+					"sid": 112462139058611,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -1691,7 +385,8 @@
 							"script": "\nremoveFromInventory(minerInventory, miningItems[localVars.Item_Type], 1)\n"
 						}
 					],
-					"sid": 833722388094990
+					"sid": 833722388094990,
+					"disabled": true
 				},
 				{
 					"eventType": "comment",
@@ -1711,6 +406,7 @@
 					],
 					"actions": [],
 					"sid": 148302832503259,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -1734,7 +430,8 @@
 									}
 								}
 							],
-							"sid": 232339420389936
+							"sid": 232339420389936,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -1758,7 +455,8 @@
 									}
 								}
 							],
-							"sid": 105678353491426
+							"sid": 105678353491426,
+							"disabled": true
 						}
 					]
 				},
@@ -1778,6 +476,7 @@
 					],
 					"actions": [],
 					"sid": 818871771306859,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -1801,7 +500,8 @@
 									}
 								}
 							],
-							"sid": 709942760334330
+							"sid": 709942760334330,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -1825,7 +525,8 @@
 									}
 								}
 							],
-							"sid": 480457622234611
+							"sid": 480457622234611,
+							"disabled": true
 						}
 					]
 				}
@@ -1834,7 +535,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "Global Events",
 			"description": "",
 			"isActiveOnStart": true,
@@ -1980,91 +681,13 @@
 							"sid": 600851367349786
 						}
 					]
-				},
-				{
-					"eventType": "comment",
-					"text": "//Animation "
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 975108152676737
-						}
-					],
-					"actions": [
-						{
-							"id": "spawn-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 631504762713703,
-							"parameters": {
-								"object": "Miner_Animations",
-								"layer": "\"Player\"",
-								"image-point": "0",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "pin-to-object-properties",
-							"objectClass": "Miner_Animations",
-							"sid": 658481509639199,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "Miner_Box",
-								"x": true,
-								"y": true,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						}
-					],
-					"sid": 215528164269866
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 752147574086178
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Miner_Animations",
-							"sid": 742589122020026,
-							"parameters": {
-								"animation": "Self.ANIM & \"_\" & Self.DIR",
-								"from": "beginning"
-							}
-						},
-						{
-							"type": "script",
-							"script": "runtime.globalVars.minerInventoryValue = String(minerInventory.value);\nruntime.globalVars.minerInventoryWeight = String(minerInventory.weight);\n"
-						},
-						{
-							"id": "set-text",
-							"objectClass": "Value_Weight_Text",
-							"sid": 527064616210856,
-							"parameters": {
-								"text": "\"Value: \" & minerInventoryValue & \" Weight: \" & minerInventoryWeight"
-							}
-						}
-					],
-					"sid": 557502173694722
 				}
 			],
 			"sid": 769195620327841
 		},
 		{
 			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "Buildings",
 			"description": "",
 			"isActiveOnStart": true,
@@ -2095,7 +718,8 @@
 							}
 						}
 					],
-					"sid": 633327738156948
+					"sid": 633327738156948,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -2116,7 +740,8 @@
 							}
 						}
 					],
-					"sid": 551811888896505
+					"sid": 551811888896505,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -2172,7 +797,8 @@
 							}
 						}
 					],
-					"sid": 841879878911906
+					"sid": 841879878911906,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -2230,7 +856,8 @@
 							}
 						}
 					],
-					"sid": 848228295295904
+					"sid": 848228295295904,
+					"disabled": true
 				},
 				{
 					"eventType": "comment",
@@ -2258,7 +885,8 @@
 							}
 						}
 					],
-					"sid": 514660060684430
+					"sid": 514660060684430,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -2279,7 +907,8 @@
 							}
 						}
 					],
-					"sid": 194476323545343
+					"sid": 194476323545343,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -2335,7 +964,8 @@
 							}
 						}
 					],
-					"sid": 324828526932080
+					"sid": 324828526932080,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -2393,7 +1023,8 @@
 							}
 						}
 					],
-					"sid": 625156061067286
+					"sid": 625156061067286,
+					"disabled": true
 				}
 			],
 			"sid": 673306627574670
@@ -2477,9 +1108,129 @@
 							}
 						},
 						{
+							"id": "add-client-input-value",
+							"objectClass": "Multiplayer",
+							"sid": 277045607923781,
+							"parameters": {
+								"tag": "\"inputs\"",
+								"precision": "very-low-uint8-1-byte",
+								"interpolation": "none"
+							}
+						},
+						{
+							"id": "sync-object-2",
+							"objectClass": "Multiplayer",
+							"sid": 281074943362415,
+							"parameters": {
+								"object": "Miner_Box",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"precision": "low-int16-2-bytes",
+								"bandwidth": "normal-bandwidth-unpredictable"
+							}
+						},
+						{
+							"id": "sync-instance-variable",
+							"objectClass": "Multiplayer",
+							"sid": 601001864265820,
+							"parameters": {
+								"object": "Miner_Box",
+								"instance-variable": {
+									"name": "INPUTS",
+									"objectClass": "Miner_Box"
+								},
+								"precision": "very-low-uint8-1-byte",
+								"interpolation": "none",
+								"client-value-tag": "\"inputs\""
+							}
+						},
+						{
+							"id": "sync-object-2",
+							"objectClass": "Multiplayer",
+							"sid": 796374427665447,
+							"parameters": {
+								"object": "Miner_Animations",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"precision": "low-int16-2-bytes",
+								"bandwidth": "normal-bandwidth-unpredictable"
+							}
+						},
+						{
+							"id": "sync-instance-variable",
+							"objectClass": "Multiplayer",
+							"sid": 162118572787930,
+							"parameters": {
+								"object": "Miner_Animations",
+								"instance-variable": {
+									"name": "ANIM_NUMBER",
+									"objectClass": "Miner_Animations"
+								},
+								"precision": "very-low-uint8-1-byte",
+								"interpolation": "none",
+								"client-value-tag": "\"\""
+							}
+						},
+						{
+							"id": "sync-instance-variable",
+							"objectClass": "Multiplayer",
+							"sid": 129006272909384,
+							"parameters": {
+								"object": "Miner_Animations",
+								"instance-variable": {
+									"name": "DIR_NUMBER",
+									"objectClass": "Miner_Animations"
+								},
+								"precision": "very-low-uint8-1-byte",
+								"interpolation": "none",
+								"client-value-tag": "\"\""
+							}
+						},
+						{
+							"id": "sync-object-2",
+							"objectClass": "Multiplayer",
+							"sid": 885193640147441,
+							"parameters": {
+								"object": "Miner_Drill",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"precision": "low-int16-2-bytes",
+								"bandwidth": "normal-bandwidth-unpredictable"
+							}
+						},
+						{
+							"id": "sync-object-2",
+							"objectClass": "Multiplayer",
+							"sid": 569950607515535,
+							"parameters": {
+								"object": "Mining_Blocks_Family",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"precision": "low-int16-2-bytes",
+								"bandwidth": "very-low-bandwidth-essentially-static"
+							}
+						},
+						{
+							"id": "sync-object-2",
+							"objectClass": "Multiplayer",
+							"sid": 894873348962786,
+							"parameters": {
+								"object": "Mining_items_Family",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"precision": "low-int16-2-bytes",
+								"bandwidth": "normal-bandwidth-unpredictable"
+							}
+						},
+						{
 							"id": "connect",
 							"objectClass": "Multiplayer",
-							"sid": 365185846354184,
+							"sid": 810244838599504,
 							"parameters": {
 								"server": "\"wss://multiplayer.construct.net\""
 							}
@@ -2575,11 +1326,6 @@
 							"parameters": {
 								"mode": "not-read-only"
 							}
-						},
-						{
-							"id": "set-focused",
-							"objectClass": "ChatTextBox",
-							"sid": 408109364826872
 						}
 					],
 					"sid": 700164510162745,
@@ -2616,6 +1362,60 @@
 									"sid": 160627570030843,
 									"parameters": {
 										"text": "Multiplayer.MyAlias & \" (host)\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 824720858649370,
+									"parameters": {
+										"instance-variable": "PEERID",
+										"value": "Multiplayer.MyID"
+									}
+								},
+								{
+									"id": "associate-object-with-peer",
+									"objectClass": "Multiplayer",
+									"sid": 445481496062505,
+									"parameters": {
+										"object": "Miner_Box",
+										"peer-id": "Multiplayer.MyID"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Drill",
+									"sid": 124754699817333,
+									"parameters": {
+										"instance-variable": "PEERID",
+										"value": "Multiplayer.MyID"
+									}
+								},
+								{
+									"id": "associate-object-with-peer",
+									"objectClass": "Multiplayer",
+									"sid": 147494974022808,
+									"parameters": {
+										"object": "Miner_Drill",
+										"peer-id": "Multiplayer.MyID"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Animations",
+									"sid": 569212893057811,
+									"parameters": {
+										"instance-variable": "PEERID",
+										"value": "Multiplayer.MyID"
+									}
+								},
+								{
+									"id": "associate-object-with-peer",
+									"objectClass": "Multiplayer",
+									"sid": 286921673989775,
+									"parameters": {
+										"object": "Miner_Animations",
+										"peer-id": "Multiplayer.MyID"
 									}
 								}
 							],
@@ -2656,7 +1456,114 @@
 									}
 								}
 							],
-							"sid": 149427466450522
+							"sid": 149427466450522,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 739918959318290,
+											"parameters": {
+												"object": "Mining_Blocks_Family"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Mining_Blocks_Family",
+											"sid": 976612258210240
+										}
+									],
+									"sid": 135537152382210
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 374800086209070,
+											"parameters": {
+												"object": "Mining_items_Family"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Mining_items_Family",
+											"sid": 428222735729477
+										}
+									],
+									"sid": 556440555376840
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 725954024544485,
+											"parameters": {
+												"object": "Miner_Animations"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Miner_Animations",
+											"sid": 915831944412138
+										}
+									],
+									"sid": 337161451482951
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 732408452273155,
+											"parameters": {
+												"object": "Miner_Box"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Miner_Box",
+											"sid": 515794970596199
+										}
+									],
+									"sid": 880494136146874
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 371455510334373,
+											"parameters": {
+												"object": "Miner_Drill"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Miner_Drill",
+											"sid": 769387171974073
+										}
+									],
+									"sid": 952165809323716
+								}
+							]
 						}
 					]
 				},
@@ -2743,8 +1650,8 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Chat",
-			"description": "Manages sending chat messages and joining/leaving peers",
+			"title": "Multiplayer",
+			"description": "",
 			"isActiveOnStart": true,
 			"children": [
 				{
@@ -2764,13 +1671,13 @@
 								{
 									"id": "on-peer-connected",
 									"objectClass": "Multiplayer",
-									"sid": 401685172365810
+									"sid": 899130324593539
 								}
 							],
 							"actions": [
 								{
 									"callFunction": "AddLog",
-									"sid": 153381471950529,
+									"sid": 194294590650845,
 									"parameters": [
 										"\"'\" & Multiplayer.PeerAlias & \"' joined\""
 									]
@@ -2778,13 +1685,13 @@
 								{
 									"id": "add-item",
 									"objectClass": "PeerList",
-									"sid": 511554629915239,
+									"sid": 499605988621644,
 									"parameters": {
 										"text": "Multiplayer.PeerAlias"
 									}
 								}
 							],
-							"sid": 814448258925570
+							"sid": 284854697672748
 						},
 						{
 							"eventType": "comment",
@@ -2796,19 +1703,19 @@
 								{
 									"id": "on-peer-disconnected",
 									"objectClass": "Multiplayer",
-									"sid": 165043645949288
+									"sid": 838606270714124
 								}
 							],
 							"actions": [
 								{
 									"callFunction": "AddLog",
-									"sid": 697717758757385,
+									"sid": 401781800864997,
 									"parameters": [
 										"\"'\" & Multiplayer.PeerAlias & \"' left\""
 									]
 								}
 							],
-							"sid": 339828584636080,
+							"sid": 782480766512947,
 							"children": [
 								{
 									"eventType": "comment",
@@ -2820,7 +1727,7 @@
 										{
 											"id": "repeat",
 											"objectClass": "System",
-											"sid": 677043834648402,
+											"sid": 928319211875154,
 											"parameters": {
 												"count": "PeerList.ItemCount"
 											}
@@ -2828,7 +1735,7 @@
 										{
 											"id": "compare-item-text-at",
 											"objectClass": "PeerList",
-											"sid": 201259019551034,
+											"sid": 453984859506808,
 											"parameters": {
 												"index": "loopindex",
 												"text-to-compare": "Multiplayer.PeerAlias",
@@ -2840,13 +1747,13 @@
 										{
 											"id": "remove",
 											"objectClass": "PeerList",
-											"sid": 448305539360489,
+											"sid": 585367255736990,
 											"parameters": {
 												"index": "loopindex"
 											}
 										}
 									],
-									"sid": 753407687015334
+									"sid": 792503026923094
 								}
 							]
 						},
@@ -2860,13 +1767,13 @@
 								{
 									"id": "on-kicked",
 									"objectClass": "Multiplayer",
-									"sid": 723881201331713
+									"sid": 164322137873768
 								}
 							],
 							"actions": [
 								{
 									"callFunction": "AddLog",
-									"sid": 925766154102498,
+									"sid": 724534164725659,
 									"parameters": [
 										"\"Kicked (either could not connect to host or host quit)\""
 									]
@@ -2874,7 +1781,7 @@
 								{
 									"id": "set-enabled",
 									"objectClass": "ChatTextBox",
-									"sid": 462493773608779,
+									"sid": 528082975796478,
 									"parameters": {
 										"mode": "disabled"
 									}
@@ -2882,13 +1789,319 @@
 								{
 									"id": "clear",
 									"objectClass": "PeerList",
-									"sid": 923100499066805
+									"sid": 246952822916565
 								}
 							],
-							"sid": 376305354012492
+							"sid": 853184901287461
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Player Animation",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 567794223323444,
+											"parameters": {
+												"instance-variable": "ANIM_NUMBER",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 863983265554578,
+											"parameters": {
+												"instance-variable": "DIR_NUMBER",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Miner_Animations",
+											"sid": 293683704744236,
+											"parameters": {
+												"animation": "\"Idle_Front\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 497321592196784
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 382527410948514,
+											"parameters": {
+												"instance-variable": "ANIM_NUMBER",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 442256307088370,
+											"parameters": {
+												"instance-variable": "DIR_NUMBER",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Miner_Animations",
+											"sid": 380527832421422,
+											"parameters": {
+												"animation": "\"Drill_Right\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 646091198097307
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 546287994737919,
+											"parameters": {
+												"instance-variable": "ANIM_NUMBER",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 673450593107752,
+											"parameters": {
+												"instance-variable": "DIR_NUMBER",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Miner_Animations",
+											"sid": 317150961409399,
+											"parameters": {
+												"animation": "\"Drill_Left\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 830043797773339
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 452394806897586,
+											"parameters": {
+												"instance-variable": "ANIM_NUMBER",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 483791294689723,
+											"parameters": {
+												"instance-variable": "DIR_NUMBER",
+												"comparison": 0,
+												"value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Miner_Animations",
+											"sid": 642543898932998,
+											"parameters": {
+												"animation": "\"Drill_Down\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 170517775213110
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 275066382829941,
+											"parameters": {
+												"instance-variable": "ANIM_NUMBER",
+												"comparison": 0,
+												"value": "2"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 791563002404132,
+											"parameters": {
+												"instance-variable": "DIR_NUMBER",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Miner_Animations",
+											"sid": 313832053328492,
+											"parameters": {
+												"animation": "\"Move_Right\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 728254890515378
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 160770752649716,
+											"parameters": {
+												"instance-variable": "ANIM_NUMBER",
+												"comparison": 0,
+												"value": "2"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 772187507438722,
+											"parameters": {
+												"instance-variable": "DIR_NUMBER",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Miner_Animations",
+											"sid": 530186323001716,
+											"parameters": {
+												"animation": "\"Move_Left\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 812613851228240
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 255059397684690,
+											"parameters": {
+												"instance-variable": "ANIM_NUMBER",
+												"comparison": 0,
+												"value": "2"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 215658793336411,
+											"parameters": {
+												"instance-variable": "DIR_NUMBER",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Miner_Animations",
+											"sid": 952064994381818,
+											"parameters": {
+												"animation": "\"Move_Up\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 221741405769315
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 402288815643782,
+											"parameters": {
+												"instance-variable": "ANIM_NUMBER",
+												"comparison": 0,
+												"value": "2"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 791333649151923,
+											"parameters": {
+												"instance-variable": "DIR_NUMBER",
+												"comparison": 0,
+												"value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Miner_Animations",
+											"sid": 129256281228425,
+											"parameters": {
+												"animation": "\"Move_Down\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 953924773901710
+								}
+							],
+							"sid": 783727862496240
 						}
 					],
-					"sid": 661397009246763
+					"sid": 820470669885825
 				},
 				{
 					"eventType": "group",
@@ -2898,138 +2111,1529 @@
 					"isActiveOnStart": false,
 					"children": [
 						{
-							"eventType": "comment",
-							"text": "Non-empty chat messages can be sent with the 'Send' button or just hitting return."
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "Miner_Box",
+									"sid": 473249329533961
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 272263582922366,
+									"parameters": {
+										"instance-variable": "PEERID",
+										"value": "Multiplayer.PeerID"
+									}
+								},
+								{
+									"id": "associate-object-with-peer",
+									"objectClass": "Multiplayer",
+									"sid": 275021894257312,
+									"parameters": {
+										"object": "Miner_Box",
+										"peer-id": "Multiplayer.PeerID"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Miner_Box",
+									"sid": 645727891242664,
+									"behaviorType": "ScrollTo",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 470499517699923,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 467477018892939,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 0,
+												"value": "Multiplayer.MyID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "enable-local-input-prediction",
+											"objectClass": "Multiplayer",
+											"sid": 992756273265447,
+											"parameters": {
+												"object": "Miner_Box",
+												"avoid-solids": true,
+												"platform-mode": true
+											}
+										}
+									],
+									"sid": 111118577786034
+								}
+							]
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 344538868741712,
+									"id": "on-created",
+									"objectClass": "Miner_Drill",
+									"sid": 901611168388294
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Drill",
+									"sid": 474413273007963,
 									"parameters": {
-										"key": 13
+										"instance-variable": "PEERID",
+										"value": "Multiplayer.PeerID"
+									}
+								},
+								{
+									"id": "associate-object-with-peer",
+									"objectClass": "Multiplayer",
+									"sid": 454649954967325,
+									"parameters": {
+										"object": "Miner_Drill",
+										"peer-id": "Multiplayer.PeerID"
 									}
 								}
 							],
-							"actions": [],
-							"sid": 826270711342129,
+							"sid": 629670059302404,
 							"children": [
-								{
-									"eventType": "comment",
-									"text": "When we are a peer, we send our chat message to the host. The host will relay it to everyone else in the room."
-								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-text",
-											"objectClass": "ChatTextBox",
-											"sid": 764987862294065,
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Drill",
+											"sid": 402620792736713,
 											"parameters": {
-												"text": "\"\"",
-												"case": "case-insensitive"
-											},
-											"isInverted": true
+												"instance-variable": "PEERID",
+												"comparison": 0,
+												"value": "Multiplayer.MyID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "enable-local-input-prediction",
+											"objectClass": "Multiplayer",
+											"sid": 531386365473653,
+											"parameters": {
+												"object": "Miner_Drill",
+												"avoid-solids": false,
+												"platform-mode": false
+											}
+										}
+									],
+									"sid": 771594050897593
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "Miner_Animations",
+									"sid": 117789858837961
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Animations",
+									"sid": 866313400956315,
+									"parameters": {
+										"instance-variable": "PEERID",
+										"value": "Multiplayer.PeerID"
+									}
+								},
+								{
+									"id": "associate-object-with-peer",
+									"objectClass": "Multiplayer",
+									"sid": 296834383772756,
+									"parameters": {
+										"object": "Miner_Animations",
+										"peer-id": "Multiplayer.PeerID"
+									}
+								},
+								{
+									"id": "set-collisions-enabled",
+									"objectClass": "Miner_Animations",
+									"sid": 963041161524612,
+									"parameters": {
+										"collisions": "disabled"
+									}
+								}
+							],
+							"sid": 629670059302404,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 497107193031501,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 0,
+												"value": "Multiplayer.MyID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "enable-local-input-prediction",
+											"objectClass": "Multiplayer",
+											"sid": 115212585310628,
+											"parameters": {
+												"object": "Miner_Animations",
+												"avoid-solids": false,
+												"platform-mode": false
+											}
+										}
+									],
+									"sid": 653956309321619
+								}
+							]
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "PeerChat",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-peer-message",
+											"objectClass": "Multiplayer",
+											"sid": 308628897624949,
+											"parameters": {
+												"tag": "\"chat\""
+											}
 										}
 									],
 									"actions": [
 										{
 											"callFunction": "AddLog",
-											"sid": 476265299646044,
+											"sid": 131245249891997,
 											"parameters": [
-												"\"<\" & Multiplayer.MyAlias & \"> \" & ChatTextBox.Text"
+												"\"<\" & Multiplayer.FromAlias & \"> \" & Multiplayer.Message"
 											]
-										},
+										}
+									],
+									"sid": 381242295041453
+								},
+								{
+									"eventType": "block",
+									"conditions": [
 										{
-											"id": "send-message",
-											"objectClass": "Multiplayer",
-											"sid": 359892547684744,
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 562896819604417,
 											"parameters": {
-												"peer-id": "\"\"",
-												"tag": "\"chat\"",
-												"message": "ChatTextBox.Text",
-												"mode": "reliable-ordered"
-											}
-										},
-										{
-											"id": "set-text",
-											"objectClass": "ChatTextBox",
-											"sid": 792131789885466,
-											"parameters": {
-												"text": "\"\""
+												"key": 13
 											}
 										}
 									],
-									"sid": 614681343063484
+									"actions": [],
+									"sid": 104178936602633,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "When we are a peer, we send our chat message to the host. The host will relay it to everyone else in the room."
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-text",
+													"objectClass": "ChatTextBox",
+													"sid": 533802971551802,
+													"parameters": {
+														"text": "\"\"",
+														"case": "case-insensitive"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "AddLog",
+													"sid": 597512501540756,
+													"parameters": [
+														"\"<\" & Multiplayer.MyAlias & \"> \" & ChatTextBox.Text"
+													]
+												},
+												{
+													"id": "send-message",
+													"objectClass": "Multiplayer",
+													"sid": 672545289048043,
+													"parameters": {
+														"peer-id": "\"\"",
+														"tag": "\"chat\"",
+														"message": "ChatTextBox.Text",
+														"mode": "reliable-ordered"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "ChatTextBox",
+													"sid": 962296148135850,
+													"parameters": {
+														"text": "\"\""
+													}
+												}
+											],
+											"sid": 553351336805141
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-host-disconnected",
+											"objectClass": "Multiplayer",
+											"sid": 983851483525625
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "AddLog",
+											"sid": 661267455939535,
+											"parameters": [
+												"\"Host disconnected\""
+											]
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "ChatTextBox",
+											"sid": 891718303677574,
+											"parameters": {
+												"mode": "disabled"
+											}
+										},
+										{
+											"id": "clear",
+											"objectClass": "PeerList",
+											"sid": 800136628203676
+										}
+									],
+									"sid": 109895009443336
 								}
 							],
-							"isOrBlock": true
+							"sid": 897281939174980
 						},
 						{
-							"eventType": "comment",
-							"text": "When we receive a chat message from someone else, add it to the chat log."
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+							"eventType": "group",
+							"disabled": false,
+							"title": "PeerInput",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
 								{
-									"id": "on-peer-message",
-									"objectClass": "Multiplayer",
-									"sid": 277109458428372,
-									"parameters": {
-										"tag": "\"chat\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "AddLog",
-									"sid": 200769964438611,
-									"parameters": [
-										"\"<\" & Multiplayer.FromAlias & \"> \" & Multiplayer.Message"
-									]
-								}
-							],
-							"sid": 426323709849437
-						},
-						{
-							"eventType": "comment",
-							"text": "When the host disconnects, the peer no longer has access to the chat, so log a message and clear the chat state."
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-host-disconnected",
-									"objectClass": "Multiplayer",
-									"sid": 541265404413353
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "AddLog",
-									"sid": 439362626167439,
-									"parameters": [
-										"\"Host disconnected\""
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-client-update",
+											"objectClass": "Multiplayer",
+											"sid": 987539517375889
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 794362426488770,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 0,
+												"value": "Multiplayer.MyID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 156396453261311,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 165105330870140,
+													"parameters": {
+														"key": 68
+													}
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 209481509333339,
+													"parameters": {
+														"key": 39
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Box",
+													"sid": 491588845446760,
+													"parameters": {
+														"instance-variable": "INPUTS",
+														"value": "setbit(Self.inputs, 0, 1)"
+													}
+												}
+											],
+											"sid": 682089344647104,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 988327341047706
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Box",
+													"sid": 229593756952194,
+													"parameters": {
+														"instance-variable": "INPUTS",
+														"value": "setbit(Self.INPUTS, 0, 0)"
+													}
+												}
+											],
+											"sid": 799298879126321
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 530347731850263,
+													"parameters": {
+														"key": 65
+													}
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 455762641205364,
+													"parameters": {
+														"key": 37
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Box",
+													"sid": 711539523454309,
+													"parameters": {
+														"instance-variable": "INPUTS",
+														"value": "setbit(Self.INPUTS, 1, 1)"
+													}
+												}
+											],
+											"sid": 393571344435658,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 258552201344517
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Box",
+													"sid": 884405082730949,
+													"parameters": {
+														"instance-variable": "INPUTS",
+														"value": "setbit(Self.INPUTS, 1, 0)"
+													}
+												}
+											],
+											"sid": 258140749208540
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 299421156654816,
+													"parameters": {
+														"key": 87
+													}
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 501123789772717,
+													"parameters": {
+														"key": 38
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Box",
+													"sid": 704199997436710,
+													"parameters": {
+														"instance-variable": "INPUTS",
+														"value": "setbit(Self.INPUTS, 2, 1)"
+													}
+												}
+											],
+											"sid": 100946666726374,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 197264443704871
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Box",
+													"sid": 350086694025486,
+													"parameters": {
+														"instance-variable": "INPUTS",
+														"value": "setbit(Self.INPUTS, 2, 0)"
+													}
+												}
+											],
+											"sid": 924831527784204
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 252404251898542,
+													"parameters": {
+														"key": 83
+													}
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 612134086748645,
+													"parameters": {
+														"key": 40
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Box",
+													"sid": 488915066120741,
+													"parameters": {
+														"instance-variable": "INPUTS",
+														"value": "setbit(Self.INPUTS, 3, 1)"
+													}
+												}
+											],
+											"sid": 249406118422222,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 695645937509286
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Box",
+													"sid": 530026956993171,
+													"parameters": {
+														"instance-variable": "INPUTS",
+														"value": "setbit(Self.INPUTS, 3, 0)"
+													}
+												}
+											],
+											"sid": 212582262934396
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-client-state",
+													"objectClass": "Multiplayer",
+													"sid": 167089258809442,
+													"parameters": {
+														"tag": "\"inputs\"",
+														"value": "Miner_Box.INPUTS"
+													}
+												}
+											],
+											"sid": 513285512706202
+										}
 									]
 								},
 								{
-									"id": "set-enabled",
-									"objectClass": "ChatTextBox",
-									"sid": 509791310677608,
-									"parameters": {
-										"mode": "disabled"
-									}
-								},
-								{
-									"id": "clear",
-									"objectClass": "PeerList",
-									"sid": 307181213033900
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 922347566196791,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 0,
+												"value": "Multiplayer.MyID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 187057086981500,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 102880473987251,
+													"parameters": {
+														"first-value": "getbit(Miner_Box.INPUTS, 0)",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 186816052346462,
+													"parameters": {
+														"instance-variable": "RIGHT",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 711507427117783
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 487198036364642
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 729206797242333,
+													"parameters": {
+														"instance-variable": "RIGHT",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 846083470320960
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 757986328297199,
+													"parameters": {
+														"first-value": "getbit(Miner_Box.INPUTS, 1)",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 767997843640843,
+													"parameters": {
+														"instance-variable": "LEFT",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 890756304895395
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 462445816914723
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 517287823245528,
+													"parameters": {
+														"instance-variable": "LEFT",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 191608631857202
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 930254667563085,
+													"parameters": {
+														"first-value": "getbit(Miner_Box.INPUTS, 2)",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 362258315051569,
+													"parameters": {
+														"instance-variable": "UP",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 570816465973423
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 453115444047519
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 943555753796108,
+													"parameters": {
+														"instance-variable": "UP",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 170750708100500
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 625547288399758,
+													"parameters": {
+														"first-value": "getbit(Miner_Box.inputs, 3)",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 740000122945604,
+													"parameters": {
+														"instance-variable": "DOWN",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 332619720707803
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 423672417230780
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 823455193896632,
+													"parameters": {
+														"instance-variable": "DOWN",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 162734533773587
+										}
+									]
 								}
 							],
-							"sid": 975322378203116
+							"sid": 150926430228946
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Peer Movement",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 298257760577161,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 0,
+												"value": "Multiplayer.MyID"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 877120160994209,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 0,
+												"value": "Multiplayer.MyID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Miner_Animations",
+											"sid": 800414225151896,
+											"parameters": {
+												"x": "Miner_Box.X",
+												"y": "Miner_Box.Y"
+											}
+										}
+									],
+									"sid": 116062405014235,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-moving",
+													"objectClass": "Miner_Box",
+													"sid": 508888065120413,
+													"behaviorType": "Platform"
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Animations",
+													"sid": 448788544706296,
+													"parameters": {
+														"instance-variable": "ANIM_NUMBER",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 840425544800032
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Miner_Box",
+													"sid": 742077008339899,
+													"parameters": {
+														"instance-variable": "RIGHT"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "simulate-control",
+													"objectClass": "Miner_Box",
+													"sid": 987957538241734,
+													"behaviorType": "Platform",
+													"parameters": {
+														"control": "right"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Animations",
+													"sid": 962327541914544,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 334692023930098
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 721258337669042
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Miner_Box",
+													"sid": 185887298689779,
+													"parameters": {
+														"instance-variable": "LEFT"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "simulate-control",
+													"objectClass": "Miner_Box",
+													"sid": 963961576253902,
+													"behaviorType": "Platform",
+													"parameters": {
+														"control": "left"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Animations",
+													"sid": 302511944357117,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 455684443650427
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 683705920373384
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Miner_Box",
+													"sid": 583139513308583,
+													"parameters": {
+														"instance-variable": "UP"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-vector-y",
+													"objectClass": "Miner_Box",
+													"sid": 323313859720399,
+													"behaviorType": "Platform",
+													"parameters": {
+														"vector-y": "Vector_Y_Speed_Up"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Animations",
+													"sid": 337401757499382,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"value": "3"
+													}
+												}
+											],
+											"sid": 524818314523267
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 507415315554645
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Miner_Box",
+													"sid": 528145961269804,
+													"parameters": {
+														"instance-variable": "DOWN"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-vector-y",
+													"objectClass": "Miner_Box",
+													"sid": 984540811512054,
+													"behaviorType": "Platform",
+													"parameters": {
+														"vector-y": "Vector_Y_Speed_Down"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Animations",
+													"sid": 841036254665388,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"value": "4"
+													}
+												}
+											],
+											"sid": 810426485896015
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 636264401812618
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Animations",
+													"sid": 352118892560035,
+													"parameters": {
+														"instance-variable": "ANIM_NUMBER",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Animations",
+													"sid": 261127529347747,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 306175764322496
+										}
+									]
+								}
+							],
+							"sid": 279489374849896
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Peer Drill",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 182567754482546,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 0,
+												"value": "Multiplayer.MyID"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Drill",
+											"sid": 852371105973918,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 0,
+												"value": "Multiplayer.MyID"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 932691215835292,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 0,
+												"value": "Multiplayer.MyID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 457076254608419,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 829265966184483,
+													"parameters": {
+														"key": 83
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 222096102793210,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"comparison": 0,
+														"value": "4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Miner_Drill",
+													"sid": 138292699881765,
+													"parameters": {
+														"x": "Miner_Box.X + 16",
+														"y": "Miner_Box.Y + 64"
+													}
+												}
+											],
+											"sid": 571623296907150
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 736333924251351
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 484481175160277,
+													"parameters": {
+														"key": 40
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 124065864026849,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"comparison": 0,
+														"value": "4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Miner_Drill",
+													"sid": 650169529924024,
+													"parameters": {
+														"x": "Miner_Box.X + 16",
+														"y": "Miner_Box.Y + 64"
+													}
+												}
+											],
+											"sid": 370254028492600
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 927260251406949
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 573229148472375,
+													"parameters": {
+														"key": 68
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 315277483417709,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Miner_Drill",
+													"sid": 744003523669208,
+													"parameters": {
+														"x": "Miner_Box.X + 64",
+														"y": "Miner_Box.Y + 16"
+													}
+												}
+											],
+											"sid": 848943527188096
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 331463300197710
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 629492541517257,
+													"parameters": {
+														"key": 39
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 261045174856069,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Miner_Drill",
+													"sid": 766528703868219,
+													"parameters": {
+														"x": "Miner_Box.X + 64",
+														"y": "Miner_Box.Y + 16"
+													}
+												}
+											],
+											"sid": 619383637930902
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 921631943792927
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 138701534718972,
+													"parameters": {
+														"key": 65
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 778973151155149,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Miner_Drill",
+													"sid": 322516996523890,
+													"parameters": {
+														"x": "Miner_Box.X + -32",
+														"y": "Miner_Box.Y + 16"
+													}
+												}
+											],
+											"sid": 481046777210508
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 474792714516309
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 905475136085250,
+													"parameters": {
+														"key": 37
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 851339063006918,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Miner_Drill",
+													"sid": 626862523149577,
+													"parameters": {
+														"x": "Miner_Box.X + -32",
+														"y": "Miner_Box.Y + 16"
+													}
+												}
+											],
+											"sid": 590155425030021
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 485849710092107
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Miner_Drill",
+													"sid": 259904082406530,
+													"parameters": {
+														"x": "Miner_Box.X + 16",
+														"y": "Miner_Box.Y + 16"
+													}
+												}
+											],
+											"sid": 752581135872651
+										}
+									]
+								}
+							],
+							"sid": 152693478231815
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Peer  Mining",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Drill",
+											"sid": 485850271997504,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 0,
+												"value": "Multiplayer.MyID"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 196906517633284,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 0,
+												"value": "Multiplayer.MyID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 848051036812392,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Miner_Drill",
+													"sid": 760903866327753,
+													"parameters": {
+														"object": "Mining_Blocks_Family"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 759400108391657,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Animations",
+													"sid": 931285709730663,
+													"parameters": {
+														"instance-variable": "ANIM_NUMBER",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 752281647364914
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Miner_Drill",
+													"sid": 837835736068665,
+													"parameters": {
+														"object": "Mining_Blocks_Family"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 652073784951300,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Animations",
+													"sid": 166317720812731,
+													"parameters": {
+														"instance-variable": "ANIM_NUMBER",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 462254815663838
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Miner_Drill",
+													"sid": 151768304048491,
+													"parameters": {
+														"object": "Mining_Blocks_Family"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 901208717011690,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"comparison": 0,
+														"value": "4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Animations",
+													"sid": 601067841312916,
+													"parameters": {
+														"instance-variable": "ANIM_NUMBER",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 575993288131369
+										}
+									]
+								}
+							],
+							"sid": 681043923995114
 						}
 					],
 					"sid": 554507941754444
@@ -3042,118 +3646,1918 @@
 					"isActiveOnStart": false,
 					"children": [
 						{
-							"eventType": "comment",
-							"text": "Non-empty chat messages can be sent with the 'Send' button or just hitting return."
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-peer-connected",
+									"objectClass": "Multiplayer",
+									"sid": 788856760180226
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 833679927490521,
+									"parameters": {
+										"object-to-create": "Miner_Box",
+										"layer": "\"Player\"",
+										"x": "576",
+										"y": "704",
+										"create-hierarchy": true,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-collisions-enabled",
+									"objectClass": "Miner_Animations",
+									"sid": 209767185140181,
+									"parameters": {
+										"collisions": "disabled"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 825769890878873,
+									"parameters": {
+										"instance-variable": "PEERID",
+										"value": "Multiplayer.PeerID"
+									}
+								},
+								{
+									"id": "associate-object-with-peer",
+									"objectClass": "Multiplayer",
+									"sid": 982524110977063,
+									"parameters": {
+										"object": "Miner_Box",
+										"peer-id": "Multiplayer.PeerID"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Drill",
+									"sid": 673293071104197,
+									"parameters": {
+										"instance-variable": "PEERID",
+										"value": "Multiplayer.PeerID"
+									}
+								},
+								{
+									"id": "associate-object-with-peer",
+									"objectClass": "Multiplayer",
+									"sid": 715969521254012,
+									"parameters": {
+										"object": "Miner_Drill",
+										"peer-id": "Multiplayer.PeerID"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Animations",
+									"sid": 779198731132328,
+									"parameters": {
+										"instance-variable": "PEERID",
+										"value": "Multiplayer.PeerID"
+									}
+								},
+								{
+									"id": "associate-object-with-peer",
+									"objectClass": "Multiplayer",
+									"sid": 965731184311416,
+									"parameters": {
+										"object": "Miner_Animations",
+										"peer-id": "Multiplayer.PeerID"
+									}
+								}
+							],
+							"sid": 669050078932865
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 907964751333891,
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 521662248779690
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "runtime.globalVars.minerInventoryValue = String(minerInventory.value);\nruntime.globalVars.minerInventoryWeight = String(minerInventory.weight);\n"
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Value_Weight_Text",
+									"sid": 245453582288408,
 									"parameters": {
-										"key": 13
+										"text": "\"Value: \" & minerInventoryValue & \" Weight: \" & minerInventoryWeight"
 									}
 								}
 							],
-							"actions": [],
-							"sid": 182497108244893,
+							"sid": 366625534265189
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Chat",
+							"description": "",
+							"isActiveOnStart": true,
 							"children": [
-								{
-									"eventType": "comment",
-									"text": "When we are the host, we immediately broadcast our own chat messages to everyone else in the room."
-								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-text",
-											"objectClass": "ChatTextBox",
-											"sid": 292998032405144,
+											"id": "on-peer-message",
+											"objectClass": "Multiplayer",
+											"sid": 553220888663397,
 											"parameters": {
-												"text": "\"\"",
-												"case": "case-insensitive"
-											},
-											"isInverted": true
+												"tag": "\"chat\""
+											}
 										}
 									],
 									"actions": [
 										{
 											"callFunction": "AddLog",
-											"sid": 576528461339961,
+											"sid": 887865901715507,
 											"parameters": [
-												"\"<\" & Multiplayer.MyAlias & \"> \" & ChatTextBox.Text"
+												"\"<\" & Multiplayer.FromAlias & \"> \" & Multiplayer.Message"
 											]
 										},
 										{
 											"id": "broadcast-message",
 											"objectClass": "Multiplayer",
-											"sid": 485264493420368,
+											"sid": 161975548761741,
 											"parameters": {
-												"from-id": "\"\"",
+												"from-id": "Multiplayer.FromID",
 												"tag": "\"chat\"",
-												"message": "ChatTextBox.Text",
+												"message": "Multiplayer.Message",
 												"mode": "reliable-ordered"
-											}
-										},
-										{
-											"id": "set-text",
-											"objectClass": "ChatTextBox",
-											"sid": 955740734454669,
-											"parameters": {
-												"text": "\"\""
 											}
 										}
 									],
-									"sid": 827870000885240
+									"sid": 197099266144959
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 448770917473297,
+											"parameters": {
+												"key": 13
+											}
+										}
+									],
+									"actions": [],
+									"sid": 810048167128673,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "When we are the host, we immediately broadcast our own chat messages to everyone else in the room."
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-text",
+													"objectClass": "ChatTextBox",
+													"sid": 168866100218436,
+													"parameters": {
+														"text": "\"\"",
+														"case": "case-insensitive"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "AddLog",
+													"sid": 356327760406392,
+													"parameters": [
+														"\"<\" & Multiplayer.MyAlias & \"> \" & ChatTextBox.Text"
+													]
+												},
+												{
+													"id": "broadcast-message",
+													"objectClass": "Multiplayer",
+													"sid": 362921261508666,
+													"parameters": {
+														"from-id": "\"\"",
+														"tag": "\"chat\"",
+														"message": "ChatTextBox.Text",
+														"mode": "reliable-ordered"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "ChatTextBox",
+													"sid": 244745559146931,
+													"parameters": {
+														"text": "\"\""
+													}
+												}
+											],
+											"sid": 218051951050652
+										}
+									],
+									"isOrBlock": true
 								}
 							],
-							"isOrBlock": true
+							"sid": 872291892241251
 						},
 						{
-							"eventType": "comment",
-							"text": "When we receive a chat message from someone else, we add it to the chat log, but then we must also relay it to everyone else in the chat room so they can all see what each other are sending. Note that the 'Broadcast' action does not send to the 'From ID' peer - there's no point sending them back the same message they just sent to us."
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+							"eventType": "group",
+							"disabled": false,
+							"title": "Player Input",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
 								{
-									"id": "on-peer-message",
-									"objectClass": "Multiplayer",
-									"sid": 376722695021322,
-									"parameters": {
-										"tag": "\"chat\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "AddLog",
-									"sid": 809945351541894,
-									"parameters": [
-										"\"<\" & Multiplayer.FromAlias & \"> \" & Multiplayer.Message"
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 929406464593579,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 0,
+												"value": "Multiplayer.MyID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 801636779672037,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 431646520578058,
+													"parameters": {
+														"key": 68
+													}
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 501150262859557,
+													"parameters": {
+														"key": 39
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 866030142900472,
+													"parameters": {
+														"instance-variable": "RIGHT",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 700434352745689,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 601410471211782
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 269670579960620,
+													"parameters": {
+														"instance-variable": "RIGHT",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 875950647291000
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 979944661061615,
+													"parameters": {
+														"key": 65
+													}
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 674003298839928,
+													"parameters": {
+														"key": 37
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 558531291369082,
+													"parameters": {
+														"instance-variable": "LEFT",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 272174033540959,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 173397174624763
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 647605709893223,
+													"parameters": {
+														"instance-variable": "LEFT",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 622212160552630
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 809262160185128,
+													"parameters": {
+														"key": 87
+													}
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 240441396363540,
+													"parameters": {
+														"key": 38
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 512822934416988,
+													"parameters": {
+														"instance-variable": "UP",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 244679208795787,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 405316533202979
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 938455376484319,
+													"parameters": {
+														"instance-variable": "UP",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 650614514116043
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 453454279527927,
+													"parameters": {
+														"key": 83
+													}
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 633786534857053,
+													"parameters": {
+														"key": 40
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 305818834996741,
+													"parameters": {
+														"instance-variable": "DOWN",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 318101070701686,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 460897906506175
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 477379132737639,
+													"parameters": {
+														"instance-variable": "DOWN",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 672861206732115
+										}
 									]
 								},
 								{
-									"id": "broadcast-message",
-									"objectClass": "Multiplayer",
-									"sid": 675571777443227,
-									"parameters": {
-										"from-id": "Multiplayer.FromID",
-										"tag": "\"chat\"",
-										"message": "Multiplayer.Message",
-										"mode": "reliable-ordered"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 441857548872908,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 1,
+												"value": "Multiplayer.MyID"
+											}
+										},
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 848370695302034,
+											"parameters": {
+												"object": "Miner_Box"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 166843695277826,
+											"parameters": {
+												"instance-variable": "INPUTS",
+												"value": "Multiplayer.PeerState(Miner_Box.PEERID, \"inputs\")"
+											}
+										}
+									],
+									"sid": 572650022754307,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 894739597724200,
+													"parameters": {
+														"first-value": "getbit(Miner_Box.INPUTS, 0)",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 390207171101199,
+													"parameters": {
+														"instance-variable": "RIGHT",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 376807057770488
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 409553911915710
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 369391699938601,
+													"parameters": {
+														"instance-variable": "RIGHT",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 350951066569609
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 816087023766890,
+													"parameters": {
+														"first-value": "getbit(Miner_Box.INPUTS, 1)",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 705400180293196,
+													"parameters": {
+														"instance-variable": "LEFT",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 260475969614119
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 168443413179018
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 270332149357523,
+													"parameters": {
+														"instance-variable": "LEFT",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 944367034480432
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 627940428563366,
+													"parameters": {
+														"first-value": "getbit(Miner_Box.INPUTS, 2)",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 461657483793286,
+													"parameters": {
+														"instance-variable": "UP",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 523393235252359
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 128382443659007
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 137172178658948,
+													"parameters": {
+														"instance-variable": "UP",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 579475414505466
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 713450988456092,
+													"parameters": {
+														"first-value": "getbit(Miner_Box.inputs, 3)",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 160083239950089,
+													"parameters": {
+														"instance-variable": "DOWN",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 740067062530940
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 355979665041537
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 161707870160201,
+													"parameters": {
+														"instance-variable": "DOWN",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 547945408831371
+										}
+									]
 								}
 							],
-							"sid": 836276510558539
+							"sid": 163614330071052
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Player Movement",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 706935148519908,
+											"parameters": {
+												"object": "Miner_Box"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 246115694724293,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 950857768497592,
+													"parameters": {
+														"instance-variable": "PEERID",
+														"comparison": 0,
+														"value": "Miner_Box.PEERID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Miner_Animations",
+													"sid": 684119374118679,
+													"parameters": {
+														"x": "Miner_Box.X ",
+														"y": "Miner_Box.Y"
+													}
+												}
+											],
+											"sid": 731007645679728,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-moving",
+															"objectClass": "Miner_Box",
+															"sid": 749539853203095,
+															"behaviorType": "Platform"
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Miner_Animations",
+															"sid": 367607048844904,
+															"parameters": {
+																"instance-variable": "ANIM_NUMBER",
+																"value": "2"
+															}
+														}
+													],
+													"sid": 732274321478959
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Miner_Box",
+															"sid": 143304248810857,
+															"parameters": {
+																"instance-variable": "RIGHT"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "simulate-control",
+															"objectClass": "Miner_Box",
+															"sid": 884923282448640,
+															"behaviorType": "Platform",
+															"parameters": {
+																"control": "right"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Miner_Animations",
+															"sid": 953607603996869,
+															"parameters": {
+																"instance-variable": "DIR_NUMBER",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 807766024717499
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 359910129251560
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Miner_Box",
+															"sid": 889512278605523,
+															"parameters": {
+																"instance-variable": "LEFT"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "simulate-control",
+															"objectClass": "Miner_Box",
+															"sid": 298968328346575,
+															"behaviorType": "Platform",
+															"parameters": {
+																"control": "left"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Miner_Animations",
+															"sid": 195095113126678,
+															"parameters": {
+																"instance-variable": "DIR_NUMBER",
+																"value": "2"
+															}
+														}
+													],
+													"sid": 410121975820677
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 686830921560128
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Miner_Box",
+															"sid": 182330851679754,
+															"parameters": {
+																"instance-variable": "UP"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-vector-y",
+															"objectClass": "Miner_Box",
+															"sid": 459893085979764,
+															"behaviorType": "Platform",
+															"parameters": {
+																"vector-y": "Vector_Y_Speed_Up"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Miner_Animations",
+															"sid": 393491952729484,
+															"parameters": {
+																"instance-variable": "DIR_NUMBER",
+																"value": "3"
+															}
+														}
+													],
+													"sid": 848351352509327
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 153015981875730
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Miner_Box",
+															"sid": 602649053515914,
+															"parameters": {
+																"instance-variable": "DOWN"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-vector-y",
+															"objectClass": "Miner_Box",
+															"sid": 795082637143833,
+															"behaviorType": "Platform",
+															"parameters": {
+																"vector-y": "Vector_Y_Speed_Down"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Miner_Animations",
+															"sid": 830621430831053,
+															"parameters": {
+																"instance-variable": "DIR_NUMBER",
+																"value": "4"
+															}
+														}
+													],
+													"sid": 926354084712517
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 864540066912077
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Miner_Animations",
+															"sid": 604053873011575,
+															"parameters": {
+																"instance-variable": "ANIM_NUMBER",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Miner_Animations",
+															"sid": 515949301682428,
+															"parameters": {
+																"instance-variable": "DIR_NUMBER",
+																"value": "0"
+															}
+														}
+													],
+													"sid": 716235346745955
+												}
+											]
+										}
+									]
+								}
+							],
+							"sid": 177659033983250
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Player Drill",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 745017194695102,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 0,
+												"value": "Multiplayer.MyID"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Drill",
+											"sid": 873493297153930,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 0,
+												"value": "Multiplayer.MyID"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Animations",
+											"sid": 965883324043625,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 0,
+												"value": "Multiplayer.MyID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 970208828743762,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 890409666392551,
+													"parameters": {
+														"key": 83
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 599382048450588,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"comparison": 0,
+														"value": "4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Miner_Drill",
+													"sid": 924593969624477,
+													"parameters": {
+														"x": "Miner_Box.X + 16",
+														"y": "Miner_Box.Y + 64"
+													}
+												}
+											],
+											"sid": 110208682004253
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 164336597916035
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 340488666157594,
+													"parameters": {
+														"key": 40
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 308023618160921,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"comparison": 0,
+														"value": "4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Miner_Drill",
+													"sid": 985377535581144,
+													"parameters": {
+														"x": "Miner_Box.X + 16",
+														"y": "Miner_Box.Y + 64"
+													}
+												}
+											],
+											"sid": 773967897929620
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 505916850177310
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 945569903640562,
+													"parameters": {
+														"key": 68
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 990809265345757,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Miner_Drill",
+													"sid": 954215485205386,
+													"parameters": {
+														"x": "Miner_Box.X + 64",
+														"y": "Miner_Box.Y + 16"
+													}
+												}
+											],
+											"sid": 427637768190150
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 773944062407450
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 605478408972395,
+													"parameters": {
+														"key": 39
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 899661816077927,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Miner_Drill",
+													"sid": 915582530339818,
+													"parameters": {
+														"x": "Miner_Box.X + 64",
+														"y": "Miner_Box.Y + 16"
+													}
+												}
+											],
+											"sid": 471710484009693
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 224874576674169
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 710167285379671,
+													"parameters": {
+														"key": 65
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 127358274787049,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Miner_Drill",
+													"sid": 861028838693209,
+													"parameters": {
+														"x": "Miner_Box.X + -32",
+														"y": "Miner_Box.Y + 16"
+													}
+												}
+											],
+											"sid": 379699211168349
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 305991218351590
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 765528106709705,
+													"parameters": {
+														"key": 37
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 421368031770713,
+													"parameters": {
+														"instance-variable": "DIR_NUMBER",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Miner_Drill",
+													"sid": 343670752678643,
+													"parameters": {
+														"x": "Miner_Box.X + -32",
+														"y": "Miner_Box.Y + 16"
+													}
+												}
+											],
+											"sid": 817211996412257
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 953384380060271
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Miner_Drill",
+													"sid": 793652913818400,
+													"parameters": {
+														"x": "Miner_Box.X + 16",
+														"y": "Miner_Box.Y + 16"
+													}
+												}
+											],
+											"sid": 553829515238809
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 115892939189061,
+											"parameters": {
+												"instance-variable": "PEERID",
+												"comparison": 1,
+												"value": "Multiplayer.MyID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 946798952439309,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Drill",
+													"sid": 122859724538313,
+													"parameters": {
+														"instance-variable": "PEERID",
+														"comparison": 0,
+														"value": "Miner_Box.PEERID"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 100950206153319,
+													"parameters": {
+														"instance-variable": "PEERID",
+														"comparison": 0,
+														"value": "Miner_Box.PEERID"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 813766212653569,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 130397005913517,
+															"parameters": {
+																"first-value": "getbit(Miner_Box.INPUTS, 0)",
+																"comparison": 0,
+																"second-value": "1"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Miner_Animations",
+															"sid": 814643253414350,
+															"parameters": {
+																"instance-variable": "DIR_NUMBER",
+																"comparison": 0,
+																"value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position",
+															"objectClass": "Miner_Drill",
+															"sid": 343785097007321,
+															"parameters": {
+																"x": "Miner_Box.X + 64",
+																"y": "Miner_Box.Y + 16"
+															}
+														}
+													],
+													"sid": 435709819171844
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 801450611141658
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 500995197539709,
+															"parameters": {
+																"first-value": "getbit(Miner_Box.INPUTS, 1)",
+																"comparison": 0,
+																"second-value": "1"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Miner_Animations",
+															"sid": 242454725483160,
+															"parameters": {
+																"instance-variable": "DIR_NUMBER",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position",
+															"objectClass": "Miner_Drill",
+															"sid": 379462685564992,
+															"parameters": {
+																"x": "Miner_Box.X - 32",
+																"y": "Miner_Box.Y + 16"
+															}
+														}
+													],
+													"sid": 982003485637691
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 899769150552308
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 299284884300980,
+															"parameters": {
+																"first-value": "getbit(Miner_Box.inputs, 3)",
+																"comparison": 0,
+																"second-value": "1"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Miner_Animations",
+															"sid": 545574084382911,
+															"parameters": {
+																"instance-variable": "DIR_NUMBER",
+																"comparison": 0,
+																"value": "4"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position",
+															"objectClass": "Miner_Drill",
+															"sid": 600785705668842,
+															"parameters": {
+																"x": "Miner_Box.X  + 16",
+																"y": "Miner_Box.Y + 64"
+															}
+														}
+													],
+													"sid": 637697483897547
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 522010487940593
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position",
+															"objectClass": "Miner_Drill",
+															"sid": 555492565636501,
+															"parameters": {
+																"x": "Miner_Box.X + 16",
+																"y": "Miner_Box.Y + 16"
+															}
+														}
+													],
+													"sid": 428082489441226
+												}
+											]
+										}
+									]
+								}
+							],
+							"sid": 539675382104796
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Mining",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 476750826067964,
+											"parameters": {
+												"object": "Miner_Drill"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 557762562817454,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Miner_Drill",
+													"sid": 460983922460546,
+													"parameters": {
+														"object": "Mining_Blocks_Family"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Mining_Blocks_Family",
+													"sid": 600294666825496,
+													"parameters": {
+														"instance-variable": "Hp",
+														"value": "0.1"
+													}
+												}
+											],
+											"sid": 472075261903806
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 975071290559276,
+													"parameters": {
+														"instance-variable": "PEERID",
+														"comparison": 0,
+														"value": "Miner_Drill.PEERID"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 308593920138386,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Miner_Drill",
+															"sid": 579762325990748,
+															"parameters": {
+																"object": "Mining_Blocks_Family"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Miner_Animations",
+															"sid": 855797015109606,
+															"parameters": {
+																"instance-variable": "DIR_NUMBER",
+																"comparison": 0,
+																"value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Miner_Animations",
+															"sid": 774539326500397,
+															"parameters": {
+																"instance-variable": "ANIM_NUMBER",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 582093560980517
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Miner_Drill",
+															"sid": 398253007735365,
+															"parameters": {
+																"object": "Mining_Blocks_Family"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Miner_Animations",
+															"sid": 761236585631618,
+															"parameters": {
+																"instance-variable": "DIR_NUMBER",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Miner_Animations",
+															"sid": 706733319821656,
+															"parameters": {
+																"instance-variable": "ANIM_NUMBER",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 137301830520931
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Miner_Drill",
+															"sid": 197370785267749,
+															"parameters": {
+																"object": "Mining_Blocks_Family"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Miner_Animations",
+															"sid": 512343391623092,
+															"parameters": {
+																"instance-variable": "DIR_NUMBER",
+																"comparison": 0,
+																"value": "4"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Miner_Animations",
+															"sid": 478126729981318,
+															"parameters": {
+																"instance-variable": "ANIM_NUMBER",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 394635313070237
+												}
+											]
+										}
+									]
+								}
+							],
+							"sid": 285847050930346
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Destroy Blocks",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Dirt"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Dirt_Block",
+											"sid": 469195831411361,
+											"parameters": {
+												"instance-variable": "Hp",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Dirt_Block",
+											"sid": 427002494318467
+										}
+									],
+									"sid": 922088058300423
+								},
+								{
+									"eventType": "comment",
+									"text": "COAL "
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Coal_Block",
+											"sid": 847768404437580,
+											"parameters": {
+												"instance-variable": "Hp",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Coal_Block",
+											"sid": 199253897153586
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 967063248330665,
+											"parameters": {
+												"object-to-create": "Coal",
+												"layer": "\"Player\"",
+												"x": "Coal_Block.X",
+												"y": "Coal_Block.Y",
+												"create-hierarchy": false,
+												"template-name": "\"Coal\""
+											}
+										}
+									],
+									"sid": 945896362539326
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Miner_Box",
+											"sid": 824053142694368,
+											"parameters": {
+												"object": "Coal"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Coal",
+											"sid": 525359313118260
+										},
+										{
+											"type": "script",
+											"script": "addToInventory(minerInventory, miningItems.Coal_Inv, 1)"
+										},
+										{
+											"id": "create-item",
+											"objectClass": "Inventory",
+											"sid": 722703059469101,
+											"parameters": {
+												"type": "\"Coal_Inv\"",
+												"quantity": "1",
+												"inventory-id": "\"Inventory_Miner\"",
+												"slot-id": "\"\""
+											}
+										}
+									],
+									"sid": 316203658982621
+								},
+								{
+									"eventType": "comment",
+									"text": "QUARTZ"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Quartz_Block",
+											"sid": 740301444657701,
+											"parameters": {
+												"instance-variable": "Hp",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Quartz_Block",
+											"sid": 341662696161191
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 428497784613778,
+											"parameters": {
+												"object-to-create": "Quartz",
+												"layer": "\"Player\"",
+												"x": "Quartz_Block.X",
+												"y": "Quartz_Block.Y",
+												"create-hierarchy": false,
+												"template-name": "\"Quartz\""
+											}
+										}
+									],
+									"sid": 406344551125633
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Miner_Box",
+											"sid": 791078336765541,
+											"parameters": {
+												"object": "Quartz"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Quartz",
+											"sid": 232133660031444
+										},
+										{
+											"type": "script",
+											"script": "addToInventory(minerInventory, miningItems.Quartz_Inv, 1)"
+										},
+										{
+											"id": "create-item",
+											"objectClass": "Inventory",
+											"sid": 142989474681622,
+											"parameters": {
+												"type": "\"Quartz_Inv\"",
+												"quantity": "1",
+												"inventory-id": "\"Inventory_Miner\"",
+												"slot-id": "\"\""
+											}
+										}
+									],
+									"sid": 595967673118960
+								},
+								{
+									"eventType": "comment",
+									"text": "ALUMINIUM"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Aluminium_Block",
+											"sid": 398879336118120,
+											"parameters": {
+												"instance-variable": "Hp",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Aluminium_Block",
+											"sid": 468735574185525
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 503143950648144,
+											"parameters": {
+												"object-to-create": "Aluminium_Ore",
+												"layer": "\"Player\"",
+												"x": "Aluminium_Block.X",
+												"y": "Aluminium_Block.Y",
+												"create-hierarchy": false,
+												"template-name": "\"Aluminium\""
+											}
+										}
+									],
+									"sid": 528059907971240
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Miner_Box",
+											"sid": 222960830946273,
+											"parameters": {
+												"object": "Aluminium_Ore"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Aluminium_Ore",
+											"sid": 393037416040747
+										},
+										{
+											"type": "script",
+											"script": "addToInventory(minerInventory, miningItems.Aluminium_Ore_Inv, 1)"
+										},
+										{
+											"id": "create-item",
+											"objectClass": "Inventory",
+											"sid": 821889379765063,
+											"parameters": {
+												"type": "\"Aluminium_Ore_Inv\"",
+												"quantity": "1",
+												"inventory-id": "\"Inventory_Miner\"",
+												"slot-id": "\"\""
+											}
+										}
+									],
+									"sid": 737829148204947
+								}
+							],
+							"sid": 848611110791919
 						}
 					],
-					"sid": 569883220992209
+					"sid": 866536860045682
 				}
 			],
-			"sid": 950927299607963
+			"sid": 578154967470612
 		}
 	],
 	"sid": 196935397098049
