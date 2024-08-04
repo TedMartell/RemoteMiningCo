@@ -1,5 +1,6 @@
 import { miningItems } from "./data/miningItems.js"
 import { consumableItems } from "./data/consumableItems.js"
+import { inventoryItemTypes } from "./data/inventoryItemTypes.js";
 export const globalInventory = {items:{}, value: 0, weight:0};
 export const minerInventory = {items:{}, value: 0, weight:0};
 export const consumablesInventory = {items:{}, value: 0, weight:0};

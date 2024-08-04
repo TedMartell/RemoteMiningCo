@@ -18816,7 +18816,10 @@
 						"DRILL": false,
 						"IDLE": false,
 						"PEERID": "",
-						"INPUTS": 0
+						"INPUTS": 0,
+						"coal": 0,
+						"quartz": 0,
+						"aluminiumOre": 0
 					},
 					"behaviors": {
 						"Platform": {
@@ -18917,6 +18920,69 @@
 					}
 				},
 				{
+					"type": "Miner_Animations",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Drill_Right",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 400,
+					"instanceVariables": {
+						"DIR": "Front",
+						"ANIM": "Idle",
+						"PEERID": "",
+						"ANIM_NUMBER": 0,
+						"DIR_NUMBER": 0
+					},
+					"behaviors": {},
+					"sceneGraphData": {
+						"parent-uid": 3,
+						"uid": 400,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"world": {
+						"x": 600,
+						"y": 698,
+						"width": 71,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
 					"type": "Miner_Drill",
 					"properties": {
 						"initially-visible": true,
@@ -18968,69 +19034,6 @@
 						"y": 715,
 						"width": 32,
 						"height": 32,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Miner_Animations",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Drill_Right",
-						"initial-frame": 0,
-						"enable-collisions": false,
-						"live-preview": false
-					},
-					"uid": 400,
-					"instanceVariables": {
-						"DIR": "Front",
-						"ANIM": "Idle",
-						"PEERID": "",
-						"ANIM_NUMBER": 0,
-						"DIR_NUMBER": 0
-					},
-					"behaviors": {},
-					"sceneGraphData": {
-						"parent-uid": 3,
-						"uid": 400,
-						"flags": {
-							"x": true,
-							"y": true,
-							"z": true,
-							"w": true,
-							"h": true,
-							"a": true,
-							"o": false,
-							"v": false,
-							"d": true,
-							"sm": "normal"
-						},
-						"preview": {
-							"transformX": 0,
-							"transformY": 0,
-							"transformZElevation": 0,
-							"transformW": 0,
-							"transformH": 0,
-							"transformA": 0,
-							"transformSX": 0,
-							"transformSY": 0,
-							"transformO": 0,
-							"previewSceneGraph": false
-						}
-					},
-					"world": {
-						"x": 600,
-						"y": 698,
-						"width": 71,
-						"height": 64,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -19389,8 +19392,8 @@
 	"sid": 478150789985802,
 	"nonworld-instances": [],
 	"effectTypes": [],
-	"width": 5000,
-	"height": 5000,
+	"width": 6400,
+	"height": 6400,
 	"unboundedScrolling": false,
 	"vpX": 0.5,
 	"vpY": 0.5,
