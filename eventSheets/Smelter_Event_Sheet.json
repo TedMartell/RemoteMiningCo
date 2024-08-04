@@ -2,6 +2,16 @@
 	"name": "Smelter_Event_Sheet",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "CraftingTime",
+			"type": "number",
+			"initialValue": "600",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 130426540881700
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -32,6 +42,238 @@
 				}
 			],
 			"sid": 463228797325198
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-selected-item-text",
+					"objectClass": "List",
+					"sid": 958100172130684,
+					"parameters": {
+						"text-to-compare": "\"Aluminium Ingot\"",
+						"case-sensitivity": "ignore-case"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 484434526383312
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 906990684532093,
+					"parameters": {
+						"key": 71
+					}
+				}
+			],
+			"actions": [],
+			"sid": 154071155588445,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-inventory-shown",
+							"objectClass": "Inventory",
+							"sid": 387396120329589,
+							"parameters": {
+								"param0": "\"Inventory_Global\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "hide-inventory",
+							"objectClass": "Inventory",
+							"sid": 152019058762325,
+							"parameters": {
+								"param0": "\"Inventory_Global\""
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Value_Weight_Text",
+							"sid": 928207920266090,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 659100453882763
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 200488723412958
+						}
+					],
+					"actions": [
+						{
+							"id": "show-inventory",
+							"objectClass": "Inventory",
+							"sid": 973092174676328,
+							"parameters": {
+								"param0": "\"Inventory_Global\"",
+								"param1": "\"smelter\"",
+								"param2": "0",
+								"param3": "384"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Value_Weight_Text",
+							"sid": 159815140858464,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 299717476854743
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 128115446164205
+				}
+			],
+			"actions": [],
+			"sid": 612863016754387,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 648110478064129
+						}
+					],
+					"actions": [],
+					"sid": 893612446090618,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-inventory-shown",
+									"objectClass": "Inventory",
+									"sid": 752127636130994,
+									"parameters": {
+										"param0": "\"Inventory_Smelter\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "hide-inventory",
+									"objectClass": "Inventory",
+									"sid": 766088619375685,
+									"parameters": {
+										"param0": "\"Inventory_Smelter\""
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Value_Weight_Text",
+									"sid": 509931564905388,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 493561673499534
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 592952329303791
+								}
+							],
+							"actions": [
+								{
+									"id": "show-inventory",
+									"objectClass": "Inventory",
+									"sid": 828137090047942,
+									"parameters": {
+										"param0": "\"Inventory_Smelter\"",
+										"param1": "\"smelter\"",
+										"param2": "640",
+										"param3": "64"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Value_Weight_Text",
+									"sid": 280175732852264,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 105523176257375
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 213840335728578,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 852498692950595,
+					"parameters": {
+						"variable": "CraftingTime",
+						"comparison": 4,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 524214550677836,
+					"parameters": {
+						"variable": "CraftingTime",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Clock",
+					"sid": 211924655852778,
+					"parameters": {
+						"text": "zeropad(floor(CraftingTime/60),1) & \":\" & zeropad(floor(CraftingTime%60),2)"
+					}
+				}
+			],
+			"sid": 573103349274764
 		}
 	],
 	"sid": 772931758412592

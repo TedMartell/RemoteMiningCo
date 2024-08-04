@@ -978,7 +978,7 @@
 						{
 							"id": "subtract-from-instvar",
 							"objectClass": "Dirt_Block",
-							"sid": 145386020892495,
+							"sid": 203707565534308,
 							"parameters": {
 								"instance-variable": "HP",
 								"value": "0.1"
@@ -999,42 +999,261 @@
 								"comparison": 3,
 								"value": "0"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 365196391617915,
+							"parameters": {
+								"instance-variable": "DOWN"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Dirt_Block",
+							"sid": 358549411849844,
+							"parameters": {
+								"animation": "\"destroy_down\""
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
 						{
 							"id": "set-animation",
 							"objectClass": "Dirt_Block",
-							"sid": 427605618138492,
+							"sid": 409612232633022,
 							"parameters": {
-								"animation": "\"Animation 2\"",
+								"animation": "\"destroy_down\"",
 								"from": "beginning"
 							}
 						}
 					],
-					"sid": 730500515493194,
-					"children": [
+					"sid": 730500515493194
+				},
+				{
+					"eventType": "block",
+					"conditions": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-animation-finished",
-									"objectClass": "Dirt_Block",
-									"sid": 515980012081350,
-									"parameters": {
-										"animation": "\"Animation 2\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"type": "script",
-									"script": "destroyBlock(runtime.objects.Dirt_Block)\n"
-								}
-							],
-							"sid": 416612816523519
+							"id": "on-animation-finished",
+							"objectClass": "Dirt_Block",
+							"sid": 214262217608493,
+							"parameters": {
+								"animation": "\"destroy_down\""
+							}
 						}
-					]
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Dirt_Block)\n"
+						}
+					],
+					"sid": 996351678592266
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Dirt_Block",
+							"sid": 538017235939942,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 537313878859414,
+							"parameters": {
+								"instance-variable": "RIGHT"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Dirt_Block",
+							"sid": 340421165660728,
+							"parameters": {
+								"animation": "\"destroy_right\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Dirt_Block",
+							"sid": 891647528609400,
+							"parameters": {
+								"animation": "\"destroy_right\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 443668035636749
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 472025428973629
+						}
+					],
+					"actions": [],
+					"sid": 775129988758808
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Dirt_Block",
+							"sid": 283113922021396,
+							"parameters": {
+								"animation": "\"destroy_right\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Dirt_Block)\n"
+						}
+					],
+					"sid": 721860100017117
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Dirt_Block",
+							"sid": 903911354444118,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 466994516010147,
+							"parameters": {
+								"instance-variable": "LEFT"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Dirt_Block",
+							"sid": 237800956036152,
+							"parameters": {
+								"animation": "\"destroy_left\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Dirt_Block",
+							"sid": 395976785257400,
+							"parameters": {
+								"animation": "\"destroy_left\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 155523639239479
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Dirt_Block",
+							"sid": 969978712286214,
+							"parameters": {
+								"animation": "\"destroy_left\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Dirt_Block)\n"
+						}
+					],
+					"sid": 985444283923674
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Dirt_Block",
+							"sid": 546279659459875,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 757615843341300,
+							"parameters": {
+								"instance-variable": "LEFT"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Dirt_Block",
+							"sid": 777026282374226,
+							"parameters": {
+								"animation": "\"destroy_left\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Dirt_Block",
+							"sid": 428711139179541,
+							"parameters": {
+								"animation": "\"destroy_left\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 401721054452219
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Dirt_Block",
+							"sid": 381626322372495,
+							"parameters": {
+								"animation": "\"destroy_left\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Dirt_Block)\n"
+						}
+					],
+					"sid": 551932354280085
 				},
 				{
 					"eventType": "block",
@@ -1085,18 +1304,245 @@
 						{
 							"id": "subtract-from-instvar",
 							"objectClass": "Coal_Block",
-							"sid": 922086332022910,
+							"sid": 529798628850266,
 							"parameters": {
 								"instance-variable": "HP",
-								"value": "1"
+								"value": "0.1"
 							}
-						},
-						{
-							"type": "script",
-							"script": "destroyBlock(runtime.objects.Coal_Block);\n"
 						}
 					],
 					"sid": 249263617515972
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Coal_Block",
+							"sid": 919266936585537,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 280054639520688,
+							"parameters": {
+								"instance-variable": "DOWN"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Coal_Block",
+							"sid": 817391563854924,
+							"parameters": {
+								"animation": "\"destroy_down\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Coal_Block",
+							"sid": 322598995857780,
+							"parameters": {
+								"animation": "\"destroy_down\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 369121388500716
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Coal_Block",
+							"sid": 959434458019894,
+							"parameters": {
+								"animation": "\"destroy_down\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Coal_Block)\n"
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 395753939960624,
+							"parameters": {
+								"object-to-create": "Coal",
+								"layer": "\"Player\"",
+								"x": "Coal_Block.X",
+								"y": "Coal_Block.Y",
+								"create-hierarchy": false,
+								"template-name": "\"Coal\""
+							}
+						}
+					],
+					"sid": 638660222010886
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Coal_Block",
+							"sid": 991994121402103,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 778628459857678,
+							"parameters": {
+								"instance-variable": "RIGHT"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Coal_Block",
+							"sid": 259365702874814,
+							"parameters": {
+								"animation": "\"destroy_right\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Coal_Block",
+							"sid": 770063950491080,
+							"parameters": {
+								"animation": "\"destroy_right\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 730992220874828
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Coal_Block",
+							"sid": 640062248027606,
+							"parameters": {
+								"animation": "\"destroy_right\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Coal_Block)\n"
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 567358116746849,
+							"parameters": {
+								"object-to-create": "Coal",
+								"layer": "\"Player\"",
+								"x": "Coal_Block.X",
+								"y": "Coal_Block.Y",
+								"create-hierarchy": false,
+								"template-name": "\"Coal\""
+							}
+						}
+					],
+					"sid": 481761640968299
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Coal_Block",
+							"sid": 809683017094978,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 121120507410207,
+							"parameters": {
+								"instance-variable": "LEFT"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Coal_Block",
+							"sid": 148040453958164,
+							"parameters": {
+								"animation": "\"destroy_left\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Coal_Block",
+							"sid": 624323291200502,
+							"parameters": {
+								"animation": "\"destroy_left\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 356382638746060
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Coal_Block",
+							"sid": 402125276942998,
+							"parameters": {
+								"animation": "\"destroy_left\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Coal_Block)\n"
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 960496288989743,
+							"parameters": {
+								"object-to-create": "Coal",
+								"layer": "\"Player\"",
+								"x": "Coal_Block.X",
+								"y": "Coal_Block.Y",
+								"create-hierarchy": false,
+								"template-name": "\"Coal\""
+							}
+						}
+					],
+					"sid": 997185520280166
 				},
 				{
 					"eventType": "block",
@@ -1125,46 +1571,48 @@
 							"script": "destroyBlock(runtime.objects.Coal_Block)\n"
 						}
 					],
-					"sid": 413777512998908
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+					"sid": 413777512998908,
+					"children": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Coal_Block",
-							"sid": 427291643313157,
-							"parameters": {
-								"instance-variable": "HP",
-								"comparison": 3,
-								"value": "0"
-							}
-						},
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 229194629450949,
-							"parameters": {
-								"object": "Coal_Block"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Coal_Block",
+									"sid": 815289127615271,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									}
+								},
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 836157620142935,
+									"parameters": {
+										"object": "Coal_Block"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 703782861569968,
+									"parameters": {
+										"object-to-create": "Coal",
+										"layer": "\"Player\"",
+										"x": "Coal_Block.X",
+										"y": "Coal_Block.Y",
+										"create-hierarchy": false,
+										"template-name": "\"Coal\""
+									}
+								}
+							],
+							"sid": 623288656960254
 						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 739914883027842,
-							"parameters": {
-								"object-to-create": "Coal",
-								"layer": "\"Player\"",
-								"x": "Coal_Block.X",
-								"y": "Coal_Block.Y",
-								"create-hierarchy": false,
-								"template-name": "\"Coal\""
-							}
-						}
-					],
-					"sid": 453598557268416
+					]
 				},
 				{
 					"eventType": "block",
@@ -1172,7 +1620,7 @@
 						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "Miner_Box",
-							"sid": 248790171070060,
+							"sid": 634864002785315,
 							"parameters": {
 								"object": "Coal"
 							}
@@ -1180,7 +1628,7 @@
 						{
 							"id": "for-each",
 							"objectClass": "System",
-							"sid": 718362093987139,
+							"sid": 763371445296724,
 							"parameters": {
 								"object": "Coal"
 							}
@@ -1190,7 +1638,7 @@
 						{
 							"id": "subtract-from-instvar",
 							"objectClass": "Coal",
-							"sid": 158317693327121,
+							"sid": 585606825742694,
 							"parameters": {
 								"instance-variable": "HP",
 								"value": "2"
@@ -1203,7 +1651,7 @@
 						{
 							"id": "create-item",
 							"objectClass": "Inventory",
-							"sid": 713485644931665,
+							"sid": 934867880742338,
 							"parameters": {
 								"type": "\"Coal_Inv\"",
 								"quantity": "1",
@@ -1212,7 +1660,7 @@
 							}
 						}
 					],
-					"sid": 201918156532959
+					"sid": 908253713259266
 				},
 				{
 					"eventType": "comment",
@@ -1234,18 +1682,245 @@
 						{
 							"id": "subtract-from-instvar",
 							"objectClass": "Quartz_Block",
-							"sid": 718978777111428,
+							"sid": 899028658454469,
 							"parameters": {
 								"instance-variable": "HP",
-								"value": "1"
+								"value": "0.1"
 							}
-						},
-						{
-							"type": "script",
-							"script": "destroyBlock(runtime.objects.Quartz_Block);\n"
 						}
 					],
 					"sid": 241830169287069
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Quartz_Block",
+							"sid": 657286413916832,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 738338245517713,
+							"parameters": {
+								"instance-variable": "DOWN"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Quartz_Block",
+							"sid": 748644467198854,
+							"parameters": {
+								"animation": "\"destroy_down\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Quartz_Block",
+							"sid": 137841635045789,
+							"parameters": {
+								"animation": "\"destroy_down\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 904518699336506
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Quartz_Block",
+							"sid": 608760398767230,
+							"parameters": {
+								"animation": "\"destroy_down\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Quartz_Block);\n"
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 748935014899225,
+							"parameters": {
+								"object-to-create": "Quartz",
+								"layer": "\"Player\"",
+								"x": "Quartz_Block.X",
+								"y": "Quartz_Block.Y",
+								"create-hierarchy": false,
+								"template-name": "\"Quartz\""
+							}
+						}
+					],
+					"sid": 346457168370239
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Quartz_Block",
+							"sid": 107999287686039,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 180061934755320,
+							"parameters": {
+								"instance-variable": "RIGHT"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Quartz_Block",
+							"sid": 190957051451523,
+							"parameters": {
+								"animation": "\"destroy_right\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Quartz_Block",
+							"sid": 850673982450770,
+							"parameters": {
+								"animation": "\"destroy_right\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 655778832503806
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Quartz_Block",
+							"sid": 746478817952269,
+							"parameters": {
+								"animation": "\"destroy_right\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Quartz_Block);\n"
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 230734017763686,
+							"parameters": {
+								"object-to-create": "Quartz",
+								"layer": "\"Player\"",
+								"x": "Quartz_Block.X",
+								"y": "Quartz_Block.Y",
+								"create-hierarchy": false,
+								"template-name": "\"Quartz\""
+							}
+						}
+					],
+					"sid": 623059121624582
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Quartz_Block",
+							"sid": 374755593701291,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 679991448362503,
+							"parameters": {
+								"instance-variable": "LEFT"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Quartz_Block",
+							"sid": 220231231949460,
+							"parameters": {
+								"animation": "\"destroy_left\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Quartz_Block",
+							"sid": 424537276791053,
+							"parameters": {
+								"animation": "\"destroy_left\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 232110366550383
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Quartz_Block",
+							"sid": 586172340521871,
+							"parameters": {
+								"animation": "\"destroy_left\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Quartz_Block);\n"
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 307311528410869,
+							"parameters": {
+								"object-to-create": "Quartz",
+								"layer": "\"Player\"",
+								"x": "Quartz_Block.X",
+								"y": "Quartz_Block.Y",
+								"create-hierarchy": false,
+								"template-name": "\"Quartz\""
+							}
+						}
+					],
+					"sid": 778911287649916
 				},
 				{
 					"eventType": "block",
@@ -1274,46 +1949,54 @@
 							"script": "destroyBlock(runtime.objects.Quartz_Block);\n"
 						}
 					],
-					"sid": 460941621239572
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+					"sid": 460941621239572,
+					"children": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Quartz_Block",
-							"sid": 813933471085374,
-							"parameters": {
-								"instance-variable": "HP",
-								"comparison": 3,
-								"value": "0"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Quartz_Block",
+									"sid": 471476454781637,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									}
+								},
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 451515711077549,
+									"parameters": {
+										"object": "Quartz_Block"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 422439948418654,
+									"parameters": {
+										"object-to-create": "Quartz",
+										"layer": "\"Player\"",
+										"x": "Quartz_Block.X",
+										"y": "Quartz_Block.Y",
+										"create-hierarchy": false,
+										"template-name": "\"Quartz\""
+									}
+								}
+							],
+							"sid": 292293666300978
 						},
 						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 530262712720537,
-							"parameters": {
-								"object": "Quartz_Block"
-							}
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 533915753948560
 						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 583571479777466,
-							"parameters": {
-								"object-to-create": "Quartz",
-								"layer": "\"Player\"",
-								"x": "Quartz_Block.X",
-								"y": "Quartz_Block.Y",
-								"create-hierarchy": false,
-								"template-name": "\"Quartz\""
-							}
-						}
-					],
-					"sid": 385088643276045
+					]
 				},
 				{
 					"eventType": "block",
@@ -1383,18 +2066,245 @@
 						{
 							"id": "subtract-from-instvar",
 							"objectClass": "Aluminium_Block",
-							"sid": 165315276297676,
+							"sid": 117486351435041,
 							"parameters": {
 								"instance-variable": "HP",
-								"value": "1"
+								"value": "0.1"
 							}
-						},
-						{
-							"type": "script",
-							"script": "destroyBlock(runtime.objects.Aluminium_Block);\n"
 						}
 					],
 					"sid": 612949683370854
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Aluminium_Block",
+							"sid": 568503894797141,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 515381743860602,
+							"parameters": {
+								"instance-variable": "DOWN"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Aluminium_Block",
+							"sid": 435042514974922,
+							"parameters": {
+								"animation": "\"destroy_down\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Aluminium_Block",
+							"sid": 987577725325672,
+							"parameters": {
+								"animation": "\"destroy_down\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 579784910937686
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Aluminium_Block",
+							"sid": 661672792760813,
+							"parameters": {
+								"animation": "\"destroy_down\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Aluminium_Block);\n"
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 361462422828074,
+							"parameters": {
+								"object-to-create": "Aluminium_Ore",
+								"layer": "\"Player\"",
+								"x": "Aluminium_Block.X",
+								"y": "Aluminium_Block.Y",
+								"create-hierarchy": false,
+								"template-name": "\"Aluminium\""
+							}
+						}
+					],
+					"sid": 726652070120691
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Aluminium_Block",
+							"sid": 804124762160035,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 655862399819108,
+							"parameters": {
+								"instance-variable": "RIGHT"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Aluminium_Block",
+							"sid": 210466332647599,
+							"parameters": {
+								"animation": "\"destroy_right\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Aluminium_Block",
+							"sid": 472443851771715,
+							"parameters": {
+								"animation": "\"destroy_right\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 119002284282194
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Aluminium_Block",
+							"sid": 426645251117221,
+							"parameters": {
+								"animation": "\"destroy_right\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Aluminium_Block);\n"
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 346750093123843,
+							"parameters": {
+								"object-to-create": "Aluminium_Ore",
+								"layer": "\"Player\"",
+								"x": "Aluminium_Block.X",
+								"y": "Aluminium_Block.Y",
+								"create-hierarchy": false,
+								"template-name": "\"Aluminium\""
+							}
+						}
+					],
+					"sid": 426183989477974
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Aluminium_Block",
+							"sid": 507601806115354,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Miner_Box",
+							"sid": 684841581816491,
+							"parameters": {
+								"instance-variable": "LEFT"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Aluminium_Block",
+							"sid": 346099643374816,
+							"parameters": {
+								"animation": "\"destroy_left\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Aluminium_Block",
+							"sid": 661382248870987,
+							"parameters": {
+								"animation": "\"destroy_left\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 226086200152979
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Aluminium_Block",
+							"sid": 714879211410713,
+							"parameters": {
+								"animation": "\"destroy_left\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "destroyBlock(runtime.objects.Aluminium_Block);\n"
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 774271268697244,
+							"parameters": {
+								"object-to-create": "Aluminium_Ore",
+								"layer": "\"Player\"",
+								"x": "Aluminium_Block.X",
+								"y": "Aluminium_Block.Y",
+								"create-hierarchy": false,
+								"template-name": "\"Aluminium\""
+							}
+						}
+					],
+					"sid": 330683357850233
 				},
 				{
 					"eventType": "block",
@@ -1423,46 +2333,48 @@
 							"script": "destroyBlock(runtime.objects.Aluminium_Block);\n"
 						}
 					],
-					"sid": 811981422403935
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+					"sid": 811981422403935,
+					"children": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Aluminium_Block",
-							"sid": 735029155889693,
-							"parameters": {
-								"instance-variable": "HP",
-								"comparison": 3,
-								"value": "0"
-							}
-						},
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 692466029816072,
-							"parameters": {
-								"object": "Aluminium_Block"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Aluminium_Block",
+									"sid": 870125915316655,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									}
+								},
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 795683842862752,
+									"parameters": {
+										"object": "Aluminium_Block"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 345996597952917,
+									"parameters": {
+										"object-to-create": "Aluminium_Ore",
+										"layer": "\"Player\"",
+										"x": "Aluminium_Block.X",
+										"y": "Aluminium_Block.Y",
+										"create-hierarchy": false,
+										"template-name": "\"Aluminium\""
+									}
+								}
+							],
+							"sid": 723822902204159
 						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 532880740960816,
-							"parameters": {
-								"object-to-create": "Aluminium_Ore",
-								"layer": "\"Player\"",
-								"x": "Aluminium_Block.X",
-								"y": "Aluminium_Block.Y",
-								"create-hierarchy": false,
-								"template-name": "\"Aluminium\""
-							}
-						}
-					],
-					"sid": 421264862696841
+					]
 				},
 				{
 					"eventType": "block",
@@ -2059,6 +2971,30 @@
 							"parameters": {
 								"id": "\"Inventory_Global\"",
 								"slot-object": "GlobalInventory_Slot_Art",
+								"slot-width": "32",
+								"slot-height": "32",
+								"quantity-text-object": "SpriteFont",
+								"text-offset-x": "30",
+								"text-offset-y": "12"
+							}
+						},
+						{
+							"id": "create-inventory",
+							"objectClass": "Inventory",
+							"sid": 242259581925652,
+							"parameters": {
+								"id": "\"Inventory_Smelter\"",
+								"columns": "5",
+								"rows": "1"
+							}
+						},
+						{
+							"id": "design-inventory",
+							"objectClass": "Inventory",
+							"sid": 134640364851265,
+							"parameters": {
+								"id": "\"Inventory_Smelter\"",
+								"slot-object": "Smelter_Slot_Art",
 								"slot-width": "32",
 								"slot-height": "32",
 								"quantity-text-object": "SpriteFont",
