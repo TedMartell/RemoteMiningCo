@@ -527,7 +527,7 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 457997797122736,
+							"sid": 854422677571527,
 							"parameters": {
 								"object-to-create": "Miner_Drill",
 								"layer": "\"Player\"",
@@ -983,13 +983,58 @@
 								"instance-variable": "HP",
 								"value": "0.1"
 							}
-						},
-						{
-							"type": "script",
-							"script": "destroyBlock(runtime.objects.Dirt_Block)\n"
 						}
 					],
 					"sid": 238625586762362
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Dirt_Block",
+							"sid": 856284592581093,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Dirt_Block",
+							"sid": 427605618138492,
+							"parameters": {
+								"animation": "\"Animation 2\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 730500515493194,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Dirt_Block",
+									"sid": 515980012081350,
+									"parameters": {
+										"animation": "\"Animation 2\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "destroyBlock(runtime.objects.Dirt_Block)\n"
+								}
+							],
+							"sid": 416612816523519
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -1701,10 +1746,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 804748900507287,
+							"sid": 633606460678916,
 							"parameters": {
 								"variable": "Item_ID",
-								"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.X, Mouse.Y)"
+								"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.AbsoluteX, Mouse.AbsoluteY)"
 							}
 						},
 						{
@@ -1732,9 +1777,9 @@
 						{
 							"id": "destroy-item",
 							"objectClass": "Inventory",
-							"sid": 156031330056120,
+							"sid": 719734719826302,
 							"parameters": {
-								"param0": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.X, Mouse.Y)"
+								"param0": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.AbsoluteX, Mouse.AbsoluteY)"
 							}
 						}
 					],
@@ -1758,10 +1803,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 703408788916203,
+							"sid": 111795874834457,
 							"parameters": {
 								"variable": "Item_ID",
-								"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.X, Mouse.Y)"
+								"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.AbsoluteX, Mouse.AbsoluteY)"
 							}
 						},
 						{
@@ -2506,6 +2551,185 @@
 						}
 					],
 					"sid": 625156061067286
+				},
+				{
+					"eventType": "comment",
+					"text": "Smelter"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 261015186835738,
+							"parameters": {
+								"object": "Smelter_Door"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Enter_Smelter_Text",
+							"sid": 415110196494898,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 734104741255034
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 559046205614771
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Enter_Smelter_Text",
+							"sid": 444470549927401,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 488435944418691
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 869314822335744,
+							"parameters": {
+								"key": 70
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 650666844950311,
+							"parameters": {
+								"object": "Smelter_Door"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "hide-inventory",
+							"objectClass": "Inventory",
+							"sid": 676441538934565,
+							"parameters": {
+								"param0": "\"Inventory_Consumables\""
+							}
+						},
+						{
+							"id": "hide-inventory",
+							"objectClass": "Inventory",
+							"sid": 171467536331770,
+							"parameters": {
+								"param0": "\"Inventory_Miner\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 382958683115242,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 371372085300322,
+							"parameters": {
+								"layout": "Smelter"
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 945567855021545,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						}
+					],
+					"sid": 481309257163256
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 473729015117199,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Smelter_Door"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 661791289966064,
+							"parameters": {
+								"object": "Smelter_Door"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "hide-inventory",
+							"objectClass": "Inventory",
+							"sid": 707561086899449,
+							"parameters": {
+								"param0": "\"Inventory_Consumables\""
+							}
+						},
+						{
+							"id": "hide-inventory",
+							"objectClass": "Inventory",
+							"sid": 532096662804853,
+							"parameters": {
+								"param0": "\"Inventory_Miner\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 893619923982769,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 346001293519839,
+							"parameters": {
+								"layout": "Smelter"
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 789671717386646,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						}
+					],
+					"sid": 675381220410945
 				}
 			],
 			"sid": 673306627574670
