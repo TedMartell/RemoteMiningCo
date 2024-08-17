@@ -72,6 +72,16 @@
 			"sid": 734541701940952
 		},
 		{
+			"eventType": "variable",
+			"name": "myPeerId",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 170190833228045
+		},
+		{
 			"eventType": "group",
 			"disabled": true,
 			"title": "Buildings",
@@ -832,6 +842,15 @@
 								"quantity-text-object": "SpriteFont",
 								"text-offset-x": "30",
 								"text-offset-y": "12"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 790860578758372,
+							"parameters": {
+								"variable": "myPeerId",
+								"value": "Multiplayer.MyID"
 							}
 						}
 					],
@@ -1762,14 +1781,9 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 483444454475140,
-									"parameters": {
-										"instance-variable": "PEERID",
-										"comparison": 0,
-										"value": "Multiplayer.MyID"
-									}
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 349880312865593
 								}
 							],
 							"actions": [
@@ -1802,7 +1816,7 @@
 									"actions": [
 										{
 											"type": "script",
-											"script": "// get inventory item type\nlocalVars.inventoryItemType = Object.keys(inventoryItemTypes)[localVars.inventoryItemTypeIndex]\n// get miner box instance\nconst minerBox = runtime.objects.Miner_Box.getFirstInstance()\n// get number of items of item type in minerbox\nlocalVars.numItemsOfItemTypeInMinerBox = minerBox.instVars[localVars.inventoryItemType]"
+											"script": "// get inventory item type\nlocalVars.inventoryItemType = Object.keys(inventoryItemTypes)[localVars.inventoryItemTypeIndex]\n// get miner box instance\nconst minerBoxes = runtime.objects.Miner_Box.getAllInstances()\nfor (var i = 0; i < minerBoxes.length; i++) {\n  var minerBox = minerBoxes[i]\n  if (minerBox.instVars[\"PEERID\"] == runtime.globalVars.myPeerId) {\n  \t// get number of items of item type in minerbox\n\tlocalVars.numItemsOfItemTypeInMinerBox = minerBox.instVars[localVars.inventoryItemType]\n  }\n}"
 										},
 										{
 											"id": "add-to-eventvar",
@@ -1929,12 +1943,7 @@
 																	}
 																}
 															],
-															"actions": [
-																{
-																	"type": "script",
-																	"script": "console.log(localVars.itemType)\nconsole.log(localVars.inventoryItemType)\nconsole.log(localVars.itemQuantity)\nconsole.log(localVars.numItemsOfItemTypeInMinerBox)"
-																}
-															],
+															"actions": [],
 															"sid": 873232564671043,
 															"children": [
 																{
@@ -3931,11 +3940,11 @@
 								{
 									"id": "on-object-clicked",
 									"objectClass": "Mouse",
-									"sid": 478590281592665,
+									"sid": 999409107081792,
 									"parameters": {
 										"mouse-button": "right",
 										"click-type": "clicked",
-										"object-clicked": "Inventory_Sprites"
+										"object-clicked": "minerInventory_Slot_Art"
 									}
 								},
 								{
@@ -3951,10 +3960,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 279470185596772,
+									"sid": 993087149440005,
 									"parameters": {
 										"variable": "itemId",
-										"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.AbsoluteX, Mouse.AbsoluteY)"
+										"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", CanvasToLayerX(\"HUD\", Mouse.AbsoluteX, Mouse.AbsoluteY), CanvasToLayerY(\"HUD\", Mouse.AbsoluteX, Mouse.AbsoluteY))"
 									}
 								},
 								{
@@ -3986,11 +3995,11 @@
 								{
 									"id": "on-object-clicked",
 									"objectClass": "Mouse",
-									"sid": 506209209295372,
+									"sid": 211572583613809,
 									"parameters": {
 										"mouse-button": "right",
 										"click-type": "clicked",
-										"object-clicked": "Inventory_Sprites"
+										"object-clicked": "minerInventory_Slot_Art"
 									}
 								}
 							],
@@ -3998,10 +4007,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 928104779889510,
+									"sid": 919781964324548,
 									"parameters": {
 										"variable": "itemId",
-										"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.AbsoluteX, Mouse.AbsoluteY)"
+										"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", CanvasToLayerX(\"HUD\", Mouse.AbsoluteX, Mouse.AbsoluteY), CanvasToLayerY(\"HUD\", Mouse.AbsoluteX, Mouse.AbsoluteY))"
 									}
 								},
 								{
@@ -4053,12 +4062,12 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 460522016014192,
+							"sid": 408216816711944,
 							"parameters": {
 								"object-to-create": "Miner_Box",
 								"layer": "\"Player\"",
-								"x": "576",
-								"y": "704",
+								"x": "600",
+								"y": "690",
 								"create-hierarchy": true,
 								"template-name": "\"\""
 							}
@@ -5949,6 +5958,16 @@
 					"children": [
 						{
 							"eventType": "variable",
+							"name": "peerId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 723235740899509
+						},
+						{
+							"eventType": "variable",
 							"name": "ItemId",
 							"type": "string",
 							"initialValue": "",
@@ -5968,115 +5987,100 @@
 							"sid": 209258197228637
 						},
 						{
+							"eventType": "comment",
+							"text": "Host input"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 169782375365081,
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 357576988474973,
 									"parameters": {
-										"instance-variable": "PEERID",
-										"comparison": 0,
-										"value": "Multiplayer.MyID"
+										"mouse-button": "right",
+										"click-type": "clicked",
+										"object-clicked": "minerInventory_Slot_Art"
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 534575490491819,
+									"parameters": {
+										"key": 16
 									}
 								}
 							],
-							"actions": [],
-							"sid": 601737829904051,
-							"children": [
+							"actions": [
 								{
-									"eventType": "comment",
-									"text": " Miner Inventory"
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 772574165108849,
+									"parameters": {
+										"variable": "ItemId",
+										"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", CanvasToLayerX(\"HUD\", Mouse.AbsoluteX, Mouse.AbsoluteY), CanvasToLayerY(\"HUD\", Mouse.AbsoluteX, Mouse.AbsoluteY))"
+									}
 								},
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-object-clicked",
-											"objectClass": "Mouse",
-											"sid": 646020132366960,
-											"parameters": {
-												"mouse-button": "right",
-												"click-type": "clicked",
-												"object-clicked": "Inventory_Sprites"
-											}
-										},
-										{
-											"id": "key-is-down",
-											"objectClass": "Keyboard",
-											"sid": 509638170825148,
-											"parameters": {
-												"key": 16
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 246621573810486,
-											"parameters": {
-												"variable": "ItemId",
-												"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.AbsoluteX, Mouse.AbsoluteY)"
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 368736067620471,
-											"parameters": {
-												"variable": "ItemType",
-												"value": "Inventory.ItemType(ItemId)"
-											}
-										},
-										{
-											"type": "script",
-											"script": "const minerBox = runtime.objects.Miner_Box.getFirstInstance()\nminerBox.instVars[localVars.ItemType] = 0"
-										}
-									],
-									"sid": 268902797181191
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 907080887209116,
+									"parameters": {
+										"variable": "ItemType",
+										"value": "Inventory.ItemType(ItemId)"
+									}
 								},
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-object-clicked",
-											"objectClass": "Mouse",
-											"sid": 774310773339617,
-											"parameters": {
-												"mouse-button": "right",
-												"click-type": "clicked",
-												"object-clicked": "Inventory_Sprites"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 889705001693408,
-											"parameters": {
-												"variable": "ItemId",
-												"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.AbsoluteX, Mouse.AbsoluteY)"
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 710173824005495,
-											"parameters": {
-												"variable": "ItemType",
-												"value": "Inventory.ItemType(ItemId)"
-											}
-										},
-										{
-											"type": "script",
-											"script": "const minerBox = runtime.objects.Miner_Box.getFirstInstance()\nminerBox.instVars[localVars.ItemType] -= 1"
-										}
-									],
-									"sid": 135161491268251
+									"type": "script",
+									"script": "const minerBoxes = runtime.objects.Miner_Box.getAllInstances()\nfor (var i = 0; i < minerBoxes.length; i++) {\n  var minerBox = minerBoxes[i]\n  if (minerBox.instVars[\"PEERID\"] == runtime.globalVars.myPeerId) {\n  \tminerBox.instVars[localVars.ItemType] = 0\n  }\n}"
 								}
-							]
+							],
+							"sid": 794168436234727
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 689238463527140,
+									"parameters": {
+										"mouse-button": "right",
+										"click-type": "clicked",
+										"object-clicked": "minerInventory_Slot_Art"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 619491242285997,
+									"parameters": {
+										"variable": "ItemId",
+										"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", CanvasToLayerX(\"HUD\", Mouse.AbsoluteX, Mouse.AbsoluteY), CanvasToLayerY(\"HUD\", Mouse.AbsoluteX, Mouse.AbsoluteY))"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 401547729743150,
+									"parameters": {
+										"variable": "ItemType",
+										"value": "Inventory.ItemType(ItemId)"
+									}
+								},
+								{
+									"type": "script",
+									"script": "const minerBoxes = runtime.objects.Miner_Box.getAllInstances()\nfor (var i = 0; i < minerBoxes.length; i++) {\n  var minerBox = minerBoxes[i]\n  if (minerBox.instVars[\"PEERID\"] == runtime.globalVars.myPeerId) {\n  \tminerBox.instVars[localVars.ItemType] -= 1\n  }\n}"
+								}
+							],
+							"sid": 138464066657296
+						},
+						{
+							"eventType": "comment",
+							"text": "Peer input"
 						},
 						{
 							"eventType": "block",
@@ -6090,41 +6094,31 @@
 									}
 								}
 							],
-							"actions": [],
-							"sid": 523777462286782,
-							"children": [
+							"actions": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Miner_Box",
-											"sid": 700149427891910,
-											"parameters": {
-												"instance-variable": "PEERID",
-												"comparison": 0,
-												"value": "Multiplayer.FromID"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 397396433349484,
-											"parameters": {
-												"variable": "ItemType",
-												"value": "Multiplayer.Message"
-											}
-										},
-										{
-											"type": "script",
-											"script": "const minerBox = runtime.objects.Miner_Box.getFirstInstance()\nminerBox.instVars[localVars.ItemType] = 0"
-										}
-									],
-									"sid": 886772083175832
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 838374098427211,
+									"parameters": {
+										"variable": "ItemType",
+										"value": "Multiplayer.Message"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 255396295187393,
+									"parameters": {
+										"variable": "peerId",
+										"value": "Multiplayer.FromID"
+									}
+								},
+								{
+									"type": "script",
+									"script": "const minerBoxes = runtime.objects.Miner_Box.getAllInstances()\nfor (var i = 0; i < minerBoxes.length; i++) {\n  var minerBox = minerBoxes[i]\n  if (minerBox.instVars[\"PEERID\"] == localVars.peerId) {\n  \tminerBox.instVars[localVars.ItemType] = 0\n  }\n}"
 								}
-							]
+							],
+							"sid": 523777462286782
 						},
 						{
 							"eventType": "block",
@@ -6138,41 +6132,31 @@
 									}
 								}
 							],
-							"actions": [],
-							"sid": 449914388134797,
-							"children": [
+							"actions": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Miner_Box",
-											"sid": 844239616649677,
-											"parameters": {
-												"instance-variable": "PEERID",
-												"comparison": 0,
-												"value": "Multiplayer.FromID"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 891342392477160,
-											"parameters": {
-												"variable": "ItemType",
-												"value": "Multiplayer.Message"
-											}
-										},
-										{
-											"type": "script",
-											"script": "const minerBox = runtime.objects.Miner_Box.getFirstInstance()\nminerBox.instVars[localVars.ItemType] = 0"
-										}
-									],
-									"sid": 533807602329029
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 968106677525443,
+									"parameters": {
+										"variable": "ItemType",
+										"value": "Multiplayer.Message"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 563127061532790,
+									"parameters": {
+										"variable": "peerId",
+										"value": "Multiplayer.FromID"
+									}
+								},
+								{
+									"type": "script",
+									"script": "const minerBoxes = runtime.objects.Miner_Box.getAllInstances()\nfor (var i = 0; i < minerBoxes.length; i++) {\n  var minerBox = minerBoxes[i]\n  if (minerBox.instVars[\"PEERID\"] == localVars.peerId) {\n  \tminerBox.instVars[localVars.ItemType] -= 1\n  }\n}"
 								}
-							]
+							],
+							"sid": 449914388134797
 						}
 					],
 					"sid": 862677735742204
