@@ -39,11 +39,21 @@
 				{
 					"id": "on-object-clicked",
 					"objectClass": "Mouse",
-					"sid": 645001325604215,
+					"sid": 690076330441468,
 					"parameters": {
 						"mouse-button": "left",
 						"click-type": "clicked",
-						"object-clicked": "Add_Dynamite"
+						"object-clicked": "Add_To_Cart_Dynamite_Text"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 702228420614493,
+					"parameters": {
+						"variable": "Money_Int",
+						"comparison": 5,
+						"value": "5"
 					}
 				}
 			],
@@ -58,19 +68,22 @@
 						"inventory-id": "\"Inventory_Consumables\"",
 						"slot-id": "\"\""
 					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 296632223790783,
+					"parameters": {
+						"variable": "Money_Int",
+						"value": "Money_Int -5"
+					}
 				}
 			],
 			"sid": 156822066175318
 		},
 		{
 			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-clicked",
-					"objectClass": "Button",
-					"sid": 473164344282456
-				}
-			],
+			"conditions": [],
 			"actions": [
 				{
 					"id": "create-item",
@@ -85,6 +98,27 @@
 				}
 			],
 			"sid": 465263666218441
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 553417437533442
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Money_Text",
+					"sid": 717006824682164,
+					"parameters": {
+						"text": "Money_Int &\" $\""
+					}
+				}
+			],
+			"sid": 983206079652124
 		}
 	],
 	"sid": 842858612308038

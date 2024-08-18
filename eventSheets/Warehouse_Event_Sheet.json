@@ -2,6 +2,16 @@
 	"name": "Warehouse_Event_Sheet",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "GlobalInventory",
+			"type": "string",
+			"initialValue": "`\\nTotal Value: ${inventory.value}\\nTotal Weight: ${inventory.weight}`\"",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 125903471482181
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -136,7 +146,7 @@
 						},
 						{
 							"type": "script",
-							"script": "moveAllItems(minerInventory, globalInventory)"
+							"script": "moveAllItems(minerInventory, globalInventory)\n"
 						}
 					],
 					"sid": 991529531796491
@@ -153,7 +163,20 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": ""
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Inventory_Global_Text",
+							"sid": 338320819275264,
+							"parameters": {
+								"text": "GlobalInventory"
+							}
+						}
+					],
 					"sid": 900975528095889,
 					"children": [
 						{
@@ -234,7 +257,16 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "runtime.globalVars.GlobalInventory = updateInventoryText(globalInventory)"
+						},
+						{
+							"type": "script",
+							"script": "console.log(runtime.globalVars.GlobalInventory)"
+						}
+					],
 					"sid": 571375505743230,
 					"children": [
 						{

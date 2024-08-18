@@ -42,6 +42,16 @@
 			"sid": 345157577216506
 		},
 		{
+			"eventType": "variable",
+			"name": "Money_Int",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 881426905345680
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Player Inputs",
@@ -978,10 +988,10 @@
 						{
 							"id": "subtract-from-instvar",
 							"objectClass": "Dirt_Block",
-							"sid": 203707565534308,
+							"sid": 842256937648471,
 							"parameters": {
 								"instance-variable": "HP",
-								"value": "0.1"
+								"value": "1"
 							}
 						}
 					],
@@ -1304,10 +1314,10 @@
 						{
 							"id": "subtract-from-instvar",
 							"objectClass": "Coal_Block",
-							"sid": 529798628850266,
+							"sid": 392225549298472,
 							"parameters": {
 								"instance-variable": "HP",
-								"value": "0.1"
+								"value": "1"
 							}
 						}
 					],
@@ -1682,10 +1692,10 @@
 						{
 							"id": "subtract-from-instvar",
 							"objectClass": "Quartz_Block",
-							"sid": 899028658454469,
+							"sid": 888744458748141,
 							"parameters": {
 								"instance-variable": "HP",
-								"value": "0.1"
+								"value": "1"
 							}
 						}
 					],
@@ -2066,10 +2076,10 @@
 						{
 							"id": "subtract-from-instvar",
 							"objectClass": "Aluminium_Block",
-							"sid": 117486351435041,
+							"sid": 278719142530049,
 							"parameters": {
 								"instance-variable": "HP",
-								"value": "0.1"
+								"value": "1"
 							}
 						}
 					],
@@ -3012,44 +3022,55 @@
 								{
 									"id": "create-item-type",
 									"objectClass": "Inventory",
-									"sid": 305492380653782,
+									"sid": 717610055075185,
 									"parameters": {
 										"type": "\"Coal_Inv\"",
 										"icon": "Coal_Inv_Sprite",
-										"max-stack": "10",
+										"max-stack": "1000000",
 										"destroy-at-stack-0": "yes"
 									}
 								},
 								{
 									"id": "create-item-type",
 									"objectClass": "Inventory",
-									"sid": 761298997604113,
+									"sid": 802022828731562,
 									"parameters": {
 										"type": "\"Quartz_Inv\"",
 										"icon": "Quartz_Inv_Sprite",
-										"max-stack": "10",
+										"max-stack": "1000000",
 										"destroy-at-stack-0": "yes"
 									}
 								},
 								{
 									"id": "create-item-type",
 									"objectClass": "Inventory",
-									"sid": 876688486390750,
+									"sid": 995006206111810,
 									"parameters": {
 										"type": "\"Aluminium_Ore_Inv\"",
 										"icon": "Aluminium_Ore_Inv_Sprite",
-										"max-stack": "10",
+										"max-stack": "1000000",
 										"destroy-at-stack-0": "yes"
 									}
 								},
 								{
 									"id": "create-item-type",
 									"objectClass": "Inventory",
-									"sid": 632951231542986,
+									"sid": 556070585910716,
 									"parameters": {
 										"type": "\"Dynamite_Inv\"",
 										"icon": "Dynamite_Inv_Sprite",
-										"max-stack": "10",
+										"max-stack": "1000",
+										"destroy-at-stack-0": "yes"
+									}
+								},
+								{
+									"id": "create-item-type",
+									"objectClass": "Inventory",
+									"sid": 166982550898940,
+									"parameters": {
+										"type": "\"Aluminium_Ingot_Inv\"",
+										"icon": "Aluminium_Ingot_Inv_Sprite",
+										"max-stack": "1000",
 										"destroy-at-stack-0": "yes"
 									}
 								}
@@ -3131,6 +3152,14 @@
 							"sid": 527064616210856,
 							"parameters": {
 								"text": "\"Value: \" & minerInventoryValue & \" Weight: \" & minerInventoryWeight"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Money_Text",
+							"sid": 514984653800734,
+							"parameters": {
+								"text": "Money_Int & \" $\""
 							}
 						}
 					],
@@ -3776,16 +3805,7 @@
 							"sid": 585208577461359
 						}
 					],
-					"actions": [
-						{
-							"id": "octaves",
-							"objectClass": "AdvancedRandom",
-							"sid": 426846324987291,
-							"parameters": {
-								"count": "1"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 911656787261721,
 					"children": [
 						{

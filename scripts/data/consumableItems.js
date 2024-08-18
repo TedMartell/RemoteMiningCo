@@ -11,12 +11,12 @@ Repair_Kit_Inv: {
 },
 Teleporter_Inv: {
     name: 'Teleporter',
-    value: 10,
+    value: 50,
     weight: 1,
 },
 TNT_Inv: {
     name: 'TNT',
-    value: 15,
+    value: 100,
     weight: 2,
 },
 Battery_Charger_Inv: {

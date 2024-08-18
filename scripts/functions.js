@@ -1,8 +1,10 @@
 import { miningItems } from "./data/miningItems.js"
+import { smeltedItems } from "./data/smeltedItems.js"
 import { consumableItems } from "./data/consumableItems.js"
 export const globalInventory = {items:{}, value: 0, weight:0};
 export const minerInventory = {items:{}, value: 0, weight:0};
 export const consumablesInventory = {items:{}, value: 0, weight:0};
+export const smelterInventory = {items:{}, value: 0, weight:0};
 
 export function destroyBlock(blockType) {
 	const blocks = blockType.instances();
@@ -88,5 +90,20 @@ export function moveItemWithQuantity(sourceInventory, destinationInventory, item
     if (removed) {
         addToInventory(destinationInventory, item, quantity);
     }
+}
+
+
+// Function to set text object with inventory
+export function updateInventoryText(inventory) {
+    let inventoryText = "";
+
+    for (let item in inventory.items) {
+        if (inventory.items.hasOwnProperty(item)) {
+            inventoryText += `${item}: ${inventory.items[item]}\n`;
+        }
+    }
+
+    inventoryText += `\nTotal Value: ${inventory.value}\nTotal Weight: ${inventory.weight}`;
+    
 }
 
