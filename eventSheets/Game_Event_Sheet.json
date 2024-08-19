@@ -711,6 +711,21 @@
 											}
 										},
 										{
+											"id": "sync-instance-variable",
+											"objectClass": "Multiplayer",
+											"sid": 575900224854532,
+											"parameters": {
+												"object": "Mining_Blocks_Family",
+												"instance-variable": {
+													"name": "animationNumber",
+													"objectClass": "Mining_Blocks_Family"
+												},
+												"precision": "very-low-uint8-1-byte",
+												"interpolation": "none",
+												"client-value-tag": "\"\""
+											}
+										},
+										{
 											"id": "sync-object-2",
 											"objectClass": "Multiplayer",
 											"sid": 864101590674998,
@@ -2135,6 +2150,124 @@
 			"description": "Events that are common to both the host and peers.",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Block Animation",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Mining_Blocks_Family",
+									"sid": 197570517845134,
+									"parameters": {
+										"instance-variable": "animationNumber",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Mining_Blocks_Family",
+									"sid": 874429674092292,
+									"parameters": {
+										"animation": "\"destroy_right\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Mining_Blocks_Family",
+									"sid": 518261663850957,
+									"parameters": {
+										"animation": "\"destroy_right\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 714312844151049
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Mining_Blocks_Family",
+									"sid": 379366663511369,
+									"parameters": {
+										"instance-variable": "animationNumber",
+										"comparison": 0,
+										"value": "2"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Mining_Blocks_Family",
+									"sid": 142886845517167,
+									"parameters": {
+										"animation": "\"destroy_left\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Mining_Blocks_Family",
+									"sid": 913086599072959,
+									"parameters": {
+										"animation": "\"destroy_left\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 879227419494386
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Mining_Blocks_Family",
+									"sid": 872071781910089,
+									"parameters": {
+										"instance-variable": "animationNumber",
+										"comparison": 0,
+										"value": "3"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Mining_Blocks_Family",
+									"sid": 229755691099988,
+									"parameters": {
+										"animation": "\"destroy_left\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Mining_Blocks_Family",
+									"sid": 238281646724154,
+									"parameters": {
+										"animation": "\"destroy_down\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 194202142883755
+						}
+					],
+					"sid": 778329255469044
+				},
 				{
 					"eventType": "group",
 					"disabled": false,
@@ -6215,34 +6348,9 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Miner_Drill",
-											"sid": 651342302284562,
-											"parameters": {
-												"object": "Mining_Blocks_Family"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "subtract-from-instvar",
-											"objectClass": "Mining_Blocks_Family",
-											"sid": 221887507602343,
-											"parameters": {
-												"instance-variable": "Hp",
-												"value": "0.1"
-											}
-										}
-									],
-									"sid": 568938934698503
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
 											"id": "compare-instance-variable",
 											"objectClass": "Miner_Animations",
-											"sid": 134347042125848,
+											"sid": 790470249607276,
 											"parameters": {
 												"instance-variable": "PEERID",
 												"comparison": 0,
@@ -6251,7 +6359,7 @@
 										}
 									],
 									"actions": [],
-									"sid": 630337426381280,
+									"sid": 335868854025056,
 									"children": [
 										{
 											"eventType": "block",
@@ -6259,7 +6367,7 @@
 												{
 													"id": "is-overlapping-another-object",
 													"objectClass": "Miner_Drill",
-													"sid": 695184972667028,
+													"sid": 494010394561264,
 													"parameters": {
 														"object": "Mining_Blocks_Family"
 													}
@@ -6267,7 +6375,7 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Miner_Animations",
-													"sid": 497148508032614,
+													"sid": 374875728627799,
 													"parameters": {
 														"instance-variable": "DIR_NUMBER",
 														"comparison": 0,
@@ -6279,14 +6387,14 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Miner_Animations",
-													"sid": 497301059844555,
+													"sid": 127669668946945,
 													"parameters": {
 														"instance-variable": "ANIM_NUMBER",
 														"value": "1"
 													}
 												}
 											],
-											"sid": 861831775926778
+											"sid": 409715391951400
 										},
 										{
 											"eventType": "block",
@@ -6294,7 +6402,7 @@
 												{
 													"id": "is-overlapping-another-object",
 													"objectClass": "Miner_Drill",
-													"sid": 333615065935438,
+													"sid": 738298864866920,
 													"parameters": {
 														"object": "Mining_Blocks_Family"
 													}
@@ -6302,7 +6410,7 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Miner_Animations",
-													"sid": 764659104194299,
+													"sid": 330923959298346,
 													"parameters": {
 														"instance-variable": "DIR_NUMBER",
 														"comparison": 0,
@@ -6314,14 +6422,14 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Miner_Animations",
-													"sid": 664796160767305,
+													"sid": 194098629739792,
 													"parameters": {
 														"instance-variable": "ANIM_NUMBER",
 														"value": "1"
 													}
 												}
 											],
-											"sid": 897845168275957
+											"sid": 806614448325589
 										},
 										{
 											"eventType": "block",
@@ -6329,7 +6437,7 @@
 												{
 													"id": "is-overlapping-another-object",
 													"objectClass": "Miner_Drill",
-													"sid": 826708221448750,
+													"sid": 927352558122029,
 													"parameters": {
 														"object": "Mining_Blocks_Family"
 													}
@@ -6337,7 +6445,7 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Miner_Animations",
-													"sid": 338316901665478,
+													"sid": 507113546877412,
 													"parameters": {
 														"instance-variable": "DIR_NUMBER",
 														"comparison": 0,
@@ -6349,14 +6457,168 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Miner_Animations",
-													"sid": 584865584925256,
+													"sid": 542942127805862,
 													"parameters": {
 														"instance-variable": "ANIM_NUMBER",
 														"value": "1"
 													}
 												}
 											],
-											"sid": 743004174543112
+											"sid": 941520079757871
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Miner_Drill",
+													"sid": 350911016269848,
+													"parameters": {
+														"object": "Mining_Blocks_Family"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Mining_Blocks_Family",
+													"sid": 314340008899448,
+													"parameters": {
+														"instance-variable": "Hp",
+														"value": "0.1"
+													}
+												}
+											],
+											"sid": 476522808432786,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 987078008150221,
+															"parameters": {
+																"instance-variable": "Hp",
+																"comparison": 3,
+																"value": "0"
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 442349806664495,
+															"parameters": {
+																"animation": "\"destroy_right\""
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 114270768286915,
+															"parameters": {
+																"animation": "\"destroy_left\""
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 364387579864948,
+															"parameters": {
+																"animation": "\"destroy_down\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [],
+													"sid": 974015719074405,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Miner_Animations",
+																	"sid": 943603580087468,
+																	"parameters": {
+																		"instance-variable": "DIR_NUMBER",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Mining_Blocks_Family",
+																	"sid": 810872493404502,
+																	"parameters": {
+																		"instance-variable": "animationNumber",
+																		"value": "1"
+																	}
+																}
+															],
+															"sid": 976139352669337
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Miner_Animations",
+																	"sid": 852365074539204,
+																	"parameters": {
+																		"instance-variable": "DIR_NUMBER",
+																		"comparison": 0,
+																		"value": "2"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Mining_Blocks_Family",
+																	"sid": 804194010966875,
+																	"parameters": {
+																		"instance-variable": "animationNumber",
+																		"value": "2"
+																	}
+																}
+															],
+															"sid": 867854374384437
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Miner_Animations",
+																	"sid": 166835006326653,
+																	"parameters": {
+																		"instance-variable": "DIR_NUMBER",
+																		"comparison": 0,
+																		"value": "4"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Mining_Blocks_Family",
+																	"sid": 872403246156173,
+																	"parameters": {
+																		"instance-variable": "animationNumber",
+																		"value": "3"
+																	}
+																}
+															],
+															"sid": 572803242144996
+														}
+													]
+												}
+											]
 										}
 									]
 								}
@@ -6408,6 +6670,81 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Mining_Blocks_Family",
+									"sid": 827884426079737,
+									"parameters": {
+										"animation": "\"destroy_right\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Mining_Blocks_Family",
+									"sid": 962448136435358,
+									"parameters": {
+										"instance-variable": "animationNumber",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 258123849597780
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Mining_Blocks_Family",
+									"sid": 150294879154017,
+									"parameters": {
+										"animation": "\"destroy_left\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Mining_Blocks_Family",
+									"sid": 169403624621134,
+									"parameters": {
+										"instance-variable": "animationNumber",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 991177648369456
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Mining_Blocks_Family",
+									"sid": 312117146609865,
+									"parameters": {
+										"animation": "\"destroy_down\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Mining_Blocks_Family",
+									"sid": 260447233966024,
+									"parameters": {
+										"instance-variable": "animationNumber",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 665234350464442
+						},
+						{
 							"eventType": "comment",
 							"text": "Dirt"
 						},
@@ -6421,6 +6758,16 @@
 									"parameters": {
 										"instance-variable": "Hp",
 										"comparison": 3,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Dirt_Block",
+									"sid": 306937339848208,
+									"parameters": {
+										"instance-variable": "animationNumber",
+										"comparison": 0,
 										"value": "0"
 									}
 								}
@@ -6448,6 +6795,16 @@
 									"parameters": {
 										"instance-variable": "Hp",
 										"comparison": 3,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Dirt_Block",
+									"sid": 585828004208282,
+									"parameters": {
+										"instance-variable": "animationNumber",
+										"comparison": 0,
 										"value": "0"
 									}
 								}
@@ -6490,6 +6847,16 @@
 										"comparison": 3,
 										"value": "0"
 									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Dirt_Block",
+									"sid": 755377669586857,
+									"parameters": {
+										"instance-variable": "animationNumber",
+										"comparison": 0,
+										"value": "0"
+									}
 								}
 							],
 							"actions": [
@@ -6528,6 +6895,16 @@
 									"parameters": {
 										"instance-variable": "Hp",
 										"comparison": 3,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Dirt_Block",
+									"sid": 354253944273275,
+									"parameters": {
+										"instance-variable": "animationNumber",
+										"comparison": 0,
 										"value": "0"
 									}
 								}
