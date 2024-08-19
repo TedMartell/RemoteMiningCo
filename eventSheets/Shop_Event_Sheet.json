@@ -61,7 +61,7 @@
 				{
 					"id": "create-item",
 					"objectClass": "Inventory",
-					"sid": 597295878557229,
+					"sid": 486363234540422,
 					"parameters": {
 						"type": "\"Dynamite_Inv\"",
 						"quantity": "1",
@@ -83,21 +83,51 @@
 		},
 		{
 			"eventType": "block",
-			"conditions": [],
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 376595034617939,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Add_To_Cart_Teleporter_Text"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 374388429043913,
+					"parameters": {
+						"variable": "Money_Int",
+						"comparison": 5,
+						"value": "7"
+					}
+				}
+			],
 			"actions": [
 				{
 					"id": "create-item",
 					"objectClass": "Inventory",
-					"sid": 781741470296854,
+					"sid": 840939886428223,
 					"parameters": {
-						"type": "\"Dynamite_Inv\"",
+						"type": "\"Teleporter_Inv\"",
 						"quantity": "1",
 						"inventory-id": "\"Inventory_Consumables\"",
 						"slot-id": "\"\""
 					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 764828418803512,
+					"parameters": {
+						"variable": "Money_Int",
+						"value": "Money_Int -7"
+					}
 				}
 			],
-			"sid": 465263666218441
+			"sid": 934753845694526
 		},
 		{
 			"eventType": "block",

@@ -3055,7 +3055,18 @@
 								{
 									"id": "create-item-type",
 									"objectClass": "Inventory",
-									"sid": 556070585910716,
+									"sid": 198680348622579,
+									"parameters": {
+										"type": "\"Teleporter_Inv\"",
+										"icon": "Teleporter_Inv_Sprite",
+										"max-stack": "1000000",
+										"destroy-at-stack-0": "yes"
+									}
+								},
+								{
+									"id": "create-item-type",
+									"objectClass": "Inventory",
+									"sid": 328395297814850,
 									"parameters": {
 										"type": "\"Dynamite_Inv\"",
 										"icon": "Dynamite_Inv_Sprite",
@@ -3072,6 +3083,28 @@
 										"icon": "Aluminium_Ingot_Inv_Sprite",
 										"max-stack": "1000",
 										"destroy-at-stack-0": "yes"
+									}
+								},
+								{
+									"id": "create-item",
+									"objectClass": "Inventory",
+									"sid": 105944122699816,
+									"parameters": {
+										"type": "\"Dynamite_Inv\"",
+										"quantity": "5",
+										"inventory-id": "\"Inventory_Consumables\"",
+										"slot-id": "\"0\""
+									}
+								},
+								{
+									"id": "create-item",
+									"objectClass": "Inventory",
+									"sid": 464223966747046,
+									"parameters": {
+										"type": "\"Teleporter_Inv\"",
+										"quantity": "2",
+										"inventory-id": "\"Inventory_Consumables\"",
+										"slot-id": "\"1\""
 									}
 								}
 							],
@@ -3785,6 +3818,111 @@
 						}
 					],
 					"sid": 881952387361236
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 637303448682850,
+							"parameters": {
+								"key": 90
+							}
+						},
+						{
+							"id": "is-item-type-in-inventory",
+							"objectClass": "Inventory",
+							"sid": 112934934454584,
+							"parameters": {
+								"inventory-id": "\"Inventory_Consumables\"",
+								"type": "\"Teleporter_Inv\"",
+								"quantity": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Miner_Animations",
+							"sid": 104978012374275,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Pixellate\""
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Miner_Animations",
+							"sid": 454722898456238,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Swirl\""
+							}
+						},
+						{
+							"id": "set-item-quantity",
+							"objectClass": "Inventory",
+							"sid": 490482274828642,
+							"parameters": {
+								"param0": "Consumable_ID",
+								"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 822131690233475,
+							"parameters": {
+								"variable": "Consumable_ID",
+								"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 1)"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 661558893962575,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Miner_Box",
+							"sid": 418932249184180,
+							"parameters": {
+								"x": "320",
+								"y": "1216"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 698535784897730,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Miner_Animations",
+							"sid": 471953740476761,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Pixellate\""
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Miner_Animations",
+							"sid": 955191949564778,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Swirl\""
+							}
+						}
+					],
+					"sid": 997057461793416
 				}
 			],
 			"sid": 435002656982759
