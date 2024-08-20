@@ -52,6 +52,46 @@
 			"sid": 881426905345680
 		},
 		{
+			"eventType": "variable",
+			"name": "Energy",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 578415919438555
+		},
+		{
+			"eventType": "variable",
+			"name": "Energy_Bar_Original_Width",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 845748603818493
+		},
+		{
+			"eventType": "variable",
+			"name": "Max_HP",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 328298552999091
+		},
+		{
+			"eventType": "variable",
+			"name": "Current_HP",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 330088787366114
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Player Inputs",
@@ -3077,6 +3117,17 @@
 								{
 									"id": "create-item-type",
 									"objectClass": "Inventory",
+									"sid": 483707647131642,
+									"parameters": {
+										"type": "\"Battery_Inv\"",
+										"icon": "Battery_Inv_Sprite",
+										"max-stack": "1000",
+										"destroy-at-stack-0": "yes"
+									}
+								},
+								{
+									"id": "create-item-type",
+									"objectClass": "Inventory",
 									"sid": 166982550898940,
 									"parameters": {
 										"type": "\"Aluminium_Ingot_Inv\"",
@@ -3099,10 +3150,21 @@
 								{
 									"id": "create-item",
 									"objectClass": "Inventory",
-									"sid": 464223966747046,
+									"sid": 179509031539205,
+									"parameters": {
+										"type": "\"Battery_Inv\"",
+										"quantity": "5",
+										"inventory-id": "\"Inventory_Consumables\"",
+										"slot-id": "\"2\""
+									}
+								},
+								{
+									"id": "create-item",
+									"objectClass": "Inventory",
+									"sid": 847137306398099,
 									"parameters": {
 										"type": "\"Teleporter_Inv\"",
-										"quantity": "2",
+										"quantity": "5",
 										"inventory-id": "\"Inventory_Consumables\"",
 										"slot-id": "\"1\""
 									}
@@ -3152,6 +3214,15 @@
 								"height-type": "no",
 								"z": false
 							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 977584611995827,
+							"parameters": {
+								"variable": "Energy_Bar_Original_Width",
+								"value": "Energy_Bar.Width"
+							}
 						}
 					],
 					"sid": 215528164269866
@@ -3193,6 +3264,30 @@
 							"sid": 514984653800734,
 							"parameters": {
 								"text": "Money_Int & \" $\""
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "Energy_Bar",
+							"sid": 620797385305294,
+							"parameters": {
+								"width": "Energy_Bar_Original_Width* (Energy / 100)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Energy_Level_Text",
+							"sid": 219942148769987,
+							"parameters": {
+								"text": "round(Energy) & \" %\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "HP_Level_Text",
+							"sid": 667758334477641,
+							"parameters": {
+								"text": "round(Miner_Box.HP) & \" / \" & floor(Max_HP)"
 							}
 						}
 					],
@@ -3861,21 +3956,21 @@
 							}
 						},
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 975223780061170,
+							"parameters": {
+								"variable": "Consumable_ID",
+								"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 1)"
+							}
+						},
+						{
 							"id": "set-item-quantity",
 							"objectClass": "Inventory",
 							"sid": 490482274828642,
 							"parameters": {
 								"param0": "Consumable_ID",
 								"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 822131690233475,
-							"parameters": {
-								"variable": "Consumable_ID",
-								"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 1)"
 							}
 						},
 						{
@@ -3923,6 +4018,148 @@
 						}
 					],
 					"sid": 997057461793416
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 135809313137503,
+							"parameters": {
+								"key": 66
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 188419743838563,
+							"parameters": {
+								"first-value": "Energy",
+								"comparison": 4,
+								"second-value": "50"
+							}
+						},
+						{
+							"id": "is-item-type-in-inventory",
+							"objectClass": "Inventory",
+							"sid": 504661842416368,
+							"parameters": {
+								"inventory-id": "\"Inventory_Consumables\"",
+								"type": "\"Battery_Inv\"",
+								"quantity": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 220132829811448,
+							"parameters": {
+								"variable": "Energy",
+								"value": "100"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 583958945748629,
+							"parameters": {
+								"variable": "Consumable_ID",
+								"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 2)"
+							}
+						},
+						{
+							"id": "set-item-quantity",
+							"objectClass": "Inventory",
+							"sid": 673754573363330,
+							"parameters": {
+								"param0": "Consumable_ID",
+								"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Energy_Bar",
+							"sid": 824208027844262,
+							"parameters": {
+								"color": "rgbEx(24, 180, 29)"
+							}
+						}
+					],
+					"sid": 534182845525408
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 766990798725594,
+							"parameters": {
+								"key": 66
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 375789548090142,
+							"parameters": {
+								"first-value": "Energy",
+								"comparison": 2,
+								"second-value": "50"
+							}
+						},
+						{
+							"id": "is-item-type-in-inventory",
+							"objectClass": "Inventory",
+							"sid": 793785927205912,
+							"parameters": {
+								"inventory-id": "\"Inventory_Consumables\"",
+								"type": "\"Battery_Inv\"",
+								"quantity": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 350758774066110,
+							"parameters": {
+								"variable": "Energy",
+								"value": "50"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 317951288175808,
+							"parameters": {
+								"variable": "Consumable_ID",
+								"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 2)"
+							}
+						},
+						{
+							"id": "set-item-quantity",
+							"objectClass": "Inventory",
+							"sid": 917480814396839,
+							"parameters": {
+								"param0": "Consumable_ID",
+								"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Energy_Bar",
+							"sid": 152268416622539,
+							"parameters": {
+								"color": "rgbEx(24, 180, 29)"
+							}
+						}
+					],
+					"sid": 625193126684168
 				}
 			],
 			"sid": 435002656982759
@@ -4196,6 +4433,146 @@
 				}
 			],
 			"sid": 902604879290295
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Energy & Health Bar",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Energy Bar"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "Miner_Box",
+							"sid": 265800580352390,
+							"behaviorType": "Platform"
+						},
+						{
+							"id": "compare-width",
+							"objectClass": "Energy_Bar",
+							"sid": 850549755070008,
+							"parameters": {
+								"comparison": 4,
+								"width": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 397161720162158,
+							"parameters": {
+								"variable": "Energy",
+								"value": "Miner_Box.Platform.Speed / 10000"
+							}
+						},
+						{
+							"type": "script",
+							"script": ""
+						}
+					],
+					"sid": 534351141173241
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 240675964563690
+						}
+					],
+					"actions": [],
+					"sid": 541758334438579,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 749060676572762,
+									"parameters": {
+										"variable": "Energy",
+										"comparison": 2,
+										"value": "25"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "Energy_Bar",
+									"sid": 416676062423582,
+									"parameters": {
+										"color": "rgbEx(255, 0, 0)"
+									}
+								}
+							],
+							"sid": 717872715108783
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Drill",
+									"sid": 924161226440623,
+									"parameters": {
+										"object": "Mining_Blocks_Family"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 886021053547732,
+									"parameters": {
+										"variable": "Energy",
+										"value": "0.01"
+									}
+								}
+							],
+							"sid": 504027256750547
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 198551774026420
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Health Bar"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 669836044824656,
+							"parameters": {
+								"object": "Mining_Blocks_Family"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 766001892505168
+				}
+			],
+			"sid": 679224247436887
 		}
 	],
 	"sid": 196935397098049

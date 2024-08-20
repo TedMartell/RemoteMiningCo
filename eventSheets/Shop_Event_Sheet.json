@@ -133,6 +133,54 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 974093377571799,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Add_To_Cart_Battery_Text"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 370775774541500,
+					"parameters": {
+						"variable": "Money_Int",
+						"comparison": 5,
+						"value": "20"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-item",
+					"objectClass": "Inventory",
+					"sid": 250585871940049,
+					"parameters": {
+						"type": "\"Battery_Inv\"",
+						"quantity": "1",
+						"inventory-id": "\"Inventory_Consumables\"",
+						"slot-id": "\"\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 573314976502326,
+					"parameters": {
+						"variable": "Money_Int",
+						"value": "Money_Int -20"
+					}
+				}
+			],
+			"sid": 162524418384230
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "every-tick",
 					"objectClass": "System",
 					"sid": 553417437533442
