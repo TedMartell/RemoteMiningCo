@@ -53,16 +53,6 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "Energy",
-			"type": "number",
-			"initialValue": "100",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 578415919438555
-		},
-		{
-			"eventType": "variable",
 			"name": "Energy_Bar_Original_Width",
 			"type": "number",
 			"initialValue": "0",
@@ -73,23 +63,13 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "Max_HP",
+			"name": "HP_Bar_Original_Width",
 			"type": "number",
-			"initialValue": "100",
+			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 328298552999091
-		},
-		{
-			"eventType": "variable",
-			"name": "Current_HP",
-			"type": "number",
-			"initialValue": "100",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 330088787366114
+			"sid": 792185313659337
 		},
 		{
 			"eventType": "group",
@@ -467,6 +447,15 @@
 								"instance-variable": "DIR",
 								"value": "\"Up\""
 							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Box",
+							"sid": 339551058945136,
+							"parameters": {
+								"instance-variable": "Fall_Timer",
+								"value": "0"
+							}
 						}
 					],
 					"sid": 702971222367606
@@ -505,6 +494,15 @@
 							"parameters": {
 								"instance-variable": "DIR",
 								"value": "\"Down\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Box",
+							"sid": 401920550823218,
+							"parameters": {
+								"instance-variable": "Fall_Timer",
+								"value": "0"
 							}
 						}
 					],
@@ -3117,6 +3115,17 @@
 								{
 									"id": "create-item-type",
 									"objectClass": "Inventory",
+									"sid": 580604566607935,
+									"parameters": {
+										"type": "\"Repair_Kit_Inv\"",
+										"icon": "Repair_Kit_Inv_Sprite",
+										"max-stack": "1000",
+										"destroy-at-stack-0": "yes"
+									}
+								},
+								{
+									"id": "create-item-type",
+									"objectClass": "Inventory",
 									"sid": 483707647131642,
 									"parameters": {
 										"type": "\"Battery_Inv\"",
@@ -3150,6 +3159,17 @@
 								{
 									"id": "create-item",
 									"objectClass": "Inventory",
+									"sid": 679524995841909,
+									"parameters": {
+										"type": "\"Teleporter_Inv\"",
+										"quantity": "5",
+										"inventory-id": "\"Inventory_Consumables\"",
+										"slot-id": "\"1\""
+									}
+								},
+								{
+									"id": "create-item",
+									"objectClass": "Inventory",
 									"sid": 179509031539205,
 									"parameters": {
 										"type": "\"Battery_Inv\"",
@@ -3161,12 +3181,12 @@
 								{
 									"id": "create-item",
 									"objectClass": "Inventory",
-									"sid": 847137306398099,
+									"sid": 584484479485416,
 									"parameters": {
-										"type": "\"Teleporter_Inv\"",
+										"type": "\"Repair_Kit_Inv\"",
 										"quantity": "5",
 										"inventory-id": "\"Inventory_Consumables\"",
-										"slot-id": "\"1\""
+										"slot-id": "\"3\""
 									}
 								}
 							],
@@ -3223,6 +3243,15 @@
 								"variable": "Energy_Bar_Original_Width",
 								"value": "Energy_Bar.Width"
 							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 184581999030749,
+							"parameters": {
+								"variable": "HP_Bar_Original_Width",
+								"value": "HP_Bar.Width"
+							}
 						}
 					],
 					"sid": 215528164269866
@@ -3267,27 +3296,35 @@
 							}
 						},
 						{
-							"id": "set-width",
-							"objectClass": "Energy_Bar",
-							"sid": 620797385305294,
+							"id": "set-text",
+							"objectClass": "Energy_Level_Text",
+							"sid": 265760292440455,
 							"parameters": {
-								"width": "Energy_Bar_Original_Width* (Energy / 100)"
+								"text": "round(Miner_Box.Energy) & \" %\""
 							}
 						},
 						{
-							"id": "set-text",
-							"objectClass": "Energy_Level_Text",
-							"sid": 219942148769987,
+							"id": "set-width",
+							"objectClass": "Energy_Bar",
+							"sid": 182182007091129,
 							"parameters": {
-								"text": "round(Energy) & \" %\""
+								"width": "Energy_Bar_Original_Width* (Miner_Box.Energy / 100)"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "HP_Bar",
+							"sid": 777484643017072,
+							"parameters": {
+								"width": "HP_Bar_Original_Width * (Miner_Box.HP / 100)"
 							}
 						},
 						{
 							"id": "set-text",
 							"objectClass": "HP_Level_Text",
-							"sid": 667758334477641,
+							"sid": 915409426080255,
 							"parameters": {
-								"text": "round(Miner_Box.HP) & \" / \" & floor(Max_HP)"
+								"text": "round(Miner_Box.HP) & \" / \" & Miner_Box.Max_HP"
 							}
 						}
 					],
@@ -4031,13 +4068,23 @@
 							}
 						},
 						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 188419743838563,
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Box",
+							"sid": 843334013909263,
 							"parameters": {
-								"first-value": "Energy",
+								"instance-variable": "Energy",
+								"comparison": 2,
+								"value": "100"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Box",
+							"sid": 686448752785583,
+							"parameters": {
+								"instance-variable": "Energy",
 								"comparison": 4,
-								"second-value": "50"
+								"value": "50"
 							}
 						},
 						{
@@ -4053,11 +4100,11 @@
 					],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 220132829811448,
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Box",
+							"sid": 360026610933074,
 							"parameters": {
-								"variable": "Energy",
+								"instance-variable": "Energy",
 								"value": "100"
 							}
 						},
@@ -4102,13 +4149,23 @@
 							}
 						},
 						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 375789548090142,
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Box",
+							"sid": 888980735440404,
 							"parameters": {
-								"first-value": "Energy",
+								"instance-variable": "Energy",
 								"comparison": 2,
-								"second-value": "50"
+								"value": "100"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Box",
+							"sid": 137988267827386,
+							"parameters": {
+								"instance-variable": "Energy",
+								"comparison": 3,
+								"value": "50"
 							}
 						},
 						{
@@ -4124,11 +4181,11 @@
 					],
 					"actions": [
 						{
-							"id": "add-to-eventvar",
-							"objectClass": "System",
-							"sid": 350758774066110,
+							"id": "add-to-instvar",
+							"objectClass": "Miner_Box",
+							"sid": 163909383422838,
 							"parameters": {
-								"variable": "Energy",
+								"instance-variable": "Energy",
 								"value": "50"
 							}
 						},
@@ -4160,6 +4217,168 @@
 						}
 					],
 					"sid": 625193126684168
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 882179188031240,
+							"parameters": {
+								"key": 86
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Box",
+							"sid": 527499253913933,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 2,
+								"value": "Miner_Box.Max_HP"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Box",
+							"sid": 118096958511005,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 4,
+								"value": "80"
+							}
+						},
+						{
+							"id": "is-item-type-in-inventory",
+							"objectClass": "Inventory",
+							"sid": 546210279880287,
+							"parameters": {
+								"inventory-id": "\"Inventory_Consumables\"",
+								"type": "\"Repair_Kit_Inv\"",
+								"quantity": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Box",
+							"sid": 431422088255075,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "100"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 706921713600383,
+							"parameters": {
+								"variable": "Consumable_ID",
+								"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 3)"
+							}
+						},
+						{
+							"id": "set-item-quantity",
+							"objectClass": "Inventory",
+							"sid": 971702624157705,
+							"parameters": {
+								"param0": "Consumable_ID",
+								"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "HP_Bar",
+							"sid": 841945500311324,
+							"parameters": {
+								"color": "rgbEx(24, 180, 29)"
+							}
+						}
+					],
+					"sid": 648519482350710
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 259115224726905,
+							"parameters": {
+								"key": 86
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Box",
+							"sid": 246225425840036,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 2,
+								"value": "Miner_Box.Max_HP"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Box",
+							"sid": 327532051555155,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "80"
+							}
+						},
+						{
+							"id": "is-item-type-in-inventory",
+							"objectClass": "Inventory",
+							"sid": 846554466426366,
+							"parameters": {
+								"inventory-id": "\"Inventory_Consumables\"",
+								"type": "\"Repair_Kit_Inv\"",
+								"quantity": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Miner_Box",
+							"sid": 482392674127711,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "20"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 319632008627164,
+							"parameters": {
+								"variable": "Consumable_ID",
+								"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 3)"
+							}
+						},
+						{
+							"id": "set-item-quantity",
+							"objectClass": "Inventory",
+							"sid": 935029998630450,
+							"parameters": {
+								"param0": "Consumable_ID",
+								"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "HP_Bar",
+							"sid": 458317354397113,
+							"parameters": {
+								"color": "rgbEx(24, 180, 29)"
+							}
+						}
+					],
+					"sid": 534560045132112
 				}
 			],
 			"sid": 435002656982759
@@ -4466,11 +4685,11 @@
 					],
 					"actions": [
 						{
-							"id": "subtract-from-eventvar",
-							"objectClass": "System",
-							"sid": 397161720162158,
+							"id": "subtract-from-instvar",
+							"objectClass": "Miner_Box",
+							"sid": 227935101674435,
 							"parameters": {
-								"variable": "Energy",
+								"instance-variable": "Energy",
 								"value": "Miner_Box.Platform.Speed / 10000"
 							}
 						},
@@ -4497,11 +4716,11 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 749060676572762,
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 375450981507731,
 									"parameters": {
-										"variable": "Energy",
+										"instance-variable": "Energy",
 										"comparison": 2,
 										"value": "25"
 									}
@@ -4523,6 +4742,32 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 220630586999881,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 2,
+										"value": "25"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "HP_Bar",
+									"sid": 408811086520018,
+									"parameters": {
+										"color": "rgbEx(255, 0, 0)"
+									}
+								}
+							],
+							"sid": 789211319257776
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Miner_Drill",
 									"sid": 924161226440623,
@@ -4533,11 +4778,11 @@
 							],
 							"actions": [
 								{
-									"id": "subtract-from-eventvar",
-									"objectClass": "System",
-									"sid": 886021053547732,
+									"id": "subtract-from-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 173027232827563,
 									"parameters": {
-										"variable": "Energy",
+										"instance-variable": "Energy",
 										"value": "0.01"
 									}
 								}
@@ -4560,16 +4805,231 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-collision-with-another-object",
+							"id": "is-falling",
 							"objectClass": "Miner_Box",
-							"sid": 669836044824656,
+							"sid": 591422514205236,
+							"behaviorType": "Platform"
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 693672203867775,
 							"parameters": {
-								"object": "Mining_Blocks_Family"
+								"interval-seconds": "0.5"
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Miner_Box",
+							"sid": 859509819136724,
+							"parameters": {
+								"instance-variable": "Fall_Timer",
+								"value": "0.5"
+							}
+						},
+						{
+							"type": "script",
+							"script": "// Assuming you want to log the first instance of Miner_Box\nconst minerBoxInstance = runtime.objects.Miner_Box.getFirstPickedInstance();\n\n// Log the value of Fall_Timer\nif (minerBoxInstance) {\n    console.log(minerBoxInstance.instVars.Fall_Timer);\n} else {\n    console.log(\"No Miner_Box instance found.\");\n}\n"
+						}
+					],
 					"sid": 766001892505168
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-landed",
+							"objectClass": "Miner_Box",
+							"sid": 643515260500599,
+							"behaviorType": "Platform"
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Box",
+							"sid": 222288869229777,
+							"parameters": {
+								"instance-variable": "Fall_Timer",
+								"comparison": 5,
+								"value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Miner_Box",
+							"sid": 960747845316729,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "20"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Box",
+							"sid": 863868918594442,
+							"parameters": {
+								"instance-variable": "Fall_Timer",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Miner_Animations",
+							"sid": 193885437124123,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"HardLight\""
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "HP_Bar",
+							"sid": 790100220951787,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"HardLight\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 525557620615161,
+							"parameters": {
+								"seconds": "0.25"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "HP_Bar",
+							"sid": 267229925639138,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"HardLight\""
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Miner_Animations",
+							"sid": 160934731685730,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"HardLight\""
+							}
+						}
+					],
+					"sid": 872728210845057
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-landed",
+							"objectClass": "Miner_Box",
+							"sid": 108492999839317,
+							"behaviorType": "Platform"
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Box",
+							"sid": 574747508847201,
+							"parameters": {
+								"instance-variable": "Fall_Timer",
+								"comparison": 5,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Miner_Box",
+							"sid": 937875848209936,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "10"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Box",
+							"sid": 368570493440044,
+							"parameters": {
+								"instance-variable": "Fall_Timer",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Miner_Animations",
+							"sid": 934233625733754,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"HardLight\""
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "HP_Bar",
+							"sid": 127833127474667,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"HardLight\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 654995836034744,
+							"parameters": {
+								"seconds": "0.25"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "HP_Bar",
+							"sid": 432759784900704,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"HardLight\""
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Miner_Animations",
+							"sid": 132372008107435,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"HardLight\""
+							}
+						}
+					],
+					"sid": 864622290120444
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-landed",
+							"objectClass": "Miner_Box",
+							"sid": 612027730356969,
+							"behaviorType": "Platform"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Miner_Box",
+							"sid": 829981287432726,
+							"parameters": {
+								"instance-variable": "Fall_Timer",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 848183928296516
 				}
 			],
 			"sid": 679224247436887

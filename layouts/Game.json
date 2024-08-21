@@ -452,7 +452,7 @@
 				{
 					"type": "Miner_Box",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -466,7 +466,11 @@
 						"RIGHT": false,
 						"DRILL": false,
 						"IDLE": false,
-						"HP": 100
+						"HP": 100,
+						"Energy": 100,
+						"Money": 100,
+						"Fall_Timer": 0,
+						"Max_HP": 100
 					},
 					"behaviors": {
 						"Platform": {
@@ -995,6 +999,12 @@
 					"uid": 41,
 					"instanceVariables": {},
 					"behaviors": {},
+					"effects": {
+						"HardLight": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
 					"world": {
 						"x": 704,
 						"y": 64,

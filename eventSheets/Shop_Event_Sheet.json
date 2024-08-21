@@ -97,11 +97,11 @@
 				{
 					"id": "compare-eventvar",
 					"objectClass": "System",
-					"sid": 374388429043913,
+					"sid": 348812789826917,
 					"parameters": {
 						"variable": "Money_Int",
 						"comparison": 5,
-						"value": "7"
+						"value": "50"
 					}
 				}
 			],
@@ -120,10 +120,10 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 764828418803512,
+					"sid": 452929541404282,
 					"parameters": {
 						"variable": "Money_Int",
-						"value": "Money_Int -7"
+						"value": "Money_Int -50"
 					}
 				}
 			],
@@ -176,6 +176,54 @@
 				}
 			],
 			"sid": 162524418384230
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 827822738138413,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Add_To_Cart_Repair_Kit_Text"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 463534328103384,
+					"parameters": {
+						"variable": "Money_Int",
+						"comparison": 5,
+						"value": "7"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-item",
+					"objectClass": "Inventory",
+					"sid": 950283170885461,
+					"parameters": {
+						"type": "\"Repair_Kit_Inv\"",
+						"quantity": "1",
+						"inventory-id": "\"Inventory_Consumables\"",
+						"slot-id": "\"\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 760757320371227,
+					"parameters": {
+						"variable": "Money_Int",
+						"value": "Money_Int -7"
+					}
+				}
+			],
+			"sid": 628918440484864
 		},
 		{
 			"eventType": "block",
