@@ -13,6 +13,8 @@ Aluminium_Ore_Inv: {
     name: 'Aluminium_Ore_Inv',
     value: 2,
     weight: 1,
+	page: 3,
+	index: 5,
 },
 ironOre: {
     name: 'Iron Ore',
