@@ -207,6 +207,14 @@
 									"parameters": {
 										"visibility": "invisible"
 									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Global_Inventory_Text",
+									"sid": 882284179703942,
+									"parameters": {
+										"visibility": "invisible"
+									}
 								}
 							],
 							"sid": 349714430211220
@@ -236,6 +244,14 @@
 									"id": "set-visible",
 									"objectClass": "Value_Weight_Text",
 									"sid": 939563746871220,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Global_Inventory_Text",
+									"sid": 391450747983913,
 									"parameters": {
 										"visibility": "visible"
 									}
@@ -515,6 +531,27 @@
 				}
 			],
 			"sid": 322701768866508
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 343159533659446
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Global_Inventory_Coal_Text",
+					"sid": 840272720003718,
+					"parameters": {
+						"text": "Global_Inventory_Object.Coal"
+					}
+				}
+			],
+			"sid": 450321097660799
 		}
 	],
 	"sid": 817926889311537
