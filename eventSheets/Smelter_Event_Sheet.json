@@ -96,134 +96,6 @@
 			"text": "Aluminium_Ingot Crafting recipe"
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-selected-item-text",
-					"objectClass": "List",
-					"sid": 958100172130684,
-					"parameters": {
-						"text-to-compare": "\"Aluminium Ingot\"",
-						"case-sensitivity": "ignore-case"
-					}
-				}
-			],
-			"actions": [
-				{
-					"type": "script",
-					"script": "runtime.globalVars.CraftingMaxAmount = Math.floor(globalInventory.items[\"Aluminium_Ore_Inv\"] / 2) || 0;\n"
-				}
-			],
-			"sid": 484434526383312,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "trigger-once-while-true",
-							"objectClass": "System",
-							"sid": 412308142594554
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 421205221754964,
-							"parameters": {
-								"variable": "CraftingItemType",
-								"value": "\"Aluminium_Ore_Inv\""
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 297488835175474,
-							"parameters": {
-								"variable": "CraftingAmount",
-								"value": "1"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 665713284054298,
-							"parameters": {
-								"variable": "RequiredCraftingItems",
-								"value": "2"
-							}
-						},
-						{
-							"id": "create-item",
-							"objectClass": "Inventory",
-							"sid": 962901688911700,
-							"parameters": {
-								"type": "\"Aluminium_Ore_Inv\"",
-								"quantity": "2",
-								"inventory-id": "\"Inventory_Smelter\"",
-								"slot-id": "\"\""
-							}
-						},
-						{
-							"type": "script",
-							"script": "runtime.globalVars.AvailableCraftingItems = globalInventory.items[\"Aluminium_Ore_Inv\"] || 0;\n"
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 976913731199215,
-							"parameters": {
-								"variable": "CraftingTimeRecipe",
-								"value": "3"
-							}
-						}
-					],
-					"sid": 544816123374169,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 954888961863240,
-									"parameters": {
-										"first-value": "AvailableCraftingItems",
-										"comparison": 5,
-										"second-value": "RequiredCraftingItems"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Crafting_Button",
-									"sid": 981741217283496,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 119254928155391,
-									"parameters": {
-										"object-to-create": "Crafting_Button",
-										"layer": "\"smelter\"",
-										"x": "288",
-										"y": "160",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								}
-							],
-							"sid": 160279154841293
-						}
-					]
-				}
-			]
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "On start of layout",
@@ -512,7 +384,7 @@
 								},
 								{
 									"id": "set-text",
-									"objectClass": "Clock",
+									"objectClass": "Smelter_Clock",
 									"sid": 989920229917898,
 									"parameters": {
 										"text": "zeropad(floor(CraftingTime/60),1) & \":\" & zeropad(floor(CraftingTime%60),2)"
@@ -682,7 +554,7 @@
 					"actions": [
 						{
 							"id": "set-text",
-							"objectClass": "Crafting_Amount_Text",
+							"objectClass": "Smelter_Crafting_Amount_Text",
 							"sid": 417416079646102,
 							"parameters": {
 								"text": "CraftingAmount"
@@ -701,7 +573,7 @@
 									"parameters": {
 										"mouse-button": "left",
 										"click-type": "clicked",
-										"object-clicked": "Subtract_Amount"
+										"object-clicked": "Smelter_Subtract_Amount"
 									}
 								}
 							],
@@ -774,7 +646,7 @@
 									"parameters": {
 										"mouse-button": "left",
 										"click-type": "clicked",
-										"object-clicked": "Add_Amount"
+										"object-clicked": "Smelter_Add_Amount"
 									}
 								}
 							],
@@ -830,7 +702,7 @@
 							"parameters": {
 								"mouse-button": "left",
 								"click-type": "clicked",
-								"object-clicked": "Max_Amount"
+								"object-clicked": "Smelter_Max_Amount"
 							}
 						}
 					],
@@ -888,7 +760,7 @@
 							"parameters": {
 								"mouse-button": "left",
 								"click-type": "clicked",
-								"object-clicked": "Crafting_Button"
+								"object-clicked": "Smelter_Crafting_Button"
 							}
 						}
 					],
@@ -969,6 +841,153 @@
 				}
 			],
 			"sid": 771875760768901
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Recipes",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-selected-item-text",
+							"objectClass": "Smelter_recipe_List",
+							"sid": 794881849329457,
+							"parameters": {
+								"text-to-compare": "\"Aluminium Ingot\"",
+								"case-sensitivity": "ignore-case"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "runtime.globalVars.CraftingMaxAmount = Math.floor(globalInventory.items[\"Aluminium_Ore_Inv\"] / 2) || 0;\n"
+						}
+					],
+					"sid": 198788901686485,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 796527906776366
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 944295714002493,
+									"parameters": {
+										"variable": "CraftingItemType",
+										"value": "\"Aluminium_Ore_Inv\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 581520586755855,
+									"parameters": {
+										"variable": "CraftingAmount",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 369725348911140,
+									"parameters": {
+										"variable": "RequiredCraftingItems",
+										"value": "2"
+									}
+								},
+								{
+									"id": "create-item",
+									"objectClass": "Inventory",
+									"sid": 532282278572540,
+									"parameters": {
+										"type": "\"Aluminium_Ore_Inv\"",
+										"quantity": "2",
+										"inventory-id": "\"Inventory_Smelter\"",
+										"slot-id": "\"\""
+									}
+								},
+								{
+									"type": "script",
+									"script": "runtime.globalVars.AvailableCraftingItems = globalInventory.items[\"Aluminium_Ore_Inv\"] || 0;\n"
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 554099325113314,
+									"parameters": {
+										"variable": "CraftingTimeRecipe",
+										"value": "3"
+									}
+								}
+							],
+							"sid": 797924704950570,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 855261573675333,
+											"parameters": {
+												"first-value": "AvailableCraftingItems",
+												"comparison": 5,
+												"second-value": "RequiredCraftingItems"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Smelter_Crafting_Button",
+											"sid": 838671634081176,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 734744849822387,
+											"parameters": {
+												"object-to-create": "Smelter_Crafting_Button",
+												"layer": "\"smelter\"",
+												"x": "288",
+												"y": "160",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 341871557784771
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 372065441921809
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Variables",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [],
+			"sid": 801041511649057
 		}
 	],
 	"sid": 772931758412592

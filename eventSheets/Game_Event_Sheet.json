@@ -187,19 +187,6 @@
 								"text-offset-x": "30",
 								"text-offset-y": "12"
 							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 268923411933553,
-							"parameters": {
-								"object-to-create": "Global_Inventory_Coal_Text",
-								"layer": "\"warehouse\"",
-								"x": "GlobalInventory_Slot_Art.X + 52",
-								"y": "GlobalInventory_Slot_Art.Y + 10",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
 						}
 					],
 					"sid": 820816451460762,
@@ -480,14 +467,6 @@
 						},
 						{
 							"id": "set-text",
-							"objectClass": "TestText",
-							"sid": 915746005298567,
-							"parameters": {
-								"text": "Miner_Box.Aluminium"
-							}
-						},
-						{
-							"id": "set-text",
 							"objectClass": "Global_Inventory_Coal_Text",
 							"sid": 377422014538429,
 							"parameters": {
@@ -508,6 +487,26 @@
 							"sid": 306452243893162,
 							"parameters": {
 								"text": "Global_Inventory_Object.Aluminium"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Smelter_Clock",
+							"sid": 947008730004576,
+							"parameters": {
+								"text": "zeropad(floor(Smelter_Furnace_1_Object.Crafting_Time/60),1) & \":\" & zeropad(floor(Smelter_Furnace_1_Object.Crafting_Time%60),2)"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "TEST TEXT"
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TestText",
+							"sid": 130354632909958,
+							"parameters": {
+								"text": "Global_Inventory_Object.Aluminium_Ingot"
 							}
 						}
 					],
@@ -1063,19 +1062,56 @@
 							}
 						},
 						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 346001293519839,
-							"parameters": {
-								"layout": "Smelter"
-							}
-						},
-						{
 							"id": "save",
 							"objectClass": "System",
 							"sid": 789671717386646,
 							"parameters": {
 								"slot": "\"mysave\""
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 948093219483152,
+							"parameters": {
+								"layer": "\"Buildings\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 218304507100481,
+							"parameters": {
+								"layer": "\"HUD\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 363379986879603,
+							"parameters": {
+								"layer": "\"Player\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 770830383384161,
+							"parameters": {
+								"layer": "\"Background\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 980970985680184,
+							"parameters": {
+								"group-name": "\"Mechanical\"",
+								"state": "deactivated"
 							}
 						}
 					],
@@ -1631,7 +1667,7 @@
 							"parameters": {
 								"mouse-button": "left",
 								"click-type": "clicked",
-								"object-clicked": "Sell_Aluminium_Button_Global_Inventory2"
+								"object-clicked": "Sell_Aluminium_Button_Global_Inventory"
 							}
 						},
 						{
@@ -5738,6 +5774,467 @@
 				}
 			],
 			"sid": 572583379769819
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Smelter Management",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "General Management",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 358953281538706,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Smelter_Add_Amount"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 113982461221411,
+									"parameters": {
+										"instance-variable": "Busy",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 456484819617553,
+									"parameters": {
+										"instance-variable": "Crafting_Amount",
+										"comparison": 2,
+										"value": "Smelter_Furnace_1_Object.Max_Amount"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 136721185223282,
+									"parameters": {
+										"instance-variable": "Crafting_Amount",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 546774197294175
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 477781532272029,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Smelter_Subtract_Amount"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 272680564748431,
+									"parameters": {
+										"instance-variable": "Busy",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 199515602554008,
+									"parameters": {
+										"instance-variable": "Crafting_Amount",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 340663477840340,
+									"parameters": {
+										"instance-variable": "Crafting_Amount",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 507611043607981
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 559335644397664,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Smelter_Max_Amount"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 440842755073003,
+									"parameters": {
+										"instance-variable": "Busy",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 896952539233322,
+									"parameters": {
+										"instance-variable": "Crafting_Amount",
+										"value": "Smelter_Furnace_1_Object.Max_Amount"
+									}
+								}
+							],
+							"sid": 567352559009313
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 646533087393750,
+									"parameters": {
+										"instance-variable": "Clock_Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 200692762161682,
+									"parameters": {
+										"instance-variable": "Crafting_Amount",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 515845781741432,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 196683912437688,
+											"parameters": {
+												"interval-seconds": "1.0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 537474717942373,
+											"parameters": {
+												"instance-variable": "Crafting_Time",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 519697106977994,
+											"parameters": {
+												"instance-variable": "Crafting_Time",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 608413473164617
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 388587661678512,
+											"parameters": {
+												"instance-variable": "Crafting_Time",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 456124514396584,
+											"parameters": {
+												"instance-variable": "Clock_Active",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 878441871952383,
+											"parameters": {
+												"instance-variable": "Furnace_Active",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 576481748018189
+								}
+							]
+						}
+					],
+					"sid": 537481065186140
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Crafting Recipes",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Aluminium Ingot"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-selected-item-text",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 477952985709047,
+									"parameters": {
+										"text-to-compare": "\"Aluminium Ingot\"",
+										"case-sensitivity": "ignore-case"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 217755965331276,
+									"parameters": {
+										"instance-variable": "Aluminium",
+										"comparison": 5,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 499719989938146,
+									"parameters": {
+										"instance-variable": "Max_Amount",
+										"value": "floor(Global_Inventory_Object.Aluminium / 2 )"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Smelter_Crafting_Amount_Text",
+									"sid": 943699371300038,
+									"parameters": {
+										"text": "Smelter_Furnace_1_Object.Crafting_Amount"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 938253911896964,
+									"parameters": {
+										"instance-variable": "Busy",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 722039069292291
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 457014477444881,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Smelter_Crafting_Button"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 536161032552025,
+									"parameters": {
+										"instance-variable": "Crafting_Amount",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 676391584646930,
+									"parameters": {
+										"instance-variable": "Crafting_Time",
+										"value": "Smelter_Furnace_1_Object.Crafting_Amount * 3"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 366115186049706,
+									"parameters": {
+										"instance-variable": "Clock_Active",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 402699580568265,
+									"parameters": {
+										"instance-variable": "Furnace_Active",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 595899543554445
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-selected-item-text",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 617658554373524,
+									"parameters": {
+										"text-to-compare": "\"Aluminium Ingot\"",
+										"case-sensitivity": "ignore-case"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 159807949372787,
+									"parameters": {
+										"instance-variable": "Furnace_Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 861483348357395,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 849484326840147,
+											"parameters": {
+												"interval-seconds": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 675740679937417,
+											"parameters": {
+												"seconds": "3"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 992066176543025,
+											"parameters": {
+												"instance-variable": "Aluminium_Ingot",
+												"value": "1"
+											}
+										},
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 197405975749568,
+											"parameters": {
+												"instance-variable": "Crafting_Amount",
+												"value": "1"
+											}
+										},
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 795681788009240,
+											"parameters": {
+												"instance-variable": "Aluminium",
+												"value": "2"
+											}
+										}
+									],
+									"sid": 308456516456404
+								}
+							]
+						}
+					],
+					"sid": 861645983974657
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Variables2",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [],
+					"sid": 849762367561286
+				}
+			],
+			"sid": 312961236180358
 		}
 	],
 	"sid": 196935397098049
