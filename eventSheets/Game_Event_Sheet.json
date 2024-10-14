@@ -6014,11 +6014,179 @@
 												"instance-variable": "Furnace_Active",
 												"value": "0"
 											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 276077743638930,
+											"parameters": {
+												"instance-variable": "Crafting_Amount",
+												"value": "0"
+											}
 										}
 									],
 									"sid": 576481748018189
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 649308007125447,
+									"parameters": {
+										"instance-variable": "Busy",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 396182306064453,
+									"parameters": {
+										"instance-variable": "Furnace_Active",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Furnace_1_Sprite",
+									"sid": 932336051422457,
+									"parameters": {
+										"animation": "\"Busy\"",
+										"from": "current-frame"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Furnace_1_Background",
+									"sid": 170925148531903,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Furnace_1_Text",
+									"sid": 589053335817590,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 831071178438280
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 485041529018542,
+									"parameters": {
+										"instance-variable": "Busy",
+										"comparison": 0,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 962408813729297,
+									"parameters": {
+										"instance-variable": "Furnace_Active",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Furnace_1_Sprite",
+									"sid": 525944416954907,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "current-frame"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Furnace_1_Background",
+									"sid": 529129075022030,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Furnace_1_Text",
+									"sid": 830567901029616,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 438292358624542
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 801621690908772,
+									"parameters": {
+										"instance-variable": "Busy",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 402673020345303,
+									"parameters": {
+										"instance-variable": "Furnace_Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Furnace_1_Sprite",
+									"sid": 754848999205909,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Furnace_1_Background",
+									"sid": 679173262585742,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Furnace_1_Text",
+									"sid": 940137832541611,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 659586918158578
 						}
 					],
 					"sid": 537481065186140
@@ -6083,6 +6251,14 @@
 										"instance-variable": "Busy",
 										"value": "1"
 									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Smelter_Recipe_Text",
+									"sid": 625833389322563,
+									"parameters": {
+										"text": "\"Aluminium Ore X2\""
+									}
 								}
 							],
 							"sid": 722039069292291
@@ -6108,6 +6284,16 @@
 										"instance-variable": "Crafting_Amount",
 										"comparison": 4,
 										"value": "0"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 313411130359147,
+									"parameters": {
+										"instance-variable": "Aluminium",
+										"comparison": 5,
+										"value": "2"
 									}
 								}
 							],
