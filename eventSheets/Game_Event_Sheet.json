@@ -496,18 +496,6 @@
 							"parameters": {
 								"text": "zeropad(floor(Smelter_Furnace_1_Object.Crafting_Time/60),1) & \":\" & zeropad(floor(Smelter_Furnace_1_Object.Crafting_Time%60),2)"
 							}
-						},
-						{
-							"type": "comment",
-							"text": "TEST TEXT"
-						},
-						{
-							"id": "set-text",
-							"objectClass": "TestText",
-							"sid": 130354632909958,
-							"parameters": {
-								"text": "Global_Inventory_Object.Aluminium_Ingot"
-							}
 						}
 					],
 					"sid": 557502173694722
@@ -2450,6 +2438,127 @@
 								}
 							],
 							"sid": 398982925247548
+						},
+						{
+							"eventType": "comment",
+							"text": "Move Miner to Center when mining starts"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 296219190735254
+								}
+							],
+							"actions": [],
+							"sid": 240602925303773,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "Offset",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 172544360534174
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Miner_Drill",
+											"sid": 195813126600099,
+											"parameters": {
+												"object": "Mining_Blocks_Family"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Miner_Box",
+											"sid": 502864402792148,
+											"parameters": {
+												"instance-variable": "DOWN"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 680098762849491,
+											"parameters": {
+												"variable": "Offset",
+												"value": "Mining_Blocks_Family.X - Miner_Box.X"
+											}
+										}
+									],
+									"sid": 949827481099363,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 621809808030655,
+													"parameters": {
+														"variable": "Offset",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-x",
+													"objectClass": "Miner_Box",
+													"sid": 237968420382470,
+													"parameters": {
+														"x": "Miner_Box.X +1"
+													}
+												}
+											],
+											"sid": 192082347283586,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 467130342599581
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 935565887995620,
+													"parameters": {
+														"variable": "Offset",
+														"comparison": 2,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-x",
+													"objectClass": "Miner_Box",
+													"sid": 751652882224558,
+													"parameters": {
+														"x": "Miner_Box.X -1"
+													}
+												}
+											],
+											"sid": 813607501243360
+										}
+									]
+								}
+							]
 						}
 					],
 					"sid": 324587020158393
@@ -2914,9 +3023,49 @@
 										"instance-variable": "ANIM",
 										"value": "\"Drill\""
 									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 803507847077768,
+									"parameters": {
+										"object-to-create": "Dust_Animation",
+										"layer": "\"Player\"",
+										"x": "Miner_Box.X +32",
+										"y": "Miner_Box.Y +32",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Dust_Animation",
+									"sid": 334889610325696,
+									"parameters": {
+										"animation": "\"Dust_Down\"",
+										"from": "beginning"
+									}
 								}
 							],
 							"sid": 967531805634709
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 722131552340871
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Dust_Animation",
+									"sid": 997916371080151
+								}
+							],
+							"sid": 863399033853590
 						},
 						{
 							"eventType": "comment",
@@ -2938,10 +3087,10 @@
 								{
 									"id": "subtract-from-instvar",
 									"objectClass": "Dirt_Block",
-									"sid": 144505934160332,
+									"sid": 588147583292058,
 									"parameters": {
 										"instance-variable": "HP",
-										"value": "1"
+										"value": "Miner_Box.DMG"
 									}
 								}
 							],
@@ -3264,10 +3413,10 @@
 								{
 									"id": "subtract-from-instvar",
 									"objectClass": "Coal_Block",
-									"sid": 902747059207239,
+									"sid": 524913514165114,
 									"parameters": {
 										"instance-variable": "HP",
-										"value": "1"
+										"value": "Miner_Box.DMG"
 									}
 								}
 							],
@@ -3651,10 +3800,10 @@
 								{
 									"id": "subtract-from-instvar",
 									"objectClass": "Quartz_Block",
-									"sid": 440272336051297,
+									"sid": 838698318201049,
 									"parameters": {
 										"instance-variable": "HP",
-										"value": "1"
+										"value": "Miner_Box.DMG"
 									}
 								}
 							],
@@ -4044,10 +4193,10 @@
 								{
 									"id": "subtract-from-instvar",
 									"objectClass": "Aluminium_Block",
-									"sid": 169871724388434,
+									"sid": 750527047196263,
 									"parameters": {
 										"instance-variable": "HP",
-										"value": "1"
+										"value": "Miner_Box.DMG"
 									}
 								}
 							],
@@ -4410,6 +4559,53 @@
 								}
 							],
 							"sid": 465224209252242
+						},
+						{
+							"eventType": "comment",
+							"text": "Cracked Blocks"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Dirt_Block",
+									"sid": 553680049378903,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 2,
+										"value": "Dirt_Block.Max_HP / 2"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Dirt_Block",
+									"sid": 979056394078881,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Dirt_Block",
+									"sid": 634490830596287,
+									"parameters": {
+										"animation": "\"Cracked\"",
+										"from": "current-frame"
+									}
+								}
+							],
+							"sid": 191129906496625
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 548552772628243
 						}
 					],
 					"sid": 834979858214962
