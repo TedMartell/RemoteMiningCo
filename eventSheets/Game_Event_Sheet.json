@@ -282,50 +282,6 @@
 										"max-stack": "1000",
 										"destroy-at-stack-0": "yes"
 									}
-								},
-								{
-									"id": "create-item",
-									"objectClass": "Inventory",
-									"sid": 105944122699816,
-									"parameters": {
-										"type": "\"Dynamite_Inv\"",
-										"quantity": "5",
-										"inventory-id": "\"Inventory_Consumables\"",
-										"slot-id": "\"0\""
-									}
-								},
-								{
-									"id": "create-item",
-									"objectClass": "Inventory",
-									"sid": 679524995841909,
-									"parameters": {
-										"type": "\"Teleporter_Inv\"",
-										"quantity": "5",
-										"inventory-id": "\"Inventory_Consumables\"",
-										"slot-id": "\"1\""
-									}
-								},
-								{
-									"id": "create-item",
-									"objectClass": "Inventory",
-									"sid": 179509031539205,
-									"parameters": {
-										"type": "\"Battery_Inv\"",
-										"quantity": "5",
-										"inventory-id": "\"Inventory_Consumables\"",
-										"slot-id": "\"2\""
-									}
-								},
-								{
-									"id": "create-item",
-									"objectClass": "Inventory",
-									"sid": 584484479485416,
-									"parameters": {
-										"type": "\"Repair_Kit_Inv\"",
-										"quantity": "5",
-										"inventory-id": "\"Inventory_Consumables\"",
-										"slot-id": "\"3\""
-									}
 								}
 							],
 							"sid": 600851367349786
@@ -428,9 +384,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "Money_Text",
-							"sid": 514984653800734,
+							"sid": 905274619192623,
 							"parameters": {
-								"text": "Money_Int & \" $\""
+								"text": "Miner_Box.Money & \" $\""
 							}
 						},
 						{
@@ -515,595 +471,2214 @@
 					"text": "SHOP"
 				},
 				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "group",
+					"disabled": false,
+					"title": "Shop Management",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 649768316662365,
-							"parameters": {
-								"object": "Shop_Door"
-							}
+							"eventType": "variable",
+							"name": "Shopping_List",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 288627813765020
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 799259870695394,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Add_To_Cart_Dynamite_Text"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 136947478842813,
+									"parameters": {
+										"variable": "Money_Int",
+										"comparison": 5,
+										"value": "Shop_Cart_Object.Amount_Due +5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 475848521217793,
+									"parameters": {
+										"instance-variable": "Dynamite",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 755378683524057,
+									"parameters": {
+										"instance-variable": "Amount_Due",
+										"value": "5"
+									}
+								}
+							],
+							"sid": 874551148666104
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 483239113386090,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Add_To_Cart_Teleporter_Text"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 114731251785306,
+									"parameters": {
+										"variable": "Money_Int",
+										"comparison": 4,
+										"value": "Shop_Cart_Object.Amount_Due +50"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 325765454210545,
+									"parameters": {
+										"instance-variable": "Teleporter",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 151196733925521,
+									"parameters": {
+										"instance-variable": "Amount_Due",
+										"value": "50"
+									}
+								}
+							],
+							"sid": 779795008285494
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 598656139552636,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Add_To_Cart_Battery_Text"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 772097243679486,
+									"parameters": {
+										"variable": "Money_Int",
+										"comparison": 4,
+										"value": "Shop_Cart_Object.Amount_Due +20"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 711910701226727,
+									"parameters": {
+										"instance-variable": "Battery",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 248853479596276,
+									"parameters": {
+										"instance-variable": "Amount_Due",
+										"value": "20"
+									}
+								}
+							],
+							"sid": 768553956659890
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 584885408221301,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Add_To_Cart_Repair_Kit_Text"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 282696691781357,
+									"parameters": {
+										"variable": "Money_Int",
+										"comparison": 4,
+										"value": "Shop_Cart_Object.Amount_Due +7"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 948637325503709,
+									"parameters": {
+										"instance-variable": "Repair_Kit",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 519656824855594,
+									"parameters": {
+										"instance-variable": "Amount_Due",
+										"value": "7"
+									}
+								}
+							],
+							"sid": 114541853693098
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 263489373792648
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Money_Text",
+									"sid": 441048630573042,
+									"parameters": {
+										"text": "Money_Int &\" $\""
+									}
+								},
+								{
+									"type": "script",
+									"script": "localVars.Shopping_List = `Dynamite ${runtime.objects.Shop_Cart_Object.instVars}`"
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Shop_Amount_Due_Text",
+									"sid": 612501633675865,
+									"parameters": {
+										"text": "Shop_Cart_Object.Amount_Due"
+									}
+								}
+							],
+							"sid": 887587678685700
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 397072197922369,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Shop_Buy_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 447048933009377,
+									"parameters": {
+										"instance-variable": "Money",
+										"value": "Shop_Cart_Object.Amount_Due"
+									}
+								},
+								{
+									"id": "create-item",
+									"objectClass": "Inventory",
+									"sid": 206281182536799,
+									"parameters": {
+										"type": "\"Dynamite_Inv\"",
+										"quantity": "Shop_Cart_Object.Dynamite",
+										"inventory-id": "\"Inventory_Consumables\"",
+										"slot-id": "\"0\""
+									}
+								},
+								{
+									"id": "create-item",
+									"objectClass": "Inventory",
+									"sid": 789667705531378,
+									"parameters": {
+										"type": "\"Teleporter_Inv\"",
+										"quantity": "Shop_Cart_Object.Teleporter",
+										"inventory-id": "\"Inventory_Consumables\"",
+										"slot-id": "\"1\""
+									}
+								},
+								{
+									"id": "create-item",
+									"objectClass": "Inventory",
+									"sid": 573073886057655,
+									"parameters": {
+										"type": "\"Battery_Inv\"",
+										"quantity": "Shop_Cart_Object.Battery",
+										"inventory-id": "\"Inventory_Consumables\"",
+										"slot-id": "\"2\""
+									}
+								},
+								{
+									"id": "create-item",
+									"objectClass": "Inventory",
+									"sid": 802026828594724,
+									"parameters": {
+										"type": "\"Repair_Kit_Inv\"",
+										"quantity": "Shop_Cart_Object.Repair_Kit",
+										"inventory-id": "\"Inventory_Consumables\"",
+										"slot-id": "\"3\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 263089992051928,
+									"parameters": {
+										"instance-variable": "Amount_Due",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 158515726707521,
+									"parameters": {
+										"instance-variable": "Battery",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 390662514807103,
+									"parameters": {
+										"instance-variable": "Dynamite",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 319104417013721,
+									"parameters": {
+										"instance-variable": "Repair_Kit",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 970975291323218,
+									"parameters": {
+										"instance-variable": "Teleporter",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 167684261439100
 						}
 					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "Enter_Shop_Text",
-							"sid": 377666394855117,
-							"parameters": {
-								"visibility": "visible"
-							}
-						}
-					],
-					"sid": 633327738156948
+					"sid": 173516556930715
 				},
 				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "group",
+					"disabled": false,
+					"title": "Enter Shop",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 675906802812131
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 551674446563643,
+									"parameters": {
+										"object": "Shop_Door"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Enter_Shop_Text",
+									"sid": 885546746390980,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 363732073273025
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 116141567123523
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Enter_Shop_Text",
+									"sid": 288746854524683,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 223808163653251
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 122425374303256,
+									"parameters": {
+										"key": 70
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 775614372536780,
+									"parameters": {
+										"object": "Shop_Door"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 253359615720540,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "save",
+									"objectClass": "System",
+									"sid": 847169993935138,
+									"parameters": {
+										"slot": "\"mysave\""
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 299695206157544,
+									"parameters": {
+										"layer": "\"Buildings\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 671843288772471,
+									"parameters": {
+										"layer": "\"HUD\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 737307818983393,
+									"parameters": {
+										"layer": "\"Player\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 505532907659465,
+									"parameters": {
+										"layer": "\"Background\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 530454987537223,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "deactivated"
+									}
+								}
+							],
+							"sid": 690029948072359
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 581451406425557,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Shop_Door"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 464360757346557,
+									"parameters": {
+										"object": "Shop_Door"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 339084024833878,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "save",
+									"objectClass": "System",
+									"sid": 834092541727729,
+									"parameters": {
+										"slot": "\"mysave\""
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 212293402594793,
+									"parameters": {
+										"layer": "\"Buildings\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 551837395415026,
+									"parameters": {
+										"layer": "\"HUD\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 609188352153813,
+									"parameters": {
+										"layer": "\"Player\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 989879714491559,
+									"parameters": {
+										"layer": "\"Background\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 968655573749890,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "deactivated"
+									}
+								}
+							],
+							"sid": 784041370995130
 						}
 					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "Enter_Shop_Text",
-							"sid": 421445441464058,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						}
-					],
-					"sid": 551811888896505
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 493618194729786,
-							"parameters": {
-								"key": 70
-							}
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 228820495106082,
-							"parameters": {
-								"object": "Shop_Door"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "hide-inventory",
-							"objectClass": "Inventory",
-							"sid": 370988002631440,
-							"parameters": {
-								"param0": "\"Inventory_Consumables\""
-							}
-						},
-						{
-							"id": "hide-inventory",
-							"objectClass": "Inventory",
-							"sid": 101038347244904,
-							"parameters": {
-								"param0": "\"Inventory_Miner\""
-							}
-						},
-						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 116182692762204,
-							"parameters": {
-								"layout": "Shop"
-							}
-						},
-						{
-							"id": "save",
-							"objectClass": "System",
-							"sid": 104396310997054,
-							"parameters": {
-								"slot": "\"mysave\""
-							}
-						}
-					],
-					"sid": 841879878911906
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-object-clicked",
-							"objectClass": "Mouse",
-							"sid": 854293075111203,
-							"parameters": {
-								"mouse-button": "left",
-								"click-type": "clicked",
-								"object-clicked": "Shop_Door"
-							}
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 959577224616308,
-							"parameters": {
-								"object": "Shop_Door"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "hide-inventory",
-							"objectClass": "Inventory",
-							"sid": 803509971433873,
-							"parameters": {
-								"param0": "\"Inventory_Consumables\""
-							}
-						},
-						{
-							"id": "hide-inventory",
-							"objectClass": "Inventory",
-							"sid": 520382211904722,
-							"parameters": {
-								"param0": "\"Inventory_Miner\""
-							}
-						},
-						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 167418952649510,
-							"parameters": {
-								"layout": "Shop"
-							}
-						},
-						{
-							"id": "save",
-							"objectClass": "System",
-							"sid": 168565654117887,
-							"parameters": {
-								"slot": "\"mysave\""
-							}
-						}
-					],
-					"sid": 848228295295904
+					"sid": 831495138918714
 				},
 				{
 					"eventType": "comment",
 					"text": "WAREHOUSE"
 				},
 				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "group",
+					"disabled": false,
+					"title": "Enter Warehouse",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 940378357988610,
-							"parameters": {
-								"object": "Warehouse_Door"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 263448238652982,
+									"parameters": {
+										"object": "Warehouse_Door"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Enter_Warehouse_Text",
+									"sid": 755880169263980,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 226522167809464
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 341494365302818
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Enter_Warehouse_Text",
+									"sid": 821468423982301,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 404861519594340
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 521398725592493,
+									"parameters": {
+										"key": 70
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 512897745255445,
+									"parameters": {
+										"object": "Warehouse_Door"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 980680473684766,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "save",
+									"objectClass": "System",
+									"sid": 275048877322724,
+									"parameters": {
+										"slot": "\"mysave\""
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 658381384762659,
+									"parameters": {
+										"layer": "\"Buildings\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 863945482333598,
+									"parameters": {
+										"layer": "\"HUD\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 435121922074175,
+									"parameters": {
+										"layer": "\"Player\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 676960838561457,
+									"parameters": {
+										"layer": "\"Background\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 883655761154463,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "deactivated"
+									}
+								}
+							],
+							"sid": 617635391608297
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 130978150196260,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Warehouse_Door"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 338345364268716,
+									"parameters": {
+										"object": "Warehouse_Door"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 378637379761537,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "save",
+									"objectClass": "System",
+									"sid": 337490043895823,
+									"parameters": {
+										"slot": "\"mysave\""
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 542385396441901,
+									"parameters": {
+										"layer": "\"Buildings\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 743242711558328,
+									"parameters": {
+										"layer": "\"HUD\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 582793296200053,
+									"parameters": {
+										"layer": "\"Player\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 388098670640868,
+									"parameters": {
+										"layer": "\"Background\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 128434353953607,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "deactivated"
+									}
+								}
+							],
+							"sid": 346003028387935
 						}
 					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "Enter_Warehouse_Text",
-							"sid": 160297540065805,
-							"parameters": {
-								"visibility": "visible"
-							}
-						}
-					],
-					"sid": 514660060684430
+					"sid": 106487401045625
 				},
 				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "group",
+					"disabled": false,
+					"title": "Warehouse Inventory Management",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 435470931627485
+							"eventType": "variable",
+							"name": "Warehouse_Item_ID",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 274704746144324
+						},
+						{
+							"eventType": "variable",
+							"name": "Warehouse_Item_Type",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 965138865169477
+						},
+						{
+							"eventType": "variable",
+							"name": "Warehouse_Item_Quantity",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 163335559333402
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-clicked",
+									"objectClass": "Move_All_To_Warehouse",
+									"sid": 841174410695641
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "moveAllItems(minerInventory, globalInventory)\n"
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 864878665563531,
+									"parameters": {
+										"instance-variable": "Coal",
+										"value": "Miner_Box.Coal"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 278329299418173,
+									"parameters": {
+										"instance-variable": "Quartz",
+										"value": "Miner_Box.Quartz"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 270488867660493,
+									"parameters": {
+										"instance-variable": "Aluminium",
+										"value": "Miner_Box.Aluminium"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 787475805592600,
+									"parameters": {
+										"instance-variable": "Coal",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 553892849685839,
+									"parameters": {
+										"instance-variable": "Quartz",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 124205749154698,
+									"parameters": {
+										"instance-variable": "Aluminium",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 292326158534623
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 558239590281173,
+									"parameters": {
+										"key": 73
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "runtime.globalVars.GlobalInventory = updateInventoryText(globalInventory)"
+								},
+								{
+									"type": "script",
+									"script": "console.log(runtime.globalVars.GlobalInventory)"
+								}
+							],
+							"sid": 171682473264778,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-inventory-shown",
+											"objectClass": "Inventory",
+											"sid": 836290672259343,
+											"parameters": {
+												"param0": "\"Inventory_Miner\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "hide-inventory",
+											"objectClass": "Inventory",
+											"sid": 588511477796455,
+											"parameters": {
+												"param0": "\"Inventory_Miner\""
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Value_Weight_Text",
+											"sid": 205405918506576,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 749845939470376
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 899963431016752
+										}
+									],
+									"actions": [
+										{
+											"id": "show-inventory",
+											"objectClass": "Inventory",
+											"sid": 684135884147419,
+											"parameters": {
+												"param0": "\"Inventory_Miner\"",
+												"param1": "\"Buildings\"",
+												"param2": "500",
+												"param3": "0"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Value_Weight_Text",
+											"sid": 901224928503674,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 175225659886486
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 816146099703395,
+									"parameters": {
+										"key": 79
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "addToInventory(minerInventory, miningItems.Coal_Inv, 1)"
+								}
+							],
+							"sid": 778373814978921
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 806739555868682,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Inventory_Sprites"
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 164418225820978,
+									"parameters": {
+										"key": 16
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 492348887976849,
+									"parameters": {
+										"variable": "Warehouse_Item_ID",
+										"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.X, Mouse.Y)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 401114213226642,
+									"parameters": {
+										"variable": "Warehouse_Item_Type",
+										"value": "Inventory.ItemType(Warehouse_Item_ID)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 388816985347459,
+									"parameters": {
+										"variable": "Warehouse_Item_Quantity",
+										"value": "Inventory.ItemQuantity(Warehouse_Item_ID)"
+									}
+								},
+								{
+									"type": "script",
+									"script": "console.log(localVars.Warehouse_Item_Quantity)"
+								},
+								{
+									"id": "set-item-quantity",
+									"objectClass": "Inventory",
+									"sid": 668912576598546,
+									"parameters": {
+										"param0": "Warehouse_Item_ID",
+										"param1": "Inventory.ItemQuantity(Warehouse_Item_ID) -Warehouse_Item_Quantity"
+									}
+								},
+								{
+									"type": "script",
+									"script": "moveItemWithQuantity(minerInventory, globalInventory, localVars.Warehouse_Item_Type, localVars.Warehouse_Item_Quantity )"
+								},
+								{
+									"id": "create-item",
+									"objectClass": "Inventory",
+									"sid": 134281690770383,
+									"parameters": {
+										"type": "Warehouse_Item_Type",
+										"quantity": "Warehouse_Item_Quantity",
+										"inventory-id": "\"Inventory_Global\"",
+										"slot-id": "\"\""
+									}
+								},
+								{
+									"id": "destroy-item",
+									"objectClass": "Inventory",
+									"sid": 494112587052723,
+									"parameters": {
+										"param0": "Inventory.InventoryIdByCords(Mouse.X, Mouse.Y)"
+									}
+								}
+							],
+							"sid": 832570936202274
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 734559123995495,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Inventory_Sprites"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 615947543437107,
+									"parameters": {
+										"variable": "Warehouse_Item_ID",
+										"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.X, Mouse.Y)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 218651794657467,
+									"parameters": {
+										"variable": "Warehouse_Item_Type",
+										"value": "Inventory.ItemType(Warehouse_Item_ID)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 584244918688185,
+									"parameters": {
+										"variable": "Warehouse_Item_Quantity",
+										"value": "Inventory.ItemQuantity(Warehouse_Item_ID)"
+									}
+								},
+								{
+									"id": "set-item-quantity",
+									"objectClass": "Inventory",
+									"sid": 595848715126766,
+									"parameters": {
+										"param0": "Warehouse_Item_ID",
+										"param1": "Inventory.ItemQuantity(Warehouse_Item_ID) -1"
+									}
+								},
+								{
+									"type": "script",
+									"script": "moveItemWithQuantity(minerInventory, globalInventory, localVars.Warehouse_Item_Type, 1 )"
+								},
+								{
+									"id": "create-item",
+									"objectClass": "Inventory",
+									"sid": 862039201267151,
+									"parameters": {
+										"type": "Warehouse_Item_Type",
+										"quantity": "1",
+										"inventory-id": "\"Inventory_Global\"",
+										"slot-id": "\"\""
+									}
+								}
+							],
+							"sid": 669415596549310
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 795544425992184,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Sell_Coal_Button_Global_Inventory"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 533791188929948,
+									"parameters": {
+										"instance-variable": "Coal",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 654980386769639,
+									"parameters": {
+										"instance-variable": "Coal",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 695023811580404,
+									"parameters": {
+										"variable": "Money_Int",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 263044858588880
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 363093139911955,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Sell_Quartz_Button_Global_Inventory"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 575933115817723,
+									"parameters": {
+										"instance-variable": "Quartz",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 840918066524715,
+									"parameters": {
+										"instance-variable": "Quartz",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 416158015205736,
+									"parameters": {
+										"variable": "Money_Int",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 184318364800787
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 444765154264159,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Sell_Aluminium_Button_Global_Inventory"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 358758762146845,
+									"parameters": {
+										"instance-variable": "Aluminium",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 433577555134772,
+									"parameters": {
+										"instance-variable": "Aluminium",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 141349840473195,
+									"parameters": {
+										"variable": "Money_Int",
+										"value": "2"
+									}
+								}
+							],
+							"sid": 999535617756957
 						}
 					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "Enter_Warehouse_Text",
-							"sid": 266630100915410,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						}
-					],
-					"sid": 194476323545343
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 430586895450511,
-							"parameters": {
-								"key": 70
-							}
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 566316591533182,
-							"parameters": {
-								"object": "Warehouse_Door"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "hide-inventory",
-							"objectClass": "Inventory",
-							"sid": 289394205681104,
-							"parameters": {
-								"param0": "\"Inventory_Consumables\""
-							}
-						},
-						{
-							"id": "hide-inventory",
-							"objectClass": "Inventory",
-							"sid": 856594092035862,
-							"parameters": {
-								"param0": "\"Inventory_Miner\""
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 962947940991462,
-							"parameters": {
-								"seconds": "0.1"
-							}
-						},
-						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 709400326404630,
-							"parameters": {
-								"layout": "Warehouse"
-							}
-						},
-						{
-							"id": "save",
-							"objectClass": "System",
-							"sid": 804625856575001,
-							"parameters": {
-								"slot": "\"mysave\""
-							}
-						}
-					],
-					"sid": 324828526932080
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-object-clicked",
-							"objectClass": "Mouse",
-							"sid": 848125332058912,
-							"parameters": {
-								"mouse-button": "left",
-								"click-type": "clicked",
-								"object-clicked": "Warehouse_Door"
-							}
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 841086356899817,
-							"parameters": {
-								"object": "Warehouse_Door"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "hide-inventory",
-							"objectClass": "Inventory",
-							"sid": 825250224557307,
-							"parameters": {
-								"param0": "\"Inventory_Consumables\""
-							}
-						},
-						{
-							"id": "hide-inventory",
-							"objectClass": "Inventory",
-							"sid": 114387463237694,
-							"parameters": {
-								"param0": "\"Inventory_Miner\""
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 363778252581130,
-							"parameters": {
-								"seconds": "0.1"
-							}
-						},
-						{
-							"id": "save",
-							"objectClass": "System",
-							"sid": 691368489681124,
-							"parameters": {
-								"slot": "\"mysave\""
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 113652412205574,
-							"parameters": {
-								"layer": "\"Buildings\"",
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 134262322398869,
-							"parameters": {
-								"layer": "\"HUD\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 146010365910461,
-							"parameters": {
-								"layer": "\"Player\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 917933045315673,
-							"parameters": {
-								"layer": "\"Background\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 964756186739462,
-							"parameters": {
-								"group-name": "\"Mechanical\"",
-								"state": "deactivated"
-							}
-						}
-					],
-					"sid": 625156061067286
+					"sid": 591002603644061
 				},
 				{
 					"eventType": "comment",
 					"text": "Smelter"
 				},
 				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "group",
+					"disabled": false,
+					"title": "Enter Smelter",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 261015186835738,
-							"parameters": {
-								"object": "Smelter_Door"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 207438297699785,
+									"parameters": {
+										"object": "Smelter_Door"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Enter_Smelter_Text",
+									"sid": 785278135741226,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 604700721801858
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 185258267362305
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Enter_Smelter_Text",
+									"sid": 638460283927834,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 814157995140560
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 246129918490693,
+									"parameters": {
+										"key": 70
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 319752518330436,
+									"parameters": {
+										"object": "Smelter_Door"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 160612285638572,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "save",
+									"objectClass": "System",
+									"sid": 685069628376196,
+									"parameters": {
+										"slot": "\"mysave\""
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 856284388703709,
+									"parameters": {
+										"layer": "\"Buildings\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 501074488468517,
+									"parameters": {
+										"layer": "\"HUD\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 790543531053257,
+									"parameters": {
+										"layer": "\"Player\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 494512975583746,
+									"parameters": {
+										"layer": "\"Background\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 816226989108228,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "deactivated"
+									}
+								}
+							],
+							"sid": 604227822232638
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 352881334777988,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Smelter_Door"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 104926451834136,
+									"parameters": {
+										"object": "Smelter_Door"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 583745676649054,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "save",
+									"objectClass": "System",
+									"sid": 625554218617215,
+									"parameters": {
+										"slot": "\"mysave\""
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 907048911695484,
+									"parameters": {
+										"layer": "\"Buildings\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 176167745000997,
+									"parameters": {
+										"layer": "\"HUD\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 619992606772766,
+									"parameters": {
+										"layer": "\"Player\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 252041704419916,
+									"parameters": {
+										"layer": "\"Background\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 994563960212570,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "deactivated"
+									}
+								}
+							],
+							"sid": 483552111896154
 						}
 					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "Enter_Smelter_Text",
-							"sid": 415110196494898,
-							"parameters": {
-								"visibility": "visible"
-							}
-						}
-					],
-					"sid": 734104741255034
+					"sid": 978327708007964
 				},
 				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "group",
+					"disabled": false,
+					"title": "Smelter Management",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 559046205614771
+							"eventType": "group",
+							"disabled": false,
+							"title": "General Management",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 144961245319472,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Smelter_Add_Amount"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 210032051474239,
+											"parameters": {
+												"instance-variable": "Busy",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 122517056634864,
+											"parameters": {
+												"instance-variable": "Crafting_Amount",
+												"comparison": 2,
+												"value": "Smelter_Furnace_1_Object.Max_Amount"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 528008944866180,
+											"parameters": {
+												"instance-variable": "Crafting_Amount",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 347669032570953
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 839142243943181,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Smelter_Subtract_Amount"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 569732000584902,
+											"parameters": {
+												"instance-variable": "Busy",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 561862492722594,
+											"parameters": {
+												"instance-variable": "Crafting_Amount",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 214930006635678,
+											"parameters": {
+												"instance-variable": "Crafting_Amount",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 853170034019626
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 921796662554708,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Smelter_Max_Amount"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 583954406530194,
+											"parameters": {
+												"instance-variable": "Busy",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 471749081782346,
+											"parameters": {
+												"instance-variable": "Crafting_Amount",
+												"value": "Smelter_Furnace_1_Object.Max_Amount"
+											}
+										}
+									],
+									"sid": 206922419190265
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 337992921324783,
+											"parameters": {
+												"instance-variable": "Clock_Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 867050673218032,
+											"parameters": {
+												"instance-variable": "Crafting_Amount",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 327876945955917,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-x-seconds",
+													"objectClass": "System",
+													"sid": 506921458299844,
+													"parameters": {
+														"interval-seconds": "1.0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Smelter_Furnace_1_Object",
+													"sid": 999647550613992,
+													"parameters": {
+														"instance-variable": "Crafting_Time",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Smelter_Furnace_1_Object",
+													"sid": 160083715362850,
+													"parameters": {
+														"instance-variable": "Crafting_Time",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 603593003247202
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Smelter_Furnace_1_Object",
+													"sid": 651506938423304,
+													"parameters": {
+														"instance-variable": "Crafting_Time",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Smelter_Furnace_1_Object",
+													"sid": 450668158680346,
+													"parameters": {
+														"instance-variable": "Clock_Active",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Smelter_Furnace_1_Object",
+													"sid": 872473773127183,
+													"parameters": {
+														"instance-variable": "Furnace_Active",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Smelter_Furnace_1_Object",
+													"sid": 703843701039651,
+													"parameters": {
+														"instance-variable": "Crafting_Amount",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 537281491407065
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 733255810411295,
+											"parameters": {
+												"instance-variable": "Busy",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 122267818371172,
+											"parameters": {
+												"instance-variable": "Furnace_Active",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Furnace_1_Sprite",
+											"sid": 617377274436179,
+											"parameters": {
+												"animation": "\"Busy\"",
+												"from": "current-frame"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Furnace_1_Background",
+											"sid": 254941852031270,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Furnace_1_Text",
+											"sid": 631047635781442,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 916521713806920
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 205753681399702,
+											"parameters": {
+												"instance-variable": "Busy",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 735912173015657,
+											"parameters": {
+												"instance-variable": "Furnace_Active",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Furnace_1_Sprite",
+											"sid": 517990689731385,
+											"parameters": {
+												"animation": "\"Idle\"",
+												"from": "current-frame"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Furnace_1_Background",
+											"sid": 948467031880836,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Furnace_1_Text",
+											"sid": 656898487647883,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 679871167032350
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 162954573751092,
+											"parameters": {
+												"instance-variable": "Busy",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 749774855006630,
+											"parameters": {
+												"instance-variable": "Furnace_Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Furnace_1_Sprite",
+											"sid": 456759028316818,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Furnace_1_Background",
+											"sid": 777632524655621,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Furnace_1_Text",
+											"sid": 608301983950683,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 174724536215981
+								}
+							],
+							"sid": 131277409098151
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Crafting Recipes",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Aluminium Ingot"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-selected-item-text",
+											"objectClass": "Smelter_recipe_List",
+											"sid": 868404501444093,
+											"parameters": {
+												"text-to-compare": "\"Aluminium Ingot\"",
+												"case-sensitivity": "ignore-case"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 844995970210726,
+											"parameters": {
+												"instance-variable": "Aluminium",
+												"comparison": 5,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 352581388691148,
+											"parameters": {
+												"instance-variable": "Max_Amount",
+												"value": "floor(Global_Inventory_Object.Aluminium / 2 )"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Smelter_Crafting_Amount_Text",
+											"sid": 372961110279560,
+											"parameters": {
+												"text": "Smelter_Furnace_1_Object.Crafting_Amount"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 353859375250905,
+											"parameters": {
+												"instance-variable": "Busy",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Smelter_Recipe_Text",
+											"sid": 208635959100678,
+											"parameters": {
+												"text": "\"Aluminium Ore X2\""
+											}
+										}
+									],
+									"sid": 827816217009390
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 469692785672081,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Smelter_Crafting_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 360533849756094,
+											"parameters": {
+												"instance-variable": "Crafting_Amount",
+												"comparison": 4,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 115531192592598,
+											"parameters": {
+												"instance-variable": "Aluminium",
+												"comparison": 5,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 795296750633969,
+											"parameters": {
+												"instance-variable": "Crafting_Time",
+												"value": "Smelter_Furnace_1_Object.Crafting_Amount * 3"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 658788377747571,
+											"parameters": {
+												"instance-variable": "Clock_Active",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 915371951980722,
+											"parameters": {
+												"instance-variable": "Furnace_Active",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 508446504046450
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-selected-item-text",
+											"objectClass": "Smelter_recipe_List",
+											"sid": 824571811070103,
+											"parameters": {
+												"text-to-compare": "\"Aluminium Ingot\"",
+												"case-sensitivity": "ignore-case"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 632848433556564,
+											"parameters": {
+												"instance-variable": "Furnace_Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 445509479634868,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-x-seconds",
+													"objectClass": "System",
+													"sid": 630410363406803,
+													"parameters": {
+														"interval-seconds": "3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 198358981631747,
+													"parameters": {
+														"seconds": "3"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 853881527290252,
+													"parameters": {
+														"instance-variable": "Aluminium_Ingot",
+														"value": "1"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Smelter_Furnace_1_Object",
+													"sid": 821154392968239,
+													"parameters": {
+														"instance-variable": "Crafting_Amount",
+														"value": "1"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 963716479828928,
+													"parameters": {
+														"instance-variable": "Aluminium",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 669836714705889
+										}
+									]
+								}
+							],
+							"sid": 175364684754713
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Variables2",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [],
+							"sid": 148455986250062
 						}
 					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "Enter_Smelter_Text",
-							"sid": 444470549927401,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						}
-					],
-					"sid": 488435944418691
+					"sid": 365658940512121
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 869314822335744,
-							"parameters": {
-								"key": 70
-							}
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 650666844950311,
-							"parameters": {
-								"object": "Smelter_Door"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "hide-inventory",
-							"objectClass": "Inventory",
-							"sid": 676441538934565,
-							"parameters": {
-								"param0": "\"Inventory_Consumables\""
-							}
-						},
-						{
-							"id": "hide-inventory",
-							"objectClass": "Inventory",
-							"sid": 171467536331770,
-							"parameters": {
-								"param0": "\"Inventory_Miner\""
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 382958683115242,
-							"parameters": {
-								"seconds": "0.1"
-							}
-						},
-						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 371372085300322,
-							"parameters": {
-								"layout": "Smelter"
-							}
-						},
-						{
-							"id": "save",
-							"objectClass": "System",
-							"sid": 945567855021545,
-							"parameters": {
-								"slot": "\"mysave\""
-							}
-						}
-					],
-					"sid": 481309257163256
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-object-clicked",
-							"objectClass": "Mouse",
-							"sid": 473729015117199,
-							"parameters": {
-								"mouse-button": "left",
-								"click-type": "clicked",
-								"object-clicked": "Smelter_Door"
-							}
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 661791289966064,
-							"parameters": {
-								"object": "Smelter_Door"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "hide-inventory",
-							"objectClass": "Inventory",
-							"sid": 707561086899449,
-							"parameters": {
-								"param0": "\"Inventory_Consumables\""
-							}
-						},
-						{
-							"id": "hide-inventory",
-							"objectClass": "Inventory",
-							"sid": 532096662804853,
-							"parameters": {
-								"param0": "\"Inventory_Miner\""
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 893619923982769,
-							"parameters": {
-								"seconds": "0.1"
-							}
-						},
-						{
-							"id": "save",
-							"objectClass": "System",
-							"sid": 789671717386646,
-							"parameters": {
-								"slot": "\"mysave\""
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 948093219483152,
-							"parameters": {
-								"layer": "\"Buildings\"",
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 218304507100481,
-							"parameters": {
-								"layer": "\"HUD\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 363379986879603,
-							"parameters": {
-								"layer": "\"Player\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 770830383384161,
-							"parameters": {
-								"layer": "\"Background\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 980970985680184,
-							"parameters": {
-								"group-name": "\"Mechanical\"",
-								"state": "deactivated"
-							}
-						}
-					],
-					"sid": 675381220410945
+					"eventType": "comment",
+					"text": "Escape Building Layer"
 				},
 				{
 					"eventType": "block",
@@ -1176,523 +2751,6 @@
 				}
 			],
 			"sid": 673306627574670
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Warehouse Inventory Management",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "variable",
-					"name": "Warehouse_Item_ID",
-					"type": "string",
-					"initialValue": "",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 306422887395739
-				},
-				{
-					"eventType": "variable",
-					"name": "Warehouse_Item_Type",
-					"type": "string",
-					"initialValue": "",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 104998381099399
-				},
-				{
-					"eventType": "variable",
-					"name": "Warehouse_Item_Quantity",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 147755122302359
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-clicked",
-							"objectClass": "Move_All_To_Warehouse",
-							"sid": 965240830062723
-						}
-					],
-					"actions": [
-						{
-							"type": "script",
-							"script": "moveAllItems(minerInventory, globalInventory)\n"
-						},
-						{
-							"id": "add-to-instvar",
-							"objectClass": "Global_Inventory_Object",
-							"sid": 104107174385740,
-							"parameters": {
-								"instance-variable": "Coal",
-								"value": "Miner_Box.Coal"
-							}
-						},
-						{
-							"id": "add-to-instvar",
-							"objectClass": "Global_Inventory_Object",
-							"sid": 398330738394437,
-							"parameters": {
-								"instance-variable": "Quartz",
-								"value": "Miner_Box.Quartz"
-							}
-						},
-						{
-							"id": "add-to-instvar",
-							"objectClass": "Global_Inventory_Object",
-							"sid": 161678273238611,
-							"parameters": {
-								"instance-variable": "Aluminium",
-								"value": "Miner_Box.Aluminium"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Miner_Box",
-							"sid": 339903219761467,
-							"parameters": {
-								"instance-variable": "Coal",
-								"value": "0"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Miner_Box",
-							"sid": 317379166055605,
-							"parameters": {
-								"instance-variable": "Quartz",
-								"value": "0"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Miner_Box",
-							"sid": 406683536196556,
-							"parameters": {
-								"instance-variable": "Aluminium",
-								"value": "0"
-							}
-						}
-					],
-					"sid": 991529531796491
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 477313675785639,
-							"parameters": {
-								"key": 73
-							}
-						}
-					],
-					"actions": [
-						{
-							"type": "script",
-							"script": "runtime.globalVars.GlobalInventory = updateInventoryText(globalInventory)"
-						},
-						{
-							"type": "script",
-							"script": "console.log(runtime.globalVars.GlobalInventory)"
-						}
-					],
-					"sid": 571375505743230,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-inventory-shown",
-									"objectClass": "Inventory",
-									"sid": 911130986061702,
-									"parameters": {
-										"param0": "\"Inventory_Miner\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "hide-inventory",
-									"objectClass": "Inventory",
-									"sid": 851436492882796,
-									"parameters": {
-										"param0": "\"Inventory_Miner\""
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Value_Weight_Text",
-									"sid": 382129756570418,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								}
-							],
-							"sid": 637305451919765
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 754090424724706
-								}
-							],
-							"actions": [
-								{
-									"id": "show-inventory",
-									"objectClass": "Inventory",
-									"sid": 296657083436633,
-									"parameters": {
-										"param0": "\"Inventory_Miner\"",
-										"param1": "\"Buildings\"",
-										"param2": "500",
-										"param3": "0"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Value_Weight_Text",
-									"sid": 237329054643965,
-									"parameters": {
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 391653880805440
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 958536302821795,
-							"parameters": {
-								"key": 79
-							}
-						}
-					],
-					"actions": [
-						{
-							"type": "script",
-							"script": "addToInventory(minerInventory, miningItems.Coal_Inv, 1)"
-						}
-					],
-					"sid": 698622993925558
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-object-clicked",
-							"objectClass": "Mouse",
-							"sid": 929327677834359,
-							"parameters": {
-								"mouse-button": "left",
-								"click-type": "clicked",
-								"object-clicked": "Inventory_Sprites"
-							}
-						},
-						{
-							"id": "key-is-down",
-							"objectClass": "Keyboard",
-							"sid": 944390234883478,
-							"parameters": {
-								"key": 16
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 741555878862815,
-							"parameters": {
-								"variable": "Warehouse_Item_ID",
-								"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.X, Mouse.Y)"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 787396862264560,
-							"parameters": {
-								"variable": "Warehouse_Item_Type",
-								"value": "Inventory.ItemType(Warehouse_Item_ID)"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 306159993230174,
-							"parameters": {
-								"variable": "Warehouse_Item_Quantity",
-								"value": "Inventory.ItemQuantity(Warehouse_Item_ID)"
-							}
-						},
-						{
-							"type": "script",
-							"script": "console.log(localVars.Warehouse_Item_Quantity)"
-						},
-						{
-							"id": "set-item-quantity",
-							"objectClass": "Inventory",
-							"sid": 137582969000206,
-							"parameters": {
-								"param0": "Warehouse_Item_ID",
-								"param1": "Inventory.ItemQuantity(Warehouse_Item_ID) -Warehouse_Item_Quantity"
-							}
-						},
-						{
-							"type": "script",
-							"script": "moveItemWithQuantity(minerInventory, globalInventory, localVars.Warehouse_Item_Type, localVars.Warehouse_Item_Quantity )"
-						},
-						{
-							"id": "create-item",
-							"objectClass": "Inventory",
-							"sid": 235444408876051,
-							"parameters": {
-								"type": "Warehouse_Item_Type",
-								"quantity": "Warehouse_Item_Quantity",
-								"inventory-id": "\"Inventory_Global\"",
-								"slot-id": "\"\""
-							}
-						},
-						{
-							"id": "destroy-item",
-							"objectClass": "Inventory",
-							"sid": 196408360703379,
-							"parameters": {
-								"param0": "Inventory.InventoryIdByCords(Mouse.X, Mouse.Y)"
-							}
-						}
-					],
-					"sid": 579102177098913
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-object-clicked",
-							"objectClass": "Mouse",
-							"sid": 825115129688889,
-							"parameters": {
-								"mouse-button": "left",
-								"click-type": "clicked",
-								"object-clicked": "Inventory_Sprites"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 611603937536922,
-							"parameters": {
-								"variable": "Warehouse_Item_ID",
-								"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.X, Mouse.Y)"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 470722176011030,
-							"parameters": {
-								"variable": "Warehouse_Item_Type",
-								"value": "Inventory.ItemType(Warehouse_Item_ID)"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 313569318899725,
-							"parameters": {
-								"variable": "Warehouse_Item_Quantity",
-								"value": "Inventory.ItemQuantity(Warehouse_Item_ID)"
-							}
-						},
-						{
-							"id": "set-item-quantity",
-							"objectClass": "Inventory",
-							"sid": 483059456746133,
-							"parameters": {
-								"param0": "Warehouse_Item_ID",
-								"param1": "Inventory.ItemQuantity(Warehouse_Item_ID) -1"
-							}
-						},
-						{
-							"type": "script",
-							"script": "moveItemWithQuantity(minerInventory, globalInventory, localVars.Warehouse_Item_Type, 1 )"
-						},
-						{
-							"id": "create-item",
-							"objectClass": "Inventory",
-							"sid": 575217966944889,
-							"parameters": {
-								"type": "Warehouse_Item_Type",
-								"quantity": "1",
-								"inventory-id": "\"Inventory_Global\"",
-								"slot-id": "\"\""
-							}
-						}
-					],
-					"sid": 557070369124566
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-object-clicked",
-							"objectClass": "Mouse",
-							"sid": 493134076203211,
-							"parameters": {
-								"mouse-button": "left",
-								"click-type": "clicked",
-								"object-clicked": "Sell_Coal_Button_Global_Inventory"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Global_Inventory_Object",
-							"sid": 671971753137531,
-							"parameters": {
-								"instance-variable": "Coal",
-								"comparison": 4,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-instvar",
-							"objectClass": "Global_Inventory_Object",
-							"sid": 691208549213939,
-							"parameters": {
-								"instance-variable": "Coal",
-								"value": "1"
-							}
-						},
-						{
-							"id": "add-to-eventvar",
-							"objectClass": "System",
-							"sid": 953318860338802,
-							"parameters": {
-								"variable": "Money_Int",
-								"value": "1"
-							}
-						}
-					],
-					"sid": 525256777810053
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-object-clicked",
-							"objectClass": "Mouse",
-							"sid": 440445226175213,
-							"parameters": {
-								"mouse-button": "left",
-								"click-type": "clicked",
-								"object-clicked": "Sell_Quartz_Button_Global_Inventory"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Global_Inventory_Object",
-							"sid": 217341388462467,
-							"parameters": {
-								"instance-variable": "Quartz",
-								"comparison": 4,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-instvar",
-							"objectClass": "Global_Inventory_Object",
-							"sid": 997907906900255,
-							"parameters": {
-								"instance-variable": "Quartz",
-								"value": "1"
-							}
-						},
-						{
-							"id": "add-to-eventvar",
-							"objectClass": "System",
-							"sid": 899784671609183,
-							"parameters": {
-								"variable": "Money_Int",
-								"value": "1"
-							}
-						}
-					],
-					"sid": 522253639412964
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-object-clicked",
-							"objectClass": "Mouse",
-							"sid": 405397120173897,
-							"parameters": {
-								"mouse-button": "left",
-								"click-type": "clicked",
-								"object-clicked": "Sell_Aluminium_Button_Global_Inventory"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Global_Inventory_Object",
-							"sid": 196566574216811,
-							"parameters": {
-								"instance-variable": "Aluminium",
-								"comparison": 4,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-instvar",
-							"objectClass": "Global_Inventory_Object",
-							"sid": 897295840490155,
-							"parameters": {
-								"instance-variable": "Aluminium",
-								"value": "1"
-							}
-						},
-						{
-							"id": "add-to-eventvar",
-							"objectClass": "System",
-							"sid": 377841783339810,
-							"parameters": {
-								"variable": "Money_Int",
-								"value": "2"
-							}
-						}
-					],
-					"sid": 676393873151492
-				}
-			],
-			"sid": 322701768866508
 		},
 		{
 			"eventType": "group",
@@ -2988,6 +4046,23 @@
 										"instance-variable": "ANIM",
 										"value": "\"Drill\""
 									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Dust_Animation",
+									"sid": 716826334791560,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Dust_Animation",
+									"sid": 356459174434087,
+									"parameters": {
+										"animation": "\"Dust_Left\"",
+										"from": "beginning"
+									}
 								}
 							],
 							"sid": 950505323845044
@@ -3027,12 +4102,12 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 803507847077768,
+									"sid": 341350542914486,
 									"parameters": {
 										"object-to-create": "Dust_Animation",
 										"layer": "\"Player\"",
 										"x": "Miner_Box.X +32",
-										"y": "Miner_Box.Y +32",
+										"y": "Miner_Box.Y+16",
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
@@ -3060,9 +4135,12 @@
 							],
 							"actions": [
 								{
-									"id": "destroy",
+									"id": "set-visible",
 									"objectClass": "Dust_Animation",
-									"sid": 997916371080151
+									"sid": 968867864043279,
+									"parameters": {
+										"visibility": "invisible"
+									}
 								}
 							],
 							"sid": 863399033853590
@@ -5970,653 +7048,6 @@
 				}
 			],
 			"sid": 572583379769819
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Smelter Management",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "group",
-					"disabled": false,
-					"title": "General Management",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 358953281538706,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Smelter_Add_Amount"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 113982461221411,
-									"parameters": {
-										"instance-variable": "Busy",
-										"comparison": 0,
-										"value": "1"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 456484819617553,
-									"parameters": {
-										"instance-variable": "Crafting_Amount",
-										"comparison": 2,
-										"value": "Smelter_Furnace_1_Object.Max_Amount"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 136721185223282,
-									"parameters": {
-										"instance-variable": "Crafting_Amount",
-										"value": "1"
-									}
-								}
-							],
-							"sid": 546774197294175
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 477781532272029,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Smelter_Subtract_Amount"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 272680564748431,
-									"parameters": {
-										"instance-variable": "Busy",
-										"comparison": 0,
-										"value": "1"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 199515602554008,
-									"parameters": {
-										"instance-variable": "Crafting_Amount",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "subtract-from-instvar",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 340663477840340,
-									"parameters": {
-										"instance-variable": "Crafting_Amount",
-										"value": "1"
-									}
-								}
-							],
-							"sid": 507611043607981
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 559335644397664,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Smelter_Max_Amount"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 440842755073003,
-									"parameters": {
-										"instance-variable": "Busy",
-										"comparison": 0,
-										"value": "1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 896952539233322,
-									"parameters": {
-										"instance-variable": "Crafting_Amount",
-										"value": "Smelter_Furnace_1_Object.Max_Amount"
-									}
-								}
-							],
-							"sid": 567352559009313
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 646533087393750,
-									"parameters": {
-										"instance-variable": "Clock_Active",
-										"comparison": 0,
-										"value": "1"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 200692762161682,
-									"parameters": {
-										"instance-variable": "Crafting_Amount",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 515845781741432,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "every-x-seconds",
-											"objectClass": "System",
-											"sid": 196683912437688,
-											"parameters": {
-												"interval-seconds": "1.0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Smelter_Furnace_1_Object",
-											"sid": 537474717942373,
-											"parameters": {
-												"instance-variable": "Crafting_Time",
-												"comparison": 4,
-												"value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "subtract-from-instvar",
-											"objectClass": "Smelter_Furnace_1_Object",
-											"sid": 519697106977994,
-											"parameters": {
-												"instance-variable": "Crafting_Time",
-												"value": "1"
-											}
-										}
-									],
-									"sid": 608413473164617
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Smelter_Furnace_1_Object",
-											"sid": 388587661678512,
-											"parameters": {
-												"instance-variable": "Crafting_Time",
-												"comparison": 0,
-												"value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Smelter_Furnace_1_Object",
-											"sid": 456124514396584,
-											"parameters": {
-												"instance-variable": "Clock_Active",
-												"value": "0"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Smelter_Furnace_1_Object",
-											"sid": 878441871952383,
-											"parameters": {
-												"instance-variable": "Furnace_Active",
-												"value": "0"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Smelter_Furnace_1_Object",
-											"sid": 276077743638930,
-											"parameters": {
-												"instance-variable": "Crafting_Amount",
-												"value": "0"
-											}
-										}
-									],
-									"sid": 576481748018189
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 649308007125447,
-									"parameters": {
-										"instance-variable": "Busy",
-										"comparison": 0,
-										"value": "1"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 396182306064453,
-									"parameters": {
-										"instance-variable": "Furnace_Active",
-										"comparison": 0,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "Furnace_1_Sprite",
-									"sid": 932336051422457,
-									"parameters": {
-										"animation": "\"Busy\"",
-										"from": "current-frame"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Furnace_1_Background",
-									"sid": 170925148531903,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Furnace_1_Text",
-									"sid": 589053335817590,
-									"parameters": {
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 831071178438280
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 485041529018542,
-									"parameters": {
-										"instance-variable": "Busy",
-										"comparison": 0,
-										"value": "0"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 962408813729297,
-									"parameters": {
-										"instance-variable": "Furnace_Active",
-										"comparison": 0,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "Furnace_1_Sprite",
-									"sid": 525944416954907,
-									"parameters": {
-										"animation": "\"Idle\"",
-										"from": "current-frame"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Furnace_1_Background",
-									"sid": 529129075022030,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Furnace_1_Text",
-									"sid": 830567901029616,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								}
-							],
-							"sid": 438292358624542
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 801621690908772,
-									"parameters": {
-										"instance-variable": "Busy",
-										"comparison": 0,
-										"value": "1"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 402673020345303,
-									"parameters": {
-										"instance-variable": "Furnace_Active",
-										"comparison": 0,
-										"value": "1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "Furnace_1_Sprite",
-									"sid": 754848999205909,
-									"parameters": {
-										"animation": "\"Active\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Furnace_1_Background",
-									"sid": 679173262585742,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Furnace_1_Text",
-									"sid": 940137832541611,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								}
-							],
-							"sid": 659586918158578
-						}
-					],
-					"sid": 537481065186140
-				},
-				{
-					"eventType": "group",
-					"disabled": false,
-					"title": "Crafting Recipes",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "comment",
-							"text": "Aluminium Ingot"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-selected-item-text",
-									"objectClass": "Smelter_recipe_List",
-									"sid": 477952985709047,
-									"parameters": {
-										"text-to-compare": "\"Aluminium Ingot\"",
-										"case-sensitivity": "ignore-case"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 217755965331276,
-									"parameters": {
-										"instance-variable": "Aluminium",
-										"comparison": 5,
-										"value": "2"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 499719989938146,
-									"parameters": {
-										"instance-variable": "Max_Amount",
-										"value": "floor(Global_Inventory_Object.Aluminium / 2 )"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Smelter_Crafting_Amount_Text",
-									"sid": 943699371300038,
-									"parameters": {
-										"text": "Smelter_Furnace_1_Object.Crafting_Amount"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 938253911896964,
-									"parameters": {
-										"instance-variable": "Busy",
-										"value": "1"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Smelter_Recipe_Text",
-									"sid": 625833389322563,
-									"parameters": {
-										"text": "\"Aluminium Ore X2\""
-									}
-								}
-							],
-							"sid": 722039069292291
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 457014477444881,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Smelter_Crafting_Button"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 536161032552025,
-									"parameters": {
-										"instance-variable": "Crafting_Amount",
-										"comparison": 4,
-										"value": "0"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 313411130359147,
-									"parameters": {
-										"instance-variable": "Aluminium",
-										"comparison": 5,
-										"value": "2"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 676391584646930,
-									"parameters": {
-										"instance-variable": "Crafting_Time",
-										"value": "Smelter_Furnace_1_Object.Crafting_Amount * 3"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 366115186049706,
-									"parameters": {
-										"instance-variable": "Clock_Active",
-										"value": "1"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 402699580568265,
-									"parameters": {
-										"instance-variable": "Furnace_Active",
-										"value": "1"
-									}
-								}
-							],
-							"sid": 595899543554445
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-selected-item-text",
-									"objectClass": "Smelter_recipe_List",
-									"sid": 617658554373524,
-									"parameters": {
-										"text-to-compare": "\"Aluminium Ingot\"",
-										"case-sensitivity": "ignore-case"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 159807949372787,
-									"parameters": {
-										"instance-variable": "Furnace_Active",
-										"comparison": 0,
-										"value": "1"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 861483348357395,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "every-x-seconds",
-											"objectClass": "System",
-											"sid": 849484326840147,
-											"parameters": {
-												"interval-seconds": "3"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 675740679937417,
-											"parameters": {
-												"seconds": "3"
-											}
-										},
-										{
-											"id": "add-to-instvar",
-											"objectClass": "Global_Inventory_Object",
-											"sid": 992066176543025,
-											"parameters": {
-												"instance-variable": "Aluminium_Ingot",
-												"value": "1"
-											}
-										},
-										{
-											"id": "subtract-from-instvar",
-											"objectClass": "Smelter_Furnace_1_Object",
-											"sid": 197405975749568,
-											"parameters": {
-												"instance-variable": "Crafting_Amount",
-												"value": "1"
-											}
-										},
-										{
-											"id": "subtract-from-instvar",
-											"objectClass": "Global_Inventory_Object",
-											"sid": 795681788009240,
-											"parameters": {
-												"instance-variable": "Aluminium",
-												"value": "2"
-											}
-										}
-									],
-									"sid": 308456516456404
-								}
-							]
-						}
-					],
-					"sid": 861645983974657
-				},
-				{
-					"eventType": "group",
-					"disabled": false,
-					"title": "Variables2",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [],
-					"sid": 849762367561286
-				}
-			],
-			"sid": 312961236180358
 		}
 	],
 	"sid": 196935397098049
