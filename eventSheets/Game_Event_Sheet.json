@@ -529,6 +529,32 @@
 										"instance-variable": "Amount_Due",
 										"value": "5"
 									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Add_To_Cart_Background_Dynamite",
+									"sid": 519888087502170,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 941931331861682,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Add_To_Cart_Background_Dynamite",
+									"sid": 651209786676077,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
 								}
 							],
 							"sid": 874551148666104
@@ -549,10 +575,10 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 114731251785306,
+									"sid": 335058421526674,
 									"parameters": {
 										"variable": "Money_Int",
-										"comparison": 4,
+										"comparison": 5,
 										"value": "Shop_Cart_Object.Amount_Due +50"
 									}
 								}
@@ -575,6 +601,32 @@
 										"instance-variable": "Amount_Due",
 										"value": "50"
 									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Add_To_Cart_Background_Teleporter",
+									"sid": 306982050742276,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 359096378488140,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Add_To_Cart_Background_Teleporter",
+									"sid": 103999233348732,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
 								}
 							],
 							"sid": 779795008285494
@@ -595,10 +647,10 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 772097243679486,
+									"sid": 319869198380958,
 									"parameters": {
 										"variable": "Money_Int",
-										"comparison": 4,
+										"comparison": 5,
 										"value": "Shop_Cart_Object.Amount_Due +20"
 									}
 								}
@@ -621,6 +673,32 @@
 										"instance-variable": "Amount_Due",
 										"value": "20"
 									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Add_To_Cart_Background_Battery",
+									"sid": 708858157808322,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 969924047992183,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Add_To_Cart_Background_Battery",
+									"sid": 647704583507882,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
 								}
 							],
 							"sid": 768553956659890
@@ -641,10 +719,10 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 282696691781357,
+									"sid": 551775470953742,
 									"parameters": {
 										"variable": "Money_Int",
-										"comparison": 4,
+										"comparison": 5,
 										"value": "Shop_Cart_Object.Amount_Due +7"
 									}
 								}
@@ -667,6 +745,32 @@
 										"instance-variable": "Amount_Due",
 										"value": "7"
 									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Add_To_Cart_Background_Repair_Kit",
+									"sid": 317638358516009,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 170284159289938,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Add_To_Cart_Background_Repair_Kit",
+									"sid": 323254416087995,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
 								}
 							],
 							"sid": 114541853693098
@@ -681,14 +785,6 @@
 								}
 							],
 							"actions": [
-								{
-									"id": "set-text",
-									"objectClass": "Money_Text",
-									"sid": 441048630573042,
-									"parameters": {
-										"text": "Money_Int &\" $\""
-									}
-								},
 								{
 									"type": "script",
 									"script": "localVars.Shopping_List = `Dynamite ${runtime.objects.Shop_Cart_Object.instVars}`"
@@ -719,6 +815,32 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Shop_Buy_Button",
+									"sid": 435558095267951,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 310763250260003,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Shop_Buy_Button",
+									"sid": 423475375436313,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
 								{
 									"id": "subtract-from-instvar",
 									"objectClass": "Miner_Box",
@@ -819,6 +941,95 @@
 								}
 							],
 							"sid": 167684261439100
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 580107541022176,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Shop_Reset_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Shop_Reset_Button",
+									"sid": 868242352350118,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 280633402019661,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Shop_Reset_Button",
+									"sid": 544878928195870,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 577731476775077,
+									"parameters": {
+										"instance-variable": "Amount_Due",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 695532676611220,
+									"parameters": {
+										"instance-variable": "Battery",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 910615484310815,
+									"parameters": {
+										"instance-variable": "Dynamite",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 262846458563714,
+									"parameters": {
+										"instance-variable": "Repair_Kit",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 851393161416580,
+									"parameters": {
+										"instance-variable": "Teleporter",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 851208277721336
 						}
 					],
 					"sid": 173516556930715
@@ -2702,6 +2913,10 @@
 					],
 					"actions": [
 						{
+							"type": "comment",
+							"text": "Back to player mode"
+						},
+						{
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 500550682459978,
@@ -2744,6 +2959,64 @@
 							"parameters": {
 								"layer": "\"Background\"",
 								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Add_To_Cart_Background_Repair_Kit",
+							"sid": 633180017995083,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Darken\""
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Reset Shop"
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Shop_Cart_Object",
+							"sid": 937268593318369,
+							"parameters": {
+								"instance-variable": "Amount_Due",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Shop_Cart_Object",
+							"sid": 502358890235057,
+							"parameters": {
+								"instance-variable": "Battery",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Shop_Cart_Object",
+							"sid": 102466188848798,
+							"parameters": {
+								"instance-variable": "Dynamite",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Shop_Cart_Object",
+							"sid": 954778972190557,
+							"parameters": {
+								"instance-variable": "Repair_Kit",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Shop_Cart_Object",
+							"sid": 739375106479542,
+							"parameters": {
+								"instance-variable": "Teleporter",
+								"value": "0"
 							}
 						}
 					],
