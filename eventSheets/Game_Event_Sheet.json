@@ -2055,6 +2055,16 @@
 												"comparison": 2,
 												"value": "Smelter_Furnace_1_Object.Max_Amount"
 											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Furnace_1_Buttons",
+											"sid": 642332660884325,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
+											}
 										}
 									],
 									"actions": [
@@ -2102,6 +2112,16 @@
 												"comparison": 4,
 												"value": "0"
 											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Furnace_1_Buttons",
+											"sid": 236587995988768,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
+											}
 										}
 									],
 									"actions": [
@@ -2136,6 +2156,16 @@
 											"sid": 583954406530194,
 											"parameters": {
 												"instance-variable": "Busy",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Furnace_1_Buttons",
+											"sid": 565759265066046,
+											"parameters": {
+												"instance-variable": "Active",
 												"comparison": 0,
 												"value": "1"
 											}
@@ -2264,6 +2294,15 @@
 													"sid": 604004377927116,
 													"parameters": {
 														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Furnace_1_Buttons",
+													"sid": 773897053992838,
+													"parameters": {
+														"instance-variable": "Active",
+														"value": "1"
 													}
 												}
 											],
@@ -2544,16 +2583,6 @@
 												"text-to-compare": "\"Aluminium Ingot\"",
 												"case-sensitivity": "ignore-case"
 											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Global_Inventory_Object",
-											"sid": 844995970210726,
-											"parameters": {
-												"instance-variable": "Aluminium",
-												"comparison": 5,
-												"value": "2"
-											}
 										}
 									],
 									"actions": [
@@ -2626,6 +2655,16 @@
 												"comparison": 5,
 												"value": "2"
 											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Furnace_1_Buttons",
+											"sid": 120272634508623,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
+											}
 										}
 									],
 									"actions": [
@@ -2662,6 +2701,15 @@
 											"sid": 715946565848044,
 											"parameters": {
 												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Furnace_1_Buttons",
+											"sid": 571843448731575,
+											"parameters": {
+												"instance-variable": "Active",
+												"value": "0"
 											}
 										}
 									],
@@ -2709,9 +2757,18 @@
 												{
 													"id": "wait",
 													"objectClass": "System",
-													"sid": 198358981631747,
+													"sid": 798606024922805,
 													"parameters": {
 														"seconds": "3"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Smelter_Furnace_1_Object",
+													"sid": 172837796039747,
+													"parameters": {
+														"instance-variable": "Crafting_Amount",
+														"value": "1"
 													}
 												},
 												{
@@ -2720,15 +2777,6 @@
 													"sid": 853881527290252,
 													"parameters": {
 														"instance-variable": "Alu_Ingot",
-														"value": "1"
-													}
-												},
-												{
-													"id": "subtract-from-instvar",
-													"objectClass": "Smelter_Furnace_1_Object",
-													"sid": 821154392968239,
-													"parameters": {
-														"instance-variable": "Crafting_Amount",
 														"value": "1"
 													}
 												},
@@ -2886,7 +2934,33 @@
 										"instance-variable": "Teleporter",
 										"value": "0"
 									}
+								}
+							],
+							"sid": 928299702346000
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 982838106440857,
+									"parameters": {
+										"key": 27
+									}
 								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 725861481703053,
+									"parameters": {
+										"instance-variable": "Clock_Active",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
 								{
 									"type": "comment",
 									"text": "Reset Smelter"
@@ -2894,7 +2968,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 239888596697461,
+									"sid": 564799107605627,
 									"parameters": {
 										"instance-variable": "Clock_Active",
 										"value": "0"
@@ -2903,7 +2977,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 450459268892864,
+									"sid": 836605587040067,
 									"parameters": {
 										"instance-variable": "Busy",
 										"value": "0"
@@ -2912,7 +2986,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 203730240390414,
+									"sid": 598852744067111,
 									"parameters": {
 										"instance-variable": "Crafting_Amount",
 										"value": "0"
@@ -2921,7 +2995,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 234013059375859,
+									"sid": 919704615720629,
 									"parameters": {
 										"instance-variable": "Crafting_Time",
 										"value": "0"
@@ -2930,7 +3004,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 135886924966790,
+									"sid": 245740023017725,
 									"parameters": {
 										"instance-variable": "Furnace_Active",
 										"value": "0"
@@ -2939,7 +3013,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 895114368435034,
+									"sid": 624412273710704,
 									"parameters": {
 										"instance-variable": "Max_Amount",
 										"value": "0"
@@ -2948,7 +3022,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 427285097770064,
+									"sid": 514680606921065,
 									"parameters": {
 										"instance-variable": "Total_Time",
 										"value": "0"
@@ -2957,13 +3031,13 @@
 								{
 									"id": "set-selection",
 									"objectClass": "Smelter_recipe_List",
-									"sid": 313524053655250,
+									"sid": 722350901075504,
 									"parameters": {
 										"index": "0"
 									}
 								}
 							],
-							"sid": 928299702346000
+							"sid": 919642070622946
 						}
 					],
 					"sid": 147513351800279
@@ -3034,7 +3108,7 @@
 							"eventType": "variable",
 							"name": "StartY",
 							"type": "number",
-							"initialValue": "20",
+							"initialValue": "21",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
