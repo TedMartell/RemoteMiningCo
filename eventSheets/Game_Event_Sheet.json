@@ -2257,6 +2257,14 @@
 														"instance-variable": "Crafting_Amount",
 														"value": "0"
 													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Smelter_recipe_List",
+													"sid": 604004377927116,
+													"parameters": {
+														"visibility": "visible"
+													}
 												}
 											],
 											"sid": 537281491407065
@@ -2421,6 +2429,95 @@
 										}
 									],
 									"sid": 174724536215981
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-selected-item-text",
+											"objectClass": "Smelter_recipe_List",
+											"sid": 206692359716193,
+											"parameters": {
+												"text-to-compare": "\"SELECT RECIPE:\"",
+												"case-sensitivity": "ignore-case"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 296453188163836,
+											"parameters": {
+												"instance-variable": "Clock_Active",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 242886912587024,
+											"parameters": {
+												"instance-variable": "Busy",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 517472527475043,
+											"parameters": {
+												"instance-variable": "Crafting_Amount",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 916720577942086,
+											"parameters": {
+												"instance-variable": "Crafting_Time",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 419379051218042,
+											"parameters": {
+												"instance-variable": "Furnace_Active",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 456991223138264,
+											"parameters": {
+												"instance-variable": "Max_Amount",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 136250526031269,
+											"parameters": {
+												"instance-variable": "Total_Time",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Furnace_1_Sprite",
+											"sid": 621052744894538,
+											"parameters": {
+												"animation": "\"Idle\"",
+												"from": "current-frame"
+											}
+										}
+									],
+									"sid": 237038196330425
 								}
 							],
 							"sid": 131277409098151
@@ -2558,6 +2655,14 @@
 												"instance-variable": "Furnace_Active",
 												"value": "1"
 											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Smelter_recipe_List",
+											"sid": 715946565848044,
+											"parameters": {
+												"visibility": "invisible"
+											}
 										}
 									],
 									"sid": 508446504046450
@@ -2643,15 +2748,6 @@
 								}
 							],
 							"sid": 175364684754713
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Variables2",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [],
-							"sid": 148455986250062
 						}
 					],
 					"sid": 365658940512121
@@ -2789,6 +2885,81 @@
 									"parameters": {
 										"instance-variable": "Teleporter",
 										"value": "0"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "Reset Smelter"
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 239888596697461,
+									"parameters": {
+										"instance-variable": "Clock_Active",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 450459268892864,
+									"parameters": {
+										"instance-variable": "Busy",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 203730240390414,
+									"parameters": {
+										"instance-variable": "Crafting_Amount",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 234013059375859,
+									"parameters": {
+										"instance-variable": "Crafting_Time",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 135886924966790,
+									"parameters": {
+										"instance-variable": "Furnace_Active",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 895114368435034,
+									"parameters": {
+										"instance-variable": "Max_Amount",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 427285097770064,
+									"parameters": {
+										"instance-variable": "Total_Time",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-selection",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 313524053655250,
+									"parameters": {
+										"index": "0"
 									}
 								}
 							],
