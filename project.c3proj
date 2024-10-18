@@ -8,13 +8,6 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
-			"id": "AdvancedRandom",
-			"name": "Advanced Random",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
 			"id": "Button",
 			"name": "Button",
 			"author": "Scirra",
@@ -88,13 +81,6 @@
 			"type": "plugin",
 			"id": "TiledBg",
 			"name": "Tiled Background",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "sliderbar",
-			"name": "Slider bar",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -179,86 +165,34 @@
 	"uniqueId": "ltd0l2j3eoc",
 	"objectTypes": {
 		"items": [
-			"Miner_Base",
-			"Miner_Animations",
-			"Inventory",
-			"SpriteFont",
-			"TiledBackground",
-			"Shop_Door",
-			"Enter_Shop_Text",
-			"Shop_Background",
-			"Warehouse_Door",
-			"Enter_Warehouse_Text",
-			"TiledBackground3",
-			"TiledBackground4",
-			"Move_All_To_Warehouse",
-			"LocalStorage",
-			"TiledBackground5",
-			"Multiplayer",
-			"Smelter_Door",
-			"Enter_Smelter_Text",
-			"Smelter_recipe_List",
-			"SliderBar",
-			"Smelter_Req_Item_Background",
-			"Smelter_Req_Items_Text",
-			"Smelter_Clock",
-			"TiledBackground7",
-			"Smelter_Crafting_Button",
-			"Smelter_Crafting_Amount_Background",
-			"Smelter_Crafting_Amount_Text",
-			"Smelter_Add_Amount",
-			"Smelter_Subtract_Amount",
-			"Smelter_Max_Amount",
-			"Add_To_Cart_Dynamite_Text",
-			"Inventory_Global_Text",
-			"Global_Inventory_Object",
-			"Add_To_Cart_Teleporter_Text",
-			"Energy_Background",
-			"Energy_Bar",
-			"Add_To_Cart_Battery_Text",
-			"HP_Background",
-			"HP_Bar",
-			"Add_To_Cart_Repair_Kit_Text",
-			"TiledBackground8",
-			"Global_Inventory_Coal_Text",
-			"TestText",
-			"Warehouse_Background",
-			"Global_Inventory_Quartz_Text",
-			"Global_Inventory_Aluminium_Text",
-			"TiledBackground10",
-			"Sell_Coal_Button_Global_Inventory",
-			"Sell_Quartz_Button_Global_Inventory",
-			"Sell_Aluminium_Button_Global_Inventory",
-			"Smelter_Background",
-			"Smelter_Furnace_1_Object",
-			"Furnace_1_Sprite",
-			"Smelter_Recipe_Text",
-			"Dust_Animation",
-			"TiledBackground2",
-			"TiledBackground6",
-			"Shop_Cart_Object",
-			"Shopping_List_Text",
-			"Text",
-			"Shop_Amount_Due_Text",
-			"Shop_Buy_Button",
-			"Add_To_Cart_Background_Dynamite",
-			"Add_To_Cart_Background_Repair_Kit",
-			"Add_To_Cart_Background_Battery",
-			"Add_To_Cart_Background_Teleporter",
-			"Shop_Reset_Button"
+			"TestText"
 		],
 		"subfolders": [
 			{
 				"items": [
 					"Miner_Box",
 					"Miner_Drill",
-					"Sky_Background",
 					"Keyboard",
 					"Mouse",
 					"Explosion_Area",
-					"AdvancedRandom"
+					"Inventory",
+					"Shop_Cart_Object",
+					"SpriteFont",
+					"Global_Inventory_Object",
+					"LocalStorage",
+					"Multiplayer"
 				],
-				"subfolders": [],
+				"subfolders": [
+					{
+						"items": [
+							"Dust_Animation",
+							"Miner_Animations",
+							"Miner_Base"
+						],
+						"subfolders": [],
+						"name": "Animations"
+					}
+				],
 				"name": "Mechanical"
 			},
 			{
@@ -309,10 +243,103 @@
 					"Energy_text",
 					"Energy_Level_Text",
 					"HP_Level_Text",
-					"HP_text"
+					"HP_text",
+					"Energy_Background",
+					"Energy_Bar",
+					"HP_Background",
+					"HP_Bar",
+					"Inventory_Global_Text"
 				],
 				"subfolders": [],
 				"name": "HUD"
+			},
+			{
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"Add_To_Cart_Background_Battery",
+							"Add_To_Cart_Background_Dynamite",
+							"Add_To_Cart_Background_Repair_Kit",
+							"Add_To_Cart_Background_Teleporter",
+							"Add_To_Cart_Battery_Text",
+							"Add_To_Cart_Dynamite_Text",
+							"Add_To_Cart_Repair_Kit_Text",
+							"Add_To_Cart_Teleporter_Text",
+							"Shop_Amount_Due_Text",
+							"Shop_Background",
+							"Shop_Buy_Button",
+							"Shop_Reset_Button",
+							"Shopping_List_Text"
+						],
+						"subfolders": [],
+						"name": "Shop"
+					},
+					{
+						"items": [
+							"Smelter_Add_Amount",
+							"Smelter_Background",
+							"Smelter_Clock",
+							"Smelter_Crafting_Amount_Background",
+							"Smelter_Crafting_Amount_Text",
+							"Smelter_Crafting_Button",
+							"Smelter_Furnace_1_Object",
+							"Smelter_Max_Amount",
+							"Smelter_recipe_List",
+							"Smelter_Recipe_Text",
+							"Smelter_Req_Item_Background",
+							"Smelter_Req_Items_Text",
+							"Smelter_Subtract_Amount",
+							"Furnace_1_Sprite"
+						],
+						"subfolders": [],
+						"name": "Smelter"
+					},
+					{
+						"items": [
+							"Move_All_To_Warehouse",
+							"Warehouse_Background",
+							"Sell_Aluminium_Button_Global_Inventory",
+							"Sell_Coal_Button_Global_Inventory",
+							"Sell_Quartz_Button_Global_Inventory",
+							"Global_Inventory_Aluminium_Text",
+							"Global_Inventory_Coal_Text",
+							"Global_Inventory_Quartz_Text",
+							"Global_Inventory_Alu_Ingot_Text"
+						],
+						"subfolders": [],
+						"name": "Warehouse"
+					},
+					{
+						"items": [
+							"Enter_Shop_Text",
+							"Enter_Smelter_Text",
+							"Enter_Warehouse_Text",
+							"Shop_Door",
+							"Warehouse_Door",
+							"Smelter_Door"
+						],
+						"subfolders": [],
+						"name": "Doors"
+					},
+					{
+						"items": [
+							"Shop_Building_art",
+							"Smelter_Building_Art",
+							"Warehouse_Building_Art"
+						],
+						"subfolders": [],
+						"name": "Building_Art"
+					}
+				],
+				"name": "Buildings"
+			},
+			{
+				"items": [
+					"Game_Sky_Background"
+				],
+				"subfolders": [],
+				"name": "Game_Layer_Background"
 			}
 		]
 	},
@@ -339,8 +366,6 @@
 		"items": [
 			"Game",
 			"Objects",
-			"Shop",
-			"Warehouse",
 			"Smelter"
 		],
 		"subfolders": []
@@ -348,8 +373,6 @@
 	"eventSheets": {
 		"items": [
 			"Game_Event_Sheet",
-			"Shop_Event_Sheet",
-			"Warehouse_Event_Sheet",
 			"Smelter_Event_Sheet"
 		],
 		"subfolders": []

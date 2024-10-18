@@ -43,16 +43,6 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "Money_Int",
-			"type": "number",
-			"initialValue": "100",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 881426905345680
-		},
-		{
-			"eventType": "variable",
 			"name": "Energy_Bar_Original_Width",
 			"type": "number",
 			"initialValue": "0",
@@ -423,8 +413,24 @@
 						},
 						{
 							"id": "set-text",
+							"objectClass": "Smelter_Clock",
+							"sid": 947008730004576,
+							"parameters": {
+								"text": "zeropad(floor(Smelter_Furnace_1_Object.Crafting_Time/60),1) & \":\" & zeropad(floor(Smelter_Furnace_1_Object.Crafting_Time%60),2)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TestText",
+							"sid": 579639665633818,
+							"parameters": {
+								"text": "Global_Inventory_Object.Aluminium"
+							}
+						},
+						{
+							"id": "set-text",
 							"objectClass": "Global_Inventory_Coal_Text",
-							"sid": 377422014538429,
+							"sid": 575270586958470,
 							"parameters": {
 								"text": "Global_Inventory_Object.Coal"
 							}
@@ -432,7 +438,7 @@
 						{
 							"id": "set-text",
 							"objectClass": "Global_Inventory_Quartz_Text",
-							"sid": 818994144915607,
+							"sid": 304609022003333,
 							"parameters": {
 								"text": "Global_Inventory_Object.Quartz"
 							}
@@ -440,17 +446,17 @@
 						{
 							"id": "set-text",
 							"objectClass": "Global_Inventory_Aluminium_Text",
-							"sid": 306452243893162,
+							"sid": 605777554684039,
 							"parameters": {
 								"text": "Global_Inventory_Object.Aluminium"
 							}
 						},
 						{
 							"id": "set-text",
-							"objectClass": "Smelter_Clock",
-							"sid": 947008730004576,
+							"objectClass": "Global_Inventory_Alu_Ingot_Text",
+							"sid": 202714288074542,
 							"parameters": {
-								"text": "zeropad(floor(Smelter_Furnace_1_Object.Crafting_Time/60),1) & \":\" & zeropad(floor(Smelter_Furnace_1_Object.Crafting_Time%60),2)"
+								"text": "Global_Inventory_Object.Alu_Ingot"
 							}
 						}
 					],
@@ -501,11 +507,11 @@
 									}
 								},
 								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 136947478842813,
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 771485590620939,
 									"parameters": {
-										"variable": "Money_Int",
+										"instance-variable": "Money",
 										"comparison": 5,
 										"value": "Shop_Cart_Object.Amount_Due +5"
 									}
@@ -573,11 +579,11 @@
 									}
 								},
 								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 335058421526674,
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 868747331593322,
 									"parameters": {
-										"variable": "Money_Int",
+										"instance-variable": "Money",
 										"comparison": 5,
 										"value": "Shop_Cart_Object.Amount_Due +50"
 									}
@@ -645,11 +651,11 @@
 									}
 								},
 								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 319869198380958,
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 784842336308039,
 									"parameters": {
-										"variable": "Money_Int",
+										"instance-variable": "Money",
 										"comparison": 5,
 										"value": "Shop_Cart_Object.Amount_Due +20"
 									}
@@ -717,11 +723,11 @@
 									}
 								},
 								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 551775470953742,
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 277122842232425,
 									"parameters": {
-										"variable": "Money_Int",
+										"instance-variable": "Money",
 										"comparison": 5,
 										"value": "Shop_Cart_Object.Amount_Due +7"
 									}
@@ -1398,6 +1404,17 @@
 										"group-name": "\"Mechanical\"",
 										"state": "deactivated"
 									}
+								},
+								{
+									"id": "show-inventory",
+									"objectClass": "Inventory",
+									"sid": 971482220081958,
+									"parameters": {
+										"param0": "\"Inventory_Miner\"",
+										"param1": "\"Buildings\"",
+										"param2": "Warehouse_Background.X +10",
+										"param3": "Warehouse_Background.Y +10"
+									}
 								}
 							],
 							"sid": 617635391608297
@@ -1484,6 +1501,17 @@
 									"parameters": {
 										"group-name": "\"Mechanical\"",
 										"state": "deactivated"
+									}
+								},
+								{
+									"id": "show-inventory",
+									"objectClass": "Inventory",
+									"sid": 827345674394578,
+									"parameters": {
+										"param0": "\"Inventory_Miner\"",
+										"param1": "\"Buildings\"",
+										"param2": "Warehouse_Background.X +10",
+										"param3": "Warehouse_Background.Y +10"
 									}
 								}
 							],
@@ -1596,277 +1624,18 @@
 										"instance-variable": "Aluminium",
 										"value": "0"
 									}
+								},
+								{
+									"id": "move-all",
+									"objectClass": "Inventory",
+									"sid": 311642661833743,
+									"parameters": {
+										"from": "\"Inventory_Miner\"",
+										"to": "\"Inventory_Global\""
+									}
 								}
 							],
 							"sid": 292326158534623
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 558239590281173,
-									"parameters": {
-										"key": 73
-									}
-								}
-							],
-							"actions": [
-								{
-									"type": "script",
-									"script": "runtime.globalVars.GlobalInventory = updateInventoryText(globalInventory)"
-								},
-								{
-									"type": "script",
-									"script": "console.log(runtime.globalVars.GlobalInventory)"
-								}
-							],
-							"sid": 171682473264778,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-inventory-shown",
-											"objectClass": "Inventory",
-											"sid": 836290672259343,
-											"parameters": {
-												"param0": "\"Inventory_Miner\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "hide-inventory",
-											"objectClass": "Inventory",
-											"sid": 588511477796455,
-											"parameters": {
-												"param0": "\"Inventory_Miner\""
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "Value_Weight_Text",
-											"sid": 205405918506576,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										}
-									],
-									"sid": 749845939470376
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 899963431016752
-										}
-									],
-									"actions": [
-										{
-											"id": "show-inventory",
-											"objectClass": "Inventory",
-											"sid": 684135884147419,
-											"parameters": {
-												"param0": "\"Inventory_Miner\"",
-												"param1": "\"Buildings\"",
-												"param2": "500",
-												"param3": "0"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "Value_Weight_Text",
-											"sid": 901224928503674,
-											"parameters": {
-												"visibility": "visible"
-											}
-										}
-									],
-									"sid": 175225659886486
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 816146099703395,
-									"parameters": {
-										"key": 79
-									}
-								}
-							],
-							"actions": [
-								{
-									"type": "script",
-									"script": "addToInventory(minerInventory, miningItems.Coal_Inv, 1)"
-								}
-							],
-							"sid": 778373814978921
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 806739555868682,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Inventory_Sprites"
-									}
-								},
-								{
-									"id": "key-is-down",
-									"objectClass": "Keyboard",
-									"sid": 164418225820978,
-									"parameters": {
-										"key": 16
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 492348887976849,
-									"parameters": {
-										"variable": "Warehouse_Item_ID",
-										"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.X, Mouse.Y)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 401114213226642,
-									"parameters": {
-										"variable": "Warehouse_Item_Type",
-										"value": "Inventory.ItemType(Warehouse_Item_ID)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 388816985347459,
-									"parameters": {
-										"variable": "Warehouse_Item_Quantity",
-										"value": "Inventory.ItemQuantity(Warehouse_Item_ID)"
-									}
-								},
-								{
-									"type": "script",
-									"script": "console.log(localVars.Warehouse_Item_Quantity)"
-								},
-								{
-									"id": "set-item-quantity",
-									"objectClass": "Inventory",
-									"sid": 668912576598546,
-									"parameters": {
-										"param0": "Warehouse_Item_ID",
-										"param1": "Inventory.ItemQuantity(Warehouse_Item_ID) -Warehouse_Item_Quantity"
-									}
-								},
-								{
-									"type": "script",
-									"script": "moveItemWithQuantity(minerInventory, globalInventory, localVars.Warehouse_Item_Type, localVars.Warehouse_Item_Quantity )"
-								},
-								{
-									"id": "create-item",
-									"objectClass": "Inventory",
-									"sid": 134281690770383,
-									"parameters": {
-										"type": "Warehouse_Item_Type",
-										"quantity": "Warehouse_Item_Quantity",
-										"inventory-id": "\"Inventory_Global\"",
-										"slot-id": "\"\""
-									}
-								},
-								{
-									"id": "destroy-item",
-									"objectClass": "Inventory",
-									"sid": 494112587052723,
-									"parameters": {
-										"param0": "Inventory.InventoryIdByCords(Mouse.X, Mouse.Y)"
-									}
-								}
-							],
-							"sid": 832570936202274
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 734559123995495,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Inventory_Sprites"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 615947543437107,
-									"parameters": {
-										"variable": "Warehouse_Item_ID",
-										"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.X, Mouse.Y)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 218651794657467,
-									"parameters": {
-										"variable": "Warehouse_Item_Type",
-										"value": "Inventory.ItemType(Warehouse_Item_ID)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 584244918688185,
-									"parameters": {
-										"variable": "Warehouse_Item_Quantity",
-										"value": "Inventory.ItemQuantity(Warehouse_Item_ID)"
-									}
-								},
-								{
-									"id": "set-item-quantity",
-									"objectClass": "Inventory",
-									"sid": 595848715126766,
-									"parameters": {
-										"param0": "Warehouse_Item_ID",
-										"param1": "Inventory.ItemQuantity(Warehouse_Item_ID) -1"
-									}
-								},
-								{
-									"type": "script",
-									"script": "moveItemWithQuantity(minerInventory, globalInventory, localVars.Warehouse_Item_Type, 1 )"
-								},
-								{
-									"id": "create-item",
-									"objectClass": "Inventory",
-									"sid": 862039201267151,
-									"parameters": {
-										"type": "Warehouse_Item_Type",
-										"quantity": "1",
-										"inventory-id": "\"Inventory_Global\"",
-										"slot-id": "\"\""
-									}
-								}
-							],
-							"sid": 669415596549310
 						},
 						{
 							"eventType": "block",
@@ -1903,11 +1672,11 @@
 									}
 								},
 								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 695023811580404,
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 423113458431829,
 									"parameters": {
-										"variable": "Money_Int",
+										"instance-variable": "Money",
 										"value": "1"
 									}
 								}
@@ -1949,11 +1718,11 @@
 									}
 								},
 								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 416158015205736,
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 600695136458525,
 									"parameters": {
-										"variable": "Money_Int",
+										"instance-variable": "Money",
 										"value": "1"
 									}
 								}
@@ -1995,11 +1764,11 @@
 									}
 								},
 								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 141349840473195,
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 505358535813280,
 									"parameters": {
-										"variable": "Money_Int",
+										"instance-variable": "Money",
 										"value": "2"
 									}
 								}
@@ -2845,7 +2614,7 @@
 													"objectClass": "Global_Inventory_Object",
 													"sid": 853881527290252,
 													"parameters": {
-														"instance-variable": "Aluminium_Ingot",
+														"instance-variable": "Alu_Ingot",
 														"value": "1"
 													}
 												},
@@ -2888,139 +2657,145 @@
 					"sid": 365658940512121
 				},
 				{
-					"eventType": "comment",
-					"text": "Escape Building Layer"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "group",
+					"disabled": false,
+					"title": "Escape Buildings",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 732060774150433,
-							"parameters": {
-								"key": 27
-							}
-						},
-						{
-							"id": "layer-is-visible",
-							"objectClass": "System",
-							"sid": 737143439624565,
-							"parameters": {
-								"layer": "\"Buildings\""
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 669478603808442,
+									"parameters": {
+										"key": 27
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 934597183512806,
+									"parameters": {
+										"layer": "\"Buildings\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Back to player mode"
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 332463929271313,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 240378572085504,
+									"parameters": {
+										"layer": "\"Buildings\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 516136545989508,
+									"parameters": {
+										"layer": "\"HUD\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 182497148165710,
+									"parameters": {
+										"layer": "\"Player\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 167906878254309,
+									"parameters": {
+										"layer": "\"Background\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Add_To_Cart_Background_Repair_Kit",
+									"sid": 471396905702679,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"type": "comment",
+									"text": "Reset Shop"
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 278274581909593,
+									"parameters": {
+										"instance-variable": "Amount_Due",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 419243556708636,
+									"parameters": {
+										"instance-variable": "Battery",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 464495899894148,
+									"parameters": {
+										"instance-variable": "Dynamite",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 138976583403689,
+									"parameters": {
+										"instance-variable": "Repair_Kit",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 981720311253152,
+									"parameters": {
+										"instance-variable": "Teleporter",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 928299702346000
 						}
 					],
-					"actions": [
-						{
-							"type": "comment",
-							"text": "Back to player mode"
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 500550682459978,
-							"parameters": {
-								"group-name": "\"Mechanical\"",
-								"state": "activated"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 177090053188547,
-							"parameters": {
-								"layer": "\"Buildings\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 854597902959375,
-							"parameters": {
-								"layer": "\"HUD\"",
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 638321718275309,
-							"parameters": {
-								"layer": "\"Player\"",
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 955364788234560,
-							"parameters": {
-								"layer": "\"Background\"",
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-effect-enabled",
-							"objectClass": "Add_To_Cart_Background_Repair_Kit",
-							"sid": 633180017995083,
-							"parameters": {
-								"mode": "disable",
-								"effect": "\"Darken\""
-							}
-						},
-						{
-							"type": "comment",
-							"text": "Reset Shop"
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Shop_Cart_Object",
-							"sid": 937268593318369,
-							"parameters": {
-								"instance-variable": "Amount_Due",
-								"value": "0"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Shop_Cart_Object",
-							"sid": 502358890235057,
-							"parameters": {
-								"instance-variable": "Battery",
-								"value": "0"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Shop_Cart_Object",
-							"sid": 102466188848798,
-							"parameters": {
-								"instance-variable": "Dynamite",
-								"value": "0"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Shop_Cart_Object",
-							"sid": 954778972190557,
-							"parameters": {
-								"instance-variable": "Repair_Kit",
-								"value": "0"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Shop_Cart_Object",
-							"sid": 739375106479542,
-							"parameters": {
-								"instance-variable": "Teleporter",
-								"value": "0"
-							}
-						}
-					],
-					"sid": 217837464334360
+					"sid": 147513351800279
 				}
 			],
 			"sid": 673306627574670
