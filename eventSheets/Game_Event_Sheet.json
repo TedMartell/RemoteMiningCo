@@ -336,6 +336,42 @@
 								"variable": "HP_Bar_Original_Width",
 								"value": "HP_Bar.Width"
 							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 864921438084937,
+							"parameters": {
+								"object": "Laser_Gun",
+								"layer": "\"Player\"",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Laser_Gun",
+							"sid": 567827947549030,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Miner_Box",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Laser_Gun",
+							"sid": 599573851188749,
+							"parameters": {
+								"animation": "\"Idle_Right\"",
+								"from": "beginning"
+							}
 						}
 					],
 					"sid": 215528164269866
@@ -3362,6 +3398,15 @@
 								{
 									"type": "script",
 									"script": ""
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Laser_Gun",
+									"sid": 568853337442733,
+									"parameters": {
+										"instance-variable": "Direction",
+										"value": "1"
+									}
 								}
 							],
 							"sid": 704151603478823,
@@ -3417,6 +3462,15 @@
 									"parameters": {
 										"instance-variable": "LEFT",
 										"value": "true"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Laser_Gun",
+									"sid": 100624431650929,
+									"parameters": {
+										"instance-variable": "Direction",
+										"value": "0"
 									}
 								}
 							],
@@ -3556,6 +3610,173 @@
 								}
 							],
 							"sid": 506666680667968
+						},
+						{
+							"eventType": "comment",
+							"text": "Shooting"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 973935695807238,
+									"parameters": {
+										"key": 32
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Laser_Gun",
+									"sid": 140258899527765,
+									"parameters": {
+										"instance-variable": "Direction",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 456648273259240,
+									"parameters": {
+										"object-to-create": "Bullet_Sprite",
+										"layer": "\"Player\"",
+										"x": "Miner_Box.X",
+										"y": "Miner_Box.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "Bullet_Sprite",
+									"sid": 151278123247348,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "180"
+									}
+								},
+								{
+									"id": "set-acceleration",
+									"objectClass": "Bullet_Sprite",
+									"sid": 334259691423716,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"acceleration": "10"
+									}
+								}
+							],
+							"sid": 885076011367513
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 332637168298373,
+									"parameters": {
+										"key": 32
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Laser_Gun",
+									"sid": 918728316183182,
+									"parameters": {
+										"instance-variable": "Direction",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 334245870938823,
+									"parameters": {
+										"object-to-create": "Bullet_Sprite",
+										"layer": "\"Player\"",
+										"x": "Miner_Box.X",
+										"y": "Miner_Box.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "Bullet_Sprite",
+									"sid": 897898487583562,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "0"
+									}
+								},
+								{
+									"id": "set-acceleration",
+									"objectClass": "Bullet_Sprite",
+									"sid": 370418466538734,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"acceleration": "10"
+									}
+								}
+							],
+							"sid": 615587465153207
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Laser_Gun",
+									"sid": 219938473210925,
+									"parameters": {
+										"instance-variable": "Direction",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Laser_Gun",
+									"sid": 374827946366086,
+									"parameters": {
+										"animation": "\"Idle_Left\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 584425500277471
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 455735980260105
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Laser_Gun",
+									"sid": 374613102288981,
+									"parameters": {
+										"animation": "\"Idle_Right\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 337072268025477
 						}
 					],
 					"sid": 399184494776676
@@ -4579,18 +4800,6 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 193477043956631
-								}
-							],
-							"actions": [],
-							"sid": 736721985967571
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
 									"id": "on-animation-finished",
 									"objectClass": "Dirt_Block",
 									"sid": 418759246318830,
@@ -4763,6 +4972,320 @@
 								}
 							],
 							"sid": 801560793861329
+						},
+						{
+							"eventType": "comment",
+							"text": "Dirt Top Block"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Drill",
+									"sid": 736763478846927,
+									"parameters": {
+										"object": "Dirt_Block_Top"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 456264801559083,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "Miner_Box.DMG"
+									}
+								}
+							],
+							"sid": 805096016628821
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 772736266263953,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Miner_Box",
+									"sid": 103989166754858,
+									"parameters": {
+										"instance-variable": "DOWN"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 745377646465121,
+									"parameters": {
+										"animation": "\"destroy_down\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 637799457170705,
+									"parameters": {
+										"animation": "\"destroy_down\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 563421666858539
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 518890419183589,
+									"parameters": {
+										"animation": "\"destroy_down\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "destroyBlock(runtime.objects.Dirt_Block_Top)\n"
+								}
+							],
+							"sid": 580338804141985
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 847165099342301,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Miner_Box",
+									"sid": 204989393222204,
+									"parameters": {
+										"instance-variable": "RIGHT"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 219950265793571,
+									"parameters": {
+										"animation": "\"destroy_right\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 896921266399891,
+									"parameters": {
+										"animation": "\"destroy_right\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 683692422344424
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 164127459766627,
+									"parameters": {
+										"animation": "\"destroy_right\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "destroyBlock(runtime.objects.Dirt_Block_Top)\n"
+								}
+							],
+							"sid": 145620592287282
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 208958088240844,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Miner_Box",
+									"sid": 109092143389695,
+									"parameters": {
+										"instance-variable": "LEFT"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 362609181710860,
+									"parameters": {
+										"animation": "\"destroy_left\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 466112667097484,
+									"parameters": {
+										"animation": "\"destroy_left\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 109913835041225
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 215223524359234,
+									"parameters": {
+										"animation": "\"destroy_left\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "destroyBlock(runtime.objects.Dirt_Block_Top)\n"
+								}
+							],
+							"sid": 236396486165820
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 190338591062422,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Miner_Box",
+									"sid": 420493714204995,
+									"parameters": {
+										"instance-variable": "LEFT"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 513193651000763,
+									"parameters": {
+										"animation": "\"destroy_left\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 700094752890771,
+									"parameters": {
+										"animation": "\"destroy_left\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 416055883919227
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 465552735621885,
+									"parameters": {
+										"animation": "\"destroy_left\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "destroyBlock(runtime.objects.Dirt_Block_Top)\n"
+								}
+							],
+							"sid": 716977727277249
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Explosion_Area",
+									"sid": 828205922745590,
+									"parameters": {
+										"object": "Dirt_Block_Top"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Dirt_Block_Top",
+									"sid": 578728892547802,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "Explosion_Area.Explosion_Damage"
+									}
+								},
+								{
+									"type": "script",
+									"script": "destroyBlock(runtime.objects.Dirt_Block_Top)\n"
+								}
+							],
+							"sid": 963153380805847
 						},
 						{
 							"eventType": "comment",
