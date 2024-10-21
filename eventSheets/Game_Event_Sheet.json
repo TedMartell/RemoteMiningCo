@@ -338,39 +338,18 @@
 							}
 						},
 						{
-							"id": "spawn-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 864921438084937,
-							"parameters": {
-								"object": "Laser_Gun",
-								"layer": "\"Player\"",
-								"image-point": "0",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
 							"id": "pin-to-object-properties",
-							"objectClass": "Laser_Gun",
-							"sid": 567827947549030,
+							"objectClass": "Devil_Hitbox",
+							"sid": 853337412302757,
 							"behaviorType": "Pin",
 							"parameters": {
-								"pin-to": "Miner_Box",
+								"pin-to": "Devil_Boss_Sprite",
 								"x": true,
 								"y": true,
 								"angle": true,
 								"width-type": "no",
 								"height-type": "no",
 								"z": false
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "Laser_Gun",
-							"sid": 599573851188749,
-							"parameters": {
-								"animation": "\"Idle_Right\"",
-								"from": "beginning"
 							}
 						}
 					],
@@ -493,6 +472,14 @@
 							"sid": 202714288074542,
 							"parameters": {
 								"text": "Global_Inventory_Object.Alu_Ingot"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TestText",
+							"sid": 998523149533761,
+							"parameters": {
+								"text": "Miner_Box.HP"
 							}
 						}
 					],
@@ -3777,6 +3764,113 @@
 								}
 							],
 							"sid": 337072268025477
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 846895214688303,
+									"parameters": {
+										"key": 89
+									}
+								}
+							],
+							"actions": [],
+							"sid": 577387076258790,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 736363913104456,
+											"parameters": {
+												"instance-variable": "Laser_Gun",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Miner_Box",
+											"sid": 563247155095931,
+											"parameters": {
+												"object": "Laser_Gun",
+												"layer": "\"Player\"",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Laser_Gun",
+											"sid": 503731975091796,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Miner_Box",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Laser_Gun",
+											"sid": 498018246728902,
+											"parameters": {
+												"animation": "\"Idle_Right\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 359356433371115,
+											"parameters": {
+												"instance-variable": "Laser_Gun",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 794860010874884
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 637947990869564
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Laser_Gun",
+											"sid": 174092200856865
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 435377310955955,
+											"parameters": {
+												"instance-variable": "Laser_Gun",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 672875787734857
+								}
+							]
 						}
 					],
 					"sid": 399184494776676
@@ -7484,7 +7578,7 @@
 				{
 					"eventType": "group",
 					"disabled": false,
-					"title": "Energy & Health Bar",
+					"title": "Energy & Health",
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
@@ -7656,13 +7750,13 @@
 										"instance-variable": "Fall_Timer",
 										"value": "0.5"
 									}
-								},
-								{
-									"type": "script",
-									"script": "// Assuming you want to log the first instance of Miner_Box\nconst minerBoxInstance = runtime.objects.Miner_Box.getFirstPickedInstance();\n\n// Log the value of Fall_Timer\nif (minerBoxInstance) {\n    console.log(minerBoxInstance.instVars.Fall_Timer);\n} else {\n    console.log(\"No Miner_Box instance found.\");\n}\n"
 								}
 							],
 							"sid": 513360694871506
+						},
+						{
+							"eventType": "comment",
+							"text": "Fall Damage"
 						},
 						{
 							"eventType": "block",
@@ -7685,6 +7779,17 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "shake",
+									"objectClass": "Miner_Box",
+									"sid": 494944322978348,
+									"behaviorType": "ScrollTo",
+									"parameters": {
+										"magnitude": "20",
+										"duration": "0.4",
+										"mode": "reducing-magnitude"
+									}
+								},
 								{
 									"id": "subtract-from-instvar",
 									"objectClass": "Miner_Box",
@@ -7772,6 +7877,17 @@
 							],
 							"actions": [
 								{
+									"id": "shake",
+									"objectClass": "Miner_Box",
+									"sid": 591320973716929,
+									"behaviorType": "ScrollTo",
+									"parameters": {
+										"magnitude": "20",
+										"duration": "0.4",
+										"mode": "reducing-magnitude"
+									}
+								},
+								{
 									"id": "subtract-from-instvar",
 									"objectClass": "Miner_Box",
 									"sid": 226810824760792,
@@ -7858,9 +7974,251 @@
 								}
 							],
 							"sid": 717368067010350
+						},
+						{
+							"eventType": "comment",
+							"text": "On Death"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 363095911107053,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Miner_Box",
+									"sid": 606106831767388,
+									"parameters": {
+										"x": "256",
+										"y": "1088"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 914101240839659,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "Miner_Box.Max_HP"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 285972238167397,
+									"parameters": {
+										"instance-variable": "Energy",
+										"value": "100"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "Energy_Bar",
+									"sid": 391460994396899,
+									"parameters": {
+										"color": "rgbEx(24, 180, 29)"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "HP_Bar",
+									"sid": 580290925582602,
+									"parameters": {
+										"color": "rgbEx(24, 180, 29)"
+									}
+								}
+							],
+							"sid": 169835360577021
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 149876177667325,
+									"parameters": {
+										"object": "Devil_Hitbox"
+									}
+								},
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 425631561832248,
+									"parameters": {
+										"interval-seconds": "1.0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 824982689198245,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "10"
+									}
+								},
+								{
+									"id": "shake",
+									"objectClass": "Miner_Box",
+									"sid": 133752764448771,
+									"behaviorType": "ScrollTo",
+									"parameters": {
+										"magnitude": "20",
+										"duration": "0.4",
+										"mode": "reducing-magnitude"
+									}
+								}
+							],
+							"sid": 303100008674693,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Miner_Animations",
+											"sid": 929746533527925,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"HardLight\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HP_Bar",
+											"sid": 162866226390853,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"HardLight\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 385070856051342,
+											"parameters": {
+												"seconds": "0.25"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HP_Bar",
+											"sid": 778064321601426,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"HardLight\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Miner_Animations",
+											"sid": 327926009703719,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"HardLight\""
+											}
+										}
+									],
+									"sid": 546554749448297
+								}
+							]
 						}
 					],
 					"sid": 445823445837127
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Enemy Encounters",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Devil_Boss_Sprite",
+									"sid": 496574548731526,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Devil_Boss_Sprite",
+									"sid": 501044995383421
+								}
+							],
+							"sid": 365893136662040
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Bullet_Sprite",
+									"sid": 889098907153370,
+									"parameters": {
+										"object": "Devil_Boss_Sprite"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Devil_Boss_Sprite",
+									"sid": 984372940102948,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "1"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Bullet_Sprite",
+									"sid": 198356963715430
+								}
+							],
+							"sid": 571662342962430
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Devil_Boss_Sprite",
+									"sid": 309555208833504,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 397050033903308
+						}
+					],
+					"sid": 547661340535400
 				}
 			],
 			"sid": 572583379769819
