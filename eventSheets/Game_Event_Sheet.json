@@ -351,6 +351,18 @@
 								"height-type": "no",
 								"z": false
 							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Devil_Boss_Sprite",
+							"sid": 582834222460639,
+							"parameters": {
+								"object": "Devil_Boss_arm",
+								"layer": "\"Player\"",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
 						}
 					],
 					"sid": 215528164269866
@@ -365,6 +377,24 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "Devil_Boss_arm",
+							"sid": 990260172269229,
+							"parameters": {
+								"x": "Miner_Box.X",
+								"y": "Miner_Box.Y"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Devil_Boss_arm",
+							"sid": 989136745285443,
+							"parameters": {
+								"x": "Devil_Boss_Sprite.X - 70",
+								"y": "Devil_Boss_Sprite.Y -32"
+							}
+						},
 						{
 							"id": "set-animation",
 							"objectClass": "Miner_Animations",
@@ -477,9 +507,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "TestText",
-							"sid": 998523149533761,
+							"sid": 268906319717860,
 							"parameters": {
-								"text": "Miner_Box.HP"
+								"text": "Devil_Boss_Sprite.HP"
 							}
 						}
 					],
@@ -8166,6 +8196,11 @@
 									"id": "destroy",
 									"objectClass": "Devil_Boss_Sprite",
 									"sid": 501044995383421
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Devil_Hitbox",
+									"sid": 957654847873490
 								}
 							],
 							"sid": 365893136662040
@@ -8204,6 +8239,36 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Devil_Bullet_Sprite",
+									"sid": 503487501446128,
+									"parameters": {
+										"object": "Miner_Box"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 317353553273160,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "5"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Devil_Bullet_Sprite",
+									"sid": 305192978093324
+								}
+							],
+							"sid": 110656744270693
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "compare-instance-variable",
 									"objectClass": "Devil_Boss_Sprite",
 									"sid": 309555208833504,
@@ -8216,6 +8281,53 @@
 							],
 							"actions": [],
 							"sid": 397050033903308
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 457200627276691,
+									"parameters": {
+										"interval-seconds": "0.25"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 318922758672007,
+									"parameters": {
+										"object-to-create": "Devil_Bullet_Sprite",
+										"layer": "\"Player\"",
+										"x": "Devil_Boss_arm.X ",
+										"y": "Devil_Boss_arm.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "Devil_Bullet_Sprite",
+									"sid": 910946535005465,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "Devil_Boss_arm.Angle"
+									}
+								},
+								{
+									"id": "set-acceleration",
+									"objectClass": "Devil_Bullet_Sprite",
+									"sid": 342715031802887,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"acceleration": "10"
+									}
+								}
+							],
+							"sid": 815195259568284
 						}
 					],
 					"sid": 547661340535400

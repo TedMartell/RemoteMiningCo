@@ -5312,16 +5312,16 @@
 					"sid": 270604284015745,
 					"tags": "",
 					"instanceVariables": {
-						"HP": 10
+						"HP": 50
 					},
 					"behaviors": {
 						"Platform": {
 							"properties": {
-								"max-speed": 500,
-								"acceleration": 1500,
+								"max-speed": 3000,
+								"acceleration": 3000,
 								"deceleration": 1500,
 								"jump-strength": 650,
-								"gravity": 1500,
+								"gravity": 0,
 								"max-fall-speed": 1000,
 								"double-jump": false,
 								"jump-sustain": 0,
@@ -5333,12 +5333,26 @@
 							"properties": {
 								"movement": "horizontal",
 								"wave": "sine",
-								"period": 60,
-								"period-random": 0,
-								"period-offset": 0,
-								"period-offset-random": 0,
+								"period": 3,
+								"period-random": 10,
+								"period-offset": 5,
+								"period-offset-random": 5,
 								"magnitude": 500,
-								"magnitude-random": 500,
+								"magnitude-random": 250,
+								"enabled": true,
+								"live-preview": false
+							}
+						},
+						"Sine2": {
+							"properties": {
+								"movement": "vertical",
+								"wave": "sine",
+								"period": 4,
+								"period-random": 3,
+								"period-offset": 4,
+								"period-offset-random": 2,
+								"magnitude": 300,
+								"magnitude-random": 5,
 								"enabled": true,
 								"live-preview": false
 							}
@@ -5347,19 +5361,6 @@
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Turret": {
-							"properties": {
-								"range": 300,
-								"rate-of-fire": 1,
-								"rotate": true,
-								"rotate-speed": 180,
-								"target-mode": "first-in-range",
-								"predictive-aim": false,
-								"projectile-speed": 500,
-								"use-collision-cells": true,
-								"enabled": true
 							}
 						}
 					},
