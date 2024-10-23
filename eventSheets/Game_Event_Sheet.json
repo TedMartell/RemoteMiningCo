@@ -357,11 +357,26 @@
 							"objectClass": "Devil_Boss_Sprite",
 							"sid": 582834222460639,
 							"parameters": {
-								"object": "Devil_Boss_arm",
+								"object": "Devil_Boss_Pentagram",
 								"layer": "\"Player\"",
 								"image-point": "0",
 								"create-hierarchy": false,
 								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Devil_Boss_Pentagram",
+							"sid": 473934282268135,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Devil_Boss_Sprite",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
 							}
 						}
 					],
@@ -379,20 +394,11 @@
 					"actions": [
 						{
 							"id": "set-angle-toward-position",
-							"objectClass": "Devil_Boss_arm",
+							"objectClass": "Devil_Boss_Pentagram",
 							"sid": 990260172269229,
 							"parameters": {
 								"x": "Miner_Box.X",
 								"y": "Miner_Box.Y"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "Devil_Boss_arm",
-							"sid": 989136745285443,
-							"parameters": {
-								"x": "Devil_Boss_Sprite.X - 70",
-								"y": "Devil_Boss_Sprite.Y -32"
 							}
 						},
 						{
@@ -517,6 +523,172 @@
 				}
 			],
 			"sid": 769195620327841
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Meta_Upgrades",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "CameraX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 721224026439280
+				},
+				{
+					"eventType": "variable",
+					"name": "CameraY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 776761539560176
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 849790423491231,
+							"parameters": {
+								"key": 77
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 774307439826434,
+							"parameters": {
+								"layer": "\"Meta_Upgrades\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 192238331008286,
+							"parameters": {
+								"layer": "\"HUD\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 946478913682411,
+							"parameters": {
+								"layer": "\"Player\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 529133131923214,
+							"parameters": {
+								"layer": "\"Background\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 368845574826311,
+							"parameters": {
+								"group-name": "\"Mechanical\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Meta_Upg_Background",
+							"sid": 553765481482715,
+							"parameters": {
+								"x": "Miner_Box.X",
+								"y": "Miner_Box.Y"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Miner_Box",
+							"sid": 103248583840632,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 852580387377438
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 562353470593959
+						}
+					],
+					"actions": [
+						{
+							"id": "scroll-to-position",
+							"objectClass": "System",
+							"sid": 563871859804957,
+							"parameters": {
+								"x": "CameraX",
+								"y": "CameraY"
+							}
+						}
+					],
+					"sid": 996639670717390
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-click",
+							"objectClass": "Mouse",
+							"sid": 339946576395508,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 501234983607403,
+							"parameters": {
+								"variable": "CameraX",
+								"value": "Mouse.X"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 277046971711654,
+							"parameters": {
+								"variable": "CameraY",
+								"value": "Mouse.Y"
+							}
+						}
+					],
+					"sid": 613396772793239
+				}
+			],
+			"sid": 234698063228916
 		},
 		{
 			"eventType": "group",
@@ -8201,6 +8373,11 @@
 									"id": "destroy",
 									"objectClass": "Devil_Hitbox",
 									"sid": 957654847873490
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Devil_Boss_Pentagram",
+									"sid": 602857191058088
 								}
 							],
 							"sid": 365893136662040
@@ -8302,8 +8479,8 @@
 									"parameters": {
 										"object-to-create": "Devil_Bullet_Sprite",
 										"layer": "\"Player\"",
-										"x": "Devil_Boss_arm.X ",
-										"y": "Devil_Boss_arm.Y",
+										"x": "Devil_Boss_Pentagram.X ",
+										"y": "Devil_Boss_Pentagram.Y",
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
@@ -8314,7 +8491,7 @@
 									"sid": 910946535005465,
 									"behaviorType": "Bullet",
 									"parameters": {
-										"angle": "Devil_Boss_arm.Angle"
+										"angle": "Devil_Boss_Pentagram.Angle"
 									}
 								},
 								{
