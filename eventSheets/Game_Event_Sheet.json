@@ -532,26 +532,6 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "variable",
-					"name": "CameraX",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 721224026439280
-				},
-				{
-					"eventType": "variable",
-					"name": "CameraY",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 776761539560176
-				},
-				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -583,24 +563,6 @@
 							}
 						},
 						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 946478913682411,
-							"parameters": {
-								"layer": "\"Player\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 529133131923214,
-							"parameters": {
-								"layer": "\"Background\"",
-								"visibility": "invisible"
-							}
-						},
-						{
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 368845574826311,
@@ -617,75 +579,9 @@
 								"x": "Miner_Box.X",
 								"y": "Miner_Box.Y"
 							}
-						},
-						{
-							"id": "set-enabled",
-							"objectClass": "Miner_Box",
-							"sid": 103248583840632,
-							"behaviorType": "ScrollTo",
-							"parameters": {
-								"state": "disabled"
-							}
 						}
 					],
 					"sid": 852580387377438
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 562353470593959
-						}
-					],
-					"actions": [
-						{
-							"id": "scroll-to-position",
-							"objectClass": "System",
-							"sid": 563871859804957,
-							"parameters": {
-								"x": "CameraX",
-								"y": "CameraY"
-							}
-						}
-					],
-					"sid": 996639670717390
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-click",
-							"objectClass": "Mouse",
-							"sid": 339946576395508,
-							"parameters": {
-								"mouse-button": "left",
-								"click-type": "clicked"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 501234983607403,
-							"parameters": {
-								"variable": "CameraX",
-								"value": "Mouse.X"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 277046971711654,
-							"parameters": {
-								"variable": "CameraY",
-								"value": "Mouse.Y"
-							}
-						}
-					],
-					"sid": 613396772793239
 				}
 			],
 			"sid": 234698063228916
@@ -3852,10 +3748,10 @@
 								{
 									"id": "set-acceleration",
 									"objectClass": "Bullet_Sprite",
-									"sid": 334259691423716,
+									"sid": 281480373480472,
 									"behaviorType": "Bullet",
 									"parameters": {
-										"acceleration": "10"
+										"acceleration": "50"
 									}
 								}
 							],
@@ -3909,10 +3805,10 @@
 								{
 									"id": "set-acceleration",
 									"objectClass": "Bullet_Sprite",
-									"sid": 370418466538734,
+									"sid": 584259025748875,
 									"behaviorType": "Bullet",
 									"parameters": {
-										"acceleration": "10"
+										"acceleration": "50"
 									}
 								}
 							],
