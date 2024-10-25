@@ -556,6 +556,15 @@
 						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
+							"sid": 615639351442623,
+							"parameters": {
+								"layer": "\"Meta_upgrades_Content\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
 							"sid": 192238331008286,
 							"parameters": {
 								"layer": "\"HUD\"",
@@ -579,9 +588,219 @@
 								"x": "Miner_Box.X",
 								"y": "Miner_Box.Y"
 							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "ScrollabeSprite",
+							"sid": 808660104641928,
+							"parameters": {
+								"object": "Upg_Button",
+								"layer": "\"Meta_upgrades_Content\"",
+								"image-point": "\"Slot_1\"",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "ScrollabeSprite",
+							"sid": 768020655693641,
+							"parameters": {
+								"object": "Upg_Button2",
+								"layer": "\"Meta_upgrades_Content\"",
+								"image-point": "\"Slot_2\"",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Upg_Button",
+							"sid": 905864853961083,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "ScrollabeSprite",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Upg_Button2",
+							"sid": 344571358992235,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "ScrollabeSprite",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
 						}
 					],
 					"sid": 852580387377438
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 989210444518047
+						}
+					],
+					"actions": [
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Scroll_TOP",
+							"sid": 692043835329237,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "ScrollabeSprite",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Scroll_BOTTOM",
+							"sid": 590625532348564,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "ScrollabeSprite",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "ScrollabeSprite",
+							"sid": 265942558111318,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Meta_Upg_Background",
+								"x": true,
+								"y": false,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 833673073965291
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "ScrollabeSprite",
+							"sid": 137876000434454,
+							"parameters": {
+								"comparison": 5,
+								"y-co-ordinate": "Meta_Upg_Background.Y - 360"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-y",
+							"objectClass": "ScrollabeSprite",
+							"sid": 117628813166111,
+							"parameters": {
+								"y": "Meta_Upg_Background.Y - 360"
+							}
+						}
+					],
+					"sid": 203895692574992
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "ScrollabeSprite",
+							"sid": 716658452338474,
+							"parameters": {
+								"comparison": 3,
+								"y-co-ordinate": "Meta_Upg_Background.Y - 700"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-y",
+							"objectClass": "ScrollabeSprite",
+							"sid": 939046138392174,
+							"parameters": {
+								"y": "Meta_Upg_Background.Y -700"
+							}
+						}
+					],
+					"sid": 881385223791836
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 972947330367132,
+							"parameters": {
+								"direction": "up"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-y",
+							"objectClass": "ScrollabeSprite",
+							"sid": 937174823209997,
+							"parameters": {
+								"y": "ScrollabeSprite.Y -50"
+							}
+						}
+					],
+					"sid": 716596154544160
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 327552632252001,
+							"parameters": {
+								"direction": "down"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-y",
+							"objectClass": "ScrollabeSprite",
+							"sid": 903717485215064,
+							"parameters": {
+								"y": "ScrollabeSprite.Y +50"
+							}
+						}
+					],
+					"sid": 481590520188971
 				}
 			],
 			"sid": 234698063228916
