@@ -513,9 +513,17 @@
 						{
 							"id": "set-text",
 							"objectClass": "TestText",
-							"sid": 268906319717860,
+							"sid": 119133761203976,
 							"parameters": {
-								"text": "Devil_Boss_Sprite.HP"
+								"text": "Global_Inventory_Object.Coal"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Meta_Stats_Text",
+							"sid": 475358329255226,
+							"parameters": {
+								"text": "\"Drill Damage: \" & Miner_Box.DMG *100 & \"                        \"\n&\"Max Energy: \" & Miner_Box.Energy "
 							}
 						}
 					],
@@ -532,275 +540,1100 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 849790423491231,
-							"parameters": {
-								"key": 77
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 774307439826434,
-							"parameters": {
-								"layer": "\"Meta_Upgrades\"",
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 615639351442623,
-							"parameters": {
-								"layer": "\"Meta_upgrades_Content\"",
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 192238331008286,
-							"parameters": {
-								"layer": "\"HUD\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 368845574826311,
-							"parameters": {
-								"group-name": "\"Mechanical\"",
-								"state": "deactivated"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "Meta_Upg_Background",
-							"sid": 553765481482715,
-							"parameters": {
-								"x": "Miner_Box.X",
-								"y": "Miner_Box.Y"
-							}
-						},
-						{
-							"id": "spawn-another-object",
-							"objectClass": "ScrollabeSprite",
-							"sid": 808660104641928,
-							"parameters": {
-								"object": "Upg_Button",
-								"layer": "\"Meta_upgrades_Content\"",
-								"image-point": "\"Slot_1\"",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "spawn-another-object",
-							"objectClass": "ScrollabeSprite",
-							"sid": 768020655693641,
-							"parameters": {
-								"object": "Upg_Button2",
-								"layer": "\"Meta_upgrades_Content\"",
-								"image-point": "\"Slot_2\"",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "pin-to-object-properties",
-							"objectClass": "Upg_Button",
-							"sid": 905864853961083,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "ScrollabeSprite",
-								"x": true,
-								"y": true,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						},
-						{
-							"id": "pin-to-object-properties",
-							"objectClass": "Upg_Button2",
-							"sid": 344571358992235,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "ScrollabeSprite",
-								"x": true,
-								"y": true,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						}
-					],
-					"sid": 852580387377438
+					"eventType": "variable",
+					"name": "Required_Item_Quantity",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 187029609977226
 				},
 				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "variable",
+					"name": "Max_Level",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 934253558564929
+				},
+				{
+					"eventType": "variable",
+					"name": "Current_Level",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 334625291891819
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Meta_Upg_General",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 989210444518047
-						}
-					],
-					"actions": [
-						{
-							"id": "pin-to-object-properties",
-							"objectClass": "Scroll_TOP",
-							"sid": 692043835329237,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "ScrollabeSprite",
-								"x": true,
-								"y": true,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 447835624616467
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 781435265680873,
+									"parameters": {
+										"seconds": "0.25"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "ScrollabeSprite",
+									"sid": 326909628596406,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Meta_Upg_Background",
+										"x": true,
+										"y": false,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 565112839432954,
+									"parameters": {
+										"object": "Meta_Drill_Upg_Button",
+										"layer": "\"Meta_Upgrades\"",
+										"image-point": "\"Slot_1\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 390208556658489,
+									"parameters": {
+										"object": "Meta_Energy_Upg_Button",
+										"layer": "\"Meta_Upgrades\"",
+										"image-point": "\"Slot_2\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 923098142719172,
+									"parameters": {
+										"seconds": "0.25"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Meta_Drill_Upg_Button",
+									"sid": 876599098670934,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Meta_Upg_Background",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Meta_Energy_Upg_Button",
+									"sid": 817070842468801,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Meta_Upg_Background",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 808052282997144,
+									"parameters": {
+										"object": "Meta_Upgrade_button",
+										"layer": "\"Meta_Upgrades\"",
+										"image-point": "\"Upgrade_Button\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Meta_Upgrade_button",
+									"sid": 202533042525790,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Meta_Upg_Background",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 145811946235913,
+									"parameters": {
+										"object": "Meta_Upg_Text",
+										"layer": "\"Meta_Upgrades\"",
+										"image-point": "\"Upgrade_Text\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Meta_Upg_Text",
+									"sid": 856405457631081,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Meta_Upg_Background",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 991898262435872,
+									"parameters": {
+										"object": "Meta_Req_Item_Text",
+										"layer": "\"Meta_Upgrades\"",
+										"image-point": "\"Req_Items_Text\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Meta_Req_Item_Text",
+									"sid": 284390483438905,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Meta_Upg_Background",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 285090028892797,
+									"parameters": {
+										"object": "Meta_Max_Level_Text",
+										"layer": "\"Meta_Upgrades\"",
+										"image-point": "\"Max_Level_Text\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Meta_Max_Level_Text",
+									"sid": 242040624893018,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Meta_Upg_Background",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 921422181941197,
+									"parameters": {
+										"object": "Meta_Current_Level_Text",
+										"layer": "\"Meta_Upgrades\"",
+										"image-point": "\"Current_Level_Text\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Meta_Current_Level_Text",
+									"sid": 301442994306178,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Meta_Upg_Background",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 533255155348537,
+									"parameters": {
+										"object": "Meta_Stats_Text",
+										"layer": "\"Meta_Upgrades\"",
+										"image-point": "\"Stats_Text\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Meta_Stats_Text",
+									"sid": 527998247140158,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Meta_Upg_Background",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								}
+							],
+							"sid": 311523895653235
 						},
 						{
-							"id": "pin-to-object-properties",
-							"objectClass": "Scroll_BOTTOM",
-							"sid": 590625532348564,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "ScrollabeSprite",
-								"x": true,
-								"y": true,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 780829339908596,
+									"parameters": {
+										"key": 77
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 632478001301027,
+									"parameters": {
+										"instance-variable": "Active",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 817988877467073,
+									"parameters": {
+										"layer": "\"Meta_Upgrades\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 385861860507705,
+									"parameters": {
+										"layer": "\"Meta_upgrades_Content\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 941853723251397,
+									"parameters": {
+										"layer": "\"HUD\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 278874202407597,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 408322007951582,
+									"parameters": {
+										"x": "Miner_Box.X",
+										"y": "Miner_Box.Y"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 768475380292580,
+									"parameters": {
+										"seconds": "0.25"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 772992773686400,
+									"parameters": {
+										"instance-variable": "Active",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 127993264232161
 						},
 						{
-							"id": "pin-to-object-properties",
-							"objectClass": "ScrollabeSprite",
-							"sid": 265942558111318,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "Meta_Upg_Background",
-								"x": true,
-								"y": false,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 849944578727866,
+									"parameters": {
+										"key": 77
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 998467462497447,
+									"parameters": {
+										"instance-variable": "Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 356006451035165,
+									"parameters": {
+										"layer": "\"Meta_Upgrades\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 818671156459407,
+									"parameters": {
+										"layer": "\"Meta_upgrades_Content\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 249125733842815,
+									"parameters": {
+										"layer": "\"HUD\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 815717612019300,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 214157527493896,
+									"parameters": {
+										"seconds": "0.25"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 970676179087199,
+									"parameters": {
+										"instance-variable": "Active",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 183172654048895,
+									"parameters": {
+										"instance-variable": "Drill_Upg",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 610288566542077
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Scroll Mechanic",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-y",
+											"objectClass": "ScrollabeSprite",
+											"sid": 564508791578243,
+											"parameters": {
+												"comparison": 5,
+												"y-co-ordinate": "Meta_Upg_Background.Y - 360"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "ScrollabeSprite",
+											"sid": 121061624972002,
+											"parameters": {
+												"y": "Meta_Upg_Background.Y - 360"
+											}
+										}
+									],
+									"sid": 380231099441151
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-y",
+											"objectClass": "ScrollabeSprite",
+											"sid": 549574279057205,
+											"parameters": {
+												"comparison": 3,
+												"y-co-ordinate": "Meta_Upg_Background.Y - 700"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "ScrollabeSprite",
+											"sid": 301442671768324,
+											"parameters": {
+												"y": "Meta_Upg_Background.Y -700"
+											}
+										}
+									],
+									"sid": 713997951894967
+								},
+								{
+									"eventType": "comment",
+									"text": "Scroll mechanic"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-mouse-wheel",
+											"objectClass": "Mouse",
+											"sid": 385206777284923,
+											"parameters": {
+												"direction": "up"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "ScrollabeSprite",
+											"sid": 185245248673158,
+											"parameters": {
+												"y": "ScrollabeSprite.Y -50"
+											}
+										}
+									],
+									"sid": 908977730173228
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-mouse-wheel",
+											"objectClass": "Mouse",
+											"sid": 152454788890282,
+											"parameters": {
+												"direction": "down"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "ScrollabeSprite",
+											"sid": 605076893195897,
+											"parameters": {
+												"y": "ScrollabeSprite.Y +50"
+											}
+										}
+									],
+									"sid": 764216548441035
+								}
+							],
+							"sid": 280120232455088
 						}
 					],
-					"sid": 833673073965291
+					"sid": 444355583898613
 				},
 				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "group",
+					"disabled": false,
+					"title": "Drill Upgrade Tree",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "compare-y",
-							"objectClass": "ScrollabeSprite",
-							"sid": 137876000434454,
-							"parameters": {
-								"comparison": 5,
-								"y-co-ordinate": "Meta_Upg_Background.Y - 360"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 425518290156608,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Meta_Drill_Upg_Button"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 432371069441229,
+									"parameters": {
+										"instance-variable": "Drill_Upg",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 145813958339744,
+									"parameters": {
+										"instance-variable": "Energy_Upg",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 434365697356111,
+									"parameters": {
+										"instance-variable": "Drill_Upg",
+										"value": "1"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "ScrollabeSprite",
+									"sid": 735463218605279,
+									"parameters": {
+										"object": "Meta_Drill_DMG_T1_Button",
+										"layer": "\"Meta_upgrades_Content\"",
+										"image-point": "\"Slot_1\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "ScrollabeSprite",
+									"sid": 454164270347481,
+									"parameters": {
+										"object": "Upg_Button2",
+										"layer": "\"Meta_upgrades_Content\"",
+										"image-point": "\"Slot_2\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Meta_Drill_DMG_T1_Button",
+									"sid": 689869222733265,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "ScrollabeSprite",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Upg_Button2",
+									"sid": 811143645544027,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "ScrollabeSprite",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								}
+							],
+							"sid": 848836613744806
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 285329727845122,
+									"parameters": {
+										"instance-variable": "Drill_Upg",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Meta_Drill_DMG_T1_Button",
+									"sid": 911976738305179
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Upg_Button2",
+									"sid": 467693982754740
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Meta_Drill_Upg_Button",
+									"sid": 525859270664913,
+									"parameters": {
+										"instance-variable": "Damage_Tier_1_Active",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 595645880516541
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Drill Damage Tier 1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 678762746234741,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Drill_DMG_T1_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 826610258152826,
+											"parameters": {
+												"instance-variable": "Damage_Tier_1_Active",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 898431586929618,
+											"parameters": {
+												"instance-variable": "Damage_Tier_1_Active",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 198639789521358,
+											"parameters": {
+												"text": "\"This will increase your Drill Damage by 10% / level\""
+											}
+										}
+									],
+									"sid": 687052753152827
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 809728793490344,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 589591394710868,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 431940182134913,
+													"parameters": {
+														"instance-variable": "Coal",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 282275857978226,
+													"parameters": {
+														"instance-variable": "Coal",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Box",
+													"sid": 683041998763452,
+													"parameters": {
+														"instance-variable": "DMG",
+														"value": "Miner_Box.DMG * 1.1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Drill_Upg_Button",
+													"sid": 402828145845831,
+													"parameters": {
+														"instance-variable": "Damage_Tier_1_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 449669380092855
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 726274103167715
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 204783080661270,
+											"parameters": {
+												"instance-variable": "Damage_Tier_1_Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 615914937333818,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Drill_Upg_Button.Damage_Tier_1_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 353221943059390,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "floor(10*Current_Level*1.5)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 951715063459515,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "20"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 243265492133958,
+											"parameters": {
+												"text": "\"COAL: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 879778660067461,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 220237234452672,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 340971471652557
+								}
+							],
+							"sid": 513240528143772
 						}
 					],
-					"actions": [
-						{
-							"id": "set-y",
-							"objectClass": "ScrollabeSprite",
-							"sid": 117628813166111,
-							"parameters": {
-								"y": "Meta_Upg_Background.Y - 360"
-							}
-						}
-					],
-					"sid": 203895692574992
+					"sid": 289370055590402
 				},
 				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "group",
+					"disabled": false,
+					"title": "Energy Upgrade Tree",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "compare-y",
-							"objectClass": "ScrollabeSprite",
-							"sid": 716658452338474,
-							"parameters": {
-								"comparison": 3,
-								"y-co-ordinate": "Meta_Upg_Background.Y - 700"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 726378776962959,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Meta_Energy_Upg_Button"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 531815309032992,
+									"parameters": {
+										"instance-variable": "Energy_Upg",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 827868173592710,
+									"parameters": {
+										"instance-variable": "Drill_Upg",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 426943627733482,
+									"parameters": {
+										"instance-variable": "Energy_Upg",
+										"value": "1"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "ScrollabeSprite",
+									"sid": 701392670893994,
+									"parameters": {
+										"object": "Meta_Energy_Max_T1_Button",
+										"layer": "\"Meta_upgrades_Content\"",
+										"image-point": "\"Slot_1\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Meta_Energy_Max_T1_Button",
+									"sid": 773092575783976,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "ScrollabeSprite",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								}
+							],
+							"sid": 700835967242628
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 457840622696030,
+									"parameters": {
+										"instance-variable": "Energy_Upg",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Meta_Energy_Max_T1_Button",
+									"sid": 448197245519892
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Meta_Energy_Upg_Button",
+									"sid": 478520462016068,
+									"parameters": {
+										"instance-variable": "Energy_Max_Tier_1_Active",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 102157176332628
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 246206382207452,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Meta_Energy_Max_T1_Button"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Meta_Energy_Upg_Button",
+									"sid": 925972155759957,
+									"parameters": {
+										"instance-variable": "Energy_Max_Tier_1_Active",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Meta_Energy_Upg_Button",
+									"sid": 841419213888870,
+									"parameters": {
+										"instance-variable": "Energy_Max_Tier_1_Active",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Meta_Upgrade_button",
+									"sid": 396382502597349,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Meta_Upg_Text",
+									"sid": 844654048621814,
+									"parameters": {
+										"text": "\"This will increase your Max Energy by 10 per level\""
+									}
+								}
+							],
+							"sid": 660250258519031
 						}
 					],
-					"actions": [
-						{
-							"id": "set-y",
-							"objectClass": "ScrollabeSprite",
-							"sid": 939046138392174,
-							"parameters": {
-								"y": "Meta_Upg_Background.Y -700"
-							}
-						}
-					],
-					"sid": 881385223791836
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-mouse-wheel",
-							"objectClass": "Mouse",
-							"sid": 972947330367132,
-							"parameters": {
-								"direction": "up"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-y",
-							"objectClass": "ScrollabeSprite",
-							"sid": 937174823209997,
-							"parameters": {
-								"y": "ScrollabeSprite.Y -50"
-							}
-						}
-					],
-					"sid": 716596154544160
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-mouse-wheel",
-							"objectClass": "Mouse",
-							"sid": 327552632252001,
-							"parameters": {
-								"direction": "down"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-y",
-							"objectClass": "ScrollabeSprite",
-							"sid": 903717485215064,
-							"parameters": {
-								"y": "ScrollabeSprite.Y +50"
-							}
-						}
-					],
-					"sid": 481590520188971
+					"sid": 378240658899986
 				}
 			],
 			"sid": 234698063228916
