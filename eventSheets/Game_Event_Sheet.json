@@ -272,6 +272,24 @@
 										"max-stack": "1000",
 										"destroy-at-stack-0": "yes"
 									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 944856416170376,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "Miner_Box.Max_HP"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 728059193832817,
+									"parameters": {
+										"instance-variable": "Energy",
+										"value": "Miner_Box.Max_Energy"
+									}
 								}
 							],
 							"sid": 600851367349786
@@ -433,25 +451,25 @@
 						{
 							"id": "set-text",
 							"objectClass": "Energy_Level_Text",
-							"sid": 265760292440455,
+							"sid": 909639307534938,
 							"parameters": {
-								"text": "round(Miner_Box.Energy) & \" %\""
+								"text": "round((Miner_Box.Energy / Miner_Box.Max_Energy) *100) & \" %\""
 							}
 						},
 						{
 							"id": "set-width",
 							"objectClass": "Energy_Bar",
-							"sid": 182182007091129,
+							"sid": 305376414488477,
 							"parameters": {
-								"width": "Energy_Bar_Original_Width* (Miner_Box.Energy / 100)"
+								"width": "Energy_Bar_Original_Width* (Miner_Box.Energy / Miner_Box.Max_Energy)"
 							}
 						},
 						{
 							"id": "set-width",
 							"objectClass": "HP_Bar",
-							"sid": 777484643017072,
+							"sid": 668732211833675,
 							"parameters": {
-								"width": "HP_Bar_Original_Width * (Miner_Box.HP / 100)"
+								"width": "HP_Bar_Original_Width * (Miner_Box.HP / Miner_Box.Max_HP)"
 							}
 						},
 						{
@@ -512,18 +530,18 @@
 						},
 						{
 							"id": "set-text",
-							"objectClass": "TestText",
-							"sid": 119133761203976,
+							"objectClass": "Meta_Stats_Text",
+							"sid": 563054525774448,
 							"parameters": {
-								"text": "Global_Inventory_Object.Coal"
+								"text": "\"Drill Damage: \" & Miner_Box.DMG *100 & \"                        \"\n&\"Max Energy: \" & Miner_Box.Max_Energy "
 							}
 						},
 						{
 							"id": "set-text",
-							"objectClass": "Meta_Stats_Text",
-							"sid": 475358329255226,
+							"objectClass": "TestText",
+							"sid": 290398924157331,
 							"parameters": {
-								"text": "\"Drill Damage: \" & Miner_Box.DMG *100 & \"                        \"\n&\"Max Energy: \" & Miner_Box.Energy "
+								"text": "Global_Inventory_Object.Quartz"
 							}
 						}
 					],
@@ -1335,6 +1353,16 @@
 												"click-type": "clicked",
 												"object-clicked": "Meta_Upgrade_button"
 											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 450147504254146,
+											"parameters": {
+												"instance-variable": "Damage_Tier_1_Active",
+												"comparison": 0,
+												"value": "1"
+											}
 										}
 									],
 									"actions": [],
@@ -1480,7 +1508,7 @@
 								{
 									"id": "on-object-clicked",
 									"objectClass": "Mouse",
-									"sid": 726378776962959,
+									"sid": 519401751152916,
 									"parameters": {
 										"mouse-button": "left",
 										"click-type": "clicked",
@@ -1490,7 +1518,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Meta_Upg_Background",
-									"sid": 531815309032992,
+									"sid": 543631366534818,
 									"parameters": {
 										"instance-variable": "Energy_Upg",
 										"comparison": 0,
@@ -1502,7 +1530,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Meta_Upg_Background",
-									"sid": 827868173592710,
+									"sid": 448498797926038,
 									"parameters": {
 										"instance-variable": "Drill_Upg",
 										"value": "0"
@@ -1511,7 +1539,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Meta_Upg_Background",
-									"sid": 426943627733482,
+									"sid": 477609808826255,
 									"parameters": {
 										"instance-variable": "Energy_Upg",
 										"value": "1"
@@ -1520,7 +1548,7 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "ScrollabeSprite",
-									"sid": 701392670893994,
+									"sid": 669693132496096,
 									"parameters": {
 										"object": "Meta_Energy_Max_T1_Button",
 										"layer": "\"Meta_upgrades_Content\"",
@@ -1532,7 +1560,7 @@
 								{
 									"id": "pin-to-object-properties",
 									"objectClass": "Meta_Energy_Max_T1_Button",
-									"sid": 773092575783976,
+									"sid": 102802987073781,
 									"behaviorType": "Pin",
 									"parameters": {
 										"pin-to": "ScrollabeSprite",
@@ -1545,7 +1573,7 @@
 									}
 								}
 							],
-							"sid": 700835967242628
+							"sid": 590333732028284
 						},
 						{
 							"eventType": "block",
@@ -1553,7 +1581,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Meta_Upg_Background",
-									"sid": 457840622696030,
+									"sid": 606797176653360,
 									"parameters": {
 										"instance-variable": "Energy_Upg",
 										"comparison": 0,
@@ -1565,72 +1593,222 @@
 								{
 									"id": "destroy",
 									"objectClass": "Meta_Energy_Max_T1_Button",
-									"sid": 448197245519892
+									"sid": 957640814436985
 								},
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Meta_Energy_Upg_Button",
-									"sid": 478520462016068,
+									"sid": 124637007874965,
 									"parameters": {
 										"instance-variable": "Energy_Max_Tier_1_Active",
 										"value": "0"
 									}
 								}
 							],
-							"sid": 102157176332628
+							"sid": 487538802415437
 						},
 						{
-							"eventType": "block",
-							"conditions": [
+							"eventType": "group",
+							"disabled": false,
+							"title": "Max Energy Tier 1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
 								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 246206382207452,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Meta_Energy_Max_T1_Button"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 916016727204527,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Energy_Max_T1_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 349622094022276,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_1_Active",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 352935222294189,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_1_Active",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 691538410540673,
+											"parameters": {
+												"text": "\"This will increase your Max Energy by 10 per level\""
+											}
+										}
+									],
+									"sid": 447137065037761
 								},
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "Meta_Energy_Upg_Button",
-									"sid": 925972155759957,
-									"parameters": {
-										"instance-variable": "Energy_Max_Tier_1_Active",
-										"comparison": 0,
-										"value": "0"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 848340751891115,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 451277531831532,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_1_Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 855478845428850,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 968084699624214,
+													"parameters": {
+														"instance-variable": "Quartz",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 473341335742700,
+													"parameters": {
+														"instance-variable": "Quartz",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Box",
+													"sid": 841898918534063,
+													"parameters": {
+														"instance-variable": "Max_Energy",
+														"value": "Miner_Box.Max_Energy +10"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 482842506466111,
+													"parameters": {
+														"instance-variable": "Energy_Max_Tier_1_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 576098042168942
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 960048865937744
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 629223154387724,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_1_Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 600665801124007,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Energy_Upg_Button.Energy_Max_Tier_1_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 558561563869344,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "floor(5*Current_Level*1.5)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 341586842859439,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "20"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 645330155358939,
+											"parameters": {
+												"text": "\"QUARTZ: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 606174477237717,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 585901782382630,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 874455121913928
 								}
 							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Meta_Energy_Upg_Button",
-									"sid": 841419213888870,
-									"parameters": {
-										"instance-variable": "Energy_Max_Tier_1_Active",
-										"value": "1"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Meta_Upgrade_button",
-									"sid": 396382502597349,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Meta_Upg_Text",
-									"sid": 844654048621814,
-									"parameters": {
-										"text": "\"This will increase your Max Energy by 10 per level\""
-									}
-								}
-							],
-							"sid": 660250258519031
+							"sid": 438810922225539
 						}
 					],
 					"sid": 378240658899986
@@ -8412,21 +8590,21 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Miner_Box",
-									"sid": 372797406450513,
+									"sid": 323889725046711,
 									"parameters": {
 										"instance-variable": "Energy",
 										"comparison": 2,
-										"value": "100"
+										"value": "Miner_Box.Max_Energy"
 									}
 								},
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Miner_Box",
-									"sid": 414179232251726,
+									"sid": 601734107605737,
 									"parameters": {
 										"instance-variable": "Energy",
 										"comparison": 4,
-										"value": "50"
+										"value": "Miner_Box.Max_Energy / 2"
 									}
 								},
 								{
@@ -8444,10 +8622,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Miner_Box",
-									"sid": 393111635037555,
+									"sid": 266909892118021,
 									"parameters": {
 										"instance-variable": "Energy",
-										"value": "100"
+										"value": "Miner_Box.Max_Energy"
 									}
 								},
 								{
@@ -8493,21 +8671,21 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Miner_Box",
-									"sid": 226878321779069,
+									"sid": 918475086328835,
 									"parameters": {
 										"instance-variable": "Energy",
 										"comparison": 2,
-										"value": "100"
+										"value": "Miner_Box.Max_Energy"
 									}
 								},
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Miner_Box",
-									"sid": 505608757442666,
+									"sid": 446397705072273,
 									"parameters": {
 										"instance-variable": "Energy",
 										"comparison": 3,
-										"value": "50"
+										"value": "Miner_Box.Max_Energy / 2"
 									}
 								},
 								{
@@ -8525,10 +8703,10 @@
 								{
 									"id": "add-to-instvar",
 									"objectClass": "Miner_Box",
-									"sid": 374953148776898,
+									"sid": 878543464719464,
 									"parameters": {
 										"instance-variable": "Energy",
-										"value": "50"
+										"value": "Miner_Box.Max_Energy / 2"
 									}
 								},
 								{
@@ -8584,11 +8762,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Miner_Box",
-									"sid": 274157581427854,
+									"sid": 126992220099246,
 									"parameters": {
 										"instance-variable": "HP",
 										"comparison": 4,
-										"value": "80"
+										"value": "Miner_Box.Max_HP * 0.8"
 									}
 								},
 								{
@@ -8606,10 +8784,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Miner_Box",
-									"sid": 397986816992287,
+									"sid": 213453152615905,
 									"parameters": {
 										"instance-variable": "HP",
-										"value": "100"
+										"value": "Miner_Box.Max_HP"
 									}
 								},
 								{
@@ -8665,11 +8843,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Miner_Box",
-									"sid": 153372669378595,
+									"sid": 307335919765909,
 									"parameters": {
 										"instance-variable": "HP",
 										"comparison": 3,
-										"value": "80"
+										"value": "Miner_Box.Max_HP * 0.8"
 									}
 								},
 								{
@@ -8687,10 +8865,10 @@
 								{
 									"id": "add-to-instvar",
 									"objectClass": "Miner_Box",
-									"sid": 173625694417180,
+									"sid": 569537091169041,
 									"parameters": {
 										"instance-variable": "HP",
-										"value": "20"
+										"value": "Miner_Box.Max_HP * 0.2"
 									}
 								},
 								{
@@ -8790,11 +8968,11 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Miner_Box",
-											"sid": 437800836715346,
+											"sid": 921846787041613,
 											"parameters": {
 												"instance-variable": "Energy",
 												"comparison": 2,
-												"value": "25"
+												"value": "Miner_Box.Max_Energy /4"
 											}
 										}
 									],
@@ -8816,11 +8994,11 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Miner_Box",
-											"sid": 760368012605745,
+											"sid": 892217876548572,
 											"parameters": {
 												"instance-variable": "HP",
 												"comparison": 2,
-												"value": "25"
+												"value": "Miner_Box.Max_HP / 4"
 											}
 										}
 									],
@@ -9165,10 +9343,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Miner_Box",
-									"sid": 285972238167397,
+									"sid": 753044673743344,
 									"parameters": {
 										"instance-variable": "Energy",
-										"value": "100"
+										"value": "Miner_Box.Max_Energy"
 									}
 								},
 								{
