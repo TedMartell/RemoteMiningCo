@@ -1230,7 +1230,7 @@
 					"type": "Meta_Drill_DMG_T1_Button",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "Active",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1261,7 +1261,7 @@
 						"y": 960,
 						"width": 341,
 						"height": 64,
-						"originX": 0.5,
+						"originX": 0.501466275659824,
 						"originY": 0.5,
 						"color": [
 							1,
@@ -1274,10 +1274,10 @@
 					}
 				},
 				{
-					"type": "Upg_Button2",
+					"type": "Meta_Drill_DMG_T2_Button",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "Locked",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1293,13 +1293,19 @@
 							}
 						}
 					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 109857698498417,
 						"expanded": true
 					},
 					"world": {
-						"x": 1280,
-						"y": 1216,
+						"x": 1024,
+						"y": 1088,
 						"width": 341,
 						"height": 64,
 						"originX": 0.5,
@@ -1328,7 +1334,8 @@
 					"tags": "",
 					"instanceVariables": {
 						"Damage_Tier_1_Active": 0,
-						"Damage_Tier_1_Level": 1
+						"Damage_Tier_1_Level": 1,
+						"Damage_Tier_1_Completed": false
 					},
 					"behaviors": {
 						"Pin": {
@@ -1350,9 +1357,9 @@
 					"world": {
 						"x": 1024,
 						"y": 832,
-						"width": 274,
+						"width": 275,
 						"height": 64,
-						"originX": 0.5,
+						"originX": 0.5018181818181818,
 						"originY": 0.5,
 						"color": [
 							1,
@@ -1504,9 +1511,9 @@
 					"world": {
 						"x": 1536,
 						"y": 832,
-						"width": 274,
+						"width": 275,
 						"height": 64,
-						"originX": 0.5,
+						"originX": 0.5018181818181818,
 						"originY": 0.5,
 						"color": [
 							1,
@@ -4343,6 +4350,194 @@
 						"height": 7,
 						"originX": 0,
 						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_ScrollabeSprite",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 139,
+					"sid": 812235469955156,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"DragDrop": {
+							"properties": {
+								"axes": "vertical-only",
+								"enabled": true
+							}
+						},
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 812235469955156,
+						"expanded": true
+					},
+					"world": {
+						"x": 1984,
+						"y": 704,
+						"width": 341,
+						"height": 1088,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Drill_DMG_T3_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Locked",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 141,
+					"sid": 478716245270497,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 478716245270497,
+						"expanded": true
+					},
+					"world": {
+						"x": 1024,
+						"y": 1216,
+						"width": 341,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Drill_DMG_T4_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Locked",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 142,
+					"sid": 213543054433428,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 213543054433428,
+						"expanded": true
+					},
+					"world": {
+						"x": 1024,
+						"y": 1344,
+						"width": 341,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Drill_DMG_T5_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Locked",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 143,
+					"sid": 653472968447515,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 653472968447515,
+						"expanded": true
+					},
+					"world": {
+						"x": 1024,
+						"y": 1472,
+						"width": 341,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
