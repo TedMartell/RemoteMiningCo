@@ -72,6 +72,16 @@
 			"sid": 398179199517413
 		},
 		{
+			"eventType": "variable",
+			"name": "Miner_Height",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 358713849439888
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Global Events",
@@ -1350,9 +1360,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "TestText",
-							"sid": 579639665633818,
+							"sid": 186126159355171,
 							"parameters": {
-								"text": "Global_Inventory_Object.Bauxite"
+								"text": "Meta_Drill_BASE_DMG_T2_Button.Focus"
 							}
 						},
 						{
@@ -1364,11 +1374,12 @@
 							}
 						},
 						{
-							"id": "set-text",
-							"objectClass": "TestText",
-							"sid": 718631003126855,
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 643436820277605,
 							"parameters": {
-								"text": "Devil_Boss_Sprite.HP"
+								"variable": "Miner_Height",
+								"value": "(round((Miner_Box.Y / 64)) -19) *-1"
 							}
 						},
 						{
@@ -1722,6 +1733,15 @@
 										"comparison": 0,
 										"value": "0"
 									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 516177714918634,
+									"parameters": {
+										"layer": "\"Buildings\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -1762,6 +1782,14 @@
 									}
 								},
 								{
+									"id": "set-y",
+									"objectClass": "Meta_ScrollabeSprite",
+									"sid": 822834569943144,
+									"parameters": {
+										"y": "Meta_Upg_Background.Y"
+									}
+								},
+								{
 									"id": "set-position",
 									"objectClass": "Meta_Upg_Background",
 									"sid": 408322007951582,
@@ -1785,6 +1813,24 @@
 									"parameters": {
 										"instance-variable": "Active",
 										"value": "1"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 382800566606944,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 797578486014444,
+									"parameters": {
+										"group-name": "\"Buildings\"",
+										"state": "deactivated"
 									}
 								}
 							],
@@ -1874,6 +1920,24 @@
 										"instance-variable": "Drill_Upg",
 										"value": "0"
 									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 280209449589762,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 902919181602304,
+									"parameters": {
+										"group-name": "\"Buildings\"",
+										"state": "activated"
+									}
 								}
 							],
 							"sid": 610288566542077
@@ -1955,9 +2019,9 @@
 										{
 											"id": "set-y",
 											"objectClass": "Meta_ScrollabeSprite",
-											"sid": 185245248673158,
+											"sid": 953387844546705,
 											"parameters": {
-												"y": "Meta_ScrollabeSprite.Y -50"
+												"y": "Meta_ScrollabeSprite.Y +50"
 											}
 										}
 									],
@@ -1979,9 +2043,9 @@
 										{
 											"id": "set-y",
 											"objectClass": "Meta_ScrollabeSprite",
-											"sid": 605076893195897,
+											"sid": 342883285067376,
 											"parameters": {
-												"y": "Meta_ScrollabeSprite.Y +50"
+												"y": "Meta_ScrollabeSprite.Y -50"
 											}
 										}
 									],
@@ -2079,11 +2143,38 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Meta_ScrollabeSprite",
-											"sid": 904904698414408,
+											"sid": 709551656490075,
+											"parameters": {
+												"object": "Meta_Drill_DMG_Multiplier_Background",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_1\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Drill_DMG_Multiplier_Background",
+											"sid": 354020183383460,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 484633607235219,
 											"parameters": {
 												"object": "Meta_Drill_DMG_T1_Button",
 												"layer": "\"Meta_upgrades_Content\"",
-												"image-point": "\"Slot_1\"",
+												"image-point": "\"Slot_2\"",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -2106,11 +2197,11 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Meta_ScrollabeSprite",
-											"sid": 527848276771873,
+											"sid": 877232560432233,
 											"parameters": {
 												"object": "Meta_Drill_DMG_T2_Button",
 												"layer": "\"Meta_upgrades_Content\"",
-												"image-point": "\"Slot_2\"",
+												"image-point": "\"Slot_3\"",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -2133,11 +2224,11 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Meta_ScrollabeSprite",
-											"sid": 910700186999213,
+											"sid": 499005914616150,
 											"parameters": {
 												"object": "Meta_Drill_DMG_T3_Button",
 												"layer": "\"Meta_upgrades_Content\"",
-												"image-point": "\"Slot_3\"",
+												"image-point": "\"Slot_4\"",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -2160,11 +2251,11 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Meta_ScrollabeSprite",
-											"sid": 610959023160373,
+											"sid": 534288758315960,
 											"parameters": {
 												"object": "Meta_Drill_DMG_T4_Button",
 												"layer": "\"Meta_upgrades_Content\"",
-												"image-point": "\"Slot_4\"",
+												"image-point": "\"Slot_5\"",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -2187,11 +2278,11 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Meta_ScrollabeSprite",
-											"sid": 600504613184540,
+											"sid": 448270060075591,
 											"parameters": {
 												"object": "Meta_Drill_DMG_T5_Button",
 												"layer": "\"Meta_upgrades_Content\"",
-												"image-point": "\"Slot_5\"",
+												"image-point": "\"Slot_6\"",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -2200,6 +2291,168 @@
 											"id": "pin-to-object-properties",
 											"objectClass": "Meta_Drill_DMG_T5_Button",
 											"sid": 888763856469950,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 483119857716368,
+											"parameters": {
+												"object": "Meta_Drill_DMG_BASE_Background",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_7\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Drill_DMG_BASE_Background",
+											"sid": 755801733722844,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 779240553454803,
+											"parameters": {
+												"object": "Meta_Drill_BASE_DMG_T1_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_8\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+											"sid": 566059901709784,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 891942053260293,
+											"parameters": {
+												"object": "Meta_Drill_BASE_DMG_T2_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_9\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Drill_BASE_DMG_T2_Button",
+											"sid": 920513171564795,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 376754735106528,
+											"parameters": {
+												"object": "Meta_Drill_BASE_DMG_T3_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_10\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Drill_BASE_DMG_T3_Button",
+											"sid": 363318960436198,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 606532865729362,
+											"parameters": {
+												"object": "Meta_Drill_BASE_DMG_T4_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_11\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Drill_BASE_DMG_T4_Button",
+											"sid": 340388449423556,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 850800091375937,
+											"parameters": {
+												"object": "Meta_Drill_BASE_DMG_T5_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_12\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Drill_BASE_DMG_T5_Button",
+											"sid": 915979002155717,
 											"behaviorType": "Pin",
 											"parameters": {
 												"pin-to": "Meta_ScrollabeSprite",
@@ -2252,7 +2505,7 @@
 						{
 							"eventType": "group",
 							"disabled": false,
-							"title": "Drill Damage Tier 1",
+							"title": "Drill Damage Multiplier Tier 1",
 							"description": "",
 							"isActiveOnStart": true,
 							"children": [
@@ -2271,10 +2524,10 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 826610258152826,
+											"objectClass": "Meta_Drill_DMG_T1_Button",
+											"sid": 639986474253179,
 											"parameters": {
-												"instance-variable": "Damage_Tier_1_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "0"
 											}
@@ -2300,11 +2553,11 @@
 									"actions": [
 										{
 											"id": "set-instvar-value",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 898431586929618,
+											"objectClass": "Meta_Drill_DMG_Buttons",
+											"sid": 155392741793349,
 											"parameters": {
-												"instance-variable": "Damage_Tier_1_Active",
-												"value": "1"
+												"instance-variable": "Focus",
+												"value": "0"
 											}
 										},
 										{
@@ -2342,7 +2595,25 @@
 											}
 										}
 									],
-									"sid": 687052753152827
+									"sid": 687052753152827,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Drill_DMG_T1_Button",
+													"sid": 893267537585495,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 500904464874385
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -2359,10 +2630,10 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 450147504254146,
+											"objectClass": "Meta_Drill_DMG_T1_Button",
+											"sid": 519394489759798,
 											"parameters": {
-												"instance-variable": "Damage_Tier_1_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "1"
 											}
@@ -2491,10 +2762,10 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 204783080661270,
+											"objectClass": "Meta_Drill_DMG_T1_Button",
+											"sid": 157873899204499,
 											"parameters": {
-												"instance-variable": "Damage_Tier_1_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "1"
 											}
@@ -2513,10 +2784,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 353221943059390,
+											"sid": 339940250408636,
 											"parameters": {
 												"variable": "Required_Item_Quantity",
-												"value": "floor(10*Current_Level*1.5)"
+												"value": "10 + floor(10*Current_Level*1.5)"
 											}
 										},
 										{
@@ -2596,18 +2867,76 @@
 												"animation": "\"Active\"",
 												"from": "beginning"
 											}
+										}
+									],
+									"sid": 726140518813441
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_DMG_T1_Button",
+											"sid": 548800223651493,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
 										},
 										{
-											"id": "set-instvar-value",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 843191703730572,
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 615092976765850
+										}
+									],
+									"actions": [],
+									"sid": 562823966647028,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 708773308095182,
+													"parameters": {
+														"object": "Coal_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 341700051081935
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_DMG_T1_Button",
+											"sid": 589264333788242,
 											"parameters": {
-												"instance-variable": "Damage_Tier_1_Active",
+												"instance-variable": "Focus",
+												"comparison": 0,
 												"value": "0"
 											}
 										}
 									],
-									"sid": 726140518813441
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Coal_Meta",
+											"sid": 222475372218098
+										}
+									],
+									"sid": 775470146550972,
+									"isOrBlock": true
 								}
 							],
 							"sid": 513240528143772
@@ -2615,7 +2944,7 @@
 						{
 							"eventType": "group",
 							"disabled": false,
-							"title": "Drill Damage Tier 2",
+							"title": "Drill Damage Multiplier Tier 2",
 							"description": "",
 							"isActiveOnStart": true,
 							"children": [
@@ -2634,10 +2963,10 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 148953473559310,
+											"objectClass": "Meta_Drill_DMG_T2_Button",
+											"sid": 283248158659314,
 											"parameters": {
-												"instance-variable": "Damage_Tier_2_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "0"
 											}
@@ -2663,11 +2992,11 @@
 									"actions": [
 										{
 											"id": "set-instvar-value",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 793561757664230,
+											"objectClass": "Meta_Drill_DMG_Buttons",
+											"sid": 623527911169458,
 											"parameters": {
-												"instance-variable": "Damage_Tier_2_Active",
-												"value": "1"
+												"instance-variable": "Focus",
+												"value": "0"
 											}
 										},
 										{
@@ -2705,7 +3034,25 @@
 											}
 										}
 									],
-									"sid": 433804718754609
+									"sid": 433804718754609,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Drill_DMG_T2_Button",
+													"sid": 484870281613518,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 436819819876555
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -2722,10 +3069,10 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 295173627674892,
+											"objectClass": "Meta_Drill_DMG_T2_Button",
+											"sid": 986375616648953,
 											"parameters": {
-												"instance-variable": "Damage_Tier_2_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "1"
 											}
@@ -2854,10 +3201,10 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 879812359986647,
+											"objectClass": "Meta_Drill_DMG_T2_Button",
+											"sid": 321128285651886,
 											"parameters": {
-												"instance-variable": "Damage_Tier_2_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "1"
 											}
@@ -2876,10 +3223,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 935214081532621,
+											"sid": 473191221653056,
 											"parameters": {
 												"variable": "Required_Item_Quantity",
-												"value": "floor(10*Current_Level*1.5)"
+												"value": "10 + floor(10*Current_Level*1.5)"
 											}
 										},
 										{
@@ -2959,18 +3306,76 @@
 												"animation": "\"Active\"",
 												"from": "beginning"
 											}
+										}
+									],
+									"sid": 765006420550875
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_DMG_T2_Button",
+											"sid": 967317432159759,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
 										},
 										{
-											"id": "set-instvar-value",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 888012378106157,
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 709284936627030
+										}
+									],
+									"actions": [],
+									"sid": 569369068215113,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 767505743407785,
+													"parameters": {
+														"object": "Iron_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 442960051919830
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_DMG_T2_Button",
+											"sid": 480857147398237,
 											"parameters": {
-												"instance-variable": "Damage_Tier_2_Active",
+												"instance-variable": "Focus",
+												"comparison": 0,
 												"value": "0"
 											}
 										}
 									],
-									"sid": 765006420550875
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Iron_Meta",
+											"sid": 573890341040992
+										}
+									],
+									"sid": 678442785897392,
+									"isOrBlock": true
 								}
 							],
 							"sid": 995163929636459
@@ -2978,7 +3383,7 @@
 						{
 							"eventType": "group",
 							"disabled": false,
-							"title": "Drill Damage Tier 3",
+							"title": "Drill Damage Multiplier Tier 3",
 							"description": "",
 							"isActiveOnStart": true,
 							"children": [
@@ -2997,10 +3402,10 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 815084506492697,
+											"objectClass": "Meta_Drill_DMG_T3_Button",
+											"sid": 795860744855177,
 											"parameters": {
-												"instance-variable": "Damage_Tier_3_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "0"
 											}
@@ -3026,11 +3431,11 @@
 									"actions": [
 										{
 											"id": "set-instvar-value",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 610106243873566,
+											"objectClass": "Meta_Drill_DMG_Buttons",
+											"sid": 851759089123322,
 											"parameters": {
-												"instance-variable": "Damage_Tier_3_Active",
-												"value": "1"
+												"instance-variable": "Focus",
+												"value": "0"
 											}
 										},
 										{
@@ -3068,7 +3473,25 @@
 											}
 										}
 									],
-									"sid": 606156059664339
+									"sid": 606156059664339,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Drill_DMG_T3_Button",
+													"sid": 581425294310396,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 146542774102156
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -3085,10 +3508,10 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 159236693746575,
+											"objectClass": "Meta_Drill_DMG_T3_Button",
+											"sid": 929814204592829,
 											"parameters": {
-												"instance-variable": "Damage_Tier_3_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "1"
 											}
@@ -3217,10 +3640,10 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 724671546104118,
+											"objectClass": "Meta_Drill_DMG_T3_Button",
+											"sid": 531451614960865,
 											"parameters": {
-												"instance-variable": "Damage_Tier_3_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "1"
 											}
@@ -3239,10 +3662,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 562885739508460,
+											"sid": 626010267982237,
 											"parameters": {
 												"variable": "Required_Item_Quantity",
-												"value": "floor(10*Current_Level*1.5)"
+												"value": "10 + floor(10*Current_Level*1.5)"
 											}
 										},
 										{
@@ -3322,18 +3745,76 @@
 												"animation": "\"Active\"",
 												"from": "beginning"
 											}
+										}
+									],
+									"sid": 662528557734664
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_DMG_T3_Button",
+											"sid": 404914249861984,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
 										},
 										{
-											"id": "set-instvar-value",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 384260256810153,
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 532790019098892
+										}
+									],
+									"actions": [],
+									"sid": 358627650387545,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 242069320203181,
+													"parameters": {
+														"object": "Chromium_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 880673310668793
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_DMG_T3_Button",
+											"sid": 669886538145900,
 											"parameters": {
-												"instance-variable": "Damage_Tier_3_Active",
+												"instance-variable": "Focus",
+												"comparison": 0,
 												"value": "0"
 											}
 										}
 									],
-									"sid": 662528557734664
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Chromium_Meta",
+											"sid": 722987437464421
+										}
+									],
+									"sid": 881622046221666,
+									"isOrBlock": true
 								}
 							],
 							"sid": 522125273111574
@@ -3341,7 +3822,7 @@
 						{
 							"eventType": "group",
 							"disabled": false,
-							"title": "Drill Damage Tier 4",
+							"title": "Drill Damage Multiplier Tier 4",
 							"description": "",
 							"isActiveOnStart": true,
 							"children": [
@@ -3360,10 +3841,10 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 224687646645753,
+											"objectClass": "Meta_Drill_DMG_T4_Button",
+											"sid": 431995520936124,
 											"parameters": {
-												"instance-variable": "Damage_Tier_4_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "0"
 											}
@@ -3389,11 +3870,11 @@
 									"actions": [
 										{
 											"id": "set-instvar-value",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 267430112362604,
+											"objectClass": "Meta_Drill_DMG_Buttons",
+											"sid": 435689027146970,
 											"parameters": {
-												"instance-variable": "Damage_Tier_4_Active",
-												"value": "1"
+												"instance-variable": "Focus",
+												"value": "0"
 											}
 										},
 										{
@@ -3431,7 +3912,25 @@
 											}
 										}
 									],
-									"sid": 304789203775301
+									"sid": 304789203775301,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Drill_DMG_T4_Button",
+													"sid": 441838238933390,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 860200872030918
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -3448,10 +3947,10 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 165835486089030,
+											"objectClass": "Meta_Drill_DMG_T4_Button",
+											"sid": 142236291386656,
 											"parameters": {
-												"instance-variable": "Damage_Tier_4_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "1"
 											}
@@ -3580,10 +4079,10 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 498276401587245,
+											"objectClass": "Meta_Drill_DMG_T4_Button",
+											"sid": 279311558292720,
 											"parameters": {
-												"instance-variable": "Damage_Tier_4_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "1"
 											}
@@ -3602,10 +4101,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 394249994902778,
+											"sid": 960587589531312,
 											"parameters": {
 												"variable": "Required_Item_Quantity",
-												"value": "floor(10*Current_Level*1.5)"
+												"value": "10+floor(10*Current_Level*1.5)"
 											}
 										},
 										{
@@ -3685,18 +4184,76 @@
 												"animation": "\"Active\"",
 												"from": "beginning"
 											}
+										}
+									],
+									"sid": 915940128302707
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_DMG_T4_Button",
+											"sid": 366309951325728,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
 										},
 										{
-											"id": "set-instvar-value",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 521145489607885,
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 826710296880300
+										}
+									],
+									"actions": [],
+									"sid": 867188081068912,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 381910271334435,
+													"parameters": {
+														"object": "Iron_Ingot_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 419877119377887
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_DMG_T4_Button",
+											"sid": 490532026236512,
 											"parameters": {
-												"instance-variable": "Damage_Tier_4_Active",
+												"instance-variable": "Focus",
+												"comparison": 0,
 												"value": "0"
 											}
 										}
 									],
-									"sid": 915940128302707
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Iron_Ingot_Meta",
+											"sid": 147201133580681
+										}
+									],
+									"sid": 371368612678778,
+									"isOrBlock": true
 								}
 							],
 							"sid": 250219213751379
@@ -3704,7 +4261,7 @@
 						{
 							"eventType": "group",
 							"disabled": false,
-							"title": "Drill Damage Tier 5",
+							"title": "Drill Damage Multiplier Tier 5",
 							"description": "",
 							"isActiveOnStart": true,
 							"children": [
@@ -3723,10 +4280,10 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 542053433652400,
+											"objectClass": "Meta_Drill_DMG_T5_Button",
+											"sid": 250777758775245,
 											"parameters": {
-												"instance-variable": "Damage_Tier_5_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "0"
 											}
@@ -3752,11 +4309,11 @@
 									"actions": [
 										{
 											"id": "set-instvar-value",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 238384047574273,
+											"objectClass": "Meta_Drill_DMG_Buttons",
+											"sid": 278596604072848,
 											"parameters": {
-												"instance-variable": "Damage_Tier_5_Active",
-												"value": "1"
+												"instance-variable": "Focus",
+												"value": "0"
 											}
 										},
 										{
@@ -3794,7 +4351,25 @@
 											}
 										}
 									],
-									"sid": 168928054023448
+									"sid": 168928054023448,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Drill_DMG_T5_Button",
+													"sid": 870030958257159,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 145236107096617
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -3811,10 +4386,10 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 506176164429494,
+											"objectClass": "Meta_Drill_DMG_T5_Button",
+											"sid": 594350381430888,
 											"parameters": {
-												"instance-variable": "Damage_Tier_5_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "1"
 											}
@@ -3943,10 +4518,10 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 221268174230241,
+											"objectClass": "Meta_Drill_DMG_T5_Button",
+											"sid": 183987205042345,
 											"parameters": {
-												"instance-variable": "Damage_Tier_5_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "1"
 											}
@@ -3965,10 +4540,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 627409785628387,
+											"sid": 723426082887971,
 											"parameters": {
 												"variable": "Required_Item_Quantity",
-												"value": "floor(10*Current_Level*1.5)"
+												"value": "10+floor(10*Current_Level*1.5)"
 											}
 										},
 										{
@@ -4053,21 +4628,2287 @@
 												"animation": "\"Active\"",
 												"from": "beginning"
 											}
+										}
+									],
+									"sid": 365166833483918
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_DMG_T5_Button",
+											"sid": 148393986821621,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
 										},
 										{
-											"id": "set-instvar-value",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 438198980238350,
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 982828073629625
+										}
+									],
+									"actions": [],
+									"sid": 136380112225837,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 301496269659596,
+													"parameters": {
+														"object": "Chromium_Ingot_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 949404468438064
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_DMG_T5_Button",
+											"sid": 761332814592592,
 											"parameters": {
-												"instance-variable": "Damage_Tier_5_Active",
+												"instance-variable": "Focus",
+												"comparison": 0,
 												"value": "0"
 											}
 										}
 									],
-									"sid": 365166833483918
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Chromium_Ingot_Meta",
+											"sid": 204665786731676
+										}
+									],
+									"sid": 560770752671154,
+									"isOrBlock": true
 								}
 							],
 							"sid": 687321137179028
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Drill BASE Damage Tier 1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 615259224457739,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Drill_BASE_DMG_T1_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+											"sid": 262498512141619,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+											"sid": 767625844600733,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 908793305034659,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Drill_DMG_Buttons",
+											"sid": 462152785080534,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 852559541599790,
+											"parameters": {
+												"text": "\"This will increase your Drill Base Damage by 0.01 / level\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+											"sid": 744069244473862,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 296261048047710,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+											"sid": 170516898924327,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 816703994820908,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+													"sid": 168537506418857,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 586341043222734
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 720905969834023,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+											"sid": 634702287516109,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+											"sid": 226441175577277,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 411063616726334,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 307120527626956,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 157630306075053,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 384183738543820,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 546412416569443,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 627908338673176,
+													"parameters": {
+														"instance-variable": "Aluminium_Ingot",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Drill_Upg_Button",
+													"sid": 255425532280780,
+													"parameters": {
+														"instance-variable": "Base_Damage_Tier_1_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 427088066518167,
+													"parameters": {
+														"instance-variable": "Aluminium_Ingot",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 732313461502228,
+													"parameters": {
+														"instance-variable": "DMG",
+														"value": "0.01"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Drill_Upg_Button",
+													"sid": 423592314077491,
+													"parameters": {
+														"instance-variable": "Base_Damage_Tier_1_Level",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 581553714657078,
+													"parameters": {
+														"variable": "Miner_Mining_DMG",
+														"value": "Miner_Box.DMG * Meta_Multiplier_Object.DMG_Multiplier_1"
+													}
+												}
+											],
+											"sid": 216152754208252
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 622983152679466
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+											"sid": 630217827035470,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 176971875422326,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Drill_Upg_Button.Base_Damage_Tier_1_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 733326635171654,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "10 + floor(Current_Level*2)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 462896276327965,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "5"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 195985158360694,
+											"parameters": {
+												"text": "\"Aluminium Ingot: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 251615846555992,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 101223777480449,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 531138072427219
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 714120014881870,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_1_Level",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+											"sid": 326223548702528,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 176534998875606,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_1_Completed",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Drill_BASE_DMG_T2_Button",
+											"sid": 286916552171668,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 170752560443852
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+											"sid": 664008603902091,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 341964531025084
+										}
+									],
+									"actions": [],
+									"sid": 117861112008216,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 543281598443128,
+													"parameters": {
+														"object": "Aluminium_Ingot_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 577724927861196
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+											"sid": 264986734280322,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Aluminium_Ingot_Meta",
+											"sid": 481992114340471
+										}
+									],
+									"sid": 235267857325058,
+									"isOrBlock": true
+								}
+							],
+							"sid": 400575364160183
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Drill BASE Damage Tier 2",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 987511392238843,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Drill_BASE_DMG_T2_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T2_Button",
+											"sid": 285511691554840,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Drill_BASE_DMG_T2_Button",
+											"sid": 875314154891397,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 863669357713799,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_2_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Drill_DMG_Buttons",
+											"sid": 712426990810176,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 135910170716435,
+											"parameters": {
+												"text": "\"This will increase your Drill Base Damage by 0.01 / level\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Drill_BASE_DMG_T2_Button",
+											"sid": 915761618552067,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 476864052414015,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Drill_BASE_DMG_T2_Button",
+											"sid": 609260925967752,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 873598176669292,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Drill_BASE_DMG_T2_Button",
+													"sid": 978168365010474,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 165597263258600
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 494657770873716,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T2_Button",
+											"sid": 379090658974872,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Drill_BASE_DMG_T2_Button",
+											"sid": 510791037063815,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 599734175496300,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_2_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 787686667278363,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 194622556169754,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 418782533548837,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 629107881119834,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 244651249790565,
+													"parameters": {
+														"instance-variable": "Silver",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Drill_Upg_Button",
+													"sid": 176025923214156,
+													"parameters": {
+														"instance-variable": "Base_Damage_Tier_2_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 787589993214958,
+													"parameters": {
+														"instance-variable": "Silver",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 197105013575321,
+													"parameters": {
+														"instance-variable": "DMG",
+														"value": "0.01"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Drill_Upg_Button",
+													"sid": 846664729335809,
+													"parameters": {
+														"instance-variable": "Base_Damage_Tier_2_Level",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 489299837770232,
+													"parameters": {
+														"variable": "Miner_Mining_DMG",
+														"value": "Miner_Box.DMG * Meta_Multiplier_Object.DMG_Multiplier_1"
+													}
+												}
+											],
+											"sid": 959857100158080
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 262255957543871
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T2_Button",
+											"sid": 290524928404823,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 368153873311237,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Drill_Upg_Button.Base_Damage_Tier_2_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 249282809049443,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "10 + floor(Current_Level*2)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 640010669462753,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "5"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 119166971143327,
+											"parameters": {
+												"text": "\"Iron Ingot: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 357584461756152,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 521461858683548,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 273657656533248
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 150679913262867,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_2_Level",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Drill_BASE_DMG_T2_Button",
+											"sid": 480681267175455,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 683205840492849,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_2_Completed",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Drill_BASE_DMG_T3_Button",
+											"sid": 823472444436347,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 928650257557932
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T2_Button",
+											"sid": 951011209347256,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 381882676701532
+										}
+									],
+									"actions": [],
+									"sid": 972062933499540,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 402434605147251,
+													"parameters": {
+														"seconds": "0.25"
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 747319372221578,
+													"parameters": {
+														"object": "Silver_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 404512881226350
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T2_Button",
+											"sid": 854690207772587,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Silver_Meta",
+											"sid": 175126396016275
+										}
+									],
+									"sid": 925161422210163,
+									"isOrBlock": true
+								}
+							],
+							"sid": 579092403224708
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Drill BASE Damage Tier 3",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 368814706832690,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Drill_BASE_DMG_T3_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T3_Button",
+											"sid": 799660903021999,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Drill_BASE_DMG_T3_Button",
+											"sid": 215838013089109,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 710926689149248,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_3_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Drill_DMG_Buttons",
+											"sid": 429417060102602,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 728417082380822,
+											"parameters": {
+												"text": "\"This will increase your Drill Base Damage by 0.01 / level\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Drill_BASE_DMG_T3_Button",
+											"sid": 189764988025261,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 783586991762303,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Drill_BASE_DMG_T3_Button",
+											"sid": 195693502114938,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 764315901067688,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Drill_BASE_DMG_T3_Button",
+													"sid": 532636035882502,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 398915542814622
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 567034384813499,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T3_Button",
+											"sid": 442634783027426,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Drill_BASE_DMG_T3_Button",
+											"sid": 711278276892603,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 510379345023635,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_3_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 482928839545553,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 707067414027642,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 740611841999618,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 158973185017769,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 422322133707940,
+													"parameters": {
+														"instance-variable": "Nickel",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Drill_Upg_Button",
+													"sid": 441981003804417,
+													"parameters": {
+														"instance-variable": "Base_Damage_Tier_3_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 932182939068856,
+													"parameters": {
+														"instance-variable": "Nickel",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 447548611413059,
+													"parameters": {
+														"instance-variable": "DMG",
+														"value": "0.01"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Drill_Upg_Button",
+													"sid": 639258488264802,
+													"parameters": {
+														"instance-variable": "Base_Damage_Tier_3_Level",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 409250757967600,
+													"parameters": {
+														"variable": "Miner_Mining_DMG",
+														"value": "Miner_Box.DMG * Meta_Multiplier_Object.DMG_Multiplier_1"
+													}
+												}
+											],
+											"sid": 832909600640193
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 388930778253024
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T3_Button",
+											"sid": 666558507916142,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 607352173903716,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Drill_Upg_Button.Base_Damage_Tier_3_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 621551077368324,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "10 + floor(Current_Level*2)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 729329260468378,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "5"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 322620659492986,
+											"parameters": {
+												"text": "\"Nickel ORE: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 913139405638329,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 257106115101820,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 772422936410903
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 199990830142391,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_3_Level",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Drill_BASE_DMG_T3_Button",
+											"sid": 123605583493679,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 545851228502300,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_3_Completed",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Drill_BASE_DMG_T4_Button",
+											"sid": 201199730513919,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 689501394471418
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T3_Button",
+											"sid": 785306634109525,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 383032369234844
+										}
+									],
+									"actions": [],
+									"sid": 258546458209516,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 504498497471891,
+													"parameters": {
+														"object": "Nickel_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 230264889742448
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T3_Button",
+											"sid": 935970854385530,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Nickel_Meta",
+											"sid": 131670092061648
+										}
+									],
+									"sid": 629370162214974,
+									"isOrBlock": true
+								}
+							],
+							"sid": 736855903307734
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Drill BASE Damage Tier 4",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 552475301199810,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Drill_BASE_DMG_T4_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T4_Button",
+											"sid": 905080176904115,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Drill_BASE_DMG_T4_Button",
+											"sid": 326988149294068,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 646217223014637,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_4_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Drill_DMG_Buttons",
+											"sid": 541598189000284,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 806289374767537,
+											"parameters": {
+												"text": "\"This will increase your Drill Base Damage by 0.01 / level\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Drill_BASE_DMG_T4_Button",
+											"sid": 611181682007612,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 321328563491008,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Drill_BASE_DMG_T4_Button",
+											"sid": 153211035334792,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 951395980305391,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Drill_BASE_DMG_T4_Button",
+													"sid": 725378618278711,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 630459267172392
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 553114126824518,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T4_Button",
+											"sid": 685033826229140,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Drill_BASE_DMG_T4_Button",
+											"sid": 653171103251698,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 355884409609954,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_4_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 303624086738678,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 383836223547205,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 208583392212052,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 806797429969146,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 886408737600762,
+													"parameters": {
+														"instance-variable": "Zinc",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Drill_Upg_Button",
+													"sid": 654279665670212,
+													"parameters": {
+														"instance-variable": "Base_Damage_Tier_4_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 734299069039231,
+													"parameters": {
+														"instance-variable": "Zinc",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 216005365109903,
+													"parameters": {
+														"instance-variable": "DMG",
+														"value": "0.01"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Drill_Upg_Button",
+													"sid": 361793689218999,
+													"parameters": {
+														"instance-variable": "Base_Damage_Tier_4_Level",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 355372195591655,
+													"parameters": {
+														"variable": "Miner_Mining_DMG",
+														"value": "Miner_Box.DMG * Meta_Multiplier_Object.DMG_Multiplier_1"
+													}
+												}
+											],
+											"sid": 669615077592651
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 102520406613277
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T4_Button",
+											"sid": 760714330628364,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 156279959623167,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Drill_Upg_Button.Base_Damage_Tier_4_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 302305241814836,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "10 + floor(Current_Level*2)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 402047333033925,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "5"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 531108896836280,
+											"parameters": {
+												"text": "\"Zinc ORE: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 472890238943151,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 981013138061170,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 255168146510901
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 823504561028908,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_4_Level",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Drill_BASE_DMG_T4_Button",
+											"sid": 389740657648499,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 539765503066573,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_4_Completed",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Drill_BASE_DMG_T5_Button",
+											"sid": 437335165164334,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 934783583415799
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T4_Button",
+											"sid": 928886988369843,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 535470083440954
+										}
+									],
+									"actions": [],
+									"sid": 645740040436247,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 109465645850971,
+													"parameters": {
+														"object": "Zinc_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 579530424274079
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T4_Button",
+											"sid": 401372130835762,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Zinc_Meta",
+											"sid": 675985750531377
+										}
+									],
+									"sid": 796033751851840,
+									"isOrBlock": true
+								}
+							],
+							"sid": 752044470779105
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Drill BASE Damage Tier 5",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 326804135289008,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Drill_BASE_DMG_T5_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T5_Button",
+											"sid": 166907997945678,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Drill_BASE_DMG_T5_Button",
+											"sid": 102945471237550,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 581083428054338,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_5_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Drill_DMG_Buttons",
+											"sid": 450003021938961,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 339679458808535,
+											"parameters": {
+												"text": "\"This will increase your Drill Base Damage by 0.01 / level\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Drill_BASE_DMG_T5_Button",
+											"sid": 588314674627501,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 735208652826786,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Drill_BASE_DMG_T5_Button",
+											"sid": 555668545032058,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 397294332557468,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Drill_BASE_DMG_T5_Button",
+													"sid": 450740078977869,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 851954935565271
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 331515595942903,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T5_Button",
+											"sid": 960841352196090,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Drill_BASE_DMG_T5_Button",
+											"sid": 686324444772532,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 750688604099694,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_5_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 612838024286286,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 477693018246223,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 854226867851513,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 864702383521528,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 908472387126420,
+													"parameters": {
+														"instance-variable": "Diamond",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Drill_Upg_Button",
+													"sid": 562041523985878,
+													"parameters": {
+														"instance-variable": "Base_Damage_Tier_5_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 474318820709092,
+													"parameters": {
+														"instance-variable": "Diamond",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 788471793969626,
+													"parameters": {
+														"instance-variable": "DMG",
+														"value": "0.01"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Drill_Upg_Button",
+													"sid": 892436542556505,
+													"parameters": {
+														"instance-variable": "Base_Damage_Tier_5_Level",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 848256980869815,
+													"parameters": {
+														"variable": "Miner_Mining_DMG",
+														"value": "Miner_Box.DMG * Meta_Multiplier_Object.DMG_Multiplier_1"
+													}
+												}
+											],
+											"sid": 555603875908814
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 984247623364009
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T5_Button",
+											"sid": 270840595940323,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 987948800705481,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Drill_Upg_Button.Base_Damage_Tier_5_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 197711161778347,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "10 + floor(Current_Level*2)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 749327348276291,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "5"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 312218065022921,
+											"parameters": {
+												"text": "\"Diamond: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 549001719346370,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 124870132720755,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 822250659834588
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 772670841923430,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_5_Level",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Drill_BASE_DMG_T5_Button",
+											"sid": 509546286298750,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 908668798296695,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_5_Completed",
+												"value": "true"
+											}
+										},
+										{
+											"type": "comment",
+											"text": "ACTIVATE NEXT UPGRADE"
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Drill_BASE_DMG_T5_Button",
+											"sid": 319058435594414,
+											"disabled": true,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 502043745675957
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T5_Button",
+											"sid": 405706997991732,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 520109555778098
+										}
+									],
+									"actions": [],
+									"sid": 953195438116324,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 982585654189240,
+													"parameters": {
+														"object": "Diamond_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 294665907734039
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T5_Button",
+											"sid": 507193966721662,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Diamond_Meta",
+											"sid": 768386657158249
+										}
+									],
+									"sid": 729788460141064,
+									"isOrBlock": true
+								}
+							],
+							"sid": 125524907973258
 						}
 					],
 					"sid": 289370055590402
@@ -14178,118 +17019,49 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
-							"eventType": "comment",
-							"text": "Energy Bar"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-moving",
-									"objectClass": "Miner_Box",
-									"sid": 283343182533723,
-									"behaviorType": "Platform"
-								},
-								{
-									"id": "compare-width",
-									"objectClass": "Energy_Bar",
-									"sid": 906972290340657,
-									"parameters": {
-										"comparison": 4,
-										"width": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "subtract-from-instvar",
-									"objectClass": "Miner_Box",
-									"sid": 197076405065913,
-									"parameters": {
-										"instance-variable": "Energy",
-										"value": "Miner_Box.Platform.Speed / 10000"
-									}
-								},
-								{
-									"type": "script",
-									"script": ""
-								}
-							],
-							"sid": 519012266881117
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "every-tick",
-									"objectClass": "System",
-									"sid": 880981052348952
-								}
-							],
-							"actions": [],
-							"sid": 973612854332712,
+							"eventType": "group",
+							"disabled": false,
+							"title": "ENERGY",
+							"description": "",
+							"isActiveOnStart": true,
 							"children": [
 								{
+									"eventType": "comment",
+									"text": "ENERGY Consumption"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
+											"id": "is-moving",
+											"objectClass": "Miner_Box",
+											"sid": 751995643558842,
+											"behaviorType": "Platform"
+										},
+										{
+											"id": "is-falling",
+											"objectClass": "Miner_Box",
+											"sid": 834825097265261,
+											"behaviorType": "Platform",
+											"isInverted": true
+										},
+										{
+											"id": "compare-width",
+											"objectClass": "Energy_Bar",
+											"sid": 230611608642942,
+											"parameters": {
+												"comparison": 4,
+												"width": "0"
+											}
+										},
+										{
 											"id": "compare-instance-variable",
 											"objectClass": "Miner_Box",
-											"sid": 921846787041613,
+											"sid": 836901114672332,
 											"parameters": {
 												"instance-variable": "Energy",
-												"comparison": 2,
-												"value": "Miner_Box.Max_Energy /4"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-default-color",
-											"objectClass": "Energy_Bar",
-											"sid": 329615637836768,
-											"parameters": {
-												"color": "rgbEx(255, 0, 0)"
-											}
-										}
-									],
-									"sid": 415261832401441
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Miner_Box",
-											"sid": 892217876548572,
-											"parameters": {
-												"instance-variable": "HP",
-												"comparison": 2,
-												"value": "Miner_Box.Max_HP / 4"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-default-color",
-											"objectClass": "HP_Bar",
-											"sid": 156013514481068,
-											"parameters": {
-												"color": "rgbEx(255, 0, 0)"
-											}
-										}
-									],
-									"sid": 316896901862585
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Miner_Drill",
-											"sid": 412996163129262,
-											"parameters": {
-												"object": "Mining_Blocks_Family"
+												"comparison": 5,
+												"value": "0"
 											}
 										}
 									],
@@ -14297,22 +17069,181 @@
 										{
 											"id": "subtract-from-instvar",
 											"objectClass": "Miner_Box",
-											"sid": 301397027576704,
+											"sid": 244710895239172,
 											"parameters": {
 												"instance-variable": "Energy",
 												"value": "0.01"
 											}
+										},
+										{
+											"type": "script",
+											"script": ""
 										}
 									],
-									"sid": 889068103937306
+									"sid": 722710698524813
+								},
+								{
+									"eventType": "comment",
+									"text": "ENERGY Regeneration"
 								},
 								{
 									"eventType": "block",
-									"conditions": [],
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 469643696025463,
+											"parameters": {
+												"interval-seconds": "0.25"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 869233700069848,
+											"parameters": {
+												"variable": "Miner_Height",
+												"comparison": 4,
+												"value": "-1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 362784800377760,
+											"parameters": {
+												"instance-variable": "Energy",
+												"comparison": 2,
+												"value": "Miner_Box.Max_Energy -1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 652939607734105,
+											"parameters": {
+												"instance-variable": "Energy",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 555238168001370
+								},
+								{
+									"eventType": "comment",
+									"text": "Energy Bar"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 912539082039107
+										}
+									],
 									"actions": [],
-									"sid": 133779717374135
+									"sid": 377779991601845,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Box",
+													"sid": 286426995138985,
+													"parameters": {
+														"instance-variable": "Energy",
+														"comparison": 2,
+														"value": "Miner_Box.Max_Energy /4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-default-color",
+													"objectClass": "Energy_Bar",
+													"sid": 525660098203410,
+													"parameters": {
+														"color": "rgbEx(255, 0, 0)"
+													}
+												}
+											],
+											"sid": 591122363877364
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Box",
+													"sid": 855848996578998,
+													"parameters": {
+														"instance-variable": "HP",
+														"comparison": 2,
+														"value": "Miner_Box.Max_HP / 4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-default-color",
+													"objectClass": "HP_Bar",
+													"sid": 889923322026352,
+													"parameters": {
+														"color": "rgbEx(255, 0, 0)"
+													}
+												}
+											],
+											"sid": 874629762152103
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Miner_Drill",
+													"sid": 159998599238217,
+													"parameters": {
+														"object": "Mining_Blocks_Family"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Box",
+													"sid": 991800746654811,
+													"parameters": {
+														"instance-variable": "Energy",
+														"comparison": 5,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 589278398607948,
+													"parameters": {
+														"instance-variable": "Energy",
+														"value": "0.01"
+													}
+												}
+											],
+											"sid": 138727243721148
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 510594471108997
+										}
+									]
 								}
-							]
+							],
+							"sid": 333218676776985
 						},
 						{
 							"eventType": "comment",
