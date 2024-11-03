@@ -73,6 +73,26 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "Miner_Energy_Efficiency",
+			"type": "number",
+			"initialValue": "0.02",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 634142069529184
+		},
+		{
+			"eventType": "variable",
+			"name": "Miner_Energy_Regeneration",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 195173646327164
+		},
+		{
+			"eventType": "variable",
 			"name": "Miner_Height",
 			"type": "number",
 			"initialValue": "0",
@@ -1368,9 +1388,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "Meta_Stats_Text",
-							"sid": 674152718815222,
+							"sid": 673418922765915,
 							"parameters": {
-								"text": "\"Drill Damage: \" & Miner_Mining_DMG  & \"                           \"\n&\"Max Energy: \" & Miner_Box.Max_Energy "
+								"text": "\"Drill Damage: \" & Miner_Mining_DMG  & \"                           \"\n&\"Max Energy: \" & Miner_Box.Max_Energy & \"                      \"  \n& \"Energy Consumption: \" & Miner_Energy_Efficiency & \"            \"\n&\"Energy Regeneration: \" & Miner_Energy_Regeneration"
 							}
 						},
 						{
@@ -1389,6 +1409,24 @@
 							"parameters": {
 								"variable": "Miner_Mining_DMG",
 								"value": "Miner_Box.DMG * Meta_Multiplier_Object.DMG_Multiplier_1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 348885847450202,
+							"parameters": {
+								"variable": "Miner_Energy_Efficiency",
+								"value": "0.02 * Meta_Multiplier_Object.Energy_Effi_Multiplier_1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 504163553642995,
+							"parameters": {
+								"variable": "Miner_Energy_Regeneration",
+								"value": "1 * Meta_Multiplier_Object.Energy_Regen_Multiplier"
 							}
 						}
 					],
@@ -2097,6 +2135,15 @@
 									],
 									"actions": [
 										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Energy_Buttons",
+											"sid": 613041504847789,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
 											"id": "set-effect-enabled",
 											"objectClass": "Meta_Drill_Upg_Button",
 											"sid": 996878370538004,
@@ -2486,15 +2533,6 @@
 											"id": "destroy",
 											"objectClass": "Meta_Drill_DMG_Buttons",
 											"sid": 694796343739229
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 603277112134355,
-											"parameters": {
-												"instance-variable": "Damage_Tier_1_Active",
-												"value": "0"
-											}
 										}
 									],
 									"sid": 410417064526186
@@ -6921,135 +6959,442 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
-							"eventType": "block",
-							"conditions": [
+							"eventType": "group",
+							"disabled": false,
+							"title": "Energy Upgrade Button Spawn",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
 								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 519401751152916,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Meta_Energy_Upg_Button"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 519068516695781,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Energy_Upg_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 811351417164910,
+											"parameters": {
+												"instance-variable": "Energy_Upg",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Drill_DMG_Buttons",
+											"sid": 234000295872352,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 339903963990519,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Lighten\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 531019077074134,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 878321222272453,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Lighten\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 281689841220492,
+											"parameters": {
+												"instance-variable": "Drill_Upg",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 691292760696642,
+											"parameters": {
+												"instance-variable": "Energy_Upg",
+												"value": "1"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 320357568788265,
+											"parameters": {
+												"object": "Meta_Energy_Max_Background",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_1\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Energy_Max_Background",
+											"sid": 434540148534173,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 463633933841993,
+											"parameters": {
+												"object": "Meta_Energy_Max_T1_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_2\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Energy_Max_T1_Button",
+											"sid": 633496017598758,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 169934760767372,
+											"parameters": {
+												"object": "Meta_Energy_Max_T2_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_3\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Energy_Max_T2_Button",
+											"sid": 471947081740171,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 918745437412222,
+											"parameters": {
+												"object": "Meta_Energy_Max_T3_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_4\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Energy_Max_T3_Button",
+											"sid": 132969235366376,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 220989092436130,
+											"parameters": {
+												"object": "Meta_Energy_Efficiency_Background",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_5\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Energy_Efficiency_Background",
+											"sid": 896318728810928,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 859311958593263,
+											"parameters": {
+												"object": "Meta_Energy_Efficiency_T1_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_6\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Energy_Efficiency_T1_Button",
+											"sid": 812954734198988,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 744669930969598,
+											"parameters": {
+												"object": "Meta_Energy_Efficiency_T2_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_7\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Energy_Efficiency_T2_Button",
+											"sid": 711279393695954,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 537684858191430,
+											"parameters": {
+												"object": "Meta_Energy_Efficiency_T3_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_8\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Energy_Efficiency_T3_Button",
+											"sid": 951830110343083,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 115533726853247,
+											"parameters": {
+												"object": "Meta_Energy_Regen_Background",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_9\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Energy_Regen_Background",
+											"sid": 577053141024459,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 352476450987896,
+											"parameters": {
+												"object": "Meta_Energy_Regeneration_T1_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_10\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Energy_Regeneration_T1_Button",
+											"sid": 271722271033932,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 870060723828827,
+											"parameters": {
+												"object": "Meta_Energy_Regeneration_T2_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_11\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Energy_Regeneration_T2_Button",
+											"sid": 991235280289071,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 427830711283300,
+											"parameters": {
+												"object": "Meta_Energy_Regeneration_T3_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_12\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Energy_Regeneration_T3_Button",
+											"sid": 904621623850974,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										}
+									],
+									"sid": 718649097286120
 								},
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 543631366534818,
-									"parameters": {
-										"instance-variable": "Energy_Upg",
-										"comparison": 0,
-										"value": "0"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 769105745484371,
+											"parameters": {
+												"instance-variable": "Energy_Upg",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Meta_Energy_Buttons",
+											"sid": 287562602294403
+										}
+									],
+									"sid": 901933785653046
 								}
 							],
-							"actions": [
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Meta_Energy_Upg_Button",
-									"sid": 144715104027647,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"Lighten\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 790829913765644,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Meta_Energy_Upg_Button",
-									"sid": 645545645264256,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Lighten\""
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 448498797926038,
-									"parameters": {
-										"instance-variable": "Drill_Upg",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 477609808826255,
-									"parameters": {
-										"instance-variable": "Energy_Upg",
-										"value": "1"
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Meta_ScrollabeSprite",
-									"sid": 669693132496096,
-									"parameters": {
-										"object": "Meta_Energy_Max_T1_Button",
-										"layer": "\"Meta_upgrades_Content\"",
-										"image-point": "\"Slot_1\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "Meta_Energy_Max_T1_Button",
-									"sid": 102802987073781,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "Meta_ScrollabeSprite",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								}
-							],
-							"sid": 590333732028284
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 606797176653360,
-									"parameters": {
-										"instance-variable": "Energy_Upg",
-										"comparison": 0,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "Meta_Energy_Max_T1_Button",
-									"sid": 957640814436985
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Meta_Energy_Upg_Button",
-									"sid": 124637007874965,
-									"parameters": {
-										"instance-variable": "Energy_Max_Tier_1_Active",
-										"value": "0"
-									}
-								}
-							],
-							"sid": 487538802415437
+							"sid": 754981204550348
 						},
 						{
 							"eventType": "group",
@@ -7064,7 +7409,7 @@
 										{
 											"id": "on-object-clicked",
 											"objectClass": "Mouse",
-											"sid": 916016727204527,
+											"sid": 227194365836613,
 											"parameters": {
 												"mouse-button": "left",
 												"click-type": "clicked",
@@ -7073,37 +7418,54 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Energy_Upg_Button",
-											"sid": 349622094022276,
+											"objectClass": "Meta_Energy_Max_T1_Button",
+											"sid": 918979220080171,
 											"parameters": {
-												"instance-variable": "Energy_Max_Tier_1_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "0"
 											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Max_T1_Button",
+											"sid": 232967713362333,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 573028580427218,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_1_Completed"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
 										{
 											"id": "set-instvar-value",
-											"objectClass": "Meta_Energy_Upg_Button",
-											"sid": 352935222294189,
+											"objectClass": "Meta_Energy_Buttons",
+											"sid": 164817189568519,
 											"parameters": {
-												"instance-variable": "Energy_Max_Tier_1_Active",
-												"value": "1"
+												"instance-variable": "Focus",
+												"value": "0"
 											}
 										},
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Upg_Text",
-											"sid": 691538410540673,
+											"sid": 642567262741589,
 											"parameters": {
-												"text": "\"This will increase your Max Energy by 10 per level\""
+												"text": "\"This will increase your Max Energy by 10 / level\""
 											}
 										},
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Meta_Energy_Max_T1_Button",
-											"sid": 986517816956468,
+											"sid": 580428528325832,
 											"parameters": {
 												"mode": "enable",
 												"effect": "\"Darken\""
@@ -7112,7 +7474,7 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 297429530410452,
+											"sid": 362441021910236,
 											"parameters": {
 												"seconds": "0.1"
 											}
@@ -7120,14 +7482,32 @@
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Meta_Energy_Max_T1_Button",
-											"sid": 602327444820330,
+											"sid": 669678994035287,
 											"parameters": {
 												"mode": "disable",
 												"effect": "\"Darken\""
 											}
 										}
 									],
-									"sid": 447137065037761
+									"sid": 377424434686443,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Energy_Max_T1_Button",
+													"sid": 449703956814281,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 214019196301187
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -7135,7 +7515,7 @@
 										{
 											"id": "on-object-clicked",
 											"objectClass": "Mouse",
-											"sid": 848340751891115,
+											"sid": 888195182209859,
 											"parameters": {
 												"mouse-button": "left",
 												"click-type": "clicked",
@@ -7144,20 +7524,37 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Energy_Upg_Button",
-											"sid": 451277531831532,
+											"objectClass": "Meta_Energy_Max_T1_Button",
+											"sid": 379070584161249,
 											"parameters": {
-												"instance-variable": "Energy_Max_Tier_1_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "1"
 											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Max_T1_Button",
+											"sid": 877874513424021,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 180678917180002,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_1_Completed"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Meta_Upgrade_button",
-											"sid": 561037879290938,
+											"sid": 706420569440171,
 											"parameters": {
 												"mode": "enable",
 												"effect": "\"Darken\""
@@ -7166,7 +7563,7 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 139743796967854,
+											"sid": 363245083514460,
 											"parameters": {
 												"seconds": "0.1"
 											}
@@ -7174,14 +7571,14 @@
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Meta_Upgrade_button",
-											"sid": 124741183355553,
+											"sid": 352087081236440,
 											"parameters": {
 												"mode": "disable",
 												"effect": "\"Darken\""
 											}
 										}
 									],
-									"sid": 855478845428850,
+									"sid": 811899043220302,
 									"children": [
 										{
 											"eventType": "block",
@@ -7189,11 +7586,21 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Global_Inventory_Object",
-													"sid": 968084699624214,
+													"sid": 944431887816484,
 													"parameters": {
 														"instance-variable": "Quartz",
 														"comparison": 5,
 														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 841919540977326,
+													"parameters": {
+														"instance-variable": "Energy_Max_Tier_1_Level",
+														"comparison": 2,
+														"value": "Max_Level"
 													}
 												}
 											],
@@ -7201,32 +7608,32 @@
 												{
 													"id": "subtract-from-instvar",
 													"objectClass": "Global_Inventory_Object",
-													"sid": 473341335742700,
+													"sid": 922442191737743,
 													"parameters": {
 														"instance-variable": "Quartz",
 														"value": "Required_Item_Quantity"
 													}
 												},
 												{
-													"id": "set-instvar-value",
+													"id": "add-to-instvar",
 													"objectClass": "Miner_Box",
-													"sid": 841898918534063,
+													"sid": 757917104551698,
 													"parameters": {
 														"instance-variable": "Max_Energy",
-														"value": "Miner_Box.Max_Energy +10"
+														"value": "10"
 													}
 												},
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Meta_Energy_Upg_Button",
-													"sid": 482842506466111,
+													"sid": 910522291360735,
 													"parameters": {
 														"instance-variable": "Energy_Max_Tier_1_Level",
 														"value": "1"
 													}
 												}
 											],
-											"sid": 576098042168942
+											"sid": 344095522955492
 										}
 									]
 								},
@@ -7236,14 +7643,14 @@
 										{
 											"id": "every-tick",
 											"objectClass": "System",
-											"sid": 960048865937744
+											"sid": 103667264097898
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Energy_Upg_Button",
-											"sid": 629223154387724,
+											"objectClass": "Meta_Energy_Max_T1_Button",
+											"sid": 945940432997812,
 											"parameters": {
-												"instance-variable": "Energy_Max_Tier_1_Active",
+												"instance-variable": "Focus",
 												"comparison": 0,
 												"value": "1"
 											}
@@ -7253,7 +7660,7 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 600665801124007,
+											"sid": 620718732681155,
 											"parameters": {
 												"variable": "Current_Level",
 												"value": "Meta_Energy_Upg_Button.Energy_Max_Tier_1_Level"
@@ -7262,25 +7669,25 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 558561563869344,
+											"sid": 320776585799317,
 											"parameters": {
 												"variable": "Required_Item_Quantity",
-												"value": "floor(5*Current_Level*1.5)"
+												"value": "10 + floor(Current_Level*2)"
 											}
 										},
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 341586842859439,
+											"sid": 634685528905123,
 											"parameters": {
 												"variable": "Max_Level",
-												"value": "20"
+												"value": "5"
 											}
 										},
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Req_Item_Text",
-											"sid": 645330155358939,
+											"sid": 390485495121266,
 											"parameters": {
 												"text": "\"QUARTZ: \" & Required_Item_Quantity"
 											}
@@ -7288,7 +7695,7 @@
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Max_Level_Text",
-											"sid": 606174477237717,
+											"sid": 544366636271300,
 											"parameters": {
 												"text": "Max_Level"
 											}
@@ -7296,16 +7703,3541 @@
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Current_Level_Text",
-											"sid": 585901782382630,
+											"sid": 652610830901255,
 											"parameters": {
 												"text": "Current_Level"
 											}
 										}
 									],
-									"sid": 874455121913928
+									"sid": 764750282693761
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 590135154251091,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_1_Level",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Energy_Max_T1_Button",
+											"sid": 632949601342716,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 164725604339918,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_1_Completed",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Energy_Max_T2_Button",
+											"sid": 804661251742687,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 319952643159569
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Max_T1_Button",
+											"sid": 717085261600806,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 137300856075402
+										}
+									],
+									"actions": [],
+									"sid": 802104351459190,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 433393642686087,
+													"parameters": {
+														"object": "Quartz_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 266883458454075
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Max_T1_Button",
+											"sid": 314183163758038,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Quartz_Meta",
+											"sid": 573956884593957
+										}
+									],
+									"sid": 618876235734010,
+									"isOrBlock": true
 								}
 							],
 							"sid": 438810922225539
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Max Energy Tier 2",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 963219336304152,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Energy_Max_T2_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Max_T2_Button",
+											"sid": 431136374597009,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Max_T2_Button",
+											"sid": 761550866958457,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 191237793557406,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_2_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Energy_Buttons",
+											"sid": 343090356547394,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 172843438900138,
+											"parameters": {
+												"text": "\"This will increase your Max Energy by 10 / level\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Max_T2_Button",
+											"sid": 127780129176323,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 508848916210153,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Max_T2_Button",
+											"sid": 721065038696780,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 341328178696488,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Energy_Max_T2_Button",
+													"sid": 840946213871442,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 363579657993552
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 495953380324784,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Max_T2_Button",
+											"sid": 172747792115048,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Max_T2_Button",
+											"sid": 597995645801790,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 237008309826103,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_2_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 800214055039367,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 561755099133910,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 949827597315801,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 177257238827828,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 209840916059113,
+													"parameters": {
+														"instance-variable": "Copper",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 876718353653553,
+													"parameters": {
+														"instance-variable": "Energy_Max_Tier_2_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 353887054401588,
+													"parameters": {
+														"instance-variable": "Copper",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 870152859093831,
+													"parameters": {
+														"instance-variable": "Max_Energy",
+														"value": "10"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 357357108846842,
+													"parameters": {
+														"instance-variable": "Energy_Max_Tier_2_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 409402471939604
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 890718415312755
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Max_T2_Button",
+											"sid": 206188650897756,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 752792552121048,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Energy_Upg_Button.Energy_Max_Tier_2_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 765183719881343,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "10 + floor(Current_Level*2)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 244218280068413,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "5"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 796938619857572,
+											"parameters": {
+												"text": "\"COPPER ORE: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 887885103136901,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 876090137673772,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 213483259985164
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 660513866415365,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_2_Level",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Energy_Max_T2_Button",
+											"sid": 670083086781832,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 964590296028135,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_2_Completed",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Energy_Max_T3_Button",
+											"sid": 250263467679969,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 216982292764852
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Max_T2_Button",
+											"sid": 278373930713161,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 648521318789794
+										}
+									],
+									"actions": [],
+									"sid": 296959404561285,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 965485268364501,
+													"parameters": {
+														"object": "Copper_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 621844878299110
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Max_T2_Button",
+											"sid": 133562349862333,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Copper_Meta",
+											"sid": 577848175231552
+										}
+									],
+									"sid": 533524173577689,
+									"isOrBlock": true
+								}
+							],
+							"sid": 378982741374562
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Max Energy Tier 3",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 902838837537088,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Energy_Max_T3_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Max_T3_Button",
+											"sid": 107463730538359,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Max_T3_Button",
+											"sid": 755618834266055,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 158001580597830,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_3_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Energy_Buttons",
+											"sid": 233892787260364,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 982860679880239,
+											"parameters": {
+												"text": "\"This will increase your Max Energy by 10 / level\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Max_T3_Button",
+											"sid": 861575633576322,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 361790741786586,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Max_T3_Button",
+											"sid": 987629319982606,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 457727254087623,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Energy_Max_T3_Button",
+													"sid": 472651626382304,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 419293399538647
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 872551780419330,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Max_T3_Button",
+											"sid": 951228248950759,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Max_T3_Button",
+											"sid": 744987366263174,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 387909358728400,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_3_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 945930890215552,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 578911649405364,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 739178293397643,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 818339876113467,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 556076326670498,
+													"parameters": {
+														"instance-variable": "Silicon",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 491424733001848,
+													"parameters": {
+														"instance-variable": "Energy_Max_Tier_3_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 570641872308459,
+													"parameters": {
+														"instance-variable": "Silicon",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 311001679302916,
+													"parameters": {
+														"instance-variable": "Max_Energy",
+														"value": "10"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 335746989084746,
+													"parameters": {
+														"instance-variable": "Energy_Max_Tier_3_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 532041649527515
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 554361293180185
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Max_T3_Button",
+											"sid": 763643079739291,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 434962059514370,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Energy_Upg_Button.Energy_Max_Tier_3_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 616117564476939,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "10 + floor(Current_Level*2)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 725164598231133,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "5"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 468088244330964,
+											"parameters": {
+												"text": "\"SILICON: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 219403635520869,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 987248803256753,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 162931773060092
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 208868361156383,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_3_Level",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Energy_Max_T3_Button",
+											"sid": 577525038409214,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 928774383315209,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_3_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 547695980282976
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Max_T3_Button",
+											"sid": 670398036818860,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 581805828777497
+										}
+									],
+									"actions": [],
+									"sid": 107174887317595,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 234753104096486,
+													"parameters": {
+														"object": "Silicone_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 423616048039535
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Max_T3_Button",
+											"sid": 951469679991806,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Silicone_Meta",
+											"sid": 880713241060037
+										}
+									],
+									"sid": 586765429646528,
+									"isOrBlock": true
+								}
+							],
+							"sid": 869589527665824
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Energy Efficiency Tier 1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 413468816483103,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Energy_Efficiency_T1_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Efficiency_T1_Button",
+											"sid": 719756882420936,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Efficiency_T1_Button",
+											"sid": 312054400253771,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 580790570369166,
+											"parameters": {
+												"instance-variable": "Energy_Effi_Tier_1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Energy_Buttons",
+											"sid": 138558494022729,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 130328508140865,
+											"parameters": {
+												"text": "\"This will make your energy consumption 5% more efficient\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Efficiency_T1_Button",
+											"sid": 177875186307073,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 437654924302392,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Efficiency_T1_Button",
+											"sid": 336358671116844,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 933629846795359,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Energy_Efficiency_T1_Button",
+													"sid": 200209646481408,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 409320888997539
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 666430220155803,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Efficiency_T1_Button",
+											"sid": 975007005242902,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Efficiency_T1_Button",
+											"sid": 467924004421646,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 732377524244863,
+											"parameters": {
+												"instance-variable": "Energy_Effi_Tier_1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 665570701798855,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 348762474585172,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 292596194027099,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 168971326309892,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 440657670994125,
+													"parameters": {
+														"instance-variable": "Lithium",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 712585421330259,
+													"parameters": {
+														"instance-variable": "Energy_Effi_Tier_1_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 222489027729111,
+													"parameters": {
+														"instance-variable": "Lithium",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Meta_Multiplier_Object",
+													"sid": 671363452678261,
+													"parameters": {
+														"instance-variable": "Energy_Effi_Multiplier_1",
+														"value": "0.05"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 819326179191746,
+													"parameters": {
+														"instance-variable": "Energy_Effi_Tier_1_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 364839865756021
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 446645921153183
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Efficiency_T1_Button",
+											"sid": 165039636748028,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 504726153773517,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Energy_Upg_Button.Energy_Effi_Tier_1_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 583191333853005,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "10 + floor(Current_Level*2)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 972083873181447,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "5"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 313331084034394,
+											"parameters": {
+												"text": "\"LITHIUM: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 977377990242694,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 573031112357810,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 666812166046907
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 223279718065458,
+											"parameters": {
+												"instance-variable": "Energy_Effi_Tier_1_Level",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Energy_Efficiency_T1_Button",
+											"sid": 478859731387968,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 744071642988638,
+											"parameters": {
+												"instance-variable": "Energy_Effi_Tier_1_Completed",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Energy_Efficiency_T2_Button",
+											"sid": 800243569170845,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 387150120327241
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Efficiency_T1_Button",
+											"sid": 668629417436359,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 155260598276926
+										}
+									],
+									"actions": [],
+									"sid": 761565867068994,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 920871011177715,
+													"parameters": {
+														"object": "Lithium_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 655614180656100
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Efficiency_T1_Button",
+											"sid": 466507401356228,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Lithium_Meta",
+											"sid": 736508502782691
+										}
+									],
+									"sid": 640386033914203,
+									"isOrBlock": true
+								}
+							],
+							"sid": 235915986113955
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Energy Efficiency Tier 2",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 909952987033013,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Energy_Efficiency_T2_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Efficiency_T2_Button",
+											"sid": 164527735245868,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Efficiency_T2_Button",
+											"sid": 626497401519243,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 481769143325360,
+											"parameters": {
+												"instance-variable": "Energy_Effi_Tier_2_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Energy_Buttons",
+											"sid": 838392973587876,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 405986384947580,
+											"parameters": {
+												"text": "\"This will make your energy consumption 5% more efficient\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Efficiency_T2_Button",
+											"sid": 747681949611320,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 167542169428859,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Efficiency_T2_Button",
+											"sid": 954927334902244,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 160511729846589,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Energy_Efficiency_T2_Button",
+													"sid": 486810093485848,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 520731892111211
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 120058021046692,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Efficiency_T2_Button",
+											"sid": 541270509180088,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Efficiency_T2_Button",
+											"sid": 241079390637201,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 970877703866828,
+											"parameters": {
+												"instance-variable": "Energy_Effi_Tier_2_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 627393594310669,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 417373574453091,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 322365684993286,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 580561292338120,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 694615165047837,
+													"parameters": {
+														"instance-variable": "Copper_Ingot",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 173136618835271,
+													"parameters": {
+														"instance-variable": "Energy_Effi_Tier_2_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 190946207672734,
+													"parameters": {
+														"instance-variable": "Copper_Ingot",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Meta_Multiplier_Object",
+													"sid": 207824764466377,
+													"parameters": {
+														"instance-variable": "Energy_Effi_Multiplier_1",
+														"value": "0.05"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 470240147090442,
+													"parameters": {
+														"instance-variable": "Energy_Effi_Tier_2_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 633735582386902
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 116211604432298
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Efficiency_T2_Button",
+											"sid": 577419633371790,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 456033676722025,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Energy_Upg_Button.Energy_Effi_Tier_2_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 923973611294807,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "10 + floor(Current_Level*2)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 315387762275570,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "5"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 965857837262670,
+											"parameters": {
+												"text": "\"COPPER INGOT: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 629182821387622,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 861371589381669,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 821279383154290
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 316444428988991,
+											"parameters": {
+												"instance-variable": "Energy_Effi_Tier_2_Level",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Energy_Efficiency_T2_Button",
+											"sid": 736478138231603,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 948555804990781,
+											"parameters": {
+												"instance-variable": "Energy_Effi_Tier_2_Completed",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Energy_Efficiency_T3_Button",
+											"sid": 428352084425137,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 663118293715972
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Efficiency_T2_Button",
+											"sid": 383669926460870,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 558106249342653
+										}
+									],
+									"actions": [],
+									"sid": 676324681936979,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 888278087365421,
+													"parameters": {
+														"object": "Copper_Ingot_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 988633089877558
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Efficiency_T2_Button",
+											"sid": 652230517155412,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Copper_Ingot_Meta",
+											"sid": 149639620399742
+										}
+									],
+									"sid": 468317481511188,
+									"isOrBlock": true
+								}
+							],
+							"sid": 883504114297127
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Energy Efficiency Tier 3",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 823128798908763,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Energy_Efficiency_T3_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Efficiency_T3_Button",
+											"sid": 433908675907968,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Efficiency_T3_Button",
+											"sid": 390892454778998,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 838211954845095,
+											"parameters": {
+												"instance-variable": "Energy_Effi_Tier_3_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Energy_Buttons",
+											"sid": 733553783751550,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 707405452825266,
+											"parameters": {
+												"text": "\"This will make your energy consumption 5% more efficient\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Efficiency_T3_Button",
+											"sid": 526273699060220,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 369712123412934,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Efficiency_T3_Button",
+											"sid": 533635336792852,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 222296113946511,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Energy_Efficiency_T3_Button",
+													"sid": 259722767265191,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 804187380861551
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 698725184059467,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Efficiency_T3_Button",
+											"sid": 865664538622494,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Efficiency_T3_Button",
+											"sid": 326071218723833,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 802759922470559,
+											"parameters": {
+												"instance-variable": "Energy_Effi_Tier_3_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 615908134954828,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 133940583741327,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 773773885391424,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 130554999146944,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 810498905049935,
+													"parameters": {
+														"instance-variable": "Lithium_Ingot",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 147963154095186,
+													"parameters": {
+														"instance-variable": "Energy_Effi_Tier_3_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 772498547502765,
+													"parameters": {
+														"instance-variable": "Lithium_Ingot",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Meta_Multiplier_Object",
+													"sid": 662309254034647,
+													"parameters": {
+														"instance-variable": "Energy_Effi_Multiplier_1",
+														"value": "0.05"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 197193299220255,
+													"parameters": {
+														"instance-variable": "Energy_Effi_Tier_3_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 285646132470792
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 197572657330533
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Efficiency_T3_Button",
+											"sid": 723426743329425,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 137698063380849,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Energy_Upg_Button.Energy_Effi_Tier_3_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 475128546880083,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "10 + floor(Current_Level*2)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 899237766622578,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "5"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 877658439792091,
+											"parameters": {
+												"text": "\"LITHIUM INGOT: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 109002897250222,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 624772245353594,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 616988259179194
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 878021520922534,
+											"parameters": {
+												"instance-variable": "Energy_Effi_Tier_3_Level",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Energy_Efficiency_T3_Button",
+											"sid": 213516297735092,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 781956053721874,
+											"parameters": {
+												"instance-variable": "Energy_Effi_Tier_3_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 522034301287377
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Efficiency_T3_Button",
+											"sid": 831395183282918,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 948569818340668
+										}
+									],
+									"actions": [],
+									"sid": 556165191911383,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 946397839787262,
+													"parameters": {
+														"object": "Lithium_Ingot_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 683972674067570
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Efficiency_T3_Button",
+											"sid": 548376784903289,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Lithium_Ingot_Meta",
+											"sid": 507561620383096
+										}
+									],
+									"sid": 166265215392276,
+									"isOrBlock": true
+								}
+							],
+							"sid": 527265114599123
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Energy Regenaration Tier 1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 197428550971116,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Energy_Regeneration_T1_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Regeneration_T1_Button",
+											"sid": 647890286406423,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Regeneration_T1_Button",
+											"sid": 826417731180197,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 696086782480756,
+											"parameters": {
+												"instance-variable": "Energy_Regen_Tier_1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Energy_Buttons",
+											"sid": 456606279104685,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 449629764321702,
+											"parameters": {
+												"text": "\"This will make your energy regeneration 10% faster\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Regeneration_T1_Button",
+											"sid": 496654429306454,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 635702355568785,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Regeneration_T1_Button",
+											"sid": 346757549904960,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 493048406790064,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Energy_Regeneration_T1_Button",
+													"sid": 219204426078666,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 176790991855507
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 597613203008212,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Regeneration_T1_Button",
+											"sid": 176815387744385,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Regeneration_T1_Button",
+											"sid": 483471623609709,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 142552743534110,
+											"parameters": {
+												"instance-variable": "Energy_Regen_Tier_1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 615387999015659,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 227552922398173,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 103639649117086,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 692220164549403,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 376669475353458,
+													"parameters": {
+														"instance-variable": "Silver_Ingot",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 512413763983633,
+													"parameters": {
+														"instance-variable": "Energy_Regen_Tier_1_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 658752231411738,
+													"parameters": {
+														"instance-variable": "Silver_Ingot",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Multiplier_Object",
+													"sid": 617835336509341,
+													"parameters": {
+														"instance-variable": "Energy_Regen_Multiplier",
+														"value": "0.1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 402076545934793,
+													"parameters": {
+														"instance-variable": "Energy_Regen_Tier_1_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 297491267897617
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 130496538313991
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Regeneration_T1_Button",
+											"sid": 546930248576718,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 920975426407882,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Energy_Upg_Button.Energy_Regen_Tier_1_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 431355189943296,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "10 + floor(Current_Level*2)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 811104870480452,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "5"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 503607013459088,
+											"parameters": {
+												"text": "\"SILVER INGOT: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 152067352399946,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 493055091624100,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 476019597435824
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 394217535294807,
+											"parameters": {
+												"instance-variable": "Energy_Regen_Tier_1_Level",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Energy_Regeneration_T1_Button",
+											"sid": 659587910366204,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 503676954520964,
+											"parameters": {
+												"instance-variable": "Energy_Regen_Tier_1_Completed",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Energy_Regeneration_T2_Button",
+											"sid": 796906491917230,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 661043958063891
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Regeneration_T1_Button",
+											"sid": 347442083560141,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 851372990946037
+										}
+									],
+									"actions": [],
+									"sid": 770774675870287,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 850812130510663,
+													"parameters": {
+														"object": "Silver_Ingot_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 461673527708323
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Regeneration_T1_Button",
+											"sid": 421989721049644,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Silver_Ingot_Meta",
+											"sid": 283321754592608
+										}
+									],
+									"sid": 807396505469664,
+									"isOrBlock": true
+								}
+							],
+							"sid": 260845502428353
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Energy Regenaration Tier 2",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 259033620422626,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Energy_Regeneration_T2_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Regeneration_T2_Button",
+											"sid": 983701664173843,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Regeneration_T2_Button",
+											"sid": 827790963631861,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 339983180934774,
+											"parameters": {
+												"instance-variable": "Energy_Regen_Tier_2_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Energy_Buttons",
+											"sid": 594853679102580,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 218342151367184,
+											"parameters": {
+												"text": "\"This will make your energy regeneration 10% faster\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Regeneration_T2_Button",
+											"sid": 156269914122180,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 653165855477896,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Regeneration_T2_Button",
+											"sid": 305996263197174,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 875217319860014,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Energy_Regeneration_T2_Button",
+													"sid": 906071891491708,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 187087758705122
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 599601997841307,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Regeneration_T2_Button",
+											"sid": 781738151574232,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Regeneration_T2_Button",
+											"sid": 597914286725006,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 492056532538615,
+											"parameters": {
+												"instance-variable": "Energy_Regen_Tier_2_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 736716224596071,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 966170878540309,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 681699470831988,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 678074987643478,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 370216701352252,
+													"parameters": {
+														"instance-variable": "Nickel_Ingot",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 741998327699039,
+													"parameters": {
+														"instance-variable": "Energy_Regen_Tier_2_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 465703832644928,
+													"parameters": {
+														"instance-variable": "Nickel_Ingot",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Multiplier_Object",
+													"sid": 183720044065297,
+													"parameters": {
+														"instance-variable": "Energy_Regen_Multiplier",
+														"value": "0.1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 201591869339074,
+													"parameters": {
+														"instance-variable": "Energy_Regen_Tier_2_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 648994292421480
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 738323716381407
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Regeneration_T2_Button",
+											"sid": 651757625861393,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 862022286602097,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Energy_Upg_Button.Energy_Regen_Tier_2_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 814657523973097,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "10 + floor(Current_Level*2)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 951169403255326,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "5"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 425420356520860,
+											"parameters": {
+												"text": "\"NICKEL INGOT: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 374860760349602,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 661085195555589,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 334984102518271
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 840053034118063,
+											"parameters": {
+												"instance-variable": "Energy_Regen_Tier_2_Level",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Energy_Regeneration_T2_Button",
+											"sid": 472113094600679,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 488695250498765,
+											"parameters": {
+												"instance-variable": "Energy_Regen_Tier_2_Completed",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Energy_Regeneration_T3_Button",
+											"sid": 562644719988944,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 344897438894001
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Regeneration_T2_Button",
+											"sid": 291688736708977,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 345950051193542
+										}
+									],
+									"actions": [],
+									"sid": 781035103993246,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 570793601959612,
+													"parameters": {
+														"object": "Nickel_Ingot_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 441109791945543
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Regeneration_T2_Button",
+											"sid": 590985032277126,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Nickel_Ingot_Meta",
+											"sid": 805415615111987
+										}
+									],
+									"sid": 207994428570586,
+									"isOrBlock": true
+								}
+							],
+							"sid": 661804052295537
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Energy Regenaration Tier 3",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 769232370764525,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Energy_Regeneration_T3_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Regeneration_T3_Button",
+											"sid": 353025139200945,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Regeneration_T3_Button",
+											"sid": 715542480544315,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 220411151952298,
+											"parameters": {
+												"instance-variable": "Energy_Regen_Tier_3_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Energy_Buttons",
+											"sid": 666832926648548,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 121690862313292,
+											"parameters": {
+												"text": "\"This will make your energy regeneration 10% faster\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Regeneration_T3_Button",
+											"sid": 895471643874930,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 595298938323447,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Energy_Regeneration_T3_Button",
+											"sid": 339864466328507,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 753884744192804,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Energy_Regeneration_T3_Button",
+													"sid": 823893444329349,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 226239463572303
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 710959083094156,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Regeneration_T3_Button",
+											"sid": 303850672068032,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Energy_Regeneration_T3_Button",
+											"sid": 522524622520149,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 204879776237541,
+											"parameters": {
+												"instance-variable": "Energy_Regen_Tier_3_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 753919431331427,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 924497756499771,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 873494600633016,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 702344563825337,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 439038280137279,
+													"parameters": {
+														"instance-variable": "Zinc_Ingot",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 632046777904383,
+													"parameters": {
+														"instance-variable": "Energy_Regen_Tier_3_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 712029105833709,
+													"parameters": {
+														"instance-variable": "Zinc_Ingot",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Multiplier_Object",
+													"sid": 615654414579887,
+													"parameters": {
+														"instance-variable": "Energy_Regen_Multiplier",
+														"value": "0.1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Energy_Upg_Button",
+													"sid": 832716484180748,
+													"parameters": {
+														"instance-variable": "Energy_Regen_Tier_3_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 384516046785842
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 526822251285466
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Regeneration_T3_Button",
+											"sid": 825708478830684,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 191635093534875,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Energy_Upg_Button.Energy_Regen_Tier_3_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 609103124151067,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "10 + floor(Current_Level*2)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 591565128585391,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "5"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 621384942422004,
+											"parameters": {
+												"text": "\"ZINC INGOT: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 998690667643524,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 102328668871226,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 789525839763204
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 284331076311712,
+											"parameters": {
+												"instance-variable": "Energy_Regen_Tier_3_Level",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Energy_Regeneration_T3_Button",
+											"sid": 938898668422619,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 374786828489232,
+											"parameters": {
+												"instance-variable": "Energy_Regen_Tier_3_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 624244283976204
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Regeneration_T3_Button",
+											"sid": 767898181733348,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 380221153754883
+										}
+									],
+									"actions": [],
+									"sid": 638126966173266,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 641853935398461,
+													"parameters": {
+														"object": "Zinc_Ingot_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 978832226254464
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Regeneration_T3_Button",
+											"sid": 226225557416455,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Zinc_Ingot_Meta",
+											"sid": 709373173535291
+										}
+									],
+									"sid": 673694048495821,
+									"isOrBlock": true
+								}
+							],
+							"sid": 581164798005639
 						}
 					],
 					"sid": 378240658899986
@@ -17069,10 +21001,10 @@
 										{
 											"id": "subtract-from-instvar",
 											"objectClass": "Miner_Box",
-											"sid": 244710895239172,
+											"sid": 923518069034975,
 											"parameters": {
 												"instance-variable": "Energy",
-												"value": "0.01"
+												"value": "Miner_Energy_Efficiency"
 											}
 										},
 										{
@@ -17225,10 +21157,10 @@
 												{
 													"id": "subtract-from-instvar",
 													"objectClass": "Miner_Box",
-													"sid": 589278398607948,
+													"sid": 472067665722243,
 													"parameters": {
 														"instance-variable": "Energy",
-														"value": "0.01"
+														"value": "Miner_Energy_Efficiency"
 													}
 												}
 											],

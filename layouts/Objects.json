@@ -1339,34 +1339,24 @@
 					"sid": 243096019322989,
 					"tags": "",
 					"instanceVariables": {
-						"Damage_Tier_1_Active": 0,
 						"Damage_Tier_1_Level": 0,
 						"Damage_Tier_1_Completed": false,
-						"Damage_Tier_2_Active": 0,
 						"Damage_Tier_2_Level": 0,
 						"Damage_Tier_2_Completed": false,
-						"Damage_Tier_3_Active": 0,
 						"Damage_Tier_3_Level": 0,
 						"Damage_Tier_3_Completed": false,
-						"Damage_Tier_4_Active": 0,
 						"Damage_Tier_4_Level": 0,
 						"Damage_Tier_4_Completed": false,
-						"Damage_Tier_5_Active": 0,
 						"Damage_Tier_5_Level": 0,
 						"Damage_Tier_5_Completed": false,
-						"Base_Damage_Tier_1_Active": 0,
 						"Base_Damage_Tier_1_Level": 0,
 						"Base_Damage_Tier_1_Completed": false,
-						"Base_Damage_Tier_2_Active": 0,
 						"Base_Damage_Tier_2_Level": 0,
 						"Base_Damage_Tier_2_Completed": false,
-						"Base_Damage_Tier_3_Active": 0,
 						"Base_Damage_Tier_3_Level": 0,
 						"Base_Damage_Tier_3_Completed": false,
-						"Base_Damage_Tier_4_Active": 0,
 						"Base_Damage_Tier_4_Level": 0,
 						"Base_Damage_Tier_4_Completed": false,
-						"Base_Damage_Tier_5_Active": 0,
 						"Base_Damage_Tier_5_Level": 0,
 						"Base_Damage_Tier_5_Completed": false
 					},
@@ -1521,8 +1511,24 @@
 					"sid": 697179244873467,
 					"tags": "",
 					"instanceVariables": {
-						"Energy_Max_Tier_1_Active": 0,
-						"Energy_Max_Tier_1_Level": 1
+						"Energy_Max_Tier_1_Level": 0,
+						"Energy_Max_Tier_1_Completed": false,
+						"Energy_Max_Tier_2_Level": 0,
+						"Energy_Max_Tier_2_Completed": false,
+						"Energy_Max_Tier_3_Level": 0,
+						"Energy_Max_Tier_3_Completed": false,
+						"Energy_Effi_Tier_1_Level": 0,
+						"Energy_Effi_Tier_1_Completed": false,
+						"Energy_Effi_Tier_2_Level": 0,
+						"Energy_Effi_Tier_2_Completed": false,
+						"Energy_Effi_Tier_3_Level": 0,
+						"Energy_Effi_Tier_3_Completed": false,
+						"Energy_Regen_Tier_1_Level": 0,
+						"Energy_Regen_Tier_1_Completed": false,
+						"Energy_Regen_Tier_2_Level": 0,
+						"Energy_Regen_Tier_2_Completed": false,
+						"Energy_Regen_Tier_3_Level": 0,
+						"Energy_Regen_Tier_3_Completed": false
 					},
 					"behaviors": {
 						"Pin": {
@@ -1562,7 +1568,7 @@
 					"type": "Meta_Energy_Max_T1_Button",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "Active",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1570,7 +1576,9 @@
 					"uid": 202,
 					"sid": 200442204093817,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Focus": 0
+					},
 					"behaviors": {
 						"Pin": {
 							"properties": {
@@ -5698,6 +5706,545 @@
 						"y": 2240,
 						"width": 43,
 						"height": 43,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Energy_Max_T2_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Locked",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 184,
+					"sid": 426293308292465,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 426293308292465,
+						"expanded": true
+					},
+					"world": {
+						"x": 1536,
+						"y": 1216,
+						"width": 341,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Energy_Max_T3_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Locked",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 185,
+					"sid": 976878994984154,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 976878994984154,
+						"expanded": true
+					},
+					"world": {
+						"x": 1536,
+						"y": 1344,
+						"width": 341,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Energy_Max_Background",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Active",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 186,
+					"sid": 236572090223547,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 236572090223547,
+						"expanded": true
+					},
+					"world": {
+						"x": 1536,
+						"y": 960,
+						"width": 341,
+						"height": 64,
+						"originX": 0.501466275659824,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Energy_Efficiency_Background",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Active",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 189,
+					"sid": 569336396950622,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 569336396950622,
+						"expanded": true
+					},
+					"world": {
+						"x": 1536,
+						"y": 1472,
+						"width": 341,
+						"height": 64,
+						"originX": 0.501466275659824,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Energy_Efficiency_T1_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Active",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 192,
+					"sid": 120068654862408,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 120068654862408,
+						"expanded": true
+					},
+					"world": {
+						"x": 1536,
+						"y": 1600,
+						"width": 341,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Energy_Efficiency_T2_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Locked",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 231,
+					"sid": 181322482429708,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 181322482429708,
+						"expanded": true
+					},
+					"world": {
+						"x": 1536,
+						"y": 1728,
+						"width": 341,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Energy_Efficiency_T3_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Locked",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 232,
+					"sid": 200731523248868,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 200731523248868,
+						"expanded": true
+					},
+					"world": {
+						"x": 1536,
+						"y": 1856,
+						"width": 341,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Energy_Regen_Background",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Active",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 233,
+					"sid": 334857030184512,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 334857030184512,
+						"expanded": true
+					},
+					"world": {
+						"x": 1536,
+						"y": 1984,
+						"width": 341,
+						"height": 64,
+						"originX": 0.501466275659824,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Energy_Regeneration_T1_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Active",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 234,
+					"sid": 939815211099531,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 939815211099531,
+						"expanded": true
+					},
+					"world": {
+						"x": 1536,
+						"y": 2112,
+						"width": 341,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Energy_Regeneration_T2_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Locked",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 235,
+					"sid": 980319631842389,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 980319631842389,
+						"expanded": true
+					},
+					"world": {
+						"x": 1536,
+						"y": 2240,
+						"width": 341,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Energy_Regeneration_T3_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Locked",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 236,
+					"sid": 498795363935460,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 498795363935460,
+						"expanded": true
+					},
+					"world": {
+						"x": 1536,
+						"y": 2368,
+						"width": 341,
+						"height": 64,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
