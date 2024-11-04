@@ -1394,6 +1394,14 @@
 							}
 						},
 						{
+							"id": "set-text",
+							"objectClass": "Meta_Passive_Income_Text",
+							"sid": 779542930525774,
+							"parameters": {
+								"text": "\"Income Tick: \" & Meta_Passive_Income_Object.Passive_Tick_Timer & \" Seconds\" & \"           \" &\n\n\"Coal Income: \" & Meta_Passive_Income_Object.Meta_Passive_Coal  & \"                           \"\n&\"Quartz Income: \" & Meta_Passive_Income_Object.Meta_Passive_Quartz & \"                      \"  \n& \"Bauxite Income: \" & Meta_Passive_Income_Object.Meta_Passive_Bauxite & \"            \"\n"
+							}
+						},
+						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 643436820277605,
@@ -1473,9 +1481,9 @@
 								{
 									"id": "add-to-instvar",
 									"objectClass": "Global_Inventory_Object",
-									"sid": 878599704239091,
+									"sid": 256321133925876,
 									"parameters": {
-										"instance-variable": "Bauxite",
+										"instance-variable": "Quartz",
 										"value": "Meta_Passive_Income_Object.Meta_Passive_Quartz"
 									}
 								}
@@ -12086,10 +12094,10 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 565069678153336,
+													"sid": 755999911972749,
 													"parameters": {
 														"variable": "Required_Item_Quantity",
-														"value": "100 + floor(Current_Level*2)"
+														"value": "100 + 100 * floor(Current_Level* 5)"
 													}
 												},
 												{
@@ -12166,6 +12174,714 @@
 										}
 									],
 									"sid": 912614594465370
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Quartz Passive",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 957390215530783,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "Meta_Passive_Quartz_Button"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Quartz_Button",
+													"sid": 903644090551239,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "0"
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Meta_Passive_Quartz_Button",
+													"sid": 971840638768012,
+													"parameters": {
+														"animation": "\"Active\""
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 746606258814517,
+													"parameters": {
+														"instance-variable": "Passive_Quartz_Completed"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Passive_Buttons",
+													"sid": 402396742038635,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Upg_Text",
+													"sid": 701286841761941,
+													"parameters": {
+														"text": "\"This will increase your Passive Quartz income / Income tick\""
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Passive_Quartz_Button",
+													"sid": 121475000956825,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"Darken\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 134586764719013,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Passive_Quartz_Button",
+													"sid": 852692357299645,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"Darken\""
+													}
+												}
+											],
+											"sid": 600616238111908,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Meta_Passive_Quartz_Button",
+															"sid": 645546573834185,
+															"parameters": {
+																"instance-variable": "Focus",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 988863263465565
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 702429700912827,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "Meta_Upgrade_button"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Quartz_Button",
+													"sid": 914374267774256,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "1"
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Meta_Passive_Quartz_Button",
+													"sid": 858930531579346,
+													"parameters": {
+														"animation": "\"Active\""
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 284171027926000,
+													"parameters": {
+														"instance-variable": "Passive_Quartz_Completed"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Upgrade_button",
+													"sid": 108837586105696,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"Darken\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 720162492775023,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Upgrade_button",
+													"sid": 758381523597571,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"Darken\""
+													}
+												}
+											],
+											"sid": 553575821549724,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Miner_Box",
+															"sid": 668591040565476,
+															"parameters": {
+																"instance-variable": "Money",
+																"comparison": 5,
+																"value": "Required_Item_Quantity"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Meta_Passive_Upg_Button",
+															"sid": 278151721534952,
+															"parameters": {
+																"instance-variable": "Passive_Quartz_Level",
+																"comparison": 2,
+																"value": "Max_Level"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "Miner_Box",
+															"sid": 469064985523408,
+															"parameters": {
+																"instance-variable": "Money",
+																"value": "Required_Item_Quantity"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Meta_Passive_Income_Object",
+															"sid": 211593887963713,
+															"parameters": {
+																"instance-variable": "Meta_Passive_Quartz",
+																"value": "1+floor(Meta_Passive_Income_Object.Meta_Passive_Quartz * 1)"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Meta_Passive_Upg_Button",
+															"sid": 408303082789951,
+															"parameters": {
+																"instance-variable": "Passive_Quartz_Level",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 786267849843337
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-tick",
+													"objectClass": "System",
+													"sid": 675630423639218
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Quartz_Button",
+													"sid": 851535529268895,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 464899944029898,
+													"parameters": {
+														"variable": "Current_Level",
+														"value": "Meta_Passive_Upg_Button.Passive_Quartz_Level"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 499216629686291,
+													"parameters": {
+														"variable": "Required_Item_Quantity",
+														"value": "100 + 100 * floor(Current_Level* 5)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 443067353424605,
+													"parameters": {
+														"variable": "Max_Level",
+														"value": "10"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Req_Item_Text",
+													"sid": 735055263727127,
+													"parameters": {
+														"text": "\"MONEY: \" & Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Max_Level_Text",
+													"sid": 780024366994884,
+													"parameters": {
+														"text": "Max_Level"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Current_Level_Text",
+													"sid": 862617496651374,
+													"parameters": {
+														"text": "Current_Level"
+													}
+												}
+											],
+											"sid": 176358119863343
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 451752091566083,
+													"parameters": {
+														"instance-variable": "Passive_Quartz_Level",
+														"comparison": 0,
+														"value": "10"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Passive_Quartz_Button",
+													"sid": 368325826636535,
+													"parameters": {
+														"animation": "\"Completed\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 575728168351961,
+													"parameters": {
+														"instance-variable": "Passive_Quartz_Completed",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 990823030322844
+										}
+									],
+									"sid": 602188131705035
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Bauxite Passive",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 531682740121063,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "Meta_Passive_Bauxite_Button"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Bauxite_Button",
+													"sid": 836403568693300,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "0"
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Meta_Passive_Bauxite_Button",
+													"sid": 643112381727029,
+													"parameters": {
+														"animation": "\"Active\""
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 265644577195829,
+													"parameters": {
+														"instance-variable": "Passive_Bauxite_Completed"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Passive_Buttons",
+													"sid": 334648088513852,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Upg_Text",
+													"sid": 745622784834806,
+													"parameters": {
+														"text": "\"This will increase your Passive Bauxite income / Income tick\""
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Passive_Bauxite_Button",
+													"sid": 263061000379486,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"Darken\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 895443882477015,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Passive_Bauxite_Button",
+													"sid": 830577210726484,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"Darken\""
+													}
+												}
+											],
+											"sid": 844658441313765,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Meta_Passive_Bauxite_Button",
+															"sid": 934693148670723,
+															"parameters": {
+																"instance-variable": "Focus",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 698736003468893
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 271713427417812,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "Meta_Upgrade_button"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Bauxite_Button",
+													"sid": 896823771875645,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "1"
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Meta_Passive_Bauxite_Button",
+													"sid": 581619727404985,
+													"parameters": {
+														"animation": "\"Active\""
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 484665362821809,
+													"parameters": {
+														"instance-variable": "Passive_Bauxite_Completed"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Upgrade_button",
+													"sid": 388865734740603,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"Darken\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 400072696649648,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Upgrade_button",
+													"sid": 945678333034387,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"Darken\""
+													}
+												}
+											],
+											"sid": 903970159111778,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Miner_Box",
+															"sid": 580070031991351,
+															"parameters": {
+																"instance-variable": "Money",
+																"comparison": 5,
+																"value": "Required_Item_Quantity"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Meta_Passive_Upg_Button",
+															"sid": 894781938237022,
+															"parameters": {
+																"instance-variable": "Passive_Bauxite_Level",
+																"comparison": 2,
+																"value": "Max_Level"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "Miner_Box",
+															"sid": 253843790226529,
+															"parameters": {
+																"instance-variable": "Money",
+																"value": "Required_Item_Quantity"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Meta_Passive_Income_Object",
+															"sid": 992059250574869,
+															"parameters": {
+																"instance-variable": "Meta_Passive_Bauxite",
+																"value": "1+floor(Meta_Passive_Income_Object.Meta_Passive_Bauxite * 1)"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Meta_Passive_Upg_Button",
+															"sid": 949022351189136,
+															"parameters": {
+																"instance-variable": "Passive_Bauxite_Level",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 438713677230158
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-tick",
+													"objectClass": "System",
+													"sid": 345061601031486
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Bauxite_Button",
+													"sid": 544393899073050,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 212337355366070,
+													"parameters": {
+														"variable": "Current_Level",
+														"value": "Meta_Passive_Upg_Button.Passive_Bauxite_Level"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 692582606471314,
+													"parameters": {
+														"variable": "Required_Item_Quantity",
+														"value": "100 + 100 * floor(Current_Level* 5)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 785338213722449,
+													"parameters": {
+														"variable": "Max_Level",
+														"value": "10"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Req_Item_Text",
+													"sid": 576055673569024,
+													"parameters": {
+														"text": "\"MONEY: \" & Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Max_Level_Text",
+													"sid": 901196099936190,
+													"parameters": {
+														"text": "Max_Level"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Current_Level_Text",
+													"sid": 732901466443581,
+													"parameters": {
+														"text": "Current_Level"
+													}
+												}
+											],
+											"sid": 937041599142482
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 928448422079593,
+													"parameters": {
+														"instance-variable": "Passive_Bauxite_Level",
+														"comparison": 0,
+														"value": "10"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Passive_Bauxite_Button",
+													"sid": 330760515448458,
+													"parameters": {
+														"animation": "\"Completed\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 766592442833696,
+													"parameters": {
+														"instance-variable": "Passive_Bauxite_Completed",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 712978725070636
+										}
+									],
+									"sid": 562957362356567
 								}
 							],
 							"sid": 724192168982736
