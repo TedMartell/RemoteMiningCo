@@ -111,6 +111,65 @@
 				{
 					"eventType": "group",
 					"disabled": false,
+					"title": "HUD Spawn",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 749842265825292
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 718655929109776,
+									"parameters": {
+										"object": "HUD_Global_Inventory_Button",
+										"layer": "\"HUD\"",
+										"image-point": "\"Global_Button\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 271814174376857,
+									"parameters": {
+										"object": "HUD_Miner_Inventory_Button",
+										"layer": "\"HUD\"",
+										"image-point": "\"Miner_Button\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 440322822093580,
+									"parameters": {
+										"object": "Consumables_Slot_Art",
+										"layer": "\"HUD\"",
+										"image-point": "\"Consumables\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 694474009091340
+						}
+					],
+					"sid": 686414873303369
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
 					"title": "Global_Inventory Spawn",
 					"description": "",
 					"isActiveOnStart": true,
@@ -1190,24 +1249,6 @@
 					],
 					"actions": [
 						{
-							"id": "set-instvar-value",
-							"objectClass": "Miner_Box",
-							"sid": 718505875540812,
-							"parameters": {
-								"instance-variable": "Energy",
-								"value": "Miner_Box.Max_Energy"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Miner_Box",
-							"sid": 596369374910676,
-							"parameters": {
-								"instance-variable": "HP",
-								"value": "Miner_Box.Max_HP"
-							}
-						},
-						{
 							"id": "spawn-another-object",
 							"objectClass": "Miner_Box",
 							"sid": 631504762713703,
@@ -1232,24 +1273,6 @@
 								"width-type": "no",
 								"height-type": "no",
 								"z": false
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 977584611995827,
-							"parameters": {
-								"variable": "Energy_Bar_Original_Width",
-								"value": "Energy_Bar.Width"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 184581999030749,
-							"parameters": {
-								"variable": "HP_Bar_Original_Width",
-								"value": "HP_Bar.Width"
 							}
 						},
 						{
@@ -1343,38 +1366,6 @@
 							"sid": 905274619192623,
 							"parameters": {
 								"text": "Miner_Box.Money & \" $\""
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "Energy_Level_Text",
-							"sid": 909639307534938,
-							"parameters": {
-								"text": "round((Miner_Box.Energy / Miner_Box.Max_Energy) *100) & \" %\""
-							}
-						},
-						{
-							"id": "set-width",
-							"objectClass": "Energy_Bar",
-							"sid": 305376414488477,
-							"parameters": {
-								"width": "Energy_Bar_Original_Width* (Miner_Box.Energy / Miner_Box.Max_Energy)"
-							}
-						},
-						{
-							"id": "set-width",
-							"objectClass": "HP_Bar",
-							"sid": 668732211833675,
-							"parameters": {
-								"width": "HP_Bar_Original_Width * (Miner_Box.HP / Miner_Box.Max_HP)"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "HP_Level_Text",
-							"sid": 915409426080255,
-							"parameters": {
-								"text": "round(Miner_Box.HP) & \" / \" & Miner_Box.Max_HP"
 							}
 						},
 						{
@@ -21943,6 +21934,7 @@
 									"id": "on-key-pressed",
 									"objectClass": "Keyboard",
 									"sid": 234785144204411,
+									"disabled": true,
 									"parameters": {
 										"key": 67
 									}
@@ -22008,6 +22000,7 @@
 									"id": "on-object-clicked",
 									"objectClass": "Mouse",
 									"sid": 623374141972266,
+									"disabled": true,
 									"parameters": {
 										"mouse-button": "left",
 										"click-type": "clicked",
@@ -22597,6 +22590,110 @@
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Spawns and Ticks",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-start-of-layout",
+											"objectClass": "System",
+											"sid": 825938986997222
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 474154240214614,
+											"parameters": {
+												"instance-variable": "Energy",
+												"value": "Miner_Box.Max_Energy"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 547422776784387,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "Miner_Box.Max_HP"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 496448868680387,
+											"parameters": {
+												"variable": "Energy_Bar_Original_Width",
+												"value": "Energy_Bar.Width"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 714730000089943,
+											"parameters": {
+												"variable": "HP_Bar_Original_Width",
+												"value": "HP_Bar.Width"
+											}
+										}
+									],
+									"sid": 503431430586750
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 594348543721829
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Energy_Level_Text",
+											"sid": 190743679727227,
+											"parameters": {
+												"text": "round((Miner_Box.Energy / Miner_Box.Max_Energy) *100) & \" %\""
+											}
+										},
+										{
+											"id": "set-width",
+											"objectClass": "Energy_Bar",
+											"sid": 744677763004339,
+											"parameters": {
+												"width": "Energy_Bar_Original_Width* (Miner_Box.Energy / Miner_Box.Max_Energy)"
+											}
+										},
+										{
+											"id": "set-width",
+											"objectClass": "HP_Bar",
+											"sid": 298567105946345,
+											"parameters": {
+												"width": "HP_Bar_Original_Width * (Miner_Box.HP / Miner_Box.Max_HP)"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HP_Level_Text",
+											"sid": 273591107838455,
+											"parameters": {
+												"text": "round(Miner_Box.HP) & \" / \" & Miner_Box.Max_HP"
+											}
+										}
+									],
+									"sid": 854583191281300
+								}
+							],
+							"sid": 434668614281305
+						},
 						{
 							"eventType": "group",
 							"disabled": false,
