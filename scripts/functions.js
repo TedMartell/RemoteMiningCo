@@ -1,6 +1,7 @@
 import { miningItems } from "./data/miningItems.js"
 import { smeltedItems } from "./data/smeltedItems.js"
 import { consumableItems } from "./data/consumableItems.js"
+import { smelterRecipes } from "./data/smelterRecipes.js"
 export const globalInventory = {items:{}, value: 0, weight:0};
 export const minerInventory = {items:{}, value: 0, weight:0};
 export const consumablesInventory = {items:{}, value: 0, weight:0};
