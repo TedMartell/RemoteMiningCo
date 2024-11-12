@@ -17146,11 +17146,11 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 980310152289484,
+													"sid": 403072076170192,
 													"parameters": {
 														"first-value": "Y",
 														"comparison": 2,
-														"second-value": "23"
+														"second-value": "70"
 													}
 												}
 											],
@@ -17273,10 +17273,10 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 917188390550915,
+															"sid": 704839139600280,
 															"parameters": {
 																"object-to-create": "Dirt_Block",
-																"layer": "\"Player\"",
+																"layer": "\"Background\"",
 																"x": "loopindex *64",
 																"y": "Y *64",
 																"create-hierarchy": false,
@@ -17300,21 +17300,21 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 226477444288789,
+													"sid": 517846582960974,
 													"parameters": {
 														"first-value": "Y",
 														"comparison": 5,
-														"second-value": "23"
+														"second-value": "70"
 													}
 												},
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 428771782819976,
+													"sid": 580469804669823,
 													"parameters": {
 														"first-value": "Y",
 														"comparison": 2,
-														"second-value": "26"
+														"second-value": "80"
 													}
 												}
 											],
@@ -17464,21 +17464,21 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 407222397745574,
+													"sid": 672492108572946,
 													"parameters": {
 														"first-value": "Y",
 														"comparison": 5,
-														"second-value": "26"
+														"second-value": "80"
 													}
 												},
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 921659757065946,
+													"sid": 816008401559352,
 													"parameters": {
 														"first-value": "Y",
 														"comparison": 2,
-														"second-value": "30"
+														"second-value": "90"
 													}
 												}
 											],
@@ -17628,21 +17628,21 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 116409613526176,
+													"sid": 110976131910118,
 													"parameters": {
 														"first-value": "Y",
 														"comparison": 5,
-														"second-value": "30"
+														"second-value": "90"
 													}
 												},
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 257117387727739,
+													"sid": 480923681770946,
 													"parameters": {
 														"first-value": "Y",
 														"comparison": 2,
-														"second-value": "35"
+														"second-value": "100"
 													}
 												}
 											],
@@ -19078,7 +19078,62 @@
 									}
 								}
 							],
-							"sid": 459219888973018
+							"sid": 459219888973018,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 130335248681627
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 369554995107715,
+											"parameters": {
+												"object-to-create": "Dust_Animation_Right",
+												"layer": "\"Player\"",
+												"x": "Miner_Box.X +32",
+												"y": "Miner_Box.Y+32",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Dust_Animation_Right",
+											"sid": 414143245399330,
+											"parameters": {
+												"animation": "\"Dust_Right\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 501146917978129
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 634799162198593
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Dust_Animation_Right",
+									"sid": 532313269218379
+								}
+							],
+							"sid": 481702754958036
 						},
 						{
 							"eventType": "block",
@@ -19111,26 +19166,64 @@
 										"instance-variable": "ANIM",
 										"value": "\"Drill\""
 									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Dust_Animation",
-									"sid": 716826334791560,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Dust_Animation",
-									"sid": 356459174434087,
-									"parameters": {
-										"animation": "\"Dust_Left\"",
-										"from": "beginning"
-									}
 								}
 							],
-							"sid": 950505323845044
+							"sid": 950505323845044,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 428590111153112
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 817323812472439,
+											"parameters": {
+												"object-to-create": "Dust_Animation_Left",
+												"layer": "\"Player\"",
+												"x": "Miner_Box.X +32",
+												"y": "Miner_Box.Y +32",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Dust_Animation_Left",
+											"sid": 881723338234132,
+											"parameters": {
+												"animation": "\"Dust_Left\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 675158843125562
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 418123148444578
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Dust_Animation_Left",
+									"sid": 696887981075803
+								}
+							],
+							"sid": 825361108517609
 						},
 						{
 							"eventType": "block",
@@ -19163,31 +19256,54 @@
 										"instance-variable": "ANIM",
 										"value": "\"Drill\""
 									}
-								},
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 341350542914486,
-									"parameters": {
-										"object-to-create": "Dust_Animation",
-										"layer": "\"Player\"",
-										"x": "Miner_Box.X +32",
-										"y": "Miner_Box.Y+16",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Dust_Animation",
-									"sid": 334889610325696,
-									"parameters": {
-										"animation": "\"Dust_Down\"",
-										"from": "beginning"
-									}
 								}
 							],
-							"sid": 967531805634709
+							"sid": 967531805634709,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 912956442045055
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 525622114539779,
+											"parameters": {
+												"seconds": "0.5"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 733729213893140,
+											"parameters": {
+												"object-to-create": "Dust_Animation_Down",
+												"layer": "\"Player\"",
+												"x": "Miner_Box.X +32",
+												"y": "Miner_Box.Y+16",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Dust_Animation_Down",
+											"sid": 510217583639504,
+											"parameters": {
+												"animation": "\"Dust_Down\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 545048594450224
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -19195,20 +19311,17 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 722131552340871
+									"sid": 386671675755864
 								}
 							],
 							"actions": [
 								{
-									"id": "set-visible",
-									"objectClass": "Dust_Animation",
-									"sid": 968867864043279,
-									"parameters": {
-										"visibility": "invisible"
-									}
+									"id": "destroy",
+									"objectClass": "Dust_Animation_Down",
+									"sid": 633442075583934
 								}
 							],
-							"sid": 863399033853590
+							"sid": 305186188424552
 						},
 						{
 							"eventType": "block",
