@@ -16985,7 +16985,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "50",
+							"initialValue": "100",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -22891,10 +22891,101 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Smelter Management2",
+			"title": "TEST set inventory text",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [],
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Miner_Inventory_HUD_TEXT",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 678383248517989
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 589484030796757
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Box",
+							"sid": 439253121678477,
+							"parameters": {
+								"instance-variable": "Coal",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 879801615109786,
+							"parameters": {
+								"variable": "Miner_Inventory_HUD_TEXT",
+								"value": "\"Coal: \" &  Miner_Box.Coal"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Miner_Inventory_Text",
+							"sid": 500942365971618,
+							"parameters": {
+								"text": "Miner_Inventory_HUD_TEXT"
+							}
+						}
+					],
+					"sid": 210557974286465
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 895254419859348
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Box",
+							"sid": 835622940927965,
+							"parameters": {
+								"instance-variable": "Quartz",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 865040015994996,
+							"parameters": {
+								"variable": "Miner_Inventory_HUD_TEXT",
+								"value": "\"Quartz: \" &  Miner_Box.Quartz"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Miner_Inventory_Text",
+							"sid": 720126578178254,
+							"parameters": {
+								"text": "Miner_Inventory_HUD_TEXT"
+							}
+						}
+					],
+					"sid": 297210563193054
+				}
+			],
 			"sid": 616610756106818
 		}
 	],
