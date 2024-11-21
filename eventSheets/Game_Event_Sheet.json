@@ -22899,7 +22899,7 @@
 					"eventType": "variable",
 					"name": "Miner_Inventory_HUD_TEXT",
 					"type": "string",
-					"initialValue": "",
+					"initialValue": "Miner Inventory: ",
 					"comment": "",
 					"isStatic": false,
 					"isConstant": false,
@@ -22912,78 +22912,441 @@
 							"id": "every-tick",
 							"objectClass": "System",
 							"sid": 589484030796757
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Miner_Box",
-							"sid": 439253121678477,
-							"parameters": {
-								"instance-variable": "Coal",
-								"comparison": 4,
-								"value": "0"
-							}
 						}
 					],
 					"actions": [
 						{
-							"id": "add-to-eventvar",
-							"objectClass": "System",
-							"sid": 879801615109786,
-							"parameters": {
-								"variable": "Miner_Inventory_HUD_TEXT",
-								"value": "\"Coal: \" &  Miner_Box.Coal"
-							}
-						},
-						{
 							"id": "set-text",
 							"objectClass": "Miner_Inventory_Text",
-							"sid": 500942365971618,
+							"sid": 146287041041077,
 							"parameters": {
 								"text": "Miner_Inventory_HUD_TEXT"
 							}
 						}
 					],
-					"sid": 210557974286465
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+					"sid": 210557974286465,
+					"children": [
 						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 895254419859348
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 332480681427661,
+									"parameters": {
+										"instance-variable": "Coal",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 539056937182811,
+									"parameters": {
+										"variable": "Miner_Inventory_HUD_TEXT",
+										"value": "newline & \"Coal: \" &  Miner_Box.Coal"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 601896847749452,
+									"parameters": {
+										"text": "Miner_Inventory_HUD_TEXT"
+									}
+								}
+							],
+							"sid": 371583136463934
 						},
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Miner_Box",
-							"sid": 835622940927965,
-							"parameters": {
-								"instance-variable": "Quartz",
-								"comparison": 4,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "add-to-eventvar",
-							"objectClass": "System",
-							"sid": 865040015994996,
-							"parameters": {
-								"variable": "Miner_Inventory_HUD_TEXT",
-								"value": "\"Quartz: \" &  Miner_Box.Quartz"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 662721573674874,
+									"parameters": {
+										"instance-variable": "Quartz",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 330306301886540,
+									"parameters": {
+										"variable": "Miner_Inventory_HUD_TEXT",
+										"value": "newline & \"Quartz: \" &  Miner_Box.Quartz"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 472130673499353,
+									"parameters": {
+										"text": "Miner_Inventory_HUD_TEXT"
+									}
+								}
+							],
+							"sid": 104214765378920
 						},
 						{
-							"id": "set-text",
-							"objectClass": "Miner_Inventory_Text",
-							"sid": 720126578178254,
-							"parameters": {
-								"text": "Miner_Inventory_HUD_TEXT"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 280665557623323,
+									"parameters": {
+										"instance-variable": "Bauxite",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 907753896921573,
+									"parameters": {
+										"variable": "Miner_Inventory_HUD_TEXT",
+										"value": "newline & \"Bauxite: \" &  Miner_Box.Bauxite"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 746460722880330,
+									"parameters": {
+										"text": "Miner_Inventory_HUD_TEXT"
+									}
+								}
+							],
+							"sid": 981968688147434
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 104922777162868,
+									"parameters": {
+										"instance-variable": "Iron",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 364384501475379,
+									"parameters": {
+										"variable": "Miner_Inventory_HUD_TEXT",
+										"value": "newline & \"Iron: \" &  Miner_Box.Iron"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 276643799562201,
+									"parameters": {
+										"text": "Miner_Inventory_HUD_TEXT"
+									}
+								}
+							],
+							"sid": 201824463474672
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 229462046494233,
+									"parameters": {
+										"instance-variable": "Chromium",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 296608656864778,
+									"parameters": {
+										"variable": "Miner_Inventory_HUD_TEXT",
+										"value": "newline & \"Chromium: \" &  Miner_Box.Chromium"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 885684317433905,
+									"parameters": {
+										"text": "Miner_Inventory_HUD_TEXT"
+									}
+								}
+							],
+							"sid": 234477375767376
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 207044767099202,
+									"parameters": {
+										"instance-variable": "Copper",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 788919259564413,
+									"parameters": {
+										"variable": "Miner_Inventory_HUD_TEXT",
+										"value": "newline & \"Copper: \" &  Miner_Box.Copper"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 530685930040163,
+									"parameters": {
+										"text": "Miner_Inventory_HUD_TEXT"
+									}
+								}
+							],
+							"sid": 932671144263197
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 246495338375935,
+									"parameters": {
+										"instance-variable": "Lithium",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 642918597446926,
+									"parameters": {
+										"variable": "Miner_Inventory_HUD_TEXT",
+										"value": "newline & \"Lithium: \" &  Miner_Box.Lithium"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 181753631505468,
+									"parameters": {
+										"text": "Miner_Inventory_HUD_TEXT"
+									}
+								}
+							],
+							"sid": 690724350515160
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 219263765405373,
+									"parameters": {
+										"instance-variable": "Silver",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 649716631153580,
+									"parameters": {
+										"variable": "Miner_Inventory_HUD_TEXT",
+										"value": "newline & \"Silver: \" &  Miner_Box.Silver"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 148864462772436,
+									"parameters": {
+										"text": "Miner_Inventory_HUD_TEXT"
+									}
+								}
+							],
+							"sid": 445193346108830
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 115563928302152,
+									"parameters": {
+										"instance-variable": "Nickel",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 689849532672346,
+									"parameters": {
+										"variable": "Miner_Inventory_HUD_TEXT",
+										"value": "newline & \"Nickel: \" &  Miner_Box.Nickel"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 904097838823467,
+									"parameters": {
+										"text": "Miner_Inventory_HUD_TEXT"
+									}
+								}
+							],
+							"sid": 386650902398156
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 953769753246653,
+									"parameters": {
+										"instance-variable": "Zinc",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 534141252976122,
+									"parameters": {
+										"variable": "Miner_Inventory_HUD_TEXT",
+										"value": "newline & \"Zinc: \" &  Miner_Box.Zinc"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 235263475646621,
+									"parameters": {
+										"text": "Miner_Inventory_HUD_TEXT"
+									}
+								}
+							],
+							"sid": 997104463852285
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 474746048018909,
+									"parameters": {
+										"instance-variable": "Gold",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 837715526788466,
+									"parameters": {
+										"variable": "Miner_Inventory_HUD_TEXT",
+										"value": "newline & \"Gold: \" &  Miner_Box.Gold"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 951095031273454,
+									"parameters": {
+										"text": "Miner_Inventory_HUD_TEXT"
+									}
+								}
+							],
+							"sid": 945600858493576
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 586778621745996,
+									"parameters": {
+										"instance-variable": "Diamond",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 850069704796767,
+									"parameters": {
+										"variable": "Miner_Inventory_HUD_TEXT",
+										"value": "newline & \"Diamond: \" &  Miner_Box.Diamond"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 725832554089385,
+									"parameters": {
+										"text": "Miner_Inventory_HUD_TEXT"
+									}
+								}
+							],
+							"sid": 507057411934053
 						}
-					],
-					"sid": 297210563193054
+					]
 				}
 			],
 			"sid": 616610756106818
