@@ -14239,6 +14239,16 @@
 										},
 										{
 											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 517855966387521,
+											"parameters": {
+												"instance-variable": "Coal",
+												"comparison": 2,
+												"value": "Global_Inventory_Object.Coal"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
 											"objectClass": "Global_Inventory_Object",
 											"sid": 650267106931669,
 											"parameters": {
@@ -14250,20 +14260,20 @@
 									],
 									"actions": [
 										{
-											"id": "subtract-from-instvar",
-											"objectClass": "Global_Inventory_Object",
-											"sid": 301546417942202,
+											"id": "add-to-instvar",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 682942687107009,
 											"parameters": {
-												"instance-variable": "Coal",
+												"instance-variable": "Value",
 												"value": "1"
 											}
 										},
 										{
 											"id": "add-to-instvar",
-											"objectClass": "Miner_Box",
-											"sid": 481858027973128,
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 760903904606838,
 											"parameters": {
-												"instance-variable": "Money",
+												"instance-variable": "Coal",
 												"value": "1"
 											}
 										}
@@ -22919,7 +22929,7 @@
 					"eventType": "variable",
 					"name": "Warehouse_Sell_Cart_String",
 					"type": "string",
-					"initialValue": "",
+					"initialValue": "Sell Cart",
 					"comment": "",
 					"isStatic": false,
 					"isConstant": false,
@@ -24212,16 +24222,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 991208067911754,
+									"sid": 259092074335642,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Coal: \" &  Warehouse_Sell_Cart_Object.Coal"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 663691311341012,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 925209438527246,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24247,16 +24257,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 342580960282203,
+									"sid": 199673234701497,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Quartz: \" &  Warehouse_Sell_Cart_Object.Quartz"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 573298741345057,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 873113958968472,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24282,16 +24292,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 796719550458980,
+									"sid": 527315175904324,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Bauxite: \" &  Warehouse_Sell_Cart_Object.Bauxite"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 755228149544875,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 952966476864695,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24317,16 +24327,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 572251223216296,
+									"sid": 339710134413858,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Iron: \" &  Warehouse_Sell_Cart_Object.Iron"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 953300563303665,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 754681272470963,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24352,16 +24362,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 850713954501705,
+									"sid": 449727640447928,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Chromium: \" &  Warehouse_Sell_Cart_Object.Chromium"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 137107959163928,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 383107565207282,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24387,16 +24397,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 845324995661077,
+									"sid": 420046021819934,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Copper: \" &  Warehouse_Sell_Cart_Object.Copper"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 962801229211275,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 725015489130982,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24422,16 +24432,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 968929517431795,
+									"sid": 863630446968831,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Lithium: \" &  Warehouse_Sell_Cart_Object.Lithium"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 610058474141524,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 667245747385496,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24457,16 +24467,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 149290189322609,
+									"sid": 667043316540699,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Silver: \" &  Warehouse_Sell_Cart_Object.Silver"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 823166350996084,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 868713856636516,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24492,16 +24502,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 352205636531465,
+									"sid": 831548076479597,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Nickel: \" &  Warehouse_Sell_Cart_Object.Nickel"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 243906738933449,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 146617458226364,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24527,16 +24537,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 381447141120174,
+									"sid": 578840585006888,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Zinc: \" &  Warehouse_Sell_Cart_Object.Zinc"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 313754462850506,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 508877783269523,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24562,16 +24572,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 368466435625404,
+									"sid": 834688231394680,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Gold: \" &  Warehouse_Sell_Cart_Object.Gold"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 449086985455741,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 545040560779968,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24597,16 +24607,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 510448115904914,
+									"sid": 125607776366000,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Diamond: \" &  Warehouse_Sell_Cart_Object.Diamond"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 289223648661863,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 963585599630105,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24632,16 +24642,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 936441089761603,
+									"sid": 426240252432171,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Silicon: \" &  Warehouse_Sell_Cart_Object.Silicon"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 407524191449279,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 389225661412225,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24667,16 +24677,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 140469584461999,
+									"sid": 312438890256452,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Aluminium Ingot: \" &  Warehouse_Sell_Cart_Object.Aluminium_Ingot"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 316938465022523,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 160432461139072,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24702,16 +24712,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 138392065078843,
+									"sid": 130632714870675,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Iron Ingot: \" &  Warehouse_Sell_Cart_Object.Iron_Ingot"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 183845198334476,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 650373086059381,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24737,16 +24747,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 729233878767493,
+									"sid": 501751597415955,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Chromium Ingot: \" &  Warehouse_Sell_Cart_Object.Chromium_Ingot"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 561411051038698,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 292999267310453,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24772,16 +24782,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 727526073024941,
+									"sid": 759710114122658,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Copper Ingot: \" &  Warehouse_Sell_Cart_Object.Copper_Ingot"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 329499722575021,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 884695230571646,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24807,16 +24817,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 417948768201038,
+									"sid": 734921434223696,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Lithium Ingot: \" &  Warehouse_Sell_Cart_Object.Lithium_Ingot"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 891791261998071,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 971795070924487,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24842,16 +24852,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 903104111307449,
+									"sid": 997467596002857,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Silver Ingot: \" &  Warehouse_Sell_Cart_Object.Silver_Ingot"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 726198777208431,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 387604036334229,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24877,16 +24887,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 555895426983823,
+									"sid": 493341312167327,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Nickel Ingot: \" &  Warehouse_Sell_Cart_Object.Nickel_Ingot"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 847704943326852,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 286646279307963,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24912,16 +24922,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 738798373703421,
+									"sid": 531752763564181,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Zinc Ingot: \" &  Warehouse_Sell_Cart_Object.Zinc_Ingot"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 273153380844293,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 552908569173460,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
@@ -24947,16 +24957,16 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 641771926992233,
+									"sid": 322660063704137,
 									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
+										"variable": "Warehouse_Sell_Cart_String",
 										"value": "newline & \"Gold Ingot: \" &  Warehouse_Sell_Cart_Object.Gold_Ingot"
 									}
 								},
 								{
 									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 661947502603874,
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 101386217629124,
 									"parameters": {
 										"text": "Warehouse_Sell_Cart_String"
 									}
