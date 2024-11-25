@@ -111,6 +111,2399 @@
 				{
 					"eventType": "group",
 					"disabled": false,
+					"title": "Text Updates",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "Miner_Inventory_HUD_TEXT",
+							"type": "string",
+							"initialValue": "Miner Inventory: ",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 760947120618815
+						},
+						{
+							"eventType": "variable",
+							"name": "Global_Inventory_HUD_TEXT",
+							"type": "string",
+							"initialValue": "Global Inventory: ",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 308083781658650
+						},
+						{
+							"eventType": "variable",
+							"name": "Warehouse_Sell_Cart_String",
+							"type": "string",
+							"initialValue": "Sell Cart",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 834793723003333
+						},
+						{
+							"eventType": "variable",
+							"name": "Shop_Cart_String",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 271532632628395
+						},
+						{
+							"eventType": "comment",
+							"text": "Miner Inventory HUD updates"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 953688176730565
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 488612365749002,
+									"parameters": {
+										"text": "Miner_Inventory_HUD_TEXT"
+									}
+								}
+							],
+							"sid": 326843503936843,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 288897603017604,
+											"parameters": {
+												"instance-variable": "Coal",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 238545345720297,
+											"parameters": {
+												"variable": "Miner_Inventory_HUD_TEXT",
+												"value": "newline & \"Coal: \" &  Miner_Box.Coal"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 493906562403418,
+											"parameters": {
+												"text": "Miner_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 282013365835365
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 381540687004996,
+											"parameters": {
+												"instance-variable": "Quartz",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 281834920060686,
+											"parameters": {
+												"variable": "Miner_Inventory_HUD_TEXT",
+												"value": "newline & \"Quartz: \" &  Miner_Box.Quartz"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 558137895662749,
+											"parameters": {
+												"text": "Miner_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 812705907582376
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 448259116865806,
+											"parameters": {
+												"instance-variable": "Bauxite",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 506264020780198,
+											"parameters": {
+												"variable": "Miner_Inventory_HUD_TEXT",
+												"value": "newline & \"Bauxite: \" &  Miner_Box.Bauxite"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 983212177133624,
+											"parameters": {
+												"text": "Miner_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 140117517323891
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 457986571025285,
+											"parameters": {
+												"instance-variable": "Iron",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 441170731051820,
+											"parameters": {
+												"variable": "Miner_Inventory_HUD_TEXT",
+												"value": "newline & \"Iron: \" &  Miner_Box.Iron"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 648203457842759,
+											"parameters": {
+												"text": "Miner_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 444131465867328
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 283789507947309,
+											"parameters": {
+												"instance-variable": "Chromium",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 519609825398729,
+											"parameters": {
+												"variable": "Miner_Inventory_HUD_TEXT",
+												"value": "newline & \"Chromium: \" &  Miner_Box.Chromium"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 382602861469698,
+											"parameters": {
+												"text": "Miner_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 749320751322232
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 999718882866769,
+											"parameters": {
+												"instance-variable": "Copper",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 472956683885374,
+											"parameters": {
+												"variable": "Miner_Inventory_HUD_TEXT",
+												"value": "newline & \"Copper: \" &  Miner_Box.Copper"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 732146716609374,
+											"parameters": {
+												"text": "Miner_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 321644335008571
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 522747200743009,
+											"parameters": {
+												"instance-variable": "Lithium",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 222655994581891,
+											"parameters": {
+												"variable": "Miner_Inventory_HUD_TEXT",
+												"value": "newline & \"Lithium: \" &  Miner_Box.Lithium"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 289812947975665,
+											"parameters": {
+												"text": "Miner_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 266284923740049
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 152128289930361,
+											"parameters": {
+												"instance-variable": "Silver",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 703007126207842,
+											"parameters": {
+												"variable": "Miner_Inventory_HUD_TEXT",
+												"value": "newline & \"Silver: \" &  Miner_Box.Silver"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 809206617996736,
+											"parameters": {
+												"text": "Miner_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 590933075061855
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 963830264597494,
+											"parameters": {
+												"instance-variable": "Nickel",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 329631956753289,
+											"parameters": {
+												"variable": "Miner_Inventory_HUD_TEXT",
+												"value": "newline & \"Nickel: \" &  Miner_Box.Nickel"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 584130262555959,
+											"parameters": {
+												"text": "Miner_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 784216248482612
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 725251112431887,
+											"parameters": {
+												"instance-variable": "Zinc",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 788476335857001,
+											"parameters": {
+												"variable": "Miner_Inventory_HUD_TEXT",
+												"value": "newline & \"Zinc: \" &  Miner_Box.Zinc"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 900812270888580,
+											"parameters": {
+												"text": "Miner_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 139130725949353
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 752790612530586,
+											"parameters": {
+												"instance-variable": "Gold",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 797378558875855,
+											"parameters": {
+												"variable": "Miner_Inventory_HUD_TEXT",
+												"value": "newline & \"Gold: \" &  Miner_Box.Gold"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 318532843730852,
+											"parameters": {
+												"text": "Miner_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 424838169434281
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 225266990768268,
+											"parameters": {
+												"instance-variable": "Diamond",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 225440081598058,
+											"parameters": {
+												"variable": "Miner_Inventory_HUD_TEXT",
+												"value": "newline & \"Diamond: \" &  Miner_Box.Diamond"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 689423746861641,
+											"parameters": {
+												"text": "Miner_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 307337044265096
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Global Inventory HUD updates"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 253454261486022
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "HUD_Global_Inventory_Text",
+									"sid": 413945039421005,
+									"parameters": {
+										"text": "Global_Inventory_HUD_TEXT"
+									}
+								}
+							],
+							"sid": 606518384770510,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 707699536576803,
+											"parameters": {
+												"instance-variable": "Coal",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 154137897743571,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Coal: \" &  Global_Inventory_Object.Coal"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 342766369144479,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 847092003171847
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 727673582135422,
+											"parameters": {
+												"instance-variable": "Quartz",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 900811537201154,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Quartz: \" &  Global_Inventory_Object.Quartz"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 207580007354402,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 817423595030013
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 323590986885841,
+											"parameters": {
+												"instance-variable": "Bauxite",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 811320412604200,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Bauxite: \" &  Global_Inventory_Object.Bauxite"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 267813456318613,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 402196797525322
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 539740847517758,
+											"parameters": {
+												"instance-variable": "Iron",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 738942071369025,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Iron: \" &  Global_Inventory_Object.Iron"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 910706996811897,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 734590070200464
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 520273980949122,
+											"parameters": {
+												"instance-variable": "Chromium",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 290724446448069,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Chromium: \" &  Global_Inventory_Object.Chromium"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 473907738445730,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 732116756463381
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 131465927066855,
+											"parameters": {
+												"instance-variable": "Copper",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 667216479430436,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Copper: \" &  Global_Inventory_Object.Copper"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 666162258949528,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 281523086787122
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 459178623927786,
+											"parameters": {
+												"instance-variable": "Lithium",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 733996595096187,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Lithium: \" &  Global_Inventory_Object.Lithium"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 580366974442867,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 775566881748800
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 940985609646126,
+											"parameters": {
+												"instance-variable": "Silver",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 165007548350885,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Silver: \" &  Global_Inventory_Object.Silver"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 595041135895842,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 764469554143114
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 889646438073257,
+											"parameters": {
+												"instance-variable": "Nickel",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 464725676021620,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Nickel: \" &  Global_Inventory_Object.Nickel"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 214918971334198,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 357738203147504
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 946078471082396,
+											"parameters": {
+												"instance-variable": "Zinc",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 119470576514777,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Zinc: \" &  Global_Inventory_Object.Zinc"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 504690931624545,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 366109843804840
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 366537040127864,
+											"parameters": {
+												"instance-variable": "Gold",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 493010100446541,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Gold: \" &  Global_Inventory_Object.Gold"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 981521248864261,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 331071916472761
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 367821080031158,
+											"parameters": {
+												"instance-variable": "Diamond",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 914163874161091,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Diamond: \" &  Global_Inventory_Object.Diamond"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 245373268347295,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 112191462615082
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 695378712087493,
+											"parameters": {
+												"instance-variable": "Silicon",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 825170246763597,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Silicon: \" &  Global_Inventory_Object.Silicon"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 384250796308106,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 854896854619712
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 440665005444435,
+											"parameters": {
+												"instance-variable": "Aluminium_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 770745383987477,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Aluminium Ingot: \" &  Global_Inventory_Object.Aluminium_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 378427767508318,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 908981269622758
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 971641192309429,
+											"parameters": {
+												"instance-variable": "Iron_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 557146678479438,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Iron Ingot: \" &  Global_Inventory_Object.Iron_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 680460662236079,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 418801607736036
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 995375218826940,
+											"parameters": {
+												"instance-variable": "Chromium_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 842539345968079,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Chromium Ingot: \" &  Global_Inventory_Object.Chromium_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 107459414562053,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 868354937980865
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 651395155761676,
+											"parameters": {
+												"instance-variable": "Copper_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 537639995662631,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Copper Ingot: \" &  Global_Inventory_Object.Copper_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 670481532921829,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 701712314248413
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 473800312105192,
+											"parameters": {
+												"instance-variable": "Lithium_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 738327777322945,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Lithium Ingot: \" &  Global_Inventory_Object.Lithium_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 625040585408128,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 725418888101733
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 154537414376814,
+											"parameters": {
+												"instance-variable": "Silver_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 928025960537087,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Silver Ingot: \" &  Global_Inventory_Object.Silver_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 190900552739298,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 143732964311387
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 286504900059220,
+											"parameters": {
+												"instance-variable": "Nickel_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 184883490519899,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Nickel Ingot: \" &  Global_Inventory_Object.Nickel_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 349134132559288,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 325629350574392
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 175221969005404,
+											"parameters": {
+												"instance-variable": "Zinc_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 859245764281134,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Zinc Ingot: \" &  Global_Inventory_Object.Zinc_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 467402798270724,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 600335696685131
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 756300884174106,
+											"parameters": {
+												"instance-variable": "Gold_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 677611212253802,
+											"parameters": {
+												"variable": "Global_Inventory_HUD_TEXT",
+												"value": "newline & \"Gold Ingot: \" &  Global_Inventory_Object.Gold_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 252303377801139,
+											"parameters": {
+												"text": "Global_Inventory_HUD_TEXT"
+											}
+										}
+									],
+									"sid": 744356672354057
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Warehouse Sell Cart updates"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 360575994794981
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Warehouse_Sell_Cart_Text",
+									"sid": 943488001839501,
+									"parameters": {
+										"text": "Warehouse_Sell_Cart_String"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Warehouse_Value_Text",
+									"sid": 696174054179341,
+									"parameters": {
+										"text": "Warehouse_Sell_Cart_Object.Value"
+									}
+								}
+							],
+							"sid": 822891061345429,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 860204008385401,
+											"parameters": {
+												"instance-variable": "Coal",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 899053896509998,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Coal: \" &  Warehouse_Sell_Cart_Object.Coal"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 474007769016493,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 619669420918677
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 410847137861835,
+											"parameters": {
+												"instance-variable": "Quartz",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 978893670797891,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Quartz: \" &  Warehouse_Sell_Cart_Object.Quartz"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 166550192108010,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 169822935835867
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 769965776502806,
+											"parameters": {
+												"instance-variable": "Bauxite",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 711471859515307,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Bauxite: \" &  Warehouse_Sell_Cart_Object.Bauxite"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 964255204304910,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 886711138431319
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 955694039699105,
+											"parameters": {
+												"instance-variable": "Iron",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 697884162540863,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Iron: \" &  Warehouse_Sell_Cart_Object.Iron"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 255394152563038,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 485208827151285
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 163774001864616,
+											"parameters": {
+												"instance-variable": "Chromium",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 738766369586872,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Chromium: \" &  Warehouse_Sell_Cart_Object.Chromium"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 272216085016415,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 532269558019703
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 533778593897899,
+											"parameters": {
+												"instance-variable": "Copper",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 151107600127731,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Copper: \" &  Warehouse_Sell_Cart_Object.Copper"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 667365399627188,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 434516213151906
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 229490460420359,
+											"parameters": {
+												"instance-variable": "Lithium",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 801634578497367,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Lithium: \" &  Warehouse_Sell_Cart_Object.Lithium"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 105336542650249,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 846803917698258
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 437550354435160,
+											"parameters": {
+												"instance-variable": "Silver",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 583421947517026,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Silver: \" &  Warehouse_Sell_Cart_Object.Silver"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 214027109019455,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 334067526096371
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 370283076514958,
+											"parameters": {
+												"instance-variable": "Nickel",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 150192846722435,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Nickel: \" &  Warehouse_Sell_Cart_Object.Nickel"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 396423135297696,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 943950663429947
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 365078254724054,
+											"parameters": {
+												"instance-variable": "Zinc",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 259487981893646,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Zinc: \" &  Warehouse_Sell_Cart_Object.Zinc"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 539809603734765,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 540134734992313
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 258699821273036,
+											"parameters": {
+												"instance-variable": "Gold",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 132641398775793,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Gold: \" &  Warehouse_Sell_Cart_Object.Gold"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 861563614130972,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 603150628917589
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 588193059885278,
+											"parameters": {
+												"instance-variable": "Diamond",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 603228345868685,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Diamond: \" &  Warehouse_Sell_Cart_Object.Diamond"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 324939779127085,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 425959242063494
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 929946837358774,
+											"parameters": {
+												"instance-variable": "Silicon",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 193710383289394,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Silicon: \" &  Warehouse_Sell_Cart_Object.Silicon"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 902890723067858,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 904081617690647
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 152566779381548,
+											"parameters": {
+												"instance-variable": "Aluminium_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 601611531231424,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Aluminium Ingot: \" &  Warehouse_Sell_Cart_Object.Aluminium_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 892937283023592,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 870498407969769
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 184749899539639,
+											"parameters": {
+												"instance-variable": "Iron_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 525003095676739,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Iron Ingot: \" &  Warehouse_Sell_Cart_Object.Iron_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 489497075212008,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 567075721259998
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 164093457457351,
+											"parameters": {
+												"instance-variable": "Chromium_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 227494994469210,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Chromium Ingot: \" &  Warehouse_Sell_Cart_Object.Chromium_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 628072424886754,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 403655324903550
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 606869335018031,
+											"parameters": {
+												"instance-variable": "Copper_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 273462115543534,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Copper Ingot: \" &  Warehouse_Sell_Cart_Object.Copper_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 483041079495443,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 492364903802177
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 249206413196608,
+											"parameters": {
+												"instance-variable": "Lithium_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 672873466008066,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Lithium Ingot: \" &  Warehouse_Sell_Cart_Object.Lithium_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 427942457024256,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 489473653508938
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 734881985720966,
+											"parameters": {
+												"instance-variable": "Silver_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 456903975792579,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Silver Ingot: \" &  Warehouse_Sell_Cart_Object.Silver_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 927823029244711,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 543179616670076
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 165299641443762,
+											"parameters": {
+												"instance-variable": "Nickel_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 599253258813159,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Nickel Ingot: \" &  Warehouse_Sell_Cart_Object.Nickel_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 156341515552127,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 887305557420790
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 729511124649602,
+											"parameters": {
+												"instance-variable": "Zinc_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 663693337356682,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Zinc Ingot: \" &  Warehouse_Sell_Cart_Object.Zinc_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 880917555964723,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 342386616986622
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 241715691340946,
+											"parameters": {
+												"instance-variable": "Gold_Ingot",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 399411184096504,
+											"parameters": {
+												"variable": "Warehouse_Sell_Cart_String",
+												"value": "newline & \"Gold Ingot: \" &  Warehouse_Sell_Cart_Object.Gold_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Warehouse_Sell_Cart_Text",
+											"sid": 810231756206102,
+											"parameters": {
+												"text": "Warehouse_Sell_Cart_String"
+											}
+										}
+									],
+									"sid": 783427545306358
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Shop Items updates"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 826059712058994
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Shopping_List_Text",
+									"sid": 800305116479215,
+									"parameters": {
+										"text": "Shop_Cart_String"
+									}
+								}
+							],
+							"sid": 328796673986540,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Shop_Cart_Object",
+											"sid": 556006789753837,
+											"parameters": {
+												"instance-variable": "Dynamite",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 524218312905841,
+											"parameters": {
+												"variable": "Shop_Cart_String",
+												"value": "newline & \"Dynamite: \" &  Shop_Cart_Object.Dynamite"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Shopping_List_Text",
+											"sid": 268989165773566,
+											"parameters": {
+												"text": "Shop_Cart_String"
+											}
+										}
+									],
+									"sid": 656214539724104
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Shop_Cart_Object",
+											"sid": 969157544996172,
+											"parameters": {
+												"instance-variable": "Battery",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 844326432875222,
+											"parameters": {
+												"variable": "Shop_Cart_String",
+												"value": "newline & \"Battery: \" &  Shop_Cart_Object.Battery"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Shopping_List_Text",
+											"sid": 524472308852542,
+											"parameters": {
+												"text": "Shop_Cart_String"
+											}
+										}
+									],
+									"sid": 147729076240835
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Shop_Cart_Object",
+											"sid": 903633640204460,
+											"parameters": {
+												"instance-variable": "Repair_Kit",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 396379414623720,
+											"parameters": {
+												"variable": "Shop_Cart_String",
+												"value": "newline & \"Repair Kit: \" &  Shop_Cart_Object.Repair_Kit"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Shopping_List_Text",
+											"sid": 657339708381061,
+											"parameters": {
+												"text": "Shop_Cart_String"
+											}
+										}
+									],
+									"sid": 342877479105124
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Shop_Cart_Object",
+											"sid": 635418387761839,
+											"parameters": {
+												"instance-variable": "Teleporter",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 450175020452395,
+											"parameters": {
+												"variable": "Shop_Cart_String",
+												"value": "newline & \"Teleporter: \" &  Shop_Cart_Object.Teleporter"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Shopping_List_Text",
+											"sid": 709230411339234,
+											"parameters": {
+												"text": "Shop_Cart_String"
+											}
+										}
+									],
+									"sid": 404836385497632
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 650367830341085
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 112599755018952
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 585312194414091,
+									"parameters": {
+										"object": "Miner_Inventory_Background_Black",
+										"layer": "\"HUD\"",
+										"image-point": "\"Show_Inventory\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Miner_Inventory_Background_Black",
+									"sid": 822564589368520,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "HUD_Grey",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 710415599983795,
+									"parameters": {
+										"object": "Miner_Inventory_Text",
+										"layer": "\"HUD\"",
+										"image-point": "\"Inventory_Text\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 832068973913471,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "HUD_Grey",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 319624582466929,
+									"parameters": {
+										"object": "Global_Inventory_Background_Black",
+										"layer": "\"HUD\"",
+										"image-point": "\"Show_Inventory\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Global_Inventory_Background_Black",
+									"sid": 841061151791973,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "HUD_Grey",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 710099597266275,
+									"parameters": {
+										"object": "HUD_Global_Inventory_Text",
+										"layer": "\"HUD\"",
+										"image-point": "\"Inventory_Text\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "HUD_Global_Inventory_Text",
+									"sid": 811569711724331,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "HUD_Grey",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								}
+							],
+							"sid": 654324202187970
+						}
+					],
+					"sid": 281758430146088
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
 					"title": "HUD Spawn",
 					"description": "",
 					"isActiveOnStart": true,
@@ -1279,6 +3672,7 @@
 							"id": "pin-to-object-properties",
 							"objectClass": "Devil_Hitbox",
 							"sid": 853337412302757,
+							"disabled": true,
 							"behaviorType": "Pin",
 							"parameters": {
 								"pin-to": "Devil_Boss_Sprite",
@@ -1294,6 +3688,7 @@
 							"id": "spawn-another-object",
 							"objectClass": "Devil_Boss_Sprite",
 							"sid": 582834222460639,
+							"disabled": true,
 							"parameters": {
 								"object": "Devil_Boss_Pentagram",
 								"layer": "\"Player\"",
@@ -1306,6 +3701,7 @@
 							"id": "pin-to-object-properties",
 							"objectClass": "Devil_Boss_Pentagram",
 							"sid": 473934282268135,
+							"disabled": true,
 							"behaviorType": "Pin",
 							"parameters": {
 								"pin-to": "Devil_Boss_Sprite",
@@ -1334,6 +3730,7 @@
 							"id": "set-angle-toward-position",
 							"objectClass": "Devil_Boss_Pentagram",
 							"sid": 990260172269229,
+							"disabled": true,
 							"parameters": {
 								"x": "Miner_Box.X",
 								"y": "Miner_Box.Y"
@@ -22138,6 +24535,127 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 263290275063161,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "HUD_Miner_Inventory_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Global_Inventory_Background_Black",
+									"sid": 218847518621413,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Global_Inventory_Text",
+									"sid": 441576023314885,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Miner_Inventory_Button",
+									"sid": 778546777556363,
+									"parameters": {
+										"animation": "\"Passive\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Global_Inventory_Button",
+									"sid": 349098478373556,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 203390375458314,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "Miner_Inventory_Background_Black",
+											"sid": 235255061129655
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Miner_Inventory_Background_Black",
+											"sid": 635920257419704,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 259130397093513,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "HUD_Miner_Inventory_Button",
+											"sid": 251237890325600,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 277597522367399
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 145328571374067
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Miner_Inventory_Background_Black",
+											"sid": 765046365570361,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 303125865697914,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 270657587542309
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "on-key-pressed",
 									"objectClass": "Keyboard",
 									"sid": 919927979153635,
@@ -22146,40 +24664,81 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Global_Inventory_Background_Black",
+									"sid": 251435866789957,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Global_Inventory_Text",
+									"sid": 973067677178913,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Miner_Inventory_Button",
+									"sid": 222007201742720,
+									"parameters": {
+										"animation": "\"Passive\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Global_Inventory_Button",
+									"sid": 514438902470290,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								}
+							],
 							"sid": 846389034927275,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-inventory-shown",
-											"objectClass": "Inventory",
-											"sid": 506662917746992,
-											"parameters": {
-												"param0": "\"Inventory_Miner\""
-											}
+											"id": "is-visible",
+											"objectClass": "Miner_Inventory_Background_Black",
+											"sid": 607943391400192
 										}
 									],
 									"actions": [
 										{
-											"id": "hide-inventory",
-											"objectClass": "Inventory",
-											"sid": 374826551088473,
+											"id": "set-visible",
+											"objectClass": "Miner_Inventory_Background_Black",
+											"sid": 471051327172224,
 											"parameters": {
-												"param0": "\"Inventory_Miner\""
+												"visibility": "invisible"
 											}
 										},
 										{
 											"id": "set-visible",
-											"objectClass": "Value_Weight_Text",
-											"sid": 599179477887315,
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 187691876565485,
 											"parameters": {
 												"visibility": "invisible"
 											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "HUD_Miner_Inventory_Button",
+											"sid": 782765194550435,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
 										}
 									],
-									"sid": 432577475609822
+									"sid": 663231518603440
 								},
 								{
 									"eventType": "block",
@@ -22187,33 +24746,34 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 554915499165656
+											"sid": 968726363783557
 										}
 									],
 									"actions": [
 										{
-											"id": "show-inventory",
-											"objectClass": "Inventory",
-											"sid": 335240318765931,
+											"id": "set-visible",
+											"objectClass": "Miner_Inventory_Background_Black",
+											"sid": 332516620851431,
 											"parameters": {
-												"param0": "\"Inventory_Miner\"",
-												"param1": "\"HUD\"",
-												"param2": "HUD_Main.X + 42",
-												"param3": "HUD_Main.Y + 64"
+												"visibility": "visible"
 											}
 										},
 										{
 											"id": "set-visible",
-											"objectClass": "Value_Weight_Text",
-											"sid": 786016619299032,
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 809179788868563,
 											"parameters": {
 												"visibility": "visible"
 											}
 										}
 									],
-									"sid": 593284075572138
+									"sid": 628369151900010
 								}
 							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Global Inventory"
 						},
 						{
 							"eventType": "block",
@@ -22221,48 +24781,89 @@
 								{
 									"id": "on-object-clicked",
 									"objectClass": "Mouse",
-									"sid": 688224159322776,
+									"sid": 985964991335075,
 									"parameters": {
 										"mouse-button": "left",
 										"click-type": "clicked",
-										"object-clicked": "Inventory_text"
+										"object-clicked": "HUD_Global_Inventory_Button"
 									}
 								}
 							],
-							"actions": [],
-							"sid": 620730312234242,
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Miner_Inventory_Background_Black",
+									"sid": 640067229572932,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 918478634022026,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Global_Inventory_Button",
+									"sid": 925690111882965,
+									"parameters": {
+										"animation": "\"Passive\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Miner_Inventory_Button",
+									"sid": 733448282640236,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 645835128027386,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-inventory-shown",
-											"objectClass": "Inventory",
-											"sid": 391660957522315,
-											"parameters": {
-												"param0": "\"Inventory_Miner\""
-											}
+											"id": "is-visible",
+											"objectClass": "Global_Inventory_Background_Black",
+											"sid": 632776342328296
 										}
 									],
 									"actions": [
 										{
-											"id": "hide-inventory",
-											"objectClass": "Inventory",
-											"sid": 528550200971344,
+											"id": "set-visible",
+											"objectClass": "Global_Inventory_Background_Black",
+											"sid": 356004416156151,
 											"parameters": {
-												"param0": "\"Inventory_Miner\""
+												"visibility": "invisible"
 											}
 										},
 										{
 											"id": "set-visible",
-											"objectClass": "Value_Weight_Text",
-											"sid": 489362306214808,
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 180722980246483,
 											"parameters": {
 												"visibility": "invisible"
 											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "HUD_Global_Inventory_Button",
+											"sid": 883115621895701,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
 										}
 									],
-									"sid": 333865841550833
+									"sid": 666599843312438
 								},
 								{
 									"eventType": "block",
@@ -22270,31 +24871,28 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 204333302846355
+											"sid": 730329729347117
 										}
 									],
 									"actions": [
 										{
-											"id": "show-inventory",
-											"objectClass": "Inventory",
-											"sid": 825319663385212,
+											"id": "set-visible",
+											"objectClass": "Global_Inventory_Background_Black",
+											"sid": 934240191178448,
 											"parameters": {
-												"param0": "\"Inventory_Miner\"",
-												"param1": "\"HUD\"",
-												"param2": "HUD_Main.X + 42",
-												"param3": "HUD_Main.Y + 64"
+												"visibility": "visible"
 											}
 										},
 										{
 											"id": "set-visible",
-											"objectClass": "Value_Weight_Text",
-											"sid": 462958888211215,
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 922944047164845,
 											"parameters": {
 												"visibility": "visible"
 											}
 										}
 									],
-									"sid": 448213815865392
+									"sid": 375205083971660
 								}
 							]
 						},
@@ -22302,115 +24900,120 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 913290061632046,
-									"parameters": {
-										"mouse-button": "right",
-										"click-type": "clicked",
-										"object-clicked": "Inventory_Sprites"
-									}
-								},
-								{
-									"id": "key-is-down",
+									"id": "on-key-pressed",
 									"objectClass": "Keyboard",
-									"sid": 739699210486790,
+									"sid": 270188956226620,
 									"parameters": {
-										"key": 16
+										"key": 71
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 496234248413458,
+									"id": "set-visible",
+									"objectClass": "Miner_Inventory_Background_Black",
+									"sid": 325800169332248,
 									"parameters": {
-										"variable": "Item_ID",
-										"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.AbsoluteX, Mouse.AbsoluteY)"
+										"visibility": "invisible"
 									}
 								},
 								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 124830608412331,
+									"id": "set-visible",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 783701902672529,
 									"parameters": {
-										"variable": "Item_Type",
-										"value": "Inventory.ItemType(Item_ID)"
+										"visibility": "invisible"
 									}
 								},
 								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 663706665375518,
+									"id": "set-animation",
+									"objectClass": "HUD_Global_Inventory_Button",
+									"sid": 413079619449477,
 									"parameters": {
-										"variable": "Item_Quantity",
-										"value": "Inventory.ItemQuantity(Item_ID)"
+										"animation": "\"Passive\"",
+										"from": "beginning"
 									}
 								},
 								{
-									"type": "script",
-									"script": "console.log(localVars.Item_Quantity)\nremoveFromInventory(minerInventory, miningItems[localVars.Item_Type], localVars.Item_Quantity)"
-								},
-								{
-									"id": "destroy-item",
-									"objectClass": "Inventory",
-									"sid": 585132252087698,
+									"id": "set-animation",
+									"objectClass": "HUD_Miner_Inventory_Button",
+									"sid": 467501257955333,
 									"parameters": {
-										"param0": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.AbsoluteX, Mouse.AbsoluteY)"
+										"animation": "\"Active\"",
+										"from": "beginning"
 									}
 								}
 							],
-							"sid": 187974042292490
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+							"sid": 374209757818967,
+							"children": [
 								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 149961424215841,
-									"parameters": {
-										"mouse-button": "right",
-										"click-type": "clicked",
-										"object-clicked": "Inventory_Sprites"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "Global_Inventory_Background_Black",
+											"sid": 618597870787493
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Global_Inventory_Background_Black",
+											"sid": 561206772875020,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 282453809221998,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "HUD_Global_Inventory_Button",
+											"sid": 375072020666113,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 571663672765594
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 201841797535764
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Global_Inventory_Background_Black",
+											"sid": 884004375634600,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 756641082671862,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 924876465465125
 								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 847804856439154,
-									"parameters": {
-										"variable": "Item_ID",
-										"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.AbsoluteX, Mouse.AbsoluteY)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 340937009380714,
-									"parameters": {
-										"variable": "Item_Type",
-										"value": "Inventory.ItemType(Item_ID)"
-									}
-								},
-								{
-									"id": "set-item-quantity",
-									"objectClass": "Inventory",
-									"sid": 525800589502958,
-									"parameters": {
-										"param0": "Item_ID",
-										"param1": "Inventory.ItemQuantity(Item_ID) -1"
-									}
-								},
-								{
-									"type": "script",
-									"script": "\nremoveFromInventory(minerInventory, miningItems[localVars.Item_Type], 1)\n"
-								}
-							],
-							"sid": 682170516639993
+							]
 						},
 						{
 							"eventType": "comment",
@@ -22549,6 +25152,132 @@
 									"sid": 159911708554254
 								}
 							]
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Maybe later",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 141941137544234,
+											"parameters": {
+												"mouse-button": "right",
+												"click-type": "clicked",
+												"object-clicked": "Inventory_Sprites"
+											}
+										},
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 491633343598926,
+											"parameters": {
+												"key": 16
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 623262985853142,
+											"parameters": {
+												"variable": "Item_ID",
+												"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.AbsoluteX, Mouse.AbsoluteY)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 157739600241986,
+											"parameters": {
+												"variable": "Item_Type",
+												"value": "Inventory.ItemType(Item_ID)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 983574058351735,
+											"parameters": {
+												"variable": "Item_Quantity",
+												"value": "Inventory.ItemQuantity(Item_ID)"
+											}
+										},
+										{
+											"type": "script",
+											"script": "console.log(localVars.Item_Quantity)\nremoveFromInventory(minerInventory, miningItems[localVars.Item_Type], localVars.Item_Quantity)"
+										},
+										{
+											"id": "destroy-item",
+											"objectClass": "Inventory",
+											"sid": 129652896987887,
+											"parameters": {
+												"param0": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.AbsoluteX, Mouse.AbsoluteY)"
+											}
+										}
+									],
+									"sid": 246726030448440,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 320843788745109,
+											"parameters": {
+												"mouse-button": "right",
+												"click-type": "clicked",
+												"object-clicked": "Inventory_Sprites"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 579361527039559,
+											"parameters": {
+												"variable": "Item_ID",
+												"value": "Inventory.ItemIdByCords(\"Inventory_Miner\", Mouse.AbsoluteX, Mouse.AbsoluteY)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 558726819227502,
+											"parameters": {
+												"variable": "Item_Type",
+												"value": "Inventory.ItemType(Item_ID)"
+											}
+										},
+										{
+											"id": "set-item-quantity",
+											"objectClass": "Inventory",
+											"sid": 820388173245648,
+											"parameters": {
+												"param0": "Item_ID",
+												"param1": "Inventory.ItemQuantity(Item_ID) -1"
+											}
+										},
+										{
+											"type": "script",
+											"script": "\nremoveFromInventory(minerInventory, miningItems[localVars.Item_Type], 1)\n"
+										}
+									],
+									"sid": 901303030860535,
+									"disabled": true
+								}
+							],
+							"sid": 388379961857191
 						}
 					],
 					"sid": 742553830545208
@@ -24004,2636 +26733,10 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "TEST set inventory text",
+			"title": "TEST",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "variable",
-					"name": "Miner_Inventory_HUD_TEXT",
-					"type": "string",
-					"initialValue": "Miner Inventory: ",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 678383248517989
-				},
-				{
-					"eventType": "variable",
-					"name": "Global_Inventory_HUD_TEXT",
-					"type": "string",
-					"initialValue": "Global Inventory: ",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 279179479210553
-				},
-				{
-					"eventType": "variable",
-					"name": "Warehouse_Sell_Cart_String",
-					"type": "string",
-					"initialValue": "Sell Cart",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 900506363890417
-				},
-				{
-					"eventType": "variable",
-					"name": "Shop_Cart_String",
-					"type": "string",
-					"initialValue": "",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 387119355879643
-				},
-				{
-					"eventType": "comment",
-					"text": "Miner Inventory HUD updates"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 589484030796757
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "Miner_Inventory_Text",
-							"sid": 146287041041077,
-							"parameters": {
-								"text": "Miner_Inventory_HUD_TEXT"
-							}
-						}
-					],
-					"sid": 210557974286465,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 332480681427661,
-									"parameters": {
-										"instance-variable": "Coal",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 539056937182811,
-									"parameters": {
-										"variable": "Miner_Inventory_HUD_TEXT",
-										"value": "newline & \"Coal: \" &  Miner_Box.Coal"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 601896847749452,
-									"parameters": {
-										"text": "Miner_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 371583136463934
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 662721573674874,
-									"parameters": {
-										"instance-variable": "Quartz",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 330306301886540,
-									"parameters": {
-										"variable": "Miner_Inventory_HUD_TEXT",
-										"value": "newline & \"Quartz: \" &  Miner_Box.Quartz"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 472130673499353,
-									"parameters": {
-										"text": "Miner_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 104214765378920
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 280665557623323,
-									"parameters": {
-										"instance-variable": "Bauxite",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 907753896921573,
-									"parameters": {
-										"variable": "Miner_Inventory_HUD_TEXT",
-										"value": "newline & \"Bauxite: \" &  Miner_Box.Bauxite"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 746460722880330,
-									"parameters": {
-										"text": "Miner_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 981968688147434
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 104922777162868,
-									"parameters": {
-										"instance-variable": "Iron",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 364384501475379,
-									"parameters": {
-										"variable": "Miner_Inventory_HUD_TEXT",
-										"value": "newline & \"Iron: \" &  Miner_Box.Iron"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 276643799562201,
-									"parameters": {
-										"text": "Miner_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 201824463474672
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 229462046494233,
-									"parameters": {
-										"instance-variable": "Chromium",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 296608656864778,
-									"parameters": {
-										"variable": "Miner_Inventory_HUD_TEXT",
-										"value": "newline & \"Chromium: \" &  Miner_Box.Chromium"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 885684317433905,
-									"parameters": {
-										"text": "Miner_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 234477375767376
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 207044767099202,
-									"parameters": {
-										"instance-variable": "Copper",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 788919259564413,
-									"parameters": {
-										"variable": "Miner_Inventory_HUD_TEXT",
-										"value": "newline & \"Copper: \" &  Miner_Box.Copper"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 530685930040163,
-									"parameters": {
-										"text": "Miner_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 932671144263197
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 246495338375935,
-									"parameters": {
-										"instance-variable": "Lithium",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 642918597446926,
-									"parameters": {
-										"variable": "Miner_Inventory_HUD_TEXT",
-										"value": "newline & \"Lithium: \" &  Miner_Box.Lithium"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 181753631505468,
-									"parameters": {
-										"text": "Miner_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 690724350515160
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 219263765405373,
-									"parameters": {
-										"instance-variable": "Silver",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 649716631153580,
-									"parameters": {
-										"variable": "Miner_Inventory_HUD_TEXT",
-										"value": "newline & \"Silver: \" &  Miner_Box.Silver"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 148864462772436,
-									"parameters": {
-										"text": "Miner_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 445193346108830
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 115563928302152,
-									"parameters": {
-										"instance-variable": "Nickel",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 689849532672346,
-									"parameters": {
-										"variable": "Miner_Inventory_HUD_TEXT",
-										"value": "newline & \"Nickel: \" &  Miner_Box.Nickel"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 904097838823467,
-									"parameters": {
-										"text": "Miner_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 386650902398156
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 953769753246653,
-									"parameters": {
-										"instance-variable": "Zinc",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 534141252976122,
-									"parameters": {
-										"variable": "Miner_Inventory_HUD_TEXT",
-										"value": "newline & \"Zinc: \" &  Miner_Box.Zinc"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 235263475646621,
-									"parameters": {
-										"text": "Miner_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 997104463852285
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 474746048018909,
-									"parameters": {
-										"instance-variable": "Gold",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 837715526788466,
-									"parameters": {
-										"variable": "Miner_Inventory_HUD_TEXT",
-										"value": "newline & \"Gold: \" &  Miner_Box.Gold"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 951095031273454,
-									"parameters": {
-										"text": "Miner_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 945600858493576
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 586778621745996,
-									"parameters": {
-										"instance-variable": "Diamond",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 850069704796767,
-									"parameters": {
-										"variable": "Miner_Inventory_HUD_TEXT",
-										"value": "newline & \"Diamond: \" &  Miner_Box.Diamond"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 725832554089385,
-									"parameters": {
-										"text": "Miner_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 507057411934053
-						}
-					]
-				},
-				{
-					"eventType": "comment",
-					"text": "Global Inventory HUD updates"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 160678672802188
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "HUD_Global_Inventory_Text",
-							"sid": 646623174306902,
-							"parameters": {
-								"text": "Global_Inventory_HUD_TEXT"
-							}
-						}
-					],
-					"sid": 846367770630279,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 578198261355391,
-									"parameters": {
-										"instance-variable": "Coal",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 273007233624739,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Coal: \" &  Global_Inventory_Object.Coal"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 306365755324940,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 706400031938838
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 811368540328441,
-									"parameters": {
-										"instance-variable": "Quartz",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 408257417924543,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Quartz: \" &  Global_Inventory_Object.Quartz"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 102047337732400,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 515368064500060
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 436317256774367,
-									"parameters": {
-										"instance-variable": "Bauxite",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 207106789018985,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Bauxite: \" &  Global_Inventory_Object.Bauxite"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 298915084865877,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 437287453894617
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 537570707560726,
-									"parameters": {
-										"instance-variable": "Iron",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 891335672948965,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Iron: \" &  Global_Inventory_Object.Iron"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 457149585063331,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 676425157546992
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 652529254725209,
-									"parameters": {
-										"instance-variable": "Chromium",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 526410524564086,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Chromium: \" &  Global_Inventory_Object.Chromium"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 642449335632028,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 237894563446689
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 919325251622266,
-									"parameters": {
-										"instance-variable": "Copper",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 549740800850655,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Copper: \" &  Global_Inventory_Object.Copper"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 174407741058402,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 501122790234431
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 417690582950823,
-									"parameters": {
-										"instance-variable": "Lithium",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 758805022491499,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Lithium: \" &  Global_Inventory_Object.Lithium"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 695968873124124,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 390326670194497
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 910887654444580,
-									"parameters": {
-										"instance-variable": "Silver",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 764201533219019,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Silver: \" &  Global_Inventory_Object.Silver"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 480752975045662,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 542833871759888
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 245077845044719,
-									"parameters": {
-										"instance-variable": "Nickel",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 656875946272761,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Nickel: \" &  Global_Inventory_Object.Nickel"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 970817546202804,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 302035625291215
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 950149852915766,
-									"parameters": {
-										"instance-variable": "Zinc",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 118503607678297,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Zinc: \" &  Global_Inventory_Object.Zinc"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 146927876648869,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 398275045063058
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 506172376523357,
-									"parameters": {
-										"instance-variable": "Gold",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 295813356188442,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Gold: \" &  Global_Inventory_Object.Gold"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 510309416280688,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 602438651319643
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 716837407953672,
-									"parameters": {
-										"instance-variable": "Diamond",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 618456748753046,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Diamond: \" &  Global_Inventory_Object.Diamond"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 246928752952434,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 264844536435285
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 694101397888167,
-									"parameters": {
-										"instance-variable": "Silicon",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 214428198052665,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Silicon: \" &  Global_Inventory_Object.Silicon"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 806456621751514,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 149958883231805
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 801401591933884,
-									"parameters": {
-										"instance-variable": "Aluminium_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 359036689505873,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Aluminium Ingot: \" &  Global_Inventory_Object.Aluminium_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 365577527204475,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 192493424554963
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 651131546859431,
-									"parameters": {
-										"instance-variable": "Iron_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 559740855966745,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Iron Ingot: \" &  Global_Inventory_Object.Iron_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 816903468760354,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 469739851640411
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 151121326245627,
-									"parameters": {
-										"instance-variable": "Chromium_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 609431055467508,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Chromium Ingot: \" &  Global_Inventory_Object.Chromium_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 969612115398843,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 189480134173251
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 612947491139601,
-									"parameters": {
-										"instance-variable": "Copper_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 297580382915034,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Copper Ingot: \" &  Global_Inventory_Object.Copper_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 125584317795280,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 460252274348791
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 573657453263599,
-									"parameters": {
-										"instance-variable": "Lithium_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 198060038712207,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Lithium Ingot: \" &  Global_Inventory_Object.Lithium_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 116456516351466,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 441573522286158
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 912270755508244,
-									"parameters": {
-										"instance-variable": "Silver_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 268919514433932,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Silver Ingot: \" &  Global_Inventory_Object.Silver_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 950568967942201,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 973930804223965
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 991006146387676,
-									"parameters": {
-										"instance-variable": "Nickel_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 356065518342392,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Nickel Ingot: \" &  Global_Inventory_Object.Nickel_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 401323606775625,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 922205027717814
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 368018086529109,
-									"parameters": {
-										"instance-variable": "Zinc_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 878219119991609,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Zinc Ingot: \" &  Global_Inventory_Object.Zinc_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 249068028894204,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 803506152004328
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 987238967657725,
-									"parameters": {
-										"instance-variable": "Gold_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 404208050110601,
-									"parameters": {
-										"variable": "Global_Inventory_HUD_TEXT",
-										"value": "newline & \"Gold Ingot: \" &  Global_Inventory_Object.Gold_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 743214736359629,
-									"parameters": {
-										"text": "Global_Inventory_HUD_TEXT"
-									}
-								}
-							],
-							"sid": 404587100486503
-						}
-					]
-				},
-				{
-					"eventType": "comment",
-					"text": "Warehouse Sell Cart updates"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 259570751688167
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "Warehouse_Sell_Cart_Text",
-							"sid": 695282905382339,
-							"parameters": {
-								"text": "Warehouse_Sell_Cart_String"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "Warehouse_Value_Text",
-							"sid": 537039978926060,
-							"parameters": {
-								"text": "Warehouse_Sell_Cart_Object.Value"
-							}
-						}
-					],
-					"sid": 354652980614066,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 713929189432847,
-									"parameters": {
-										"instance-variable": "Coal",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 259092074335642,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Coal: \" &  Warehouse_Sell_Cart_Object.Coal"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 925209438527246,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 325478544222528
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 491424133038381,
-									"parameters": {
-										"instance-variable": "Quartz",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 199673234701497,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Quartz: \" &  Warehouse_Sell_Cart_Object.Quartz"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 873113958968472,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 222151057784714
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 655927155672446,
-									"parameters": {
-										"instance-variable": "Bauxite",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 527315175904324,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Bauxite: \" &  Warehouse_Sell_Cart_Object.Bauxite"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 952966476864695,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 885633165588113
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 393111463683354,
-									"parameters": {
-										"instance-variable": "Iron",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 339710134413858,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Iron: \" &  Warehouse_Sell_Cart_Object.Iron"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 754681272470963,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 794720972942385
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 143920939967871,
-									"parameters": {
-										"instance-variable": "Chromium",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 449727640447928,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Chromium: \" &  Warehouse_Sell_Cart_Object.Chromium"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 383107565207282,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 302512869645867
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 893638877010162,
-									"parameters": {
-										"instance-variable": "Copper",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 420046021819934,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Copper: \" &  Warehouse_Sell_Cart_Object.Copper"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 725015489130982,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 227114463633700
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 236462031533066,
-									"parameters": {
-										"instance-variable": "Lithium",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 863630446968831,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Lithium: \" &  Warehouse_Sell_Cart_Object.Lithium"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 667245747385496,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 110258955735499
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 959556931783245,
-									"parameters": {
-										"instance-variable": "Silver",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 667043316540699,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Silver: \" &  Warehouse_Sell_Cart_Object.Silver"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 868713856636516,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 560882999997066
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 899261995100900,
-									"parameters": {
-										"instance-variable": "Nickel",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 831548076479597,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Nickel: \" &  Warehouse_Sell_Cart_Object.Nickel"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 146617458226364,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 277565551644015
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 709520291180488,
-									"parameters": {
-										"instance-variable": "Zinc",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 578840585006888,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Zinc: \" &  Warehouse_Sell_Cart_Object.Zinc"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 508877783269523,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 169081114260519
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 762042761666905,
-									"parameters": {
-										"instance-variable": "Gold",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 834688231394680,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Gold: \" &  Warehouse_Sell_Cart_Object.Gold"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 545040560779968,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 366859171215186
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 385990268648276,
-									"parameters": {
-										"instance-variable": "Diamond",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 125607776366000,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Diamond: \" &  Warehouse_Sell_Cart_Object.Diamond"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 963585599630105,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 656097969850102
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 519007391061911,
-									"parameters": {
-										"instance-variable": "Silicon",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 426240252432171,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Silicon: \" &  Warehouse_Sell_Cart_Object.Silicon"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 389225661412225,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 730556404758035
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 580404516318460,
-									"parameters": {
-										"instance-variable": "Aluminium_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 312438890256452,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Aluminium Ingot: \" &  Warehouse_Sell_Cart_Object.Aluminium_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 160432461139072,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 303691444529429
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 175501338193194,
-									"parameters": {
-										"instance-variable": "Iron_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 130632714870675,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Iron Ingot: \" &  Warehouse_Sell_Cart_Object.Iron_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 650373086059381,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 214861403786747
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 637397248314885,
-									"parameters": {
-										"instance-variable": "Chromium_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 501751597415955,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Chromium Ingot: \" &  Warehouse_Sell_Cart_Object.Chromium_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 292999267310453,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 469647304523587
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 891778847458170,
-									"parameters": {
-										"instance-variable": "Copper_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 759710114122658,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Copper Ingot: \" &  Warehouse_Sell_Cart_Object.Copper_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 884695230571646,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 101505898399955
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 828674256479127,
-									"parameters": {
-										"instance-variable": "Lithium_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 734921434223696,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Lithium Ingot: \" &  Warehouse_Sell_Cart_Object.Lithium_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 971795070924487,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 809126626544186
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 469190736962418,
-									"parameters": {
-										"instance-variable": "Silver_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 997467596002857,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Silver Ingot: \" &  Warehouse_Sell_Cart_Object.Silver_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 387604036334229,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 762350828864588
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 174349788620080,
-									"parameters": {
-										"instance-variable": "Nickel_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 493341312167327,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Nickel Ingot: \" &  Warehouse_Sell_Cart_Object.Nickel_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 286646279307963,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 546925484102899
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 409689255551410,
-									"parameters": {
-										"instance-variable": "Zinc_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 531752763564181,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Zinc Ingot: \" &  Warehouse_Sell_Cart_Object.Zinc_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 552908569173460,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 541575137109435
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Warehouse_Sell_Cart_Object",
-									"sid": 135518338216517,
-									"parameters": {
-										"instance-variable": "Gold_Ingot",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 322660063704137,
-									"parameters": {
-										"variable": "Warehouse_Sell_Cart_String",
-										"value": "newline & \"Gold Ingot: \" &  Warehouse_Sell_Cart_Object.Gold_Ingot"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Warehouse_Sell_Cart_Text",
-									"sid": 101386217629124,
-									"parameters": {
-										"text": "Warehouse_Sell_Cart_String"
-									}
-								}
-							],
-							"sid": 275859480112578
-						}
-					]
-				},
-				{
-					"eventType": "comment",
-					"text": "Shop Items updates"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 191343346926173
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "Shopping_List_Text",
-							"sid": 508179196821609,
-							"parameters": {
-								"text": "Shop_Cart_String"
-							}
-						}
-					],
-					"sid": 966148470175971,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 913227110042976,
-									"parameters": {
-										"instance-variable": "Dynamite",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 230301175884736,
-									"parameters": {
-										"variable": "Shop_Cart_String",
-										"value": "newline & \"Dynamite: \" &  Shop_Cart_Object.Dynamite"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Shopping_List_Text",
-									"sid": 926456928662441,
-									"parameters": {
-										"text": "Shop_Cart_String"
-									}
-								}
-							],
-							"sid": 872043099468815
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 359889922026430,
-									"parameters": {
-										"instance-variable": "Battery",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 187140998202733,
-									"parameters": {
-										"variable": "Shop_Cart_String",
-										"value": "newline & \"Battery: \" &  Shop_Cart_Object.Battery"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Shopping_List_Text",
-									"sid": 617180243150394,
-									"parameters": {
-										"text": "Shop_Cart_String"
-									}
-								}
-							],
-							"sid": 990844244203875
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 401230606670133,
-									"parameters": {
-										"instance-variable": "Repair_Kit",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 594605012627069,
-									"parameters": {
-										"variable": "Shop_Cart_String",
-										"value": "newline & \"Repair Kit: \" &  Shop_Cart_Object.Repair_Kit"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Shopping_List_Text",
-									"sid": 823110197724915,
-									"parameters": {
-										"text": "Shop_Cart_String"
-									}
-								}
-							],
-							"sid": 599338179850648
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 426183150448727,
-									"parameters": {
-										"instance-variable": "Teleporter",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 179191441576278,
-									"parameters": {
-										"variable": "Shop_Cart_String",
-										"value": "newline & \"Teleporter: \" &  Shop_Cart_Object.Teleporter"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Shopping_List_Text",
-									"sid": 910991811517268,
-									"parameters": {
-										"text": "Shop_Cart_String"
-									}
-								}
-							],
-							"sid": 492687384814103
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 104412228087836
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-object-clicked",
-							"objectClass": "Mouse",
-							"sid": 161155328217793,
-							"parameters": {
-								"mouse-button": "left",
-								"click-type": "clicked",
-								"object-clicked": "HUD_Miner_Inventory_Button"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "Global_Inventory_Background_Black",
-							"sid": 966918102172298,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "HUD_Global_Inventory_Text",
-							"sid": 226245078969340,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "HUD_Miner_Inventory_Button",
-							"sid": 940136225787065,
-							"parameters": {
-								"animation": "\"Passive\"",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "HUD_Global_Inventory_Button",
-							"sid": 666045576896782,
-							"parameters": {
-								"animation": "\"Active\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 945563613640842,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-visible",
-									"objectClass": "Miner_Inventory_Background_Black",
-									"sid": 399880872847241
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Miner_Inventory_Background_Black",
-									"sid": 680608652569950,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 576465085569334,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "HUD_Miner_Inventory_Button",
-									"sid": 147097478854255,
-									"parameters": {
-										"animation": "\"Active\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 392668685644447
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 491453316567896
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Miner_Inventory_Background_Black",
-									"sid": 918091080517963,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 657371645108604,
-									"parameters": {
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 961958892240718
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-object-clicked",
-							"objectClass": "Mouse",
-							"sid": 450594369347181,
-							"parameters": {
-								"mouse-button": "left",
-								"click-type": "clicked",
-								"object-clicked": "HUD_Global_Inventory_Button"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "Miner_Inventory_Background_Black",
-							"sid": 519660308195822,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "Miner_Inventory_Text",
-							"sid": 467312802118084,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "HUD_Global_Inventory_Button",
-							"sid": 355679843903003,
-							"parameters": {
-								"animation": "\"Passive\"",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "HUD_Miner_Inventory_Button",
-							"sid": 866334547882946,
-							"parameters": {
-								"animation": "\"Active\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 610816879340929,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-visible",
-									"objectClass": "Global_Inventory_Background_Black",
-									"sid": 385850478638603
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Global_Inventory_Background_Black",
-									"sid": 567150244153307,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 741202922515559,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "HUD_Global_Inventory_Button",
-									"sid": 583738868139164,
-									"parameters": {
-										"animation": "\"Active\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 598202366665258
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 575011926370669
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Global_Inventory_Background_Black",
-									"sid": 146634549568500,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 948903012709003,
-									"parameters": {
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 431384622212374
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 730434514204598
-						}
-					],
-					"actions": [
-						{
-							"id": "spawn-another-object",
-							"objectClass": "HUD_Grey",
-							"sid": 438123623549350,
-							"parameters": {
-								"object": "Miner_Inventory_Background_Black",
-								"layer": "\"HUD\"",
-								"image-point": "\"Show_Inventory\"",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "pin-to-object-properties",
-							"objectClass": "Miner_Inventory_Background_Black",
-							"sid": 487364134147719,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "HUD_Grey",
-								"x": true,
-								"y": true,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						},
-						{
-							"id": "spawn-another-object",
-							"objectClass": "HUD_Grey",
-							"sid": 319538314058140,
-							"parameters": {
-								"object": "Miner_Inventory_Text",
-								"layer": "\"HUD\"",
-								"image-point": "\"Inventory_Text\"",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "pin-to-object-properties",
-							"objectClass": "Miner_Inventory_Text",
-							"sid": 877493652195883,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "HUD_Grey",
-								"x": true,
-								"y": true,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						},
-						{
-							"id": "spawn-another-object",
-							"objectClass": "HUD_Grey",
-							"sid": 274963625579724,
-							"parameters": {
-								"object": "Global_Inventory_Background_Black",
-								"layer": "\"HUD\"",
-								"image-point": "\"Show_Inventory\"",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "pin-to-object-properties",
-							"objectClass": "Global_Inventory_Background_Black",
-							"sid": 280797793622378,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "HUD_Grey",
-								"x": true,
-								"y": true,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						},
-						{
-							"id": "spawn-another-object",
-							"objectClass": "HUD_Grey",
-							"sid": 840811542959500,
-							"parameters": {
-								"object": "HUD_Global_Inventory_Text",
-								"layer": "\"HUD\"",
-								"image-point": "\"Inventory_Text\"",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "pin-to-object-properties",
-							"objectClass": "HUD_Global_Inventory_Text",
-							"sid": 742658600811660,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "HUD_Grey",
-								"x": true,
-								"y": true,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						}
-					],
-					"sid": 862147669284186
-				}
-			],
+			"children": [],
 			"sid": 616610756106818
 		}
 	],
