@@ -2545,6 +2545,18 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "HUD_Grey",
+									"sid": 405715119358003,
+									"parameters": {
+										"object": "HUD_Weight_Text",
+										"layer": "\"HUD\"",
+										"image-point": "\"Text_1\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
 									"sid": 440322822093580,
 									"disabled": true,
 									"parameters": {
@@ -2593,12 +2605,36 @@
 								},
 								{
 									"id": "spawn-another-object",
+									"objectClass": "Battery_Inv_Sprite",
+									"sid": 885319000009252,
+									"parameters": {
+										"object": "Battery_Q",
+										"layer": "\"HUD\"",
+										"image-point": "\"Battery_Q\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
 									"objectClass": "HUD_Grey",
 									"sid": 433781725700751,
 									"parameters": {
 										"object": "Repair_Kit_Inv_Sprite",
 										"layer": "\"HUD\"",
 										"image-point": "\"Repair_Kit\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Repair_Kit_Inv_Sprite",
+									"sid": 776099834787593,
+									"parameters": {
+										"object": "Repair_Kit_Q",
+										"layer": "\"HUD\"",
+										"image-point": "\"Repair_Kit_Q\"",
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
@@ -2614,9 +2650,281 @@
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Teleporter_Inv_Sprite",
+									"sid": 540575670553395,
+									"parameters": {
+										"object": "Teleporter_Q",
+										"layer": "\"HUD\"",
+										"image-point": "\"Teleporter_Q\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
 								}
 							],
 							"sid": 694474009091340
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 618179477290950
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Dynamite_Q",
+									"sid": 878306309327121,
+									"parameters": {
+										"text": "Miner_Box.Dynamite"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Battery_Q",
+									"sid": 822787654936973,
+									"parameters": {
+										"text": "Miner_Box.Battery"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Repair_Kit_Q",
+									"sid": 277611341994509,
+									"parameters": {
+										"text": "Miner_Box.Repair_Kit"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Teleporter_Q",
+									"sid": 435601729086218,
+									"parameters": {
+										"text": "Miner_Box.Teleporter"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "HUD_Weight_Text",
+									"sid": 583784091271578,
+									"parameters": {
+										"text": "\"Miner Weight:\" & newline & Miner_Box.Weight & newline & \"Vertical Speed:\" & newline & Vector_Y_Speed_Up * -1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 525986083163878,
+									"parameters": {
+										"variable": "Vector_Y_Speed_Up",
+										"value": "-200 * roundToDp((100 / Miner_Box.Weight ), 3)"
+									}
+								}
+							],
+							"sid": 692317852171358,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 948814106245645,
+											"parameters": {
+												"instance-variable": "Dynamite",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Dynamite_Inv_Sprite",
+											"sid": 417295918619858,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 728016556789641
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 234540957672272
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Dynamite_Inv_Sprite",
+											"sid": 211160758985604,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 700243771348497
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 726609246511470,
+											"parameters": {
+												"instance-variable": "Battery",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Battery_Inv_Sprite",
+											"sid": 862413072251234,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 477287778738623
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 826680316088452
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Battery_Inv_Sprite",
+											"sid": 392308562321491,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 425354592530139
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 822573034552256,
+											"parameters": {
+												"instance-variable": "Repair_Kit",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Repair_Kit_Inv_Sprite",
+											"sid": 629567439623353,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 646520918217049
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 485013747456907
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Repair_Kit_Inv_Sprite",
+											"sid": 134195821204212,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 270578796645843
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 317993085692148,
+											"parameters": {
+												"instance-variable": "Teleporter",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Teleporter_Inv_Sprite",
+											"sid": 892140790722846,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 551432932904225
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 503407741937812
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Teleporter_Inv_Sprite",
+											"sid": 193151817715125,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 597883539508311
+								}
+							]
 						}
 					],
 					"sid": 686414873303369
@@ -15730,16 +16038,53 @@
 								{
 									"id": "subtract-from-instvar",
 									"objectClass": "Miner_Box",
-									"sid": 447048933009377,
+									"sid": 622537601031119,
 									"parameters": {
 										"instance-variable": "Money",
 										"value": "Shop_Cart_Object.Amount_Due"
 									}
 								},
 								{
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 210448096556091,
+									"parameters": {
+										"instance-variable": "Dynamite",
+										"value": "Shop_Cart_Object.Dynamite"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 396109086813013,
+									"parameters": {
+										"instance-variable": "Battery",
+										"value": "Shop_Cart_Object.Battery"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 532582492453280,
+									"parameters": {
+										"instance-variable": "Repair_Kit",
+										"value": "Shop_Cart_Object.Repair_Kit"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 637226182310897,
+									"parameters": {
+										"instance-variable": "Teleporter",
+										"value": "Shop_Cart_Object.Teleporter"
+									}
+								},
+								{
 									"id": "create-item",
 									"objectClass": "Inventory",
 									"sid": 206281182536799,
+									"disabled": true,
 									"parameters": {
 										"type": "\"Dynamite_Inv\"",
 										"quantity": "Shop_Cart_Object.Dynamite",
@@ -15751,6 +16096,7 @@
 									"id": "create-item",
 									"objectClass": "Inventory",
 									"sid": 789667705531378,
+									"disabled": true,
 									"parameters": {
 										"type": "\"Teleporter_Inv\"",
 										"quantity": "Shop_Cart_Object.Teleporter",
@@ -15762,6 +16108,7 @@
 									"id": "create-item",
 									"objectClass": "Inventory",
 									"sid": 573073886057655,
+									"disabled": true,
 									"parameters": {
 										"type": "\"Battery_Inv\"",
 										"quantity": "Shop_Cart_Object.Battery",
@@ -15773,60 +16120,70 @@
 									"id": "create-item",
 									"objectClass": "Inventory",
 									"sid": 802026828594724,
+									"disabled": true,
 									"parameters": {
 										"type": "\"Repair_Kit_Inv\"",
 										"quantity": "Shop_Cart_Object.Repair_Kit",
 										"inventory-id": "\"Inventory_Consumables\"",
 										"slot-id": "\"3\""
 									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 263089992051928,
-									"parameters": {
-										"instance-variable": "Amount_Due",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 158515726707521,
-									"parameters": {
-										"instance-variable": "Battery",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 390662514807103,
-									"parameters": {
-										"instance-variable": "Dynamite",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 319104417013721,
-									"parameters": {
-										"instance-variable": "Repair_Kit",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 970975291323218,
-									"parameters": {
-										"instance-variable": "Teleporter",
-										"value": "0"
-									}
 								}
 							],
-							"sid": 167684261439100
+							"sid": 167684261439100,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Shop_Cart_Object",
+											"sid": 506589507509544,
+											"parameters": {
+												"instance-variable": "Amount_Due",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Shop_Cart_Object",
+											"sid": 961835118380340,
+											"parameters": {
+												"instance-variable": "Battery",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Shop_Cart_Object",
+											"sid": 385126123875850,
+											"parameters": {
+												"instance-variable": "Dynamite",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Shop_Cart_Object",
+											"sid": 222666504192985,
+											"parameters": {
+												"instance-variable": "Repair_Kit",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Shop_Cart_Object",
+											"sid": 524992310513120,
+											"parameters": {
+												"instance-variable": "Teleporter",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 655480520561563
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -16836,6 +17193,15 @@
 											"parameters": {
 												"from": "\"Inventory_Miner\"",
 												"to": "\"Inventory_Global\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 908354996486607,
+											"parameters": {
+												"instance-variable": "Weight",
+												"value": "100"
 											}
 										}
 									],
@@ -23889,6 +24255,15 @@
 														"instance-variable": "Coal",
 														"value": "1"
 													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 593415314413088,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
 												}
 											],
 											"sid": 356680692446002
@@ -23928,6 +24303,15 @@
 													"sid": 785456016057029,
 													"parameters": {
 														"instance-variable": "Quartz",
+														"value": "1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 742736134270004,
+													"parameters": {
+														"instance-variable": "Weight",
 														"value": "1"
 													}
 												}
@@ -23971,6 +24355,15 @@
 														"instance-variable": "Bauxite",
 														"value": "1"
 													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 306458851394424,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
 												}
 											],
 											"sid": 823230475395636
@@ -24010,6 +24403,15 @@
 													"sid": 424310780412561,
 													"parameters": {
 														"instance-variable": "Iron",
+														"value": "1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 950977748912470,
+													"parameters": {
+														"instance-variable": "Weight",
 														"value": "1"
 													}
 												}
@@ -24053,6 +24455,15 @@
 														"instance-variable": "Chromium",
 														"value": "1"
 													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 664472885185060,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
 												}
 											],
 											"sid": 391904180331221
@@ -24092,6 +24503,15 @@
 													"sid": 844233760779183,
 													"parameters": {
 														"instance-variable": "Copper",
+														"value": "1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 798926800823687,
+													"parameters": {
+														"instance-variable": "Weight",
 														"value": "1"
 													}
 												}
@@ -24135,6 +24555,15 @@
 														"instance-variable": "Lithium",
 														"value": "1"
 													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 896598827562292,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
 												}
 											],
 											"sid": 161367952230278
@@ -24174,6 +24603,15 @@
 													"sid": 939205691073807,
 													"parameters": {
 														"instance-variable": "Silver",
+														"value": "1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 482632935023975,
+													"parameters": {
+														"instance-variable": "Weight",
 														"value": "1"
 													}
 												}
@@ -24217,6 +24655,15 @@
 														"instance-variable": "Nickel",
 														"value": "1"
 													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 278607579969293,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
 												}
 											],
 											"sid": 810870064886308
@@ -24256,6 +24703,15 @@
 													"sid": 500121038175409,
 													"parameters": {
 														"instance-variable": "Zinc",
+														"value": "1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 589786015513240,
+													"parameters": {
+														"instance-variable": "Weight",
 														"value": "1"
 													}
 												}
@@ -24299,6 +24755,15 @@
 														"instance-variable": "Gold",
 														"value": "1"
 													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 757048329094352,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
 												}
 											],
 											"sid": 668081420043308
@@ -24338,6 +24803,15 @@
 													"sid": 696412871805140,
 													"parameters": {
 														"instance-variable": "Diamond",
+														"value": "1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 211682127661628,
+													"parameters": {
+														"instance-variable": "Weight",
 														"value": "1"
 													}
 												}
@@ -25379,10 +25853,21 @@
 									"id": "is-item-type-in-inventory",
 									"objectClass": "Inventory",
 									"sid": 429230621407692,
+									"disabled": true,
 									"parameters": {
 										"inventory-id": "\"Inventory_Consumables\"",
 										"type": "\"Dynamite_Inv\"",
 										"quantity": "1"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 468347525001634,
+									"parameters": {
+										"instance-variable": "Dynamite",
+										"comparison": 4,
+										"value": "0"
 									}
 								}
 							],
@@ -25401,9 +25886,19 @@
 									}
 								},
 								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 805255749374734,
+									"parameters": {
+										"instance-variable": "Dynamite",
+										"value": "1"
+									}
+								},
+								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 314358003688962,
+									"sid": 339964720119320,
+									"disabled": true,
 									"parameters": {
 										"variable": "Consumable_ID",
 										"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 0)"
@@ -25413,6 +25908,7 @@
 									"id": "set-item-quantity",
 									"objectClass": "Inventory",
 									"sid": 484879783921086,
+									"disabled": true,
 									"parameters": {
 										"param0": "Consumable_ID",
 										"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
@@ -25449,10 +25945,21 @@
 									"id": "is-item-type-in-inventory",
 									"objectClass": "Inventory",
 									"sid": 430197826808546,
+									"disabled": true,
 									"parameters": {
 										"inventory-id": "\"Inventory_Consumables\"",
 										"type": "\"Teleporter_Inv\"",
 										"quantity": "1"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 611827930156407,
+									"parameters": {
+										"instance-variable": "Teleporter",
+										"comparison": 4,
+										"value": "0"
 									}
 								}
 							],
@@ -25476,9 +25983,19 @@
 									}
 								},
 								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 418977029396818,
+									"parameters": {
+										"instance-variable": "Teleporter",
+										"value": "1"
+									}
+								},
+								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 407374957517355,
+									"disabled": true,
 									"parameters": {
 										"variable": "Consumable_ID",
 										"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 1)"
@@ -25488,6 +26005,7 @@
 									"id": "set-item-quantity",
 									"objectClass": "Inventory",
 									"sid": 340915539348740,
+									"disabled": true,
 									"parameters": {
 										"param0": "Consumable_ID",
 										"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
@@ -25571,9 +26089,20 @@
 									}
 								},
 								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 971752014946439,
+									"parameters": {
+										"instance-variable": "Battery",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
 									"id": "is-item-type-in-inventory",
 									"objectClass": "Inventory",
 									"sid": 774479585628332,
+									"disabled": true,
 									"parameters": {
 										"inventory-id": "\"Inventory_Consumables\"",
 										"type": "\"Battery_Inv\"",
@@ -25592,9 +26121,27 @@
 									}
 								},
 								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 339593950844321,
+									"parameters": {
+										"instance-variable": "Battery",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "Energy_Bar",
+									"sid": 687379865245774,
+									"parameters": {
+										"color": "rgbEx(24, 180, 29)"
+									}
+								},
+								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 646826810087824,
+									"disabled": true,
 									"parameters": {
 										"variable": "Consumable_ID",
 										"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 2)"
@@ -25604,17 +26151,10 @@
 									"id": "set-item-quantity",
 									"objectClass": "Inventory",
 									"sid": 701266716196867,
+									"disabled": true,
 									"parameters": {
 										"param0": "Consumable_ID",
 										"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
-									}
-								},
-								{
-									"id": "set-default-color",
-									"objectClass": "Energy_Bar",
-									"sid": 617582008310020,
-									"parameters": {
-										"color": "rgbEx(24, 180, 29)"
 									}
 								}
 							],
@@ -25652,9 +26192,20 @@
 									}
 								},
 								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 250536084497822,
+									"parameters": {
+										"instance-variable": "Battery",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
 									"id": "is-item-type-in-inventory",
 									"objectClass": "Inventory",
 									"sid": 861851044229166,
+									"disabled": true,
 									"parameters": {
 										"inventory-id": "\"Inventory_Consumables\"",
 										"type": "\"Battery_Inv\"",
@@ -25673,9 +26224,27 @@
 									}
 								},
 								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 701561327968033,
+									"parameters": {
+										"instance-variable": "Battery",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "Energy_Bar",
+									"sid": 784286361179435,
+									"parameters": {
+										"color": "rgbEx(24, 180, 29)"
+									}
+								},
+								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 625568740141580,
+									"disabled": true,
 									"parameters": {
 										"variable": "Consumable_ID",
 										"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 2)"
@@ -25685,17 +26254,10 @@
 									"id": "set-item-quantity",
 									"objectClass": "Inventory",
 									"sid": 525526634005749,
+									"disabled": true,
 									"parameters": {
 										"param0": "Consumable_ID",
 										"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
-									}
-								},
-								{
-									"id": "set-default-color",
-									"objectClass": "Energy_Bar",
-									"sid": 687583385276456,
-									"parameters": {
-										"color": "rgbEx(24, 180, 29)"
 									}
 								}
 							],
@@ -25733,9 +26295,20 @@
 									}
 								},
 								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 465994097891034,
+									"parameters": {
+										"instance-variable": "Repair_Kit",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
 									"id": "is-item-type-in-inventory",
 									"objectClass": "Inventory",
 									"sid": 291530306833859,
+									"disabled": true,
 									"parameters": {
 										"inventory-id": "\"Inventory_Consumables\"",
 										"type": "\"Repair_Kit_Inv\"",
@@ -25754,9 +26327,27 @@
 									}
 								},
 								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 963668068472146,
+									"parameters": {
+										"instance-variable": "Repair_Kit",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "HP_Bar",
+									"sid": 358652696863900,
+									"parameters": {
+										"color": "rgbEx(24, 180, 29)"
+									}
+								},
+								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 197514603183433,
+									"disabled": true,
 									"parameters": {
 										"variable": "Consumable_ID",
 										"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 3)"
@@ -25766,17 +26357,10 @@
 									"id": "set-item-quantity",
 									"objectClass": "Inventory",
 									"sid": 933536196824384,
+									"disabled": true,
 									"parameters": {
 										"param0": "Consumable_ID",
 										"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
-									}
-								},
-								{
-									"id": "set-default-color",
-									"objectClass": "HP_Bar",
-									"sid": 324335870755118,
-									"parameters": {
-										"color": "rgbEx(24, 180, 29)"
 									}
 								}
 							],
@@ -25814,9 +26398,20 @@
 									}
 								},
 								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 321589661163098,
+									"parameters": {
+										"instance-variable": "Repair_Kit",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
 									"id": "is-item-type-in-inventory",
 									"objectClass": "Inventory",
 									"sid": 993575282412466,
+									"disabled": true,
 									"parameters": {
 										"inventory-id": "\"Inventory_Consumables\"",
 										"type": "\"Repair_Kit_Inv\"",
@@ -25835,9 +26430,27 @@
 									}
 								},
 								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 716684714302275,
+									"parameters": {
+										"instance-variable": "Repair_Kit",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "HP_Bar",
+									"sid": 505439845342740,
+									"parameters": {
+										"color": "rgbEx(24, 180, 29)"
+									}
+								},
+								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 247075404799952,
+									"disabled": true,
 									"parameters": {
 										"variable": "Consumable_ID",
 										"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 3)"
@@ -25847,17 +26460,10 @@
 									"id": "set-item-quantity",
 									"objectClass": "Inventory",
 									"sid": 232282074925278,
+									"disabled": true,
 									"parameters": {
 										"param0": "Consumable_ID",
 										"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
-									}
-								},
-								{
-									"id": "set-default-color",
-									"objectClass": "HP_Bar",
-									"sid": 661049419118710,
-									"parameters": {
-										"color": "rgbEx(24, 180, 29)"
 									}
 								}
 							],
