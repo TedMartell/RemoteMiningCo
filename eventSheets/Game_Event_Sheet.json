@@ -27406,6 +27406,18 @@
 									}
 								},
 								{
+									"id": "spawn-another-object",
+									"objectClass": "Explosion_Area",
+									"sid": 288829649789589,
+									"parameters": {
+										"object": "Explosion_Anim",
+										"layer": "\"Player\"",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
 									"id": "subtract-from-instvar",
 									"objectClass": "Miner_Box",
 									"sid": 805255749374734,
@@ -27446,6 +27458,11 @@
 									"id": "destroy",
 									"objectClass": "Explosion_Area",
 									"sid": 981651651418248
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Explosion_Anim",
+									"sid": 881981397306957
 								}
 							],
 							"sid": 513268384051719
@@ -28316,7 +28333,81 @@
 													}
 												}
 											],
-											"sid": 591122363877364
+											"sid": 591122363877364,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 539925425372859
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 620127025316546,
+															"parameters": {
+																"audio-file": "Low Energy Flaviu Ciocan - Space Sci Fi - Warning Alarm",
+																"loop": "looping",
+																"volume": "-10",
+																"stereo-pan": "0",
+																"tag-optional": "\"Low_Energy\""
+															}
+														}
+													],
+													"sid": 386592216010657
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 246281478709483
+												}
+											],
+											"actions": [
+												{
+													"id": "stop",
+													"objectClass": "SFX",
+													"sid": 327834348193223,
+													"parameters": {
+														"tag": "\"Low_Energy\""
+													}
+												}
+											],
+											"sid": 260256574069736
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Box",
+													"sid": 984430836749249,
+													"parameters": {
+														"instance-variable": "Energy",
+														"comparison": 4,
+														"value": "Miner_Box.Max_Energy /4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-default-color",
+													"objectClass": "Energy_Bar",
+													"sid": 867972968174074,
+													"parameters": {
+														"color": "rgbEx(24, 180, 29)"
+													}
+												}
+											],
+											"sid": 867767022728630
 										},
 										{
 											"eventType": "block",
@@ -28343,6 +28434,32 @@
 												}
 											],
 											"sid": 874629762152103
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Box",
+													"sid": 533375437655622,
+													"parameters": {
+														"instance-variable": "HP",
+														"comparison": 4,
+														"value": "Miner_Box.Max_HP / 4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-default-color",
+													"objectClass": "HP_Bar",
+													"sid": 408322347095824,
+													"parameters": {
+														"color": "rgbEx(24, 180, 29)"
+													}
+												}
+											],
+											"sid": 837131768023803
 										},
 										{
 											"eventType": "block",
@@ -28451,6 +28568,18 @@
 							],
 							"actions": [
 								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 594835111556376,
+									"parameters": {
+										"audio-file": "Damage take J.BoB - Anime Go - Box Crash",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "shake",
 									"objectClass": "Miner_Box",
 									"sid": 494944322978348,
@@ -28547,6 +28676,18 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 444279112527679,
+									"parameters": {
+										"audio-file": "Damage take J.BoB - Anime Go - Box Crash",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
 								{
 									"id": "shake",
 									"objectClass": "Miner_Box",
