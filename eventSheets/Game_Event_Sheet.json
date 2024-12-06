@@ -16898,6 +16898,18 @@
 							],
 							"actions": [
 								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 387653214077790,
+									"parameters": {
+										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "set-effect-enabled",
 									"objectClass": "Shop_Buy_Button",
 									"sid": 435558095267951,
@@ -17088,6 +17100,18 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 138115020278782,
+									"parameters": {
+										"audio-file": "Mechanical Wave - Toys - Button Pushing Beeping",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
 								{
 									"id": "set-effect-enabled",
 									"objectClass": "Shop_Reset_Button",
@@ -19676,6 +19700,18 @@
 													],
 													"actions": [
 														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 394047090236642,
+															"parameters": {
+																"audio-file": "Mechanical Wave - Toys - Button Pushing Beeping",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														},
+														{
 															"callFunction": "Reset_Warehouse_Sell_cart",
 															"sid": 688363520421300
 														},
@@ -19723,6 +19759,18 @@
 														}
 													],
 													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 278761758535525,
+															"parameters": {
+																"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														},
 														{
 															"id": "set-effect-enabled",
 															"objectClass": "Sell_Items_Button_Warehouse",
@@ -23451,7 +23499,34 @@
 									}
 								}
 							],
-							"sid": 551844804429209
+							"sid": 551844804429209,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 920273545352959
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 817843642933102,
+											"parameters": {
+												"audio-file": "Final Cat Studio - 3D Printers - Servo Motor Movement",
+												"loop": "looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"Engine\""
+											}
+										}
+									],
+									"sid": 939109794902398
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -23490,7 +23565,34 @@
 									}
 								}
 							],
-							"sid": 549045534976824
+							"sid": 549045534976824,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 269714820413092
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 666681268455541,
+											"parameters": {
+												"audio-file": "Final Cat Studio - 3D Printers - Servo Motor Movement",
+												"loop": "looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"Engine\""
+											}
+										}
+									],
+									"sid": 541696266027170
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -23538,7 +23640,34 @@
 									}
 								}
 							],
-							"sid": 338087538508011
+							"sid": 338087538508011,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 192939009633951
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 818020563820192,
+											"parameters": {
+												"audio-file": "InspectorJ - Up in the Air - Hot Air Balloon burner ",
+												"loop": "looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"Engine\""
+											}
+										}
+									],
+									"sid": 694760222875260
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -23586,7 +23715,34 @@
 									}
 								}
 							],
-							"sid": 115737831437131
+							"sid": 115737831437131,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 942091479376051
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 755605722290842,
+											"parameters": {
+												"audio-file": "Final Cat Studio - 3D Printers - Servo Motor Movement",
+												"loop": "looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"Engine\""
+											}
+										}
+									],
+									"sid": 391817507468508
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -23614,6 +23770,17 @@
 									"parameters": {
 										"instance-variable": "DIR",
 										"value": "\"Front\""
+									}
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 273040811042389,
+									"parameters": {
+										"tag": "\"Engine\"",
+										"db": "-100",
+										"duration": "1",
+										"ending": "stop"
 									}
 								}
 							],
@@ -24168,6 +24335,18 @@
 												"animation": "\"Dust_Right\"",
 												"from": "beginning"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 818601354352742,
+											"parameters": {
+												"audio-file": "SoundBits - Mechanized - Loud Jackhammer Drilling",
+												"loop": "looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"Drill_Right\""
+											}
 										}
 									],
 									"sid": 501146917978129
@@ -24188,6 +24367,17 @@
 									"id": "destroy",
 									"objectClass": "Dust_Animation_Right",
 									"sid": 532313269218379
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 222104194701257,
+									"parameters": {
+										"tag": "\"Drill_Right\"",
+										"db": "-100",
+										"duration": "0.2",
+										"ending": "stop"
+									}
 								}
 							],
 							"sid": 481702754958036
@@ -24258,6 +24448,18 @@
 												"animation": "\"Dust_Left\"",
 												"from": "beginning"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 167611413103028,
+											"parameters": {
+												"audio-file": "SoundBits - Mechanized - Loud Jackhammer Drilling",
+												"loop": "looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"Drill_Left\""
+											}
 										}
 									],
 									"sid": 675158843125562
@@ -24278,6 +24480,17 @@
 									"id": "destroy",
 									"objectClass": "Dust_Animation_Left",
 									"sid": 696887981075803
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 594442380305470,
+									"parameters": {
+										"tag": "\"Drill_Left\"",
+										"db": "-100",
+										"duration": "0.2",
+										"ending": "stop"
+									}
 								}
 							],
 							"sid": 825361108517609
@@ -24356,6 +24569,18 @@
 												"animation": "\"Dust_Down\"",
 												"from": "beginning"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 170551653966549,
+											"parameters": {
+												"audio-file": "SoundBits - Mechanized - Loud Jackhammer Drilling",
+												"loop": "looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"Drill_Down\""
+											}
 										}
 									],
 									"sid": 545048594450224
@@ -24376,6 +24601,17 @@
 									"id": "destroy",
 									"objectClass": "Dust_Animation_Down",
 									"sid": 633442075583934
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 917363876741172,
+									"parameters": {
+										"tag": "\"Drill_Down\"",
+										"db": "-100",
+										"duration": "0.2",
+										"ending": "stop"
+									}
 								}
 							],
 							"sid": 305186188424552
@@ -24533,63 +24769,6 @@
 									]
 								}
 							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Miner_Drill",
-									"sid": 150610780275879,
-									"parameters": {
-										"object": "Mining_Blocks_Family"
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 835321625193166
-								}
-							],
-							"actions": [
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 153298978226870,
-									"parameters": {
-										"audio-file": "SoundBits - Mechanized - Loud Jackhammer Drilling",
-										"loop": "not-looping",
-										"volume": "10",
-										"stereo-pan": "0",
-										"tag-optional": "\"Drill\""
-									}
-								}
-							],
-							"sid": 965155753311586
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 108798979179874
-								}
-							],
-							"actions": [
-								{
-									"id": "fade-volume",
-									"objectClass": "SFX",
-									"sid": 791185969179316,
-									"parameters": {
-										"tag": "\"Drill\"",
-										"db": "-100",
-										"duration": "0.2",
-										"ending": "stop"
-									}
-								}
-							],
-							"sid": 228929661137994
 						},
 						{
 							"eventType": "group",
@@ -26135,11 +26314,11 @@
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 978956197301907,
+													"sid": 930754991869265,
 													"parameters": {
 														"audio-file": "DT Sound - Aural Impacts - Debris Wreckage Bricks and Rocks",
 														"loop": "not-looping",
-														"volume": "-10",
+														"volume": "10",
 														"stereo-pan": "0",
 														"tag-optional": "\"\""
 													}
@@ -27202,6 +27381,18 @@
 							],
 							"actions": [
 								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 654055141578502,
+									"parameters": {
+										"audio-file": "Dynamite 2 CB Sounddesign - Kaboom - Dynamite Explosion with Debris",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "create-object",
 									"objectClass": "System",
 									"sid": 741230324632306,
@@ -27293,6 +27484,18 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 927355183445872,
+									"parameters": {
+										"audio-file": "Teleporter Alex Cummings - Extreme Force - Cinematic Hyper Warp Stutter Impact",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
 								{
 									"id": "set-effect-enabled",
 									"objectClass": "Miner_Animations",
@@ -27441,6 +27644,18 @@
 							],
 							"actions": [
 								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 932834275172264,
+									"parameters": {
+										"audio-file": "Battery Epic Stock Media - Mobile Game - Blocky Power Up",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "set-instvar-value",
 									"objectClass": "Miner_Box",
 									"sid": 266909892118021,
@@ -27543,6 +27758,18 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 382190629696814,
+									"parameters": {
+										"audio-file": "Battery Epic Stock Media - Mobile Game - Blocky Power Up",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
 								{
 									"id": "add-to-instvar",
 									"objectClass": "Miner_Box",
@@ -27647,6 +27874,18 @@
 							],
 							"actions": [
 								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 568765080610942,
+									"parameters": {
+										"audio-file": "Repair Kit Artlist Foley - Toolbox - Electric Screwdriver Short",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "set-instvar-value",
 									"objectClass": "Miner_Box",
 									"sid": 213453152615905,
@@ -27749,6 +27988,18 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 324101039212454,
+									"parameters": {
+										"audio-file": "Repair Kit Artlist Foley - Toolbox - Electric Screwdriver Short",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
 								{
 									"id": "add-to-instvar",
 									"objectClass": "Miner_Box",
@@ -28761,6 +29012,36 @@
 						}
 					],
 					"sid": 697757647811780
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 403302888484604,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Meta_All_Buttons"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "SFX",
+							"sid": 377278596339640,
+							"parameters": {
+								"audio-file": "Sonic Bat - Essential Clicks - Gently Pressing on Plastic Button ",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 516241685498675
 				}
 			],
 			"sid": 616610756106818
