@@ -4126,11 +4126,59 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "HUD_Grey",
+									"sid": 693964351624385,
+									"parameters": {
+										"object": "HUD_Menu_Button",
+										"layer": "\"HUD\"",
+										"image-point": "\"Menu_Button\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 917048766759491,
+									"parameters": {
+										"object": "HUD_Quest_Button",
+										"layer": "\"HUD\"",
+										"image-point": "\"Quest_Button\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 432017962053002,
+									"parameters": {
+										"object": "HUD_Quest_Background",
+										"layer": "\"HUD\"",
+										"image-point": "\"Quest_Log\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
 									"sid": 405715119358003,
 									"parameters": {
 										"object": "HUD_Weight_Text",
 										"layer": "\"HUD\"",
 										"image-point": "\"Text_1\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 917113104017454,
+									"parameters": {
+										"object": "HUD_Height_Text",
+										"layer": "\"HUD\"",
+										"image-point": "\"Text_2\"",
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
@@ -4245,7 +4293,52 @@
 									}
 								}
 							],
-							"sid": 694474009091340
+							"sid": 694474009091340,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Quest_Background",
+											"sid": 721042384925126,
+											"parameters": {
+												"object": "Quest_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Quest_Text\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Quest_Background",
+											"sid": 860261533363553,
+											"parameters": {
+												"object": "Reward_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Reward_Text\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Quest_Background",
+											"sid": 317779566701399,
+											"parameters": {
+												"object": "Claim_Button",
+												"layer": "\"HUD\"",
+												"image-point": "\"Claim_Button\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 269881098254331
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -4295,6 +4388,14 @@
 									"sid": 583784091271578,
 									"parameters": {
 										"text": "\"Miner Weight:\" & newline & Miner_Box.Weight & newline & \"Vertical Speed:\" & newline & Vector_Y_Speed_Up * -1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "HUD_Height_Text",
+									"sid": 464865570456579,
+									"parameters": {
+										"text": "\"Current Height:\" & newline & newline &  Miner_Height & \" m\""
 									}
 								},
 								{
@@ -5840,6 +5941,18 @@
 												"animation": "\"Active\"",
 												"from": "beginning"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 795100434372811,
+											"parameters": {
+												"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 359014703589564
@@ -5899,6 +6012,18 @@
 											"parameters": {
 												"animation": "\"Focused\"",
 												"from": "beginning"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 726567187099353,
+											"parameters": {
+												"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
 											}
 										}
 									],
@@ -17964,6 +18089,18 @@
 							],
 							"actions": [
 								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 752590519290306,
+									"parameters": {
+										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "set-effect-enabled",
 									"objectClass": "Warehouse_Deposit_Button",
 									"sid": 505516470239887,
@@ -18261,6 +18398,18 @@
 										}
 									],
 									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 305598615808342,
+											"parameters": {
+												"audio-file": "Sonic Bat - Essential Clicks - Gently Pressing on Plastic Button ",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Warehouse_Sell_Button",
@@ -22910,6 +23059,798 @@
 				{
 					"eventType": "group",
 					"disabled": false,
+					"title": "HUD Management",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Miner Inventory"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 848863671144301,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "HUD_Miner_Inventory_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Global_Inventory_Background_Black",
+									"sid": 742558333198911,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Global_Inventory_Text",
+									"sid": 358226705023339,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Miner_Inventory_Button",
+									"sid": 591656608641316,
+									"parameters": {
+										"animation": "\"Passive\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Global_Inventory_Button",
+									"sid": 431582822773942,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 233980518940570,
+									"parameters": {
+										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 273198792058856,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "Miner_Inventory_Background_Black",
+											"sid": 620863303310830
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Miner_Inventory_Background_Black",
+											"sid": 695014301186597,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 867895970822239,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "HUD_Miner_Inventory_Button",
+											"sid": 454455712526849,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 720070899108734
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 288915509573011
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Miner_Inventory_Background_Black",
+											"sid": 659956727104311,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 202067485449373,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 308179393395209
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 930240258162229,
+									"parameters": {
+										"key": 73
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Global_Inventory_Background_Black",
+									"sid": 932611170877176,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Global_Inventory_Text",
+									"sid": 577709063979053,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Miner_Inventory_Button",
+									"sid": 935438527312552,
+									"parameters": {
+										"animation": "\"Passive\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Global_Inventory_Button",
+									"sid": 272451459299597,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 876953326687805,
+									"parameters": {
+										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 462776303773245,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "Miner_Inventory_Background_Black",
+											"sid": 925154110878354
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Miner_Inventory_Background_Black",
+											"sid": 627705924699181,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 436083057873535,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "HUD_Miner_Inventory_Button",
+											"sid": 129863951474486,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 349330045759888
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 530461416207624
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Miner_Inventory_Background_Black",
+											"sid": 757237870651789,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 383246206256351,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 739978983056317
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Global Inventory"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 381528045682823,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "HUD_Global_Inventory_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Miner_Inventory_Background_Black",
+									"sid": 166195389099731,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 658835262798144,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Global_Inventory_Button",
+									"sid": 552620168180362,
+									"parameters": {
+										"animation": "\"Passive\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Miner_Inventory_Button",
+									"sid": 152816650375509,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 327544826421857,
+									"parameters": {
+										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 427586645353457,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "Global_Inventory_Background_Black",
+											"sid": 639945795046126
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Global_Inventory_Background_Black",
+											"sid": 244506238662414,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 620138235229289,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "HUD_Global_Inventory_Button",
+											"sid": 448422501692364,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 619709189553447
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 887510986608529
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Global_Inventory_Background_Black",
+											"sid": 886512777347703,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 839103979480727,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 327233535877475
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 298854752329088,
+									"parameters": {
+										"key": 71
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Miner_Inventory_Background_Black",
+									"sid": 656900958905623,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 104659719064236,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Global_Inventory_Button",
+									"sid": 819102916749676,
+									"parameters": {
+										"animation": "\"Passive\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Miner_Inventory_Button",
+									"sid": 743677572116608,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 247029403229509,
+									"parameters": {
+										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 512597546915872,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "Global_Inventory_Background_Black",
+											"sid": 765330218065802
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Global_Inventory_Background_Black",
+											"sid": 551552355275480,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 465820346051685,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "HUD_Global_Inventory_Button",
+											"sid": 747647063463127,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 924759560289657
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 142745317208912
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Global_Inventory_Background_Black",
+											"sid": 322085725198172,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 101095077671420,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 123251503250288
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Quest Log"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 476739737809838,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "HUD_Quest_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 937099537949806,
+									"parameters": {
+										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 504350282113933,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "HUD_Quest_Background",
+											"sid": 214160553358784
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Quest_Background",
+											"sid": 673911270495849,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Quest_Text",
+											"sid": 807717900231498,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Reward_Text",
+											"sid": 195312533861653,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Claim_Button",
+											"sid": 821845978566490,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 603857694145679
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 593465562501221
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Quest_Background",
+											"sid": 481616280927494,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Quest_Text",
+											"sid": 316782137776008,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Reward_Text",
+											"sid": 305233814661148,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Claim_Button",
+											"sid": 829424401057992,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 236213009475936
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 239968446979428,
+									"parameters": {
+										"key": 81
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 988938720293988,
+									"parameters": {
+										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 453560968068796,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "HUD_Quest_Background",
+											"sid": 126484419110723
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Quest_Background",
+											"sid": 839057880193580,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Quest_Text",
+											"sid": 573988893011021,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Reward_Text",
+											"sid": 211057292469743,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Claim_Button",
+											"sid": 687308704117466,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 283835338411289
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 783360200118081
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Quest_Background",
+											"sid": 731929573500896,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Quest_Text",
+											"sid": 535142186674482,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Reward_Text",
+											"sid": 558816431782669,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Claim_Button",
+											"sid": 516525814734219,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 993254008520086
+								}
+							]
+						}
+					],
+					"sid": 227370157213872
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
 					"title": "Player Inputs",
 					"description": "",
 					"isActiveOnStart": true,
@@ -26573,494 +27514,6 @@
 							"isStatic": true,
 							"isConstant": false,
 							"sid": 360390247723563
-						},
-						{
-							"eventType": "comment",
-							"text": "// Miner Inventory"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 263290275063161,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "HUD_Miner_Inventory_Button"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Global_Inventory_Background_Black",
-									"sid": 218847518621413,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 441576023314885,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "HUD_Miner_Inventory_Button",
-									"sid": 778546777556363,
-									"parameters": {
-										"animation": "\"Passive\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "HUD_Global_Inventory_Button",
-									"sid": 349098478373556,
-									"parameters": {
-										"animation": "\"Active\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 203390375458314,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-visible",
-											"objectClass": "Miner_Inventory_Background_Black",
-											"sid": 235255061129655
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "Miner_Inventory_Background_Black",
-											"sid": 635920257419704,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "Miner_Inventory_Text",
-											"sid": 259130397093513,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "HUD_Miner_Inventory_Button",
-											"sid": 251237890325600,
-											"parameters": {
-												"animation": "\"Active\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 277597522367399
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 145328571374067
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "Miner_Inventory_Background_Black",
-											"sid": 765046365570361,
-											"parameters": {
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "Miner_Inventory_Text",
-											"sid": 303125865697914,
-											"parameters": {
-												"visibility": "visible"
-											}
-										}
-									],
-									"sid": 270657587542309
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 919927979153635,
-									"parameters": {
-										"key": 73
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Global_Inventory_Background_Black",
-									"sid": 251435866789957,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 973067677178913,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "HUD_Miner_Inventory_Button",
-									"sid": 222007201742720,
-									"parameters": {
-										"animation": "\"Passive\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "HUD_Global_Inventory_Button",
-									"sid": 514438902470290,
-									"parameters": {
-										"animation": "\"Active\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 846389034927275,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-visible",
-											"objectClass": "Miner_Inventory_Background_Black",
-											"sid": 607943391400192
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "Miner_Inventory_Background_Black",
-											"sid": 471051327172224,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "Miner_Inventory_Text",
-											"sid": 187691876565485,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "HUD_Miner_Inventory_Button",
-											"sid": 782765194550435,
-											"parameters": {
-												"animation": "\"Active\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 663231518603440
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 968726363783557
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "Miner_Inventory_Background_Black",
-											"sid": 332516620851431,
-											"parameters": {
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "Miner_Inventory_Text",
-											"sid": 809179788868563,
-											"parameters": {
-												"visibility": "visible"
-											}
-										}
-									],
-									"sid": 628369151900010
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "Global Inventory"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 985964991335075,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "HUD_Global_Inventory_Button"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Miner_Inventory_Background_Black",
-									"sid": 640067229572932,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 918478634022026,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "HUD_Global_Inventory_Button",
-									"sid": 925690111882965,
-									"parameters": {
-										"animation": "\"Passive\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "HUD_Miner_Inventory_Button",
-									"sid": 733448282640236,
-									"parameters": {
-										"animation": "\"Active\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 645835128027386,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-visible",
-											"objectClass": "Global_Inventory_Background_Black",
-											"sid": 632776342328296
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "Global_Inventory_Background_Black",
-											"sid": 356004416156151,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "HUD_Global_Inventory_Text",
-											"sid": 180722980246483,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "HUD_Global_Inventory_Button",
-											"sid": 883115621895701,
-											"parameters": {
-												"animation": "\"Active\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 666599843312438
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 730329729347117
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "Global_Inventory_Background_Black",
-											"sid": 934240191178448,
-											"parameters": {
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "HUD_Global_Inventory_Text",
-											"sid": 922944047164845,
-											"parameters": {
-												"visibility": "visible"
-											}
-										}
-									],
-									"sid": 375205083971660
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 270188956226620,
-									"parameters": {
-										"key": 71
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Miner_Inventory_Background_Black",
-									"sid": 325800169332248,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 783701902672529,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "HUD_Global_Inventory_Button",
-									"sid": 413079619449477,
-									"parameters": {
-										"animation": "\"Passive\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "HUD_Miner_Inventory_Button",
-									"sid": 467501257955333,
-									"parameters": {
-										"animation": "\"Active\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 374209757818967,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-visible",
-											"objectClass": "Global_Inventory_Background_Black",
-											"sid": 618597870787493
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "Global_Inventory_Background_Black",
-											"sid": 561206772875020,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "HUD_Global_Inventory_Text",
-											"sid": 282453809221998,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "HUD_Global_Inventory_Button",
-											"sid": 375072020666113,
-											"parameters": {
-												"animation": "\"Active\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 571663672765594
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 201841797535764
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "Global_Inventory_Background_Black",
-											"sid": 884004375634600,
-											"parameters": {
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "HUD_Global_Inventory_Text",
-											"sid": 756641082671862,
-											"parameters": {
-												"visibility": "visible"
-											}
-										}
-									],
-									"sid": 924876465465125
-								}
-							]
 						},
 						{
 							"eventType": "comment",
