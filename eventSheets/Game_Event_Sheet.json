@@ -29578,7 +29578,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "TEST",
+			"title": "Music & Sound",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -29639,6 +29639,963 @@
 				}
 			],
 			"sid": 616610756106818
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Quests",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Quest_Objective_1",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 966477248363412
+				},
+				{
+					"eventType": "variable",
+					"name": "Quest_Target_1",
+					"type": "number",
+					"initialValue": "5",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 434215928549294
+				},
+				{
+					"eventType": "variable",
+					"name": "Quest_Objective_2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 869873982656789
+				},
+				{
+					"eventType": "variable",
+					"name": "Quest_Target_2",
+					"type": "number",
+					"initialValue": "5",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 682313726455885
+				},
+				{
+					"eventType": "variable",
+					"name": "Quest_Objective_3",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 272456589843560
+				},
+				{
+					"eventType": "variable",
+					"name": "Quest_Target_3",
+					"type": "number",
+					"initialValue": "5",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 675855200286951
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "1st Quest",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 833363944992170
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 785665657344385,
+									"parameters": {
+										"instance-variable": "Quest_1_Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 175941885213544,
+									"parameters": {
+										"variable": "Quest_Objective_1",
+										"value": "Miner_Box.Coal"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 968336877524731,
+									"parameters": {
+										"variable": "Quest_Objective_2",
+										"value": "Miner_Box.Quartz"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 184154411409962,
+									"parameters": {
+										"variable": "Quest_Objective_3",
+										"value": "Miner_Box.Bauxite"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Quest_Text",
+									"sid": 235754754092375,
+									"parameters": {
+										"text": "\"Collect 5x Coal:\" & newline  & Quest_Objective_1 & \" / \" & Quest_Target_1 & newline &\n\"Collect 5x Quartz:\" & newline & Quest_Objective_2 & \" / \" & Quest_Target_2 & newline &\n\"Collect 5x Bauxite:\" & newline  & Quest_Objective_3 & \" / \" & Quest_Target_3\n"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Reward_Text",
+									"sid": 418891111626824,
+									"parameters": {
+										"text": "\"Your Reward for completing this quest:\" & newline & \"100 $\""
+									}
+								}
+							],
+							"sid": 691366332190399,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 984566976666537,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"comparison": 5,
+												"value": "Quest_Target_1"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 866643404217014,
+											"parameters": {
+												"variable": "Quest_Objective_2",
+												"comparison": 5,
+												"value": "Quest_Target_2"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 710023834797336,
+											"parameters": {
+												"variable": "Quest_Objective_3",
+												"comparison": 5,
+												"value": "Quest_Target_3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 738778297393975,
+											"parameters": {
+												"instance-variable": "Quest_1_Completed",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 793915875392786,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 945787734066389,
+											"parameters": {
+												"instance-variable": "Quest_1_Active",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 898066568091637
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 732060551116840
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 606219335894048,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Claim_Button"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Claim_Button",
+									"sid": 244704833591606,
+									"parameters": {
+										"animation": "\"Active\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 644862306000249,
+									"parameters": {
+										"instance-variable": "Quest_1_Completed",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 373891709446929,
+									"parameters": {
+										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 910096553237602,
+									"parameters": {
+										"instance-variable": "Money",
+										"value": "100"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 172064194439153,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 499113496212287,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 447409625344653,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 120668290281224,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 750580583836950,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 784702629023998,
+											"parameters": {
+												"instance-variable": "Quest_2_Active",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 430495839266522,
+											"parameters": {
+												"instance-variable": "Quest_1_Completed",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 718307150539969,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 352353785298875,
+											"parameters": {
+												"variable": "Quest_Objective_2",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 972660113849101,
+											"parameters": {
+												"variable": "Quest_Objective_3",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 916790659972408
+								}
+							]
+						}
+					],
+					"sid": 355622368537940
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "2nd Quest",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 250447918192482
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 339192214228607,
+									"parameters": {
+										"instance-variable": "Quest_2_Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 922736072932610,
+									"parameters": {
+										"variable": "Quest_Objective_1",
+										"value": "Global_Inventory_Object.Coal"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 291359322622951,
+									"parameters": {
+										"variable": "Quest_Objective_2",
+										"value": "Global_Inventory_Object.Quartz"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 206838442154241,
+									"parameters": {
+										"variable": "Quest_Objective_3",
+										"value": "Global_Inventory_Object.Bauxite"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 385295307268678,
+									"parameters": {
+										"variable": "Quest_Target_1",
+										"value": "5"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 777093169839878,
+									"parameters": {
+										"variable": "Quest_Target_2",
+										"value": "5"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 960856547555318,
+									"parameters": {
+										"variable": "Quest_Target_3",
+										"value": "5"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Quest_Text",
+									"sid": 984053591188155,
+									"parameters": {
+										"text": "\"Go to WAREHOUSE and DEPOSIT\" & newline &\n\"Deposit 5x Coal:\" & newline & Quest_Objective_1 & \" / \" & Quest_Target_1 & newline &\n\"Deposit 5x Quartz:\" & newline & Quest_Objective_2 & \" / \" & Quest_Target_2 & newline &\n\"Deposit 5x Bauxite:\" & newline & Quest_Objective_3 & \" /  \"& Quest_Target_3\n"
+									}
+								}
+							],
+							"sid": 107956618375700,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 410602814273194,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"comparison": 3,
+												"value": "Quest_Target_1"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 625062997033274,
+											"parameters": {
+												"variable": "Quest_Objective_2",
+												"comparison": 5,
+												"value": "Quest_Target_2"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 543537885703457,
+											"parameters": {
+												"variable": "Quest_Objective_3",
+												"comparison": 5,
+												"value": "Quest_Target_3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 864945233178633,
+											"parameters": {
+												"instance-variable": "Quest_2_Completed",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 618791973295255,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 666106027495515,
+											"parameters": {
+												"instance-variable": "Quest_2_Active",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 772816058239223
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 559667524431353,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Claim_Button"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Claim_Button",
+									"sid": 272959069174332,
+									"parameters": {
+										"animation": "\"Active\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 913455866830229,
+									"parameters": {
+										"instance-variable": "Quest_2_Completed",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 272189563476709,
+									"parameters": {
+										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 648990448720096,
+									"parameters": {
+										"instance-variable": "Money",
+										"value": "100"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 453231241727484,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 134382948512949,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 258304067229679,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 733617829246810,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 696953324709571,
+											"parameters": {
+												"instance-variable": "Quest_2_Completed",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 993203277717001,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 479260751093513,
+											"parameters": {
+												"instance-variable": "Quest_3_Active",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 627089903302800,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 604795908356083,
+											"parameters": {
+												"variable": "Quest_Objective_2",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 917462535591719,
+											"parameters": {
+												"variable": "Quest_Objective_3",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 585635388070007
+								}
+							]
+						}
+					],
+					"sid": 327370582461986
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "3rd Quest",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 374522203950428
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 927831041858886,
+									"parameters": {
+										"instance-variable": "Quest_3_Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 713839500761097,
+									"parameters": {
+										"variable": "Quest_Objective_1",
+										"value": "Miner_Height"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 658033054277012,
+									"parameters": {
+										"variable": "Quest_Target_1",
+										"value": "-15"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Quest_Text",
+									"sid": 422417498323362,
+									"parameters": {
+										"text": "\"Reach a depth of -15 m\" & newline & Quest_Objective_1 & \" / \" & Quest_Target_1"
+									}
+								}
+							],
+							"sid": 485416291170615,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 556946637283354,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"comparison": 3,
+												"value": "Quest_Target_1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 932932631696950,
+											"parameters": {
+												"instance-variable": "Quest_3_Completed",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 851342526898114,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 475722252767554,
+											"parameters": {
+												"instance-variable": "Quest_4_Active",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 203488703046956
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 347557928540354,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Claim_Button"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Claim_Button",
+									"sid": 552924102114705,
+									"parameters": {
+										"animation": "\"Active\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 155483398458963,
+									"parameters": {
+										"instance-variable": "Quest_3_Completed",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 668642090766548,
+									"parameters": {
+										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 159589980736950,
+									"parameters": {
+										"instance-variable": "Money",
+										"value": "100"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 344943793611967,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 705652177759038,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 521743957071877,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 518535416805913,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 455697011640525,
+											"parameters": {
+												"instance-variable": "Quest_3_Completed",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 516179433047070,
+											"parameters": {
+												"instance-variable": "Quest_3_Active",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 320696258389004,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 819586797084200,
+											"parameters": {
+												"instance-variable": "Quest_4_Active",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 875042057423951,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 449490137540812
+								}
+							]
+						}
+					],
+					"sid": 908285628053554
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "4th Quest",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 496080665191257
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 421959831041041,
+									"parameters": {
+										"instance-variable": "Quest_4_Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Quest_Text",
+									"sid": 914618548054127,
+									"parameters": {
+										"text": "\"CURRENTLY NO MORE QUESTS\" \n"
+									}
+								}
+							],
+							"sid": 264842053912368
+						}
+					],
+					"sid": 817740734860767
+				}
+			],
+			"sid": 697321010246842
 		}
 	],
 	"sid": 196935397098049
