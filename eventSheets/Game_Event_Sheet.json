@@ -20556,6 +20556,45 @@
 										"group-name": "\"Mechanical\"",
 										"state": "deactivated"
 									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Global_Inventory_Background_Black",
+									"sid": 519234744423368,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Global_Inventory_Text",
+									"sid": 535406865843936,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 318193589275778,
+									"parameters": {
+										"tag": "\"Surface_Music\"",
+										"db": "-100",
+										"duration": "1",
+										"ending": "stop"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 842437440772197,
+									"parameters": {
+										"audio-file": "Smelter Background Felix Blume - Hard Days Work - Factory Ambience Metallic Machine Rattle Hum Whir ",
+										"loop": "not-looping",
+										"volume": "-10",
+										"stereo-pan": "0",
+										"tag-optional": "\"Smelter_Music\""
+									}
 								}
 							],
 							"sid": 604227822232638
@@ -20643,6 +20682,45 @@
 										"group-name": "\"Mechanical\"",
 										"state": "deactivated"
 									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Global_Inventory_Background_Black",
+									"sid": 271438948876437,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Global_Inventory_Text",
+									"sid": 431130686444641,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 522676951363420,
+									"parameters": {
+										"tag": "\"Surface_Music\"",
+										"db": "-100",
+										"duration": "1",
+										"ending": "stop"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 381724027772426,
+									"parameters": {
+										"audio-file": "Smelter Background Felix Blume - Hard Days Work - Factory Ambience Metallic Machine Rattle Hum Whir ",
+										"loop": "not-looping",
+										"volume": "-10",
+										"stereo-pan": "0",
+										"tag-optional": "\"Smelter_Music\""
+									}
 								}
 							],
 							"sid": 483552111896154
@@ -20703,7 +20781,20 @@
 											}
 										}
 									],
-									"actions": [],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 924947488463879,
+											"parameters": {
+												"audio-file": "Epic Stock Media - Mobile Game - Menu Double Click Vintage Type Writer Button Reverb",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
 									"sid": 544125229954271,
 									"children": [
 										{
@@ -20890,7 +20981,46 @@
 											}
 										}
 									],
-									"actions": [],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 600945924045585,
+											"parameters": {
+												"audio-file": "Epic Stock Media - Mobile Game - Menu Double Click Vintage Type Writer Button Reverb",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Smelter_Crafting_Button",
+											"sid": 115135606125313,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 578806268895941,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Smelter_Crafting_Button",
+											"sid": 761444586471956,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
 									"sid": 956349254774760,
 									"children": [
 										{
@@ -22045,6 +22175,17 @@
 									}
 								},
 								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 234380059643815,
+									"parameters": {
+										"tag": "\"Smelter_Music\"",
+										"db": "-100",
+										"duration": "1",
+										"ending": "stop"
+									}
+								},
+								{
 									"id": "play",
 									"objectClass": "SFX",
 									"sid": 608181791039229,
@@ -22069,96 +22210,115 @@
 									"parameters": {
 										"key": 27
 									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 725861481703053,
-									"parameters": {
-										"instance-variable": "Timer_Second_Has_Passed",
-										"comparison": 0,
-										"value": "0"
-									}
 								}
 							],
 							"actions": [
 								{
 									"type": "comment",
 									"text": "Reset Smelter"
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 564799107605627,
-									"parameters": {
-										"instance-variable": "Timer_Second_Has_Passed",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 836605587040067,
-									"parameters": {
-										"instance-variable": "Busy",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 598852744067111,
-									"parameters": {
-										"instance-variable": "Crafting_Amount",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 919704615720629,
-									"parameters": {
-										"instance-variable": "Crafting_Time",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 245740023017725,
-									"parameters": {
-										"instance-variable": "Furnace_Active",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 624412273710704,
-									"parameters": {
-										"instance-variable": "Max_Amount",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Smelter_Furnace_1_Object",
-									"sid": 514680606921065,
-									"parameters": {
-										"instance-variable": "Smelt_Next_Item",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-selection",
-									"objectClass": "Smelter_recipe_List",
-									"sid": 722350901075504,
-									"parameters": {
-										"index": "0"
-									}
 								}
 							],
-							"sid": 919642070622946
+							"sid": 919642070622946,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 926158570408853,
+											"parameters": {
+												"object": "Smelter_recipe_List"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 786039497957615,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Smelter_Furnace_1_Object",
+													"sid": 831555743810771,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "Smelter_recipe_List.ID"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 527796198910312,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Smelter_Furnace_1_Object",
+															"sid": 201027975631533,
+															"parameters": {
+																"instance-variable": "Furnace_Active",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Smelter_Furnace_1_Object",
+															"sid": 320994952141025,
+															"parameters": {
+																"instance-variable": "Busy",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Smelter_Furnace_1_Object",
+															"sid": 917055150989936,
+															"parameters": {
+																"instance-variable": "Crafting_Amount",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Smelter_Furnace_1_Object",
+															"sid": 678579886451899,
+															"parameters": {
+																"instance-variable": "Crafting_Time",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Smelter_Furnace_1_Object",
+															"sid": 810362959712154,
+															"parameters": {
+																"instance-variable": "Max_Amount",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-selection",
+															"objectClass": "Smelter_recipe_List",
+															"sid": 877354635917939,
+															"parameters": {
+																"index": "0"
+															}
+														}
+													],
+													"sid": 125384043841762
+												}
+											]
+										}
+									]
+								}
+							]
 						}
 					],
 					"sid": 147513351800279
