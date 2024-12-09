@@ -5079,6 +5079,11 @@
 								"group-name": "\"Warehouse Inventory Management\"",
 								"state": "deactivated"
 							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Game_Concrete_Block",
+							"sid": 499434072154022
 						}
 					],
 					"sid": 215528164269866
@@ -21580,6 +21585,22 @@
 										{
 											"type": "script",
 											"script": "var smelterFurnaces = runtime.objects.Smelter_Furnace_1_Object.getAllInstances()\nfor (var i = 0; i < smelterFurnaces.length; i++) {\n\tvar tmpSmelterFurnace = smelterFurnaces[i]\n\tif (tmpSmelterFurnace.instVars.ID == localVars.localSmelterId) {\n\t\tvar smelterFurnace = smelterFurnaces[i]\n\t}\n}\n\nsmelterFurnace.instVars.Crafting_Amount -= 1\n\n// get the global inventoty\nvar globalInventory = runtime.objects.Global_Inventory_Object.getFirstInstance()\n\n// add a the output item to the global inventory\nvar recipe = smelterRecipes[localVars.localSelectedRecipe]\nvar outputList = Object.keys(recipe.output)\nfor (var i = 0; i < outputList.length; i++) {\n\tglobalInventory.instVars[outputList[i]] += \n\t\trecipe.output[outputList[i]]\n}\n\nif (smelterFurnace.instVars.Crafting_Amount == 0) {\n\tsmelterFurnace.instVars.Furnace_Active = 0\n\tsmelterFurnace.instVars.Smelt_Next_Item = 0\n} else {\n\tsmelterFurnace.instVars.Smelt_Next_Item = 1\n}"
+										},
+										{
+											"type": "comment",
+											"text": "Play Sound for every created item"
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 513184837596657,
+											"parameters": {
+												"audio-file": "Smelter Item crafted Marcello Del Monaco - Sci Craft Game - Item Pop Up",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 135352306324114
@@ -22087,6 +22108,48 @@
 									]
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Furnace_1_Sprite",
+									"sid": 160065381808974,
+									"parameters": {
+										"animation": "\"Active\""
+									}
+								},
+								{
+									"id": "is-tag-playing",
+									"objectClass": "SFX",
+									"sid": 874490458495748,
+									"parameters": {
+										"tag": "\"Furnace_Active\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 321375715223060
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 449973072122996,
+									"parameters": {
+										"audio-file": "Smelter Furnace Active Bjorn Lynne - Flameable - Torch Burning Continuous",
+										"loop": "looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 804719643661394
 						}
 					],
 					"sid": 365658940512121
@@ -22297,6 +22360,17 @@
 									"sid": 234380059643815,
 									"parameters": {
 										"tag": "\"Smelter_Music\"",
+										"db": "-100",
+										"duration": "1",
+										"ending": "stop"
+									}
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 864584830372646,
+									"parameters": {
+										"tag": "\"Furnace_Active\"",
 										"db": "-100",
 										"duration": "1",
 										"ending": "stop"
@@ -22640,10 +22714,10 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 704180170445765,
+															"sid": 266908652950054,
 															"parameters": {
 																"object-to-create": "Dirt_Block_Top",
-																"layer": "\"Background\"",
+																"layer": "\"Player\"",
 																"x": "loopindex *64",
 																"y": "Y *64",
 																"create-hierarchy": false,
@@ -22804,10 +22878,10 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 704839139600280,
+															"sid": 513940377287015,
 															"parameters": {
 																"object-to-create": "Dirt_Block",
-																"layer": "\"Background\"",
+																"layer": "\"Player\"",
 																"x": "loopindex *64",
 																"y": "Y *64",
 																"create-hierarchy": false,
