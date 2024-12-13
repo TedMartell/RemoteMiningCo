@@ -4663,9 +4663,9 @@
 								{
 									"id": "every-x-seconds",
 									"objectClass": "System",
-									"sid": 657243987299352,
+									"sid": 889777394900014,
 									"parameters": {
-										"interval-seconds": "Meta_Passive_Income_Object.Passive_Tick_Timer"
+										"interval-seconds": "1"
 									}
 								}
 							],
@@ -5187,17 +5187,17 @@
 						{
 							"id": "set-text",
 							"objectClass": "Meta_Stats_Text",
-							"sid": 673418922765915,
+							"sid": 482649835501008,
 							"parameters": {
-								"text": "\"Drill Damage: \" & Miner_Mining_DMG  & \"                           \"\n&\"Max Energy: \" & Miner_Box.Max_Energy & \"                      \"  \n& \"Energy Consumption: \" & Miner_Energy_Efficiency & \"            \"\n&\"Energy Regeneration: \" & Miner_Energy_Regeneration"
+								"text": "\"Drill Damage: \" & Miner_Mining_DMG  & newline\n&\"Max Energy: \" & Miner_Box.Max_Energy & newline\n& \"Energy Consumption: \" & Miner_Energy_Efficiency & newline\n&\"Energy Regeneration: \" & Miner_Energy_Regeneration"
 							}
 						},
 						{
 							"id": "set-text",
 							"objectClass": "Meta_Passive_Income_Text",
-							"sid": 779542930525774,
+							"sid": 622184144961617,
 							"parameters": {
-								"text": "\"Income Tick: \" & Meta_Passive_Income_Object.Passive_Tick_Timer & \" Seconds\" & \"           \" &\n\n\"Coal Income: \" & Meta_Passive_Income_Object.Meta_Passive_Coal  & \"                           \"\n&\"Quartz Income: \" & Meta_Passive_Income_Object.Meta_Passive_Quartz & \"                      \"  \n& \"Bauxite Income: \" & Meta_Passive_Income_Object.Meta_Passive_Bauxite & \"            \"\n"
+								"text": "\"Every Second: \" & newline &\n\n\"Coal Income: \" & Meta_Passive_Income_Object.Meta_Passive_Coal  & newline &\"Quartz Income: \" & Meta_Passive_Income_Object.Meta_Passive_Quartz & newline\n& \"Bauxite Income: \" & Meta_Passive_Income_Object.Meta_Passive_Bauxite & newline\n"
 							}
 						},
 						{
@@ -15812,10 +15812,10 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "Meta_Passive_Income_Object",
-															"sid": 470454474211366,
+															"sid": 511645364829706,
 															"parameters": {
 																"instance-variable": "Meta_Passive_Coal",
-																"value": "1+floor(Meta_Passive_Income_Object.Meta_Passive_Coal * 1)"
+																"value": "roundToDp(Meta_Passive_Income_Object.Meta_Passive_Coal * 1.1, 2 )"
 															}
 														},
 														{
@@ -16166,10 +16166,10 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "Meta_Passive_Income_Object",
-															"sid": 211593887963713,
+															"sid": 722784378310575,
 															"parameters": {
 																"instance-variable": "Meta_Passive_Quartz",
-																"value": "1+floor(Meta_Passive_Income_Object.Meta_Passive_Quartz * 1)"
+																"value": "roundToDp(Meta_Passive_Income_Object.Meta_Passive_Quartz * 1.1, 2 )"
 															}
 														},
 														{
@@ -16520,10 +16520,10 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "Meta_Passive_Income_Object",
-															"sid": 992059250574869,
+															"sid": 892527329951221,
 															"parameters": {
 																"instance-variable": "Meta_Passive_Bauxite",
-																"value": "1+floor(Meta_Passive_Income_Object.Meta_Passive_Bauxite * 1)"
+																"value": "roundToDp(Meta_Passive_Income_Object.Meta_Passive_Bauxite * 1.1, 2 )"
 															}
 														},
 														{
