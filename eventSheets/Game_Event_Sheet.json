@@ -30921,71 +30921,6 @@
 							"sid": 717368067010350
 						},
 						{
-							"eventType": "comment",
-							"text": "On Death"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 707889313236516,
-									"parameters": {
-										"instance-variable": "HP",
-										"comparison": 3,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "Miner_Box",
-									"sid": 488502322605245,
-									"parameters": {
-										"x": "1000",
-										"y": "1088"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Miner_Box",
-									"sid": 914101240839659,
-									"parameters": {
-										"instance-variable": "HP",
-										"value": "Miner_Box.Max_HP"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Miner_Box",
-									"sid": 753044673743344,
-									"parameters": {
-										"instance-variable": "Energy",
-										"value": "Miner_Box.Max_Energy"
-									}
-								},
-								{
-									"id": "set-default-color",
-									"objectClass": "Energy_Bar",
-									"sid": 391460994396899,
-									"parameters": {
-										"color": "rgbEx(24, 180, 29)"
-									}
-								},
-								{
-									"id": "set-default-color",
-									"objectClass": "HP_Bar",
-									"sid": 580290925582602,
-									"parameters": {
-										"color": "rgbEx(24, 180, 29)"
-									}
-								}
-							],
-							"sid": 169835360577021
-						},
-						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -31319,6 +31254,948 @@
 				}
 			],
 			"sid": 616610756106818
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Death Screen",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "On Death"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Box",
+							"sid": 315815224256991,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 318344056503303
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 700251501378229,
+							"parameters": {
+								"object": "Death_Screen",
+								"layer": "\"Foreground\"",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"callFunction": "Show_Miner_Inventory",
+							"sid": 241494474942484
+						}
+					],
+					"sid": 659675590588873,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Death_Screen",
+									"sid": 517910537820587,
+									"parameters": {
+										"object": "Death_Dump_Inventory_Button2",
+										"layer": "\"Foreground\"",
+										"image-point": "\"Dump_Inventory\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Death_Screen",
+									"sid": 428323249582556,
+									"parameters": {
+										"object": "Death_Keep_Inventory_Button",
+										"layer": "\"Foreground\"",
+										"image-point": "\"Keep_Inventory\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 798720647073835,
+									"parameters": {
+										"seconds": "0.5"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 744129276078170,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 462446983931856,
+									"parameters": {
+										"tag": "\"Death_Music\"",
+										"db": "-100",
+										"duration": "1",
+										"ending": "stop"
+									}
+								}
+							],
+							"sid": 148700077103297
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Box",
+							"sid": 905059476080192,
+							"parameters": {
+								"instance-variable": "Energy",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 688355038118343
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 952610710605235,
+							"parameters": {
+								"object": "Death_Screen",
+								"layer": "\"Foreground\"",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"callFunction": "Show_Miner_Inventory",
+							"sid": 843505445007368
+						}
+					],
+					"sid": 727189525493420,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Death_Screen",
+									"sid": 793113224968849,
+									"parameters": {
+										"object": "Death_Dump_Inventory_Button2",
+										"layer": "\"Foreground\"",
+										"image-point": "\"Dump_Inventory\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Death_Screen",
+									"sid": 210711280269621,
+									"parameters": {
+										"object": "Death_Keep_Inventory_Button",
+										"layer": "\"Foreground\"",
+										"image-point": "\"Keep_Inventory\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 435984535796992,
+									"parameters": {
+										"seconds": "0.5"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 873547963691907,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 375439084056423,
+									"parameters": {
+										"tag": "\"Death_Music\"",
+										"db": "-100",
+										"duration": "1",
+										"ending": "stop"
+									}
+								}
+							],
+							"sid": 396063993036633
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 940518458666414,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Death_Dump_Inventory_Button2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Death_Dump_Inventory_Button2",
+							"sid": 528589787276908,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Darken\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 356862284129536,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Death_Dump_Inventory_Button2",
+							"sid": 353964357625272,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Darken\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "SFX",
+							"sid": 309404663472416,
+							"parameters": {
+								"audio-file": "Teleporter Alex Cummings - Extreme Force - Cinematic Hyper Warp Stutter Impact",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 186870359699199,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Miner_Animations",
+									"sid": 927266422022835,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Pixellate\""
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Miner_Animations",
+									"sid": 291128260229514,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Swirl\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 618021951359278,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Miner_Box",
+									"sid": 361913114814899,
+									"parameters": {
+										"x": "960",
+										"y": "1216"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 305373318352288,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Miner_Animations",
+									"sid": 603929753733414,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Pixellate\""
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Miner_Animations",
+									"sid": 195363140349911,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Swirl\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 790370464925819,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "Miner_Box.Max_HP"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 872714203062756,
+									"parameters": {
+										"instance-variable": "Energy",
+										"value": "Miner_Box.Max_Energy"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 979787451101123,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Death_Screen_All",
+									"sid": 575778367001776
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 927471845193718,
+									"parameters": {
+										"instance-variable": "Coal",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 333800360686754,
+									"parameters": {
+										"instance-variable": "Quartz",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 255605904875269,
+									"parameters": {
+										"instance-variable": "Bauxite",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 246223197741790,
+									"parameters": {
+										"instance-variable": "Iron",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 955824005500610,
+									"parameters": {
+										"instance-variable": "Chromium",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 834232439796081,
+									"parameters": {
+										"instance-variable": "Copper",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 592600174491849,
+									"parameters": {
+										"instance-variable": "Lithium",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 991312935338034,
+									"parameters": {
+										"instance-variable": "Silver",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 497415492915575,
+									"parameters": {
+										"instance-variable": "Nickel",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 890827701691376,
+									"parameters": {
+										"instance-variable": "Zinc",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 194772621339198,
+									"parameters": {
+										"instance-variable": "Gold",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 696264023797956,
+									"parameters": {
+										"instance-variable": "Diamond",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 242885348460547,
+									"parameters": {
+										"instance-variable": "Weight",
+										"value": "100"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Miner_Animations",
+									"sid": 672434325863270,
+									"parameters": {
+										"animation": "\"Idle_Front\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 923290999760040,
+									"parameters": {
+										"tag": "\"Death_Music\"",
+										"db": "-100",
+										"duration": "1",
+										"ending": "stop"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 870244052315370,
+									"parameters": {
+										"audio-file": "Assaf Ayalon - Its All Right Baby",
+										"loop": "looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"Surface_Music\""
+									}
+								}
+							],
+							"sid": 870021009896672
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 615997532972021,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Death_Keep_Inventory_Button"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Death_Keep_Inventory_Button",
+							"sid": 916535130950062,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Darken\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 574792126160410,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Death_Keep_Inventory_Button",
+							"sid": 852546034493363,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Darken\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "SFX",
+							"sid": 183971284197853,
+							"parameters": {
+								"audio-file": "Teleporter Alex Cummings - Extreme Force - Cinematic Hyper Warp Stutter Impact",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 764888938749530,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Miner_Animations",
+									"sid": 862498467310049,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Pixellate\""
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Miner_Animations",
+									"sid": 267525180834256,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Swirl\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 305719123389516,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Miner_Box",
+									"sid": 562421753729835,
+									"parameters": {
+										"x": "960",
+										"y": "1216"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 806695943748258,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Miner_Animations",
+									"sid": 878618895537622,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Pixellate\""
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Miner_Animations",
+									"sid": 749706417560364,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Swirl\""
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 255259375690456,
+									"parameters": {
+										"instance-variable": "Money",
+										"value": "50"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 334329979225083,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "Miner_Box.Max_HP"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 973293139925617,
+									"parameters": {
+										"instance-variable": "Energy",
+										"value": "Miner_Box.Max_Energy"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 854073232402505,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Death_Screen_All",
+									"sid": 898548599201385
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Miner_Animations",
+									"sid": 437112199580275,
+									"parameters": {
+										"animation": "\"Idle_Front\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 792623791534173,
+									"parameters": {
+										"tag": "\"Death_Music\"",
+										"db": "-100",
+										"duration": "1",
+										"ending": "stop"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 106473675243380,
+									"parameters": {
+										"audio-file": "Assaf Ayalon - Its All Right Baby",
+										"loop": "looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"Surface_Music\""
+									}
+								}
+							],
+							"sid": 391638584474625
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Box",
+							"sid": 142114138878685,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 294380461676900
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Miner_Animations",
+							"sid": 396996850985288,
+							"parameters": {
+								"animation": "\"Death\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Dust_Animations",
+							"sid": 316760661680844
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Miner_Drill",
+							"sid": 188310637046389
+						},
+						{
+							"id": "fade-volume",
+							"objectClass": "SFX",
+							"sid": 437492182925097,
+							"parameters": {
+								"tag": "\"Surface_Music\"",
+								"db": "-100",
+								"duration": "3",
+								"ending": "stop"
+							}
+						},
+						{
+							"id": "fade-volume",
+							"objectClass": "SFX",
+							"sid": 413707406707958,
+							"parameters": {
+								"tag": "\"Low_Energy\"",
+								"db": "-100",
+								"duration": "1",
+								"ending": "stop"
+							}
+						}
+					],
+					"sid": 401705163900461,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 291592205544306
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 171837140313909,
+									"parameters": {
+										"audio-file": "Game Over Alberto Sueri - 8 Bit Fun -  Dramatic Game Theme Musical Phrase",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 644237587086423,
+									"parameters": {
+										"seconds": "5"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 706806006386297,
+									"parameters": {
+										"audio-file": "Death Music Sparrow Tree - Shimmering Light",
+										"loop": "looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"Death_Music\""
+									}
+								}
+							],
+							"sid": 295339944069812
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Miner_Box",
+							"sid": 578797056370448,
+							"parameters": {
+								"instance-variable": "Energy",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 919149707260365
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Miner_Animations",
+							"sid": 252447560890505,
+							"parameters": {
+								"animation": "\"Death\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Dust_Animations",
+							"sid": 301129445475861
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Miner_Drill",
+							"sid": 914629091034446
+						},
+						{
+							"id": "fade-volume",
+							"objectClass": "SFX",
+							"sid": 417080470671157,
+							"parameters": {
+								"tag": "\"Surface_Music\"",
+								"db": "-100",
+								"duration": "3",
+								"ending": "stop"
+							}
+						},
+						{
+							"id": "fade-volume",
+							"objectClass": "SFX",
+							"sid": 372470056753477,
+							"parameters": {
+								"tag": "\"Low_Energy\"",
+								"db": "-100",
+								"duration": "1",
+								"ending": "stop"
+							}
+						}
+					],
+					"sid": 874909012420753,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 459042109562272
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 818294698229369,
+									"parameters": {
+										"audio-file": "Game Over Alberto Sueri - 8 Bit Fun -  Dramatic Game Theme Musical Phrase",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 836717360729440,
+									"parameters": {
+										"seconds": "5"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 537857961243469,
+									"parameters": {
+										"audio-file": "Death Music Sparrow Tree - Shimmering Light",
+										"loop": "looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"Death_Music\""
+									}
+								}
+							],
+							"sid": 755660329750178
+						}
+					]
+				}
+			],
+			"sid": 929842219621500
 		},
 		{
 			"eventType": "group",
@@ -32276,6 +33153,133 @@
 				}
 			],
 			"sid": 697321010246842
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Show_Miner_Inventory",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Global_Inventory_Background_Black",
+							"sid": 477317387482247,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "HUD_Global_Inventory_Text",
+							"sid": 836162386555418,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "HUD_Miner_Inventory_Button",
+							"sid": 898465116420773,
+							"parameters": {
+								"animation": "\"Passive\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "HUD_Global_Inventory_Button",
+							"sid": 793914352655758,
+							"parameters": {
+								"animation": "\"Active\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 807583811513071,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-visible",
+									"objectClass": "Miner_Inventory_Background_Black",
+									"sid": 446210588531147
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Miner_Inventory_Background_Black",
+									"sid": 734018801751991,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 166530334296910,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Miner_Inventory_Button",
+									"sid": 648384669760055,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 459669899306239
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 725816090705405
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Miner_Inventory_Background_Black",
+									"sid": 467312270206920,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 523699234868284,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 488755515048153
+						}
+					]
+				}
+			],
+			"sid": 882352933895715
 		}
 	],
 	"sid": 196935397098049
