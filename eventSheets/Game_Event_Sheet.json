@@ -4200,6 +4200,33 @@
 								},
 								{
 									"id": "spawn-another-object",
+									"objectClass": "HUD_Menu_Background",
+									"sid": 250956872511406,
+									"parameters": {
+										"object": "Settings_Menu_Button",
+										"layer": "\"HUD\"",
+										"image-point": "\"Settings_Menu_Button\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Settings_Menu_Button",
+									"sid": 846774684337930,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "HUD_Menu_Background",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
 									"objectClass": "HUD_Grey",
 									"sid": 405715119358003,
 									"parameters": {
@@ -5238,6 +5265,55 @@
 						}
 					],
 					"sid": 557502173694722
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 225894599665630
+						},
+						{
+							"id": "is-silent",
+							"objectClass": "SFX",
+							"sid": 983375007603936
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Mute_Button",
+							"sid": 672748868670575,
+							"parameters": {
+								"animation": "\"On\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 665251127782871
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 836081900037402
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Mute_Button",
+							"sid": 867395839300505,
+							"parameters": {
+								"animation": "\"Off\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 654045036036691
 				}
 			],
 			"sid": 769195620327841
@@ -5750,15 +5826,6 @@
 									"parameters": {
 										"layer": "\"HUD\"",
 										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 278874202407597,
-									"parameters": {
-										"group-name": "\"Mechanical\"",
-										"state": "deactivated"
 									}
 								},
 								{
@@ -16665,6 +16732,455 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "Menu Buttons",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Sound Settings",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 817621716300105,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Sound_Settings_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 985060112973879,
+									"parameters": {
+										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Sound_Settings_Button",
+									"sid": 439780614632933,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 902805969843530,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Sound_Settings_Button",
+									"sid": 376947328889685,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 195653684335437,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Settings_Menu",
+											"sid": 445965432937352,
+											"parameters": {
+												"object": "Mute_Button",
+												"layer": "\"Foreground\"",
+												"image-point": "\"Mute_Button\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 361950369416983
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 734369752201089,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Mute_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Mute_Button",
+									"sid": 232035328695437,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 195163991794504,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Mute_Button",
+									"sid": 388588642149760,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 233356428089333,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Mute_Button",
+											"sid": 113295717196625,
+											"parameters": {
+												"animation": "\"Off\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-silent",
+											"objectClass": "SFX",
+											"sid": 985563887828236,
+											"parameters": {
+												"mode": "silent"
+											}
+										}
+									],
+									"sid": 225840991464136
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 628462406530442
+										}
+									],
+									"actions": [
+										{
+											"id": "set-silent",
+											"objectClass": "SFX",
+											"sid": 625838815227286,
+											"parameters": {
+												"mode": "not-silent"
+											}
+										}
+									],
+									"sid": 388307131075251
+								}
+							]
+						}
+					],
+					"sid": 853414724366451
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "General",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 981812585470943,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Main_Menu_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 488329526830992,
+									"parameters": {
+										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Main_Menu_Button",
+									"sid": 647603339522537,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 842903105057384,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Main_Menu_Button",
+									"sid": 787789874322129,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 653141037724544,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 628217484158027,
+											"parameters": {
+												"layout": "Main_Menu"
+											}
+										}
+									],
+									"sid": 854528692413539
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 247853068966851,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Settings_Menu_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 899293761332336,
+									"parameters": {
+										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Settings_Menu_Button",
+									"sid": 436303758504414,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 419908324681983,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Settings_Menu_Button",
+									"sid": 206645541206128,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 572508481518040,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Miner_Box",
+											"sid": 821734801074982,
+											"parameters": {
+												"object": "Settings_Menu",
+												"layer": "\"Foreground\"",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 421566487710881,
+											"parameters": {
+												"group-name": "\"Mechanical\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 443057793909081,
+											"parameters": {
+												"group-name": "\"Buildings\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 240620939519380,
+											"parameters": {
+												"layer": "\"HUD\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Settings_Menu",
+											"sid": 137695820212359,
+											"parameters": {
+												"object": "Sound_Settings_Button",
+												"layer": "\"Foreground\"",
+												"image-point": "\"Sound_Settings_Button\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 672521303950269
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 586601499153128,
+									"parameters": {
+										"key": 27
+									}
+								}
+							],
+							"actions": [],
+							"sid": 991580811635877,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "Settings_Menu",
+											"sid": 883541823862862
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Settings_Menu_Buttons",
+											"sid": 104739074615726
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 633583946048851,
+											"parameters": {
+												"group-name": "\"Mechanical\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 974797636919283,
+											"parameters": {
+												"group-name": "\"Buildings\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 327889897204178,
+											"parameters": {
+												"layer": "\"HUD\"",
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 517527766296562
+								}
+							]
+						}
+					],
+					"sid": 418466167204629
+				}
+			],
+			"sid": 849020203822699
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "Buildings",
 			"description": "",
 			"isActiveOnStart": true,
@@ -23679,63 +24195,6 @@
 						{
 							"eventType": "group",
 							"disabled": false,
-							"title": "Menu Buttons",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-object-clicked",
-											"objectClass": "Mouse",
-											"sid": 714060093706057,
-											"parameters": {
-												"mouse-button": "left",
-												"click-type": "clicked",
-												"object-clicked": "Main_Menu_Button"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 522696471344884,
-											"parameters": {
-												"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
-												"loop": "not-looping",
-												"volume": "0",
-												"stereo-pan": "0",
-												"tag-optional": "\"\""
-											}
-										}
-									],
-									"sid": 907471569833746,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "go-to-layout",
-													"objectClass": "System",
-													"sid": 427790167787221,
-													"parameters": {
-														"layout": "Main_Menu"
-													}
-												}
-											],
-											"sid": 714442878774828
-										}
-									]
-								}
-							],
-							"sid": 194898505156222
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
 							"title": "HUD Buttons",
 							"description": "",
 							"isActiveOnStart": true,
@@ -24624,8 +25083,8 @@
 												},
 												{
 													"id": "set-visible",
-													"objectClass": "Main_Menu_Button",
-													"sid": 212880364315598,
+													"objectClass": "HUD_Menu_Buttons",
+													"sid": 528946188389674,
 													"parameters": {
 														"visibility": "invisible"
 													}
@@ -24653,8 +25112,8 @@
 												},
 												{
 													"id": "set-visible",
-													"objectClass": "Main_Menu_Button",
-													"sid": 776852866756622,
+													"objectClass": "HUD_Menu_Buttons",
+													"sid": 875274767144314,
 													"parameters": {
 														"visibility": "visible"
 													}
@@ -24744,8 +25203,8 @@
 												},
 												{
 													"id": "set-visible",
-													"objectClass": "Main_Menu_Button",
-													"sid": 817944237799162,
+													"objectClass": "HUD_Menu_Buttons",
+													"sid": 494810696114365,
 													"parameters": {
 														"visibility": "invisible"
 													}
@@ -24773,8 +25232,8 @@
 												},
 												{
 													"id": "set-visible",
-													"objectClass": "Main_Menu_Button",
-													"sid": 508155788329948,
+													"objectClass": "HUD_Menu_Buttons",
+													"sid": 698000540751663,
 													"parameters": {
 														"visibility": "visible"
 													}
