@@ -23595,6 +23595,78 @@
 														{
 															"id": "else",
 															"objectClass": "System",
+															"sid": 455194405840591
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 172412468301103,
+															"parameters": {
+																"variable": "Ore",
+																"comparison": 4,
+																"value": "0.6"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 815964310117806,
+															"parameters": {
+																"object-to-create": "Stone_Block",
+																"layer": "\"Player\"",
+																"x": "loopindex *64",
+																"y": "Y *64",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														}
+													],
+													"sid": 416316912591754
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 425053630048792
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 337457356415923,
+															"parameters": {
+																"variable": "Ore",
+																"comparison": 4,
+																"value": "0.5"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 596503155893919,
+															"parameters": {
+																"object-to-create": "Lava_Block",
+																"layer": "\"Player\"",
+																"x": "loopindex *64",
+																"y": "Y *64",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														}
+													],
+													"sid": 417797954993617
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
 															"sid": 531192027995561
 														}
 													],
@@ -28029,6 +28101,188 @@
 									"sid": 640135382729103
 								},
 								{
+									"eventType": "comment",
+									"text": "Stone Block"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Stone_Block",
+											"sid": 764604756962755,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Stone_Block",
+											"sid": 405304689577731
+										}
+									],
+									"sid": 251701977050676
+								},
+								{
+									"eventType": "comment",
+									"text": "Lava Block"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Lava_Block",
+											"sid": 839848489465107,
+											"parameters": {
+												"instance-variable": "Hp",
+												"comparison": 3,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Lava_Block",
+											"sid": 468696943898220,
+											"parameters": {
+												"instance-variable": "animationNumber",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Lava_Block",
+											"sid": 224138500548304
+										}
+									],
+									"sid": 124814788015490
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Miner_Drill",
+											"sid": 498275029526677,
+											"parameters": {
+												"object": "Lava_Block"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 504895078238705,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "0.1"
+											}
+										}
+									],
+									"sid": 735176196411196,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 170017459747934
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 601350136783469,
+													"parameters": {
+														"audio-file": "Low Energy Flaviu Ciocan - Space Sci Fi - Warning Alarm",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"Lava\""
+													}
+												}
+											],
+											"sid": 669089291821970
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-x-seconds",
+													"objectClass": "System",
+													"sid": 727374442793233,
+													"parameters": {
+														"interval-seconds": "0.5"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Miner_Animations",
+													"sid": 701790123708344,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"HardLight\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 470703545786500,
+													"parameters": {
+														"seconds": "0.25"
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Miner_Animations",
+													"sid": 789625625917034,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"HardLight\""
+													}
+												}
+											],
+											"sid": 218206375565449
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 649725855356184
+										}
+									],
+									"actions": [
+										{
+											"id": "fade-volume",
+											"objectClass": "SFX",
+											"sid": 216352608357931,
+											"parameters": {
+												"tag": "\"Lava\"",
+												"db": "-100",
+												"duration": "0.5",
+												"ending": "stop"
+											}
+										}
+									],
+									"sid": 442261134565006
+								},
+								{
 									"eventType": "group",
 									"disabled": false,
 									"title": "Pick Up Item",
@@ -28820,6 +29074,31 @@
 												}
 											],
 											"sid": 949264317642140
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Explosion_Area",
+													"sid": 451362189050492,
+													"parameters": {
+														"object": "Stone_Block"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Stone_Block",
+													"sid": 545599199683737,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "Explosion_Area.Explosion_Damage"
+													}
+												}
+											],
+											"sid": 750126411804701
 										}
 									],
 									"sid": 892589137614450
@@ -30651,10 +30930,10 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Miner_Box",
-									"sid": 363095911107053,
+									"sid": 707889313236516,
 									"parameters": {
 										"instance-variable": "HP",
-										"comparison": 0,
+										"comparison": 3,
 										"value": "0"
 									}
 								}
@@ -30663,9 +30942,9 @@
 								{
 									"id": "set-position",
 									"objectClass": "Miner_Box",
-									"sid": 606106831767388,
+									"sid": 488502322605245,
 									"parameters": {
-										"x": "256",
+										"x": "1000",
 										"y": "1088"
 									}
 								},
