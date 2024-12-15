@@ -5150,6 +5150,21 @@
 							"id": "move-to-top",
 							"objectClass": "Game_Concrete_Block",
 							"sid": 499434072154022
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Shop_Explainer_Text",
+							"sid": 398793227897418,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Shop_Explainer_Background",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
 						}
 					],
 					"sid": 215528164269866
@@ -17196,6 +17211,172 @@
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Shop Explainers",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 917544444365782,
+											"parameters": {
+												"object": "Add_To_Cart_Text"
+											}
+										},
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 949028771573562
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Shop_Explainer_Background",
+											"sid": 318873515191949,
+											"parameters": {
+												"x": "Mouse.X",
+												"y": "Mouse.Y"
+											}
+										}
+									],
+									"sid": 153650487427790,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 518893655257222,
+													"parameters": {
+														"object": "Add_To_Cart_Dynamite_Text"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 786895160813640,
+													"parameters": {
+														"text": "\"DYNAMITE - Used to destroy mining obstacles\" "
+													}
+												}
+											],
+											"sid": 256242314119966
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 526531239083259,
+													"parameters": {
+														"object": "Add_To_Cart_Battery_Text"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 502568381182999,
+													"parameters": {
+														"text": "\"BATTERY - Charges 50% of your max energy\" "
+													}
+												}
+											],
+											"sid": 137581818455525
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 726590783889549,
+													"parameters": {
+														"object": "Add_To_Cart_Repair_Kit_Text"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 365371933026585,
+													"parameters": {
+														"text": "\"REPAIR KIT - Repairs 20% of your max HP\" "
+													}
+												}
+											],
+											"sid": 664771619697683
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 801724197313984,
+													"parameters": {
+														"object": "Add_To_Cart_Teleporter_Text"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 600675119172170,
+													"parameters": {
+														"text": "\"TELEPORTER - Returns you back to the surface\" "
+													}
+												}
+											],
+											"sid": 228555260696608
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 365957784224487
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 151704865253819
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Shop_Explainer_Background",
+											"sid": 404587174471613,
+											"parameters": {
+												"x": "2496",
+												"y": "704"
+											}
+										}
+									],
+									"sid": 152753409249773
+								}
+							],
+							"sid": 338195397812321
+						},
 						{
 							"eventType": "variable",
 							"name": "Shopping_List",
@@ -33245,7 +33426,8 @@
 									}
 								}
 							],
-							"sid": 459669899306239
+							"sid": 459669899306239,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -33253,7 +33435,8 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 725816090705405
+									"sid": 725816090705405,
+									"disabled": true
 								}
 							],
 							"actions": [
