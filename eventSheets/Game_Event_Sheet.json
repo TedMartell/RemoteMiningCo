@@ -17212,6 +17212,874 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
+							"eventType": "variable",
+							"name": "Shopping_List",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 686157891672960
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Add to ShopCart",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 354922311004620,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Add_To_Cart_Dynamite_Text"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 728591652009432,
+											"parameters": {
+												"instance-variable": "Money",
+												"comparison": 5,
+												"value": "Shop_Cart_Object.Amount_Due +5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 305449470811554,
+											"parameters": {
+												"audio-file": "Artlist Studios - Credit Card - ATM Single Button Beep",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Add_To_Cart_Background_Dynamite",
+											"sid": 779740399903715,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 927580901287235,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Add_To_Cart_Background_Dynamite",
+											"sid": 614914305644788,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 731073207988129,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 625333850205546,
+													"parameters": {
+														"instance-variable": "Dynamite",
+														"value": "1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 324229117307687,
+													"parameters": {
+														"instance-variable": "Amount_Due",
+														"value": "5"
+													}
+												}
+											],
+											"sid": 311112451328641,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-tag-playing",
+															"objectClass": "SFX",
+															"sid": 490909748354436,
+															"parameters": {
+																"tag": "\"Shopkeeper\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 331679323820203,
+															"parameters": {
+																"audio-file": "boomDynamite",
+																"loop": "not-looping",
+																"volume": "-5",
+																"stereo-pan": "0",
+																"tag-optional": "\"Shopkeeper\""
+															}
+														}
+													],
+													"sid": 980943617547372
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 338268095832470,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Add_To_Cart_Teleporter_Text"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 150910618334139,
+											"parameters": {
+												"instance-variable": "Money",
+												"comparison": 5,
+												"value": "Shop_Cart_Object.Amount_Due +50"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 430174255433084,
+											"parameters": {
+												"audio-file": "Artlist Studios - Credit Card - ATM Single Button Beep",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Add_To_Cart_Background_Teleporter",
+											"sid": 750889168551219,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 932415610660896,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Add_To_Cart_Background_Teleporter",
+											"sid": 960583335097042,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 987130394412103,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 943849690143710,
+													"parameters": {
+														"instance-variable": "Teleporter",
+														"value": "1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 959571473135622,
+													"parameters": {
+														"instance-variable": "Amount_Due",
+														"value": "50"
+													}
+												}
+											],
+											"sid": 943267712294412,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-tag-playing",
+															"objectClass": "SFX",
+															"sid": 997701744370743,
+															"parameters": {
+																"tag": "\"Shopkeeper\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 202137270341165,
+															"parameters": {
+																"audio-file": "zipZap",
+																"loop": "not-looping",
+																"volume": "-5",
+																"stereo-pan": "0",
+																"tag-optional": "\"Shopkeeper\""
+															}
+														}
+													],
+													"sid": 439752375508163
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 329781873095499,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Add_To_Cart_Battery_Text"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 592356663931251,
+											"parameters": {
+												"instance-variable": "Money",
+												"comparison": 5,
+												"value": "Shop_Cart_Object.Amount_Due +20"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 280671115442335,
+											"parameters": {
+												"audio-file": "Artlist Studios - Credit Card - ATM Single Button Beep",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Add_To_Cart_Background_Battery",
+											"sid": 302098968775299,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 126851340973885,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Add_To_Cart_Background_Battery",
+											"sid": 781445722112289,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 986950878412455,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 705957677249998,
+													"parameters": {
+														"instance-variable": "Battery",
+														"value": "1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 462827972934586,
+													"parameters": {
+														"instance-variable": "Amount_Due",
+														"value": "20"
+													}
+												}
+											],
+											"sid": 358030902063319,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-tag-playing",
+															"objectClass": "SFX",
+															"sid": 667499666157965,
+															"parameters": {
+																"tag": "\"Shopkeeper\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 395267400999581,
+															"parameters": {
+																"audio-file": "keepsYouGoin",
+																"loop": "not-looping",
+																"volume": "-5",
+																"stereo-pan": "0",
+																"tag-optional": "\"Shopkeeper\""
+															}
+														}
+													],
+													"sid": 601552391352589
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 845221330385877,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Add_To_Cart_Repair_Kit_Text"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 703559317290169,
+											"parameters": {
+												"instance-variable": "Money",
+												"comparison": 5,
+												"value": "Shop_Cart_Object.Amount_Due +7"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 629985480941352,
+											"parameters": {
+												"audio-file": "Artlist Studios - Credit Card - ATM Single Button Beep",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Add_To_Cart_Background_Repair_Kit",
+											"sid": 595653806056154,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 725291986875452,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Add_To_Cart_Background_Repair_Kit",
+											"sid": 795902601601377,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 501506450148251,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 350006180920706,
+													"parameters": {
+														"instance-variable": "Repair_Kit",
+														"value": "1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 559606693881608,
+													"parameters": {
+														"instance-variable": "Amount_Due",
+														"value": "7"
+													}
+												}
+											],
+											"sid": 825975114364333,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-tag-playing",
+															"objectClass": "SFX",
+															"sid": 610570027493373,
+															"parameters": {
+																"tag": "\"Shopkeeper\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 288080059647424,
+															"parameters": {
+																"audio-file": "repairRepair",
+																"loop": "not-looping",
+																"volume": "-5",
+																"stereo-pan": "0",
+																"tag-optional": "\"Shopkeeper\""
+															}
+														}
+													],
+													"sid": 781073689551353
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 506909178860862
+										}
+									],
+									"actions": [
+										{
+											"type": "script",
+											"script": "localVars.Shopping_List = `Dynamite ${runtime.objects.Shop_Cart_Object.instVars}`"
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Shop_Amount_Due_Text",
+											"sid": 638610101167626,
+											"parameters": {
+												"text": "Shop_Cart_Object.Amount_Due"
+											}
+										}
+									],
+									"sid": 268340046916083
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 240073593969618,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Shop_Buy_Button"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 912326038547786,
+											"parameters": {
+												"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Shop_Buy_Button",
+											"sid": 900883613804053,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 661277542967853,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Shop_Buy_Button",
+											"sid": 854679234563980,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 553358217404734,
+											"parameters": {
+												"instance-variable": "Money",
+												"value": "Shop_Cart_Object.Amount_Due"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 125119842935314,
+											"parameters": {
+												"instance-variable": "Dynamite",
+												"value": "Shop_Cart_Object.Dynamite"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 802035262072874,
+											"parameters": {
+												"instance-variable": "Battery",
+												"value": "Shop_Cart_Object.Battery"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 626172074745994,
+											"parameters": {
+												"instance-variable": "Repair_Kit",
+												"value": "Shop_Cart_Object.Repair_Kit"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 327286761510393,
+											"parameters": {
+												"instance-variable": "Teleporter",
+												"value": "Shop_Cart_Object.Teleporter"
+											}
+										}
+									],
+									"sid": 143233710755199,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 314145664771910,
+													"parameters": {
+														"instance-variable": "Amount_Due",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 631138619473284,
+													"parameters": {
+														"instance-variable": "Battery",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 107352932353758,
+													"parameters": {
+														"instance-variable": "Dynamite",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 183231738906502,
+													"parameters": {
+														"instance-variable": "Repair_Kit",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 815626228968440,
+													"parameters": {
+														"instance-variable": "Teleporter",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 636065073064638,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-tag-playing",
+															"objectClass": "SFX",
+															"sid": 836627357548991,
+															"parameters": {
+																"tag": "\"Shopkeeper\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 959986196411094,
+															"parameters": {
+																"audio-file": "oohMoney",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"Shopkeeper\""
+															}
+														}
+													],
+													"sid": 995542466357119
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 647664224123041,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Shop_Reset_Button"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 639208837877743,
+											"parameters": {
+												"audio-file": "Mechanical Wave - Toys - Button Pushing Beeping",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Shop_Reset_Button",
+											"sid": 928476690663605,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 654126499825896,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Shop_Reset_Button",
+											"sid": 135874346625130,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 448994890930434,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 331908203905159,
+													"parameters": {
+														"instance-variable": "Amount_Due",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 501454284489958,
+													"parameters": {
+														"instance-variable": "Battery",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 731088304317668,
+													"parameters": {
+														"instance-variable": "Dynamite",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 325646063725996,
+													"parameters": {
+														"instance-variable": "Repair_Kit",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 208481905873319,
+													"parameters": {
+														"instance-variable": "Teleporter",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 259632908919383,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-tag-playing",
+															"objectClass": "SFX",
+															"sid": 117192540534180,
+															"parameters": {
+																"tag": "\"Shopkeeper\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 965950487354928,
+															"parameters": {
+																"audio-file": "notGoodEnough",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"Shopkeeper\""
+															}
+														}
+													],
+													"sid": 682989914437998
+												}
+											]
+										}
+									]
+								}
+							],
+							"sid": 618171379711660
+						},
+						{
 							"eventType": "group",
 							"disabled": false,
 							"title": "Shop Explainers",
@@ -17378,679 +18246,29 @@
 							"sid": 338195397812321
 						},
 						{
-							"eventType": "variable",
-							"name": "Shopping_List",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 288627813765020
-						},
-						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 799259870695394,
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 867260489783298,
 									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Add_To_Cart_Dynamite_Text"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 771485590620939,
-									"parameters": {
-										"instance-variable": "Money",
-										"comparison": 5,
-										"value": "Shop_Cart_Object.Amount_Due +5"
+										"interval-seconds": "300"
 									}
 								}
 							],
 							"actions": [
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 994524163809846,
-									"parameters": {
-										"audio-file": "Artlist Studios - Credit Card - ATM Single Button Beep",
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 475848521217793,
-									"parameters": {
-										"instance-variable": "Dynamite",
-										"value": "1"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 755378683524057,
-									"parameters": {
-										"instance-variable": "Amount_Due",
-										"value": "5"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Add_To_Cart_Background_Dynamite",
-									"sid": 519888087502170,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 941931331861682,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Add_To_Cart_Background_Dynamite",
-									"sid": 651209786676077,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"Darken\""
-									}
-								}
-							],
-							"sid": 874551148666104
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 483239113386090,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Add_To_Cart_Teleporter_Text"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 868747331593322,
-									"parameters": {
-										"instance-variable": "Money",
-										"comparison": 5,
-										"value": "Shop_Cart_Object.Amount_Due +50"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 693631691024347,
-									"parameters": {
-										"audio-file": "Artlist Studios - Credit Card - ATM Single Button Beep",
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 325765454210545,
-									"parameters": {
-										"instance-variable": "Teleporter",
-										"value": "1"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 151196733925521,
-									"parameters": {
-										"instance-variable": "Amount_Due",
-										"value": "50"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Add_To_Cart_Background_Teleporter",
-									"sid": 306982050742276,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 359096378488140,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Add_To_Cart_Background_Teleporter",
-									"sid": 103999233348732,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"Darken\""
-									}
-								}
-							],
-							"sid": 779795008285494
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 598656139552636,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Add_To_Cart_Battery_Text"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 784842336308039,
-									"parameters": {
-										"instance-variable": "Money",
-										"comparison": 5,
-										"value": "Shop_Cart_Object.Amount_Due +20"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 594579366277858,
-									"parameters": {
-										"audio-file": "Artlist Studios - Credit Card - ATM Single Button Beep",
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 711910701226727,
-									"parameters": {
-										"instance-variable": "Battery",
-										"value": "1"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 248853479596276,
-									"parameters": {
-										"instance-variable": "Amount_Due",
-										"value": "20"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Add_To_Cart_Background_Battery",
-									"sid": 708858157808322,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 969924047992183,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Add_To_Cart_Background_Battery",
-									"sid": 647704583507882,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"Darken\""
-									}
-								}
-							],
-							"sid": 768553956659890
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 584885408221301,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Add_To_Cart_Repair_Kit_Text"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 277122842232425,
-									"parameters": {
-										"instance-variable": "Money",
-										"comparison": 5,
-										"value": "Shop_Cart_Object.Amount_Due +7"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 976493654924512,
-									"parameters": {
-										"audio-file": "Artlist Studios - Credit Card - ATM Single Button Beep",
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 948637325503709,
-									"parameters": {
-										"instance-variable": "Repair_Kit",
-										"value": "1"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 519656824855594,
-									"parameters": {
-										"instance-variable": "Amount_Due",
-										"value": "7"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Add_To_Cart_Background_Repair_Kit",
-									"sid": 317638358516009,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 170284159289938,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Add_To_Cart_Background_Repair_Kit",
-									"sid": 323254416087995,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"Darken\""
-									}
-								}
-							],
-							"sid": 114541853693098
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "every-tick",
-									"objectClass": "System",
-									"sid": 263489373792648
-								}
-							],
-							"actions": [
-								{
-									"type": "script",
-									"script": "localVars.Shopping_List = `Dynamite ${runtime.objects.Shop_Cart_Object.instVars}`"
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Shop_Amount_Due_Text",
-									"sid": 612501633675865,
-									"parameters": {
-										"text": "Shop_Cart_Object.Amount_Due"
-									}
-								}
-							],
-							"sid": 887587678685700
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 397072197922369,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Shop_Buy_Button"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 387653214077790,
-									"parameters": {
-										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Shop_Buy_Button",
-									"sid": 435558095267951,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 310763250260003,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Shop_Buy_Button",
-									"sid": 423475375436313,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "subtract-from-instvar",
-									"objectClass": "Miner_Box",
-									"sid": 622537601031119,
-									"parameters": {
-										"instance-variable": "Money",
-										"value": "Shop_Cart_Object.Amount_Due"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Miner_Box",
-									"sid": 210448096556091,
-									"parameters": {
-										"instance-variable": "Dynamite",
-										"value": "Shop_Cart_Object.Dynamite"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Miner_Box",
-									"sid": 396109086813013,
-									"parameters": {
-										"instance-variable": "Battery",
-										"value": "Shop_Cart_Object.Battery"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Miner_Box",
-									"sid": 532582492453280,
-									"parameters": {
-										"instance-variable": "Repair_Kit",
-										"value": "Shop_Cart_Object.Repair_Kit"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Miner_Box",
-									"sid": 637226182310897,
-									"parameters": {
-										"instance-variable": "Teleporter",
-										"value": "Shop_Cart_Object.Teleporter"
-									}
-								},
-								{
-									"id": "create-item",
-									"objectClass": "Inventory",
-									"sid": 206281182536799,
-									"disabled": true,
-									"parameters": {
-										"type": "\"Dynamite_Inv\"",
-										"quantity": "Shop_Cart_Object.Dynamite",
-										"inventory-id": "\"Inventory_Consumables\"",
-										"slot-id": "\"0\""
-									}
-								},
-								{
-									"id": "create-item",
-									"objectClass": "Inventory",
-									"sid": 789667705531378,
-									"disabled": true,
-									"parameters": {
-										"type": "\"Teleporter_Inv\"",
-										"quantity": "Shop_Cart_Object.Teleporter",
-										"inventory-id": "\"Inventory_Consumables\"",
-										"slot-id": "\"1\""
-									}
-								},
-								{
-									"id": "create-item",
-									"objectClass": "Inventory",
-									"sid": 573073886057655,
-									"disabled": true,
-									"parameters": {
-										"type": "\"Battery_Inv\"",
-										"quantity": "Shop_Cart_Object.Battery",
-										"inventory-id": "\"Inventory_Consumables\"",
-										"slot-id": "\"2\""
-									}
-								},
-								{
-									"id": "create-item",
-									"objectClass": "Inventory",
-									"sid": 802026828594724,
-									"disabled": true,
-									"parameters": {
-										"type": "\"Repair_Kit_Inv\"",
-										"quantity": "Shop_Cart_Object.Repair_Kit",
-										"inventory-id": "\"Inventory_Consumables\"",
-										"slot-id": "\"3\""
-									}
-								}
-							],
-							"sid": 167684261439100,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Shop_Cart_Object",
-											"sid": 506589507509544,
-											"parameters": {
-												"instance-variable": "Amount_Due",
-												"value": "0"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Shop_Cart_Object",
-											"sid": 961835118380340,
-											"parameters": {
-												"instance-variable": "Battery",
-												"value": "0"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Shop_Cart_Object",
-											"sid": 385126123875850,
-											"parameters": {
-												"instance-variable": "Dynamite",
-												"value": "0"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Shop_Cart_Object",
-											"sid": 222666504192985,
-											"parameters": {
-												"instance-variable": "Repair_Kit",
-												"value": "0"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Shop_Cart_Object",
-											"sid": 524992310513120,
-											"parameters": {
-												"instance-variable": "Teleporter",
-												"value": "0"
-											}
-										}
-									],
-									"sid": 655480520561563
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 580107541022176,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Shop_Reset_Button"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 138115020278782,
-									"parameters": {
-										"audio-file": "Mechanical Wave - Toys - Button Pushing Beeping",
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Shop_Reset_Button",
-									"sid": 868242352350118,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 280633402019661,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Shop_Reset_Button",
-									"sid": 544878928195870,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"Darken\""
-									}
-								},
 								{
 									"id": "set-instvar-value",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 577731476775077,
+									"objectClass": "Shopkeeper_Sprite",
+									"sid": 559995264162538,
 									"parameters": {
-										"instance-variable": "Amount_Due",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 695532676611220,
-									"parameters": {
-										"instance-variable": "Battery",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 910615484310815,
-									"parameters": {
-										"instance-variable": "Dynamite",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 262846458563714,
-									"parameters": {
-										"instance-variable": "Repair_Kit",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Shop_Cart_Object",
-									"sid": 851393161416580,
-									"parameters": {
-										"instance-variable": "Teleporter",
+										"instance-variable": "Welcome_Triggered",
 										"value": "0"
 									}
 								}
 							],
-							"sid": 851208277721336
+							"sid": 455706586450342
 						}
 					],
 					"sid": 173516556930715
@@ -18127,93 +18345,150 @@
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 690029948072359,
+							"children": [
 								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 253359615720540,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "save",
-									"objectClass": "System",
-									"sid": 847169993935138,
-									"parameters": {
-										"slot": "\"mysave\""
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 299695206157544,
-									"parameters": {
-										"layer": "\"Buildings\"",
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 671843288772471,
-									"parameters": {
-										"layer": "\"HUD\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 737307818983393,
-									"parameters": {
-										"layer": "\"Player\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 505532907659465,
-									"parameters": {
-										"layer": "\"Background\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 530454987537223,
-									"parameters": {
-										"group-name": "\"Mechanical\"",
-										"state": "deactivated"
-									}
-								},
-								{
-									"id": "fade-volume",
-									"objectClass": "SFX",
-									"sid": 993427417849411,
-									"parameters": {
-										"tag": "\"Surface_Music\"",
-										"db": "-100",
-										"duration": "1",
-										"ending": "stop"
-									}
-								},
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 241134873369143,
-									"parameters": {
-										"audio-file": "T. Bless - Froggy Fraud Adventure",
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"Shop_Music\""
-									}
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 666842806535814,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "save",
+											"objectClass": "System",
+											"sid": 498848082276622,
+											"parameters": {
+												"slot": "\"mysave\""
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 216309292168478,
+											"parameters": {
+												"layer": "\"Buildings\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 872199930644520,
+											"parameters": {
+												"layer": "\"HUD\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 261572084015273,
+											"parameters": {
+												"layer": "\"Player\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 685479780662584,
+											"parameters": {
+												"layer": "\"Background\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 311751197742902,
+											"parameters": {
+												"group-name": "\"Mechanical\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "fade-volume",
+											"objectClass": "SFX",
+											"sid": 225742383066275,
+											"parameters": {
+												"tag": "\"Surface_Music\"",
+												"db": "-100",
+												"duration": "1",
+												"ending": "stop"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 858934353971028,
+											"parameters": {
+												"audio-file": "T. Bless - Froggy Fraud Adventure",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"Shop_Music\""
+											}
+										}
+									],
+									"sid": 190126751604520,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Shopkeeper_Sprite",
+													"sid": 136052931488632,
+													"parameters": {
+														"instance-variable": "Welcome_Triggered",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 477793086073288,
+													"parameters": {
+														"seconds": "1.5"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 275209303850581,
+													"parameters": {
+														"audio-file": "welcomeToMyStore",
+														"loop": "not-looping",
+														"volume": "-5",
+														"stereo-pan": "0",
+														"tag-optional": "\"Shopkeeper\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Shopkeeper_Sprite",
+													"sid": 609160108980458,
+													"parameters": {
+														"instance-variable": "Welcome_Triggered",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 498036695150476
+										}
+									]
 								}
-							],
-							"sid": 690029948072359
+							]
 						},
 						{
 							"eventType": "block",
@@ -18237,93 +18512,197 @@
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 784041370995130,
+							"children": [
 								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 339084024833878,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 841967638151447,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "save",
+											"objectClass": "System",
+											"sid": 710526214131010,
+											"parameters": {
+												"slot": "\"mysave\""
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 359796329942157,
+											"parameters": {
+												"layer": "\"Buildings\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 474747047864926,
+											"parameters": {
+												"layer": "\"HUD\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 372625640994808,
+											"parameters": {
+												"layer": "\"Player\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 286564922827556,
+											"parameters": {
+												"layer": "\"Background\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 230711121131030,
+											"parameters": {
+												"group-name": "\"Mechanical\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "fade-volume",
+											"objectClass": "SFX",
+											"sid": 198860584138686,
+											"parameters": {
+												"tag": "\"Surface_Music\"",
+												"db": "-100",
+												"duration": "1",
+												"ending": "stop"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 907929811376234,
+											"parameters": {
+												"audio-file": "T. Bless - Froggy Fraud Adventure",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"Shop_Music\""
+											}
+										}
+									],
+									"sid": 513978616818850,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Shopkeeper_Sprite",
+													"sid": 656487176051019,
+													"parameters": {
+														"instance-variable": "Welcome_Triggered",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 119905770422300,
+													"parameters": {
+														"seconds": "1.5"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 571502515650872,
+													"parameters": {
+														"audio-file": "welcomeToMyStore",
+														"loop": "not-looping",
+														"volume": "-5",
+														"stereo-pan": "0",
+														"tag-optional": "\"Shopkeeper\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Shopkeeper_Sprite",
+													"sid": 889103261553459,
+													"parameters": {
+														"instance-variable": "Welcome_Triggered",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 600116731940307
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
 								{
-									"id": "save",
-									"objectClass": "System",
-									"sid": 834092541727729,
-									"parameters": {
-										"slot": "\"mysave\""
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 212293402594793,
-									"parameters": {
-										"layer": "\"Buildings\"",
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 551837395415026,
-									"parameters": {
-										"layer": "\"HUD\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 609188352153813,
-									"parameters": {
-										"layer": "\"Player\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 989879714491559,
-									"parameters": {
-										"layer": "\"Background\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 968655573749890,
-									"parameters": {
-										"group-name": "\"Mechanical\"",
-										"state": "deactivated"
-									}
-								},
-								{
-									"id": "fade-volume",
+									"id": "is-tag-playing",
 									"objectClass": "SFX",
-									"sid": 564359252787600,
+									"sid": 480557700105607,
 									"parameters": {
-										"tag": "\"Surface_Music\"",
-										"db": "-100",
-										"duration": "1",
-										"ending": "stop"
-									}
-								},
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 787707108332116,
-									"parameters": {
-										"audio-file": "T. Bless - Froggy Fraud Adventure",
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"Shop_Music\""
+										"tag": "\"Shopkeeper\""
 									}
 								}
 							],
-							"sid": 784041370995130
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Shopkeeper_Sprite",
+									"sid": 245744199163810,
+									"parameters": {
+										"animation": "\"Talk\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 835398260949866
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 416785015346544
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Shopkeeper_Sprite",
+									"sid": 147753555133000,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 854845901916060
 						}
 					],
 					"sid": 831495138918714
@@ -25071,6 +25450,24 @@
 													"parameters": {
 														"visibility": "invisible"
 													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Quest_Button",
+													"sid": 583976882770473,
+													"parameters": {
+														"animation": "\"Active\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Menu_Button",
+													"sid": 291385804820326,
+													"parameters": {
+														"animation": "\"Active\"",
+														"from": "beginning"
+													}
 												}
 											],
 											"sid": 794064567876432
@@ -25115,6 +25512,24 @@
 													"sid": 308441432064299,
 													"parameters": {
 														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Quest_Button",
+													"sid": 424740199803559,
+													"parameters": {
+														"animation": "\"Passive\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Menu_Button",
+													"sid": 741487573030099,
+													"parameters": {
+														"animation": "\"Active\"",
+														"from": "beginning"
 													}
 												}
 											],
@@ -25199,6 +25614,24 @@
 													"parameters": {
 														"visibility": "invisible"
 													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Quest_Button",
+													"sid": 394427376589917,
+													"parameters": {
+														"animation": "\"Active\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Menu_Button",
+													"sid": 388240899359189,
+													"parameters": {
+														"animation": "\"Active\"",
+														"from": "beginning"
+													}
 												}
 											],
 											"sid": 266841557688243
@@ -25243,6 +25676,24 @@
 													"sid": 791775901422576,
 													"parameters": {
 														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Quest_Button",
+													"sid": 973353397541280,
+													"parameters": {
+														"animation": "\"Passive\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Menu_Button",
+													"sid": 328009415830277,
+													"parameters": {
+														"animation": "\"Active\"",
+														"from": "beginning"
 													}
 												}
 											],
@@ -25341,6 +25792,24 @@
 													"parameters": {
 														"visibility": "invisible"
 													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Quest_Button",
+													"sid": 149878031650697,
+													"parameters": {
+														"animation": "\"Active\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Menu_Button",
+													"sid": 450881663388596,
+													"parameters": {
+														"animation": "\"Active\"",
+														"from": "beginning"
+													}
 												}
 											],
 											"sid": 893378362847864
@@ -25369,6 +25838,24 @@
 													"sid": 875274767144314,
 													"parameters": {
 														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Quest_Button",
+													"sid": 721741876936214,
+													"parameters": {
+														"animation": "\"Active\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Menu_Button",
+													"sid": 635233812014975,
+													"parameters": {
+														"animation": "\"Passive\"",
+														"from": "beginning"
 													}
 												}
 											],
@@ -25461,6 +25948,24 @@
 													"parameters": {
 														"visibility": "invisible"
 													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Quest_Button",
+													"sid": 121233616904397,
+													"parameters": {
+														"animation": "\"Active\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Menu_Button",
+													"sid": 165628371154765,
+													"parameters": {
+														"animation": "\"Active\"",
+														"from": "beginning"
+													}
 												}
 											],
 											"sid": 536226873833667
@@ -25489,6 +25994,24 @@
 													"sid": 698000540751663,
 													"parameters": {
 														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Quest_Button",
+													"sid": 470919109914588,
+													"parameters": {
+														"animation": "\"Active\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Menu_Button",
+													"sid": 371230373068920,
+													"parameters": {
+														"animation": "\"Passive\"",
+														"from": "beginning"
 													}
 												}
 											],
