@@ -28884,10 +28884,10 @@
 										{
 											"id": "subtract-from-instvar",
 											"objectClass": "Miner_Box",
-											"sid": 504895078238705,
+											"sid": 735341316573994,
 											"parameters": {
 												"instance-variable": "HP",
-												"value": "0.1"
+												"value": "1"
 											}
 										}
 									],
@@ -31796,47 +31796,6 @@
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "every-x-seconds",
-															"objectClass": "System",
-															"sid": 934399526051680,
-															"parameters": {
-																"interval-seconds": "5"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "spawn-another-object",
-															"objectClass": "Miner_Box",
-															"sid": 339257751251479,
-															"parameters": {
-																"object": "Warning_Text_Miner",
-																"layer": "\"Player\"",
-																"image-point": "\"Item_Text\"",
-																"create-hierarchy": false,
-																"template-name": "\"\""
-															}
-														},
-														{
-															"id": "wait",
-															"objectClass": "System",
-															"sid": 449026508218956,
-															"parameters": {
-																"seconds": "3"
-															}
-														},
-														{
-															"id": "destroy",
-															"objectClass": "Warning_Text_Miner",
-															"sid": 548643265509561
-														}
-													],
-													"sid": 876154995347922
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
 															"id": "trigger-once-while-true",
 															"objectClass": "System",
 															"sid": 539925425372859
@@ -31857,6 +31816,47 @@
 														}
 													],
 													"sid": 386592216010657
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "every-x-seconds",
+															"objectClass": "System",
+															"sid": 853902322519127,
+															"parameters": {
+																"interval-seconds": "5"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Miner_Box",
+															"sid": 751741260795765,
+															"parameters": {
+																"object": "Warning_Text_Miner",
+																"layer": "\"Player\"",
+																"image-point": "\"Item_Text\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 737579719344697,
+															"parameters": {
+																"seconds": "3"
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "Warning_Text_Miner",
+															"sid": 948713596831622
+														}
+													],
+													"sid": 828735801445537
 												}
 											]
 										},
@@ -31931,7 +31931,69 @@
 													}
 												}
 											],
-											"sid": 874629762152103
+											"sid": 874629762152103,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "every-x-seconds",
+															"objectClass": "System",
+															"sid": 602162734877855,
+															"parameters": {
+																"interval-seconds": "1.0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-effect-enabled",
+															"objectClass": "Miner_Animations",
+															"sid": 823613701109698,
+															"parameters": {
+																"mode": "enable",
+																"effect": "\"HardLight\""
+															}
+														},
+														{
+															"id": "set-effect-enabled",
+															"objectClass": "HP_Bar",
+															"sid": 339194276606137,
+															"parameters": {
+																"mode": "enable",
+																"effect": "\"HardLight\""
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 902482405465184,
+															"parameters": {
+																"seconds": "0.25"
+															}
+														},
+														{
+															"id": "set-effect-enabled",
+															"objectClass": "HP_Bar",
+															"sid": 861198994986614,
+															"parameters": {
+																"mode": "disable",
+																"effect": "\"HardLight\""
+															}
+														},
+														{
+															"id": "set-effect-enabled",
+															"objectClass": "Miner_Animations",
+															"sid": 299847865810492,
+															"parameters": {
+																"mode": "disable",
+																"effect": "\"HardLight\""
+															}
+														}
+													],
+													"sid": 307785660894538
+												}
+											]
 										},
 										{
 											"eventType": "block",
@@ -31954,6 +32016,24 @@
 													"sid": 408322347095824,
 													"parameters": {
 														"color": "rgbEx(24, 180, 29)"
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "HP_Bar",
+													"sid": 137983352022154,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"HardLight\""
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Miner_Animations",
+													"sid": 347012885664925,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"HardLight\""
 													}
 												}
 											],
@@ -32109,19 +32189,19 @@
 								{
 									"id": "set-effect-enabled",
 									"objectClass": "Miner_Animations",
-									"sid": 724915745833156,
+									"sid": 306569774477855,
 									"parameters": {
 										"mode": "enable",
-										"effect": "\"HardLight\""
+										"effect": "\"Darken\""
 									}
 								},
 								{
 									"id": "set-effect-enabled",
 									"objectClass": "HP_Bar",
-									"sid": 427100524337042,
+									"sid": 714973726264467,
 									"parameters": {
 										"mode": "enable",
-										"effect": "\"HardLight\""
+										"effect": "\"Darken\""
 									}
 								},
 								{
@@ -32135,19 +32215,19 @@
 								{
 									"id": "set-effect-enabled",
 									"objectClass": "HP_Bar",
-									"sid": 312603405535028,
+									"sid": 204247440566399,
 									"parameters": {
 										"mode": "disable",
-										"effect": "\"HardLight\""
+										"effect": "\"Darken\""
 									}
 								},
 								{
 									"id": "set-effect-enabled",
 									"objectClass": "Miner_Animations",
-									"sid": 256810265196289,
+									"sid": 322802100469212,
 									"parameters": {
 										"mode": "disable",
-										"effect": "\"HardLight\""
+										"effect": "\"Darken\""
 									}
 								}
 							],
@@ -32218,19 +32298,19 @@
 								{
 									"id": "set-effect-enabled",
 									"objectClass": "Miner_Animations",
-									"sid": 227097176126578,
+									"sid": 903237950724263,
 									"parameters": {
 										"mode": "enable",
-										"effect": "\"HardLight\""
+										"effect": "\"Darken\""
 									}
 								},
 								{
 									"id": "set-effect-enabled",
 									"objectClass": "HP_Bar",
-									"sid": 361034910672514,
+									"sid": 185089628639889,
 									"parameters": {
 										"mode": "enable",
-										"effect": "\"HardLight\""
+										"effect": "\"Darken\""
 									}
 								},
 								{
@@ -32244,19 +32324,19 @@
 								{
 									"id": "set-effect-enabled",
 									"objectClass": "HP_Bar",
-									"sid": 667904824913683,
+									"sid": 146225725761369,
 									"parameters": {
 										"mode": "disable",
-										"effect": "\"HardLight\""
+										"effect": "\"Darken\""
 									}
 								},
 								{
 									"id": "set-effect-enabled",
 									"objectClass": "Miner_Animations",
-									"sid": 324914067072753,
+									"sid": 166474913989983,
 									"parameters": {
 										"mode": "disable",
-										"effect": "\"HardLight\""
+										"effect": "\"Darken\""
 									}
 								}
 							],
