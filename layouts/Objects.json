@@ -9,7 +9,7 @@
 				{
 					"type": "Miner_Drill",
 					"properties": {
-						"initially-visible": false,
+						"initially-visible": true,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -738,7 +738,7 @@
 				{
 					"type": "Explosion_Area",
 					"properties": {
-						"initially-visible": false,
+						"initially-visible": true,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -964,7 +964,7 @@
 					"behaviors": {
 						"Bullet": {
 							"properties": {
-								"speed": 400,
+								"speed": 1000,
 								"acceleration": 0,
 								"gravity": 0,
 								"bounce-off-solids": false,
@@ -1014,7 +1014,9 @@
 					"tags": "",
 					"instanceVariables": {
 						"Direction": 0,
-						"Active": 0
+						"Active": 0,
+						"DIR": "Right",
+						"ANIM": "Idle"
 					},
 					"behaviors": {
 						"Pin": {
@@ -7011,7 +7013,7 @@
 				{
 					"type": "HUD_Quest_Background",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -7069,7 +7071,7 @@
 						"wrapping": "word",
 						"text-direction": "ltr",
 						"icon-set": -1,
-						"initially-visible": true,
+						"initially-visible": false,
 						"origin": "top-left",
 						"read-aloud": false
 					},
@@ -7125,7 +7127,7 @@
 						"wrapping": "word",
 						"text-direction": "ltr",
 						"icon-set": -1,
-						"initially-visible": true,
+						"initially-visible": false,
 						"origin": "top-left",
 						"read-aloud": false
 					},
@@ -7163,7 +7165,7 @@
 				{
 					"type": "Claim_Button",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Passive",
 						"initial-frame": 0,
 						"enable-collisions": true,

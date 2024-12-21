@@ -633,7 +633,7 @@
 				{
 					"type": "Miner_Box",
 					"properties": {
-						"initially-visible": false,
+						"initially-visible": true,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -729,7 +729,9 @@
 					"tags": "",
 					"instanceVariables": {
 						"Direction": 0,
-						"Active": 0
+						"Active": 0,
+						"DIR": "Right",
+						"ANIM": "Idle"
 					},
 					"behaviors": {
 						"Pin": {
@@ -754,6 +756,214 @@
 						"height": 16,
 						"originX": 0.5,
 						"originY": 0.875,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Devil_Boss_Sprite",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 331,
+					"sid": 889046211254616,
+					"tags": "",
+					"instanceVariables": {
+						"HP": 50
+					},
+					"behaviors": {
+						"Platform": {
+							"properties": {
+								"max-speed": 330,
+								"acceleration": 1500,
+								"deceleration": 1500,
+								"jump-strength": 650,
+								"gravity": 1500,
+								"max-fall-speed": 1000,
+								"double-jump": false,
+								"jump-sustain": 0,
+								"default-controls": true,
+								"enabled": true
+							}
+						},
+						"Sine": {
+							"properties": {
+								"movement": "horizontal",
+								"wave": "sine",
+								"period": 4,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 50,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						},
+						"Sine2": {
+							"properties": {
+								"movement": "horizontal",
+								"wave": "sine",
+								"period": 4,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 50,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						},
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 889046211254616,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1728,
+						"y": 1088,
+						"width": 96,
+						"height": 192,
+						"originX": 0.4583333333333333,
+						"originY": 0.3489583333333333,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Devil_Boss_Pentagram",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Idle",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 335,
+					"sid": 943419960449095,
+					"tags": "",
+					"instanceVariables": {
+						"HP": 10
+					},
+					"behaviors": {
+						"Turret": {
+							"properties": {
+								"range": 5000,
+								"rate-of-fire": 10,
+								"rotate": true,
+								"rotate-speed": 180,
+								"target-mode": "first-in-range",
+								"predictive-aim": false,
+								"projectile-speed": 500,
+								"use-collision-cells": true,
+								"enabled": true
+							}
+						},
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 943419960449095,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1728,
+						"y": 1088,
+						"width": 28,
+						"height": 28,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Devil_Hitbox",
+					"properties": {
+						"initially-visible": false,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
+					"uid": 336,
+					"sid": 744885867540353,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 744885867540353,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1664,
+						"y": 960,
+						"width": 150,
+						"height": 250,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,
@@ -2443,8 +2653,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 489.0433060528765,
-						"y": 58.89837944903917,
+						"x": 488.9319219885631,
+						"y": 59.05198834215136,
 						"width": 128,
 						"height": 12,
 						"originX": 0,
@@ -2492,8 +2702,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 489.05600013210045,
-						"y": 58.696502217222616,
+						"x": 488.829791009976,
+						"y": 59.051999797420024,
 						"width": 128,
 						"height": 12,
 						"originX": 0,
@@ -2588,8 +2798,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 489.0258322213475,
-						"y": 29.130092221771633,
+						"x": 488.93392301812025,
+						"y": 29.15686139535505,
 						"width": 128,
 						"height": 12,
 						"originX": 0,
@@ -2637,8 +2847,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 489.0715405505006,
-						"y": 29.119153814756416,
+						"x": 488.9661467021174,
+						"y": 29.176194130597807,
 						"width": 128,
 						"height": 12,
 						"originX": 0,

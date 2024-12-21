@@ -109,28 +109,6 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 134755419780181
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position-to-another-object",
-							"objectClass": "Laser_Gun",
-							"sid": 372008344452367,
-							"parameters": {
-								"object": "Miner_Animations",
-								"image-point-optional": "\"Laser_Gun\""
-							}
-						}
-					],
-					"sid": 536454752566018
-				},
-				{
 					"eventType": "group",
 					"disabled": false,
 					"title": "Warehouse Spawns",
@@ -5118,7 +5096,6 @@
 							"id": "pin-to-object-properties",
 							"objectClass": "Devil_Hitbox",
 							"sid": 853337412302757,
-							"disabled": true,
 							"behaviorType": "Pin",
 							"parameters": {
 								"pin-to": "Devil_Boss_Sprite",
@@ -5134,7 +5111,6 @@
 							"id": "spawn-another-object",
 							"objectClass": "Devil_Boss_Sprite",
 							"sid": 582834222460639,
-							"disabled": true,
 							"parameters": {
 								"object": "Devil_Boss_Pentagram",
 								"layer": "\"Player\"",
@@ -5147,7 +5123,6 @@
 							"id": "pin-to-object-properties",
 							"objectClass": "Devil_Boss_Pentagram",
 							"sid": 473934282268135,
-							"disabled": true,
 							"behaviorType": "Pin",
 							"parameters": {
 								"pin-to": "Devil_Boss_Sprite",
@@ -5187,6 +5162,20 @@
 								"height-type": "no",
 								"z": false
 							}
+						},
+						{
+							"id": "pin-to-object-imagepoint",
+							"objectClass": "Laser_Gun",
+							"sid": 519270023912054,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Miner_Animations",
+								"image-point": "\"Laser_Gun\"",
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
 						}
 					],
 					"sid": 215528164269866
@@ -5215,6 +5204,15 @@
 							"id": "set-animation",
 							"objectClass": "Miner_Animations",
 							"sid": 742589122020026,
+							"parameters": {
+								"animation": "Self.ANIM & \"_\" & Self.DIR",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Laser_Gun",
+							"sid": 150370902888142,
 							"parameters": {
 								"animation": "Self.ANIM & \"_\" & Self.DIR",
 								"from": "beginning"
@@ -26096,6 +26094,15 @@
 										"instance-variable": "Direction",
 										"value": "1"
 									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Laser_Gun",
+									"sid": 602593278655480,
+									"parameters": {
+										"instance-variable": "DIR",
+										"value": "\"Right\""
+									}
 								}
 							],
 							"sid": 704151603478823,
@@ -26160,6 +26167,15 @@
 									"parameters": {
 										"instance-variable": "Direction",
 										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Laser_Gun",
+									"sid": 455268159680657,
+									"parameters": {
+										"instance-variable": "DIR",
+										"value": "\"Left\""
 									}
 								}
 							],
@@ -26301,251 +26317,438 @@
 							"sid": 506666680667968
 						},
 						{
-							"eventType": "comment",
-							"text": "Shooting"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 973935695807238,
-									"parameters": {
-										"key": 32
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Laser_Gun",
-									"sid": 140258899527765,
-									"parameters": {
-										"instance-variable": "Direction",
-										"comparison": 0,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 559257343843974,
-									"parameters": {
-										"object-to-create": "Bullet_Sprite",
-										"layer": "\"Player\"",
-										"x": "Laser_Gun.X +11",
-										"y": "Laser_Gun.Y -4",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-angle-of-motion",
-									"objectClass": "Bullet_Sprite",
-									"sid": 151278123247348,
-									"behaviorType": "Bullet",
-									"parameters": {
-										"angle": "180"
-									}
-								},
-								{
-									"id": "set-acceleration",
-									"objectClass": "Bullet_Sprite",
-									"sid": 281480373480472,
-									"behaviorType": "Bullet",
-									"parameters": {
-										"acceleration": "50"
-									}
-								}
-							],
-							"sid": 885076011367513
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 332637168298373,
-									"parameters": {
-										"key": 32
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Laser_Gun",
-									"sid": 918728316183182,
-									"parameters": {
-										"instance-variable": "Direction",
-										"comparison": 0,
-										"value": "1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 884757407239215,
-									"parameters": {
-										"object-to-create": "Bullet_Sprite",
-										"layer": "\"Player\"",
-										"x": "Laser_Gun.X +51",
-										"y": "Laser_Gun.Y -4",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-angle-of-motion",
-									"objectClass": "Bullet_Sprite",
-									"sid": 897898487583562,
-									"behaviorType": "Bullet",
-									"parameters": {
-										"angle": "0"
-									}
-								},
-								{
-									"id": "set-acceleration",
-									"objectClass": "Bullet_Sprite",
-									"sid": 584259025748875,
-									"behaviorType": "Bullet",
-									"parameters": {
-										"acceleration": "50"
-									}
-								}
-							],
-							"sid": 615587465153207
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Laser_Gun",
-									"sid": 219938473210925,
-									"parameters": {
-										"instance-variable": "Direction",
-										"comparison": 0,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "Laser_Gun",
-									"sid": 374827946366086,
-									"parameters": {
-										"animation": "\"Idle_Left\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 584425500277471
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 455735980260105
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "Laser_Gun",
-									"sid": 374613102288981,
-									"parameters": {
-										"animation": "\"Idle_Right\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 337072268025477
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 846895214688303,
-									"parameters": {
-										"key": 89
-									}
-								}
-							],
-							"actions": [],
-							"sid": 577387076258790,
+							"eventType": "group",
+							"disabled": false,
+							"title": "Shooting",
+							"description": "",
+							"isActiveOnStart": true,
 							"children": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Miner_Box",
-											"sid": 736363913104456,
-											"parameters": {
-												"instance-variable": "Laser_Gun",
-												"comparison": 0,
-												"value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation",
-											"objectClass": "Laser_Gun",
-											"sid": 498018246728902,
-											"parameters": {
-												"animation": "\"Idle_Right\"",
-												"from": "beginning"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Miner_Box",
-											"sid": 359356433371115,
-											"parameters": {
-												"instance-variable": "Laser_Gun",
-												"value": "1"
-											}
-										}
-									],
-									"sid": 794860010874884
+									"eventType": "comment",
+									"text": "Shoot Left"
 								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 637947990869564
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 129067885709869,
+											"parameters": {
+												"key": 32
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Laser_Gun",
+											"sid": 421432198034988,
+											"parameters": {
+												"instance-variable": "DIR",
+												"comparison": 0,
+												"value": "\"Left\""
+											}
 										}
 									],
 									"actions": [
 										{
-											"id": "destroy",
-											"objectClass": "Laser_Gun",
-											"sid": 174092200856865
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 173576821263156,
+											"parameters": {
+												"object-to-create": "Bullet_Sprite",
+												"layer": "\"Player\"",
+												"x": "Laser_Gun.X -30",
+												"y": "Laser_Gun.Y -4",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "Bullet_Sprite",
+											"sid": 731532588657419,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"angle": "180"
+											}
+										},
+										{
+											"id": "set-acceleration",
+											"objectClass": "Bullet_Sprite",
+											"sid": 260022145312497,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"acceleration": "0"
+											}
 										},
 										{
 											"id": "set-instvar-value",
-											"objectClass": "Miner_Box",
-											"sid": 435377310955955,
+											"objectClass": "Laser_Gun",
+											"sid": 415309381618263,
 											"parameters": {
-												"instance-variable": "Laser_Gun",
-												"value": "0"
+												"instance-variable": "ANIM",
+												"value": "\"Shoot\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 879890127686098,
+											"parameters": {
+												"seconds": "0.25"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Laser_Gun",
+											"sid": 243462458762381,
+											"parameters": {
+												"instance-variable": "ANIM",
+												"value": "\"Idle\""
 											}
 										}
 									],
-									"sid": 672875787734857
+									"sid": 471691647466365
+								},
+								{
+									"eventType": "comment",
+									"text": "Shoot Right"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 271560575143884,
+											"parameters": {
+												"key": 32
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Laser_Gun",
+											"sid": 801120010726045,
+											"parameters": {
+												"instance-variable": "DIR",
+												"comparison": 0,
+												"value": "\"Right\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 910672749955547,
+											"parameters": {
+												"object-to-create": "Bullet_Sprite",
+												"layer": "\"Player\"",
+												"x": "Laser_Gun.X +30",
+												"y": "Laser_Gun.Y -4",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "Bullet_Sprite",
+											"sid": 284337855926398,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"angle": "0"
+											}
+										},
+										{
+											"id": "set-acceleration",
+											"objectClass": "Bullet_Sprite",
+											"sid": 960089351320936,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"acceleration": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Laser_Gun",
+											"sid": 308828541071438,
+											"parameters": {
+												"instance-variable": "ANIM",
+												"value": "\"Shoot\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 256909450523695,
+											"parameters": {
+												"seconds": "0.25"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Laser_Gun",
+											"sid": 501017221447009,
+											"parameters": {
+												"instance-variable": "ANIM",
+												"value": "\"Idle\""
+											}
+										}
+									],
+									"sid": 470353034035625
+								},
+								{
+									"eventType": "group",
+									"disabled": true,
+									"title": "Laser Direction",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Laser_Gun",
+													"sid": 484576690239654,
+													"parameters": {
+														"instance-variable": "Direction",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Laser_Gun",
+													"sid": 717944928969516,
+													"parameters": {
+														"animation": "\"Idle_Left\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Laser_Gun",
+													"sid": 436735409797237,
+													"parameters": {
+														"frame-number": "0"
+													}
+												}
+											],
+											"sid": 474164620261088,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 156559793763660
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Laser_Gun",
+													"sid": 806525894124509,
+													"parameters": {
+														"animation": "\"Idle_Right\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Laser_Gun",
+													"sid": 680454016623492,
+													"parameters": {
+														"frame-number": "0"
+													}
+												}
+											],
+											"sid": 605616489114426,
+											"disabled": true
+										}
+									],
+									"sid": 720544558548610
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 443556028963968,
+											"parameters": {
+												"key": 89
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 357256071952217,
+											"parameters": {
+												"group-name": "\"Laser Direction\"",
+												"state": "deactivated"
+											}
+										}
+									],
+									"sid": 674275955317317,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Box",
+													"sid": 840208685324020,
+													"parameters": {
+														"instance-variable": "Laser_Gun",
+														"comparison": 0,
+														"value": "0"
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 785012708962850
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Laser_Gun",
+													"sid": 119928681041380,
+													"parameters": {
+														"animation": "\"Draw\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Laser_Gun",
+													"sid": 292982255217532,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Miner_Box",
+													"sid": 575947107066797,
+													"parameters": {
+														"instance-variable": "Laser_Gun",
+														"value": "1"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 300050366358499,
+													"parameters": {
+														"seconds": "0.5"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 396559695422325,
+													"parameters": {
+														"group-name": "\"Laser Direction\"",
+														"state": "activated"
+													}
+												}
+											],
+											"sid": 529698283253426
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 813208602864225
+												}
+											],
+											"actions": [
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 356461511132654,
+													"parameters": {
+														"group-name": "\"Laser Direction\"",
+														"state": "deactivated"
+													}
+												}
+											],
+											"sid": 612012019979694,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 852108943360818
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Laser_Gun",
+															"sid": 994608659197244,
+															"parameters": {
+																"animation": "\"Holster\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Miner_Box",
+															"sid": 313219198956252,
+															"parameters": {
+																"instance-variable": "Laser_Gun",
+																"value": "0"
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 148046521552346,
+															"parameters": {
+																"seconds": "0.5"
+															}
+														},
+														{
+															"id": "set-group-active",
+															"objectClass": "System",
+															"sid": 312695953743949,
+															"parameters": {
+																"group-name": "\"Laser Direction\"",
+																"state": "activated"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "Laser_Gun",
+															"sid": 946898053219978,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														}
+													],
+													"sid": 897123713893186
+												}
+											]
+										}
+									]
 								}
-							]
+							],
+							"sid": 102058075620561
 						}
 					],
 					"sid": 399184494776676
