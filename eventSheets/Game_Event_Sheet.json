@@ -109,6 +109,28 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 134755419780181
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "Laser_Gun",
+							"sid": 372008344452367,
+							"parameters": {
+								"object": "Miner_Animations",
+								"image-point-optional": "\"Laser_Gun\""
+							}
+						}
+					],
+					"sid": 536454752566018
+				},
+				{
 					"eventType": "group",
 					"disabled": false,
 					"title": "Warehouse Spawns",
@@ -26475,33 +26497,6 @@
 										}
 									],
 									"actions": [
-										{
-											"id": "spawn-another-object",
-											"objectClass": "Miner_Box",
-											"sid": 563247155095931,
-											"parameters": {
-												"object": "Laser_Gun",
-												"layer": "\"Player\"",
-												"image-point": "0",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "pin-to-object-properties",
-											"objectClass": "Laser_Gun",
-											"sid": 503731975091796,
-											"behaviorType": "Pin",
-											"parameters": {
-												"pin-to": "Miner_Box",
-												"x": true,
-												"y": true,
-												"angle": true,
-												"width-type": "no",
-												"height-type": "no",
-												"z": false
-											}
-										},
 										{
 											"id": "set-animation",
 											"objectClass": "Laser_Gun",
