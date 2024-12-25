@@ -4150,6 +4150,30 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "HUD_Grey",
+									"sid": 313085874939475,
+									"parameters": {
+										"object": "Reload_Bar",
+										"layer": "\"HUD\"",
+										"image-point": "\"Reload_Bar\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 713579569781356,
+									"parameters": {
+										"object": "Charge_Bar",
+										"layer": "\"HUD\"",
+										"image-point": "\"Charge_Bar\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
 									"sid": 432017962053002,
 									"parameters": {
 										"object": "HUD_Quest_Background",
@@ -5241,7 +5265,7 @@
 						{
 							"id": "set-text",
 							"objectClass": "TestText",
-							"sid": 563082592776043,
+							"sid": 352105411392698,
 							"parameters": {
 								"text": "Laser_Gun.Charge"
 							}
@@ -26528,9 +26552,23 @@
 														"comparison": 0,
 														"value": "0"
 													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 785012708962850
 												}
 											],
 											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Laser_Gun",
+													"sid": 585782503133940,
+													"parameters": {
+														"instance-variable": "ANIM",
+														"value": "\"Draw\""
+													}
+												},
 												{
 													"id": "set-visible",
 													"objectClass": "Laser_Gun",
@@ -26547,44 +26585,26 @@
 														"instance-variable": "Laser_Gun",
 														"value": "1"
 													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 300050366358499,
+													"parameters": {
+														"seconds": "0.5"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Laser_Gun",
+													"sid": 111324807932491,
+													"parameters": {
+														"instance-variable": "ANIM",
+														"value": "\"Idle\""
+													}
 												}
 											],
-											"sid": 529698283253426,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [],
-													"actions": [
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Laser_Gun",
-															"sid": 482806003426878,
-															"parameters": {
-																"instance-variable": "ANIM",
-																"value": "\"Draw\""
-															}
-														},
-														{
-															"id": "wait",
-															"objectClass": "System",
-															"sid": 417628352385139,
-															"parameters": {
-																"seconds": "1"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Laser_Gun",
-															"sid": 854331910470279,
-															"parameters": {
-																"instance-variable": "ANIM",
-																"value": "\"Idle\""
-															}
-														}
-													],
-													"sid": 858174248145739
-												}
-											]
+											"sid": 529698283253426
 										},
 										{
 											"eventType": "block",
@@ -26604,24 +26624,14 @@
 														{
 															"id": "trigger-once-while-true",
 															"objectClass": "System",
-															"sid": 852108943360818,
-															"disabled": true
+															"sid": 852108943360818
 														}
 													],
 													"actions": [
 														{
-															"id": "set-animation",
-															"objectClass": "Laser_Gun",
-															"sid": 994608659197244,
-															"parameters": {
-																"animation": "\"Holster\"",
-																"from": "beginning"
-															}
-														},
-														{
 															"id": "set-instvar-value",
 															"objectClass": "Laser_Gun",
-															"sid": 862155042510693,
+															"sid": 295844057689575,
 															"parameters": {
 																"instance-variable": "ANIM",
 																"value": "\"Holster\""
@@ -26639,18 +26649,9 @@
 														{
 															"id": "wait",
 															"objectClass": "System",
-															"sid": 301554504531713,
+															"sid": 148046521552346,
 															"parameters": {
-																"seconds": "1"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Laser_Gun",
-															"sid": 682023114367108,
-															"parameters": {
-																"instance-variable": "ANIM",
-																"value": "\"Idle\""
+																"seconds": "0.5"
 															}
 														},
 														{
@@ -26659,6 +26660,15 @@
 															"sid": 946898053219978,
 															"parameters": {
 																"visibility": "invisible"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Laser_Gun",
+															"sid": 870262670337025,
+															"parameters": {
+																"instance-variable": "ANIM",
+																"value": "\"Idle\""
 															}
 														}
 													],
@@ -26669,237 +26679,255 @@
 									]
 								},
 								{
-									"eventType": "comment",
-									"text": "Charged Shot"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "key-is-down",
-											"objectClass": "Keyboard",
-											"sid": 682851000818950,
-											"parameters": {
-												"key": 32
-											}
-										}
-									],
-									"actions": [],
-									"sid": 968050065813847,
+									"eventType": "group",
+									"disabled": false,
+									"title": "Charged Shot",
+									"description": "",
+									"isActiveOnStart": true,
 									"children": [
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "every-x-seconds",
-													"objectClass": "System",
-													"sid": 955155616016162,
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 525433543353576,
 													"parameters": {
-														"interval-seconds": "1"
+														"key": 32
 													}
+												},
+												{
+													"id": "every-tick",
+													"objectClass": "System",
+													"sid": 807213374720583
 												}
 											],
 											"actions": [
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Laser_Gun",
-													"sid": 935337523359478,
+													"sid": 877336527704401,
 													"parameters": {
 														"instance-variable": "Charge",
-														"value": "1"
+														"value": "0.1"
 													}
 												}
 											],
-											"sid": 155691538834850
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-key-released",
-											"objectClass": "Keyboard",
-											"sid": 656498505147127,
-											"parameters": {
-												"key": 32
-											}
+											"sid": 807728980459305
 										},
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Laser_Gun",
-											"sid": 649419417752452,
-											"parameters": {
-												"instance-variable": "Charge",
-												"comparison": 5,
-												"value": "3"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-released",
+													"objectClass": "Keyboard",
+													"sid": 259869226258267,
+													"parameters": {
+														"key": 32
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Laser_Gun",
+													"sid": 538686847868084,
+													"parameters": {
+														"instance-variable": "Charge",
+														"comparison": 5,
+														"value": "3"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Laser_Gun",
+													"sid": 423384455523329,
+													"parameters": {
+														"instance-variable": "DIR",
+														"comparison": 0,
+														"value": "\"Right\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 467409515290443,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 284917647355899,
+															"parameters": {
+																"object-to-create": "Sphere_Bullet_Sprite",
+																"layer": "\"Player\"",
+																"x": "Laser_Gun.X +30",
+																"y": "Laser_Gun.Y -4",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-angle-of-motion",
+															"objectClass": "Sphere_Bullet_Sprite",
+															"sid": 991001076967108,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"angle": "0"
+															}
+														},
+														{
+															"id": "set-acceleration",
+															"objectClass": "Sphere_Bullet_Sprite",
+															"sid": 569546539701454,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"acceleration": "0"
+															}
+														}
+													],
+													"sid": 352511837196022,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Laser_Gun",
+																	"sid": 707801550371247,
+																	"parameters": {
+																		"instance-variable": "Charge",
+																		"value": "0"
+																	}
+																}
+															],
+															"sid": 676043321463595
+														}
+													]
+												}
+											]
 										},
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Laser_Gun",
-											"sid": 194415469207815,
-											"parameters": {
-												"instance-variable": "DIR",
-												"comparison": 0,
-												"value": "\"Right\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-released",
+													"objectClass": "Keyboard",
+													"sid": 327220053827752,
+													"parameters": {
+														"key": 32
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Laser_Gun",
+													"sid": 712473012503904,
+													"parameters": {
+														"instance-variable": "Charge",
+														"comparison": 5,
+														"value": "3"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Laser_Gun",
+													"sid": 983523998319750,
+													"parameters": {
+														"instance-variable": "DIR",
+														"comparison": 0,
+														"value": "\"Left\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 862296925107050,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 577222007767414,
+															"parameters": {
+																"object-to-create": "Sphere_Bullet_Sprite",
+																"layer": "\"Player\"",
+																"x": "Laser_Gun.X -30",
+																"y": "Laser_Gun.Y -4",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-angle-of-motion",
+															"objectClass": "Sphere_Bullet_Sprite",
+															"sid": 137399482475101,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"angle": "180"
+															}
+														},
+														{
+															"id": "set-acceleration",
+															"objectClass": "Sphere_Bullet_Sprite",
+															"sid": 228021074670618,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"acceleration": "0"
+															}
+														}
+													],
+													"sid": 910380736965957,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Laser_Gun",
+																	"sid": 128152116048077,
+																	"parameters": {
+																		"instance-variable": "Charge",
+																		"value": "0"
+																	}
+																}
+															],
+															"sid": 708109808951034
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-released",
+													"objectClass": "Keyboard",
+													"sid": 983305833372388,
+													"parameters": {
+														"key": 32
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Laser_Gun",
+													"sid": 444867817958431,
+													"parameters": {
+														"instance-variable": "Charge",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 431417922720469
 										}
 									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Laser_Gun",
-											"sid": 984298636235944,
-											"parameters": {
-												"instance-variable": "Charge",
-												"value": "0"
-											}
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 914628477113076,
-											"parameters": {
-												"object-to-create": "Sphere_Bullet_Sprite",
-												"layer": "\"Player\"",
-												"x": "Laser_Gun.X +30",
-												"y": "Laser_Gun.Y -4",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "set-angle-of-motion",
-											"objectClass": "Sphere_Bullet_Sprite",
-											"sid": 890995521334572,
-											"behaviorType": "Bullet",
-											"parameters": {
-												"angle": "0"
-											}
-										},
-										{
-											"id": "set-acceleration",
-											"objectClass": "Sphere_Bullet_Sprite",
-											"sid": 878005827362757,
-											"behaviorType": "Bullet",
-											"parameters": {
-												"acceleration": "0"
-											}
-										}
-									],
-									"sid": 349393723279124
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-key-released",
-											"objectClass": "Keyboard",
-											"sid": 576898208069831,
-											"parameters": {
-												"key": 32
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Laser_Gun",
-											"sid": 746436899955997,
-											"parameters": {
-												"instance-variable": "Charge",
-												"comparison": 5,
-												"value": "3"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Laser_Gun",
-											"sid": 953539323402524,
-											"parameters": {
-												"instance-variable": "DIR",
-												"comparison": 0,
-												"value": "\"Left\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Laser_Gun",
-											"sid": 937024383569742,
-											"parameters": {
-												"instance-variable": "Charge",
-												"value": "0"
-											}
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 258666061236721,
-											"parameters": {
-												"object-to-create": "Sphere_Bullet_Sprite",
-												"layer": "\"Player\"",
-												"x": "Laser_Gun.X -30",
-												"y": "Laser_Gun.Y -4",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "set-angle-of-motion",
-											"objectClass": "Sphere_Bullet_Sprite",
-											"sid": 841087494806106,
-											"behaviorType": "Bullet",
-											"parameters": {
-												"angle": "180"
-											}
-										},
-										{
-											"id": "set-acceleration",
-											"objectClass": "Sphere_Bullet_Sprite",
-											"sid": 354666872443301,
-											"behaviorType": "Bullet",
-											"parameters": {
-												"acceleration": "0"
-											}
-										}
-									],
-									"sid": 234570452309202
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-key-released",
-											"objectClass": "Keyboard",
-											"sid": 414997466480485,
-											"parameters": {
-												"key": 32
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Laser_Gun",
-											"sid": 247663545440450,
-											"parameters": {
-												"instance-variable": "Charge",
-												"comparison": 2,
-												"value": "3"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Laser_Gun",
-											"sid": 979088067926771,
-											"parameters": {
-												"instance-variable": "Charge",
-												"value": "0"
-											}
-										}
-									],
-									"sid": 179631772045782
+									"sid": 916627684188944
 								}
 							],
 							"sid": 102058075620561
@@ -30771,7 +30799,7 @@
 										{
 											"eventType": "group",
 											"disabled": false,
-											"title": "Shooting Blocks",
+											"title": "Bullet explosions",
 											"description": "",
 											"isActiveOnStart": true,
 											"children": [
@@ -30781,7 +30809,7 @@
 														{
 															"id": "is-overlapping-another-object",
 															"objectClass": "Sphere_Bullet_Sprite",
-															"sid": 105364920553205,
+															"sid": 297142564122127,
 															"parameters": {
 																"object": "Mining_Blocks_Family"
 															}
@@ -30789,26 +30817,34 @@
 													],
 													"actions": [
 														{
-															"id": "spawn-another-object",
-															"objectClass": "Sphere_Bullet_Sprite",
-															"sid": 765335105691694,
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 966518467365105,
 															"parameters": {
-																"object": "Explosion_Area",
+																"audio-file": "Dynamite 2 CB Sounddesign - Kaboom - Dynamite Explosion with Debris",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 338189728955824,
+															"parameters": {
+																"object-to-create": "Explosion_Area",
 																"layer": "\"Player\"",
-																"image-point": "0",
+																"x": "Sphere_Bullet_Sprite.X",
+																"y": "Sphere_Bullet_Sprite.Y",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
 														},
 														{
-															"id": "destroy",
-															"objectClass": "Sphere_Bullet_Sprite",
-															"sid": 876175691243292
-														},
-														{
 															"id": "spawn-another-object",
 															"objectClass": "Explosion_Area",
-															"sid": 565669465718761,
+															"sid": 586386424167560,
 															"parameters": {
 																"object": "Explosion_Anim",
 																"layer": "\"Player\"",
@@ -30818,9 +30854,14 @@
 															}
 														},
 														{
+															"id": "destroy",
+															"objectClass": "Sphere_Bullet_Sprite",
+															"sid": 489446947100645
+														},
+														{
 															"id": "wait",
 															"objectClass": "System",
-															"sid": 417031215139460,
+															"sid": 348440658226119,
 															"parameters": {
 																"seconds": "1.0"
 															}
@@ -30828,39 +30869,18 @@
 														{
 															"id": "destroy",
 															"objectClass": "Explosion_Area",
-															"sid": 385018587088429
+															"sid": 187596443294488
 														},
 														{
 															"id": "destroy",
 															"objectClass": "Explosion_Anim",
-															"sid": 411056911567809
+															"sid": 566111565013810
 														}
 													],
-													"sid": 964164570165721
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-overlapping-another-object",
-															"objectClass": "Bullet_Sprite",
-															"sid": 286958589352022,
-															"parameters": {
-																"object": "Mining_Blocks_Family"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "destroy",
-															"objectClass": "Bullet_Sprite",
-															"sid": 166985681508170
-														}
-													],
-													"sid": 289903615956542
+													"sid": 325737650987230
 												}
 											],
-											"sid": 109543861823181
+											"sid": 372685627075257
 										}
 									],
 									"sid": 892589137614450
