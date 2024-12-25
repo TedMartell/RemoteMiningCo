@@ -26398,6 +26398,18 @@
 											}
 										},
 										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 273375262022208,
+											"parameters": {
+												"audio-file": "Laser_Gun_Shot_Shapeforms - Sci Fi Weapons - Laser Gun Firing Echo",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
 											"id": "set-instvar-value",
 											"objectClass": "Laser_Gun",
 											"sid": 667147382378141,
@@ -26501,6 +26513,18 @@
 												"y": "Laser_Gun.Y -4",
 												"create-hierarchy": false,
 												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 955281093461298,
+											"parameters": {
+												"audio-file": "Laser_Gun_Shot_Shapeforms - Sci Fi Weapons - Laser Gun Firing Echo",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
 											}
 										},
 										{
@@ -26744,6 +26768,10 @@
 											"sid": 151711543991491
 										},
 										{
+											"eventType": "comment",
+											"text": "Charge Variable +"
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
@@ -26772,6 +26800,10 @@
 												}
 											],
 											"sid": 807728980459305
+										},
+										{
+											"eventType": "comment",
+											"text": "Prevent Chager going over Max Charge = Charge bar doesnt grow too big"
 										},
 										{
 											"eventType": "block",
@@ -26814,6 +26846,46 @@
 											"sid": 979969549953401
 										},
 										{
+											"eventType": "comment",
+											"text": "Prevent reload bar going over Reload Time = Reload bar doesnt grow too big"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-tick",
+													"objectClass": "System",
+													"sid": 794699290733594
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Laser_Gun",
+													"sid": 799163016861141,
+													"parameters": {
+														"instance-variable": "Reload",
+														"comparison": 4,
+														"value": "Laser_Gun.Reload_Time"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Laser_Gun",
+													"sid": 861947586106577,
+													"parameters": {
+														"instance-variable": "Reload",
+														"value": "Laser_Gun.Reload_Time"
+													}
+												}
+											],
+											"sid": 321650674280099
+										},
+										{
+											"eventType": "comment",
+											"text": "Fire Charge shot Right"
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
@@ -26845,7 +26917,20 @@
 													}
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 667950675450931,
+													"parameters": {
+														"audio-file": "Laser_Gun_Sphere_Shot_Sound Spark - Sci Fi Weapons - Powerful Laser Gun Shooting",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												}
+											],
 											"sid": 467409515290443,
 											"children": [
 												{
@@ -26907,6 +26992,10 @@
 											]
 										},
 										{
+											"eventType": "comment",
+											"text": "Fire Charge shot Left"
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
@@ -26938,7 +27027,20 @@
 													}
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 837681599279972,
+													"parameters": {
+														"audio-file": "Laser_Gun_Sphere_Shot_Sound Spark - Sci Fi Weapons - Powerful Laser Gun Shooting",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												}
+											],
 											"sid": 862296925107050,
 											"children": [
 												{
@@ -27000,6 +27102,10 @@
 											]
 										},
 										{
+											"eventType": "comment",
+											"text": "Reset Bars and sounds"
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
@@ -27020,32 +27126,24 @@
 														"instance-variable": "Charge",
 														"value": "0"
 													}
+												},
+												{
+													"id": "fade-volume",
+													"objectClass": "SFX",
+													"sid": 658077079683503,
+													"parameters": {
+														"tag": "\"Charge\"",
+														"db": "-100",
+														"duration": "1",
+														"ending": "stop"
+													}
 												}
 											],
 											"sid": 431417922720469
 										},
 										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "on-start-of-layout",
-													"objectClass": "System",
-													"sid": 431955698933774
-												}
-											],
-											"actions": [
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 843254882237526,
-													"parameters": {
-														"variable": "Charge_Bar_Original_Width",
-														"value": "Charge_Bar.Width"
-													}
-												}
-											],
-											"sid": 269709476964161,
-											"disabled": true
+											"eventType": "comment",
+											"text": "Set Laser Gun Bars"
 										},
 										{
 											"eventType": "block",
@@ -27098,33 +27196,34 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "every-tick",
-													"objectClass": "System",
-													"sid": 365534082203489
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 163162311068789,
+													"parameters": {
+														"key": 32
+													}
 												},
 												{
-													"id": "compare-instance-variable",
-													"objectClass": "Laser_Gun",
-													"sid": 607332474662381,
-													"parameters": {
-														"instance-variable": "Reload",
-														"comparison": 4,
-														"value": "Laser_Gun.Reload_Time"
-													}
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 776519572094595
 												}
 											],
 											"actions": [
 												{
-													"id": "set-instvar-value",
-													"objectClass": "Laser_Gun",
-													"sid": 881020897217378,
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 677693124414173,
 													"parameters": {
-														"instance-variable": "Reload",
-														"value": "Laser_Gun.Reload_Time"
+														"audio-file": "Laser_Gun_Charge_Cristian Lucchetta - Classic Sci Fi Weapons - Blaster Charging up And Single Shot",
+														"loop": "looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"Charge\""
 													}
 												}
 											],
-											"sid": 372316403445269
+											"sid": 428804443743204
 										}
 									],
 									"sid": 916627684188944
@@ -31013,6 +31112,14 @@
 															"parameters": {
 																"object": "Mining_Blocks_Family"
 															}
+														},
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Sphere_Bullet_Sprite",
+															"sid": 452765843623642,
+															"parameters": {
+																"object": "Stone_Block"
+															}
 														}
 													],
 													"actions": [
@@ -31077,7 +31184,8 @@
 															"sid": 566111565013810
 														}
 													],
-													"sid": 325737650987230
+													"sid": 325737650987230,
+													"isOrBlock": true
 												},
 												{
 													"eventType": "block",
@@ -31089,6 +31197,14 @@
 															"parameters": {
 																"object": "Mining_Blocks_Family"
 															}
+														},
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Bullet_Sprite",
+															"sid": 946636362570156,
+															"parameters": {
+																"object": "Stone_Block"
+															}
 														}
 													],
 													"actions": [
@@ -31098,7 +31214,8 @@
 															"sid": 537087894240664
 														}
 													],
-													"sid": 426152144160534
+													"sid": 426152144160534,
+													"isOrBlock": true
 												}
 											],
 											"sid": 372685627075257
