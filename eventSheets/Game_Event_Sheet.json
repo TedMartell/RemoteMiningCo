@@ -26371,6 +26371,16 @@
 												"comparison": 0,
 												"value": "\"Left\""
 											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Laser_Gun",
+											"sid": 258459242333275,
+											"parameters": {
+												"instance-variable": "Reload",
+												"comparison": 5,
+												"value": "Laser_Gun.Reload_Time"
+											}
 										}
 									],
 									"actions": [
@@ -26385,6 +26395,15 @@
 												"y": "Laser_Gun.Y -4",
 												"create-hierarchy": false,
 												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Laser_Gun",
+											"sid": 667147382378141,
+											"parameters": {
+												"instance-variable": "Reload",
+												"value": "0"
 											}
 										},
 										{
@@ -26452,6 +26471,16 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Laser_Gun",
+											"sid": 676707636441675,
+											"parameters": {
+												"instance-variable": "Reload",
+												"comparison": 5,
+												"value": "Laser_Gun.Reload_Time"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Laser_Gun",
 											"sid": 801120010726045,
 											"parameters": {
 												"instance-variable": "DIR",
@@ -26472,6 +26501,15 @@
 												"y": "Laser_Gun.Y -4",
 												"create-hierarchy": false,
 												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Laser_Gun",
+											"sid": 853955327464685,
+											"parameters": {
+												"instance-variable": "Reload",
+												"value": "0"
 											}
 										},
 										{
@@ -26686,6 +26724,26 @@
 									"isActiveOnStart": true,
 									"children": [
 										{
+											"eventType": "variable",
+											"name": "Charge_Bar_Original_Width",
+											"type": "number",
+											"initialValue": "128",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 702670727408105
+										},
+										{
+											"eventType": "variable",
+											"name": "Reload_Bar_Original_Width",
+											"type": "number",
+											"initialValue": "128",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 151711543991491
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
@@ -26719,6 +26777,46 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 630789686324385,
+													"parameters": {
+														"key": 32
+													}
+												},
+												{
+													"id": "every-tick",
+													"objectClass": "System",
+													"sid": 123915573382223
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Laser_Gun",
+													"sid": 468657081475575,
+													"parameters": {
+														"instance-variable": "Charge",
+														"comparison": 4,
+														"value": "Laser_Gun.Max_Charge"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Laser_Gun",
+													"sid": 102910132355272,
+													"parameters": {
+														"instance-variable": "Charge",
+														"value": "Laser_Gun.Max_Charge"
+													}
+												}
+											],
+											"sid": 979969549953401
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
 													"id": "on-key-released",
 													"objectClass": "Keyboard",
 													"sid": 259869226258267,
@@ -26729,11 +26827,11 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Laser_Gun",
-													"sid": 538686847868084,
+													"sid": 461888394885627,
 													"parameters": {
 														"instance-variable": "Charge",
 														"comparison": 5,
-														"value": "3"
+														"value": "Laser_Gun.Max_Charge"
 													}
 												},
 												{
@@ -26822,11 +26920,11 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Laser_Gun",
-													"sid": 712473012503904,
+													"sid": 821876712457143,
 													"parameters": {
 														"instance-variable": "Charge",
 														"comparison": 5,
-														"value": "3"
+														"value": "Laser_Gun.Max_Charge"
 													}
 												},
 												{
@@ -26925,6 +27023,108 @@
 												}
 											],
 											"sid": 431417922720469
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-start-of-layout",
+													"objectClass": "System",
+													"sid": 431955698933774
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 843254882237526,
+													"parameters": {
+														"variable": "Charge_Bar_Original_Width",
+														"value": "Charge_Bar.Width"
+													}
+												}
+											],
+											"sid": 269709476964161,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-tick",
+													"objectClass": "System",
+													"sid": 602913372358989
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Laser_Gun",
+													"sid": 651582539718470,
+													"parameters": {
+														"instance-variable": "Reload",
+														"value": "0.2"
+													}
+												}
+											],
+											"sid": 235079498065949,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-width",
+															"objectClass": "Charge_Bar",
+															"sid": 441384332790117,
+															"parameters": {
+																"width": "Charge_Bar_Original_Width* (Laser_Gun.Charge / Laser_Gun.Max_Charge)"
+															}
+														},
+														{
+															"id": "set-width",
+															"objectClass": "Reload_Bar",
+															"sid": 112845108943647,
+															"parameters": {
+																"width": "Reload_Bar_Original_Width* (Laser_Gun.Reload / Laser_Gun.Reload_Time)"
+															}
+														}
+													],
+													"sid": 986073360843931
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-tick",
+													"objectClass": "System",
+													"sid": 365534082203489
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Laser_Gun",
+													"sid": 607332474662381,
+													"parameters": {
+														"instance-variable": "Reload",
+														"comparison": 4,
+														"value": "Laser_Gun.Reload_Time"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Laser_Gun",
+													"sid": 881020897217378,
+													"parameters": {
+														"instance-variable": "Reload",
+														"value": "Laser_Gun.Reload_Time"
+													}
+												}
+											],
+											"sid": 372316403445269
 										}
 									],
 									"sid": 916627684188944
@@ -30878,6 +31078,27 @@
 														}
 													],
 													"sid": 325737650987230
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Bullet_Sprite",
+															"sid": 747310073229254,
+															"parameters": {
+																"object": "Mining_Blocks_Family"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Bullet_Sprite",
+															"sid": 537087894240664
+														}
+													],
+													"sid": 426152144160534
 												}
 											],
 											"sid": 372685627075257
