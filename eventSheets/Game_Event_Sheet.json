@@ -4150,6 +4150,30 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "HUD_Grey",
+									"sid": 672491735204525,
+									"parameters": {
+										"object": "HUD_Stats_Button",
+										"layer": "\"HUD\"",
+										"image-point": "\"Stats_Button\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 166912639127052,
+									"parameters": {
+										"object": "HUD_Money_Button",
+										"layer": "\"HUD\"",
+										"image-point": "\"Money_Button\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
 									"sid": 313085874939475,
 									"parameters": {
 										"object": "Reload_Bar",
@@ -4191,6 +4215,30 @@
 										"object": "HUD_Menu_Background",
 										"layer": "\"HUD\"",
 										"image-point": "\"Menu\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 110878615872013,
+									"parameters": {
+										"object": "HUD_Stats_Background_Black",
+										"layer": "\"HUD\"",
+										"image-point": "\"Stats_Background\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 306330043133529,
+									"parameters": {
+										"object": "HUD_Credit_Card_Background",
+										"layer": "\"HUD\"",
+										"image-point": "\"Credit_Card\"",
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
@@ -26381,6 +26429,16 @@
 												"comparison": 5,
 												"value": "Laser_Gun.Reload_Time"
 											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 371770024323306,
+											"parameters": {
+												"instance-variable": "Laser_Gun",
+												"comparison": 0,
+												"value": "1"
+											}
 										}
 									],
 									"actions": [
@@ -26498,6 +26556,16 @@
 												"instance-variable": "DIR",
 												"comparison": 0,
 												"value": "\"Right\""
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 253205908917740,
+											"parameters": {
+												"instance-variable": "Laser_Gun",
+												"comparison": 0,
+												"value": "1"
 											}
 										}
 									],
@@ -26623,6 +26691,18 @@
 											],
 											"actions": [
 												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 621291742525003,
+													"parameters": {
+														"audio-file": "Laser_Gun_Deploy SoundBits - Everyday Elements - Hydraulic Basket Crane Extending",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
 													"id": "set-instvar-value",
 													"objectClass": "Laser_Gun",
 													"sid": 585782503133940,
@@ -26690,6 +26770,18 @@
 														}
 													],
 													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 717908308710630,
+															"parameters": {
+																"audio-file": "Laser_Gun_Deploy SoundBits - Everyday Elements - Hydraulic Basket Crane Extending",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														},
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Laser_Gun",
@@ -26786,6 +26878,16 @@
 													"id": "every-tick",
 													"objectClass": "System",
 													"sid": 807213374720583
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Box",
+													"sid": 958771653686485,
+													"parameters": {
+														"instance-variable": "Laser_Gun",
+														"comparison": 0,
+														"value": "1"
+													}
 												}
 											],
 											"actions": [
@@ -26915,6 +27017,16 @@
 														"comparison": 0,
 														"value": "\"Right\""
 													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Box",
+													"sid": 155267152464862,
+													"parameters": {
+														"instance-variable": "Laser_Gun",
+														"comparison": 0,
+														"value": "1"
+													}
 												}
 											],
 											"actions": [
@@ -27024,6 +27136,16 @@
 														"instance-variable": "DIR",
 														"comparison": 0,
 														"value": "\"Left\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Box",
+													"sid": 148461997685507,
+													"parameters": {
+														"instance-variable": "Laser_Gun",
+														"comparison": 0,
+														"value": "1"
 													}
 												}
 											],
@@ -27195,6 +27317,16 @@
 										{
 											"eventType": "block",
 											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Box",
+													"sid": 455471973861131,
+													"parameters": {
+														"instance-variable": "Laser_Gun",
+														"comparison": 0,
+														"value": "1"
+													}
+												},
 												{
 													"id": "key-is-down",
 													"objectClass": "Keyboard",
