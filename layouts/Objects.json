@@ -1148,7 +1148,7 @@
 					"behaviors": {
 						"Turret": {
 							"properties": {
-								"range": 5000,
+								"range": 1000,
 								"rate-of-fire": 10,
 								"rotate": true,
 								"rotate-speed": 180,
@@ -10838,7 +10838,7 @@
 				{
 					"type": "HUD_Credit_Card_Background",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"origin": "top-left",
 						"wrap-horizontal": "repeat",
 						"wrap-vertical": "repeat",
@@ -11007,17 +11007,6 @@
 						"Max_HP": 20
 					},
 					"behaviors": {
-						"MoveTo": {
-							"properties": {
-								"max-speed": 200,
-								"acceleration": 600,
-								"deceleration": 600,
-								"rotate-speed": 0,
-								"set-angle": false,
-								"stop-on-solids": false,
-								"enabled": true
-							}
-						},
 						"Platform": {
 							"properties": {
 								"max-speed": 330,
@@ -11036,6 +11025,17 @@
 							"properties": {
 								"enabled": true,
 								"tags": ""
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": false,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						}
 					},
@@ -11147,24 +11147,13 @@
 						"Max_HP": 20
 					},
 					"behaviors": {
-						"MoveTo": {
-							"properties": {
-								"max-speed": 200,
-								"acceleration": 600,
-								"deceleration": 600,
-								"rotate-speed": 0,
-								"set-angle": false,
-								"stop-on-solids": false,
-								"enabled": true
-							}
-						},
 						"Platform": {
 							"properties": {
 								"max-speed": 330,
 								"acceleration": 1500,
 								"deceleration": 1500,
 								"jump-strength": 650,
-								"gravity": 1500,
+								"gravity": 3000,
 								"max-fall-speed": 1000,
 								"double-jump": false,
 								"jump-sustain": 0,
@@ -11176,6 +11165,17 @@
 							"properties": {
 								"enabled": true,
 								"tags": ""
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": false,
+								"stop-on-solids": false,
+								"enabled": true
 							}
 						}
 					},
