@@ -4152,7 +4152,7 @@
 									"objectClass": "HUD_Grey",
 									"sid": 672491735204525,
 									"parameters": {
-										"object": "HUD_Stats_Button",
+										"object": "HUD_Upgrades_Button",
 										"layer": "\"HUD\"",
 										"image-point": "\"Stats_Button\"",
 										"create-hierarchy": false,
@@ -4428,6 +4428,15 @@
 										"image-point": "\"Teleporter_Q\"",
 										"create-hierarchy": false,
 										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Money_Text",
+									"sid": 975123609749174,
+									"parameters": {
+										"x": "HUD_Credit_Card_Background.X +6",
+										"y": "HUD_Credit_Card_Background.Y +53"
 									}
 								}
 							],
@@ -5138,6 +5147,14 @@
 					],
 					"actions": [
 						{
+							"id": "set-silent",
+							"objectClass": "SFX",
+							"sid": 683047249247073,
+							"parameters": {
+								"mode": "silent"
+							}
+						},
+						{
 							"id": "spawn-another-object",
 							"objectClass": "Miner_Box",
 							"sid": 631504762713703,
@@ -5156,48 +5173,6 @@
 							"behaviorType": "Pin",
 							"parameters": {
 								"pin-to": "Miner_Box",
-								"x": true,
-								"y": true,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						},
-						{
-							"id": "pin-to-object-properties",
-							"objectClass": "Devil_Hitbox",
-							"sid": 853337412302757,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "Devil_Boss_Sprite",
-								"x": true,
-								"y": true,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						},
-						{
-							"id": "spawn-another-object",
-							"objectClass": "Devil_Boss_Sprite",
-							"sid": 582834222460639,
-							"parameters": {
-								"object": "Devil_Boss_Pentagram",
-								"layer": "\"Player\"",
-								"image-point": "0",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "pin-to-object-properties",
-							"objectClass": "Devil_Boss_Pentagram",
-							"sid": 473934282268135,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "Devil_Boss_Sprite",
 								"x": true,
 								"y": true,
 								"angle": true,
@@ -5262,16 +5237,6 @@
 						}
 					],
 					"actions": [
-						{
-							"id": "set-angle-toward-position",
-							"objectClass": "Devil_Boss_Pentagram",
-							"sid": 990260172269229,
-							"disabled": true,
-							"parameters": {
-								"x": "Miner_Box.X",
-								"y": "Miner_Box.Y"
-							}
-						},
 						{
 							"id": "set-animation",
 							"objectClass": "Miner_Animations",
@@ -5470,631 +5435,947 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
+							"eventType": "comment",
+							"text": "Meta Upgrade spawns"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "on-start-of-layout",
 									"objectClass": "System",
-									"sid": 447835624616467
+									"sid": 811115344393343
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 765391528794543,
+							"children": [
 								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 781435265680873,
-									"parameters": {
-										"seconds": "0.25"
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 103005589403199,
-									"parameters": {
-										"object": "Meta_ScrollabeSprite",
-										"layer": "\"Meta_upgrades_Content\"",
-										"image-point": "\"Center_Top\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "Meta_ScrollabeSprite",
-									"sid": 326909628596406,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "Meta_Upg_Background",
-										"x": true,
-										"y": false,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 565112839432954,
-									"parameters": {
-										"object": "Meta_Drill_Upg_Button",
-										"layer": "\"Meta_Upgrades\"",
-										"image-point": "\"Slot_1\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 390208556658489,
-									"parameters": {
-										"object": "Meta_Energy_Upg_Button",
-										"layer": "\"Meta_Upgrades\"",
-										"image-point": "\"Slot_2\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 204692956161739,
-									"parameters": {
-										"object": "Meta_Passive_Upg_Button",
-										"layer": "\"Meta_Upgrades\"",
-										"image-point": "\"Slot_3\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 923098142719172,
-									"parameters": {
-										"seconds": "0.25"
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "Meta_Drill_Upg_Button",
-									"sid": 876599098670934,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "Meta_Upg_Background",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "Meta_Energy_Upg_Button",
-									"sid": 817070842468801,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "Meta_Upg_Background",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "Meta_Passive_Upg_Button",
-									"sid": 671359456148774,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "Meta_Upg_Background",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 808052282997144,
-									"parameters": {
-										"object": "Meta_Upgrade_button",
-										"layer": "\"Meta_Upgrades\"",
-										"image-point": "\"Upgrade_Button\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "Meta_Upgrade_button",
-									"sid": 202533042525790,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "Meta_Upg_Background",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 145811946235913,
-									"parameters": {
-										"object": "Meta_Upg_Text",
-										"layer": "\"Meta_Upgrades\"",
-										"image-point": "\"Upgrade_Text\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "Meta_Upg_Text",
-									"sid": 856405457631081,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "Meta_Upg_Background",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 991898262435872,
-									"parameters": {
-										"object": "Meta_Req_Item_Text",
-										"layer": "\"Meta_Upgrades\"",
-										"image-point": "\"Req_Items_Text\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "Meta_Req_Item_Text",
-									"sid": 284390483438905,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "Meta_Upg_Background",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 285090028892797,
-									"parameters": {
-										"object": "Meta_Max_Level_Text",
-										"layer": "\"Meta_Upgrades\"",
-										"image-point": "\"Max_Level_Text\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "Meta_Max_Level_Text",
-									"sid": 242040624893018,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "Meta_Upg_Background",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 921422181941197,
-									"parameters": {
-										"object": "Meta_Current_Level_Text",
-										"layer": "\"Meta_Upgrades\"",
-										"image-point": "\"Current_Level_Text\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "Meta_Current_Level_Text",
-									"sid": 301442994306178,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "Meta_Upg_Background",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 533255155348537,
-									"parameters": {
-										"object": "Meta_Stats_Text",
-										"layer": "\"Meta_Upgrades\"",
-										"image-point": "\"Stats_Text\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "Meta_Stats_Text",
-									"sid": 527998247140158,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "Meta_Upg_Background",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 877579854887414,
-									"parameters": {
-										"object": "Passive_Income_Background",
-										"layer": "\"Meta_Upgrades\"",
-										"image-point": "\"Stats_Text\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "Passive_Income_Background",
-									"sid": 896775636374159,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "Meta_Upg_Background",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 467298434580251,
-									"parameters": {
-										"object": "Meta_Passive_Income_Text",
-										"layer": "\"Meta_Upgrades\"",
-										"image-point": "\"Stats_Text\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "Meta_Passive_Income_Text",
-									"sid": 337099703184931,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "Meta_Upg_Background",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 878844171120954,
-									"parameters": {
-										"object": "Meta_Stats_Button",
-										"layer": "\"Meta_Upgrades\"",
-										"image-point": "\"Stats_Button\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "Meta_Stats_Button",
-									"sid": 855858598770565,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "Meta_Upg_Background",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 844218530209141,
-									"parameters": {
-										"object": "Meta_Passive_Button",
-										"layer": "\"Meta_Upgrades\"",
-										"image-point": "\"Passive_Button\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "Meta_Passive_Button",
-									"sid": 316651266875959,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "Meta_Upg_Background",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 940585069227660,
+											"parameters": {
+												"seconds": "0.25"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 389377493278626,
+											"parameters": {
+												"object": "Meta_ScrollabeSprite",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Center_Top\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 226502341780170,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": false,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 274288445941732,
+											"parameters": {
+												"object": "Meta_Drill_Upg_Button",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Slot_1\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 953253539468783,
+											"parameters": {
+												"object": "Meta_Energy_Upg_Button",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Slot_2\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 333220846180447,
+											"parameters": {
+												"object": "Meta_Passive_Upg_Button",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Slot_3\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 192042427132379,
+											"parameters": {
+												"seconds": "0.25"
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 551218777108202,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 118502355757233,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Passive_Upg_Button",
+											"sid": 443307855527865,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 823159498595689,
+											"parameters": {
+												"object": "Meta_Upgrade_button",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Upgrade_Button\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 801516690361361,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 131698123696821,
+											"parameters": {
+												"object": "Meta_Upg_Text",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Upgrade_Text\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 100828258151957,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 407133697809465,
+											"parameters": {
+												"object": "Meta_Req_Item_Text",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Req_Items_Text\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 214397310814831,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 787334789977105,
+											"parameters": {
+												"object": "Meta_Max_Level_Text",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Max_Level_Text\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 891105679682883,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 963131171004985,
+											"parameters": {
+												"object": "Meta_Current_Level_Text",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Current_Level_Text\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 460924468305206,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 710438836404515,
+											"parameters": {
+												"object": "Meta_Stats_Text",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Stats_Text\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Stats_Text",
+											"sid": 168682888830499,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 655463492678650,
+											"parameters": {
+												"object": "Passive_Income_Background",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Stats_Text\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Passive_Income_Background",
+											"sid": 283613948077865,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 387132418978218,
+											"parameters": {
+												"object": "Meta_Passive_Income_Text",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Stats_Text\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Passive_Income_Text",
+											"sid": 515712772816392,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 878039645113962,
+											"parameters": {
+												"object": "Meta_Stats_Button",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Stats_Button\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Stats_Button",
+											"sid": 400380328511711,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 201767935193064,
+											"parameters": {
+												"object": "Meta_Passive_Button",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Passive_Button\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Passive_Button",
+											"sid": 633196067451654,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										}
+									],
+									"sid": 882954226124112
 								}
 							],
-							"sid": 311523895653235
+							"isOrBlock": true
 						},
 						{
-							"eventType": "block",
-							"conditions": [
+							"eventType": "group",
+							"disabled": false,
+							"title": "Make Visible Button Presses",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
 								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 780829339908596,
-									"parameters": {
-										"key": 77
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 990017548115776,
+											"parameters": {
+												"key": 77
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 684434437786826,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 977092087357440,
+											"parameters": {
+												"layer": "\"Buildings\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 431954392753744,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 528951054797809,
+													"parameters": {
+														"layer": "\"Meta_Upgrades\"",
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 777536952760799,
+													"parameters": {
+														"layer": "\"Meta_upgrades_Content\"",
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 990773035656870,
+													"parameters": {
+														"layer": "\"HUD\"",
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-y",
+													"objectClass": "Meta_ScrollabeSprite",
+													"sid": 244450625036663,
+													"parameters": {
+														"y": "Meta_Upg_Background.Y"
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 620384224590363,
+													"parameters": {
+														"x": "Miner_Box.X",
+														"y": "Miner_Box.Y"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 248195141921152,
+													"parameters": {
+														"seconds": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 113217472987310,
+													"parameters": {
+														"instance-variable": "Active",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 684076143423150,
+													"parameters": {
+														"group-name": "\"Mechanical\"",
+														"state": "deactivated"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 260651549158207,
+													"parameters": {
+														"group-name": "\"Buildings\"",
+														"state": "deactivated"
+													}
+												}
+											],
+											"sid": 398394753098502
+										}
+									]
 								},
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 632478001301027,
-									"parameters": {
-										"instance-variable": "Active",
-										"comparison": 0,
-										"value": "0"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 899931875676506,
+											"parameters": {
+												"key": 77
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 572551389860177,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 765800909342182,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 832731868624455,
+													"parameters": {
+														"layer": "\"Meta_Upgrades\"",
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 395906775701861,
+													"parameters": {
+														"layer": "\"Meta_upgrades_Content\"",
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 332470599581988,
+													"parameters": {
+														"layer": "\"HUD\"",
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 880419040089244,
+													"parameters": {
+														"group-name": "\"Mechanical\"",
+														"state": "activated"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 791956814712649,
+													"parameters": {
+														"seconds": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 338956299687934,
+													"parameters": {
+														"instance-variable": "Active",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 151394903026279,
+													"parameters": {
+														"instance-variable": "Drill_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 453350056515819,
+													"parameters": {
+														"group-name": "\"Mechanical\"",
+														"state": "activated"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 707157032946059,
+													"parameters": {
+														"group-name": "\"Buildings\"",
+														"state": "activated"
+													}
+												}
+											],
+											"sid": 490297190216367
+										}
+									]
 								},
 								{
-									"id": "layer-is-visible",
-									"objectClass": "System",
-									"sid": 516177714918634,
-									"parameters": {
-										"layer": "\"Buildings\""
-									},
-									"isInverted": true
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 948067532109945,
+											"parameters": {
+												"key": 27
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 647185737652181,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 890239088831210,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 895362955218447,
+													"parameters": {
+														"layer": "\"Meta_Upgrades\"",
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 553300448795547,
+													"parameters": {
+														"layer": "\"Meta_upgrades_Content\"",
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 887862501554608,
+													"parameters": {
+														"layer": "\"HUD\"",
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 197397451243777,
+													"parameters": {
+														"group-name": "\"Mechanical\"",
+														"state": "activated"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 703576735504479,
+													"parameters": {
+														"seconds": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 106656425567955,
+													"parameters": {
+														"instance-variable": "Active",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 666504738446997,
+													"parameters": {
+														"instance-variable": "Drill_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 932325432075905,
+													"parameters": {
+														"group-name": "\"Mechanical\"",
+														"state": "activated"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 346738976973486,
+													"parameters": {
+														"group-name": "\"Buildings\"",
+														"state": "activated"
+													}
+												}
+											],
+											"sid": 893149211984807
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 601973058371524,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "HUD_Upgrades_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 472868575495762,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 376848907974153,
+											"parameters": {
+												"layer": "\"Buildings\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 671402231226982,
+											"parameters": {
+												"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HUD_Upgrades_Button",
+											"sid": 666805271987344,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 569035086892459,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HUD_Upgrades_Button",
+											"sid": 768307559461138,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 401205302097805,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 439856853827427,
+													"parameters": {
+														"layer": "\"Meta_Upgrades\"",
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 568267919989957,
+													"parameters": {
+														"layer": "\"Meta_upgrades_Content\"",
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 426634938496218,
+													"parameters": {
+														"layer": "\"HUD\"",
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-y",
+													"objectClass": "Meta_ScrollabeSprite",
+													"sid": 649108656269021,
+													"parameters": {
+														"y": "Meta_Upg_Background.Y"
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 438531207806992,
+													"parameters": {
+														"x": "Miner_Box.X",
+														"y": "Miner_Box.Y"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 968840373493703,
+													"parameters": {
+														"seconds": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 125160664512050,
+													"parameters": {
+														"instance-variable": "Active",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 434323796706704,
+													"parameters": {
+														"group-name": "\"Mechanical\"",
+														"state": "deactivated"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 154309477195306,
+													"parameters": {
+														"group-name": "\"Buildings\"",
+														"state": "deactivated"
+													}
+												}
+											],
+											"sid": 806184455914878
+										}
+									]
 								}
 							],
-							"actions": [
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 817988877467073,
-									"parameters": {
-										"layer": "\"Meta_Upgrades\"",
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 385861860507705,
-									"parameters": {
-										"layer": "\"Meta_upgrades_Content\"",
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 941853723251397,
-									"parameters": {
-										"layer": "\"HUD\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-y",
-									"objectClass": "Meta_ScrollabeSprite",
-									"sid": 822834569943144,
-									"parameters": {
-										"y": "Meta_Upg_Background.Y"
-									}
-								},
-								{
-									"id": "set-position",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 408322007951582,
-									"parameters": {
-										"x": "Miner_Box.X",
-										"y": "Miner_Box.Y"
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 768475380292580,
-									"parameters": {
-										"seconds": "0.25"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 772992773686400,
-									"parameters": {
-										"instance-variable": "Active",
-										"value": "1"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 382800566606944,
-									"parameters": {
-										"group-name": "\"Mechanical\"",
-										"state": "deactivated"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 797578486014444,
-									"parameters": {
-										"group-name": "\"Buildings\"",
-										"state": "deactivated"
-									}
-								}
-							],
-							"sid": 127993264232161
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 849944578727866,
-									"parameters": {
-										"key": 77
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 998467462497447,
-									"parameters": {
-										"instance-variable": "Active",
-										"comparison": 0,
-										"value": "1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 356006451035165,
-									"parameters": {
-										"layer": "\"Meta_Upgrades\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 818671156459407,
-									"parameters": {
-										"layer": "\"Meta_upgrades_Content\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 249125733842815,
-									"parameters": {
-										"layer": "\"HUD\"",
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 815717612019300,
-									"parameters": {
-										"group-name": "\"Mechanical\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 214157527493896,
-									"parameters": {
-										"seconds": "0.25"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 970676179087199,
-									"parameters": {
-										"instance-variable": "Active",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Meta_Upg_Background",
-									"sid": 183172654048895,
-									"parameters": {
-										"instance-variable": "Drill_Upg",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 280209449589762,
-									"parameters": {
-										"group-name": "\"Mechanical\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 902919181602304,
-									"parameters": {
-										"group-name": "\"Buildings\"",
-										"state": "activated"
-									}
-								}
-							],
-							"sid": 610288566542077
+							"sid": 399617731847421
 						},
 						{
 							"eventType": "group",
@@ -17276,6 +17557,246 @@
 										}
 									],
 									"sid": 517527766296562
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 160028734058041,
+									"parameters": {
+										"key": 80
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 560936765942467,
+									"parameters": {
+										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 929418796993709,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "HUD_Credit_Card_Background",
+											"sid": 854412256371521
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Credit_Card_Background",
+											"sid": 151607145886480,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Money_Text",
+											"sid": 674551072824749,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "HUD_Money_Button",
+											"sid": 765875249274521,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 479380214708439
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 737817023621326
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Credit_Card_Background",
+											"sid": 601842727228565,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Money_Text",
+											"sid": 224207123001465,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "HUD_Money_Button",
+											"sid": 833827919382865,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 707535387348701
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 723283976349693,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "HUD_Money_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 517463719240042,
+									"parameters": {
+										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "HUD_Money_Button",
+									"sid": 499691563356575,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 896271900256871,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "HUD_Money_Button",
+									"sid": 718033259952379,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 505407651693881,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "HUD_Credit_Card_Background",
+											"sid": 916521439710691
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Credit_Card_Background",
+											"sid": 501719436516829,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Money_Text",
+											"sid": 664310276964513,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "HUD_Money_Button",
+											"sid": 846146069048093,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 491547385066582
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 296871415215829
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Credit_Card_Background",
+											"sid": 486033050144273,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Money_Text",
+											"sid": 230775947290863,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "HUD_Money_Button",
+											"sid": 712677306731408,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 421970319097548
 								}
 							]
 						}
@@ -32464,6 +32985,292 @@
 						{
 							"eventType": "group",
 							"disabled": false,
+							"title": "Fall Damage",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Fall Damage"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-falling",
+											"objectClass": "Miner_Box",
+											"sid": 650412199442451,
+											"behaviorType": "Platform"
+										},
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 841091259676676,
+											"parameters": {
+												"interval-seconds": "0.5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 972342265978241,
+											"parameters": {
+												"instance-variable": "Fall_Timer",
+												"value": "0.5"
+											}
+										}
+									],
+									"sid": 952364154008419
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-landed",
+											"objectClass": "Miner_Box",
+											"sid": 834438932552986,
+											"behaviorType": "Platform"
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 316600015511909,
+											"parameters": {
+												"instance-variable": "Fall_Timer",
+												"comparison": 5,
+												"value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 608218714373253,
+											"parameters": {
+												"audio-file": "Damage take J.BoB - Anime Go - Box Crash",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "shake",
+											"objectClass": "Miner_Box",
+											"sid": 945748708835529,
+											"behaviorType": "ScrollTo",
+											"parameters": {
+												"magnitude": "20",
+												"duration": "0.4",
+												"mode": "reducing-magnitude"
+											}
+										},
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 260049272889431,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "20"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 928428472824885,
+											"parameters": {
+												"instance-variable": "Fall_Timer",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Miner_Animations",
+											"sid": 619492727743572,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HP_Bar",
+											"sid": 237890048510645,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 707707096715604,
+											"parameters": {
+												"seconds": "0.25"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HP_Bar",
+											"sid": 134997321999953,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Miner_Animations",
+											"sid": 441168217069629,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 183415952722697
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-landed",
+											"objectClass": "Miner_Box",
+											"sid": 297781626884535,
+											"behaviorType": "Platform"
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 334166425796169,
+											"parameters": {
+												"instance-variable": "Fall_Timer",
+												"comparison": 5,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 617999910094505,
+											"parameters": {
+												"audio-file": "Damage take J.BoB - Anime Go - Box Crash",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "shake",
+											"objectClass": "Miner_Box",
+											"sid": 186854175413153,
+											"behaviorType": "ScrollTo",
+											"parameters": {
+												"magnitude": "20",
+												"duration": "0.4",
+												"mode": "reducing-magnitude"
+											}
+										},
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 520812170643659,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "10"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 780030589648379,
+											"parameters": {
+												"instance-variable": "Fall_Timer",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Miner_Animations",
+											"sid": 680996143757350,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HP_Bar",
+											"sid": 127870768271539,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 203560260981833,
+											"parameters": {
+												"seconds": "0.25"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HP_Bar",
+											"sid": 529268016927879,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Miner_Animations",
+											"sid": 113762178040493,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 107094387234714
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-landed",
+											"objectClass": "Miner_Box",
+											"sid": 980362933433177,
+											"behaviorType": "Platform"
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 198058643061850,
+											"parameters": {
+												"instance-variable": "Fall_Timer",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 341348887680433
+								}
+							],
+							"sid": 864470412290865
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
 							"title": "Spawns and Ticks",
 							"description": "",
 							"isActiveOnStart": true,
@@ -33020,383 +33827,6 @@
 								}
 							],
 							"sid": 333218676776985
-						},
-						{
-							"eventType": "comment",
-							"text": "Health Bar"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-falling",
-									"objectClass": "Miner_Box",
-									"sid": 184673234413358,
-									"behaviorType": "Platform"
-								},
-								{
-									"id": "every-x-seconds",
-									"objectClass": "System",
-									"sid": 703546447341105,
-									"parameters": {
-										"interval-seconds": "0.5"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Miner_Box",
-									"sid": 197466460925323,
-									"parameters": {
-										"instance-variable": "Fall_Timer",
-										"value": "0.5"
-									}
-								}
-							],
-							"sid": 513360694871506
-						},
-						{
-							"eventType": "comment",
-							"text": "Fall Damage"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-landed",
-									"objectClass": "Miner_Box",
-									"sid": 894190887130193,
-									"behaviorType": "Platform"
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 494001974384787,
-									"parameters": {
-										"instance-variable": "Fall_Timer",
-										"comparison": 5,
-										"value": "4"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 594835111556376,
-									"parameters": {
-										"audio-file": "Damage take J.BoB - Anime Go - Box Crash",
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "shake",
-									"objectClass": "Miner_Box",
-									"sid": 494944322978348,
-									"behaviorType": "ScrollTo",
-									"parameters": {
-										"magnitude": "20",
-										"duration": "0.4",
-										"mode": "reducing-magnitude"
-									}
-								},
-								{
-									"id": "subtract-from-instvar",
-									"objectClass": "Miner_Box",
-									"sid": 676847749799618,
-									"parameters": {
-										"instance-variable": "HP",
-										"value": "20"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Miner_Box",
-									"sid": 260372809205141,
-									"parameters": {
-										"instance-variable": "Fall_Timer",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Miner_Animations",
-									"sid": 306569774477855,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "HP_Bar",
-									"sid": 714973726264467,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 584149538769377,
-									"parameters": {
-										"seconds": "0.25"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "HP_Bar",
-									"sid": 204247440566399,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Miner_Animations",
-									"sid": 322802100469212,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Darken\""
-									}
-								}
-							],
-							"sid": 746548062248807
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-landed",
-									"objectClass": "Miner_Box",
-									"sid": 343532889110087,
-									"behaviorType": "Platform"
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Miner_Box",
-									"sid": 909261596028486,
-									"parameters": {
-										"instance-variable": "Fall_Timer",
-										"comparison": 5,
-										"value": "2"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 444279112527679,
-									"parameters": {
-										"audio-file": "Damage take J.BoB - Anime Go - Box Crash",
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "shake",
-									"objectClass": "Miner_Box",
-									"sid": 591320973716929,
-									"behaviorType": "ScrollTo",
-									"parameters": {
-										"magnitude": "20",
-										"duration": "0.4",
-										"mode": "reducing-magnitude"
-									}
-								},
-								{
-									"id": "subtract-from-instvar",
-									"objectClass": "Miner_Box",
-									"sid": 226810824760792,
-									"parameters": {
-										"instance-variable": "HP",
-										"value": "10"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Miner_Box",
-									"sid": 106075949307841,
-									"parameters": {
-										"instance-variable": "Fall_Timer",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Miner_Animations",
-									"sid": 903237950724263,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "HP_Bar",
-									"sid": 185089628639889,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 180579398047363,
-									"parameters": {
-										"seconds": "0.25"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "HP_Bar",
-									"sid": 146225725761369,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Miner_Animations",
-									"sid": 166474913989983,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Darken\""
-									}
-								}
-							],
-							"sid": 307207618963816
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-landed",
-									"objectClass": "Miner_Box",
-									"sid": 480374379536439,
-									"behaviorType": "Platform"
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Miner_Box",
-									"sid": 199325099585557,
-									"parameters": {
-										"instance-variable": "Fall_Timer",
-										"value": "0"
-									}
-								}
-							],
-							"sid": 717368067010350
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Miner_Box",
-									"sid": 149876177667325,
-									"parameters": {
-										"object": "Devil_Hitbox"
-									}
-								},
-								{
-									"id": "every-x-seconds",
-									"objectClass": "System",
-									"sid": 425631561832248,
-									"parameters": {
-										"interval-seconds": "1.0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "subtract-from-instvar",
-									"objectClass": "Miner_Box",
-									"sid": 824982689198245,
-									"parameters": {
-										"instance-variable": "HP",
-										"value": "10"
-									}
-								},
-								{
-									"id": "shake",
-									"objectClass": "Miner_Box",
-									"sid": 133752764448771,
-									"behaviorType": "ScrollTo",
-									"parameters": {
-										"magnitude": "20",
-										"duration": "0.4",
-										"mode": "reducing-magnitude"
-									}
-								}
-							],
-							"sid": 303100008674693,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "set-effect-enabled",
-											"objectClass": "Miner_Animations",
-											"sid": 929746533527925,
-											"parameters": {
-												"mode": "enable",
-												"effect": "\"HardLight\""
-											}
-										},
-										{
-											"id": "set-effect-enabled",
-											"objectClass": "HP_Bar",
-											"sid": 162866226390853,
-											"parameters": {
-												"mode": "enable",
-												"effect": "\"HardLight\""
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 385070856051342,
-											"parameters": {
-												"seconds": "0.25"
-											}
-										},
-										{
-											"id": "set-effect-enabled",
-											"objectClass": "HP_Bar",
-											"sid": 778064321601426,
-											"parameters": {
-												"mode": "disable",
-												"effect": "\"HardLight\""
-											}
-										},
-										{
-											"id": "set-effect-enabled",
-											"objectClass": "Miner_Animations",
-											"sid": 327926009703719,
-											"parameters": {
-												"mode": "disable",
-												"effect": "\"HardLight\""
-											}
-										}
-									],
-									"sid": 546554749448297
-								}
-							]
 						}
 					],
 					"sid": 445823445837127
@@ -33409,77 +33839,1129 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Bullet Behaviour",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Devil_Bullet_Sprite",
+											"sid": 260636547296283,
+											"parameters": {
+												"object": "Mining_Blocks_Family"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Devil_Bullet_Sprite",
+											"sid": 733446605842012
+										}
+									],
+									"sid": 736387908901152
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Bullet_Sprite",
+											"sid": 162228333253364,
+											"parameters": {
+												"object": "Devil_Boss_Sprite"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Devil_Boss_Sprite",
+											"sid": 131416001790876,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "1"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Bullet_Sprite",
+											"sid": 405675638097853
+										}
+									],
+									"sid": 710113240085816
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Sphere_Bullet_Sprite",
+											"sid": 892065997352403,
+											"parameters": {
+												"object": "Devil_Boss_Sprite"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Devil_Boss_Sprite",
+											"sid": 158799997836937,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "10"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Sphere_Bullet_Sprite",
+											"sid": 199871201066299
+										}
+									],
+									"sid": 663684455182083
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Bullet_Sprite",
+											"sid": 522446225337567,
+											"parameters": {
+												"object": "Enemy_Body"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Enemy_Body",
+											"sid": 557799452612342,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "1"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Bullet_Sprite",
+											"sid": 319611458656518
+										}
+									],
+									"sid": 494252636162782
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Bullet_Sprite",
+											"sid": 533045111811256,
+											"parameters": {
+												"object": "Enemy_Body2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Enemy_Body2",
+											"sid": 603456707364730,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "1"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Bullet_Sprite",
+											"sid": 872541889891980
+										}
+									],
+									"sid": 280330684446831
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Sphere_Bullet_Sprite",
+											"sid": 121789024090040,
+											"parameters": {
+												"object": "Enemy_Body"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Enemy_Body",
+											"sid": 547656851896621,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "10"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Sphere_Bullet_Sprite",
+											"sid": 983718158201124
+										}
+									],
+									"sid": 262866365651901
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Sphere_Bullet_Sprite",
+											"sid": 340925951153817,
+											"parameters": {
+												"object": "Enemy_Body2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Enemy_Body2",
+											"sid": 177939931335481,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "10"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Sphere_Bullet_Sprite",
+											"sid": 358724639116961
+										}
+									],
+									"sid": 531736604567698
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Devil_Bullet_Sprite",
+											"sid": 721522647988906,
+											"parameters": {
+												"object": "Miner_Box"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 668834465906984,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "5"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Devil_Bullet_Sprite",
+											"sid": 580962928565370
+										},
+										{
+											"id": "shake",
+											"objectClass": "Miner_Box",
+											"sid": 382872461794839,
+											"behaviorType": "ScrollTo",
+											"parameters": {
+												"magnitude": "10",
+												"duration": "0.1",
+												"mode": "reducing-magnitude"
+											}
+										}
+									],
+									"sid": 506682068383053
+								}
+							],
+							"sid": 944442221508484
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Enemy Death",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Devil_Boss_Sprite",
+											"sid": 121889720459990,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Devil_Boss_Sprite",
+											"sid": 192418747183099
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Devil_Boss_Pentagram",
+											"sid": 335870413128492
+										}
+									],
+									"sid": 176256345256932
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemy_Body",
+											"sid": 607261246302264,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Enemy_Body",
+											"sid": 418228055843802
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Enemy_Turret_1",
+											"sid": 707727346655503
+										}
+									],
+									"sid": 513099584952840
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemy_Body2",
+											"sid": 720940849404896,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Enemy_Body2",
+											"sid": 224221811095218
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Enemy_Turret_2",
+											"sid": 582087451487257
+										}
+									],
+									"sid": 463883373084776
+								}
+							],
+							"sid": 806778892325219
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Enemy Encounters HP Bar",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-start-of-layout",
+											"objectClass": "System",
+											"sid": 712480654032331
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Hell_Background",
+											"sid": 514272826430819,
+											"disabled": true,
+											"parameters": {
+												"object": "Enemy_Body",
+												"layer": "\"Player\"",
+												"image-point": "\"Enemy1\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Hell_Background",
+											"sid": 773779704838502,
+											"parameters": {
+												"object": "Enemy_Body2",
+												"layer": "\"Player\"",
+												"image-point": "\"Enemy2\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "HUD_Enemy_1_HP_Bar",
+											"sid": 840567767504441,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "HUD_Enemy_1_HP_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "HUD_Enemy_2_HP_Bar",
+											"sid": 505067276942916,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "HUD_Enemy_2_HP_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "HUD_Devil_HP_Bar",
+											"sid": 197459249906628,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "HUD_Devil_HP_Background2",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Hell_Background",
+											"sid": 639770224937167,
+											"parameters": {
+												"object": "Devil_Boss_Sprite",
+												"layer": "\"Player\"",
+												"image-point": "\"Enemy1\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 259702809313874,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy_Body",
+													"sid": 527746774132627,
+													"disabled": true,
+													"parameters": {
+														"object": "Enemy_Turret_1",
+														"layer": "\"Player\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy_Body2",
+													"sid": 887296658148944,
+													"parameters": {
+														"object": "Enemy_Turret_2",
+														"layer": "\"Player\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Devil_Boss_Sprite",
+													"sid": 286083288251103,
+													"parameters": {
+														"object": "Devil_Boss_Pentagram",
+														"layer": "\"Player\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Devil_Boss_Sprite",
+													"sid": 328443821358586,
+													"parameters": {
+														"object": "Devil_Fire_Ring",
+														"layer": "\"Player\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "pin-to-object-properties",
+													"objectClass": "Devil_Fire_Ring",
+													"sid": 968552326286576,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "Devil_Boss_Sprite",
+														"x": true,
+														"y": true,
+														"angle": true,
+														"width-type": "no",
+														"height-type": "no",
+														"z": false
+													}
+												}
+											],
+											"sid": 683042790011129
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 278990670942691
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Enemy_1_HP_Text",
+											"sid": 276268828504343,
+											"parameters": {
+												"text": "\"Enemy1   \" & Enemy_Body.HP & \" / \" & Enemy_Body.Max_HP"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Enemy_2_HP_Text",
+											"sid": 186367776773721,
+											"parameters": {
+												"text": "\"Enemy 2   \" & Enemy_Body2.HP & \" / \" & Enemy_Body2.Max_HP"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Devil_HP_Text",
+											"sid": 531698287754578,
+											"parameters": {
+												"text": "\"THE DEVIL   \" & Devil_Boss_Sprite.HP & \" / \" & Devil_Boss_Sprite.Max_HP"
+											}
+										},
+										{
+											"id": "set-width",
+											"objectClass": "HUD_Enemy_1_HP_Bar",
+											"sid": 445762528211763,
+											"parameters": {
+												"width": "HUD_Enemy_1_HP_Background.Width* (Enemy_Body.HP / Enemy_Body.Max_HP)"
+											}
+										},
+										{
+											"id": "set-width",
+											"objectClass": "HUD_Enemy_2_HP_Bar",
+											"sid": 344612912115071,
+											"parameters": {
+												"width": "HUD_Enemy_2_HP_Background.Width* (Enemy_Body2.HP / Enemy_Body2.Max_HP)"
+											}
+										},
+										{
+											"id": "set-width",
+											"objectClass": "HUD_Devil_HP_Bar",
+											"sid": 794632847130240,
+											"parameters": {
+												"width": "HUD_Devil_HP_Background2.Width* (Devil_Boss_Sprite.HP / Devil_Boss_Sprite.Max_HP)"
+											}
+										}
+									],
+									"sid": 730360103603304,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "acquire-target",
+													"objectClass": "Enemy_Turret_1",
+													"sid": 322175413655832,
+													"behaviorType": "Turret",
+													"parameters": {
+														"target": "Miner_Box"
+													}
+												},
+												{
+													"id": "acquire-target",
+													"objectClass": "Enemy_Turret_2",
+													"sid": 443840801474373,
+													"behaviorType": "Turret",
+													"parameters": {
+														"target": "Miner_Box"
+													}
+												},
+												{
+													"id": "acquire-target",
+													"objectClass": "Devil_Boss_Pentagram",
+													"sid": 909526256305401,
+													"behaviorType": "Turret",
+													"parameters": {
+														"target": "Miner_Box"
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Enemy_Turret_1",
+													"sid": 311341992481662,
+													"parameters": {
+														"x": "Enemy_Body.X",
+														"y": "Enemy_Body.Y"
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Enemy_Turret_2",
+													"sid": 441942271366661,
+													"parameters": {
+														"x": "Enemy_Body2.X",
+														"y": "Enemy_Body2.Y"
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Devil_Boss_Pentagram",
+													"sid": 954517895241452,
+													"parameters": {
+														"x": "Devil_Boss_Sprite.X",
+														"y": "Devil_Boss_Sprite.Y"
+													}
+												}
+											],
+											"sid": 369924070479137
+										}
+									]
+								}
+							],
+							"sid": 865527000970509
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "Devil_Boss_Sprite",
-									"sid": 496574548731526,
-									"parameters": {
-										"instance-variable": "HP",
-										"comparison": 0,
-										"value": "0"
-									}
+									"id": "has-target",
+									"objectClass": "Enemy_Turret_1",
+									"sid": 516754561378690,
+									"behaviorType": "Turret"
 								}
 							],
 							"actions": [
 								{
-									"id": "destroy",
-									"objectClass": "Devil_Boss_Sprite",
-									"sid": 501044995383421
+									"id": "move-to-object",
+									"objectClass": "Enemy_Body",
+									"sid": 478669538909778,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"object": "Miner_Box",
+										"image-point": "0",
+										"mode": "direct"
+									}
 								},
 								{
-									"id": "destroy",
-									"objectClass": "Devil_Hitbox",
-									"sid": 957654847873490
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_1_HP_Background",
+									"sid": 497727151090990,
+									"parameters": {
+										"visibility": "visible"
+									}
 								},
 								{
-									"id": "destroy",
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_1_HP_Bar",
+									"sid": 722781963573894,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_1_HP_Text",
+									"sid": 196066625591539,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 760492748528665,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 907419741120097,
+											"parameters": {
+												"interval-seconds": "0.5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Enemy_Turret_1",
+											"sid": 899811914836226,
+											"parameters": {
+												"object": "Devil_Bullet_Sprite",
+												"layer": "\"Player\"",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 477066803809177
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 876120379695125
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_1_HP_Background",
+									"sid": 810709973135054,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_1_HP_Bar",
+									"sid": 584240435662235,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_1_HP_Text",
+									"sid": 140404014173982,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 179248883046204,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 304686413894943,
+											"parameters": {
+												"interval-seconds": "1.0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemy_Body",
+											"sid": 482258275545478,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 2,
+												"value": "Enemy_Body.Max_HP"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Enemy_Body",
+											"sid": 920187506878881,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 969281076071669
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-target",
+									"objectClass": "Enemy_Turret_2",
+									"sid": 677792250324947,
+									"behaviorType": "Turret"
+								}
+							],
+							"actions": [
+								{
+									"id": "move-to-object",
+									"objectClass": "Enemy_Body2",
+									"sid": 556813960510079,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"object": "Miner_Box",
+										"image-point": "0",
+										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_2_HP_Background",
+									"sid": 673949304498553,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_2_HP_Bar",
+									"sid": 843610989064800,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_2_HP_Text",
+									"sid": 495815505280606,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 635407889615123,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 209822099780814,
+											"parameters": {
+												"interval-seconds": "0.5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Enemy_Turret_2",
+											"sid": 981154641835007,
+											"parameters": {
+												"object": "Devil_Bullet_Sprite",
+												"layer": "\"Player\"",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 595565414668691
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 247602541016563
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_2_HP_Background",
+									"sid": 247569601016033,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_2_HP_Bar",
+									"sid": 232322161039658,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_2_HP_Text",
+									"sid": 397851397195698,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 534275418691743,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 813742065728510,
+											"parameters": {
+												"interval-seconds": "1.0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemy_Body2",
+											"sid": 569653445181850,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 2,
+												"value": "Enemy_Body2.Max_HP"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Enemy_Body2",
+											"sid": 155290979444843,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 758517695808969
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-target",
 									"objectClass": "Devil_Boss_Pentagram",
-									"sid": 602857191058088
-								}
-							],
-							"sid": 365893136662040
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Bullet_Sprite",
-									"sid": 889098907153370,
-									"parameters": {
-										"object": "Devil_Boss_Sprite"
-									}
+									"sid": 733466392354565,
+									"behaviorType": "Turret"
 								}
 							],
 							"actions": [
 								{
-									"id": "subtract-from-instvar",
+									"id": "move-to-object",
 									"objectClass": "Devil_Boss_Sprite",
-									"sid": 984372940102948,
+									"sid": 144626170463384,
+									"behaviorType": "MoveTo",
 									"parameters": {
-										"instance-variable": "HP",
-										"value": "1"
+										"object": "Miner_Box",
+										"image-point": "0",
+										"mode": "direct"
 									}
 								},
 								{
-									"id": "destroy",
-									"objectClass": "Bullet_Sprite",
-									"sid": 198356963715430
+									"id": "set-visible",
+									"objectClass": "HUD_Devil_HP_Background2",
+									"sid": 423869142513091,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Devil_HP_Bar",
+									"sid": 925690575108656,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Devil_HP_Text",
+									"sid": 864924142701316,
+									"parameters": {
+										"visibility": "visible"
+									}
 								}
 							],
-							"sid": 571662342962430
+							"sid": 757943521609757,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 238380120810835,
+											"parameters": {
+												"interval-seconds": "0.5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Devil_Boss_Pentagram",
+											"sid": 206669795312185,
+											"parameters": {
+												"object": "Devil_Bullet_Sprite",
+												"layer": "\"Player\"",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 745029716153067
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 699128789239657
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Devil_HP_Background2",
+									"sid": 929154095285647,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Devil_HP_Bar",
+									"sid": 823899462772147,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Devil_HP_Text",
+									"sid": 471718462833160,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 512729038915257,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 605009605117868,
+											"parameters": {
+												"interval-seconds": "1.0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemy_Body2",
+											"sid": 386816947095406,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 2,
+												"value": "Enemy_Body2.Max_HP"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Enemy_Body2",
+											"sid": 640718289122755,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 906833839610114
+								}
+							]
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "is-overlapping-another-object",
-									"objectClass": "Devil_Bullet_Sprite",
-									"sid": 503487501446128,
+									"objectClass": "Miner_Box",
+									"sid": 439454239856921,
 									"parameters": {
-										"object": "Miner_Box"
+										"object": "Devil_Fire_Ring"
+									}
+								},
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 773561700023969,
+									"parameters": {
+										"interval-seconds": "1.0"
 									}
 								}
 							],
@@ -33487,83 +34969,78 @@
 								{
 									"id": "subtract-from-instvar",
 									"objectClass": "Miner_Box",
-									"sid": 317353553273160,
+									"sid": 408792565252613,
 									"parameters": {
 										"instance-variable": "HP",
-										"value": "5"
+										"value": "10"
 									}
 								},
 								{
-									"id": "destroy",
-									"objectClass": "Devil_Bullet_Sprite",
-									"sid": 305192978093324
-								}
-							],
-							"sid": 110656744270693
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Devil_Boss_Sprite",
-									"sid": 309555208833504,
+									"id": "shake",
+									"objectClass": "Miner_Box",
+									"sid": 228157016561150,
+									"behaviorType": "ScrollTo",
 									"parameters": {
-										"instance-variable": "HP",
-										"comparison": 4,
-										"value": "0"
+										"magnitude": "20",
+										"duration": "0.4",
+										"mode": "reducing-magnitude"
 									}
 								}
 							],
-							"actions": [],
-							"sid": 397050033903308
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+							"sid": 472480343545833,
+							"children": [
 								{
-									"id": "every-x-seconds",
-									"objectClass": "System",
-									"sid": 457200627276691,
-									"parameters": {
-										"interval-seconds": "0.25"
-									}
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Miner_Animations",
+											"sid": 665493228358183,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"HardLight\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HP_Bar",
+											"sid": 320674858180751,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"HardLight\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 784215738177663,
+											"parameters": {
+												"seconds": "0.25"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HP_Bar",
+											"sid": 618006438986446,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"HardLight\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Miner_Animations",
+											"sid": 671266908461721,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"HardLight\""
+											}
+										}
+									],
+									"sid": 520858398653407
 								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 318922758672007,
-									"parameters": {
-										"object-to-create": "Devil_Bullet_Sprite",
-										"layer": "\"Player\"",
-										"x": "Devil_Boss_Pentagram.X ",
-										"y": "Devil_Boss_Pentagram.Y",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-angle-of-motion",
-									"objectClass": "Devil_Bullet_Sprite",
-									"sid": 910946535005465,
-									"behaviorType": "Bullet",
-									"parameters": {
-										"angle": "Devil_Boss_Pentagram.Angle"
-									}
-								},
-								{
-									"id": "set-acceleration",
-									"objectClass": "Devil_Bullet_Sprite",
-									"sid": 342715031802887,
-									"behaviorType": "Bullet",
-									"parameters": {
-										"acceleration": "10"
-									}
-								}
-							],
-							"sid": 815195259568284
+							]
 						}
 					],
 					"sid": 547661340535400
