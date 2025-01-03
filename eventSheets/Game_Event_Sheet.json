@@ -102,6 +102,40 @@
 			"sid": 358713849439888
 		},
 		{
+			"eventType": "comment",
+			"text": "Quest Variables"
+		},
+		{
+			"eventType": "variable",
+			"name": "Quest_Objective_1",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 612441873125522
+		},
+		{
+			"eventType": "variable",
+			"name": "Quest_Objective_2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 651231467582724
+		},
+		{
+			"eventType": "variable",
+			"name": "Quest_Objective_3",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 783482837365566
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Global Events",
@@ -4437,6 +4471,18 @@
 									"parameters": {
 										"x": "HUD_Credit_Card_Background.X +6",
 										"y": "HUD_Credit_Card_Background.Y +53"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 282848650789437,
+									"parameters": {
+										"object": "HUD_Locked",
+										"layer": "\"HUD\"",
+										"image-point": "\"Locked\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								}
 							],
@@ -17814,6 +17860,159 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Mitch",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 441346647526956,
+									"parameters": {
+										"object": "Mitch"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Miner_Box",
+									"sid": 163899102797455,
+									"parameters": {
+										"instance-variable": "Laser_Gun_Active"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Mitch_Talk_Bubble",
+									"sid": 801115254714564,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Gun_Crate",
+									"sid": 944165448483398,
+									"parameters": {
+										"animation": "\"Open\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Buy_Gun_Button",
+									"sid": 103124007857913,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 908375064509355
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 160340904890605
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Mitch_Talk_Bubble",
+									"sid": 139153825061958,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Gun_Crate",
+									"sid": 637309878860781,
+									"parameters": {
+										"animation": "\"Closed\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Buy_Gun_Button",
+									"sid": 401001989140611,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 352725925866719
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 315333265861512,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Buy_Gun_Button"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 551193876132357,
+									"parameters": {
+										"instance-variable": "Money",
+										"comparison": 5,
+										"value": "10000"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 567128049165408,
+									"parameters": {
+										"instance-variable": "Money",
+										"value": "10000"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 859522924624589,
+									"parameters": {
+										"instance-variable": "Laser_Gun_Active",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Locked",
+									"sid": 367645733112435,
+									"parameters": {
+										"animation": "\"Equip\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 255343503477794
+						}
+					],
+					"sid": 187206239009548
+				},
+				{
 					"eventType": "comment",
 					"text": "SHOP"
 				},
@@ -19862,6 +20061,55 @@
 							],
 							"sid": 292326158534623,
 							"children": [
+								{
+									"eventType": "comment",
+									"text": "Quest 2"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Claim_Button",
+											"sid": 716674024843560,
+											"parameters": {
+												"instance-variable": "Quest_2_Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 166663544278106,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"value": "Miner_Box.Coal"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 561608669376011,
+											"parameters": {
+												"variable": "Quest_Objective_2",
+												"value": "Miner_Box.Quartz"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 305203377863944,
+											"parameters": {
+												"variable": "Quest_Objective_3",
+												"value": "Miner_Box.Bauxite"
+											}
+										}
+									],
+									"sid": 908191997941903
+								},
 								{
 									"eventType": "block",
 									"conditions": [],
@@ -27208,6 +27456,14 @@
 													"id": "trigger-once-while-true",
 													"objectClass": "System",
 													"sid": 785012708962850
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Miner_Box",
+													"sid": 600939439792734,
+													"parameters": {
+														"instance-variable": "Laser_Gun_Active"
+													}
 												}
 											],
 											"actions": [
@@ -27264,6 +27520,14 @@
 													"parameters": {
 														"instance-variable": "ANIM",
 														"value": "\"Idle\""
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Locked",
+													"sid": 256324061443364,
+													"parameters": {
+														"visibility": "invisible"
 													}
 												}
 											],
@@ -27344,6 +27608,14 @@
 															"parameters": {
 																"instance-variable": "ANIM",
 																"value": "\"Idle\""
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "HUD_Locked",
+															"sid": 924157963454495,
+															"parameters": {
+																"visibility": "visible"
 															}
 														}
 													],
@@ -30377,6 +30649,33 @@
 											"children": [
 												{
 													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Claim_Button",
+															"sid": 226376230341919,
+															"parameters": {
+																"instance-variable": "Quest_1_Active",
+																"comparison": 0,
+																"value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 619383666120546,
+															"parameters": {
+																"variable": "Quest_Objective_1",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 651448818983744
+												},
+												{
+													"eventType": "block",
 													"conditions": [],
 													"actions": [
 														{
@@ -30478,6 +30777,33 @@
 											"children": [
 												{
 													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Claim_Button",
+															"sid": 518075533654868,
+															"parameters": {
+																"instance-variable": "Quest_1_Active",
+																"comparison": 0,
+																"value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 678826646398569,
+															"parameters": {
+																"variable": "Quest_Objective_2",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 320780631608535
+												},
+												{
+													"eventType": "block",
 													"conditions": [],
 													"actions": [
 														{
@@ -30577,6 +30903,33 @@
 											],
 											"sid": 823230475395636,
 											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Claim_Button",
+															"sid": 736690245683782,
+															"parameters": {
+																"instance-variable": "Quest_1_Active",
+																"comparison": 0,
+																"value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 978153947516790,
+															"parameters": {
+																"variable": "Quest_Objective_3",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 280522339266075
+												},
 												{
 													"eventType": "block",
 													"conditions": [],
@@ -36100,16 +36453,6 @@
 			"children": [
 				{
 					"eventType": "variable",
-					"name": "Quest_Objective_1",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 966477248363412
-				},
-				{
-					"eventType": "variable",
 					"name": "Quest_Target_1",
 					"type": "number",
 					"initialValue": "5",
@@ -36120,16 +36463,6 @@
 				},
 				{
 					"eventType": "variable",
-					"name": "Quest_Objective_2",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 869873982656789
-				},
-				{
-					"eventType": "variable",
 					"name": "Quest_Target_2",
 					"type": "number",
 					"initialValue": "5",
@@ -36137,16 +36470,6 @@
 					"isStatic": false,
 					"isConstant": false,
 					"sid": 682313726455885
-				},
-				{
-					"eventType": "variable",
-					"name": "Quest_Objective_3",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 272456589843560
 				},
 				{
 					"eventType": "variable",
@@ -36189,6 +36512,7 @@
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 175941885213544,
+									"disabled": true,
 									"parameters": {
 										"variable": "Quest_Objective_1",
 										"value": "Miner_Box.Coal"
@@ -36198,6 +36522,7 @@
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 968336877524731,
+									"disabled": true,
 									"parameters": {
 										"variable": "Quest_Objective_2",
 										"value": "Miner_Box.Quartz"
@@ -36207,6 +36532,7 @@
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 184154411409962,
+									"disabled": true,
 									"parameters": {
 										"variable": "Quest_Objective_3",
 										"value": "Miner_Box.Bauxite"
@@ -36484,6 +36810,7 @@
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 922736072932610,
+									"disabled": true,
 									"parameters": {
 										"variable": "Quest_Objective_1",
 										"value": "Global_Inventory_Object.Coal"
@@ -36493,6 +36820,7 @@
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 291359322622951,
+									"disabled": true,
 									"parameters": {
 										"variable": "Quest_Objective_2",
 										"value": "Global_Inventory_Object.Quartz"
@@ -36502,6 +36830,7 @@
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 206838442154241,
+									"disabled": true,
 									"parameters": {
 										"variable": "Quest_Objective_3",
 										"value": "Global_Inventory_Object.Bauxite"
@@ -36551,10 +36880,10 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 410602814273194,
+											"sid": 662695690156244,
 											"parameters": {
 												"variable": "Quest_Objective_1",
-												"comparison": 3,
+												"comparison": 5,
 												"value": "Quest_Target_1"
 											}
 										},
