@@ -1,13 +1,13 @@
 export const smelterRecipes = {
 	"Aluminium Ingot": {
-    	requiredItems: {Bauxite: 2, coal: 5},
+    	requiredItems: {Bauxite: 4, coal: 2},
 		output: {Aluminium_Ingot: 1},
 		smelting_time: 3
     },
     "Silicon": {
-       requiredItems: {Quartz: 10, coal: 5},
+       requiredItems: {Quartz: 4, coal: 2},
 	   output: {Silicon: 1},
-	   smelting_time: 12
+	   smelting_time: 5
     },
     "Iron Ingot": {
        requiredItems: {Iron: 2, coal: 5},

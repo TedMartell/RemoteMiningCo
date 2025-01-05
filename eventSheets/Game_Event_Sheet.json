@@ -4850,6 +4850,33 @@
 										"instance-variable": "Quartz",
 										"value": "Meta_Passive_Income_Object.Meta_Passive_Quartz"
 									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 168139393053963,
+									"parameters": {
+										"instance-variable": "Iron",
+										"value": "Meta_Passive_Income_Object.Meta_Passive_Iron"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 457192589389688,
+									"parameters": {
+										"instance-variable": "Chromium",
+										"value": "Meta_Passive_Income_Object.Meta_Passive_Chromium"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 869846657937477,
+									"parameters": {
+										"instance-variable": "Copper",
+										"value": "Meta_Passive_Income_Object.Meta_Passive_Copper"
+									}
 								}
 							],
 							"sid": 209201778859817
@@ -5196,7 +5223,6 @@
 							"id": "set-silent",
 							"objectClass": "SFX",
 							"sid": 683047249247073,
-							"disabled": true,
 							"parameters": {
 								"mode": "silent"
 							}
@@ -5341,9 +5367,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "Meta_Passive_Income_Text",
-							"sid": 622184144961617,
+							"sid": 849311092402276,
 							"parameters": {
-								"text": "\"Every Second: \" & newline &\n\n\"Coal Income: \" & Meta_Passive_Income_Object.Meta_Passive_Coal  & newline &\"Quartz Income: \" & Meta_Passive_Income_Object.Meta_Passive_Quartz & newline\n& \"Bauxite Income: \" & Meta_Passive_Income_Object.Meta_Passive_Bauxite & newline\n"
+								"text": "\"Every Second: \" & newline &\n\n\"Coal Income: \" & Meta_Passive_Income_Object.Meta_Passive_Coal  & newline &\"Quartz Income: \" & Meta_Passive_Income_Object.Meta_Passive_Quartz & newline\n& \"Bauxite Income: \" & Meta_Passive_Income_Object.Meta_Passive_Bauxite & newline &\"Iron Income: \" & Meta_Passive_Income_Object.Meta_Passive_Iron  & newline &\"Chromium Income: \" & Meta_Passive_Income_Object.Meta_Passive_Chromium & newline &\"Copper Income: \" & Meta_Passive_Income_Object.Meta_Passive_Copper\n"
 							}
 						},
 						{
@@ -16051,6 +16077,87 @@
 												"height-type": "no",
 												"z": false
 											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 678865731700318,
+											"parameters": {
+												"object": "Meta_Passive_Iron_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_4\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Passive_Iron_Button",
+											"sid": 992503247032641,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 495047202326366,
+											"parameters": {
+												"object": "Meta_Passive_Chromium_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_5\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Passive_Chromium_Button",
+											"sid": 769137373627685,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 200592380862914,
+											"parameters": {
+												"object": "Meta_Passive_Copper_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_6\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Passive_Copper_Button",
+											"sid": 467991735714221,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
 										}
 									],
 									"sid": 725556052076817
@@ -16314,10 +16421,10 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "Meta_Passive_Income_Object",
-															"sid": 511645364829706,
+															"sid": 876157258213783,
 															"parameters": {
 																"instance-variable": "Meta_Passive_Coal",
-																"value": "roundToDp(Meta_Passive_Income_Object.Meta_Passive_Coal * 1.1, 2 )"
+																"value": "roundToDp(0.01 * 1.1, 2 )"
 															}
 														},
 														{
@@ -16366,19 +16473,19 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 755999911972749,
+													"sid": 131447849186873,
 													"parameters": {
 														"variable": "Required_Item_Quantity",
-														"value": "100 + 100 * floor(Current_Level* 5)"
+														"value": "500 + 100 * floor(Current_Level* 5)"
 													}
 												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 710996454932663,
+													"sid": 722963895770743,
 													"parameters": {
 														"variable": "Max_Level",
-														"value": "10"
+														"value": "5"
 													}
 												},
 												{
@@ -16414,11 +16521,11 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Meta_Passive_Upg_Button",
-													"sid": 633550703108655,
+													"sid": 687007173946974,
 													"parameters": {
 														"instance-variable": "Passive_Coal_Level",
 														"comparison": 0,
-														"value": "10"
+														"value": "5"
 													}
 												}
 											],
@@ -16668,10 +16775,10 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "Meta_Passive_Income_Object",
-															"sid": 722784378310575,
+															"sid": 144244459880679,
 															"parameters": {
 																"instance-variable": "Meta_Passive_Quartz",
-																"value": "roundToDp(Meta_Passive_Income_Object.Meta_Passive_Quartz * 1.1, 2 )"
+																"value": "roundToDp(0.01 * 1.1, 2 )"
 															}
 														},
 														{
@@ -16720,19 +16827,19 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 499216629686291,
+													"sid": 998451201238838,
 													"parameters": {
 														"variable": "Required_Item_Quantity",
-														"value": "100 + 100 * floor(Current_Level* 5)"
+														"value": "500 + 100 * floor(Current_Level* 5)"
 													}
 												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 443067353424605,
+													"sid": 552775698008597,
 													"parameters": {
 														"variable": "Max_Level",
-														"value": "10"
+														"value": "5"
 													}
 												},
 												{
@@ -16768,11 +16875,11 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Meta_Passive_Upg_Button",
-													"sid": 451752091566083,
+													"sid": 971501978821942,
 													"parameters": {
 														"instance-variable": "Passive_Quartz_Level",
 														"comparison": 0,
-														"value": "10"
+														"value": "5"
 													}
 												}
 											],
@@ -17022,10 +17129,10 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "Meta_Passive_Income_Object",
-															"sid": 892527329951221,
+															"sid": 518260179465115,
 															"parameters": {
 																"instance-variable": "Meta_Passive_Bauxite",
-																"value": "roundToDp(Meta_Passive_Income_Object.Meta_Passive_Bauxite * 1.1, 2 )"
+																"value": "roundToDp(0.01 * 1.1, 2 )"
 															}
 														},
 														{
@@ -17074,19 +17181,19 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 692582606471314,
+													"sid": 914156833235329,
 													"parameters": {
 														"variable": "Required_Item_Quantity",
-														"value": "100 + 100 * floor(Current_Level* 5)"
+														"value": "500 + 100 * floor(Current_Level* 5)"
 													}
 												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 785338213722449,
+													"sid": 721591762910192,
 													"parameters": {
 														"variable": "Max_Level",
-														"value": "10"
+														"value": "5"
 													}
 												},
 												{
@@ -17122,11 +17229,11 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Meta_Passive_Upg_Button",
-													"sid": 928448422079593,
+													"sid": 518668091427309,
 													"parameters": {
 														"instance-variable": "Passive_Bauxite_Level",
 														"comparison": 0,
-														"value": "10"
+														"value": "5"
 													}
 												}
 											],
@@ -17154,6 +17261,1068 @@
 										}
 									],
 									"sid": 562957362356567
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Iron Passive",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 673196173040844,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "Meta_Passive_Iron_Button"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Bauxite_Button",
+													"sid": 916373204781007,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "0"
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Meta_Passive_Bauxite_Button",
+													"sid": 310260723661943,
+													"parameters": {
+														"animation": "\"Active\""
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 131356932102766,
+													"parameters": {
+														"instance-variable": "Passive_Iron_Completed"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Passive_Buttons",
+													"sid": 193129059877012,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Upg_Text",
+													"sid": 829744748439677,
+													"parameters": {
+														"text": "\"This will increase your Passive Iron income / Income tick\""
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Passive_Iron_Button",
+													"sid": 113579720374003,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"Darken\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 665848110156170,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Passive_Iron_Button",
+													"sid": 430251400603892,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"Darken\""
+													}
+												}
+											],
+											"sid": 548024973108747,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Meta_Passive_Iron_Button",
+															"sid": 456873484880111,
+															"parameters": {
+																"instance-variable": "Focus",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 466024425304295
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 573814493925407,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "Meta_Upgrade_button"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Iron_Button",
+													"sid": 828704374750312,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "1"
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Meta_Passive_Iron_Button",
+													"sid": 928044350914137,
+													"parameters": {
+														"animation": "\"Active\""
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 669423829701378,
+													"parameters": {
+														"instance-variable": "Passive_Iron_Completed"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Upgrade_button",
+													"sid": 496875227937153,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"Darken\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 437312548953589,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Upgrade_button",
+													"sid": 460362094949987,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"Darken\""
+													}
+												}
+											],
+											"sid": 920181863209926,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Miner_Box",
+															"sid": 694472828459392,
+															"parameters": {
+																"instance-variable": "Money",
+																"comparison": 5,
+																"value": "Required_Item_Quantity"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Meta_Passive_Upg_Button",
+															"sid": 601999573855962,
+															"parameters": {
+																"instance-variable": "Passive_Iron_Level",
+																"comparison": 2,
+																"value": "Max_Level"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "Miner_Box",
+															"sid": 911331677470841,
+															"parameters": {
+																"instance-variable": "Money",
+																"value": "Required_Item_Quantity"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Meta_Passive_Income_Object",
+															"sid": 657552122069366,
+															"parameters": {
+																"instance-variable": "Meta_Passive_Iron",
+																"value": "roundToDp(0.01 * 1.1, 2 )"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Meta_Passive_Upg_Button",
+															"sid": 824684260150811,
+															"parameters": {
+																"instance-variable": "Passive_Iron_Level",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 120484091810205
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-tick",
+													"objectClass": "System",
+													"sid": 367648956723475
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Iron_Button",
+													"sid": 940671374834907,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 635818205593929,
+													"parameters": {
+														"variable": "Current_Level",
+														"value": "Meta_Passive_Upg_Button.Passive_Iron_Level"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 739444104448097,
+													"parameters": {
+														"variable": "Required_Item_Quantity",
+														"value": "500 + 100 * floor(Current_Level* 5)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 416436979805475,
+													"parameters": {
+														"variable": "Max_Level",
+														"value": "5"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Req_Item_Text",
+													"sid": 677767965590060,
+													"parameters": {
+														"text": "\"MONEY: \" & Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Max_Level_Text",
+													"sid": 239174537143060,
+													"parameters": {
+														"text": "Max_Level"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Current_Level_Text",
+													"sid": 251183112508872,
+													"parameters": {
+														"text": "Current_Level"
+													}
+												}
+											],
+											"sid": 334375960233910
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 396573252612511,
+													"parameters": {
+														"instance-variable": "Passive_Iron_Level",
+														"comparison": 0,
+														"value": "5"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Passive_Iron_Button",
+													"sid": 353019095288590,
+													"parameters": {
+														"animation": "\"Completed\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 180129486168197,
+													"parameters": {
+														"instance-variable": "Passive_Iron_Completed",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 582698316309489
+										}
+									],
+									"sid": 175819725946979
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Chromium Passive",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 318820871870409,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "Meta_Passive_Chromium_Button"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Chromium_Button",
+													"sid": 893598447833133,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "0"
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Meta_Passive_Chromium_Button",
+													"sid": 634517046645904,
+													"parameters": {
+														"animation": "\"Active\""
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 234758017556999,
+													"parameters": {
+														"instance-variable": "Passive_Chromium_Completed"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Passive_Buttons",
+													"sid": 878425619294439,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Upg_Text",
+													"sid": 255551298455574,
+													"parameters": {
+														"text": "\"This will increase your Passive Chromium income / Income tick\""
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Passive_Chromium_Button",
+													"sid": 883787871201982,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"Darken\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 400118411150821,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Passive_Chromium_Button",
+													"sid": 346090667444698,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"Darken\""
+													}
+												}
+											],
+											"sid": 721366092279716,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Meta_Passive_Chromium_Button",
+															"sid": 627731028979273,
+															"parameters": {
+																"instance-variable": "Focus",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 120975999403143
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 318940086311002,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "Meta_Upgrade_button"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Chromium_Button",
+													"sid": 196827910266247,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "1"
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Meta_Passive_Chromium_Button",
+													"sid": 769977509737918,
+													"parameters": {
+														"animation": "\"Active\""
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 988975016964861,
+													"parameters": {
+														"instance-variable": "Passive_Chromium_Completed"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Upgrade_button",
+													"sid": 321378026117573,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"Darken\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 570927631518255,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Upgrade_button",
+													"sid": 907485670956085,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"Darken\""
+													}
+												}
+											],
+											"sid": 194870238451872,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Miner_Box",
+															"sid": 530872247032797,
+															"parameters": {
+																"instance-variable": "Money",
+																"comparison": 5,
+																"value": "Required_Item_Quantity"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Meta_Passive_Upg_Button",
+															"sid": 974876346059381,
+															"parameters": {
+																"instance-variable": "Passive_Chromium_Level",
+																"comparison": 2,
+																"value": "Max_Level"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "Miner_Box",
+															"sid": 420147757596916,
+															"parameters": {
+																"instance-variable": "Money",
+																"value": "Required_Item_Quantity"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Meta_Passive_Income_Object",
+															"sid": 789785973860253,
+															"parameters": {
+																"instance-variable": "Meta_Passive_Chromium",
+																"value": "roundToDp(0.01 * 1.1, 2 )"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Meta_Passive_Upg_Button",
+															"sid": 333757111965252,
+															"parameters": {
+																"instance-variable": "Passive_Chromium_Level",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 408648007657219
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-tick",
+													"objectClass": "System",
+													"sid": 548788468721932
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Chromium_Button",
+													"sid": 625156561951469,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 526557250269600,
+													"parameters": {
+														"variable": "Current_Level",
+														"value": "Meta_Passive_Upg_Button.Passive_Chromium_Level"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 582980734854215,
+													"parameters": {
+														"variable": "Required_Item_Quantity",
+														"value": "500 + 100 * floor(Current_Level* 5)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 434571033324110,
+													"parameters": {
+														"variable": "Max_Level",
+														"value": "5"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Req_Item_Text",
+													"sid": 343080840093875,
+													"parameters": {
+														"text": "\"MONEY: \" & Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Max_Level_Text",
+													"sid": 277353095980139,
+													"parameters": {
+														"text": "Max_Level"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Current_Level_Text",
+													"sid": 295790208553334,
+													"parameters": {
+														"text": "Current_Level"
+													}
+												}
+											],
+											"sid": 354681692787206
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 677234045750804,
+													"parameters": {
+														"instance-variable": "Passive_Chromium_Level",
+														"comparison": 0,
+														"value": "5"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Passive_Chromium_Button",
+													"sid": 283909878289011,
+													"parameters": {
+														"animation": "\"Completed\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 167429207043648,
+													"parameters": {
+														"instance-variable": "Passive_Chromium_Completed",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 259278605832448
+										}
+									],
+									"sid": 103946906766167
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Copper Passive",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 425817041533626,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "Meta_Passive_Copper_Button"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Copper_Button",
+													"sid": 596382409864218,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "0"
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Meta_Passive_Copper_Button",
+													"sid": 264609965793137,
+													"parameters": {
+														"animation": "\"Active\""
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 490045693240562,
+													"parameters": {
+														"instance-variable": "Passive_Copper_Completed"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Passive_Buttons",
+													"sid": 705675806772987,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Upg_Text",
+													"sid": 666233862096018,
+													"parameters": {
+														"text": "\"This will increase your Passive Copper income / Income tick\""
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Passive_Copper_Button",
+													"sid": 514287442053565,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"Darken\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 983199978580490,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Passive_Copper_Button",
+													"sid": 677290957275799,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"Darken\""
+													}
+												}
+											],
+											"sid": 692658573815114,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Meta_Passive_Copper_Button",
+															"sid": 106612702724961,
+															"parameters": {
+																"instance-variable": "Focus",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 242714880043779
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 862440361952122,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "Meta_Upgrade_button"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Copper_Button",
+													"sid": 862633264279959,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "1"
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Meta_Passive_Copper_Button",
+													"sid": 974161835203080,
+													"parameters": {
+														"animation": "\"Active\""
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 352525821747315,
+													"parameters": {
+														"instance-variable": "Passive_Copper_Completed"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Upgrade_button",
+													"sid": 812814972502392,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"Darken\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 341952678237804,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Meta_Upgrade_button",
+													"sid": 268270317326044,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"Darken\""
+													}
+												}
+											],
+											"sid": 511019284260030,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Miner_Box",
+															"sid": 888183691419417,
+															"parameters": {
+																"instance-variable": "Money",
+																"comparison": 5,
+																"value": "Required_Item_Quantity"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Meta_Passive_Upg_Button",
+															"sid": 666666369247701,
+															"parameters": {
+																"instance-variable": "Passive_Copper_Level",
+																"comparison": 2,
+																"value": "Max_Level"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "Miner_Box",
+															"sid": 884265823386929,
+															"parameters": {
+																"instance-variable": "Money",
+																"value": "Required_Item_Quantity"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Meta_Passive_Income_Object",
+															"sid": 208832802668436,
+															"parameters": {
+																"instance-variable": "Meta_Passive_Copper",
+																"value": "roundToDp(0.01 * 1.1, 2 )"
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Meta_Passive_Upg_Button",
+															"sid": 393295635233093,
+															"parameters": {
+																"instance-variable": "Passive_Copper_Level",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 525171087623576
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-tick",
+													"objectClass": "System",
+													"sid": 557989823068631
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Copper_Button",
+													"sid": 433417507973978,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 431670828719369,
+													"parameters": {
+														"variable": "Current_Level",
+														"value": "Meta_Passive_Upg_Button.Passive_Copper_Level"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 737282306715319,
+													"parameters": {
+														"variable": "Required_Item_Quantity",
+														"value": "500 + 100 * floor(Current_Level* 5)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 118276494520480,
+													"parameters": {
+														"variable": "Max_Level",
+														"value": "5"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Req_Item_Text",
+													"sid": 335503096286518,
+													"parameters": {
+														"text": "\"MONEY: \" & Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Max_Level_Text",
+													"sid": 773076386583612,
+													"parameters": {
+														"text": "Max_Level"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Current_Level_Text",
+													"sid": 448595424109900,
+													"parameters": {
+														"text": "Current_Level"
+													}
+												}
+											],
+											"sid": 240918205896674
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 423797128479918,
+													"parameters": {
+														"instance-variable": "Passive_Copper_Level",
+														"comparison": 0,
+														"value": "5"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Passive_Copper_Button",
+													"sid": 576356217420088,
+													"parameters": {
+														"animation": "\"Completed\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Meta_Passive_Upg_Button",
+													"sid": 244286707049948,
+													"parameters": {
+														"instance-variable": "Passive_Copper_Completed",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 140071434012070
+										}
+									],
+									"sid": 679591245343111
 								}
 							],
 							"sid": 724192168982736
@@ -18020,6 +19189,440 @@
 				{
 					"eventType": "group",
 					"disabled": false,
+					"title": "Enter Shop",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 483982416304166,
+									"parameters": {
+										"object": "Shop_Door"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Enter_Shop_Text",
+									"sid": 567329092613395,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 281516083523701
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 347143863746562
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Enter_Shop_Text",
+									"sid": 871657948881638,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 510460439443000
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 293973122042198,
+									"parameters": {
+										"key": 70
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 839393619508538,
+									"parameters": {
+										"object": "Shop_Door"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 446376152799335,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 222735503839908,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "save",
+											"objectClass": "System",
+											"sid": 759221530484062,
+											"parameters": {
+												"slot": "\"mysave\""
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 494152517738236,
+											"parameters": {
+												"layer": "\"Buildings\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 319836658126546,
+											"parameters": {
+												"layer": "\"HUD\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 150284875403908,
+											"parameters": {
+												"layer": "\"Player\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 733382747933040,
+											"parameters": {
+												"layer": "\"Background\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 943440306688544,
+											"parameters": {
+												"group-name": "\"Mechanical\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "fade-volume",
+											"objectClass": "SFX",
+											"sid": 145505481407193,
+											"parameters": {
+												"tag": "\"Surface_Music\"",
+												"db": "-100",
+												"duration": "1",
+												"ending": "stop"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 997414182445782,
+											"parameters": {
+												"audio-file": "T. Bless - Froggy Fraud Adventure",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"Shop_Music\""
+											}
+										}
+									],
+									"sid": 877598889188697,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Shopkeeper_Sprite",
+													"sid": 312058663865767,
+													"parameters": {
+														"instance-variable": "Welcome_Triggered",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 409759185940194,
+													"parameters": {
+														"seconds": "1.5"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 946482078477794,
+													"parameters": {
+														"audio-file": "welcomeToMyStore",
+														"loop": "not-looping",
+														"volume": "-5",
+														"stereo-pan": "0",
+														"tag-optional": "\"Shopkeeper\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Shopkeeper_Sprite",
+													"sid": 306732393502779,
+													"parameters": {
+														"instance-variable": "Welcome_Triggered",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 898936737997856
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 334752677985343,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Shop_Door"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 270273219827333,
+									"parameters": {
+										"object": "Shop_Door"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 309360799443454,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 585172047951281,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "save",
+											"objectClass": "System",
+											"sid": 168887904428274,
+											"parameters": {
+												"slot": "\"mysave\""
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 147738479145026,
+											"parameters": {
+												"layer": "\"Buildings\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 887453663272981,
+											"parameters": {
+												"layer": "\"HUD\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 217991158648236,
+											"parameters": {
+												"layer": "\"Player\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 465637152945014,
+											"parameters": {
+												"layer": "\"Background\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 612865718461043,
+											"parameters": {
+												"group-name": "\"Mechanical\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "fade-volume",
+											"objectClass": "SFX",
+											"sid": 634043673949307,
+											"parameters": {
+												"tag": "\"Surface_Music\"",
+												"db": "-100",
+												"duration": "1",
+												"ending": "stop"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 720445817513109,
+											"parameters": {
+												"audio-file": "T. Bless - Froggy Fraud Adventure",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"Shop_Music\""
+											}
+										}
+									],
+									"sid": 450489369866792,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Shopkeeper_Sprite",
+													"sid": 702089657895514,
+													"parameters": {
+														"instance-variable": "Welcome_Triggered",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 561191551660966,
+													"parameters": {
+														"seconds": "1.5"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 576245096680900,
+													"parameters": {
+														"audio-file": "welcomeToMyStore",
+														"loop": "not-looping",
+														"volume": "-5",
+														"stereo-pan": "0",
+														"tag-optional": "\"Shopkeeper\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Shopkeeper_Sprite",
+													"sid": 335169229922511,
+													"parameters": {
+														"instance-variable": "Welcome_Triggered",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 222400079987371
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "SFX",
+									"sid": 692194069926248,
+									"parameters": {
+										"tag": "\"Shopkeeper\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Shopkeeper_Sprite",
+									"sid": 737120647394613,
+									"parameters": {
+										"animation": "\"Talk\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 890577843017874
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 456704337016542
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Shopkeeper_Sprite",
+									"sid": 939088906921373,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 188420666823501
+						}
+					],
+					"sid": 437694797530256
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
 					"title": "Shop Management",
 					"description": "",
 					"isActiveOnStart": true,
@@ -18664,6 +20267,46 @@
 									"sid": 143233710755199,
 									"children": [
 										{
+											"eventType": "comment",
+											"text": "QUEST 5"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Claim_Button",
+													"sid": 482548359185045,
+													"parameters": {
+														"instance-variable": "Quest_5_Active",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 427849576051591,
+													"parameters": {
+														"variable": "Quest_Objective_1",
+														"value": "Shop_Cart_Object.Dynamite"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 659895633622280,
+													"parameters": {
+														"variable": "Quest_Objective_2",
+														"value": "Shop_Cart_Object.Battery"
+													}
+												}
+											],
+											"sid": 773286704406885
+										},
+										{
 											"eventType": "block",
 											"conditions": [],
 											"actions": [
@@ -19085,440 +20728,6 @@
 						}
 					],
 					"sid": 173516556930715
-				},
-				{
-					"eventType": "group",
-					"disabled": false,
-					"title": "Enter Shop",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Miner_Box",
-									"sid": 551674446563643,
-									"parameters": {
-										"object": "Shop_Door"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Enter_Shop_Text",
-									"sid": 885546746390980,
-									"parameters": {
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 363732073273025
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 116141567123523
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Enter_Shop_Text",
-									"sid": 288746854524683,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								}
-							],
-							"sid": 223808163653251
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 122425374303256,
-									"parameters": {
-										"key": 70
-									}
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Miner_Box",
-									"sid": 775614372536780,
-									"parameters": {
-										"object": "Shop_Door"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 690029948072359,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 666842806535814,
-											"parameters": {
-												"seconds": "0.1"
-											}
-										},
-										{
-											"id": "save",
-											"objectClass": "System",
-											"sid": 498848082276622,
-											"parameters": {
-												"slot": "\"mysave\""
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 216309292168478,
-											"parameters": {
-												"layer": "\"Buildings\"",
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 872199930644520,
-											"parameters": {
-												"layer": "\"HUD\"",
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 261572084015273,
-											"parameters": {
-												"layer": "\"Player\"",
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 685479780662584,
-											"parameters": {
-												"layer": "\"Background\"",
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-group-active",
-											"objectClass": "System",
-											"sid": 311751197742902,
-											"parameters": {
-												"group-name": "\"Mechanical\"",
-												"state": "deactivated"
-											}
-										},
-										{
-											"id": "fade-volume",
-											"objectClass": "SFX",
-											"sid": 225742383066275,
-											"parameters": {
-												"tag": "\"Surface_Music\"",
-												"db": "-100",
-												"duration": "1",
-												"ending": "stop"
-											}
-										},
-										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 858934353971028,
-											"parameters": {
-												"audio-file": "T. Bless - Froggy Fraud Adventure",
-												"loop": "not-looping",
-												"volume": "0",
-												"stereo-pan": "0",
-												"tag-optional": "\"Shop_Music\""
-											}
-										}
-									],
-									"sid": 190126751604520,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Shopkeeper_Sprite",
-													"sid": 136052931488632,
-													"parameters": {
-														"instance-variable": "Welcome_Triggered",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 477793086073288,
-													"parameters": {
-														"seconds": "1.5"
-													}
-												},
-												{
-													"id": "play",
-													"objectClass": "SFX",
-													"sid": 275209303850581,
-													"parameters": {
-														"audio-file": "welcomeToMyStore",
-														"loop": "not-looping",
-														"volume": "-5",
-														"stereo-pan": "0",
-														"tag-optional": "\"Shopkeeper\""
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Shopkeeper_Sprite",
-													"sid": 609160108980458,
-													"parameters": {
-														"instance-variable": "Welcome_Triggered",
-														"value": "1"
-													}
-												}
-											],
-											"sid": 498036695150476
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 581451406425557,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Shop_Door"
-									}
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Miner_Box",
-									"sid": 464360757346557,
-									"parameters": {
-										"object": "Shop_Door"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 784041370995130,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 841967638151447,
-											"parameters": {
-												"seconds": "0.1"
-											}
-										},
-										{
-											"id": "save",
-											"objectClass": "System",
-											"sid": 710526214131010,
-											"parameters": {
-												"slot": "\"mysave\""
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 359796329942157,
-											"parameters": {
-												"layer": "\"Buildings\"",
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 474747047864926,
-											"parameters": {
-												"layer": "\"HUD\"",
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 372625640994808,
-											"parameters": {
-												"layer": "\"Player\"",
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 286564922827556,
-											"parameters": {
-												"layer": "\"Background\"",
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-group-active",
-											"objectClass": "System",
-											"sid": 230711121131030,
-											"parameters": {
-												"group-name": "\"Mechanical\"",
-												"state": "deactivated"
-											}
-										},
-										{
-											"id": "fade-volume",
-											"objectClass": "SFX",
-											"sid": 198860584138686,
-											"parameters": {
-												"tag": "\"Surface_Music\"",
-												"db": "-100",
-												"duration": "1",
-												"ending": "stop"
-											}
-										},
-										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 907929811376234,
-											"parameters": {
-												"audio-file": "T. Bless - Froggy Fraud Adventure",
-												"loop": "not-looping",
-												"volume": "0",
-												"stereo-pan": "0",
-												"tag-optional": "\"Shop_Music\""
-											}
-										}
-									],
-									"sid": 513978616818850,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Shopkeeper_Sprite",
-													"sid": 656487176051019,
-													"parameters": {
-														"instance-variable": "Welcome_Triggered",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 119905770422300,
-													"parameters": {
-														"seconds": "1.5"
-													}
-												},
-												{
-													"id": "play",
-													"objectClass": "SFX",
-													"sid": 571502515650872,
-													"parameters": {
-														"audio-file": "welcomeToMyStore",
-														"loop": "not-looping",
-														"volume": "-5",
-														"stereo-pan": "0",
-														"tag-optional": "\"Shopkeeper\""
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Shopkeeper_Sprite",
-													"sid": 889103261553459,
-													"parameters": {
-														"instance-variable": "Welcome_Triggered",
-														"value": "1"
-													}
-												}
-											],
-											"sid": 600116731940307
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-tag-playing",
-									"objectClass": "SFX",
-									"sid": 480557700105607,
-									"parameters": {
-										"tag": "\"Shopkeeper\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "Shopkeeper_Sprite",
-									"sid": 245744199163810,
-									"parameters": {
-										"animation": "\"Talk\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 835398260949866
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 416785015346544
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "Shopkeeper_Sprite",
-									"sid": 147753555133000,
-									"parameters": {
-										"animation": "\"Idle\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 854845901916060
-						}
-					],
-					"sid": 831495138918714
 				},
 				{
 					"eventType": "comment",
@@ -20723,10 +21932,10 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 615256942097986,
+															"sid": 678736640051177,
 															"parameters": {
 																"instance-variable": "Value",
-																"value": "2"
+																"value": "1"
 															}
 														},
 														{
@@ -20779,10 +21988,10 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 775375805193155,
+															"sid": 134755834773301,
 															"parameters": {
 																"instance-variable": "Value",
-																"value": "2"
+																"value": "10"
 															}
 														},
 														{
@@ -20835,10 +22044,10 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 357404088608583,
+															"sid": 626646560780604,
 															"parameters": {
 																"instance-variable": "Value",
-																"value": "3"
+																"value": "10"
 															}
 														},
 														{
@@ -20891,10 +22100,10 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 233589460247450,
+															"sid": 832465636351310,
 															"parameters": {
 																"instance-variable": "Value",
-																"value": "3"
+																"value": "10"
 															}
 														},
 														{
@@ -21339,10 +22548,10 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 874200152846845,
+															"sid": 671862116241618,
 															"parameters": {
 																"instance-variable": "Value",
-																"value": "6"
+																"value": "15"
 															}
 														},
 														{
@@ -21395,10 +22604,10 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 923703685992181,
+															"sid": 915149501666240,
 															"parameters": {
 																"instance-variable": "Value",
-																"value": "6"
+																"value": "30"
 															}
 														},
 														{
@@ -21451,10 +22660,10 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 895835858810487,
+															"sid": 422255978877207,
 															"parameters": {
 																"instance-variable": "Value",
-																"value": "6"
+																"value": "30"
 															}
 														},
 														{
@@ -21507,10 +22716,10 @@
 														{
 															"id": "add-to-instvar",
 															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 643646783789621,
+															"sid": 922683878789230,
 															"parameters": {
 																"instance-variable": "Value",
-																"value": "6"
+																"value": "30"
 															}
 														},
 														{
@@ -24726,6 +25935,10 @@
 											"sid": 808631419919721
 										},
 										{
+											"eventType": "comment",
+											"text": "Grass Layer"
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
@@ -24769,22 +25982,7 @@
 													}
 												}
 											],
-											"actions": [
-												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 575372850025688,
-													"disabled": true,
-													"parameters": {
-														"object-to-create": "Game_Concrete_Block",
-														"layer": "\"Player\"",
-														"x": "64",
-														"y": "Y *64",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												}
-											],
+											"actions": [],
 											"sid": 451193339851277,
 											"children": [
 												{
@@ -24825,6 +26023,10 @@
 													"sid": 250433052762606
 												}
 											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Tier 1 layer"
 										},
 										{
 											"eventType": "block",
@@ -24870,36 +26072,7 @@
 													}
 												}
 											],
-											"actions": [
-												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 877111176175574,
-													"disabled": true,
-													"parameters": {
-														"object-to-create": "Game_Concrete_Block",
-														"layer": "\"Player\"",
-														"x": "0",
-														"y": "Y *64",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 851761226577380,
-													"disabled": true,
-													"parameters": {
-														"object-to-create": "Game_Concrete_Block",
-														"layer": "\"Player\"",
-														"x": "64",
-														"y": "Y *64",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												}
-											],
+											"actions": [],
 											"sid": 347886887103772,
 											"children": [
 												{
@@ -24950,11 +26123,11 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 476943562316655,
+															"sid": 642359769393466,
 															"parameters": {
 																"variable": "Ore",
 																"comparison": 4,
-																"value": "0.8"
+																"value": "0.9"
 															}
 														}
 													],
@@ -24986,11 +26159,11 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 974910815201664,
+															"sid": 937761406161281,
 															"parameters": {
 																"variable": "Ore",
 																"comparison": 4,
-																"value": "0.7"
+																"value": "0.85"
 															}
 														}
 													],
@@ -25010,42 +26183,6 @@
 														}
 													],
 													"sid": 551703130854247
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 455194405840591
-														},
-														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 172412468301103,
-															"parameters": {
-																"variable": "Ore",
-																"comparison": 4,
-																"value": "0.6"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "create-object",
-															"objectClass": "System",
-															"sid": 815964310117806,
-															"parameters": {
-																"object-to-create": "Stone_Block",
-																"layer": "\"Player\"",
-																"x": "loopindex *64",
-																"y": "Y *64",
-																"create-hierarchy": false,
-																"template-name": "\"\""
-															}
-														}
-													],
-													"sid": 416316912591754
 												},
 												{
 													"eventType": "block",
@@ -25081,7 +26218,8 @@
 															}
 														}
 													],
-													"sid": 417797954993617
+													"sid": 417797954993617,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -25118,12 +26256,16 @@
 											]
 										},
 										{
+											"eventType": "comment",
+											"text": "Stone Block Layer"
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 517846582960974,
+													"sid": 374794856919558,
 													"parameters": {
 														"first-value": "Y",
 														"comparison": 5,
@@ -25133,11 +26275,76 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 580469804669823,
+													"sid": 341142457819693,
 													"parameters": {
 														"first-value": "Y",
 														"comparison": 2,
-														"second-value": "80"
+														"second-value": "75"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 732454295962884,
+													"parameters": {
+														"variable": "X",
+														"comparison": 5,
+														"value": "10"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 216376387507132,
+													"parameters": {
+														"variable": "X",
+														"comparison": 3,
+														"value": "109"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 892086596007021,
+													"parameters": {
+														"object-to-create": "Stone_Block",
+														"layer": "\"Player\"",
+														"x": "loopindex *64",
+														"y": "Y *64",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 180426354041574
+										},
+										{
+											"eventType": "comment",
+											"text": "Tier 2 Layer with stone"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 122483482525234,
+													"parameters": {
+														"first-value": "Y",
+														"comparison": 5,
+														"second-value": "75"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 373960522341582,
+													"parameters": {
+														"first-value": "Y",
+														"comparison": 2,
+														"second-value": "150"
 													}
 												},
 												{
@@ -25206,11 +26413,11 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 247794422510344,
+															"sid": 302829663625015,
 															"parameters": {
 																"variable": "Ore",
 																"comparison": 4,
-																"value": "0.8"
+																"value": "0.9"
 															}
 														}
 													],
@@ -25242,11 +26449,11 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 889164815372399,
+															"sid": 713401110261601,
 															"parameters": {
 																"variable": "Ore",
 																"comparison": 4,
-																"value": "0.7"
+																"value": "0.85"
 															}
 														}
 													],
@@ -25266,6 +26473,43 @@
 														}
 													],
 													"sid": 980348296947537
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 864289254075630,
+															"disabled": true
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 797685849420720,
+															"parameters": {
+																"variable": "Ore",
+																"comparison": 4,
+																"value": "0.8"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 667677946774791,
+															"parameters": {
+																"object-to-create": "Stone_Block",
+																"layer": "\"Player\"",
+																"x": "loopindex *64",
+																"y": "Y *64",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														}
+													],
+													"sid": 629575864519932
 												},
 												{
 													"eventType": "block",
@@ -25302,26 +26546,91 @@
 											]
 										},
 										{
+											"eventType": "comment",
+											"text": "Lava Layer"
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 672492108572946,
+													"sid": 451391084059621,
 													"parameters": {
 														"first-value": "Y",
 														"comparison": 5,
-														"second-value": "80"
+														"second-value": "150"
 													}
 												},
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 816008401559352,
+													"sid": 962252857731140,
 													"parameters": {
 														"first-value": "Y",
 														"comparison": 2,
-														"second-value": "90"
+														"second-value": "153"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 758784157706598,
+													"parameters": {
+														"variable": "X",
+														"comparison": 5,
+														"value": "10"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 731020935154126,
+													"parameters": {
+														"variable": "X",
+														"comparison": 3,
+														"value": "109"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 461796298706343,
+													"parameters": {
+														"object-to-create": "Lava_Block",
+														"layer": "\"Player\"",
+														"x": "loopindex *64",
+														"y": "Y *64",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 789968782487459
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 440057429241226,
+													"parameters": {
+														"first-value": "Y",
+														"comparison": 5,
+														"second-value": "180"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 887227312336263,
+													"parameters": {
+														"first-value": "Y",
+														"comparison": 2,
+														"second-value": "250"
 													}
 												},
 												{
@@ -25491,21 +26800,21 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 110976131910118,
+													"sid": 269388940074244,
 													"parameters": {
 														"first-value": "Y",
 														"comparison": 5,
-														"second-value": "90"
+														"second-value": "250"
 													}
 												},
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 480923681770946,
+													"sid": 470048286366962,
 													"parameters": {
 														"first-value": "Y",
 														"comparison": 2,
-														"second-value": "100"
+														"second-value": "300"
 													}
 												},
 												{
@@ -37183,9 +38492,9 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "Claim_Button",
-											"sid": 475722252767554,
+											"sid": 516490874177126,
 											"parameters": {
-												"instance-variable": "Quest_4_Active",
+												"instance-variable": "Quest_3_Active",
 												"value": "0"
 											}
 										}
@@ -37362,18 +38671,1593 @@
 							],
 							"actions": [
 								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 685900225423716,
+									"parameters": {
+										"variable": "Quest_Target_1",
+										"value": "3"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 270930782466465,
+									"parameters": {
+										"variable": "Quest_Target_2",
+										"value": "3"
+									}
+								},
+								{
 									"id": "set-text",
 									"objectClass": "Quest_Text",
-									"sid": 914618548054127,
+									"sid": 107327411072572,
 									"parameters": {
-										"text": "\"CURRENTLY NO MORE QUESTS\" \n"
+										"text": "\"Go to the Smelter and craft 2x Aluminium Ingot and 2x Silicon\" & newline &\n\"Aluminium Ingots Crafted:\" & newline & Quest_Objective_1 & \" / \" & Quest_Target_1 & newline &\n\"Silicon  Crafted:\" & newline & Quest_Objective_2 & \" / \" & Quest_Target_2 \n"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Reward_Text",
+									"sid": 999328400338916,
+									"parameters": {
+										"text": "\"Your Reward for completing this quest:\" & newline & \"250 $\""
 									}
 								}
 							],
-							"sid": 264842053912368
+							"sid": 264842053912368,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 835571853924155,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"comparison": 5,
+												"value": "Quest_Target_1"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 786232509978978,
+											"parameters": {
+												"variable": "Quest_Objective_2",
+												"comparison": 5,
+												"value": "Quest_Target_2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 952129451111614,
+											"parameters": {
+												"instance-variable": "Quest_4_Completed",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 106396636397862,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 333775737058082,
+											"parameters": {
+												"instance-variable": "Quest_4_Active",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 817534974002515
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 559668838195700
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 515143971768612,
+									"parameters": {
+										"instance-variable": "Quest_4_Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 324727088437915,
+									"parameters": {
+										"variable": "Quest_Objective_1",
+										"value": "Global_Inventory_Object.Aluminium_Ingot"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 101078532097636,
+									"parameters": {
+										"variable": "Quest_Objective_2",
+										"value": "Global_Inventory_Object.Silicon"
+									}
+								}
+							],
+							"sid": 745411506203428
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 292096316223129,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Claim_Button"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Claim_Button",
+									"sid": 683957449298631,
+									"parameters": {
+										"animation": "\"Active\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 718604461976714,
+									"parameters": {
+										"instance-variable": "Quest_4_Completed",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 360294687049009,
+									"parameters": {
+										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 631838136314296,
+									"parameters": {
+										"instance-variable": "Money",
+										"value": "250"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 429371155844824,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 307343452368715,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 530845468136854,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 205914766509531,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 627154716288358,
+											"parameters": {
+												"instance-variable": "Quest_4_Completed",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 726189683656294,
+											"parameters": {
+												"instance-variable": "Quest_4_Active",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 611962994385372,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 438255093880189,
+											"parameters": {
+												"instance-variable": "Quest_5_Active",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 845386039445131,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 826017310192620,
+											"parameters": {
+												"variable": "Quest_Objective_2",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 692731726690765
+								}
+							]
 						}
 					],
 					"sid": 817740734860767
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "5th Quest",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 182997012065962
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 629659445564801,
+									"parameters": {
+										"instance-variable": "Quest_5_Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 870564306584898,
+									"parameters": {
+										"variable": "Quest_Target_1",
+										"value": "5"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 453931210789848,
+									"parameters": {
+										"variable": "Quest_Target_2",
+										"value": "2"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Quest_Text",
+									"sid": 676969198769150,
+									"parameters": {
+										"text": "\"Go to the SHOP and BUY 5x Dynamite and 2x Battery\" & newline &\n\"Dynamite Purchased:\" & newline & Quest_Objective_1 & \" / \" & Quest_Target_1 & newline &\n\"Battery Purchased:\" & newline & Quest_Objective_2 & \" / \" & Quest_Target_2 \n"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Reward_Text",
+									"sid": 950466643335072,
+									"parameters": {
+										"text": "\"Your Reward for completing this quest:\" & newline & \"250 $\""
+									}
+								}
+							],
+							"sid": 127552235611275,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 688724492983382,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"comparison": 5,
+												"value": "Quest_Target_1"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 723637417273411,
+											"parameters": {
+												"variable": "Quest_Objective_2",
+												"comparison": 5,
+												"value": "Quest_Target_2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 398246303509358,
+											"parameters": {
+												"instance-variable": "Quest_5_Completed",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 158048453881379,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 566773675902604,
+											"parameters": {
+												"instance-variable": "Quest_5_Active",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 566708941509519
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 870162561863831,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Claim_Button"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Claim_Button",
+									"sid": 962935016122770,
+									"parameters": {
+										"animation": "\"Active\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 437116276021819,
+									"parameters": {
+										"instance-variable": "Quest_5_Completed",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 397142304515197,
+									"parameters": {
+										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 559386921513997,
+									"parameters": {
+										"instance-variable": "Money",
+										"value": "250"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 976836659127702,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 952185254854330,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 171370666019947,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 843340901997072,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 589148474576176,
+											"parameters": {
+												"instance-variable": "Quest_5_Completed",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 934198555737277,
+											"parameters": {
+												"instance-variable": "Quest_5_Active",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 942095158574744,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 568063570498050,
+											"parameters": {
+												"instance-variable": "Quest_6_Active",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 962491444659371,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 103411922070422,
+											"parameters": {
+												"variable": "Quest_Objective_2",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 219821788048654
+								}
+							]
+						}
+					],
+					"sid": 846493686301895
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "6th Quest",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 991802568823548
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 660056032286045,
+									"parameters": {
+										"instance-variable": "Quest_6_Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 184190916827808,
+									"parameters": {
+										"variable": "Quest_Objective_1",
+										"value": "Miner_Height"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 941097372232934,
+									"parameters": {
+										"variable": "Quest_Target_1",
+										"value": "-55"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Quest_Text",
+									"sid": 299998005714480,
+									"parameters": {
+										"text": "\"Reach a depth of -55 m\" & newline & Quest_Objective_1 & \" / \" & Quest_Target_1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Reward_Text",
+									"sid": 326641969378445,
+									"parameters": {
+										"text": "\"Your Reward for completing this quest:\" & newline & \"500 $\""
+									}
+								}
+							],
+							"sid": 672110030402259,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 305639646207673,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"comparison": 3,
+												"value": "Quest_Target_1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 104412798949033,
+											"parameters": {
+												"instance-variable": "Quest_6_Completed",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 171827188552862,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 729821986389497,
+											"parameters": {
+												"instance-variable": "Quest_6_Active",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 971675239331309
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 200620319958389,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Claim_Button"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Claim_Button",
+									"sid": 859211995806727,
+									"parameters": {
+										"animation": "\"Active\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 669864458668278,
+									"parameters": {
+										"instance-variable": "Quest_6_Completed",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 304227673466786,
+									"parameters": {
+										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 625117123744473,
+									"parameters": {
+										"instance-variable": "Money",
+										"value": "500"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 802852993787090,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 232145886407527,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 566438971276622,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 589962704641661,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 584172900471416,
+											"parameters": {
+												"instance-variable": "Quest_6_Completed",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 339045482649579,
+											"parameters": {
+												"instance-variable": "Quest_6_Active",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 716378960731592,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 374059838641792,
+											"parameters": {
+												"instance-variable": "Quest_7_Active",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 654208087170038,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 917317532082315
+								}
+							]
+						}
+					],
+					"sid": 933356752623653
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "7th Quest",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 891347206778967
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 224975476687020,
+									"parameters": {
+										"instance-variable": "Quest_7_Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 608448757342618,
+									"parameters": {
+										"variable": "Quest_Target_1",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 350102202621784,
+									"parameters": {
+										"variable": "Quest_Target_2",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Quest_Text",
+									"sid": 257183787174025,
+									"parameters": {
+										"text": "\"Go to the UPGRADES Menu and upgrade Drill Damage Multiplier and Max Energy\" & newline & Meta_Drill_Upg_Button.Damage_Tier_1_Level & \" / \" & Quest_Target_1 & newline & Meta_Energy_Upg_Button.Energy_Max_Tier_1_Level & \" / \" & Quest_Target_2"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Reward_Text",
+									"sid": 787582689905733,
+									"parameters": {
+										"text": "\"Your Reward for completing this quest:\" & newline & \"500 $\""
+									}
+								}
+							],
+							"sid": 872994920920371,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 254748435186794,
+											"parameters": {
+												"instance-variable": "Damage_Tier_1_Level",
+												"comparison": 5,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 772689882110971,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_1_Level",
+												"comparison": 5,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 524577881693336,
+											"parameters": {
+												"instance-variable": "Quest_7_Completed",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 467598001255989,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 226350560385935,
+											"parameters": {
+												"instance-variable": "Quest_7_Active",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 343389796219573
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 207041473090533,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Claim_Button"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Claim_Button",
+									"sid": 368297764252863,
+									"parameters": {
+										"animation": "\"Active\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 621572105272570,
+									"parameters": {
+										"instance-variable": "Quest_7_Completed",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 512680387062716,
+									"parameters": {
+										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 537241401306310,
+									"parameters": {
+										"instance-variable": "Money",
+										"value": "500"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 357871232941757,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 663911083774693,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 122096431647187,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 729557347639540,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 708982321965372,
+											"parameters": {
+												"instance-variable": "Quest_7_Completed",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 648509178287252,
+											"parameters": {
+												"instance-variable": "Quest_7_Active",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 768130317719543,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 693294514222075,
+											"parameters": {
+												"instance-variable": "Quest_8_Active",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 613344380753794,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 593019079923116,
+											"parameters": {
+												"variable": "Quest_Objective_2",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 481258218480291
+								}
+							]
+						}
+					],
+					"sid": 731245704489333
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "8th Quest",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 345623067431646
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 869536576198331,
+									"parameters": {
+										"instance-variable": "Quest_8_Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 346457933149729,
+									"parameters": {
+										"variable": "Quest_Target_1",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 768943475443805,
+									"parameters": {
+										"variable": "Quest_Target_2",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Quest_Text",
+									"sid": 124823005117752,
+									"parameters": {
+										"text": "\"Go to the UPGRADES Menu and upgrade Passive Mining for Coal, Quartz and Bauxite\" & newline & \"Passive Coal \" & Meta_Passive_Upg_Button.Passive_Coal_Level & \" / \" & Quest_Target_1 & newline & \"Passive Quartz \" & Meta_Passive_Upg_Button.Passive_Quartz_Level& \" / \" & Quest_Target_2 & newline & \"Passive Bauxite \" & Meta_Passive_Upg_Button.Passive_Bauxite_Level& \" / \" & Quest_Target_2"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Reward_Text",
+									"sid": 511139912385780,
+									"parameters": {
+										"text": "\"Your Reward for completing this quest:\" & newline & \"500 $\""
+									}
+								}
+							],
+							"sid": 357825955048487,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Passive_Upg_Button",
+											"sid": 377414247764336,
+											"parameters": {
+												"instance-variable": "Passive_Coal_Level",
+												"comparison": 5,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Passive_Upg_Button",
+											"sid": 390271210599440,
+											"parameters": {
+												"instance-variable": "Passive_Quartz_Level",
+												"comparison": 5,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Passive_Upg_Button",
+											"sid": 537981252129489,
+											"parameters": {
+												"instance-variable": "Passive_Bauxite_Level",
+												"comparison": 5,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 727359584716488,
+											"parameters": {
+												"instance-variable": "Quest_8_Completed",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 472011012408045,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 903532326687214,
+											"parameters": {
+												"instance-variable": "Quest_8_Active",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 368990899928499
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 484091291618336,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Claim_Button"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Claim_Button",
+									"sid": 200086561028850,
+									"parameters": {
+										"animation": "\"Active\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 624990314907629,
+									"parameters": {
+										"instance-variable": "Quest_8_Completed",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 259190315086497,
+									"parameters": {
+										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 112896446791972,
+									"parameters": {
+										"instance-variable": "Money",
+										"value": "500"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 987151770483368,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 151042179773204,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 464252318808610,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 799411911054607,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 796016551010270,
+											"parameters": {
+												"instance-variable": "Quest_8_Completed",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 469527441402846,
+											"parameters": {
+												"instance-variable": "Quest_8_Active",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 535106896418809,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 524348183027443,
+											"parameters": {
+												"instance-variable": "Quest_9_Active",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 644335261901146
+								}
+							]
+						}
+					],
+					"sid": 150745764232959
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "9th Quest",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 284087321718143
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 479307524243495,
+									"parameters": {
+										"instance-variable": "Quest_9_Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 286182395548934,
+									"parameters": {
+										"variable": "Quest_Target_1",
+										"value": "5"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 265237808520233,
+									"parameters": {
+										"variable": "Quest_Target_2",
+										"value": "5"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Quest_Text",
+									"sid": 622914400360953,
+									"parameters": {
+										"text": "\"Complete the Drill Damage Multiplier tier 5 upgrades and Energy Max tier 3 upgrades\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Reward_Text",
+									"sid": 370745715946359,
+									"parameters": {
+										"text": "\"Your Reward for completing this quest:\" & newline & \"500 $\""
+									}
+								}
+							],
+							"sid": 408358887038430,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 485837945007985,
+											"parameters": {
+												"instance-variable": "Damage_Tier_5_Level",
+												"comparison": 5,
+												"value": "5"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 256192030876112,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_3_Level",
+												"comparison": 5,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 948913952749933,
+											"parameters": {
+												"instance-variable": "Quest_9_Completed",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 449455141833811,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 432448516798609,
+											"parameters": {
+												"instance-variable": "Quest_9_Active",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 569041970801924
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 234330265193220,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Claim_Button"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Claim_Button",
+									"sid": 197444971441224,
+									"parameters": {
+										"animation": "\"Active\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 784702574306132,
+									"parameters": {
+										"instance-variable": "Quest_9_Completed",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 274537616064734,
+									"parameters": {
+										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 590008869518175,
+									"parameters": {
+										"instance-variable": "Money",
+										"value": "3000"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 953371097102037,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 393119744666059,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 312721692096541,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 815343646399519,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 401152654607005,
+											"parameters": {
+												"instance-variable": "Quest_9_Completed",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 366724374337226,
+											"parameters": {
+												"instance-variable": "Quest_9_Active",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 938391728300671,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 538112765808485,
+											"parameters": {
+												"instance-variable": "Quest_10_Active",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 522891048416979
+								}
+							]
+						}
+					],
+					"sid": 198563382084255
 				}
 			],
 			"sid": 697321010246842
