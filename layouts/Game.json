@@ -611,6 +611,53 @@
 					}
 				},
 				{
+					"type": "Game_Boundary_Sprite",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 353,
+					"sid": 697426469305606,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 697426469305606,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 320,
+						"y": 640,
+						"width": 640,
+						"height": 1280,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
 					"type": "Enter_Warehouse_Text",
 					"properties": {
 						"text": "PRESS \"F\" OR \"CLICK\" TO ENTER",
@@ -768,7 +815,7 @@
 						"Max_Energy": 100,
 						"Money": 0,
 						"Fall_Timer": 0,
-						"DMG": 0.01,
+						"DMG": 0.1,
 						"Laser_Gun": 0,
 						"Coal": 0,
 						"Quartz": 0,
@@ -782,8 +829,8 @@
 						"Zinc": 0,
 						"Gold": 0,
 						"Diamond": 0,
-						"Dynamite": 150,
-						"Battery": 5,
+						"Dynamite": 0,
+						"Battery": 0,
 						"Repair_Kit": 0,
 						"Teleporter": 0,
 						"Weight": 100,
@@ -818,8 +865,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 2016,
-						"y": 1184,
+						"x": 2496,
+						"y": 1152,
 						"width": 64,
 						"height": 64,
 						"originX": 0,
@@ -3397,9 +3444,9 @@
 					"sid": 965812395644405,
 					"tags": "",
 					"instanceVariables": {
-						"Coal": 0,
-						"Quartz": 0,
-						"Bauxite": 0,
+						"Coal": 12,
+						"Quartz": 12,
+						"Bauxite": 12,
 						"Iron": 0,
 						"Chromium": 0,
 						"Copper": 0,
@@ -5408,62 +5455,6 @@
 					}
 				},
 				{
-					"type": "Money_Text",
-					"properties": {
-						"text": "Money",
-						"enable-bbcode": false,
-						"font": "Arial",
-						"size": 12,
-						"line-height": 0,
-						"bold": true,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"text-direction": "ltr",
-						"icon-set": -1,
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 89,
-					"sid": 117648110826493,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 117648110826493,
-						"expanded": true,
-						"folderName": "",
-						"indexInFolder": -1,
-						"folderNestingLevel": -1
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 2641,
-						"y": 1433,
-						"width": 192,
-						"height": 64,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 1
-					}
-				},
-				{
 					"type": "Add_To_Cart_Teleporter_Text",
 					"properties": {
 						"text": "ADD TO CART",
@@ -6425,6 +6416,62 @@
 						"y": 882.8864208836943,
 						"width": 180,
 						"height": 512,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 1
+					}
+				},
+				{
+					"type": "Shop_Money_Text",
+					"properties": {
+						"text": "Money",
+						"enable-bbcode": false,
+						"font": "Arial",
+						"size": 10,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"text-direction": "ltr",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 354,
+					"sid": 360396883898762,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 360396883898762,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 2705.008279789459,
+						"y": 1454.651277979533,
+						"width": 59.96688084216434,
+						"height": 21.72225078321038,
 						"originX": 0,
 						"originY": 0,
 						"color": [

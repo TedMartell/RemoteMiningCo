@@ -102,6 +102,16 @@
 			"sid": 358713849439888
 		},
 		{
+			"eventType": "variable",
+			"name": "Test",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 702548967822723
+		},
+		{
 			"eventType": "comment",
 			"text": "Quest Variables"
 		},
@@ -5223,7 +5233,6 @@
 							"id": "set-silent",
 							"objectClass": "SFX",
 							"sid": 683047249247073,
-							"disabled": true,
 							"parameters": {
 								"mode": "silent"
 							}
@@ -5244,6 +5253,33 @@
 							"id": "pin-to-object-properties",
 							"objectClass": "Miner_Animations",
 							"sid": 658481509639199,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Miner_Box",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 760663111431486,
+							"parameters": {
+								"object": "Render_Object",
+								"layer": "\"Player\"",
+								"image-point": "\"Center\"",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Render_Object",
+							"sid": 938956938869996,
 							"behaviorType": "Pin",
 							"parameters": {
 								"pin-to": "Miner_Box",
@@ -5345,6 +5381,14 @@
 							"id": "set-text",
 							"objectClass": "Money_Text",
 							"sid": 905274619192623,
+							"parameters": {
+								"text": "Miner_Box.Money & \" $\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Shop_Money_Text",
+							"sid": 872300968903651,
 							"parameters": {
 								"text": "Miner_Box.Money & \" $\""
 							}
@@ -6165,6 +6209,11 @@
 														"group-name": "\"Buildings\"",
 														"state": "activated"
 													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Meta_Materials",
+													"sid": 333713741653656
 												}
 											],
 											"sid": 490297190216367
@@ -6279,6 +6328,11 @@
 														"group-name": "\"Buildings\"",
 														"state": "activated"
 													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Meta_Materials",
+													"sid": 753401171415797
 												}
 											],
 											"sid": 893149211984807
@@ -10113,9 +10167,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Req_Item_Text",
-											"sid": 119166971143327,
+											"sid": 287862122851112,
 											"parameters": {
-												"text": "\"Iron Ingot: \" & Required_Item_Quantity"
+												"text": "\"Silver Ingot: \" & Required_Item_Quantity"
 											}
 										},
 										{
@@ -13510,9 +13564,9 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Global_Inventory_Object",
-													"sid": 440657670994125,
+													"sid": 980719769068289,
 													"parameters": {
-														"instance-variable": "Lithium",
+														"instance-variable": "Copper_Ingot",
 														"comparison": 5,
 														"value": "Required_Item_Quantity"
 													}
@@ -13532,9 +13586,9 @@
 												{
 													"id": "subtract-from-instvar",
 													"objectClass": "Global_Inventory_Object",
-													"sid": 222489027729111,
+													"sid": 223730823247548,
 													"parameters": {
-														"instance-variable": "Lithium",
+														"instance-variable": "Copper_Ingot",
 														"value": "Required_Item_Quantity"
 													}
 												},
@@ -13611,9 +13665,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Req_Item_Text",
-											"sid": 313331084034394,
+											"sid": 321151484836158,
 											"parameters": {
-												"text": "\"LITHIUM: \" & Required_Item_Quantity"
+												"text": "\"COPPER INGOT: \" & Required_Item_Quantity"
 											}
 										},
 										{
@@ -13709,9 +13763,9 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Meta_Upg_Background",
-													"sid": 920871011177715,
+													"sid": 635656494927132,
 													"parameters": {
-														"object": "Lithium_Meta",
+														"object": "Copper_Ingot_Meta",
 														"layer": "\"Meta_Upgrades\"",
 														"image-point": "\"Req_Items_Sprite\"",
 														"create-hierarchy": false,
@@ -13740,8 +13794,8 @@
 									"actions": [
 										{
 											"id": "destroy",
-											"objectClass": "Lithium_Meta",
-											"sid": 736508502782691
+											"objectClass": "Copper_Ingot_Meta",
+											"sid": 807055542792966
 										}
 									],
 									"sid": 640386033914203,
@@ -13940,9 +13994,9 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Global_Inventory_Object",
-													"sid": 694615165047837,
+													"sid": 948838102226065,
 													"parameters": {
-														"instance-variable": "Copper_Ingot",
+														"instance-variable": "Lithium",
 														"comparison": 5,
 														"value": "Required_Item_Quantity"
 													}
@@ -13962,9 +14016,9 @@
 												{
 													"id": "subtract-from-instvar",
 													"objectClass": "Global_Inventory_Object",
-													"sid": 190946207672734,
+													"sid": 980102715615377,
 													"parameters": {
-														"instance-variable": "Copper_Ingot",
+														"instance-variable": "Lithium",
 														"value": "Required_Item_Quantity"
 													}
 												},
@@ -14041,9 +14095,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Req_Item_Text",
-											"sid": 965857837262670,
+											"sid": 365593078824100,
 											"parameters": {
-												"text": "\"COPPER INGOT: \" & Required_Item_Quantity"
+												"text": "\"LITHIUM: \" & Required_Item_Quantity"
 											}
 										},
 										{
@@ -14139,9 +14193,9 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Meta_Upg_Background",
-													"sid": 888278087365421,
+													"sid": 440808795360916,
 													"parameters": {
-														"object": "Copper_Ingot_Meta",
+														"object": "Lithium_Meta",
 														"layer": "\"Meta_Upgrades\"",
 														"image-point": "\"Req_Items_Sprite\"",
 														"create-hierarchy": false,
@@ -14170,8 +14224,8 @@
 									"actions": [
 										{
 											"id": "destroy",
-											"objectClass": "Copper_Ingot_Meta",
-											"sid": 149639620399742
+											"objectClass": "Lithium_Meta",
+											"sid": 733661319812893
 										}
 									],
 									"sid": 468317481511188,
@@ -25794,7 +25848,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "200",
+							"initialValue": "300",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -30810,214 +30864,6 @@
 							"isActiveOnStart": true,
 							"children": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-animation-finished",
-											"objectClass": "Mining_Blocks_Family",
-											"sid": 188423493264692,
-											"parameters": {
-												"animation": "\"destroy_right\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Mining_Blocks_Family",
-											"sid": 834613903143718,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"value": "0"
-											}
-										}
-									],
-									"sid": 108261627552651
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-animation-finished",
-											"objectClass": "Mining_Blocks_Family",
-											"sid": 948600702421155,
-											"parameters": {
-												"animation": "\"destroy_left\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Mining_Blocks_Family",
-											"sid": 953296582110520,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"value": "0"
-											}
-										}
-									],
-									"sid": 599264069608917
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-animation-finished",
-											"objectClass": "Mining_Blocks_Family",
-											"sid": 912345724977451,
-											"parameters": {
-												"animation": "\"destroy_down\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Mining_Blocks_Family",
-											"sid": 801868242817967,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"value": "0"
-											}
-										}
-									],
-									"sid": 350692401634512
-								},
-								{
-									"eventType": "comment",
-									"text": "Mining Sound !!! Tankar performance hårt"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-animation-playing",
-											"objectClass": "Mining_Blocks_Family",
-											"sid": 759238219062403,
-											"parameters": {
-												"animation": "\"destroy_down\""
-											}
-										},
-										{
-											"id": "trigger-once-while-true",
-											"objectClass": "System",
-											"sid": 474126683394006
-										}
-									],
-									"actions": [],
-									"sid": 686262140527219,
-									"disabled": true,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "play",
-													"objectClass": "SFX",
-													"sid": 551767593463525,
-													"parameters": {
-														"audio-file": "DT Sound - Aural Impacts - Crumbling Debris ",
-														"loop": "not-looping",
-														"volume": "-10",
-														"stereo-pan": "0",
-														"tag-optional": "\"\""
-													}
-												}
-											],
-											"sid": 895457204295476,
-											"disabled": true
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-animation-playing",
-											"objectClass": "Mining_Blocks_Family",
-											"sid": 725820444341364,
-											"parameters": {
-												"animation": "\"destroy_right\""
-											}
-										},
-										{
-											"id": "trigger-once-while-true",
-											"objectClass": "System",
-											"sid": 820176643855566
-										}
-									],
-									"actions": [],
-									"sid": 654382572426160,
-									"disabled": true,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "play",
-													"objectClass": "SFX",
-													"sid": 564717294334807,
-													"parameters": {
-														"audio-file": "DT Sound - Aural Impacts - Crumbling Debris ",
-														"loop": "not-looping",
-														"volume": "-10",
-														"stereo-pan": "0",
-														"tag-optional": "\"\""
-													}
-												}
-											],
-											"sid": 690183233366433,
-											"disabled": true
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-animation-playing",
-											"objectClass": "Mining_Blocks_Family",
-											"sid": 602903652818914,
-											"parameters": {
-												"animation": "\"destroy_left\""
-											}
-										},
-										{
-											"id": "trigger-once-while-true",
-											"objectClass": "System",
-											"sid": 601663695759828
-										}
-									],
-									"actions": [],
-									"sid": 891498377079860,
-									"disabled": true,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "play",
-													"objectClass": "SFX",
-													"sid": 169410976268341,
-													"parameters": {
-														"audio-file": "DT Sound - Aural Impacts - Crumbling Debris ",
-														"loop": "not-looping",
-														"volume": "-10",
-														"stereo-pan": "0",
-														"tag-optional": "\"\""
-													}
-												}
-											],
-											"sid": 481989800255146,
-											"disabled": true
-										}
-									]
-								},
-								{
 									"eventType": "comment",
 									"text": "Dirt"
 								},
@@ -31025,34 +30871,51 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Dirt_Block",
-											"sid": 356216392850072,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 144761430129571,
 											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Dirt_Block",
-											"sid": 993479370936237,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"comparison": 0,
-												"value": "0"
+												"object": "Dirt_Block"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 471703069352303,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Dirt_Block",
-											"sid": 683273194417357
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Dirt_Block",
+													"sid": 419031111131590,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Dirt_Block",
+													"sid": 518918168525008,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Dirt_Block",
+													"sid": 425878024316262
+												}
+											],
+											"sid": 967206990000868
 										}
-									],
-									"sid": 224185289002548
+									]
 								},
 								{
 									"eventType": "comment",
@@ -31062,34 +30925,51 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Dirt_Block_2",
-											"sid": 203558515634779,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 732954828527470,
 											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Dirt_Block_2",
-											"sid": 150765671010284,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"comparison": 0,
-												"value": "0"
+												"object": "Dirt_Block_2"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 348684181352671,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Dirt_Block_2",
-											"sid": 811068938043233
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Dirt_Block_2",
+													"sid": 620217276020568,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Dirt_Block_2",
+													"sid": 677164051522091,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Dirt_Block_2",
+													"sid": 165783505624493
+												}
+											],
+											"sid": 329703686983723
 										}
-									],
-									"sid": 251870989596970
+									]
 								},
 								{
 									"eventType": "comment",
@@ -31099,34 +30979,51 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Dirt_Block_Top",
-											"sid": 634422880786674,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 385013296010145,
 											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Dirt_Block_Top",
-											"sid": 129751769660193,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"comparison": 0,
-												"value": "0"
+												"object": "Dirt_Block_Top"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 783315060650613,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Dirt_Block_Top",
-											"sid": 573023160627691
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Dirt_Block_Top",
+													"sid": 986367619237517,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Dirt_Block_Top",
+													"sid": 221326671986037,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Dirt_Block_Top",
+													"sid": 216221437958096
+												}
+											],
+											"sid": 489440631198318
 										}
-									],
-									"sid": 251722556068114
+									]
 								},
 								{
 									"eventType": "comment",
@@ -31136,47 +31033,64 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Coal_Block",
-											"sid": 584291665970863,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 599912013260312,
 											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Coal_Block",
-											"sid": 974161089616880,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"comparison": 0,
-												"value": "0"
+												"object": "Coal_Block"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 707569197884147,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Coal_Block",
-											"sid": 453994123435053
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 228887566073589,
-											"parameters": {
-												"object-to-create": "Coal",
-												"layer": "\"Player\"",
-												"x": "Coal_Block.X",
-												"y": "Coal_Block.Y",
-												"create-hierarchy": false,
-												"template-name": "\"Coal\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Coal_Block",
+													"sid": 668586896370453,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Coal_Block",
+													"sid": 831614520518848,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Coal_Block",
+													"sid": 246792602411192
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 797636800599774,
+													"parameters": {
+														"object-to-create": "Coal",
+														"layer": "\"Player\"",
+														"x": "Coal_Block.X",
+														"y": "Coal_Block.Y",
+														"create-hierarchy": false,
+														"template-name": "\"Coal\""
+													}
+												}
+											],
+											"sid": 144915582663121
 										}
-									],
-									"sid": 344016272830497
+									]
 								},
 								{
 									"eventType": "comment",
@@ -31186,47 +31100,64 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Quartz_Block",
-											"sid": 960288246027933,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 360050270475377,
 											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Quartz_Block",
-											"sid": 282855081433090,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"comparison": 0,
-												"value": "0"
+												"object": "Quartz_Block"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 325624662454385,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Quartz_Block",
-											"sid": 327526529501018
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 424304938628538,
-											"parameters": {
-												"object-to-create": "Quartz",
-												"layer": "\"Player\"",
-												"x": "Quartz_Block.X",
-												"y": "Quartz_Block.Y",
-												"create-hierarchy": false,
-												"template-name": "\"Quartz\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Quartz_Block",
+													"sid": 110977410705754,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Quartz_Block",
+													"sid": 278557624342255,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Quartz_Block",
+													"sid": 584017638043820
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 354812001143547,
+													"parameters": {
+														"object-to-create": "Quartz",
+														"layer": "\"Player\"",
+														"x": "Quartz_Block.X",
+														"y": "Quartz_Block.Y",
+														"create-hierarchy": false,
+														"template-name": "\"Quartz\""
+													}
+												}
+											],
+											"sid": 142656177764870
 										}
-									],
-									"sid": 867341718876386
+									]
 								},
 								{
 									"eventType": "comment",
@@ -31236,47 +31167,64 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Bauxite_Block",
-											"sid": 955430350061463,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 554826834401161,
 											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Bauxite_Block",
-											"sid": 594559831559502,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"comparison": 0,
-												"value": "0"
+												"object": "Bauxite_Block"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 358338159369128,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Bauxite_Block",
-											"sid": 326462378771961
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 718271530781824,
-											"parameters": {
-												"object-to-create": "Bauxite_Ore",
-												"layer": "\"Player\"",
-												"x": "Bauxite_Block.X",
-												"y": "Bauxite_Block.Y",
-												"create-hierarchy": false,
-												"template-name": "\"Bauxite\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Bauxite_Block",
+													"sid": 381784319197800,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Bauxite_Block",
+													"sid": 277803277492061,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Bauxite_Block",
+													"sid": 435360022472105
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 905385614472297,
+													"parameters": {
+														"object-to-create": "Bauxite_Ore",
+														"layer": "\"Player\"",
+														"x": "Bauxite_Block.X",
+														"y": "Bauxite_Block.Y",
+														"create-hierarchy": false,
+														"template-name": "\"Bauxite\""
+													}
+												}
+											],
+											"sid": 848208320036623
 										}
-									],
-									"sid": 593423769850157
+									]
 								},
 								{
 									"eventType": "comment",
@@ -31286,47 +31234,64 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Iron_Block",
-											"sid": 272747066328534,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 336873284251435,
 											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Iron_Block",
-											"sid": 377981593217716,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"comparison": 0,
-												"value": "0"
+												"object": "Iron_Block"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 127133697730202,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Iron_Block",
-											"sid": 549408841803888
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 228459754891329,
-											"parameters": {
-												"object-to-create": "Iron_Ore",
-												"layer": "\"Player\"",
-												"x": "Iron_Block.X ",
-												"y": "Iron_Block.Y ",
-												"create-hierarchy": false,
-												"template-name": "\"Iron\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Iron_Block",
+													"sid": 524117639772408,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Iron_Block",
+													"sid": 988111836685238,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Iron_Block",
+													"sid": 645147074354463
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 190016165293046,
+													"parameters": {
+														"object-to-create": "Iron_Ore",
+														"layer": "\"Player\"",
+														"x": "Iron_Block.X ",
+														"y": "Iron_Block.Y ",
+														"create-hierarchy": false,
+														"template-name": "\"Iron\""
+													}
+												}
+											],
+											"sid": 910522918684394
 										}
-									],
-									"sid": 446666405823683
+									]
 								},
 								{
 									"eventType": "comment",
@@ -31336,47 +31301,64 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Chromium_Block",
-											"sid": 190218045288901,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 129126686174732,
 											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Chromium_Block",
-											"sid": 242643360010795,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"comparison": 0,
-												"value": "0"
+												"object": "Chromium_Block"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 509564684465872,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Chromium_Block",
-											"sid": 683849939458650
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 530576444467007,
-											"parameters": {
-												"object-to-create": "Chromium_Ore",
-												"layer": "\"Player\"",
-												"x": "Chromium_Block.X ",
-												"y": "Chromium_Block.Y ",
-												"create-hierarchy": false,
-												"template-name": "\"Chromium\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Chromium_Block",
+													"sid": 272817583092045,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Chromium_Block",
+													"sid": 765786915232114,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Chromium_Block",
+													"sid": 632245494269627
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 908311753120035,
+													"parameters": {
+														"object-to-create": "Chromium_Ore",
+														"layer": "\"Player\"",
+														"x": "Chromium_Block.X ",
+														"y": "Chromium_Block.Y ",
+														"create-hierarchy": false,
+														"template-name": "\"Chromium\""
+													}
+												}
+											],
+											"sid": 580045572424764
 										}
-									],
-									"sid": 603873413672418
+									]
 								},
 								{
 									"eventType": "comment",
@@ -31386,47 +31368,64 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Copper_Block",
-											"sid": 201173326758206,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 273690943104358,
 											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Copper_Block",
-											"sid": 197398637276993,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"comparison": 0,
-												"value": "0"
+												"object": "Copper_Block"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 705908155996010,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Copper_Block",
-											"sid": 754602959026304
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 571754928687878,
-											"parameters": {
-												"object-to-create": "Copper_Ore",
-												"layer": "\"Player\"",
-												"x": "Copper_Block.X ",
-												"y": "Copper_Block.Y ",
-												"create-hierarchy": false,
-												"template-name": "\"Copper\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Copper_Block",
+													"sid": 323522685570263,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Copper_Block",
+													"sid": 289527122064990,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Copper_Block",
+													"sid": 114577309017408
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 469031534124618,
+													"parameters": {
+														"object-to-create": "Copper_Ore",
+														"layer": "\"Player\"",
+														"x": "Copper_Block.X ",
+														"y": "Copper_Block.Y ",
+														"create-hierarchy": false,
+														"template-name": "\"Copper\""
+													}
+												}
+											],
+											"sid": 688697770377277
 										}
-									],
-									"sid": 988523343770037
+									]
 								},
 								{
 									"eventType": "comment",
@@ -31436,47 +31435,64 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Lithium_Block",
-											"sid": 827507492269401,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 978429745022341,
 											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Lithium_Block",
-											"sid": 937483153822307,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"comparison": 0,
-												"value": "0"
+												"object": "Lithium_Block"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 774787126506717,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Lithium_Block",
-											"sid": 728813457153283
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 506575785921411,
-											"parameters": {
-												"object-to-create": "Lithium_Ore",
-												"layer": "\"Player\"",
-												"x": "Lithium_Block.X ",
-												"y": "Lithium_Block.Y ",
-												"create-hierarchy": false,
-												"template-name": "\"Lithium\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Lithium_Block",
+													"sid": 927393694448687,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Lithium_Block",
+													"sid": 716842830333548,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Lithium_Block",
+													"sid": 841940670428148
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 424474276720026,
+													"parameters": {
+														"object-to-create": "Lithium_Ore",
+														"layer": "\"Player\"",
+														"x": "Lithium_Block.X ",
+														"y": "Lithium_Block.Y ",
+														"create-hierarchy": false,
+														"template-name": "\"Lithium\""
+													}
+												}
+											],
+											"sid": 927066612458434
 										}
-									],
-									"sid": 828118668054556
+									]
 								},
 								{
 									"eventType": "comment",
@@ -31486,47 +31502,64 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Silver_Block",
-											"sid": 183735101315054,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 664299324376468,
 											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Silver_Block",
-											"sid": 750454190705573,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"comparison": 0,
-												"value": "0"
+												"object": "Silver_Block"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 580890223200816,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Silver_Block",
-											"sid": 482446332546086
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 492756492141234,
-											"parameters": {
-												"object-to-create": "Silver_Ore",
-												"layer": "\"Player\"",
-												"x": "Silver_Block.X ",
-												"y": "Silver_Block.Y ",
-												"create-hierarchy": false,
-												"template-name": "\"Silver\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Silver_Block",
+													"sid": 109140860826747,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Silver_Block",
+													"sid": 797774879637321,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Silver_Block",
+													"sid": 421917834647679
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 422469838949238,
+													"parameters": {
+														"object-to-create": "Silver_Ore",
+														"layer": "\"Player\"",
+														"x": "Silver_Block.X ",
+														"y": "Silver_Block.Y ",
+														"create-hierarchy": false,
+														"template-name": "\"Silver\""
+													}
+												}
+											],
+											"sid": 870332980643123
 										}
-									],
-									"sid": 261870581205138
+									]
 								},
 								{
 									"eventType": "comment",
@@ -31536,47 +31569,64 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Nickel_Block",
-											"sid": 928412365409861,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 423666180714591,
 											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Nickel_Block",
-											"sid": 699399161638903,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"comparison": 0,
-												"value": "0"
+												"object": "Nickel_Block"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 525225552169178,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Nickel_Block",
-											"sid": 615229835968631
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 491141925949754,
-											"parameters": {
-												"object-to-create": "Nickel_Ore",
-												"layer": "\"Player\"",
-												"x": "Nickel_Block.X ",
-												"y": "Nickel_Block.Y ",
-												"create-hierarchy": false,
-												"template-name": "\"Nickel\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Nickel_Block",
+													"sid": 424093359474503,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Nickel_Block",
+													"sid": 889160902624296,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Nickel_Block",
+													"sid": 947796553326319
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 260093351746185,
+													"parameters": {
+														"object-to-create": "Nickel_Ore",
+														"layer": "\"Player\"",
+														"x": "Nickel_Block.X ",
+														"y": "Nickel_Block.Y ",
+														"create-hierarchy": false,
+														"template-name": "\"Nickel\""
+													}
+												}
+											],
+											"sid": 291160901086296
 										}
-									],
-									"sid": 941054916741219
+									]
 								},
 								{
 									"eventType": "comment",
@@ -31586,47 +31636,64 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Zinc_Block",
-											"sid": 592237527970035,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 469617395792140,
 											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Zinc_Block",
-											"sid": 368418199686446,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"comparison": 0,
-												"value": "0"
+												"object": "Zinc_Block"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 905601995769736,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Zinc_Block",
-											"sid": 790549862719214
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 153869604831066,
-											"parameters": {
-												"object-to-create": "Zinc_Ore",
-												"layer": "\"Player\"",
-												"x": "Zinc_Block.X ",
-												"y": "Zinc_Block.Y ",
-												"create-hierarchy": false,
-												"template-name": "\"Zinc\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Zinc_Block",
+													"sid": 154339649401327,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Zinc_Block",
+													"sid": 978525448646861,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Zinc_Block",
+													"sid": 168882391270058
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 495253382235787,
+													"parameters": {
+														"object-to-create": "Zinc_Ore",
+														"layer": "\"Player\"",
+														"x": "Zinc_Block.X ",
+														"y": "Zinc_Block.Y ",
+														"create-hierarchy": false,
+														"template-name": "\"Zinc\""
+													}
+												}
+											],
+											"sid": 325783183499702
 										}
-									],
-									"sid": 241818141805701
+									]
 								},
 								{
 									"eventType": "comment",
@@ -31636,47 +31703,64 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Gold_Block",
-											"sid": 380931296415017,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 892327228766685,
 											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Gold_Block",
-											"sid": 759921939742529,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"comparison": 0,
-												"value": "0"
+												"object": "Gold_Block"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 156855834636765,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Gold_Block",
-											"sid": 530038095573817
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 450385527303001,
-											"parameters": {
-												"object-to-create": "Gold_Ore",
-												"layer": "\"Player\"",
-												"x": "Gold_Block.X ",
-												"y": "Gold_Block.Y ",
-												"create-hierarchy": false,
-												"template-name": "\"Gold\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Gold_Block",
+													"sid": 343159109524941,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Gold_Block",
+													"sid": 513185100634998,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Gold_Block",
+													"sid": 931018258985274
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 295802312577518,
+													"parameters": {
+														"object-to-create": "Gold_Ore",
+														"layer": "\"Player\"",
+														"x": "Gold_Block.X ",
+														"y": "Gold_Block.Y ",
+														"create-hierarchy": false,
+														"template-name": "\"Gold\""
+													}
+												}
+											],
+											"sid": 172521208373719
 										}
-									],
-									"sid": 311281264371867
+									]
 								},
 								{
 									"eventType": "comment",
@@ -31686,47 +31770,64 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Diamond_Block",
-											"sid": 707673036360179,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 328329438009654,
 											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Diamond_Block",
-											"sid": 401286349088989,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"comparison": 0,
-												"value": "0"
+												"object": "Diamond_Block"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 301891501612463,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Diamond_Block",
-											"sid": 568063887187615
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 569101965051506,
-											"parameters": {
-												"object-to-create": "Diamond",
-												"layer": "\"Player\"",
-												"x": "Diamond_Block.X ",
-												"y": "Diamond_Block.Y ",
-												"create-hierarchy": false,
-												"template-name": "\"Diamond\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Diamond_Block",
+													"sid": 136151496751548,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Diamond_Block",
+													"sid": 170415935295359,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Diamond_Block",
+													"sid": 740827525189149
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 841596385792575,
+													"parameters": {
+														"object-to-create": "Diamond",
+														"layer": "\"Player\"",
+														"x": "Diamond_Block.X ",
+														"y": "Diamond_Block.Y ",
+														"create-hierarchy": false,
+														"template-name": "\"Diamond\""
+													}
+												}
+											],
+											"sid": 294834376342028
 										}
-									],
-									"sid": 640135382729103
+									]
 								},
 								{
 									"eventType": "comment",
@@ -31736,24 +31837,41 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Stone_Block",
-											"sid": 764604756962755,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 101462745330333,
 											"parameters": {
-												"instance-variable": "HP",
-												"comparison": 3,
-												"value": "0"
+												"object": "Stone_Block"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 879916144300395,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Stone_Block",
-											"sid": 405304689577731
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Stone_Block",
+													"sid": 111438986947091,
+													"parameters": {
+														"instance-variable": "HP",
+														"comparison": 3,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Stone_Block",
+													"sid": 954468099098123
+												}
+											],
+											"sid": 615137974376133
 										}
-									],
-									"sid": 251701977050676
+									]
 								},
 								{
 									"eventType": "comment",
@@ -31763,34 +31881,51 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Lava_Block",
-											"sid": 839848489465107,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 489856110788449,
 											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Lava_Block",
-											"sid": 468696943898220,
-											"parameters": {
-												"instance-variable": "animationNumber",
-												"comparison": 0,
-												"value": "0"
+												"object": "Lava_Block"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 515101836286883,
+									"children": [
 										{
-											"id": "destroy",
-											"objectClass": "Lava_Block",
-											"sid": 224138500548304
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Lava_Block",
+													"sid": 883444689444742,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Lava_Block",
+													"sid": 967118194416144,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Lava_Block",
+													"sid": 108682844332235
+												}
+											],
+											"sid": 679298613838370
 										}
-									],
-									"sid": 124814788015490
+									]
 								},
 								{
 									"eventType": "block",
@@ -31798,7 +31933,7 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Miner_Drill",
-											"sid": 498275029526677,
+											"sid": 164260785403546,
 											"parameters": {
 												"object": "Lava_Block"
 											}
@@ -31808,14 +31943,14 @@
 										{
 											"id": "subtract-from-instvar",
 											"objectClass": "Miner_Box",
-											"sid": 735341316573994,
+											"sid": 755478703946551,
 											"parameters": {
 												"instance-variable": "HP",
 												"value": "1"
 											}
 										}
 									],
-									"sid": 735176196411196,
+									"sid": 770804897068785,
 									"children": [
 										{
 											"eventType": "block",
@@ -31823,14 +31958,14 @@
 												{
 													"id": "trigger-once-while-true",
 													"objectClass": "System",
-													"sid": 170017459747934
+													"sid": 392131844650963
 												}
 											],
 											"actions": [
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 601350136783469,
+													"sid": 456683747430751,
 													"parameters": {
 														"audio-file": "Low Energy Flaviu Ciocan - Space Sci Fi - Warning Alarm",
 														"loop": "not-looping",
@@ -31840,7 +31975,7 @@
 													}
 												}
 											],
-											"sid": 669089291821970
+											"sid": 373205963652089
 										},
 										{
 											"eventType": "block",
@@ -31848,7 +31983,7 @@
 												{
 													"id": "every-x-seconds",
 													"objectClass": "System",
-													"sid": 727374442793233,
+													"sid": 219247362874510,
 													"parameters": {
 														"interval-seconds": "0.5"
 													}
@@ -31858,7 +31993,7 @@
 												{
 													"id": "set-effect-enabled",
 													"objectClass": "Miner_Animations",
-													"sid": 701790123708344,
+													"sid": 698029758358678,
 													"parameters": {
 														"mode": "enable",
 														"effect": "\"HardLight\""
@@ -31867,7 +32002,7 @@
 												{
 													"id": "wait",
 													"objectClass": "System",
-													"sid": 470703545786500,
+													"sid": 939145962229477,
 													"parameters": {
 														"seconds": "0.25"
 													}
@@ -31875,14 +32010,14 @@
 												{
 													"id": "set-effect-enabled",
 													"objectClass": "Miner_Animations",
-													"sid": 789625625917034,
+													"sid": 638025026951671,
 													"parameters": {
 														"mode": "disable",
 														"effect": "\"HardLight\""
 													}
 												}
 											],
-											"sid": 218206375565449
+											"sid": 991353929700534
 										}
 									]
 								},
@@ -31892,14 +32027,14 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 649725855356184
+											"sid": 210744642449853
 										}
 									],
 									"actions": [
 										{
 											"id": "fade-volume",
 											"objectClass": "SFX",
-											"sid": 216352608357931,
+											"sid": 902488078653097,
 											"parameters": {
 												"tag": "\"Lava\"",
 												"db": "-100",
@@ -31908,7 +32043,226 @@
 											}
 										}
 									],
-									"sid": 442261134565006
+									"sid": 640770676555159
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 852522789726733,
+											"parameters": {
+												"object": "Mining_Blocks_Family"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 497380461247508,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-animation-finished",
+													"objectClass": "Mining_Blocks_Family",
+													"sid": 746399192578535,
+													"parameters": {
+														"animation": "\"destroy_right\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Mining_Blocks_Family",
+													"sid": 766532287094540,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 688079397810681
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-animation-finished",
+													"objectClass": "Mining_Blocks_Family",
+													"sid": 597090953791691,
+													"parameters": {
+														"animation": "\"destroy_left\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Mining_Blocks_Family",
+													"sid": 106455912723618,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 201391209954132
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-animation-finished",
+													"objectClass": "Mining_Blocks_Family",
+													"sid": 192154756989964,
+													"parameters": {
+														"animation": "\"destroy_down\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Mining_Blocks_Family",
+													"sid": 377372142396891,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 600591206563735
+										},
+										{
+											"eventType": "comment",
+											"text": "Mining Sound !!! Tankar performance hårt"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Mining_Blocks_Family",
+													"sid": 991560945267310,
+													"parameters": {
+														"animation": "\"destroy_down\""
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 661204816515005
+												}
+											],
+											"actions": [],
+											"sid": 451404721819910,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 704466999744453,
+															"parameters": {
+																"audio-file": "DT Sound - Aural Impacts - Crumbling Debris ",
+																"loop": "not-looping",
+																"volume": "-10",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														}
+													],
+													"sid": 497531685091668
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Mining_Blocks_Family",
+													"sid": 834029290521219,
+													"parameters": {
+														"animation": "\"destroy_right\""
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 192578415690840
+												}
+											],
+											"actions": [],
+											"sid": 789663155591824,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 931009004951722,
+															"parameters": {
+																"audio-file": "DT Sound - Aural Impacts - Crumbling Debris ",
+																"loop": "not-looping",
+																"volume": "-10",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														}
+													],
+													"sid": 792041976144100
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Mining_Blocks_Family",
+													"sid": 759909392458464,
+													"parameters": {
+														"animation": "\"destroy_left\""
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 218303361142882
+												}
+											],
+											"actions": [],
+											"sid": 550165224076844,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 215307112116353,
+															"parameters": {
+																"audio-file": "DT Sound - Aural Impacts - Crumbling Debris ",
+																"loop": "not-looping",
+																"volume": "-10",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														}
+													],
+													"sid": 876903490599798
+												}
+											]
+										}
+									]
 								},
 								{
 									"eventType": "group",
@@ -33257,109 +33611,132 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-instance-variable",
-													"objectClass": "Mining_Blocks_Family",
-													"sid": 615024889010100,
+													"id": "is-overlapping-another-object",
+													"objectClass": "Render_Object",
+													"sid": 203561977181313,
 													"parameters": {
-														"instance-variable": "animationNumber",
-														"comparison": 0,
-														"value": "1"
+														"object": "Mining_Blocks_Family"
 													}
+												}
+											],
+											"actions": [],
+											"sid": 961187801829361,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 497728538487319,
+															"parameters": {
+																"instance-variable": "animationNumber",
+																"comparison": 0,
+																"value": "1"
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 830327968691302,
+															"parameters": {
+																"animation": "\"destroy_right\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 628601078865109,
+															"parameters": {
+																"animation": "\"destroy_right\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 649123386727100
 												},
 												{
-													"id": "is-animation-playing",
-													"objectClass": "Mining_Blocks_Family",
-													"sid": 221382935217347,
-													"parameters": {
-														"animation": "\"destroy_right\""
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "Mining_Blocks_Family",
-													"sid": 828461252909247,
-													"parameters": {
-														"animation": "\"destroy_right\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 827053729870410
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Mining_Blocks_Family",
-													"sid": 464159176612062,
-													"parameters": {
-														"instance-variable": "animationNumber",
-														"comparison": 0,
-														"value": "2"
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 156143445414789,
+															"parameters": {
+																"instance-variable": "animationNumber",
+																"comparison": 0,
+																"value": "2"
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 598356691162207,
+															"parameters": {
+																"animation": "\"destroy_left\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 485008379269011,
+															"parameters": {
+																"animation": "\"destroy_left\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 190567404752692
 												},
 												{
-													"id": "is-animation-playing",
-													"objectClass": "Mining_Blocks_Family",
-													"sid": 320645312771404,
-													"parameters": {
-														"animation": "\"destroy_left\""
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "Mining_Blocks_Family",
-													"sid": 609045075614048,
-													"parameters": {
-														"animation": "\"destroy_left\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 975389521749356
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Mining_Blocks_Family",
-													"sid": 232132913728078,
-													"parameters": {
-														"instance-variable": "animationNumber",
-														"comparison": 0,
-														"value": "3"
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 614287699015162,
+															"parameters": {
+																"instance-variable": "animationNumber",
+																"comparison": 0,
+																"value": "3"
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 507683651095628,
+															"parameters": {
+																"animation": "\"destroy_left\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 956327940263900,
+															"parameters": {
+																"animation": "\"destroy_down\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 158422790032287
 												},
 												{
-													"id": "is-animation-playing",
-													"objectClass": "Mining_Blocks_Family",
-													"sid": 572866990366344,
-													"parameters": {
-														"animation": "\"destroy_left\""
-													},
-													"isInverted": true
+													"eventType": "block",
+													"conditions": [],
+													"actions": [],
+													"sid": 862727223398065
 												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "Mining_Blocks_Family",
-													"sid": 348889193868698,
-													"parameters": {
-														"animation": "\"destroy_down\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 947772363652943
+											]
 										}
 									],
 									"sid": 395642350971380
@@ -38701,7 +39078,7 @@
 								{
 									"id": "set-text",
 									"objectClass": "Quest_Text",
-									"sid": 107327411072572,
+									"sid": 554699798136944,
 									"parameters": {
 										"text": "\"Go to the Smelter and craft 2x Aluminium Ingot and 2x Silicon\" & newline &\n\"Aluminium Ingots Crafted:\" & newline & Quest_Objective_1 & \" / \" & Quest_Target_1 & newline &\n\"Silicon  Crafted:\" & newline & Quest_Objective_2 & \" / \" & Quest_Target_2 \n"
 									}
@@ -39533,9 +39910,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "Quest_Text",
-									"sid": 257183787174025,
+									"sid": 929300864015132,
 									"parameters": {
-										"text": "\"Go to the UPGRADES Menu and upgrade Drill Damage Multiplier and Max Energy\" & newline & Meta_Drill_Upg_Button.Damage_Tier_1_Level & \" / \" & Quest_Target_1 & newline & Meta_Energy_Upg_Button.Energy_Max_Tier_1_Level & \" / \" & Quest_Target_2"
+										"text": "\"Go to the UPGRADES Menu and upgrade Drill Damage Multiplier and Max Energy\" & newline & \"Drill DMG Multiplier Tier 1: \" &Meta_Drill_Upg_Button.Damage_Tier_1_Level & \" / \" & Quest_Target_1 & newline & \"Max Energy Tier 1: \"&Meta_Energy_Upg_Button.Energy_Max_Tier_1_Level & \" / \" & Quest_Target_2"
 									}
 								},
 								{
@@ -40045,29 +40422,11 @@
 							],
 							"actions": [
 								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 400837115921080,
-									"parameters": {
-										"variable": "Quest_Target_1",
-										"value": "3"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 900606937162532,
-									"parameters": {
-										"variable": "Quest_Target_2",
-										"value": "3"
-									}
-								},
-								{
 									"id": "set-text",
 									"objectClass": "Quest_Text",
-									"sid": 622914400360953,
+									"sid": 606954872612726,
 									"parameters": {
-										"text": "\"Complete the Drill Damage Multiplier tier 5 upgrades and Energy Max tier 3 upgrades\""
+										"text": "\"Gather 10k $ and buy the LASER GUN!\" & newline & \"Sell, Craft and upgrade to gather the money. This quest is gonna take a longer time to complete\""
 									}
 								},
 								{
@@ -40085,23 +40444,11 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 701416187890142,
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Miner_Box",
+											"sid": 979146950626948,
 											"parameters": {
-												"instance-variable": "Damage_Tier_5_Level",
-												"comparison": 5,
-												"value": "3"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Meta_Energy_Upg_Button",
-											"sid": 256931174298797,
-											"parameters": {
-												"instance-variable": "Energy_Max_Tier_3_Level",
-												"comparison": 5,
-												"value": "3"
+												"instance-variable": "Laser_Gun_Active"
 											}
 										}
 									],
