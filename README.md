@@ -1,4 +1,4 @@
-# motherload2
+# Remote Mining Co.
 Game called Remote Mining co. 
 
 Game is built on the Contruct 3 engine using JavaScript.
