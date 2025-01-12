@@ -1,8 +1,11 @@
 import { miningItems } from "./data/miningItems.js"
+import { smeltedItems } from "./data/smeltedItems.js"
 import { consumableItems } from "./data/consumableItems.js"
+import { smelterRecipes } from "./data/smelterRecipes.js"
 export const globalInventory = {items:{}, value: 0, weight:0};
 export const minerInventory = {items:{}, value: 0, weight:0};
 export const consumablesInventory = {items:{}, value: 0, weight:0};
+export const smelterInventory = {items:{}, value: 0, weight:0};
 
 export function destroyBlock(blockType) {
 	const blocks = blockType.instances();
@@ -60,3 +63,48 @@ export function removeFromInventory(inventory, item, quantity) {
 export function getInventory(inventory) {
     return inventory;
 }
+
+export function moveAllItems(sourceInventory, destinationInventory) {
+    for (const [itemName, quantity] of Object.entries(sourceInventory.items)) {
+        // Get item details from a predefined items list
+        const item = miningItems[itemName];
+
+        // Remove from source inventory
+        const removed = removeFromInventory(sourceInventory, item, quantity);
+
+        // If successfully removed, add to destination inventory
+        if (removed) {
+            addToInventory(destinationInventory, item, quantity);
+        }
+    }
+}
+
+// Function to move a specified quantity of a specific item
+export function moveItemWithQuantity(sourceInventory, destinationInventory, itemName, quantity) {
+    const item = miningItems[itemName];
+    if (!item) {
+        console.log(`Item ${itemName} does not exist in miningItems.`);
+        return;
+    }
+
+    const removed = removeFromInventory(sourceInventory, item, quantity);
+    if (removed) {
+        addToInventory(destinationInventory, item, quantity);
+    }
+}
+
+
+// Function to set text object with inventory
+export function updateInventoryText(inventory) {
+    let inventoryText = "";
+
+    for (let item in inventory.items) {
+        if (inventory.items.hasOwnProperty(item)) {
+            inventoryText += `${item}: ${inventory.items[item]}\n`;
+        }
+    }
+
+    inventoryText += `\nTotal Value: ${inventory.value}\nTotal Weight: ${inventory.weight}`;
+    
+}
+

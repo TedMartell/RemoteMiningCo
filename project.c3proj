@@ -1,11 +1,18 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 39700,
+	"savedWithRelease": 41602,
 	"name": "Motherload2",
 	"runtime": "c3",
 	"useWorker": "auto",
 	"bundleAddons": false,
 	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"bundled": false
+		},
 		{
 			"type": "plugin",
 			"id": "Button",
@@ -22,8 +29,29 @@
 		},
 		{
 			"type": "plugin",
+			"id": "List",
+			"name": "List",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Mouse",
 			"name": "Mouse",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Multiplayer",
+			"name": "Multiplayer",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -65,8 +93,22 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Bullet",
+			"name": "Bullet",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "DragnDrop",
 			"name": "Drag & Drop",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "MoveTo",
+			"name": "Move To",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -81,6 +123,13 @@
 			"type": "behavior",
 			"id": "Platform",
 			"name": "Platform",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Turret",
+			"name": "Turret",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -107,66 +156,319 @@
 		},
 		{
 			"type": "effect",
+			"id": "darken",
+			"name": "Darken",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
 			"id": "glowhorizontal",
 			"name": "Glow horizontal",
 			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "hardlight",
+			"name": "Hard light",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "lighten",
+			"name": "Lighten",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "overlay",
+			"name": "Overlay",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "pixellate",
+			"name": "Pixellate",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "pulse",
+			"name": "Pulse",
+			"author": "Danguafer/Silexars",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "swirl",
+			"name": "Swirl",
+			"author": "Brad Larson",
 			"bundled": false
 		}
 	],
 	"uniqueId": "ltd0l2j3eoc",
 	"objectTypes": {
 		"items": [
-			"Miner_Base",
-			"Miner_Animations",
-			"Inventory",
-			"SpriteFont",
-			"TiledBackground",
-			"Shop_Door",
-			"Enter_Shop_Text",
-			"TiledBackground2",
-			"Add_Dynamite",
-			"Button",
-			"Warehouse_Door",
-			"Enter_Warehouse_Text",
-			"TiledBackground3",
-			"TiledBackground4",
-			"Move_All_To_Warehouse"
+			"TestText",
+			"Credit_Card_Background",
+			"Bullet_Sprite",
+			"Laser_Gun",
+			"Devil_Boss_Sprite",
+			"Wall",
+			"Devil_Boss_Pentagram",
+			"Devil_Bullet_Sprite",
+			"Meta_Upg_Background",
+			"Meta_ScrollabeSprite",
+			"Scroll_TOP",
+			"Scroll_BOTTOM",
+			"Meta_Drill_DMG_T1_Button",
+			"Meta_Drill_DMG_T2_Button",
+			"Meta_Drill_Upg_Button",
+			"Meta_Upg_Text",
+			"Meta_Upgrade_button",
+			"Meta_Energy_Upg_Button",
+			"Meta_Energy_Max_T1_Button",
+			"Meta_Req_Item_Text",
+			"Meta_Max_Level_Text",
+			"Meta_Current_Level_Text",
+			"Meta_Stats_Text",
+			"Test_Furnace_Text",
+			"Coal_Meta",
+			"Meta_Multiplier_Object",
+			"Meta_Drill_DMG_T3_Button",
+			"Meta_Drill_DMG_T4_Button",
+			"Meta_Drill_DMG_T5_Button",
+			"Meta_Drill_DMG_Multiplier_Background",
+			"Meta_Drill_DMG_BASE_Background",
+			"Meta_Drill_BASE_DMG_T1_Button",
+			"Meta_Drill_BASE_DMG_T2_Button",
+			"Meta_Drill_BASE_DMG_T3_Button",
+			"Meta_Drill_BASE_DMG_T4_Button",
+			"Meta_Drill_BASE_DMG_T5_Button",
+			"Claim_Button",
+			"Quartz_Meta",
+			"Bauxite_Meta",
+			"Iron_Meta",
+			"Chromium_Meta",
+			"Copper_Meta",
+			"Lithium_Meta",
+			"Silver_Meta",
+			"Nickel_Meta",
+			"Zinc_Meta",
+			"Gold_Meta",
+			"Diamond_Meta",
+			"Silicone_Meta",
+			"Aluminium_Ingot_Meta",
+			"Iron_Ingot_Meta",
+			"Chromium_Ingot_Meta",
+			"Copper_Ingot_Meta",
+			"Lithium_Ingot_Meta",
+			"Silver_Ingot_Meta",
+			"Nickel_Ingot_Meta",
+			"Zinc_Ingot_Meta",
+			"Gold_Ingot_Meta",
+			"Meta_Energy_Max_T2_Button",
+			"Meta_Energy_Max_T3_Button",
+			"Meta_Energy_Max_Background",
+			"Meta_Energy_Efficiency_Background",
+			"Meta_Energy_Efficiency_T1_Button",
+			"Meta_Energy_Efficiency_T2_Button",
+			"Meta_Energy_Efficiency_T3_Button",
+			"Meta_Energy_Regen_Background",
+			"Meta_Energy_Regeneration_T1_Button",
+			"Meta_Energy_Regeneration_T2_Button",
+			"Meta_Energy_Regeneration_T3_Button",
+			"Meta_Passive_Income_Object",
+			"Meta_Passive_Upg_Button",
+			"Meta_Passive_Coal_Button",
+			"Meta_Passive_Quartz_Button",
+			"Meta_Passive_Bauxite_Button",
+			"Money_Meta",
+			"Passive_Income_Background",
+			"Meta_Passive_Income_Text",
+			"Meta_Stats_Button",
+			"Meta_Passive_Button",
+			"HUD_Grey",
+			"HUD_Global_Inventory_Button",
+			"HUD_Miner_Inventory_Button",
+			"Miner_Inventory_Background_Black",
+			"Miner_Inventory_Text",
+			"Global_Inventory_Background_Black",
+			"HUD_Global_Inventory_Text",
+			"Warehouse_Sell_Cart_Background",
+			"Warehouse_Sell_Cart_Text",
+			"Warehouse_Deposit_Button",
+			"Warehouse_Sell_Button",
+			"Sell_Items_Button_Warehouse",
+			"Reset_Items_Button_Warehouse",
+			"Warehouse_Value_Text",
+			"Warehouse_Shelf_Sprite",
+			"SFX",
+			"Warehouse_Q_Background",
+			"HUD_Quest_Button",
+			"HUD_Menu_Button",
+			"HUD_Quest_Background",
+			"Quest_Text",
+			"Reward_Text",
+			"Game_Boundary_Sprite",
+			"Game_Upper_Boundary",
+			"Menu_Play_Button",
+			"HUD_Menu_Background",
+			"Main_Menu_Button",
+			"Settings_Menu_Button",
+			"Settings_Menu",
+			"Sound_Settings_Button",
+			"Mute_Button",
+			"Death_Screen",
+			"Death_Keep_Inventory_Button",
+			"Death_Dump_Inventory_Button2",
+			"Shop_Explainer_Background",
+			"Shop_Explainer_Text",
+			"Shopkeeper_Sprite",
+			"Item_Pick_Up_Text",
+			"Warning_Text_Miner",
+			"Sphere_Bullet_Sprite",
+			"HUD_Upgrades_Button",
+			"HUD_Money_Button",
+			"HUD_Stats_Background_Black",
+			"HUD_Stats_Text",
+			"HUD_Credit_Card_Background",
+			"Mitch",
+			"Hell_Background",
+			"Enemy_Turret_1",
+			"Enemy_Body",
+			"Enemy_Turret_2",
+			"Enemy_Body2",
+			"HUD_Enemy_1_HP_Background",
+			"HUD_Enemy_1_HP_Bar",
+			"HUD_Enemy_2_HP_Background",
+			"HUD_Enemy_2_HP_Bar",
+			"HUD_Enemy_1_HP_Text",
+			"HUD_Enemy_2_HP_Text",
+			"HUD_Devil_HP_Background2",
+			"HUD_Devil_HP_Bar",
+			"HUD_Devil_HP_Text",
+			"Devil_Fire_Ring",
+			"Mitch_Talk_Bubble",
+			"HUD_Locked",
+			"Gun_Crate",
+			"Buy_Gun_Button",
+			"Meta_Passive_Iron_Button",
+			"Meta_Passive_Chromium_Button",
+			"Meta_Passive_Copper_Button",
+			"Render_Object",
+			"Shop_Money_Text"
 		],
 		"subfolders": [
 			{
 				"items": [
 					"Miner_Box",
 					"Miner_Drill",
-					"Sky_Background",
 					"Keyboard",
-					"Mouse"
+					"Mouse",
+					"Explosion_Area",
+					"Inventory",
+					"Shop_Cart_Object",
+					"SpriteFont",
+					"Global_Inventory_Object",
+					"LocalStorage",
+					"Multiplayer",
+					"Warehouse_Sell_Cart_Object",
+					"Explosion_Anim"
 				],
-				"subfolders": [],
+				"subfolders": [
+					{
+						"items": [
+							"Dust_Animation_Down",
+							"Miner_Animations",
+							"Miner_Base",
+							"Dust_Animation_Right",
+							"Dust_Animation_Left"
+						],
+						"subfolders": [],
+						"name": "Animations"
+					}
+				],
 				"name": "Mechanical"
 			},
 			{
 				"items": [
-					"Coal_Block",
-					"Dirt_Block",
-					"Quartz_Block",
-					"Aluminium_Block"
+					"Dirt_Block_2",
+					"Iron_Block",
+					"Chromium_Block",
+					"Copper_Block",
+					"Lithium_Block",
+					"Silver_Block",
+					"Gold_Block",
+					"Nickel_Block",
+					"Zinc_Block",
+					"Diamond_Block",
+					"Stone_Block",
+					"Lava_Block"
 				],
-				"subfolders": [],
+				"subfolders": [
+					{
+						"items": [
+							"Game_Concrete_Block",
+							"Dirt_Block_Top",
+							"Game_Wall_Block"
+						],
+						"subfolders": [],
+						"name": "Top_Blocks"
+					},
+					{
+						"items": [
+							"Bauxite_Block",
+							"Coal_Block",
+							"Dirt_Block",
+							"Quartz_Block"
+						],
+						"subfolders": [],
+						"name": "Tier 1"
+					}
+				],
 				"name": "Blocks"
 			},
 			{
 				"items": [
 					"Quartz",
 					"Coal",
-					"Aluminium_Ore"
+					"Bauxite_Ore",
+					"Iron_Ore",
+					"Chromium_Ore",
+					"Copper_Ore",
+					"Lithium_Ore",
+					"Silver_Ore",
+					"Nickel_Ore",
+					"Zinc_Ore",
+					"Gold_Ore",
+					"Diamond"
 				],
 				"subfolders": [
 					{
 						"items": [
 							"Quartz_Inv_Sprite",
 							"Coal_Inv_Sprite",
-							"Aluminium_Ore_Inv_Sprite",
-							"Dynamite_Inv_Sprite"
+							"Bauxite_Ore_Inv_Sprite",
+							"Dynamite_Inv_Sprite",
+							"Aluminium_Ingot_Inv_Sprite",
+							"Teleporter_Inv_Sprite",
+							"Battery_Inv_Sprite",
+							"Repair_Kit_Inv_Sprite",
+							"Iron_Inv_Sprite",
+							"Chromium_Inv_Sprite",
+							"Copper_Inv_Sprite",
+							"Lithium_Inv_Sprite",
+							"Silver_Inv_Sprite",
+							"Nickel_Inv_Sprite",
+							"Zinc_Inv_Sprite",
+							"Gold_Inv_Sprite",
+							"Diamond_Inv_Sprite"
 						],
 						"subfolders": [],
 						"name": "Inventory_Sprites"
@@ -182,10 +484,184 @@
 					"minerInventory_Slot_Art",
 					"Value_Weight_Text",
 					"Inventory_text",
-					"GlobalInventory_Slot_Art"
+					"GlobalInventory_Slot_Art",
+					"Smelter_Slot_Art",
+					"Money_Text",
+					"Energy_text",
+					"Energy_Level_Text",
+					"HP_Level_Text",
+					"HP_text",
+					"Energy_Background",
+					"Energy_Bar",
+					"HP_Background",
+					"HP_Bar",
+					"Inventory_Global_Text",
+					"Dynamite_Q",
+					"Repair_Kit_Q",
+					"Battery_Q",
+					"Teleporter_Q",
+					"HUD_Weight_Text",
+					"HUD_Height_Text",
+					"Reload_Bar",
+					"Charge_Bar"
 				],
 				"subfolders": [],
 				"name": "HUD"
+			},
+			{
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"Add_To_Cart_Background_Battery",
+							"Add_To_Cart_Background_Dynamite",
+							"Add_To_Cart_Background_Repair_Kit",
+							"Add_To_Cart_Background_Teleporter",
+							"Add_To_Cart_Battery_Text",
+							"Add_To_Cart_Dynamite_Text",
+							"Add_To_Cart_Repair_Kit_Text",
+							"Add_To_Cart_Teleporter_Text",
+							"Shop_Amount_Due_Text",
+							"Shop_Background",
+							"Shop_Buy_Button",
+							"Shop_Reset_Button",
+							"Shopping_List_Text"
+						],
+						"subfolders": [],
+						"name": "Shop"
+					},
+					{
+						"items": [
+							"Smelter_Add_Amount",
+							"Smelter_Background",
+							"Smelter_Clock",
+							"Smelter_Crafting_Amount_Background",
+							"Smelter_Crafting_Amount_Text",
+							"Smelter_Crafting_Button",
+							"Smelter_Furnace_1_Object",
+							"Smelter_Max_Amount",
+							"Smelter_recipe_List",
+							"Smelter_Recipe_Text",
+							"Smelter_Req_Item_Background",
+							"Smelter_Req_Items_Text",
+							"Smelter_Subtract_Amount",
+							"Furnace_1_Sprite"
+						],
+						"subfolders": [],
+						"name": "Smelter"
+					},
+					{
+						"items": [
+							"Move_All_To_Warehouse",
+							"Warehouse_Background",
+							"Sell_Bauxite_Button_Global_Inventory",
+							"Sell_Coal_Button_Global_Inventory",
+							"Sell_Quartz_Button_Global_Inventory",
+							"Global_Inventory_Bauxite_Text",
+							"Global_Inventory_Coal_Text",
+							"Global_Inventory_Quartz_Text",
+							"Global_Inventory_Aluminium_Ingot_Text",
+							"Global_Inventory_Iron_Text",
+							"Global_Inventory_Chromium_Text",
+							"Global_Inventory_Copper_Text",
+							"Global_Inventory_Lithium_Text",
+							"Global_Inventory_Silver_Text",
+							"Global_Inventory_Nickel_Text",
+							"Global_Inventory_Zinc_Text",
+							"Global_Inventory_Gold_Text",
+							"Global_Inventory_Diamond_Text",
+							"Sell_Iron_Button_Global_Inventory",
+							"Sell_Chromium_Button_Global_Inventory",
+							"Sell_Copper_Button_Global_Inventory",
+							"Sell_Lithium_Button_Global_Inventory",
+							"Sell_Silver_Button_Global_Inventory",
+							"Sell_Nickel_Button_Global_Inventory",
+							"Sell_Zinc_Button_Global_Inventory",
+							"Sell_Gold_Button_Global_Inventory",
+							"Sell_Diamond_Button_Global_Inventory",
+							"Global_Inventory_Silicon_Text",
+							"Global_Inventory_Iron_Ingot_Text",
+							"Global_Inventory_Chromium_Ingot_Text",
+							"Global_Inventory_Copper_Ingot_Text",
+							"Global_Inventory_Lithium_Ingot_Text",
+							"Global_Inventory_Silver_Ingot_Text",
+							"Global_Inventory_Nickel_Ingot_Text",
+							"Global_Inventory_Zinc_Ingot_Text",
+							"Global_Inventory_Gold_Ingot_Text",
+							"Sell_Silicon_Button_Global_Inventory",
+							"Sell_Aluminium_Ingot_Button_Global_Inventory",
+							"Sell_Iron_Ingot_Button_Global_Inventory",
+							"Sell_Chromium_Ingot_Button_Global_Inventory",
+							"Sell_Copper_Ingot_Button_Global_Inventory",
+							"Sell_Lithium_Ingot_Button_Global_Inventory",
+							"Sell_Silver_Ingot_Button_Global_Inventory",
+							"Sell_Nickel_Ingot_Button_Global_Inventory",
+							"Sell_Zinc_Ingot_Button_Global_Inventory",
+							"Sell_Gold_Ingot_Button_Global_Inventory",
+							"Warehouse_Deposit_Background"
+						],
+						"subfolders": [
+							{
+								"items": [
+									"Aluminium_Ingot_Crate",
+									"Bauxite_Crate",
+									"Chromium_Crate",
+									"Chromium_Ingot_Crate",
+									"Coal_Crate",
+									"Copper_Crate",
+									"Copper_Ingot_Crate",
+									"Diamond_Crate",
+									"Gold_Crate",
+									"Gold_Ingot_Crate",
+									"Iron_Crate",
+									"Iron_Ingot_Crate",
+									"Lithium_Crate",
+									"Lithium_Ingot_Crate",
+									"Nickel_Crate",
+									"Nickel_Ingot_Crate",
+									"Quartz_Crate",
+									"Silicon_Crate",
+									"Silver_Crate",
+									"Silver_Ingot_Crate",
+									"Zinc_Crate",
+									"Zinc_Ingot_Crate"
+								],
+								"subfolders": [],
+								"name": "Crates"
+							}
+						],
+						"name": "Warehouse"
+					},
+					{
+						"items": [
+							"Enter_Shop_Text",
+							"Enter_Smelter_Text",
+							"Enter_Warehouse_Text",
+							"Shop_Door",
+							"Warehouse_Door",
+							"Smelter_Door"
+						],
+						"subfolders": [],
+						"name": "Doors"
+					},
+					{
+						"items": [
+							"Shop_Building_art",
+							"Smelter_Building_Art",
+							"Warehouse_Building_Art"
+						],
+						"subfolders": [],
+						"name": "Building_Art"
+					}
+				],
+				"name": "Buildings"
+			},
+			{
+				"items": [
+					"Game_Sky_Background"
+				],
+				"subfolders": [],
+				"name": "Game_Layer_Background"
 			}
 		]
 	},
@@ -194,24 +670,88 @@
 	"families": {
 		"items": [
 			"Mining_Blocks_Family",
-			"Inventory_Sprites"
+			"Inventory_Sprites",
+			"Global_Inventory_Text",
+			"Ores"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"Furnace_1_Background",
+					"Furnace_1_Text",
+					"Furnace_1_Buttons"
+				],
+				"subfolders": [],
+				"name": "Furnace_1_Group"
+			},
+			{
+				"items": [
+					"Enemies_Object"
+				],
+				"subfolders": [],
+				"name": "Enemies"
+			},
+			{
+				"items": [
+					"Meta_Drill_DMG_Buttons",
+					"Meta_Energy_Buttons",
+					"Meta_Passive_Buttons",
+					"Meta_All_Buttons",
+					"Meta_Materials"
+				],
+				"subfolders": [],
+				"name": "META_Upgrades"
+			},
+			{
+				"items": [
+					"Sell_Items_Buttons",
+					"Global_Inventory_Items_Text",
+					"Deposit_Menu_Buttons",
+					"Sell_Menu_Buttons",
+					"Crates"
+				],
+				"subfolders": [],
+				"name": "Warehouse"
+			},
+			{
+				"items": [
+					"HUD_Menu_Buttons",
+					"Settings_Menu_Buttons"
+				],
+				"subfolders": [],
+				"name": "HUD"
+			},
+			{
+				"items": [
+					"Death_Screen_All",
+					"Dust_Animations"
+				],
+				"subfolders": [],
+				"name": "Miscellaneous"
+			},
+			{
+				"items": [
+					"Add_To_Cart_Text"
+				],
+				"subfolders": [],
+				"name": "Shop"
+			}
+		]
 	},
 	"layouts": {
 		"items": [
 			"Game",
 			"Objects",
-			"Shop",
-			"Warehouse"
+			"Smelter",
+			"Main_Menu"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
 			"Game_Event_Sheet",
-			"Shop_Event_Sheet",
-			"Warehouse_Event_Sheet"
+			"Smelter_Event_Sheet",
+			"Main_Menu_Sheet"
 		],
 		"subfolders": []
 	},
@@ -261,6 +801,22 @@
 							"script-info": {
 								"purpose": "none"
 							}
+						},
+						{
+							"name": "smeltedItems.js",
+							"type": "application/javascript",
+							"sid": 123337815722433,
+							"script-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "smelterRecipes.js",
+							"type": "application/javascript",
+							"sid": 193446599990999,
+							"script-info": {
+								"purpose": "none"
+							}
 						}
 					],
 					"subfolders": [],
@@ -269,11 +825,340 @@
 			]
 		},
 		"sound": {
-			"items": [],
-			"subfolders": []
+			"items": [
+				{
+					"name": "SoundBits - Mechanized - Loud Jackhammer Drilling.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 955331899406818,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "SoundBits - Hitting - Rock Hitting Pile of Rocks Clacking.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 376909118154210,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "DT Sound - Aural Impacts - Debris Wreckage Bricks and Rocks.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 175537651512836,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "DT Sound - Aural Impacts - Crumbling Debris .webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 576860865328779,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Final Cat Studio - 3D Printers - Servo Motor Movement.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 190989317768325,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "InspectorJ - Up in the Air - Hot Air Balloon burner .webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 463147824663069,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Damage take J.BoB - Anime Go - Box Crash.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 492238283052463,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Low Energy Flaviu Ciocan - Space Sci Fi - Warning Alarm.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 117192338362786,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Game Over Alberto Sueri - 8 Bit Fun -  Dramatic Game Theme Musical Phrase.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 334852235228980,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Death Music Sparrow Tree - Shimmering Light.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 750723297637369,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "welcomeToMyStore.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 109086801112300,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "Artlist Studios - Credit Card - ATM Single Button Beep.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 957013227093451,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Sonic Bat - Essential Clicks - Gently Pressing on Plastic Button .webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 184922030308472,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Epic Stock Media - Mobile Game - Menu Double Click Vintage Type Writer Button Reverb.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 735445773596877,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Mechanical Wave - Toys - Button Pushing Beeping.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 133347117479561,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 875321492501666,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 305180053553376,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Button Clicks"
+				},
+				{
+					"items": [
+						{
+							"name": "Battery Epic Stock Media - Mobile Game - Blocky Power Up.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 203976760916893,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Dynamite 2 CB Sounddesign - Kaboom - Dynamite Explosion with Debris.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 330098119677427,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Dynamite press OG SoundFX - Boom -  Explosion on Sand.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 339611815748701,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Repair Kit Artlist Foley - Toolbox - Electric Screwdriver Short.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 836550654032290,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Teleporter Alex Cummings - Extreme Force - Cinematic Hyper Warp Stutter Impact.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 386232131857163,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Consumables SFX"
+				},
+				{
+					"items": [
+						{
+							"name": "Smelter Background Felix Blume - Hard Days Work - Factory Ambience Metallic Machine Rattle Hum Whir .webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 410956716284938,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Smelter Furnace Active Bjorn Lynne - Flameable - Torch Burning Continuous.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 222672992337450,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Smelter Item crafted Marcello Del Monaco - Sci Craft Game - Item Pop Up.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 110681377440159,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Smelter SFX"
+				},
+				{
+					"items": [
+						{
+							"name": "boomDynamite.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 487213867153888,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "keepsYouGoin.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 948637974605734,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "notGoodEnough.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 372354117319807,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "oohMoney.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 684728942627271,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "repairRepair.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 949704861585809,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "zipZap.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 944245274625396,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Shopkeeper"
+				},
+				{
+					"items": [
+						{
+							"name": "Laser_Gun_Charge_Cristian Lucchetta - Classic Sci Fi Weapons - Blaster Charging up And Single Shot.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 709384314682822,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Laser_Gun_Shot_Shapeforms - Sci Fi Weapons - Laser Gun Firing Echo.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 251869497521598,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Laser_Gun_Sphere_Shot_Sound Spark - Sci Fi Weapons - Powerful Laser Gun Shooting.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 109023352656670,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Laser_Gun_Deploy SoundBits - Everyday Elements - Hydraulic Basket Crane Extending.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 644460297489098,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Laser Gun"
+				}
+			]
 		},
 		"music": {
-			"items": [],
+			"items": [
+				{
+					"name": "Assaf Ayalon - Its All Right Baby.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 942660923670967,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "T. Bless - Froggy Fraud Adventure.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 881691778528892,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"video": {
@@ -432,11 +1317,10 @@
 		"preloadSounds": true,
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https",
-		"autoReloadScriptsOnPreview": false,
 		"exportFileStructure": "folders",
 		"uidAllocationMode": "increment"
 	},
 	"viewportWidth": 1280,
 	"viewportHeight": 720,
-	"firstLayout": null
+	"firstLayout": "Game"
 }

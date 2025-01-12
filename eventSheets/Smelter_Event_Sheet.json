@@ -1,0 +1,994 @@
+{
+	"name": "Smelter_Event_Sheet",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "ClockToggle",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 286084788924265
+		},
+		{
+			"eventType": "variable",
+			"name": "CraftingTime",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 896011415486028
+		},
+		{
+			"eventType": "variable",
+			"name": "CraftingTimeRecipe",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 249305085633917
+		},
+		{
+			"eventType": "variable",
+			"name": "TotalRequiredCraftingItems",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 987639302016269
+		},
+		{
+			"eventType": "variable",
+			"name": "AvailableCraftingItems",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 934940668413155
+		},
+		{
+			"eventType": "variable",
+			"name": "RequiredCraftingItems",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 363667789362941
+		},
+		{
+			"eventType": "variable",
+			"name": "CraftingAmount",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 757530085182148
+		},
+		{
+			"eventType": "variable",
+			"name": "CraftingMaxAmount",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 238056368625493
+		},
+		{
+			"eventType": "variable",
+			"name": "CraftingItemType",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 128301817839233
+		},
+		{
+			"eventType": "comment",
+			"text": "Aluminium_Ingot Crafting recipe"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "On start of layout",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 802757486051496,
+							"parameters": {
+								"key": 27
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 947619709624003,
+							"parameters": {
+								"layout": "Game"
+							}
+						},
+						{
+							"id": "load",
+							"objectClass": "System",
+							"sid": 140097289881315,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						},
+						{
+							"type": "script",
+							"script": "moveItemWithQuantity(globalInventory, smelterInventory, 2) "
+						}
+					],
+					"sid": 866203428655899
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 270101009300935,
+							"parameters": {
+								"key": 71
+							}
+						}
+					],
+					"actions": [],
+					"sid": 630794455320263,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-inventory-shown",
+									"objectClass": "Inventory",
+									"sid": 722636936284997,
+									"parameters": {
+										"param0": "\"Inventory_Global\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "hide-inventory",
+									"objectClass": "Inventory",
+									"sid": 410657995628796,
+									"parameters": {
+										"param0": "\"Inventory_Global\""
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Value_Weight_Text",
+									"sid": 813791523372344,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 949664294238247
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 100563786233131
+								}
+							],
+							"actions": [
+								{
+									"id": "show-inventory",
+									"objectClass": "Inventory",
+									"sid": 581171294942501,
+									"parameters": {
+										"param0": "\"Inventory_Global\"",
+										"param1": "\"smelter\"",
+										"param2": "0",
+										"param3": "384"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Value_Weight_Text",
+									"sid": 116536020220164,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 813126381949819
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 698241124866996
+						}
+					],
+					"actions": [],
+					"sid": 563459235255565,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 116792049715726
+								}
+							],
+							"actions": [],
+							"sid": 262499905896369,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-inventory-shown",
+											"objectClass": "Inventory",
+											"sid": 620730385642328,
+											"parameters": {
+												"param0": "\"Inventory_Smelter\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "hide-inventory",
+											"objectClass": "Inventory",
+											"sid": 838991487859137,
+											"parameters": {
+												"param0": "\"Inventory_Smelter\""
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Value_Weight_Text",
+											"sid": 552749163029101,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 619854545460494
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 385572132488768
+										}
+									],
+									"actions": [
+										{
+											"id": "show-inventory",
+											"objectClass": "Inventory",
+											"sid": 943299975935899,
+											"parameters": {
+												"param0": "\"Inventory_Smelter\"",
+												"param1": "\"smelter\"",
+												"param2": "640",
+												"param3": "64"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Value_Weight_Text",
+											"sid": 368848572307019,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 418897733902760
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 484644620669884
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Crafting General",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Clock and related events"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 180666106160730,
+							"parameters": {
+								"variable": "ClockToggle"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 695545400576173,
+							"parameters": {
+								"first-value": "CraftingAmount",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 106156080414864,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 436485603698304,
+									"parameters": {
+										"interval-seconds": "1.0"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 102093888283071,
+									"parameters": {
+										"variable": "CraftingTime",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 475513501042165,
+									"parameters": {
+										"variable": "CraftingTime",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Smelter_Clock",
+									"sid": 989920229917898,
+									"parameters": {
+										"text": "zeropad(floor(CraftingTime/60),1) & \":\" & zeropad(floor(CraftingTime%60),2)"
+									}
+								}
+							],
+							"sid": 103987024803661
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 796414973299228,
+									"parameters": {
+										"interval-seconds": "CraftingTimeRecipe"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 442065206167744,
+									"parameters": {
+										"seconds": "CraftingTimeRecipe"
+									}
+								},
+								{
+									"id": "set-item-quantity",
+									"objectClass": "Inventory",
+									"sid": 739054461042722,
+									"parameters": {
+										"param0": "Smelter_ItemID",
+										"param1": "Inventory.ItemQuantity(Smelter_ItemID) -RequiredCraftingItems"
+									}
+								},
+								{
+									"type": "script",
+									"script": "removeFromInventory(smelterInventory, miningItems[runtime.globalVars.CraftingItemType], runtime.globalVars.RequiredCraftingItems)"
+								},
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 256446198122460,
+									"parameters": {
+										"variable": "CraftingAmount",
+										"value": "1"
+									}
+								},
+								{
+									"type": "script",
+									"script": "addToInventory(globalInventory, smeltedItems.aluminium_Ingot_Inv, 1)"
+								},
+								{
+									"id": "create-item",
+									"objectClass": "Inventory",
+									"sid": 974822103674555,
+									"parameters": {
+										"type": "\"Aluminium_Ingot_Inv\"",
+										"quantity": "1",
+										"inventory-id": "\"Inventory_Global\"",
+										"slot-id": "\"\""
+									}
+								}
+							],
+							"sid": 327539204595271
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 648973686882070,
+									"parameters": {
+										"first-value": "CraftingTime",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 832010370628207,
+									"parameters": {
+										"variable": "ClockToggle",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 290767780650712
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Set Crafting amount"
+				},
+				{
+					"eventType": "variable",
+					"name": "Smelter_ItemID",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 635095997210572
+				},
+				{
+					"eventType": "variable",
+					"name": "Smelter_Item_Type",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 571656591172918
+				},
+				{
+					"eventType": "variable",
+					"name": "Global_Inv_ItemID",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 707076962431622
+				},
+				{
+					"eventType": "variable",
+					"name": "Global_Inv_Item_Type",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 786977826095917
+				},
+				{
+					"eventType": "variable",
+					"name": "Global_Inv_Item_Slot_ID",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 700283333752218
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 843824813610926,
+							"parameters": {
+								"first-value": "CraftingAmount",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Smelter_Crafting_Amount_Text",
+							"sid": 417416079646102,
+							"parameters": {
+								"text": "CraftingAmount"
+							}
+						}
+					],
+					"sid": 795931695426724,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 870551681896030,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Smelter_Subtract_Amount"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 317862662941736,
+									"parameters": {
+										"variable": "CraftingAmount",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 932715154616412,
+									"parameters": {
+										"variable": "Smelter_ItemID",
+										"value": "Inventory.ItemIdBySlotId(\"Inventory_Smelter\", \"0\")"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 462476801575655,
+									"parameters": {
+										"variable": "Smelter_Item_Type",
+										"value": "Inventory.ItemType(Smelter_ItemID)"
+									}
+								},
+								{
+									"id": "set-item-quantity",
+									"objectClass": "Inventory",
+									"sid": 218775354230470,
+									"parameters": {
+										"param0": "Smelter_ItemID",
+										"param1": "Inventory.ItemQuantity(Smelter_ItemID) -RequiredCraftingItems"
+									}
+								}
+							],
+							"sid": 811603160021923
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 481821988357395,
+							"parameters": {
+								"first-value": "CraftingAmount",
+								"comparison": 2,
+								"second-value": "CraftingMaxAmount"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 644324518040222,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 874455314464302,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Smelter_Add_Amount"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 464538792583262,
+									"parameters": {
+										"variable": "CraftingAmount",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 237213778961759,
+									"parameters": {
+										"variable": "Smelter_Item_Type",
+										"value": "Inventory.ItemType(Smelter_ItemID)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 700591386063662,
+									"parameters": {
+										"variable": "Smelter_ItemID",
+										"value": "Inventory.ItemIdBySlotId(\"Inventory_Smelter\", \"0\")"
+									}
+								},
+								{
+									"id": "set-item-quantity",
+									"objectClass": "Inventory",
+									"sid": 446601332618462,
+									"parameters": {
+										"param0": "Smelter_ItemID",
+										"param1": "Inventory.ItemQuantity(Smelter_ItemID) + RequiredCraftingItems"
+									}
+								}
+							],
+							"sid": 414808948565878
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 923226375606894,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Smelter_Max_Amount"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 601576256803905,
+							"parameters": {
+								"variable": "CraftingAmount",
+								"value": "CraftingMaxAmount"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 435327778244158,
+							"parameters": {
+								"variable": "Smelter_ItemID",
+								"value": "Inventory.ItemIdBySlotId(\"Inventory_Smelter\", \"0\")"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 692836783876627,
+							"parameters": {
+								"variable": "Smelter_Item_Type",
+								"value": "Inventory.ItemType(Smelter_ItemID)"
+							}
+						},
+						{
+							"id": "set-item-quantity",
+							"objectClass": "Inventory",
+							"sid": 505142765805356,
+							"parameters": {
+								"param0": "Smelter_ItemID",
+								"param1": "Inventory.ItemQuantity(Smelter_ItemID) + (CraftingMaxAmount *2) - RequiredCraftingItems"
+							}
+						}
+					],
+					"sid": 871920344046139
+				},
+				{
+					"eventType": "comment",
+					"text": "Crafting Button activation events"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 444349970243412,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Smelter_Crafting_Button"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 905194736442164,
+							"parameters": {
+								"variable": "CraftingTime",
+								"value": "CraftingTimeRecipe * CraftingAmount"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 217848671731871,
+							"parameters": {
+								"variable": "ClockToggle",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 588890799731396,
+							"parameters": {
+								"variable": "TotalRequiredCraftingItems",
+								"value": "RequiredCraftingItems * CraftingAmount"
+							}
+						},
+						{
+							"type": "script",
+							"script": "moveItemWithQuantity(globalInventory, smelterInventory, runtime.globalVars.CraftingItemType, runtime.globalVars.TotalRequiredCraftingItems)"
+						},
+						{
+							"type": "script",
+							"script": "console.log(`crafting time ${runtime.globalVars.CraftingTime}`)"
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 687078940189761,
+							"parameters": {
+								"variable": "Global_Inv_Item_Slot_ID",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 440345905706079,
+							"parameters": {
+								"variable": "Global_Inv_ItemID",
+								"value": "Inventory.ItemIdBySlotId(\"Inventory_Global\", Global_Inv_Item_Slot_ID)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 622463887293135,
+							"parameters": {
+								"variable": "Global_Inv_Item_Type",
+								"value": "Inventory.ItemType(Global_Inv_ItemID)"
+							}
+						},
+						{
+							"id": "set-item-quantity",
+							"objectClass": "Inventory",
+							"sid": 768331193919978,
+							"parameters": {
+								"param0": "Global_Inv_ItemID",
+								"param1": "Inventory.ItemQuantity(Global_Inv_ItemID) - TotalRequiredCraftingItems"
+							}
+						}
+					],
+					"sid": 792982319132281
+				}
+			],
+			"sid": 771875760768901
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Recipes",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-selected-item-text",
+							"objectClass": "Smelter_recipe_List",
+							"sid": 794881849329457,
+							"parameters": {
+								"text-to-compare": "\"Aluminium Ingot\"",
+								"case-sensitivity": "ignore-case"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "runtime.globalVars.CraftingMaxAmount = Math.floor(globalInventory.items[\"Aluminium_Ore_Inv\"] / 2) || 0;\n"
+						}
+					],
+					"sid": 198788901686485,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 796527906776366
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 944295714002493,
+									"parameters": {
+										"variable": "CraftingItemType",
+										"value": "\"Aluminium_Ore_Inv\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 581520586755855,
+									"parameters": {
+										"variable": "CraftingAmount",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 369725348911140,
+									"parameters": {
+										"variable": "RequiredCraftingItems",
+										"value": "2"
+									}
+								},
+								{
+									"id": "create-item",
+									"objectClass": "Inventory",
+									"sid": 532282278572540,
+									"parameters": {
+										"type": "\"Aluminium_Ore_Inv\"",
+										"quantity": "2",
+										"inventory-id": "\"Inventory_Smelter\"",
+										"slot-id": "\"\""
+									}
+								},
+								{
+									"type": "script",
+									"script": "runtime.globalVars.AvailableCraftingItems = globalInventory.items[\"Aluminium_Ore_Inv\"] || 0;\n"
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 554099325113314,
+									"parameters": {
+										"variable": "CraftingTimeRecipe",
+										"value": "3"
+									}
+								}
+							],
+							"sid": 797924704950570,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 855261573675333,
+											"parameters": {
+												"first-value": "AvailableCraftingItems",
+												"comparison": 5,
+												"second-value": "RequiredCraftingItems"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Smelter_Crafting_Button",
+											"sid": 838671634081176,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 734744849822387,
+											"parameters": {
+												"object-to-create": "Smelter_Crafting_Button",
+												"layer": "\"smelter\"",
+												"x": "288",
+												"y": "160",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 341871557784771
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 372065441921809
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Variables",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [],
+			"sid": 801041511649057
+		}
+	],
+	"sid": 772931758412592
+}

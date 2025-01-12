@@ -8,4 +8,3 @@ The goal of my mining game is to provide more depth through a crafting and upgra
 
 The game itself is still under progress on many fronts, however very playable. The next short term goal is to get some rough balancing done and get a server running to share a demo of the game on. 
 
-
