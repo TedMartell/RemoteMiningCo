@@ -2,7 +2,7 @@
 
 ## Short Description
 
-Game is built on the Contruct 3 engine using JavaScript. The game itself is based on classic mining game called Motherload and is a 2D mining game.
+2D Mining game built using the Construct 3 engine (JavaScript). The game is currently not finnished. The goal is to be the most in depth mining game on the market 
 
 ## Background
 
