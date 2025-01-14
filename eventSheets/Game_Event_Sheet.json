@@ -3,26 +3,6 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "Vector_Y_Speed_Up",
-			"type": "number",
-			"initialValue": "-200",
-			"comment": "Up Movement",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 304028444689078
-		},
-		{
-			"eventType": "variable",
-			"name": "Vector_Y_Speed_Down",
-			"type": "number",
-			"initialValue": "200",
-			"comment": "Down Movement",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 382792902129101
-		},
-		{
-			"eventType": "variable",
 			"name": "minerInventoryValue",
 			"type": "string",
 			"initialValue": "Text",
@@ -110,6 +90,50 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 702548967822723
+		},
+		{
+			"eventType": "comment",
+			"text": "Vertical Speed variables"
+		},
+		{
+			"eventType": "variable",
+			"name": "Vector_Y_Speed_Up",
+			"type": "number",
+			"initialValue": "-200",
+			"comment": "Up Movement",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 769635417537770
+		},
+		{
+			"eventType": "variable",
+			"name": "Vector_Y_Speed_Down",
+			"type": "number",
+			"initialValue": "200",
+			"comment": "Down Movement",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 854994009389381
+		},
+		{
+			"eventType": "variable",
+			"name": "Vertical_Speed_Multiplier",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 195887825875777
+		},
+		{
+			"eventType": "variable",
+			"name": "Engine_Efficiency_Multiplier",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 742120653478813
 		},
 		{
 			"eventType": "comment",
@@ -4600,15 +4624,6 @@
 									"parameters": {
 										"text": "\"Current Height:\" & newline & newline &  Miner_Height & \" m\""
 									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 525986083163878,
-									"parameters": {
-										"variable": "Vector_Y_Speed_Up",
-										"value": "-200 * roundToDp((100 / Miner_Box.Weight ), 3)"
-									}
 								}
 							],
 							"sid": 692317852171358,
@@ -5452,6 +5467,28 @@
 								"variable": "Miner_Energy_Regeneration",
 								"value": "1 * Meta_Multiplier_Object.Energy_Regen_Multiplier"
 							}
+						},
+						{
+							"type": "comment",
+							"text": "Set vertical speed"
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 394638462453230,
+							"parameters": {
+								"variable": "Vector_Y_Speed_Up",
+								"value": "roundToDp(-200 * (100 / (Miner_Box.Weight*Engine_Efficiency_Multiplier)) * Vertical_Speed_Multiplier, 2)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 833310254617595,
+							"parameters": {
+								"variable": "Vector_Y_Speed_Down",
+								"value": "200 * Vertical_Speed_Multiplier"
+							}
 						}
 					],
 					"sid": 557502173694722
@@ -5644,6 +5681,30 @@
 											}
 										},
 										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 676604278766465,
+											"parameters": {
+												"object": "Meta_Engine_Upg_Button",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Slot_4\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 298426703150451,
+											"parameters": {
+												"object": "Meta_Shield_Upg_Button",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Slot_5\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
 											"id": "wait",
 											"objectClass": "System",
 											"sid": 192042427132379,
@@ -5685,6 +5746,36 @@
 											"id": "pin-to-object-properties",
 											"objectClass": "Meta_Passive_Upg_Button",
 											"sid": 443307855527865,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 314465424065832,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 551859871998921,
 											"behaviorType": "Pin",
 											"parameters": {
 												"pin-to": "Meta_Upg_Background",
@@ -6849,6 +6940,10 @@
 											}
 										},
 										{
+											"type": "comment",
+											"text": "Set Drill UPG focused and other upgrades not focused"
+										},
+										{
 											"id": "set-instvar-value",
 											"objectClass": "Meta_Upg_Background",
 											"sid": 796865121920066,
@@ -6869,11 +6964,33 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "Meta_Upg_Background",
+											"sid": 561347923631267,
+											"parameters": {
+												"instance-variable": "Engine_Upg",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 129731932095506,
+											"parameters": {
+												"instance-variable": "Shield_Upg",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
 											"sid": 235380023320235,
 											"parameters": {
 												"instance-variable": "Drill_Upg",
 												"value": "1"
 											}
+										},
+										{
+											"type": "comment",
+											"text": "Spawn all buttons related to Drill DMG Upgrades"
 										},
 										{
 											"id": "spawn-another-object",
@@ -11714,11 +11831,33 @@
 											}
 										},
 										{
+											"type": "comment",
+											"text": "Set ENERGY UPG focused and other upgrades not focused"
+										},
+										{
 											"id": "set-instvar-value",
 											"objectClass": "Meta_Upg_Background",
 											"sid": 281689841220492,
 											"parameters": {
 												"instance-variable": "Drill_Upg",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 413089959689508,
+											"parameters": {
+												"instance-variable": "Engine_Upg",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 662818521257055,
+											"parameters": {
+												"instance-variable": "Shield_Upg",
 												"value": "0"
 											}
 										},
@@ -11739,6 +11878,10 @@
 												"instance-variable": "Energy_Upg",
 												"value": "1"
 											}
+										},
+										{
+											"type": "comment",
+											"text": "Spawn all buttons related to ENERGY Upgrades"
 										},
 										{
 											"id": "spawn-another-object",
@@ -16014,11 +16157,33 @@
 											}
 										},
 										{
+											"type": "comment",
+											"text": "Set PASSIVE UPG focused and other upgrades not focused"
+										},
+										{
 											"id": "set-instvar-value",
 											"objectClass": "Meta_Upg_Background",
 											"sid": 870738198183353,
 											"parameters": {
 												"instance-variable": "Drill_Upg",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 367328206371802,
+											"parameters": {
+												"instance-variable": "Engine_Upg",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 162104615068264,
+											"parameters": {
+												"instance-variable": "Shield_Upg",
 												"value": "0"
 											}
 										},
@@ -16039,6 +16204,10 @@
 												"instance-variable": "Passive_Upg",
 												"value": "1"
 											}
+										},
+										{
+											"type": "comment",
+											"text": "Spawn all buttons related to PASSIVE Upgrades"
 										},
 										{
 											"id": "spawn-another-object",
@@ -18384,6 +18553,1390 @@
 						}
 					],
 					"sid": 512015134548890
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Engine Upgrade Tree",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Engine Upgrade Button Spawns",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 540735504668953,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Engine_Upg_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 890440459179165,
+											"parameters": {
+												"instance-variable": "Engine_Upg",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Engine_Buttons",
+											"sid": 861263889597251,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 232100412686140,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Lighten\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 981779789255211,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 391339363829346,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Lighten\""
+											}
+										},
+										{
+											"type": "comment",
+											"text": "Set ENGINE UPG focused and other upgrades not focused"
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 782611745970276,
+											"parameters": {
+												"instance-variable": "Energy_Upg",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 370216797643812,
+											"parameters": {
+												"instance-variable": "Passive_Upg",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 795114568533945,
+											"parameters": {
+												"instance-variable": "Shield_Upg",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 233603791593256,
+											"parameters": {
+												"instance-variable": "Drill_Upg",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 850973390833537,
+											"parameters": {
+												"instance-variable": "Engine_Upg",
+												"value": "1"
+											}
+										},
+										{
+											"type": "comment",
+											"text": "Spawn all buttons related to ENGINE Upgrades"
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 548051567864847,
+											"parameters": {
+												"object": "Meta_Engine_Effect_Background",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_1\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Engine_Effect_Background",
+											"sid": 890982857429216,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 821114348704519,
+											"parameters": {
+												"object": "Meta_Engine_Effect_T1_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_2\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Engine_Effect_T1_Button",
+											"sid": 282720711964791,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"type": "comment",
+											"text": "Leave space for more tiers of upgrades"
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 247326650381371,
+											"parameters": {
+												"object": "Meta_Engine_Efficiency_Background",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_6\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Engine_Efficiency_Background",
+											"sid": 390619407245223,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 745648062238984,
+											"parameters": {
+												"object": "Meta_Engine_Efficiency_T1_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_7\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Engine_Efficiency_T1_Button",
+											"sid": 801731471572804,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										}
+									],
+									"sid": 562435162106056
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 423195258777795,
+											"parameters": {
+												"instance-variable": "Engine_Upg",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Meta_Engine_Buttons",
+											"sid": 686267782904007
+										}
+									],
+									"sid": 186867765869713
+								}
+							],
+							"sid": 104533839121188
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Engine Effect Tier 1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 646126782930877,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Engine_Effect_T1_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Engine_Effect_T1_Button",
+											"sid": 697864767508143,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Engine_Effect_T1_Button",
+											"sid": 887468738731304,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 385311526588639,
+											"parameters": {
+												"instance-variable": "Engine_Effect_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Engine_Buttons",
+											"sid": 310918270083798,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 575774442188157,
+											"parameters": {
+												"text": "\"This will increase your vertical speed by 10% / level\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Engine_Effect_T1_Button",
+											"sid": 703234215901217,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 976394722357265,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Engine_Effect_T1_Button",
+											"sid": 941872639377267,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 192999430414003,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Engine_Effect_T1_Button",
+													"sid": 483018931091831,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 974917940746642
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 374232683744167,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Engine_Effect_T1_Button",
+											"sid": 132683736779707,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Engine_Effect_T1_Button",
+											"sid": 502835427585407,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 573236781874871,
+											"parameters": {
+												"instance-variable": "Engine_Effect_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 130493396213617,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 516555036825740,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 877824510321923,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 570036606861404,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 837763548358053,
+													"parameters": {
+														"instance-variable": "Coal",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Engine_Upg_Button",
+													"sid": 449613883148543,
+													"parameters": {
+														"instance-variable": "Engine_Effect_Tier1_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 353495274991905,
+													"parameters": {
+														"instance-variable": "Coal",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 108661343175453,
+													"parameters": {
+														"variable": "Vertical_Speed_Multiplier",
+														"value": "0.1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Engine_Upg_Button",
+													"sid": 419949363826434,
+													"parameters": {
+														"instance-variable": "Engine_Effect_Tier1_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 139002581042785
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 326549504593522
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Engine_Effect_T1_Button",
+											"sid": 399070657874412,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 993848232298975,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Engine_Upg_Button.Engine_Effect_Tier1_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 725853466713750,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "50+ floor(Current_Level*10)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 695887299300402,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "3"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 104399748729800,
+											"parameters": {
+												"text": "\"COAL: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 692031361040739,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 455399438532282,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 826185275996620
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 172590584455014,
+											"parameters": {
+												"instance-variable": "Engine_Effect_Tier1_Level",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Drill_DMG_T1_Button",
+											"sid": 162438435309713,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 103356741895375,
+											"parameters": {
+												"instance-variable": "Engine_Effect_Tier1_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 582174053459446
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Engine_Effect_T1_Button",
+											"sid": 556454670745026,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 545514388806973
+										}
+									],
+									"actions": [],
+									"sid": 138339642137513,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 357447849567473,
+													"parameters": {
+														"object": "Coal_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 299416224202829
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Engine_Effect_T1_Button",
+											"sid": 507829163174105,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Coal_Meta",
+											"sid": 777889878912713
+										}
+									],
+									"sid": 162138114038174,
+									"isOrBlock": true
+								}
+							],
+							"sid": 955313926294258
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Engine Effiency Tier 1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 795178096011534,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Engine_Efficiency_T1_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Engine_Efficiency_T1_Button",
+											"sid": 659730138209178,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Engine_Efficiency_T1_Button",
+											"sid": 200386775501913,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 356660201052281,
+											"parameters": {
+												"instance-variable": "Engine_Effiency_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Engine_Buttons",
+											"sid": 148308363987291,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 700552832641630,
+											"parameters": {
+												"text": "\"This will decrease the impact of miner weight on vertical speed by 10%\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Engine_Efficiency_T1_Button",
+											"sid": 139530500401261,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 145254139891924,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Engine_Efficiency_T1_Button",
+											"sid": 349223711673674,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 304670661041899,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Engine_Efficiency_T1_Button",
+													"sid": 397253041268118,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 709887979580052
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 156527192412346,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Engine_Efficiency_T1_Button",
+											"sid": 874730694202312,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Engine_Efficiency_T1_Button",
+											"sid": 713876566015682,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 564025565985673,
+											"parameters": {
+												"instance-variable": "Engine_Effiency_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 245578464031460,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 830270347582923,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 970916221175521,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 845933982489009,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 546506085912008,
+													"parameters": {
+														"instance-variable": "Quartz",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Engine_Upg_Button",
+													"sid": 273416866822158,
+													"parameters": {
+														"instance-variable": "Engine_Effiency_Tier1_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 128421303889223,
+													"parameters": {
+														"instance-variable": "Quartz",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 953409178262477,
+													"parameters": {
+														"variable": "Engine_Efficiency_Multiplier",
+														"value": "0.1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Engine_Upg_Button",
+													"sid": 175747323157575,
+													"parameters": {
+														"instance-variable": "Engine_Effiency_Tier1_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 623907637698411
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 817270477375138
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Engine_Efficiency_T1_Button",
+											"sid": 915018874674561,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 353374005912125,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Engine_Upg_Button.Engine_Effiency_Tier1_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 344902401356804,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "50+ floor(Current_Level*10)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 412236406762424,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "3"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 884438694888445,
+											"parameters": {
+												"text": "\"QUARTZ: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 332582817074026,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 177922851241286,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 301874456178589
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 686297340130107,
+											"parameters": {
+												"instance-variable": "Engine_Effiency_Tier1_Level",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Engine_Efficiency_T1_Button",
+											"sid": 851615354014940,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 364455275577249,
+											"parameters": {
+												"instance-variable": "Engine_Effiency_Tier1_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 621764632387977
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Engine_Efficiency_T1_Button",
+											"sid": 700134766611800,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 299827925150373
+										}
+									],
+									"actions": [],
+									"sid": 616611588436893,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 732475047568220,
+													"parameters": {
+														"object": "Quartz_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 281975374835333
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Engine_Efficiency_T1_Button",
+											"sid": 278231925520542,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Quartz_Meta",
+											"sid": 797006576641966
+										}
+									],
+									"sid": 487264983402289,
+									"isOrBlock": true
+								}
+							],
+							"sid": 802851020229546
+						}
+					],
+					"sid": 279345136786303
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Shield Upgrade Tree",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Shield Upgrade Button Spawns",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 406867760292400,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Shield_Upg_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 748497168885884,
+											"parameters": {
+												"instance-variable": "Shield_Upg",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Shield_Buttons",
+											"sid": 894699742101191,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 365954145472683,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Lighten\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 623536407096112,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 978297947997112,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Lighten\""
+											}
+										},
+										{
+											"type": "comment",
+											"text": "Set SHIELD UPG focused and other upgrades not focused"
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 375530658263876,
+											"parameters": {
+												"instance-variable": "Energy_Upg",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 998058056702632,
+											"parameters": {
+												"instance-variable": "Passive_Upg",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 714246900111851,
+											"parameters": {
+												"instance-variable": "Drill_Upg",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 535668486859303,
+											"parameters": {
+												"instance-variable": "Engine_Upg",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 946457385387797,
+											"parameters": {
+												"instance-variable": "Shield_Upg",
+												"value": "1"
+											}
+										},
+										{
+											"type": "comment",
+											"text": "Spawn all buttons related to SHIELD Upgrades"
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 315712182806354,
+											"parameters": {
+												"object": "Meta_Shield_Impact_Background",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_1\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Shield_Impact_Background",
+											"sid": 484491787710520,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 652296949388576,
+											"parameters": {
+												"object": "Meta_Shield_Impact_T1_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_2\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Shield_Impact_T1_Button",
+											"sid": 213658566837438,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"type": "comment",
+											"text": "Leave space for more tiers of upgrades"
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 186865234811771,
+											"parameters": {
+												"object": "Meta_Shield_Heat_Background",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_6\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Shield_Heat_Background",
+											"sid": 809629184091453,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 456541207562041,
+											"parameters": {
+												"object": "Meta_Shield_Heat_T1_Button",
+												"layer": "\"Meta_upgrades_Content\"",
+												"image-point": "\"Slot_7\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Shield_Heat_T1_Button",
+											"sid": 258910744578105,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_ScrollabeSprite",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										}
+									],
+									"sid": 491808884401825
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 608684533370216,
+											"parameters": {
+												"instance-variable": "Shield_Upg",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Meta_Shield_Buttons",
+											"sid": 942147925003515
+										}
+									],
+									"sid": 373395721601500
+								}
+							],
+							"sid": 343454445687355
+						}
+					],
+					"sid": 586728507975655
 				}
 			],
 			"sid": 234698063228916
@@ -26238,43 +27791,6 @@
 														}
 													],
 													"sid": 551703130854247
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 425053630048792
-														},
-														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 337457356415923,
-															"parameters": {
-																"variable": "Ore",
-																"comparison": 4,
-																"value": "0.5"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "create-object",
-															"objectClass": "System",
-															"sid": 596503155893919,
-															"parameters": {
-																"object-to-create": "Lava_Block",
-																"layer": "\"Player\"",
-																"x": "loopindex *64",
-																"y": "Y *64",
-																"create-hierarchy": false,
-																"template-name": "\"\""
-															}
-														}
-													],
-													"sid": 417797954993617,
-													"disabled": true
 												},
 												{
 													"eventType": "block",
