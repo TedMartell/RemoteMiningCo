@@ -15,37 +15,37 @@ export const smelterRecipes = {
 	   smelting_time: 3
     },
     "Chromium Ingot": {
-       requiredItems: {Chromium: 2, Coal: 5}, 
+       requiredItems: {Chromium: 2, Coal: 2}, 
 	   output: {Chromium_Ingot: 1},
 	   smelting_time: 3
     },
     "Copper Ingot": {
-		requiredItems: {Copper: 2, Coal: 5},
+		requiredItems: {Copper: 2, Coal: 2},
 		output: {Copper_Ingot: 1},
 		smelting_time: 3
     },
     "Lithium Ingot": {
-		requiredItems: {Lithium: 2, Coal: 5},
+		requiredItems: {Lithium: 2, Coal: 2},
 		output: {Lithium_Ingot: 1},
 		smelting_time: 3
     },
     "Silver Ingot": {
-        requiredItems: {Silver: 2, Coal: 5}, 
+        requiredItems: {Silver: 2, Coal: 2}, 
 		output: {Silver_Ingot: 1},
 		smelting_time: 3
     },
     "Nickel Ingot": {
-		requiredItems: {Nickel: 2, Coal: 5}, 
+		requiredItems: {Nickel: 2, Coal: 2}, 
 		output: {Nickel_Ingot: 1},
 		smelting_time: 3
     },
     "Zinc Ingot": {
-		requiredItems: {Zinc: 2, Coal: 5},
+		requiredItems: {Zinc: 2, Coal: 2},
 		output: {Zinc_Ingot: 1},
 		smelting_time: 3
 	},
 	"Gold Ingot": {
-		requiredItems: {Gold: 2, Coal: 5},
+		requiredItems: {Gold: 2, Coal: 2},
 		output: {Gold_Ingot: 1},
 		smelting_time: 3
 	},
