@@ -19934,6 +19934,427 @@
 								}
 							],
 							"sid": 343454445687355
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Shield Impact Tier 1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 611091295023453,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Shield_Impact_T1_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Shield_Impact_T1_Button",
+											"sid": 482853121249373,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Shield_Impact_T1_Button",
+											"sid": 847162778009319,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 869115701901324,
+											"parameters": {
+												"instance-variable": "Shield_Impact_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Shield_Buttons",
+											"sid": 205724120505339,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 467380344318551,
+											"parameters": {
+												"text": "\"This will decrease the fall damage and enemy bullet damage by 10%/level\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Shield_Impact_T1_Button",
+											"sid": 504923789905909,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 918242357085165,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Shield_Impact_T1_Button",
+											"sid": 976539265974226,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 792146129520809,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Shield_Impact_T1_Button",
+													"sid": 859778102934701,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 420783771920708
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 155208581060683,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Shield_Impact_T1_Button",
+											"sid": 945109567337853,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Shield_Impact_T1_Button",
+											"sid": 866609487306832,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 405264928487463,
+											"parameters": {
+												"instance-variable": "Shield_Impact_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 448424211733522,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 994812296108805,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 863597050650674,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 964649055845961,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 419179772881087,
+													"parameters": {
+														"instance-variable": "Iron",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Shield_Upg_Button",
+													"sid": 432300646045741,
+													"parameters": {
+														"instance-variable": "Shield_Impact_Tier1_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 649832691028817,
+													"parameters": {
+														"instance-variable": "Iron",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 579515951093223,
+													"parameters": {
+														"variable": "Engine_Efficiency_Multiplier",
+														"value": "0.1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Shield_Upg_Button",
+													"sid": 409393840541884,
+													"parameters": {
+														"instance-variable": "Shield_Impact_Tier1_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 651491651554968
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 267204660985937
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Shield_Impact_T1_Button",
+											"sid": 671347452252445,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 232533481861142,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Shield_Upg_Button.Shield_Impact_Tier1_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 649005834084873,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "50+ floor(Current_Level*10)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 107036462093602,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "3"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 671306211392057,
+											"parameters": {
+												"text": "\"IRON: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 257087467174607,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 762589794988847,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 756306426938671
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 424690756437764,
+											"parameters": {
+												"instance-variable": "Shield_Impact_Tier1_Level",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Shield_Impact_T1_Button",
+											"sid": 383532208616621,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 430440141518444,
+											"parameters": {
+												"instance-variable": "Shield_Impact_Tier1_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 453900810285303
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Shield_Impact_T1_Button",
+											"sid": 851135473040798,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 700051873357912
+										}
+									],
+									"actions": [],
+									"sid": 388079216483851,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 714794114721647,
+													"parameters": {
+														"object": "Iron_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 798063706744398
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Shield_Impact_T1_Button",
+											"sid": 674459464830969,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Iron_Meta",
+											"sid": 537666133861844
+										}
+									],
+									"sid": 779073239245419,
+									"isOrBlock": true
+								}
+							],
+							"sid": 275105899420381
 						}
 					],
 					"sid": 586728507975655
@@ -32373,6 +32794,110 @@
 							]
 						},
 						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Drill",
+									"sid": 399080237492888,
+									"parameters": {
+										"object": "Lava_Block"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 923986784983308,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Lava_Block",
+											"sid": 979687638125847,
+											"parameters": {
+												"animation": "\"destroy_right\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Lava_Block",
+											"sid": 692256997478370,
+											"parameters": {
+												"animation": "\"destroy_left\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Lava_Block",
+											"sid": 103346864414105,
+											"parameters": {
+												"animation": "\"destroy_down\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 349845403542163,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 162526643586598,
+													"parameters": {
+														"instance-variable": "DIR",
+														"comparison": 0,
+														"value": "\"Right\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 757386752251464
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 235161171169231,
+													"parameters": {
+														"instance-variable": "DIR",
+														"comparison": 0,
+														"value": "\"Left\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 596013285163952
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Animations",
+													"sid": 433288213075146,
+													"parameters": {
+														"instance-variable": "DIR",
+														"comparison": 0,
+														"value": "\"Down\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 366206873978284
+										}
+									]
+								}
+							]
+						},
+						{
 							"eventType": "group",
 							"disabled": false,
 							"title": "Destroy Blocks",
@@ -33414,7 +33939,7 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Lava_Block",
-													"sid": 883444689444742,
+													"sid": 306887951032134,
 													"parameters": {
 														"instance-variable": "Hp",
 														"comparison": 3,
@@ -33424,7 +33949,7 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Lava_Block",
-													"sid": 967118194416144,
+													"sid": 380802719711271,
 													"parameters": {
 														"instance-variable": "animationNumber",
 														"comparison": 0,
@@ -33459,10 +33984,10 @@
 										{
 											"id": "subtract-from-instvar",
 											"objectClass": "Miner_Box",
-											"sid": 755478703946551,
+											"sid": 707634585411615,
 											"parameters": {
 												"instance-variable": "HP",
-												"value": "1"
+												"value": "1 * Miner_Box.Shield_Heat"
 											}
 										}
 									],
@@ -36637,10 +37162,10 @@
 										{
 											"id": "subtract-from-instvar",
 											"objectClass": "Miner_Box",
-											"sid": 260049272889431,
+											"sid": 973172098514841,
 											"parameters": {
 												"instance-variable": "HP",
-												"value": "20"
+												"value": "20 * Miner_Box.Shield_Impact"
 											}
 										},
 										{
@@ -36746,10 +37271,10 @@
 										{
 											"id": "subtract-from-instvar",
 											"objectClass": "Miner_Box",
-											"sid": 520812170643659,
+											"sid": 230886965460144,
 											"parameters": {
 												"instance-variable": "HP",
-												"value": "10"
+												"value": "10 * Miner_Box.Shield_Impact"
 											}
 										},
 										{
@@ -37628,10 +38153,10 @@
 										{
 											"id": "subtract-from-instvar",
 											"objectClass": "Miner_Box",
-											"sid": 668834465906984,
+											"sid": 304428972755810,
 											"parameters": {
 												"instance-variable": "HP",
-												"value": "5"
+												"value": "5 * Miner_Box.Shield_Impact"
 											}
 										},
 										{
