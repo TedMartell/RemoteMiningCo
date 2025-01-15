@@ -21602,10 +21602,10 @@
 								{
 									"id": "subtract-from-instvar",
 									"objectClass": "Miner_Box",
-									"sid": 567128049165408,
+									"sid": 855036940610890,
 									"parameters": {
 										"instance-variable": "Money",
-										"value": "10000"
+										"value": "2500"
 									}
 								},
 								{
@@ -28647,7 +28647,7 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 370034370641149,
+															"sid": 384618405889073,
 															"parameters": {
 																"object-to-create": "Dirt_Block",
 																"layer": "\"Player\"",
@@ -36116,6 +36116,14 @@
 													"parameters": {
 														"object": "Mining_Blocks_Family"
 													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Mining_Blocks_Family",
+													"sid": 370189304686256,
+													"parameters": {
+														"instance-variable": "Explodes"
+													}
 												}
 											],
 											"actions": [
@@ -38559,7 +38567,25 @@
 											"sid": 707727346655503
 										}
 									],
-									"sid": 513099584952840
+									"sid": 513099584952840,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 867782310799897,
+													"parameters": {
+														"variable": "Quest_Objective_1",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 334046281258014
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -38587,7 +38613,25 @@
 											"sid": 582087451487257
 										}
 									],
-									"sid": 463883373084776
+									"sid": 463883373084776,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 541603024783196,
+													"parameters": {
+														"variable": "Quest_Objective_2",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 973297589323382
+										}
+									]
 								}
 							],
 							"sid": 806778892325219
@@ -38595,7 +38639,7 @@
 						{
 							"eventType": "group",
 							"disabled": false,
-							"title": "Enemy Encounters HP Bar",
+							"title": "Enemy Spawns and Encounters HP Bar",
 							"description": "",
 							"isActiveOnStart": true,
 							"children": [
@@ -38611,25 +38655,24 @@
 									"actions": [
 										{
 											"id": "spawn-another-object",
-											"objectClass": "Hell_Background",
-											"sid": 514272826430819,
-											"disabled": true,
+											"objectClass": "Enemy_Background_First",
+											"sid": 254154467202977,
 											"parameters": {
 												"object": "Enemy_Body",
 												"layer": "\"Player\"",
-												"image-point": "\"Enemy1\"",
+												"image-point": "\"Enemy_1\"",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
 										},
 										{
 											"id": "spawn-another-object",
-											"objectClass": "Hell_Background",
-											"sid": 773779704838502,
+											"objectClass": "Enemy_Background_First",
+											"sid": 505588260225430,
 											"parameters": {
 												"object": "Enemy_Body2",
 												"layer": "\"Player\"",
-												"image-point": "\"Enemy2\"",
+												"image-point": "\"Enemy_2\"",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -38683,6 +38726,7 @@
 											"id": "spawn-another-object",
 											"objectClass": "Hell_Background",
 											"sid": 639770224937167,
+											"disabled": true,
 											"parameters": {
 												"object": "Devil_Boss_Sprite",
 												"layer": "\"Player\"",
@@ -38701,12 +38745,11 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Enemy_Body",
-													"sid": 527746774132627,
-													"disabled": true,
+													"sid": 893768964724222,
 													"parameters": {
 														"object": "Enemy_Turret_1",
 														"layer": "\"Player\"",
-														"image-point": "0",
+														"image-point": "\"Hand\"",
 														"create-hierarchy": false,
 														"template-name": "\"\""
 													}
@@ -38714,11 +38757,11 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Enemy_Body2",
-													"sid": 887296658148944,
+													"sid": 256612677347861,
 													"parameters": {
 														"object": "Enemy_Turret_2",
 														"layer": "\"Player\"",
-														"image-point": "0",
+														"image-point": "\"Hand\"",
 														"create-hierarchy": false,
 														"template-name": "\"\""
 													}
@@ -38727,6 +38770,7 @@
 													"id": "spawn-another-object",
 													"objectClass": "Devil_Boss_Sprite",
 													"sid": 286083288251103,
+													"disabled": true,
 													"parameters": {
 														"object": "Devil_Boss_Pentagram",
 														"layer": "\"Player\"",
@@ -38739,6 +38783,7 @@
 													"id": "spawn-another-object",
 													"objectClass": "Devil_Boss_Sprite",
 													"sid": 328443821358586,
+													"disabled": true,
 													"parameters": {
 														"object": "Devil_Fire_Ring",
 														"layer": "\"Player\"",
@@ -38751,6 +38796,7 @@
 													"id": "pin-to-object-properties",
 													"objectClass": "Devil_Fire_Ring",
 													"sid": 968552326286576,
+													"disabled": true,
 													"behaviorType": "Pin",
 													"parameters": {
 														"pin-to": "Devil_Boss_Sprite",
@@ -39006,6 +39052,17 @@
 									"parameters": {
 										"visibility": "invisible"
 									}
+								},
+								{
+									"id": "move-to-object",
+									"objectClass": "Enemy_Body",
+									"sid": 662382705427721,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"object": "Enemy_Background_First",
+										"image-point": "\"Enemy_1\"",
+										"mode": "direct"
+									}
 								}
 							],
 							"sid": 179248883046204,
@@ -39158,6 +39215,17 @@
 									"sid": 397851397195698,
 									"parameters": {
 										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "move-to-object",
+									"objectClass": "Enemy_Body2",
+									"sid": 325726815421391,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"object": "Enemy_Background_First",
+										"image-point": "\"Enemy_2\"",
+										"mode": "direct"
 									}
 								}
 							],
@@ -42782,9 +42850,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "Quest_Text",
-									"sid": 606954872612726,
+									"sid": 438048456260009,
 									"parameters": {
-										"text": "\"Gather 10k $ and buy the LASER GUN!\" & newline & \"Sell, Craft and upgrade to gather the money. This quest is gonna take a longer time to complete\""
+										"text": "\"Gather 2,5k $ and buy the LASER GUN!\" & newline & \"Sell, Craft and upgrade to gather the money. This quest is gonna take a longer time to complete\""
 									}
 								},
 								{
@@ -43004,27 +43072,27 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 659577911690444,
+									"sid": 108928036811045,
 									"parameters": {
 										"variable": "Quest_Target_1",
-										"value": "5"
+										"value": "1"
 									}
 								},
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 694274119959816,
+									"sid": 986232258308746,
 									"parameters": {
 										"variable": "Quest_Target_2",
-										"value": "5"
+										"value": "1"
 									}
 								},
 								{
 									"id": "set-text",
 									"objectClass": "Quest_Text",
-									"sid": 194980640719619,
+									"sid": 523747182085597,
 									"parameters": {
-										"text": "\"NO MORE QUESTS\""
+										"text": "\"Penetrate the Lava and defeat the enemies\""
 									}
 								},
 								{
@@ -43042,23 +43110,23 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Meta_Drill_Upg_Button",
-											"sid": 656460864216555,
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 684889223391044,
 											"parameters": {
-												"instance-variable": "Damage_Tier_5_Level",
+												"variable": "Quest_Objective_1",
 												"comparison": 5,
-												"value": "5"
+												"value": "Quest_Target_1"
 											}
 										},
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Meta_Energy_Upg_Button",
-											"sid": 635537714523046,
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 473284431691217,
 											"parameters": {
-												"instance-variable": "Energy_Max_Tier_3_Level",
+												"variable": "Quest_Objective_2",
 												"comparison": 5,
-												"value": "5"
+												"value": "Quest_Target_2"
 											}
 										}
 									],
@@ -43066,16 +43134,16 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "Claim_Button",
-											"sid": 964773476572700,
+											"sid": 248173138204282,
 											"parameters": {
-												"instance-variable": "Quest_9_Completed",
+												"instance-variable": "Quest_10_Completed",
 												"value": "1"
 											}
 										},
 										{
 											"id": "set-animation",
 											"objectClass": "Claim_Button",
-											"sid": 458536911036936,
+											"sid": 664284424581329,
 											"parameters": {
 												"animation": "\"Active\"",
 												"from": "beginning"
@@ -43084,15 +43152,15 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "Claim_Button",
-											"sid": 614843100083377,
+											"sid": 934270442758748,
+											"disabled": true,
 											"parameters": {
-												"instance-variable": "Quest_9_Active",
+												"instance-variable": "Quest_2_Active",
 												"value": "0"
 											}
 										}
 									],
-									"sid": 820650724092213,
-									"disabled": true
+									"sid": 404645537350676
 								}
 							]
 						},
@@ -43120,9 +43188,9 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Claim_Button",
-									"sid": 574947701023402,
+									"sid": 215455330675539,
 									"parameters": {
-										"instance-variable": "Quest_9_Completed",
+										"instance-variable": "Quest_10_Completed",
 										"comparison": 0,
 										"value": "1"
 									}
@@ -43178,7 +43246,6 @@
 								}
 							],
 							"sid": 776552417020301,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -43187,18 +43254,18 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "Claim_Button",
-											"sid": 547798410072734,
+											"sid": 736397105042017,
 											"parameters": {
-												"instance-variable": "Quest_9_Completed",
+												"instance-variable": "Quest_10_Completed",
 												"value": "0"
 											}
 										},
 										{
 											"id": "set-instvar-value",
 											"objectClass": "Claim_Button",
-											"sid": 606539802645646,
+											"sid": 720643293924280,
 											"parameters": {
-												"instance-variable": "Quest_9_Active",
+												"instance-variable": "Quest_10_Active",
 												"value": "0"
 											}
 										},
@@ -43215,14 +43282,14 @@
 											"id": "set-instvar-value",
 											"objectClass": "Claim_Button",
 											"sid": 687104171177075,
+											"disabled": true,
 											"parameters": {
 												"instance-variable": "Quest_10_Active",
 												"value": "1"
 											}
 										}
 									],
-									"sid": 630223391465889,
-									"disabled": true
+									"sid": 630223391465889
 								}
 							]
 						}
