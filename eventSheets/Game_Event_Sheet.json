@@ -21590,11 +21590,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Miner_Box",
-									"sid": 551193876132357,
+									"sid": 532492227209020,
 									"parameters": {
 										"instance-variable": "Money",
 										"comparison": 5,
-										"value": "10000"
+										"value": "2500"
 									}
 								}
 							],
@@ -28929,6 +28929,42 @@
 														{
 															"id": "else",
 															"objectClass": "System",
+															"sid": 322900339978415
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 608907777350263,
+															"parameters": {
+																"variable": "Ore",
+																"comparison": 4,
+																"value": "0.7"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 228185121622086,
+															"parameters": {
+																"object-to-create": "Coal_Block_2",
+																"layer": "\"Player\"",
+																"x": "loopindex *64",
+																"y": "Y *64",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														}
+													],
+													"sid": 389315086408951
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
 															"sid": 508072509116883
 														}
 													],
@@ -29171,6 +29207,114 @@
 														}
 													],
 													"sid": 619853399147365
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 923317909732370
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 914692913798888,
+															"parameters": {
+																"variable": "Ore",
+																"comparison": 4,
+																"value": "0.65"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 558354536876088,
+															"parameters": {
+																"object-to-create": "Lava_Block",
+																"layer": "\"Player\"",
+																"x": "loopindex *64",
+																"y": "Y *64",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														}
+													],
+													"sid": 244662054898354
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 671098826836360
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 872340507814241,
+															"parameters": {
+																"variable": "Ore",
+																"comparison": 4,
+																"value": "0.60"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 507333870678093,
+															"parameters": {
+																"object-to-create": "Stone_Block",
+																"layer": "\"Player\"",
+																"x": "loopindex *64",
+																"y": "Y *64",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														}
+													],
+													"sid": 742352106921324
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 366554099616796
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 134930833606824,
+															"parameters": {
+																"variable": "Ore",
+																"comparison": 4,
+																"value": "0.55"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 828683885154047,
+															"parameters": {
+																"object-to-create": "Coal_Block_2",
+																"layer": "\"Player\"",
+																"x": "loopindex *64",
+																"y": "Y *64",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														}
+													],
+													"sid": 351626916653427
 												},
 												{
 													"eventType": "block",
@@ -33447,6 +33591,73 @@
 												}
 											],
 											"sid": 144915582663121
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Coal 2"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 428031986108359,
+											"parameters": {
+												"object": "Coal_Block_2"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 532084706842867,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Coal_Block_2",
+													"sid": 947583790582640,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Coal_Block_2",
+													"sid": 928079002942599,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Coal_Block_2",
+													"sid": 953525813583807
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 997790571252068,
+													"parameters": {
+														"object-to-create": "Coal",
+														"layer": "\"Player\"",
+														"x": "Coal_Block_2.X",
+														"y": "Coal_Block_2.Y",
+														"create-hierarchy": false,
+														"template-name": "\"Coal\""
+													}
+												}
+											],
+											"sid": 127642774704561
 										}
 									]
 								},
