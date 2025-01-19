@@ -1024,7 +1024,9 @@
 						"Charge": 0,
 						"Max_Charge": 5,
 						"Reload": 0,
-						"Reload_Time": 5
+						"Reload_Time": 5,
+						"Laser_Gun_Damage": 1,
+						"Laser_Gun_Charged_Damage": 0
 					},
 					"behaviors": {
 						"Pin": {
@@ -3506,8 +3508,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 3200,
-						"y": 768,
+						"x": 3392,
+						"y": 2560,
 						"width": 341,
 						"height": 1088,
 						"originX": 0.5,
@@ -6717,8 +6719,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 3712,
-						"y": 1408,
+						"x": 5568,
+						"y": 960,
 						"width": 768,
 						"height": 596,
 						"originX": 0.5,
@@ -12242,6 +12244,389 @@
 						"height": 64,
 						"originX": 0,
 						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Laser_Gun_Upg_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 8,
+					"sid": 376880374107073,
+					"tags": "",
+					"instanceVariables": {
+						"Laser_Reload_Tier1_Level": 0,
+						"Laser_Reload_Tier1_Completed": false,
+						"Laser_Damage_Tier1_Level": 0,
+						"Laser_Damage_Tier1_Completed": false,
+						"Laser_Charged_Shot_Tier1_level": 0,
+						"Laser_Charged_Shot_Tier1_Completed": false
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Lighten": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 376880374107073,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 3200,
+						"y": 832,
+						"width": 275,
+						"height": 64,
+						"originX": 0.5018181818181818,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Laser_Gun_Reload_Background",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Active",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 9,
+					"sid": 227722834634573,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 227722834634573,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 3200,
+						"y": 960,
+						"width": 341,
+						"height": 64,
+						"originX": 0.501466275659824,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Laser_Gun_Damage_Background",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Active",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 11,
+					"sid": 890713888584262,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 890713888584262,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 3200,
+						"y": 1216,
+						"width": 341,
+						"height": 64,
+						"originX": 0.501466275659824,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Laser_Gun_Charged_Shot_Background",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Active",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 12,
+					"sid": 808892046603274,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 808892046603274,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 3200,
+						"y": 1472,
+						"width": 341,
+						"height": 64,
+						"originX": 0.501466275659824,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Laser_Reload_T1_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Active",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 13,
+					"sid": 147285246475205,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 147285246475205,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 3200,
+						"y": 1088,
+						"width": 341,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Laser_Damage_T1_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Active",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 14,
+					"sid": 926806508215297,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 926806508215297,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 3200,
+						"y": 1344,
+						"width": 341,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Meta_Laser_Reload_T1_Button2",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Active",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 15,
+					"sid": 124012817389052,
+					"tags": "",
+					"instanceVariables": {
+						"Focus": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 124012817389052,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 3200,
+						"y": 1600,
+						"width": 341,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
