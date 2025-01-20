@@ -20994,6 +20994,18 @@
 											"parameters": {
 												"mode": "not-silent"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 208102809555419,
+											"parameters": {
+												"audio-file": "Assaf Ayalon - Its All Right Baby",
+												"loop": "looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"Surface_Music\""
+											}
 										}
 									],
 									"sid": 388307131075251
@@ -23094,6 +23106,11 @@
 									],
 									"actions": [
 										{
+											"id": "move-to-top",
+											"objectClass": "Shop_Explainer_Text",
+											"sid": 545011330503191
+										},
+										{
 											"id": "set-position",
 											"objectClass": "Shop_Explainer_Background",
 											"sid": 318873515191949,
@@ -23824,6 +23841,11 @@
 										"click-type": "clicked",
 										"object-clicked": "Warehouse_Deposit_Button"
 									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Warehouse_Deposit_Background",
+									"sid": 152582807727372
 								}
 							],
 							"actions": [
@@ -24142,15 +24164,6 @@
 											}
 										},
 										{
-											"id": "move-all",
-											"objectClass": "Inventory",
-											"sid": 128151192093637,
-											"parameters": {
-												"from": "\"Inventory_Miner\"",
-												"to": "\"Inventory_Global\""
-											}
-										},
-										{
 											"id": "set-instvar-value",
 											"objectClass": "Miner_Box",
 											"sid": 908354996486607,
@@ -24425,28 +24438,7 @@
 															}
 														}
 													],
-													"actions": [
-														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 235115125052814,
-															"disabled": true,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "2"
-															}
-														},
-														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 444855207704204,
-															"disabled": true,
-															"parameters": {
-																"instance-variable": "Coal",
-																"value": "1"
-															}
-														}
-													],
+													"actions": [],
 													"sid": 674523686697216,
 													"children": [
 														{
@@ -24664,27 +24656,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 794431212586872,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 505891053956782,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "2"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 348704929443649,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 471770228862124,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 311406200551036,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "2"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 642460507762587,
+																			"parameters": {
+																				"instance-variable": "Quartz",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 451797404704624
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 920041098291975,
-															"parameters": {
-																"instance-variable": "Quartz",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 158604751049032,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 416311754826247,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 275464107832094,
+																			"parameters": {
+																				"instance-variable": "Quartz",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Quartz) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 939319126316569,
+																			"parameters": {
+																				"instance-variable": "Quartz",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 571189000009824,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "20"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 995522153180294,
+																			"parameters": {
+																				"instance-variable": "Quartz",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 305403133593153
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 919581877619888
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 375249403251612,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "2"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 676822306090962,
+																			"parameters": {
+																				"instance-variable": "Quartz",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 928175832898167
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 981472711474417,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 409754094924558,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 584655327149709,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Quartz) - Warehouse_Sell_Cart_Object.Quartz)*2"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 895975926109345,
+																			"parameters": {
+																				"instance-variable": "Quartz",
+																				"value": "Global_Inventory_Object.Quartz- Warehouse_Sell_Cart_Object.Quartz"
+																			}
+																		}
+																	],
+																	"sid": 749952202494269
+																}
+															]
 														}
-													],
-													"sid": 794431212586872
+													]
 												},
 												{
 													"eventType": "block",
@@ -24720,27 +24874,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 637549134345262,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 873428228522605,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "2"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 763799120829262,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 627742286753305,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 566109097518529,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "2"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 391530078682026,
+																			"parameters": {
+																				"instance-variable": "Bauxite",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 884182509164548
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 898943250290118,
-															"parameters": {
-																"instance-variable": "Bauxite",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 873207307737575,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 724326150422605,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 909785431056530,
+																			"parameters": {
+																				"instance-variable": "Bauxite",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Bauxite) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 529917586785346,
+																			"parameters": {
+																				"instance-variable": "Bauxite",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 105020002052992,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "20"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 445664593435575,
+																			"parameters": {
+																				"instance-variable": "Bauxite",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 727762175831941
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 100230105187612
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 905919995747220,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "2"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 610403265968082,
+																			"parameters": {
+																				"instance-variable": "Bauxite",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 332812437287805
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 166656522694442,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 663627067041337,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 106639573841868,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Bauxite) - Warehouse_Sell_Cart_Object.Bauxite)*2"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 445209404514083,
+																			"parameters": {
+																				"instance-variable": "Bauxite",
+																				"value": "Global_Inventory_Object.Bauxite- Warehouse_Sell_Cart_Object.Bauxite"
+																			}
+																		}
+																	],
+																	"sid": 550703749608501
+																}
+															]
 														}
-													],
-													"sid": 637549134345262
+													]
 												},
 												{
 													"eventType": "block",
@@ -24776,27 +25092,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 915518489396201,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 768437990930780,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "30"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 599170867466851,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 992544678747472,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 760336103216978,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "30"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 343109575730461,
+																			"parameters": {
+																				"instance-variable": "Iron",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 243157259076548
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 349216935793202,
-															"parameters": {
-																"instance-variable": "Iron",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 877390644079786,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 684490628425105,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 155909126370291,
+																			"parameters": {
+																				"instance-variable": "Iron",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Iron) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 964300743060217,
+																			"parameters": {
+																				"instance-variable": "Iron",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 437806321349099,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "300"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 109768413208037,
+																			"parameters": {
+																				"instance-variable": "Iron",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 477856280052609
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 729992452024520
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 954106558207876,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "30"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 811395369605394,
+																			"parameters": {
+																				"instance-variable": "Iron",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 733821932471895
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 816822831401816,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 889768254106906,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 283324525340629,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Iron) - Warehouse_Sell_Cart_Object.Iron)*30"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 918127145540873,
+																			"parameters": {
+																				"instance-variable": "Iron",
+																				"value": "Global_Inventory_Object.Iron- Warehouse_Sell_Cart_Object.Iron"
+																			}
+																		}
+																	],
+																	"sid": 650347293398470
+																}
+															]
 														}
-													],
-													"sid": 915518489396201
+													]
 												},
 												{
 													"eventType": "block",
@@ -24832,27 +25310,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 717852965216608,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 848291232573915,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "30"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 272261661585256,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 328236701322031,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 902877063308295,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "30"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 365297673862213,
+																			"parameters": {
+																				"instance-variable": "Chromium",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 494240157155921
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 946880482844541,
-															"parameters": {
-																"instance-variable": "Chromium",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 475542571698771,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 228827687455159,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 332097781857384,
+																			"parameters": {
+																				"instance-variable": "Chromium",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Chromium) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 145369233600388,
+																			"parameters": {
+																				"instance-variable": "Chromium",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 517370351510559,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "300"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 137817257629519,
+																			"parameters": {
+																				"instance-variable": "Chromium",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 106217527497698
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 627762264753050
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 155690588395695,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "30"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 438158839681181,
+																			"parameters": {
+																				"instance-variable": "Chromium",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 848376800211973
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 934841394668698,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 283090122757745,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 168680134172416,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Chromium) - Warehouse_Sell_Cart_Object.Chromium)*30"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 428717023410321,
+																			"parameters": {
+																				"instance-variable": "Chromium",
+																				"value": "Global_Inventory_Object.Chromium- Warehouse_Sell_Cart_Object.Chromium"
+																			}
+																		}
+																	],
+																	"sid": 858136728522607
+																}
+															]
 														}
-													],
-													"sid": 717852965216608
+													]
 												},
 												{
 													"eventType": "block",
@@ -24888,27 +25528,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 577271368146778,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 905474933437859,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "30"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 409897210848649,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 320207447028483,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 970021213356532,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "30"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 181728000801458,
+																			"parameters": {
+																				"instance-variable": "Copper",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 260205874463400
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 139866922080668,
-															"parameters": {
-																"instance-variable": "Copper",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 588076832671517,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 378091182791138,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 252923139765982,
+																			"parameters": {
+																				"instance-variable": "Copper",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Copper) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 198403223964283,
+																			"parameters": {
+																				"instance-variable": "Copper",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 299739352768563,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "300"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 791279155948181,
+																			"parameters": {
+																				"instance-variable": "Copper",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 725786617364194
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 604144227472279
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 479463104171822,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "30"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 455712237303093,
+																			"parameters": {
+																				"instance-variable": "Copper",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 138070268529170
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 779279892724343,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 829379218638819,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 336322978183139,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Copper) - Warehouse_Sell_Cart_Object.Copper)*30"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 348699453714054,
+																			"parameters": {
+																				"instance-variable": "Copper",
+																				"value": "Global_Inventory_Object.Copper- Warehouse_Sell_Cart_Object.Copper"
+																			}
+																		}
+																	],
+																	"sid": 520226630822118
+																}
+															]
 														}
-													],
-													"sid": 577271368146778
+													]
 												},
 												{
 													"eventType": "block",
@@ -24944,27 +25746,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 285547584688253,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 638734273029813,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "5"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 504845480843510,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 259174816924381,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 325550291195717,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "50"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 733311737764727,
+																			"parameters": {
+																				"instance-variable": "Lithium",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 525964222379121
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 493273297650315,
-															"parameters": {
-																"instance-variable": "Lithium",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 132487217338137,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 301342035427572,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 395375157235612,
+																			"parameters": {
+																				"instance-variable": "Lithium",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Lithium) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 164644070934748,
+																			"parameters": {
+																				"instance-variable": "Lithium",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 171940206637582,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "500"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 733796306366835,
+																			"parameters": {
+																				"instance-variable": "Lithium",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 710285600020461
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 186483147730338
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 603834743394373,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "50"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 944872769170498,
+																			"parameters": {
+																				"instance-variable": "Lithium",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 968701048137189
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 164065144838224,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 867218693301994,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 660570141141584,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Lithium) - Warehouse_Sell_Cart_Object.Lithium)*50"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 593500008753001,
+																			"parameters": {
+																				"instance-variable": "Lithium",
+																				"value": "Global_Inventory_Object.Lithium- Warehouse_Sell_Cart_Object.Lithium"
+																			}
+																		}
+																	],
+																	"sid": 401731761817049
+																}
+															]
 														}
-													],
-													"sid": 285547584688253
+													]
 												},
 												{
 													"eventType": "block",
@@ -25000,27 +25964,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 370812805736736,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 377463785758981,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "5"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 985190061517275,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 452043133819427,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 612481363069080,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "50"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 116347042298102,
+																			"parameters": {
+																				"instance-variable": "Silver",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 730194198024326
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 882971757568179,
-															"parameters": {
-																"instance-variable": "Silver",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 917401593848020,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 903570784240589,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 174615041000804,
+																			"parameters": {
+																				"instance-variable": "Silver",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Silver) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 257574219701919,
+																			"parameters": {
+																				"instance-variable": "Silver",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 120398510952512,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "500"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 497093668620219,
+																			"parameters": {
+																				"instance-variable": "Silver",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 334229418566857
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 709484581690328
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 373096304038580,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "50"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 811788120973610,
+																			"parameters": {
+																				"instance-variable": "Silver",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 813986991828404
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 266436814010373,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 915398431567251,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 953231617676567,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Silver) - Warehouse_Sell_Cart_Object.Silver)*50"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 548363035918149,
+																			"parameters": {
+																				"instance-variable": "Silver",
+																				"value": "Global_Inventory_Object.Silver- Warehouse_Sell_Cart_Object.Silver"
+																			}
+																		}
+																	],
+																	"sid": 888202887629256
+																}
+															]
 														}
-													],
-													"sid": 370812805736736
+													]
 												},
 												{
 													"eventType": "block",
@@ -25056,27 +26182,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 888153249057624,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 243644284782927,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "5"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 860556807832499,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 890217461260471,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 609902915992848,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "50"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 858267667394509,
+																			"parameters": {
+																				"instance-variable": "Nickel",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 108498646623549
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 950400931872525,
-															"parameters": {
-																"instance-variable": "Nickel",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 107319367564861,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 336737844183440,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 930945815982246,
+																			"parameters": {
+																				"instance-variable": "Nickel",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Nickel) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 776171934128140,
+																			"parameters": {
+																				"instance-variable": "Nickel",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 345883767366407,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "500"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 596710827137084,
+																			"parameters": {
+																				"instance-variable": "Nickel",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 130204296787290
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 738422547469783
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 497588852037894,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "50"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 363635372959159,
+																			"parameters": {
+																				"instance-variable": "Nickel",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 640898654432305
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 245581458610728,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 436058977587403,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 713298888589050,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Nickel) - Warehouse_Sell_Cart_Object.Nickel)*50"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 470341487002228,
+																			"parameters": {
+																				"instance-variable": "Nickel",
+																				"value": "Global_Inventory_Object.Nickel- Warehouse_Sell_Cart_Object.Nickel"
+																			}
+																		}
+																	],
+																	"sid": 633881595931380
+																}
+															]
 														}
-													],
-													"sid": 888153249057624
+													]
 												},
 												{
 													"eventType": "block",
@@ -25112,27 +26400,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 794800498768083,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 781689605457546,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "5"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 810172169164935,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 254953041124712,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 206597819447485,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "75"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 574797127986494,
+																			"parameters": {
+																				"instance-variable": "Zinc",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 538399007020339
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 577990596694217,
-															"parameters": {
-																"instance-variable": "Zinc",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 844285993488906,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 285885918382303,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 257004233283954,
+																			"parameters": {
+																				"instance-variable": "Zinc",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Zinc) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 862947837632106,
+																			"parameters": {
+																				"instance-variable": "Zinc",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 398822183623778,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "750"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 712033733264921,
+																			"parameters": {
+																				"instance-variable": "Zinc",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 950378374670300
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 128944783477068
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 340560632488334,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "75"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 783785735805100,
+																			"parameters": {
+																				"instance-variable": "Zinc",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 973537322806881
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 110168252831772,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 463421263478357,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 236851941230514,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Zinc) - Warehouse_Sell_Cart_Object.Zinc)*75"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 324039503609556,
+																			"parameters": {
+																				"instance-variable": "Zinc",
+																				"value": "Global_Inventory_Object.Zinc- Warehouse_Sell_Cart_Object.Zinc"
+																			}
+																		}
+																	],
+																	"sid": 341712664405261
+																}
+															]
 														}
-													],
-													"sid": 794800498768083
+													]
 												},
 												{
 													"eventType": "block",
@@ -25168,27 +26618,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 652617368626512,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 265841657156123,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "10"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 976448813849159,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 735193752266596,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 705460487544799,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "100"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 787109999745866,
+																			"parameters": {
+																				"instance-variable": "Gold",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 353274435890665
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 254748701433620,
-															"parameters": {
-																"instance-variable": "Gold",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 980090437180388,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 419815354504104,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 165926675424183,
+																			"parameters": {
+																				"instance-variable": "Gold",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Gold) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 312797761038253,
+																			"parameters": {
+																				"instance-variable": "Gold",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 384996217044520,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "1000"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 125697109645365,
+																			"parameters": {
+																				"instance-variable": "Gold",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 806806141609492
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 761046316860564
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 114047105048354,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "100"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 550306373677291,
+																			"parameters": {
+																				"instance-variable": "Gold",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 222610905567717
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 270810493268779,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 493089128292250,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 119551028057064,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Gold) - Warehouse_Sell_Cart_Object.Gold)*100"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 508415450681163,
+																			"parameters": {
+																				"instance-variable": "Gold",
+																				"value": "Global_Inventory_Object.Gold- Warehouse_Sell_Cart_Object.Gold"
+																			}
+																		}
+																	],
+																	"sid": 627118554684055
+																}
+															]
 														}
-													],
-													"sid": 652617368626512
+													]
 												},
 												{
 													"eventType": "block",
@@ -25224,27 +26836,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 756997995413436,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 400656036886665,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "1000"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 844852767039995,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 763036142423693,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 313432296754635,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "1000"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 650802681251531,
+																			"parameters": {
+																				"instance-variable": "Diamond",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 896977320998248
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 374189913026825,
-															"parameters": {
-																"instance-variable": "Diamond",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 107073844310805,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 231782691485678,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 779422747081227,
+																			"parameters": {
+																				"instance-variable": "Diamond",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Diamond) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 972200038033112,
+																			"parameters": {
+																				"instance-variable": "Diamond",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 998016615199903,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "10000"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 486071448901070,
+																			"parameters": {
+																				"instance-variable": "Diamond",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 386075953233888
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 423341331984839
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 287531471792740,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "1000"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 350832853893610,
+																			"parameters": {
+																				"instance-variable": "Diamond",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 459887141188657
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 886821511815733,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 464863091706452,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 973998371648636,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Diamond) - Warehouse_Sell_Cart_Object.Diamond)*1000"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 188154456710589,
+																			"parameters": {
+																				"instance-variable": "Diamond",
+																				"value": "Global_Inventory_Object.Diamond- Warehouse_Sell_Cart_Object.Diamond"
+																			}
+																		}
+																	],
+																	"sid": 920777602899591
+																}
+															]
 														}
-													],
-													"sid": 756997995413436
+													]
 												},
 												{
 													"eventType": "block",
@@ -25280,27 +27054,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 323641098091406,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 669461270921673,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "50"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 602125106566604,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 213807354901631,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 961769728963639,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "50"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 423330265490823,
+																			"parameters": {
+																				"instance-variable": "Silicon",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 146748623032055
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 468138972192500,
-															"parameters": {
-																"instance-variable": "Silicon",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 607372041171185,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 968861411725739,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 617304357139907,
+																			"parameters": {
+																				"instance-variable": "Silicon",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Silicon) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 822314763315511,
+																			"parameters": {
+																				"instance-variable": "Silicon",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 715506542032520,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "500"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 649376993455008,
+																			"parameters": {
+																				"instance-variable": "Silicon",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 652134620820507
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 926699176576704
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 260599686079125,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "50"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 583363727730528,
+																			"parameters": {
+																				"instance-variable": "Silicon",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 340090547690606
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 947752057530702,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 753269858086836,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 184283571960282,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Silicon) - Warehouse_Sell_Cart_Object.Silicon)*50"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 900432871617165,
+																			"parameters": {
+																				"instance-variable": "Silicon",
+																				"value": "Global_Inventory_Object.Silicon- Warehouse_Sell_Cart_Object.Silicon"
+																			}
+																		}
+																	],
+																	"sid": 258639406906940
+																}
+															]
 														}
-													],
-													"sid": 323641098091406
+													]
 												},
 												{
 													"eventType": "block",
@@ -25336,27 +27272,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 944346856965641,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 336440918548098,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "50"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 156837042519676,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 789929338505175,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 233155216799395,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "50"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 620365010317244,
+																			"parameters": {
+																				"instance-variable": "Aluminium_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 513558336161769
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 317276067147561,
-															"parameters": {
-																"instance-variable": "Aluminium_Ingot",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 640690464947940,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 175838120485595,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 958028080543612,
+																			"parameters": {
+																				"instance-variable": "Aluminium_Ingot",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Aluminium_Ingot) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 515084194697230,
+																			"parameters": {
+																				"instance-variable": "Aluminium_Ingot",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 561226396675212,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "500"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 126477700227200,
+																			"parameters": {
+																				"instance-variable": "Aluminium_Ingot",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 586701502440522
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 153737265076374
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 913543934689940,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "50"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 557268511485060,
+																			"parameters": {
+																				"instance-variable": "Aluminium_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 433887936320365
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 950490276753299,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 957951754962097,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 543538371588169,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Aluminium_Ingot) - Warehouse_Sell_Cart_Object.Aluminium_Ingot)*50"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 505895253709645,
+																			"parameters": {
+																				"instance-variable": "Aluminium_Ingot",
+																				"value": "Global_Inventory_Object.Aluminium_Ingot- Warehouse_Sell_Cart_Object.Aluminium_Ingot"
+																			}
+																		}
+																	],
+																	"sid": 664825176854076
+																}
+															]
 														}
-													],
-													"sid": 944346856965641
+													]
 												},
 												{
 													"eventType": "block",
@@ -25392,27 +27490,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 242967264800434,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 457945825223907,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "75"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 715244247390231,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 152207974725973,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 219936615897826,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "175"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 586303153514917,
+																			"parameters": {
+																				"instance-variable": "Iron_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 621856919782544
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 254954513491136,
-															"parameters": {
-																"instance-variable": "Iron_Ingot",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 388699968020779,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 331283072793695,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 402742473807084,
+																			"parameters": {
+																				"instance-variable": "Iron_Ingot",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Iron_Ingot) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 513978763062675,
+																			"parameters": {
+																				"instance-variable": "Iron_Ingot",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 663015567414671,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "1750"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 753474745563498,
+																			"parameters": {
+																				"instance-variable": "Iron_Ingot",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 392074271315686
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 100767200022583
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 185193971485755,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "175"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 524028099698774,
+																			"parameters": {
+																				"instance-variable": "Iron_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 722802448706299
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 732459987619521,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 844381968995799,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 866024390949900,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Iron_Ingot) - Warehouse_Sell_Cart_Object.Iron_Ingot)*175"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 667259042445397,
+																			"parameters": {
+																				"instance-variable": "Iron_Ingot",
+																				"value": "Global_Inventory_Object.Iron_Ingot- Warehouse_Sell_Cart_Object.Iron_Ingot"
+																			}
+																		}
+																	],
+																	"sid": 186251169307314
+																}
+															]
 														}
-													],
-													"sid": 242967264800434
+													]
 												},
 												{
 													"eventType": "block",
@@ -25448,27 +27708,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 470085309569276,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 865430799007780,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "75"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 932745442438876,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 687194752937362,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 518270777941950,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "175"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 121333561430434,
+																			"parameters": {
+																				"instance-variable": "Chromium_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 936333352701461
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 239702592881574,
-															"parameters": {
-																"instance-variable": "Chromium_Ingot",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 156096100947355,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 305481836529624,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 876810287364496,
+																			"parameters": {
+																				"instance-variable": "Chromium_Ingot",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Chromium_Ingot) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 741916738590637,
+																			"parameters": {
+																				"instance-variable": "Chromium_Ingot",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 794953356183980,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "1750"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 908710934903484,
+																			"parameters": {
+																				"instance-variable": "Chromium_Ingot",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 747345052022621
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 303762847707106
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 279477493354415,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "175"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 980561277861796,
+																			"parameters": {
+																				"instance-variable": "Chromium_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 741051135155440
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 228262506803863,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 497161323034220,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 694988444334375,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Chromium_Ingot) - Warehouse_Sell_Cart_Object.Chromium_Ingot)*175"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 610121298733235,
+																			"parameters": {
+																				"instance-variable": "Chromium_Ingot",
+																				"value": "Global_Inventory_Object.Chromium_Ingot- Warehouse_Sell_Cart_Object.Chromium_Ingot"
+																			}
+																		}
+																	],
+																	"sid": 902482214052002
+																}
+															]
 														}
-													],
-													"sid": 470085309569276
+													]
 												},
 												{
 													"eventType": "block",
@@ -25504,27 +27926,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 574982941125456,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 928169084108496,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "75"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 500840274395157,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 566477399377307,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 727967934101054,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "175"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 359648455597777,
+																			"parameters": {
+																				"instance-variable": "Copper_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 902189911725632
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 522535480285917,
-															"parameters": {
-																"instance-variable": "Copper_Ingot",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 477284795707590,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 806146456256840,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 171750080994575,
+																			"parameters": {
+																				"instance-variable": "Copper_Ingot",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Copper_Ingot) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 139460110791966,
+																			"parameters": {
+																				"instance-variable": "Copper_Ingot",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 257495435842762,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "1750"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 776497707129891,
+																			"parameters": {
+																				"instance-variable": "Copper_Ingot",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 818964027248947
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 763540845300394
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 709021852649791,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "175"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 899725367676659,
+																			"parameters": {
+																				"instance-variable": "Copper_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 786932760272698
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 574355646157895,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 197737810745285,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 188616708794497,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Copper_Ingot) - Warehouse_Sell_Cart_Object.Copper_Ingot)*175"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 535353659231783,
+																			"parameters": {
+																				"instance-variable": "Copper_Ingot",
+																				"value": "Global_Inventory_Object.Copper_Ingot- Warehouse_Sell_Cart_Object.Copper_Ingot"
+																			}
+																		}
+																	],
+																	"sid": 579508436996842
+																}
+															]
 														}
-													],
-													"sid": 574982941125456
+													]
 												},
 												{
 													"eventType": "block",
@@ -25560,27 +28144,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 490904271993131,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 355832596392744,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "150"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 879506844152699,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 432890679961608,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 181812369133272,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "350"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 178796246159195,
+																			"parameters": {
+																				"instance-variable": "Lithium_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 291638715563437
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 754409818370976,
-															"parameters": {
-																"instance-variable": "Lithium_Ingot",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 489437257271435,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 923765875785285,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 816320277725092,
+																			"parameters": {
+																				"instance-variable": "Lithium_Ingot",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Lithium_Ingot) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 541598617481077,
+																			"parameters": {
+																				"instance-variable": "Lithium_Ingot",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 386090047289408,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "3500"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 687080690235028,
+																			"parameters": {
+																				"instance-variable": "Lithium_Ingot",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 894289068362314
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 849592439163371
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 192357216879318,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "350"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 641717842900139,
+																			"parameters": {
+																				"instance-variable": "Lithium_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 103921813432516
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 146319281255310,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 463742031403401,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 920812981691348,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Lithium_Ingot) - Warehouse_Sell_Cart_Object.Lithium_Ingot)*350"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 426219569138920,
+																			"parameters": {
+																				"instance-variable": "Lithium_Ingot",
+																				"value": "Global_Inventory_Object.Lithium_Ingot- Warehouse_Sell_Cart_Object.Lithium_Ingot"
+																			}
+																		}
+																	],
+																	"sid": 991326248177302
+																}
+															]
 														}
-													],
-													"sid": 490904271993131
+													]
 												},
 												{
 													"eventType": "block",
@@ -25616,27 +28362,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 168929559270033,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 991791727581174,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "150"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 873320181966720,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 785009121032766,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 933355302073646,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "350"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 193343900448241,
+																			"parameters": {
+																				"instance-variable": "Silver_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 803885871207762
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 560512892473242,
-															"parameters": {
-																"instance-variable": "Silver_Ingot",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 618868418502884,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 750340047674431,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 621782704412697,
+																			"parameters": {
+																				"instance-variable": "Silver_Ingot",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Silver_Ingot) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 308170704658111,
+																			"parameters": {
+																				"instance-variable": "Silver_Ingot",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 689338316294786,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "3500"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 787500853742180,
+																			"parameters": {
+																				"instance-variable": "Silver_Ingot",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 724799297000934
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 525134791127626
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 693057261834034,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "350"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 290196207497276,
+																			"parameters": {
+																				"instance-variable": "Silver_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 512714782500098
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 931264288918146,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 940794290106003,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 485075559094292,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Silver_Ingot) - Warehouse_Sell_Cart_Object.Silver_Ingot)*350"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 708857884443486,
+																			"parameters": {
+																				"instance-variable": "Silver_Ingot",
+																				"value": "Global_Inventory_Object.Silver_Ingot- Warehouse_Sell_Cart_Object.Silver_Ingot"
+																			}
+																		}
+																	],
+																	"sid": 854419494466538
+																}
+															]
 														}
-													],
-													"sid": 168929559270033
+													]
 												},
 												{
 													"eventType": "block",
@@ -25672,27 +28580,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 478272098520474,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 298921693566543,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "225"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 702776740967451,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 522104999584067,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 322877221225243,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "350"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 604322880044816,
+																			"parameters": {
+																				"instance-variable": "Nickel_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 167005987673072
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 896095680237061,
-															"parameters": {
-																"instance-variable": "Nickel_Ingot",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 808536015454356,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 745937534593706,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 731129350688451,
+																			"parameters": {
+																				"instance-variable": "Nickel_Ingot",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Nickel_Ingot) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 572135238987869,
+																			"parameters": {
+																				"instance-variable": "Nickel_Ingot",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 732041087422809,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "3500"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 529202282438564,
+																			"parameters": {
+																				"instance-variable": "Nickel_Ingot",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 758162243689157
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 156618901371234
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 109687177137533,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "350"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 249448813895557,
+																			"parameters": {
+																				"instance-variable": "Nickel_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 463461351363792
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 277022087442179,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 157117159579983,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 421841081055139,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Nickel_Ingot) - Warehouse_Sell_Cart_Object.Nickel_Ingot)*350"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 623081958508380,
+																			"parameters": {
+																				"instance-variable": "Nickel_Ingot",
+																				"value": "Global_Inventory_Object.Nickel_Ingot- Warehouse_Sell_Cart_Object.Nickel_Ingot"
+																			}
+																		}
+																	],
+																	"sid": 439368435973657
+																}
+															]
 														}
-													],
-													"sid": 478272098520474
+													]
 												},
 												{
 													"eventType": "block",
@@ -25728,27 +28798,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 730104737878980,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 540574347129503,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "225"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 436082516035025,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 702639280284215,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 551281065586854,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "675"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 982398544464678,
+																			"parameters": {
+																				"instance-variable": "Zinc_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 479638033123542
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 465745962340935,
-															"parameters": {
-																"instance-variable": "Zinc_Ingot",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 254258858819620,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 453457346473802,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 863709587630312,
+																			"parameters": {
+																				"instance-variable": "Zinc_Ingot",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Zinc_Ingot) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 458115223939667,
+																			"parameters": {
+																				"instance-variable": "Zinc_Ingot",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 131349034360735,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "6750"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 595454996628042,
+																			"parameters": {
+																				"instance-variable": "Zinc_Ingot",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 818560147308352
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 557909103984793
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 866099737865133,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "675"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 176245100779389,
+																			"parameters": {
+																				"instance-variable": "Zinc_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 762276536182271
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 570651080928449,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 297958904035279,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 261652962990743,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Zinc_Ingot) - Warehouse_Sell_Cart_Object.Zinc_Ingot)*675"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 875324611631515,
+																			"parameters": {
+																				"instance-variable": "Zinc_Ingot",
+																				"value": "Global_Inventory_Object.Zinc_Ingot- Warehouse_Sell_Cart_Object.Zinc_Ingot"
+																			}
+																		}
+																	],
+																	"sid": 788108796880168
+																}
+															]
 														}
-													],
-													"sid": 730104737878980
+													]
 												},
 												{
 													"eventType": "block",
@@ -25784,27 +29016,189 @@
 															}
 														}
 													],
-													"actions": [
+													"actions": [],
+													"sid": 213170168527740,
+													"children": [
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 621590190491815,
-															"parameters": {
-																"instance-variable": "Value",
-																"value": "500"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 657983151484191,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 535486721021403,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 153949489703254,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "1500"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 901395900540294,
+																			"parameters": {
+																				"instance-variable": "Gold_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 817261733110934
+																}
+															]
 														},
 														{
-															"id": "add-to-instvar",
-															"objectClass": "Warehouse_Sell_Cart_Object",
-															"sid": 610720104424800,
-															"parameters": {
-																"instance-variable": "Gold_Ingot",
-																"value": "1"
-															}
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 949496422786651,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 743802274784022,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 623837439461532,
+																			"parameters": {
+																				"instance-variable": "Gold_Ingot",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Gold_Ingot) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 536844635020769,
+																			"parameters": {
+																				"instance-variable": "Gold_Ingot",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 933494981576191,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "15000"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 900337780623528,
+																			"parameters": {
+																				"instance-variable": "Gold_Ingot",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 842129334576931
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 399334437500591
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 149591900878064,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "1500"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 357795881777527,
+																			"parameters": {
+																				"instance-variable": "Gold_Ingot",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 185727215005072
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 427682763693855,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 887024125207012,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 495487366710021,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Gold_Ingot) - Warehouse_Sell_Cart_Object.Gold_Ingot)*1500"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 389441450505711,
+																			"parameters": {
+																				"instance-variable": "Gold_Ingot",
+																				"value": "Global_Inventory_Object.Gold_Ingot- Warehouse_Sell_Cart_Object.Gold_Ingot"
+																			}
+																		}
+																	],
+																	"sid": 480016103302300
+																}
+															]
 														}
-													],
-													"sid": 213170168527740
+													]
 												}
 											],
 											"sid": 700380637319672
@@ -26421,9 +29815,27 @@
 											"id": "every-tick",
 											"objectClass": "System",
 											"sid": 163802375734458
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 547975583900672,
+											"parameters": {
+												"layer": "\"Buildings\""
+											}
 										}
 									],
 									"actions": [
+										{
+											"id": "move-to-top",
+											"objectClass": "Shop_Explainer_Background",
+											"sid": 259850882351703
+										},
+										{
+											"id": "move-to-top",
+											"objectClass": "Shop_Explainer_Text",
+											"sid": 355018424253554
+										},
 										{
 											"id": "set-position",
 											"objectClass": "Shop_Explainer_Background",
@@ -26452,9 +29864,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 327539564201970,
+													"sid": 115464819132733,
 													"parameters": {
-														"text": "\"COAL: Value -2$\" "
+														"text": "\"COAL:\" & newline &\" Value = 2$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Coal * 2 & \"$\""
 													}
 												}
 											],
@@ -26466,9 +29878,9 @@
 												{
 													"id": "cursor-is-over-object",
 													"objectClass": "Mouse",
-													"sid": 119535070424133,
+													"sid": 566972066614261,
 													"parameters": {
-														"object": "Add_To_Cart_Battery_Text"
+														"object": "Quartz_Crate"
 													}
 												}
 											],
@@ -26476,13 +29888,13 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 177285932777091,
+													"sid": 831469391379695,
 													"parameters": {
-														"text": "\"BATTERY - Charges 50% of your max energy\" "
+														"text": "\"QUARTZ:\" & newline &\" Value = 2$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Quartz * 2 & \"$\""
 													}
 												}
 											],
-											"sid": 238372021311003
+											"sid": 145165692970862
 										},
 										{
 											"eventType": "block",
@@ -26490,9 +29902,9 @@
 												{
 													"id": "cursor-is-over-object",
 													"objectClass": "Mouse",
-													"sid": 159124270943596,
+													"sid": 451642632033935,
 													"parameters": {
-														"object": "Add_To_Cart_Repair_Kit_Text"
+														"object": "Bauxite_Crate"
 													}
 												}
 											],
@@ -26500,13 +29912,13 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 240718967314779,
+													"sid": 385314994584932,
 													"parameters": {
-														"text": "\"REPAIR KIT - Repairs 20% of your max HP\" "
+														"text": "\"BAUXITE:\" & newline &\" Value = 2$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Bauxite * 2 & \"$\""
 													}
 												}
 											],
-											"sid": 766751705120233
+											"sid": 983186467377925
 										},
 										{
 											"eventType": "block",
@@ -26514,9 +29926,9 @@
 												{
 													"id": "cursor-is-over-object",
 													"objectClass": "Mouse",
-													"sid": 305673912194965,
+													"sid": 434191363038409,
 													"parameters": {
-														"object": "Add_To_Cart_Teleporter_Text"
+														"object": "Iron_Crate"
 													}
 												}
 											],
@@ -26524,19 +29936,445 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 622862091424440,
+													"sid": 595971063530985,
 													"parameters": {
-														"text": "\"TELEPORTER - Returns you back to the surface\" "
+														"text": "\"IRON:\" & newline &\" Value = 30$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Iron* 30 & \"$\""
 													}
 												}
 											],
-											"sid": 882933460253006
+											"sid": 908523148103929
 										},
 										{
 											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 959788144684507
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 645375643499558,
+													"parameters": {
+														"object": "Chromium_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 707208298097461,
+													"parameters": {
+														"text": "\"CHROMIUM:\" & newline &\" Value = 30$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Chromium* 30 & \"$\""
+													}
+												}
+											],
+											"sid": 847859483106236
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 431568840428690,
+													"parameters": {
+														"object": "Copper_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 794918096581984,
+													"parameters": {
+														"text": "\"COPPER:\" & newline &\" Value = 30$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Copper* 30 & \"$\""
+													}
+												}
+											],
+											"sid": 310278972879576
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 430218105881914,
+													"parameters": {
+														"object": "Lithium_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 973677919390824,
+													"parameters": {
+														"text": "\"LITHIUM:\" & newline &\" Value = 50$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Lithium* 50 & \"$\""
+													}
+												}
+											],
+											"sid": 696943967541741
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 906693870394056,
+													"parameters": {
+														"object": "Silver_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 863364488418979,
+													"parameters": {
+														"text": "\"SILVER:\" & newline &\" Value = 50$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Silver* 50 & \"$\""
+													}
+												}
+											],
+											"sid": 448974961620348
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 403323187725030,
+													"parameters": {
+														"object": "Nickel_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 458481122335294,
+													"parameters": {
+														"text": "\"NICKEL:\" & newline &\" Value = 50$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Nickel* 50 & \"$\""
+													}
+												}
+											],
+											"sid": 849484539719006
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 188486278975968,
+													"parameters": {
+														"object": "Zinc_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 856226727962257,
+													"parameters": {
+														"text": "\"ZINC:\" & newline &\" Value = 75$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Zinc* 75 & \"$\""
+													}
+												}
+											],
+											"sid": 407446590964385
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 963753334532435,
+													"parameters": {
+														"object": "Gold_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 535962766199900,
+													"parameters": {
+														"text": "\"GOLD:\" & newline &\" Value = 100$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Gold* 100 & \"$\""
+													}
+												}
+											],
+											"sid": 236682801030924
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 417772113921074,
+													"parameters": {
+														"object": "Diamond_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 791169445120027,
+													"parameters": {
+														"text": "\"DIAMOND:\" & newline &\" Value = 1000$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Diamond* 1000 & \"$\""
+													}
+												}
+											],
+											"sid": 553792001238207
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 350531462272953,
+													"parameters": {
+														"object": "Silicon_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 257492326219847,
+													"parameters": {
+														"text": "\"SILICON:\" & newline &\" Value = 50$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Silicon* 50 & \"$\""
+													}
+												}
+											],
+											"sid": 514525972833504
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 416837062224070,
+													"parameters": {
+														"object": "Aluminium_Ingot_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 807279052172254,
+													"parameters": {
+														"text": "\"ALUMINIUM INGOT:\" & newline &\" Value = 50$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Aluminium_Ingot* 50 & \"$\""
+													}
+												}
+											],
+											"sid": 444603799456033
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 229940680113198,
+													"parameters": {
+														"object": "Iron_Ingot_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 627207771004441,
+													"parameters": {
+														"text": "\"IRON INGOT:\" & newline &\" Value = 175$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Iron_Ingot* 175 & \"$\""
+													}
+												}
+											],
+											"sid": 129866265841089
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 204103106874695,
+													"parameters": {
+														"object": "Chromium_Ingot_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 741823911065179,
+													"parameters": {
+														"text": "\"CHROMIUM INGOT:\" & newline &\" Value = 175$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Chromium_Ingot* 175 & \"$\""
+													}
+												}
+											],
+											"sid": 217921076293548
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 516737241515478,
+													"parameters": {
+														"object": "Copper_Ingot_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 978764841133629,
+													"parameters": {
+														"text": "\"COPPER INGOT:\" & newline &\" Value = 175$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Copper_Ingot* 175 & \"$\""
+													}
+												}
+											],
+											"sid": 746612281648894
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 597120712017954,
+													"parameters": {
+														"object": "Lithium_Ingot_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 161988720035731,
+													"parameters": {
+														"text": "\"LITHIUM INGOT:\" & newline &\" Value = 350$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Lithium_Ingot* 350 & \"$\""
+													}
+												}
+											],
+											"sid": 154845162476726
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 512840787221644,
+													"parameters": {
+														"object": "Silver_Ingot_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 558022961924064,
+													"parameters": {
+														"text": "\"SILVER INGOT:\" & newline &\" Value = 350$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Silver_Ingot* 350 & \"$\""
+													}
+												}
+											],
+											"sid": 954221389022662
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 681335418007943,
+													"parameters": {
+														"object": "Nickel_Ingot_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 195004376607671,
+													"parameters": {
+														"text": "\"NICKEL INGOT:\" & newline &\" Value = 350$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Nickel_Ingot* 350 & \"$\""
+													}
+												}
+											],
+											"sid": 244133085341971
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 422563492804745,
+													"parameters": {
+														"object": "Zinc_Ingot_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 391902907160811,
+													"parameters": {
+														"text": "\"ZINC INGOT:\" & newline &\" Value = 675$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Zinc_Ingot* 675 & \"$\""
+													}
+												}
+											],
+											"sid": 374244571487692
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 147442224606954,
+													"parameters": {
+														"object": "Gold_Ingot_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 808241943256834,
+													"parameters": {
+														"text": "\"GOLD INGOT:\" & newline &\" Value = 1500$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Gold_Ingot* 1500& \"$\""
+													}
+												}
+											],
+											"sid": 237002290871734
 										}
 									]
 								},
