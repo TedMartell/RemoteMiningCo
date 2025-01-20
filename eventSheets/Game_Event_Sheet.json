@@ -22257,12 +22257,22 @@
 									"children": [
 										{
 											"eventType": "block",
-											"conditions": [],
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 651088194924579,
+													"parameters": {
+														"key": 16
+													},
+													"isInverted": true
+												}
+											],
 											"actions": [
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Shop_Cart_Object",
-													"sid": 625333850205546,
+													"sid": 629624015442063,
 													"parameters": {
 														"instance-variable": "Dynamite",
 														"value": "1"
@@ -22271,14 +22281,14 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Shop_Cart_Object",
-													"sid": 324229117307687,
+													"sid": 494223119555637,
 													"parameters": {
 														"instance-variable": "Amount_Due",
 														"value": "5"
 													}
 												}
 											],
-											"sid": 311112451328641,
+											"sid": 746584146236669,
 											"children": [
 												{
 													"eventType": "block",
@@ -22286,7 +22296,7 @@
 														{
 															"id": "is-tag-playing",
 															"objectClass": "SFX",
-															"sid": 490909748354436,
+															"sid": 911260325644602,
 															"parameters": {
 																"tag": "\"Shopkeeper\""
 															},
@@ -22297,7 +22307,7 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 331679323820203,
+															"sid": 334749548054461,
 															"parameters": {
 																"audio-file": "boomDynamite",
 																"loop": "not-looping",
@@ -22307,7 +22317,82 @@
 															}
 														}
 													],
-													"sid": 980943617547372
+													"sid": 366777047495560
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 957960711625788,
+													"parameters": {
+														"key": 16
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Box",
+													"sid": 284278952132259,
+													"parameters": {
+														"instance-variable": "Money",
+														"comparison": 5,
+														"value": "Shop_Cart_Object.Amount_Due +50"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 395639849349572,
+													"parameters": {
+														"instance-variable": "Dynamite",
+														"value": "10"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 540859060489458,
+													"parameters": {
+														"instance-variable": "Amount_Due",
+														"value": "50"
+													}
+												}
+											],
+											"sid": 889350469402611,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-tag-playing",
+															"objectClass": "SFX",
+															"sid": 528157321987047,
+															"parameters": {
+																"tag": "\"Shopkeeper\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 120185294550866,
+															"parameters": {
+																"audio-file": "boomDynamite",
+																"loop": "not-looping",
+																"volume": "-5",
+																"stereo-pan": "0",
+																"tag-optional": "\"Shopkeeper\""
+															}
+														}
+													],
+													"sid": 427514815678684
 												}
 											]
 										}
@@ -22381,12 +22466,22 @@
 									"children": [
 										{
 											"eventType": "block",
-											"conditions": [],
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 670578486004761,
+													"parameters": {
+														"key": 16
+													},
+													"isInverted": true
+												}
+											],
 											"actions": [
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Shop_Cart_Object",
-													"sid": 943849690143710,
+													"sid": 911026716455223,
 													"parameters": {
 														"instance-variable": "Teleporter",
 														"value": "1"
@@ -22395,14 +22490,14 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Shop_Cart_Object",
-													"sid": 959571473135622,
+													"sid": 272866845724586,
 													"parameters": {
 														"instance-variable": "Amount_Due",
 														"value": "50"
 													}
 												}
 											],
-											"sid": 943267712294412,
+											"sid": 691933835553584,
 											"children": [
 												{
 													"eventType": "block",
@@ -22410,7 +22505,7 @@
 														{
 															"id": "is-tag-playing",
 															"objectClass": "SFX",
-															"sid": 997701744370743,
+															"sid": 994923270749716,
 															"parameters": {
 																"tag": "\"Shopkeeper\""
 															},
@@ -22421,7 +22516,7 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 202137270341165,
+															"sid": 385143593281128,
 															"parameters": {
 																"audio-file": "zipZap",
 																"loop": "not-looping",
@@ -22431,7 +22526,82 @@
 															}
 														}
 													],
-													"sid": 439752375508163
+													"sid": 897119368324497
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 642368878008507,
+													"parameters": {
+														"key": 16
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Box",
+													"sid": 568928959566162,
+													"parameters": {
+														"instance-variable": "Money",
+														"comparison": 5,
+														"value": "Shop_Cart_Object.Amount_Due +500"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 712871805430993,
+													"parameters": {
+														"instance-variable": "Teleporter",
+														"value": "10"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 616431334923251,
+													"parameters": {
+														"instance-variable": "Amount_Due",
+														"value": "500"
+													}
+												}
+											],
+											"sid": 849286636862287,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-tag-playing",
+															"objectClass": "SFX",
+															"sid": 667420355638284,
+															"parameters": {
+																"tag": "\"Shopkeeper\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 615269542410085,
+															"parameters": {
+																"audio-file": "boomDynamite",
+																"loop": "not-looping",
+																"volume": "-5",
+																"stereo-pan": "0",
+																"tag-optional": "\"Shopkeeper\""
+															}
+														}
+													],
+													"sid": 421052735516483
 												}
 											]
 										}
@@ -22505,12 +22675,22 @@
 									"children": [
 										{
 											"eventType": "block",
-											"conditions": [],
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 191011810987159,
+													"parameters": {
+														"key": 16
+													},
+													"isInverted": true
+												}
+											],
 											"actions": [
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Shop_Cart_Object",
-													"sid": 705957677249998,
+													"sid": 826412023682957,
 													"parameters": {
 														"instance-variable": "Battery",
 														"value": "1"
@@ -22519,14 +22699,14 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Shop_Cart_Object",
-													"sid": 462827972934586,
+													"sid": 576655975915534,
 													"parameters": {
 														"instance-variable": "Amount_Due",
 														"value": "20"
 													}
 												}
 											],
-											"sid": 358030902063319,
+											"sid": 244791780044362,
 											"children": [
 												{
 													"eventType": "block",
@@ -22534,7 +22714,7 @@
 														{
 															"id": "is-tag-playing",
 															"objectClass": "SFX",
-															"sid": 667499666157965,
+															"sid": 289503634845547,
 															"parameters": {
 																"tag": "\"Shopkeeper\""
 															},
@@ -22545,7 +22725,7 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 395267400999581,
+															"sid": 529243345059682,
 															"parameters": {
 																"audio-file": "keepsYouGoin",
 																"loop": "not-looping",
@@ -22555,7 +22735,82 @@
 															}
 														}
 													],
-													"sid": 601552391352589
+													"sid": 946175172415320
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 673914339686846,
+													"parameters": {
+														"key": 16
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Box",
+													"sid": 688433191188584,
+													"parameters": {
+														"instance-variable": "Money",
+														"comparison": 5,
+														"value": "Shop_Cart_Object.Amount_Due +200"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 685646531106371,
+													"parameters": {
+														"instance-variable": "Battery",
+														"value": "10"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 425455791282282,
+													"parameters": {
+														"instance-variable": "Amount_Due",
+														"value": "200"
+													}
+												}
+											],
+											"sid": 382032199711724,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-tag-playing",
+															"objectClass": "SFX",
+															"sid": 624584503595493,
+															"parameters": {
+																"tag": "\"Shopkeeper\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 412199846348836,
+															"parameters": {
+																"audio-file": "boomDynamite",
+																"loop": "not-looping",
+																"volume": "-5",
+																"stereo-pan": "0",
+																"tag-optional": "\"Shopkeeper\""
+															}
+														}
+													],
+													"sid": 189088703744257
 												}
 											]
 										}
@@ -22629,12 +22884,22 @@
 									"children": [
 										{
 											"eventType": "block",
-											"conditions": [],
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 912389448926757,
+													"parameters": {
+														"key": 16
+													},
+													"isInverted": true
+												}
+											],
 											"actions": [
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Shop_Cart_Object",
-													"sid": 350006180920706,
+													"sid": 103824156392076,
 													"parameters": {
 														"instance-variable": "Repair_Kit",
 														"value": "1"
@@ -22643,14 +22908,14 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Shop_Cart_Object",
-													"sid": 559606693881608,
+													"sid": 489608154448093,
 													"parameters": {
 														"instance-variable": "Amount_Due",
 														"value": "7"
 													}
 												}
 											],
-											"sid": 825975114364333,
+											"sid": 140197865934496,
 											"children": [
 												{
 													"eventType": "block",
@@ -22658,7 +22923,7 @@
 														{
 															"id": "is-tag-playing",
 															"objectClass": "SFX",
-															"sid": 610570027493373,
+															"sid": 560114395304499,
 															"parameters": {
 																"tag": "\"Shopkeeper\""
 															},
@@ -22669,7 +22934,7 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 288080059647424,
+															"sid": 604872056456252,
 															"parameters": {
 																"audio-file": "repairRepair",
 																"loop": "not-looping",
@@ -22679,7 +22944,82 @@
 															}
 														}
 													],
-													"sid": 781073689551353
+													"sid": 675069584392321
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 349783841644577,
+													"parameters": {
+														"key": 16
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Box",
+													"sid": 146262451306373,
+													"parameters": {
+														"instance-variable": "Money",
+														"comparison": 5,
+														"value": "Shop_Cart_Object.Amount_Due +70"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 984097734840485,
+													"parameters": {
+														"instance-variable": "Repair_Kit",
+														"value": "10"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Shop_Cart_Object",
+													"sid": 211270297522930,
+													"parameters": {
+														"instance-variable": "Amount_Due",
+														"value": "70"
+													}
+												}
+											],
+											"sid": 343312742682621,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-tag-playing",
+															"objectClass": "SFX",
+															"sid": 640595162209824,
+															"parameters": {
+																"tag": "\"Shopkeeper\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 259694577397085,
+															"parameters": {
+																"audio-file": "boomDynamite",
+																"loop": "not-looping",
+																"volume": "-5",
+																"stereo-pan": "0",
+																"tag-optional": "\"Shopkeeper\""
+															}
+														}
+													],
+													"sid": 318049532940523
 												}
 											]
 										}
