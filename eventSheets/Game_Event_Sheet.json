@@ -6102,6 +6102,21 @@
 											"conditions": [],
 											"actions": [
 												{
+													"id": "pin-to-object-properties",
+													"objectClass": "Miner_Box",
+													"sid": 335153712421802,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "Smelter_Building_Art",
+														"x": true,
+														"y": true,
+														"angle": true,
+														"width-type": "no",
+														"height-type": "no",
+														"z": false
+													}
+												},
+												{
 													"id": "set-layer-visible",
 													"objectClass": "System",
 													"sid": 528951054797809,
@@ -6298,6 +6313,12 @@
 													"id": "destroy",
 													"objectClass": "Meta_Materials",
 													"sid": 333713741653656
+												},
+												{
+													"id": "unpin",
+													"objectClass": "Miner_Box",
+													"sid": 668911173529235,
+													"behaviorType": "Pin"
 												}
 											],
 											"sid": 490297190216367
@@ -6417,6 +6438,12 @@
 													"id": "destroy",
 													"objectClass": "Meta_Materials",
 													"sid": 753401171415797
+												},
+												{
+													"id": "unpin",
+													"objectClass": "Miner_Box",
+													"sid": 447725922354811,
+													"behaviorType": "Pin"
 												}
 											],
 											"sid": 893149211984807
@@ -6502,6 +6529,21 @@
 											"eventType": "block",
 											"conditions": [],
 											"actions": [
+												{
+													"id": "pin-to-object-properties",
+													"objectClass": "Miner_Box",
+													"sid": 501851305680146,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "Smelter_Building_Art",
+														"x": true,
+														"y": true,
+														"angle": true,
+														"width-type": "no",
+														"height-type": "no",
+														"z": false
+													}
+												},
 												{
 													"id": "set-layer-visible",
 													"objectClass": "System",
@@ -21709,6 +21751,30 @@
 									"conditions": [],
 									"actions": [
 										{
+											"id": "set-position",
+											"objectClass": "Miner_Box",
+											"sid": 946071680681517,
+											"parameters": {
+												"x": "3072",
+												"y": "1216"
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Miner_Box",
+											"sid": 256545930376327,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Shop_Building_art",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
 											"id": "wait",
 											"objectClass": "System",
 											"sid": 222735503839908,
@@ -21875,6 +21941,30 @@
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Miner_Box",
+											"sid": 157455423749193,
+											"parameters": {
+												"x": "3072",
+												"y": "1216"
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Miner_Box",
+											"sid": 158801922331845,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Shop_Building_art",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
 										{
 											"id": "wait",
 											"objectClass": "System",
@@ -23250,6 +23340,30 @@
 							],
 							"actions": [
 								{
+									"id": "set-position",
+									"objectClass": "Miner_Box",
+									"sid": 712833134287858,
+									"parameters": {
+										"x": "960",
+										"y": "1216"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Miner_Box",
+									"sid": 725353866305311,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Warehouse_Building_Art",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
 									"id": "wait",
 									"objectClass": "System",
 									"sid": 980680473684766,
@@ -23453,6 +23567,30 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Miner_Box",
+									"sid": 813289178616358,
+									"parameters": {
+										"x": "960",
+										"y": "1216"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Miner_Box",
+									"sid": 599254503272398,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Warehouse_Building_Art",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
 								{
 									"id": "wait",
 									"objectClass": "System",
@@ -24250,6 +24388,10 @@
 													"sid": 347117461893480
 												},
 												{
+													"eventType": "comment",
+													"text": "Coal works with Shift and CTRL to add different amounts of quantity to Sell Cart"
+												},
+												{
 													"eventType": "block",
 													"conditions": [
 														{
@@ -24288,6 +24430,7 @@
 															"id": "add-to-instvar",
 															"objectClass": "Warehouse_Sell_Cart_Object",
 															"sid": 235115125052814,
+															"disabled": true,
 															"parameters": {
 																"instance-variable": "Value",
 																"value": "2"
@@ -24297,13 +24440,195 @@
 															"id": "add-to-instvar",
 															"objectClass": "Warehouse_Sell_Cart_Object",
 															"sid": 444855207704204,
+															"disabled": true,
 															"parameters": {
 																"instance-variable": "Coal",
 																"value": "1"
 															}
 														}
 													],
-													"sid": 674523686697216
+													"sid": 674523686697216,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 494458395832990,
+																	"parameters": {
+																		"key": 16
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [],
+															"sid": 747151435432700,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 792153711459374,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "2"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 169196972756249,
+																			"parameters": {
+																				"instance-variable": "Coal",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 861770881976864
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 759499097138277,
+																	"parameters": {
+																		"key": 16
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 336190756576455,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 525080547795707,
+																			"parameters": {
+																				"instance-variable": "Coal",
+																				"comparison": 3,
+																				"value": "floor(Global_Inventory_Object.Coal) -10"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Global_Inventory_Object",
+																			"sid": 694524091529656,
+																			"parameters": {
+																				"instance-variable": "Coal",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 102169956782579,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "20"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 212251747503494,
+																			"parameters": {
+																				"instance-variable": "Coal",
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"sid": 751791928936182
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 237499368547992
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 207738504832502,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "2"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 355797890709696,
+																			"parameters": {
+																				"instance-variable": "Coal",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 271719300062187
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "key-is-down",
+																	"objectClass": "Keyboard",
+																	"sid": 475316695559762,
+																	"parameters": {
+																		"key": 17
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 437919754902734,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 965378425072241,
+																			"parameters": {
+																				"instance-variable": "Value",
+																				"value": "(floor(Global_Inventory_Object.Coal) - Warehouse_Sell_Cart_Object.Coal)*2"
+																			}
+																		},
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Warehouse_Sell_Cart_Object",
+																			"sid": 669119294196912,
+																			"parameters": {
+																				"instance-variable": "Coal",
+																				"value": "Global_Inventory_Object.Coal - Warehouse_Sell_Cart_Object.Coal"
+																			}
+																		}
+																	],
+																	"sid": 179843918747826
+																}
+															]
+														}
+													]
 												},
 												{
 													"eventType": "block",
@@ -26073,6 +26398,172 @@
 								}
 							],
 							"sid": 687552170772525
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Warehouse Items Explainer",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 890412241732548,
+											"parameters": {
+												"object": "Crates"
+											}
+										},
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 163802375734458
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Shop_Explainer_Background",
+											"sid": 378666046954055,
+											"parameters": {
+												"x": "Mouse.X",
+												"y": "Mouse.Y"
+											}
+										}
+									],
+									"sid": 377575561630589,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 563757506019462,
+													"parameters": {
+														"object": "Coal_Crate"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 327539564201970,
+													"parameters": {
+														"text": "\"COAL: Value -2$\" "
+													}
+												}
+											],
+											"sid": 154629814305877
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 119535070424133,
+													"parameters": {
+														"object": "Add_To_Cart_Battery_Text"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 177285932777091,
+													"parameters": {
+														"text": "\"BATTERY - Charges 50% of your max energy\" "
+													}
+												}
+											],
+											"sid": 238372021311003
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 159124270943596,
+													"parameters": {
+														"object": "Add_To_Cart_Repair_Kit_Text"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 240718967314779,
+													"parameters": {
+														"text": "\"REPAIR KIT - Repairs 20% of your max HP\" "
+													}
+												}
+											],
+											"sid": 766751705120233
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 305673912194965,
+													"parameters": {
+														"object": "Add_To_Cart_Teleporter_Text"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Shop_Explainer_Text",
+													"sid": 622862091424440,
+													"parameters": {
+														"text": "\"TELEPORTER - Returns you back to the surface\" "
+													}
+												}
+											],
+											"sid": 882933460253006
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 959788144684507
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 614534798396709
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Shop_Explainer_Background",
+											"sid": 274963499009142,
+											"parameters": {
+												"x": "2496",
+												"y": "704"
+											}
+										}
+									],
+									"sid": 883728346441901
+								}
+							],
+							"sid": 116428792892723
 						}
 					],
 					"sid": 591002603644061
@@ -26154,6 +26645,30 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Miner_Box",
+									"sid": 674235552637182,
+									"parameters": {
+										"x": "4608",
+										"y": "1216"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Miner_Box",
+									"sid": 363284697243325,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Smelter_Building_Art",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
 								{
 									"id": "wait",
 									"objectClass": "System",
@@ -26292,6 +26807,30 @@
 							],
 							"actions": [
 								{
+									"id": "set-position",
+									"objectClass": "Miner_Box",
+									"sid": 201482532877946,
+									"parameters": {
+										"x": "4608",
+										"y": "1216"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Miner_Box",
+									"sid": 276522108123457,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Smelter_Building_Art",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
 									"id": "wait",
 									"objectClass": "System",
 									"sid": 583745676649054,
@@ -26389,6 +26928,17 @@
 										"volume": "-10",
 										"stereo-pan": "0",
 										"tag-optional": "\"Smelter_Music\""
+									}
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 805439869382557,
+									"parameters": {
+										"tag": "\"Furnace_Active\"",
+										"db": "100",
+										"duration": "3",
+										"ending": "keep-playing"
 									}
 								}
 							],
@@ -27857,6 +28407,12 @@
 									"text": "Back to player mode"
 								},
 								{
+									"id": "unpin",
+									"objectClass": "Miner_Box",
+									"sid": 300068314384274,
+									"behaviorType": "Pin"
+								},
+								{
 									"id": "set-group-active",
 									"objectClass": "System",
 									"sid": 332463929271313,
@@ -28257,10 +28813,14 @@
 							"sid": 380136255739730
 						},
 						{
+							"eventType": "comment",
+							"text": "Real End Y is 468"
+						},
+						{
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "468",
+							"initialValue": "50",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
