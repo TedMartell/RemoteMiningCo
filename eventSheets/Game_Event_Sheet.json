@@ -119,7 +119,7 @@
 			"eventType": "variable",
 			"name": "Vertical_Speed_Multiplier",
 			"type": "number",
-			"initialValue": "1",
+			"initialValue": "1.1",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -129,7 +129,7 @@
 			"eventType": "variable",
 			"name": "Engine_Efficiency_Multiplier",
 			"type": "number",
-			"initialValue": "1",
+			"initialValue": "0.9",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -3419,6 +3419,47 @@
 							]
 						},
 						{
+							"eventType": "comment",
+							"text": "Meta Stats and Meta passive Text"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 954775453217906
+								}
+							],
+							"actions": [],
+							"sid": 334492273795700,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Stats_Text",
+											"sid": 970881588688858,
+											"parameters": {
+												"text": "\"Drill Damage: \" & Miner_Mining_DMG  & newline\n&\"Max Energy: \" & Miner_Box.Max_Energy & newline\n& \"Energy Consumption: \" & Miner_Energy_Efficiency & newline\n&\"Energy Regeneration: \" & Miner_Energy_Regeneration\n&\"Heat Shield: \" & Miner_Box.Shield_Heat\n&\"Impact Shield: \" & Miner_Box.Shield_Impact\n&\"Vertical Speed Multiplier: \" & Vertical_Speed_Multiplier\n&\"Decrease Weight Multiplier: \" & Engine_Efficiency_Multiplier\n"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Passive_Income_Text",
+											"sid": 475001811321085,
+											"parameters": {
+												"text": "\"Every Second: \" & newline &\n\n\"Coal Income: \" & Meta_Passive_Income_Object.Meta_Passive_Coal  & newline &\"Quartz Income: \" & Meta_Passive_Income_Object.Meta_Passive_Quartz & newline\n& \"Bauxite Income: \" & Meta_Passive_Income_Object.Meta_Passive_Bauxite & newline &\"Iron Income: \" & Meta_Passive_Income_Object.Meta_Passive_Iron  & newline &\"Chromium Income: \" & Meta_Passive_Income_Object.Meta_Passive_Chromium & newline &\"Copper Income: \" & Meta_Passive_Income_Object.Meta_Passive_Copper\n&\"Lithium Income: \" & Meta_Passive_Income_Object.Meta_Passive_Lithium\n&\"Silver Income: \" & Meta_Passive_Income_Object.Meta_Passive_Silver\n&\"Nickel Income: \" & Meta_Passive_Income_Object.Meta_Passive_Nickel\n&\"Zinc Income: \" & Meta_Passive_Income_Object.Meta_Passive_Zinc\n"
+											}
+										}
+									],
+									"sid": 589718581405285
+								}
+							]
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -4560,7 +4601,6 @@
 							"id": "set-silent",
 							"objectClass": "SFX",
 							"sid": 683047249247073,
-							"disabled": true,
 							"parameters": {
 								"mode": "silent"
 							}
@@ -4722,22 +4762,6 @@
 							}
 						},
 						{
-							"id": "set-text",
-							"objectClass": "Meta_Stats_Text",
-							"sid": 482649835501008,
-							"parameters": {
-								"text": "\"Drill Damage: \" & Miner_Mining_DMG  & newline\n&\"Max Energy: \" & Miner_Box.Max_Energy & newline\n& \"Energy Consumption: \" & Miner_Energy_Efficiency & newline\n&\"Energy Regeneration: \" & Miner_Energy_Regeneration"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "Meta_Passive_Income_Text",
-							"sid": 849311092402276,
-							"parameters": {
-								"text": "\"Every Second: \" & newline &\n\n\"Coal Income: \" & Meta_Passive_Income_Object.Meta_Passive_Coal  & newline &\"Quartz Income: \" & Meta_Passive_Income_Object.Meta_Passive_Quartz & newline\n& \"Bauxite Income: \" & Meta_Passive_Income_Object.Meta_Passive_Bauxite & newline &\"Iron Income: \" & Meta_Passive_Income_Object.Meta_Passive_Iron  & newline &\"Chromium Income: \" & Meta_Passive_Income_Object.Meta_Passive_Chromium & newline &\"Copper Income: \" & Meta_Passive_Income_Object.Meta_Passive_Copper\n"
-							}
-						},
-						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 643436820277605,
@@ -4780,10 +4804,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 394638462453230,
+							"sid": 819630090772893,
 							"parameters": {
 								"variable": "Vector_Y_Speed_Up",
-								"value": "roundToDp(-200 * (100 / (Miner_Box.Weight*Engine_Efficiency_Multiplier)) * Vertical_Speed_Multiplier, 2)"
+								"value": "roundToDp((-200 *Vertical_Speed_Multiplier) +(Miner_Box.Weight -100) *Engine_Efficiency_Multiplier  , 2)"
 							}
 						},
 						{
@@ -6312,6 +6336,16 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Meta_Upg_Background",
+											"sid": 292153580295395,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
 											"sid": 876381339005048,
 											"parameters": {
 												"instance-variable": "Drill_Upg",
@@ -6748,6 +6782,16 @@
 												"instance-variable": "Drill_Upg",
 												"comparison": 0,
 												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 659444538499109,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
 											}
 										},
 										{
@@ -11169,6 +11213,16 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Meta_Upg_Background",
+											"sid": 715252271783988,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
 											"sid": 811351417164910,
 											"parameters": {
 												"instance-variable": "Energy_Upg",
@@ -11605,6 +11659,16 @@
 												"instance-variable": "Energy_Upg",
 												"comparison": 0,
 												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 809303811165791,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
 											}
 										},
 										{
@@ -15469,6 +15533,16 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Meta_Upg_Background",
+											"sid": 616117682740544,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
 											"sid": 681414115141829,
 											"parameters": {
 												"instance-variable": "Passive_Upg",
@@ -15963,6 +16037,16 @@
 												"instance-variable": "Passive_Upg",
 												"comparison": 0,
 												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 688501311687326,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
 											}
 										},
 										{
@@ -20432,6 +20516,16 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Meta_Upg_Background",
+											"sid": 482092526616995,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
 											"sid": 890440459179165,
 											"parameters": {
 												"instance-variable": "Engine_Upg",
@@ -20656,6 +20750,16 @@
 												"instance-variable": "Engine_Upg",
 												"comparison": 0,
 												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 151708910309900,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
 											}
 										},
 										{
@@ -21575,6 +21679,16 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Meta_Upg_Background",
+											"sid": 134260632065316,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
 											"sid": 748497168885884,
 											"parameters": {
 												"instance-variable": "Shield_Upg",
@@ -21799,6 +21913,16 @@
 												"instance-variable": "Shield_Upg",
 												"comparison": 0,
 												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 550231673726880,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
 											}
 										},
 										{
@@ -34755,6 +34879,14 @@
 								},
 								{
 									"id": "set-visible",
+									"objectClass": "Miner_Inventory_Background_Black",
+									"sid": 670275363522664,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
 									"objectClass": "Miner_Inventory_Text",
 									"sid": 820706156675219,
 									"parameters": {
@@ -35055,7 +35187,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "468",
+							"initialValue": "50",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -49169,6 +49301,16 @@
 								"mouse-button": "left",
 								"click-type": "clicked",
 								"object-clicked": "Meta_All_Buttons"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Meta_Upg_Background",
+							"sid": 298323314517308,
+							"parameters": {
+								"instance-variable": "Active",
+								"comparison": 0,
+								"value": "1"
 							}
 						}
 					],
