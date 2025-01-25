@@ -4223,86 +4223,6 @@
 				},
 				{
 					"eventType": "group",
-					"disabled": false,
-					"title": "Passive Mining",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "every-x-seconds",
-									"objectClass": "System",
-									"sid": 889777394900014,
-									"parameters": {
-										"interval-seconds": "1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 530043040353830,
-									"parameters": {
-										"instance-variable": "Coal",
-										"value": "Meta_Passive_Income_Object.Meta_Passive_Coal"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 155098572135265,
-									"parameters": {
-										"instance-variable": "Bauxite",
-										"value": "Meta_Passive_Income_Object.Meta_Passive_Bauxite"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 448281468655287,
-									"parameters": {
-										"instance-variable": "Quartz",
-										"value": "Meta_Passive_Income_Object.Meta_Passive_Quartz"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 168139393053963,
-									"parameters": {
-										"instance-variable": "Iron",
-										"value": "Meta_Passive_Income_Object.Meta_Passive_Iron"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 457192589389688,
-									"parameters": {
-										"instance-variable": "Chromium",
-										"value": "Meta_Passive_Income_Object.Meta_Passive_Chromium"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Global_Inventory_Object",
-									"sid": 869846657937477,
-									"parameters": {
-										"instance-variable": "Copper",
-										"value": "Meta_Passive_Income_Object.Meta_Passive_Copper"
-									}
-								}
-							],
-							"sid": 209201778859817
-						}
-					],
-					"sid": 245008568617269
-				},
-				{
-					"eventType": "group",
 					"disabled": true,
 					"title": "Inventory_Sprites Spawn",
 					"description": "",
@@ -16106,6 +16026,122 @@
 						{
 							"eventType": "group",
 							"disabled": false,
+							"title": "Passive Mining",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 784777406292929,
+											"parameters": {
+												"interval-seconds": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 174140780698745,
+											"parameters": {
+												"instance-variable": "Coal",
+												"value": "Meta_Passive_Income_Object.Meta_Passive_Coal"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 280581320091769,
+											"parameters": {
+												"instance-variable": "Bauxite",
+												"value": "Meta_Passive_Income_Object.Meta_Passive_Bauxite"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 661735405584586,
+											"parameters": {
+												"instance-variable": "Quartz",
+												"value": "Meta_Passive_Income_Object.Meta_Passive_Quartz"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 421639629957088,
+											"parameters": {
+												"instance-variable": "Iron",
+												"value": "Meta_Passive_Income_Object.Meta_Passive_Iron"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 902883688146005,
+											"parameters": {
+												"instance-variable": "Chromium",
+												"value": "Meta_Passive_Income_Object.Meta_Passive_Chromium"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 699805311424101,
+											"parameters": {
+												"instance-variable": "Copper",
+												"value": "Meta_Passive_Income_Object.Meta_Passive_Copper"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 923840647895850,
+											"parameters": {
+												"instance-variable": "Lithium",
+												"value": "Meta_Passive_Income_Object.Meta_Passive_Lithium"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 337508740330920,
+											"parameters": {
+												"instance-variable": "Silver",
+												"value": "Meta_Passive_Income_Object.Meta_Passive_Silver"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 523636270160581,
+											"parameters": {
+												"instance-variable": "Nickel",
+												"value": "Meta_Passive_Income_Object.Meta_Passive_Nickel"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 379882729267243,
+											"parameters": {
+												"instance-variable": "Zinc",
+												"value": "Meta_Passive_Income_Object.Meta_Passive_Zinc"
+											}
+										}
+									],
+									"sid": 623039627131904
+								}
+							],
+							"sid": 785509786232227
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
 							"title": "Passive Item Upgrades",
 							"description": "",
 							"isActiveOnStart": true,
@@ -19920,8 +19956,8 @@
 														},
 														{
 															"id": "set-effect-enabled",
-															"objectClass": "Meta_Passive_Silver_Button",
-															"sid": 499118836025103,
+															"objectClass": "Meta_Passive_Nickel_Button",
+															"sid": 987185842606221,
 															"parameters": {
 																"mode": "disable",
 																"effect": "\"Darken\""
@@ -24321,11 +24357,11 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Miner_Box",
-											"sid": 150910618334139,
+											"sid": 296897569934301,
 											"parameters": {
 												"instance-variable": "Money",
 												"comparison": 5,
-												"value": "Shop_Cart_Object.Amount_Due +50"
+												"value": "Shop_Cart_Object.Amount_Due +250"
 											}
 										},
 										{
@@ -24407,10 +24443,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Shop_Cart_Object",
-													"sid": 272866845724586,
+													"sid": 167182710966917,
 													"parameters": {
 														"instance-variable": "Amount_Due",
-														"value": "50"
+														"value": "250"
 													}
 												}
 											],
@@ -24461,11 +24497,11 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Miner_Box",
-													"sid": 568928959566162,
+													"sid": 628108058029631,
 													"parameters": {
 														"instance-variable": "Money",
 														"comparison": 5,
-														"value": "Shop_Cart_Object.Amount_Due +500"
+														"value": "Shop_Cart_Object.Amount_Due +2500"
 													}
 												},
 												{
@@ -24492,10 +24528,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Shop_Cart_Object",
-													"sid": 616431334923251,
+													"sid": 345927464385933,
 													"parameters": {
 														"instance-variable": "Amount_Due",
-														"value": "500"
+														"value": "2500"
 													}
 												}
 											],
@@ -24550,11 +24586,11 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Miner_Box",
-											"sid": 592356663931251,
+											"sid": 974833822583661,
 											"parameters": {
 												"instance-variable": "Money",
 												"comparison": 5,
-												"value": "Shop_Cart_Object.Amount_Due +20"
+												"value": "Shop_Cart_Object.Amount_Due +50"
 											}
 										},
 										{
@@ -24636,10 +24672,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Shop_Cart_Object",
-													"sid": 576655975915534,
+													"sid": 424818062474635,
 													"parameters": {
 														"instance-variable": "Amount_Due",
-														"value": "20"
+														"value": "50"
 													}
 												}
 											],
@@ -24690,11 +24726,11 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Miner_Box",
-													"sid": 688433191188584,
+													"sid": 840817086832473,
 													"parameters": {
 														"instance-variable": "Money",
 														"comparison": 5,
-														"value": "Shop_Cart_Object.Amount_Due +200"
+														"value": "Shop_Cart_Object.Amount_Due +500"
 													}
 												},
 												{
@@ -24721,10 +24757,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Shop_Cart_Object",
-													"sid": 425455791282282,
+													"sid": 836464738362785,
 													"parameters": {
 														"instance-variable": "Amount_Due",
-														"value": "200"
+														"value": "500"
 													}
 												}
 											],
@@ -25505,9 +25541,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 502568381182999,
+													"sid": 280486657718098,
 													"parameters": {
-														"text": "\"BATTERY - Charges 50% of your max energy\" "
+														"text": "\"BATTERY - Charges 20% of your max energy\" "
 													}
 												}
 											],
@@ -26952,10 +26988,10 @@
 																		{
 																			"id": "add-to-instvar",
 																			"objectClass": "Warehouse_Sell_Cart_Object",
-																			"sid": 669119294196912,
+																			"sid": 938297747680130,
 																			"parameters": {
 																				"instance-variable": "Coal",
-																				"value": "Global_Inventory_Object.Coal - Warehouse_Sell_Cart_Object.Coal"
+																				"value": "(floor(Global_Inventory_Object.Coal) - Warehouse_Sell_Cart_Object.Coal)"
 																			}
 																		}
 																	],
@@ -27170,10 +27206,10 @@
 																		{
 																			"id": "add-to-instvar",
 																			"objectClass": "Warehouse_Sell_Cart_Object",
-																			"sid": 895975926109345,
+																			"sid": 660471488090151,
 																			"parameters": {
 																				"instance-variable": "Quartz",
-																				"value": "Global_Inventory_Object.Quartz- Warehouse_Sell_Cart_Object.Quartz"
+																				"value": "(floor(Global_Inventory_Object.Quartz) - Warehouse_Sell_Cart_Object.Quartz)"
 																			}
 																		}
 																	],
@@ -27388,10 +27424,10 @@
 																		{
 																			"id": "add-to-instvar",
 																			"objectClass": "Warehouse_Sell_Cart_Object",
-																			"sid": 445209404514083,
+																			"sid": 443577456113538,
 																			"parameters": {
 																				"instance-variable": "Bauxite",
-																				"value": "Global_Inventory_Object.Bauxite- Warehouse_Sell_Cart_Object.Bauxite"
+																				"value": "(floor(Global_Inventory_Object.Bauxite) - Warehouse_Sell_Cart_Object.Bauxite)"
 																			}
 																		}
 																	],
@@ -27606,10 +27642,10 @@
 																		{
 																			"id": "add-to-instvar",
 																			"objectClass": "Warehouse_Sell_Cart_Object",
-																			"sid": 918127145540873,
+																			"sid": 933361580491658,
 																			"parameters": {
 																				"instance-variable": "Iron",
-																				"value": "Global_Inventory_Object.Iron- Warehouse_Sell_Cart_Object.Iron"
+																				"value": "(floor(Global_Inventory_Object.Iron) - Warehouse_Sell_Cart_Object.Iron)"
 																			}
 																		}
 																	],
@@ -27824,10 +27860,10 @@
 																		{
 																			"id": "add-to-instvar",
 																			"objectClass": "Warehouse_Sell_Cart_Object",
-																			"sid": 428717023410321,
+																			"sid": 687093251584516,
 																			"parameters": {
 																				"instance-variable": "Chromium",
-																				"value": "Global_Inventory_Object.Chromium- Warehouse_Sell_Cart_Object.Chromium"
+																				"value": "(floor(Global_Inventory_Object.Chromium) - Warehouse_Sell_Cart_Object.Chromium)"
 																			}
 																		}
 																	],
@@ -28042,10 +28078,10 @@
 																		{
 																			"id": "add-to-instvar",
 																			"objectClass": "Warehouse_Sell_Cart_Object",
-																			"sid": 348699453714054,
+																			"sid": 407099673813728,
 																			"parameters": {
 																				"instance-variable": "Copper",
-																				"value": "Global_Inventory_Object.Copper- Warehouse_Sell_Cart_Object.Copper"
+																				"value": "(floor(Global_Inventory_Object.Copper) - Warehouse_Sell_Cart_Object.Copper)"
 																			}
 																		}
 																	],
@@ -28260,10 +28296,10 @@
 																		{
 																			"id": "add-to-instvar",
 																			"objectClass": "Warehouse_Sell_Cart_Object",
-																			"sid": 593500008753001,
+																			"sid": 477934253930277,
 																			"parameters": {
 																				"instance-variable": "Lithium",
-																				"value": "Global_Inventory_Object.Lithium- Warehouse_Sell_Cart_Object.Lithium"
+																				"value": "(floor(Global_Inventory_Object.Lithium) - Warehouse_Sell_Cart_Object.Lithium)"
 																			}
 																		}
 																	],
@@ -28478,10 +28514,10 @@
 																		{
 																			"id": "add-to-instvar",
 																			"objectClass": "Warehouse_Sell_Cart_Object",
-																			"sid": 548363035918149,
+																			"sid": 985909806696121,
 																			"parameters": {
 																				"instance-variable": "Silver",
-																				"value": "Global_Inventory_Object.Silver- Warehouse_Sell_Cart_Object.Silver"
+																				"value": "(floor(Global_Inventory_Object.Silver) - Warehouse_Sell_Cart_Object.Silver)"
 																			}
 																		}
 																	],
@@ -28696,10 +28732,10 @@
 																		{
 																			"id": "add-to-instvar",
 																			"objectClass": "Warehouse_Sell_Cart_Object",
-																			"sid": 470341487002228,
+																			"sid": 414976598906986,
 																			"parameters": {
 																				"instance-variable": "Nickel",
-																				"value": "Global_Inventory_Object.Nickel- Warehouse_Sell_Cart_Object.Nickel"
+																				"value": "(floor(Global_Inventory_Object.Nickel) - Warehouse_Sell_Cart_Object.Nickel)"
 																			}
 																		}
 																	],
@@ -28914,10 +28950,10 @@
 																		{
 																			"id": "add-to-instvar",
 																			"objectClass": "Warehouse_Sell_Cart_Object",
-																			"sid": 324039503609556,
+																			"sid": 642852316796936,
 																			"parameters": {
 																				"instance-variable": "Zinc",
-																				"value": "Global_Inventory_Object.Zinc- Warehouse_Sell_Cart_Object.Zinc"
+																				"value": "(floor(Global_Inventory_Object.Zinc) - Warehouse_Sell_Cart_Object.Zinc)"
 																			}
 																		}
 																	],
@@ -29132,10 +29168,10 @@
 																		{
 																			"id": "add-to-instvar",
 																			"objectClass": "Warehouse_Sell_Cart_Object",
-																			"sid": 508415450681163,
+																			"sid": 396054806346224,
 																			"parameters": {
 																				"instance-variable": "Gold",
-																				"value": "Global_Inventory_Object.Gold- Warehouse_Sell_Cart_Object.Gold"
+																				"value": "(floor(Global_Inventory_Object.Gold) - Warehouse_Sell_Cart_Object.Gold)"
 																			}
 																		}
 																	],
@@ -29350,10 +29386,10 @@
 																		{
 																			"id": "add-to-instvar",
 																			"objectClass": "Warehouse_Sell_Cart_Object",
-																			"sid": 188154456710589,
+																			"sid": 622680289643287,
 																			"parameters": {
 																				"instance-variable": "Diamond",
-																				"value": "Global_Inventory_Object.Diamond- Warehouse_Sell_Cart_Object.Diamond"
+																				"value": "(floor(Global_Inventory_Object.Diamond) - Warehouse_Sell_Cart_Object.Diamond)"
 																			}
 																		}
 																	],
@@ -29568,10 +29604,10 @@
 																		{
 																			"id": "add-to-instvar",
 																			"objectClass": "Warehouse_Sell_Cart_Object",
-																			"sid": 900432871617165,
+																			"sid": 229062925576211,
 																			"parameters": {
 																				"instance-variable": "Silicon",
-																				"value": "Global_Inventory_Object.Silicon- Warehouse_Sell_Cart_Object.Silicon"
+																				"value": "(floor(Global_Inventory_Object.Silicon) - Warehouse_Sell_Cart_Object.Silicon)"
 																			}
 																		}
 																	],
@@ -32207,9 +32243,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 115464819132733,
+													"sid": 886856376360053,
 													"parameters": {
-														"text": "\"COAL:\" & newline &\" Value = 2$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Coal * 2 & \"$\""
+														"text": "\"COAL:\" & newline &\" Value = 2$/Item\"\n& newline & \"Total Value = \" & floor(Global_Inventory_Object.Coal * 2) & \"$\""
 													}
 												}
 											],
@@ -32231,9 +32267,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 831469391379695,
+													"sid": 782306981152055,
 													"parameters": {
-														"text": "\"QUARTZ:\" & newline &\" Value = 2$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Quartz * 2 & \"$\""
+														"text": "\"QUARTZ:\" & newline &\" Value = 2$/Item\"\n& newline & \"Total Value = \" & floor(Global_Inventory_Object.Quartz * 2) & \"$\""
 													}
 												}
 											],
@@ -32255,9 +32291,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 385314994584932,
+													"sid": 829216195698089,
 													"parameters": {
-														"text": "\"BAUXITE:\" & newline &\" Value = 2$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Bauxite * 2 & \"$\""
+														"text": "\"BAUXITE:\" & newline &\" Value = 2$/Item\"\n& newline & \"Total Value = \" & floor(Global_Inventory_Object.Bauxite * 2) & \"$\""
 													}
 												}
 											],
@@ -32279,9 +32315,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 595971063530985,
+													"sid": 781540506633584,
 													"parameters": {
-														"text": "\"IRON:\" & newline &\" Value = 30$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Iron* 30 & \"$\""
+														"text": "\"IRON:\" & newline &\" Value = 30$/Item\"\n& newline & \"Total Value = \" & floor(Global_Inventory_Object.Iron* 30) & \"$\""
 													}
 												}
 											],
@@ -32303,9 +32339,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 707208298097461,
+													"sid": 102764395015458,
 													"parameters": {
-														"text": "\"CHROMIUM:\" & newline &\" Value = 30$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Chromium* 30 & \"$\""
+														"text": "\"CHROMIUM:\" & newline &\" Value = 30$/Item\"\n& newline & \"Total Value = \" & floor(Global_Inventory_Object.Chromium* 30) & \"$\""
 													}
 												}
 											],
@@ -32327,9 +32363,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 794918096581984,
+													"sid": 166947019675237,
 													"parameters": {
-														"text": "\"COPPER:\" & newline &\" Value = 30$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Copper* 30 & \"$\""
+														"text": "\"COPPER:\" & newline &\" Value = 30$/Item\"\n& newline & \"Total Value = \" & floor(Global_Inventory_Object.Copper* 30) & \"$\""
 													}
 												}
 											],
@@ -32351,9 +32387,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 973677919390824,
+													"sid": 368698280126476,
 													"parameters": {
-														"text": "\"LITHIUM:\" & newline &\" Value = 50$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Lithium* 50 & \"$\""
+														"text": "\"LITHIUM:\" & newline &\" Value = 50$/Item\"\n& newline & \"Total Value = \" & floor(Global_Inventory_Object.Lithium* 50) & \"$\""
 													}
 												}
 											],
@@ -32375,9 +32411,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 863364488418979,
+													"sid": 249900215057144,
 													"parameters": {
-														"text": "\"SILVER:\" & newline &\" Value = 50$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Silver* 50 & \"$\""
+														"text": "\"SILVER:\" & newline &\" Value = 50$/Item\"\n& newline & \"Total Value = \" & floor(Global_Inventory_Object.Silver* 50) & \"$\""
 													}
 												}
 											],
@@ -32399,9 +32435,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 458481122335294,
+													"sid": 401158661976060,
 													"parameters": {
-														"text": "\"NICKEL:\" & newline &\" Value = 50$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Nickel* 50 & \"$\""
+														"text": "\"NICKEL:\" & newline &\" Value = 50$/Item\"\n& newline & \"Total Value = \" & floor(Global_Inventory_Object.Nickel* 50) & \"$\""
 													}
 												}
 											],
@@ -32423,9 +32459,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 856226727962257,
+													"sid": 811871401311126,
 													"parameters": {
-														"text": "\"ZINC:\" & newline &\" Value = 75$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Zinc* 75 & \"$\""
+														"text": "\"ZINC:\" & newline &\" Value = 75$/Item\"\n& newline & \"Total Value = \" & floor(Global_Inventory_Object.Zinc* 75) & \"$\""
 													}
 												}
 											],
@@ -32447,9 +32483,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 535962766199900,
+													"sid": 922897058149854,
 													"parameters": {
-														"text": "\"GOLD:\" & newline &\" Value = 100$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Gold* 100 & \"$\""
+														"text": "\"GOLD:\" & newline &\" Value = 100$/Item\"\n& newline & \"Total Value = \" & floor(Global_Inventory_Object.Gold* 100) & \"$\""
 													}
 												}
 											],
@@ -32471,9 +32507,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 791169445120027,
+													"sid": 622087339790241,
 													"parameters": {
-														"text": "\"DIAMOND:\" & newline &\" Value = 1000$/Item\"\n& newline & \"Total Value = \" & Global_Inventory_Object.Diamond* 1000 & \"$\""
+														"text": "\"DIAMOND:\" & newline &\" Value = 1000$/Item\"\n& newline & \"Total Value = \" & floor(Global_Inventory_Object.Diamond* 1000) & \"$\""
 													}
 												}
 											],
@@ -34734,6 +34770,24 @@
 									}
 								},
 								{
+									"id": "set-animation",
+									"objectClass": "HUD_Miner_Inventory_Button",
+									"sid": 145722002475474,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Global_Inventory_Button",
+									"sid": 433621091285350,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								},
+								{
 									"callFunction": "Reset_Warehouse_Sell_cart",
 									"sid": 468110426525286
 								},
@@ -35307,7 +35361,7 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 453838030576262,
+															"sid": 855102758627305,
 															"parameters": {
 																"object-to-create": "Coal_Block",
 																"layer": "\"Player\"",
@@ -42111,7 +42165,7 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Miner_Drill",
-											"sid": 164260785403546,
+											"sid": 448962230333058,
 											"parameters": {
 												"object": "Lava_Block_1"
 											}
@@ -42121,14 +42175,14 @@
 										{
 											"id": "subtract-from-instvar",
 											"objectClass": "Miner_Box",
-											"sid": 300122806527712,
+											"sid": 565784324487660,
 											"parameters": {
 												"instance-variable": "HP",
 												"value": "1 * Miner_Box.Shield_Heat"
 											}
 										}
 									],
-									"sid": 770804897068785,
+									"sid": 287378564611744,
 									"children": [
 										{
 											"eventType": "block",
@@ -42136,14 +42190,14 @@
 												{
 													"id": "trigger-once-while-true",
 													"objectClass": "System",
-													"sid": 392131844650963
+													"sid": 537969938379183
 												}
 											],
 											"actions": [
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 456683747430751,
+													"sid": 922324329748336,
 													"parameters": {
 														"audio-file": "Low Energy Flaviu Ciocan - Space Sci Fi - Warning Alarm",
 														"loop": "not-looping",
@@ -42153,7 +42207,7 @@
 													}
 												}
 											],
-											"sid": 373205963652089
+											"sid": 908449504696744
 										},
 										{
 											"eventType": "block",
@@ -42161,7 +42215,7 @@
 												{
 													"id": "every-x-seconds",
 													"objectClass": "System",
-													"sid": 219247362874510,
+													"sid": 388863219378628,
 													"parameters": {
 														"interval-seconds": "0.5"
 													}
@@ -42171,7 +42225,7 @@
 												{
 													"id": "set-effect-enabled",
 													"objectClass": "Miner_Animations",
-													"sid": 698029758358678,
+													"sid": 906280976447814,
 													"parameters": {
 														"mode": "enable",
 														"effect": "\"HardLight\""
@@ -42180,7 +42234,7 @@
 												{
 													"id": "wait",
 													"objectClass": "System",
-													"sid": 939145962229477,
+													"sid": 821351651499635,
 													"parameters": {
 														"seconds": "0.25"
 													}
@@ -42188,14 +42242,64 @@
 												{
 													"id": "set-effect-enabled",
 													"objectClass": "Miner_Animations",
-													"sid": 638025026951671,
+													"sid": 242234746950631,
 													"parameters": {
 														"mode": "disable",
 														"effect": "\"HardLight\""
 													}
 												}
 											],
-											"sid": 991353929700534
+											"sid": 565116539550508
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 906620875136650,
+											"parameters": {
+												"object": "Lava_Block_2"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 626004567282374,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Lava_Block_2",
+													"sid": 468030520572993,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Lava_Block_2",
+													"sid": 536092804439382,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Lava_Block_2",
+													"sid": 746926234795343
+												}
+											],
+											"sid": 536909450107221
 										}
 									]
 								},
@@ -42222,6 +42326,100 @@
 										}
 									],
 									"sid": 640770676555159
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Miner_Drill",
+											"sid": 184569638873236,
+											"parameters": {
+												"object": "Lava_Block_2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 285713638274379,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "1.5 * Miner_Box.Shield_Heat"
+											}
+										}
+									],
+									"sid": 417862000757347,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 779199246165994
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 806348248713429,
+													"parameters": {
+														"audio-file": "Low Energy Flaviu Ciocan - Space Sci Fi - Warning Alarm",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"Lava\""
+													}
+												}
+											],
+											"sid": 458464498651845
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-x-seconds",
+													"objectClass": "System",
+													"sid": 482122426359579,
+													"parameters": {
+														"interval-seconds": "0.5"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Miner_Animations",
+													"sid": 212463374725726,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"HardLight\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 398991628508635,
+													"parameters": {
+														"seconds": "0.25"
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Miner_Animations",
+													"sid": 351004172436166,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"HardLight\""
+													}
+												}
+											],
+											"sid": 546937707078695
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -46190,17 +46388,6 @@
 									}
 								},
 								{
-									"id": "is-item-type-in-inventory",
-									"objectClass": "Inventory",
-									"sid": 429230621407692,
-									"disabled": true,
-									"parameters": {
-										"inventory-id": "\"Inventory_Consumables\"",
-										"type": "\"Dynamite_Inv\"",
-										"quantity": "1"
-									}
-								},
-								{
 									"id": "compare-instance-variable",
 									"objectClass": "Miner_Box",
 									"sid": 468347525001634,
@@ -46259,26 +46446,6 @@
 									}
 								},
 								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 339964720119320,
-									"disabled": true,
-									"parameters": {
-										"variable": "Consumable_ID",
-										"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 0)"
-									}
-								},
-								{
-									"id": "set-item-quantity",
-									"objectClass": "Inventory",
-									"sid": 484879783921086,
-									"disabled": true,
-									"parameters": {
-										"param0": "Consumable_ID",
-										"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
-									}
-								},
-								{
 									"id": "wait",
 									"objectClass": "System",
 									"sid": 306218760060413,
@@ -46308,17 +46475,6 @@
 									"sid": 147884081602452,
 									"parameters": {
 										"key": 90
-									}
-								},
-								{
-									"id": "is-item-type-in-inventory",
-									"objectClass": "Inventory",
-									"sid": 430197826808546,
-									"disabled": true,
-									"parameters": {
-										"inventory-id": "\"Inventory_Consumables\"",
-										"type": "\"Teleporter_Inv\"",
-										"quantity": "1"
 									}
 								},
 								{
@@ -46370,26 +46526,6 @@
 									"parameters": {
 										"instance-variable": "Teleporter",
 										"value": "1"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 407374957517355,
-									"disabled": true,
-									"parameters": {
-										"variable": "Consumable_ID",
-										"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 1)"
-									}
-								},
-								{
-									"id": "set-item-quantity",
-									"objectClass": "Inventory",
-									"sid": 340915539348740,
-									"disabled": true,
-									"parameters": {
-										"param0": "Consumable_ID",
-										"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
 									}
 								},
 								{
@@ -46462,11 +46598,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Miner_Box",
-									"sid": 601734107605737,
+									"sid": 509021731363013,
 									"parameters": {
 										"instance-variable": "Energy",
 										"comparison": 4,
-										"value": "Miner_Box.Max_Energy / 2"
+										"value": "Miner_Box.Max_Energy * 0.8"
 									}
 								},
 								{
@@ -46477,17 +46613,6 @@
 										"instance-variable": "Battery",
 										"comparison": 4,
 										"value": "0"
-									}
-								},
-								{
-									"id": "is-item-type-in-inventory",
-									"objectClass": "Inventory",
-									"sid": 774479585628332,
-									"disabled": true,
-									"parameters": {
-										"inventory-id": "\"Inventory_Consumables\"",
-										"type": "\"Battery_Inv\"",
-										"quantity": "1"
 									}
 								}
 							],
@@ -46529,26 +46654,6 @@
 									"parameters": {
 										"color": "rgbEx(24, 180, 29)"
 									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 646826810087824,
-									"disabled": true,
-									"parameters": {
-										"variable": "Consumable_ID",
-										"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 2)"
-									}
-								},
-								{
-									"id": "set-item-quantity",
-									"objectClass": "Inventory",
-									"sid": 701266716196867,
-									"disabled": true,
-									"parameters": {
-										"param0": "Consumable_ID",
-										"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
-									}
 								}
 							],
 							"sid": 773904540014107
@@ -46577,11 +46682,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Miner_Box",
-									"sid": 446397705072273,
+									"sid": 434350482388676,
 									"parameters": {
 										"instance-variable": "Energy",
 										"comparison": 3,
-										"value": "Miner_Box.Max_Energy / 2"
+										"value": "Miner_Box.Max_Energy *0.8"
 									}
 								},
 								{
@@ -46592,17 +46697,6 @@
 										"instance-variable": "Battery",
 										"comparison": 4,
 										"value": "0"
-									}
-								},
-								{
-									"id": "is-item-type-in-inventory",
-									"objectClass": "Inventory",
-									"sid": 861851044229166,
-									"disabled": true,
-									"parameters": {
-										"inventory-id": "\"Inventory_Consumables\"",
-										"type": "\"Battery_Inv\"",
-										"quantity": "1"
 									}
 								}
 							],
@@ -46622,10 +46716,10 @@
 								{
 									"id": "add-to-instvar",
 									"objectClass": "Miner_Box",
-									"sid": 878543464719464,
+									"sid": 234508617699052,
 									"parameters": {
 										"instance-variable": "Energy",
-										"value": "Miner_Box.Max_Energy / 2"
+										"value": "Miner_Box.Max_Energy * 0.2"
 									}
 								},
 								{
@@ -46643,26 +46737,6 @@
 									"sid": 784286361179435,
 									"parameters": {
 										"color": "rgbEx(24, 180, 29)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 625568740141580,
-									"disabled": true,
-									"parameters": {
-										"variable": "Consumable_ID",
-										"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 2)"
-									}
-								},
-								{
-									"id": "set-item-quantity",
-									"objectClass": "Inventory",
-									"sid": 525526634005749,
-									"disabled": true,
-									"parameters": {
-										"param0": "Consumable_ID",
-										"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
 									}
 								}
 							],
@@ -46708,17 +46782,6 @@
 										"comparison": 4,
 										"value": "0"
 									}
-								},
-								{
-									"id": "is-item-type-in-inventory",
-									"objectClass": "Inventory",
-									"sid": 291530306833859,
-									"disabled": true,
-									"parameters": {
-										"inventory-id": "\"Inventory_Consumables\"",
-										"type": "\"Repair_Kit_Inv\"",
-										"quantity": "1"
-									}
 								}
 							],
 							"actions": [
@@ -46758,26 +46821,6 @@
 									"sid": 358652696863900,
 									"parameters": {
 										"color": "rgbEx(24, 180, 29)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 197514603183433,
-									"disabled": true,
-									"parameters": {
-										"variable": "Consumable_ID",
-										"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 3)"
-									}
-								},
-								{
-									"id": "set-item-quantity",
-									"objectClass": "Inventory",
-									"sid": 933536196824384,
-									"disabled": true,
-									"parameters": {
-										"param0": "Consumable_ID",
-										"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
 									}
 								}
 							],
@@ -46823,17 +46866,6 @@
 										"comparison": 4,
 										"value": "0"
 									}
-								},
-								{
-									"id": "is-item-type-in-inventory",
-									"objectClass": "Inventory",
-									"sid": 993575282412466,
-									"disabled": true,
-									"parameters": {
-										"inventory-id": "\"Inventory_Consumables\"",
-										"type": "\"Repair_Kit_Inv\"",
-										"quantity": "1"
-									}
 								}
 							],
 							"actions": [
@@ -46873,26 +46905,6 @@
 									"sid": 505439845342740,
 									"parameters": {
 										"color": "rgbEx(24, 180, 29)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 247075404799952,
-									"disabled": true,
-									"parameters": {
-										"variable": "Consumable_ID",
-										"value": "Inventory.ItemIdBySlotIndex(\"Inventory_Consumables\", 3)"
-									}
-								},
-								{
-									"id": "set-item-quantity",
-									"objectClass": "Inventory",
-									"sid": 232282074925278,
-									"disabled": true,
-									"parameters": {
-										"param0": "Consumable_ID",
-										"param1": "Inventory.ItemQuantity(Consumable_ID) -1"
 									}
 								}
 							],
