@@ -92,6 +92,16 @@
 			"sid": 702548967822723
 		},
 		{
+			"eventType": "variable",
+			"name": "Entering_Building",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 223173363732188
+		},
+		{
 			"eventType": "comment",
 			"text": "Vertical Speed variables"
 		},
@@ -3745,6 +3755,15 @@
 									}
 								},
 								{
+									"id": "set-position",
+									"objectClass": "Money_Text",
+									"sid": 201186337378653,
+									"parameters": {
+										"x": "HUD_Credit_Card_Background.X +56",
+										"y": "HUD_Credit_Card_Background.Y +40"
+									}
+								},
+								{
 									"id": "spawn-another-object",
 									"objectClass": "HUD_Menu_Background",
 									"sid": 723857082024565,
@@ -3929,15 +3948,6 @@
 										"image-point": "\"Teleporter_Q\"",
 										"create-hierarchy": false,
 										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-position",
-									"objectClass": "Money_Text",
-									"sid": 975123609749174,
-									"parameters": {
-										"x": "HUD_Credit_Card_Background.X +6",
-										"y": "HUD_Credit_Card_Background.Y +53"
 									}
 								},
 								{
@@ -4601,6 +4611,7 @@
 							"id": "set-silent",
 							"objectClass": "SFX",
 							"sid": 683047249247073,
+							"disabled": true,
 							"parameters": {
 								"mode": "silent"
 							}
@@ -6380,6 +6391,14 @@
 											"parameters": {
 												"mode": "enable",
 												"effect": "\"BlackWhite\""
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 642860662045150,
+											"parameters": {
+												"y": "Meta_Upg_Background.Y"
 											}
 										}
 									],
@@ -11258,6 +11277,14 @@
 												"mode": "enable",
 												"effect": "\"BlackWhite\""
 											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 375082181596848,
+											"parameters": {
+												"y": "Meta_Upg_Background.Y"
+											}
 										}
 									],
 									"sid": 718649097286120,
@@ -15577,6 +15604,14 @@
 											"parameters": {
 												"mode": "enable",
 												"effect": "\"BlackWhite\""
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 430533848776896,
+											"parameters": {
+												"y": "Meta_Upg_Background.Y"
 											}
 										}
 									],
@@ -20561,6 +20596,14 @@
 												"mode": "enable",
 												"effect": "\"BlackWhite\""
 											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 511023290787839,
+											"parameters": {
+												"y": "Meta_Upg_Background.Y"
+											}
 										}
 									],
 									"sid": 562435162106056,
@@ -21723,6 +21766,14 @@
 											"parameters": {
 												"mode": "enable",
 												"effect": "\"BlackWhite\""
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 847162202900214,
+											"parameters": {
+												"y": "Meta_Upg_Background.Y"
 											}
 										}
 									],
@@ -23769,47 +23820,58 @@
 									"parameters": {
 										"object": "Shop_Door"
 									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 720126580997925,
+									"parameters": {
+										"variable": "Entering_Building"
+									},
+									"isInverted": true
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 579337724953020,
+									"parameters": {
+										"variable": "Entering_Building",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Miner_Box",
+									"sid": 708223417325753,
+									"parameters": {
+										"x": "3072",
+										"y": "1216"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Miner_Box",
+									"sid": 865940718147139,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Shop_Building_art",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								}
+							],
 							"sid": 446376152799335,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
-										{
-											"id": "set-position",
-											"objectClass": "Miner_Box",
-											"sid": 946071680681517,
-											"parameters": {
-												"x": "3072",
-												"y": "1216"
-											}
-										},
-										{
-											"id": "pin-to-object-properties",
-											"objectClass": "Miner_Box",
-											"sid": 256545930376327,
-											"behaviorType": "Pin",
-											"parameters": {
-												"pin-to": "Shop_Building_art",
-												"x": true,
-												"y": true,
-												"angle": true,
-												"width-type": "no",
-												"height-type": "no",
-												"z": false
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 222735503839908,
-											"parameters": {
-												"seconds": "0.1"
-											}
-										},
 										{
 											"id": "save",
 											"objectClass": "System",
@@ -23877,10 +23939,10 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 997414182445782,
+											"sid": 453417313565637,
 											"parameters": {
 												"audio-file": "T. Bless - Froggy Fraud Adventure",
-												"loop": "not-looping",
+												"loop": "looping",
 												"volume": "0",
 												"stereo-pan": "0",
 												"tag-optional": "\"Shop_Music\""
@@ -23960,47 +24022,58 @@
 									"parameters": {
 										"object": "Shop_Door"
 									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 765626483319935,
+									"parameters": {
+										"variable": "Entering_Building"
+									},
+									"isInverted": true
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 568543284205222,
+									"parameters": {
+										"variable": "Entering_Building",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Miner_Box",
+									"sid": 484954825551474,
+									"parameters": {
+										"x": "3072",
+										"y": "1216"
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Miner_Box",
+									"sid": 896738744543782,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Shop_Building_art",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								}
+							],
 							"sid": 309360799443454,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
-										{
-											"id": "set-position",
-											"objectClass": "Miner_Box",
-											"sid": 157455423749193,
-											"parameters": {
-												"x": "3072",
-												"y": "1216"
-											}
-										},
-										{
-											"id": "pin-to-object-properties",
-											"objectClass": "Miner_Box",
-											"sid": 158801922331845,
-											"behaviorType": "Pin",
-											"parameters": {
-												"pin-to": "Shop_Building_art",
-												"x": true,
-												"y": true,
-												"angle": true,
-												"width-type": "no",
-												"height-type": "no",
-												"z": false
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 585172047951281,
-											"parameters": {
-												"seconds": "0.1"
-											}
-										},
 										{
 											"id": "save",
 											"objectClass": "System",
@@ -24177,6 +24250,31 @@
 								}
 							],
 							"sid": 188420666823501
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 690037764857089,
+									"parameters": {
+										"interval-seconds": "300"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shopkeeper_Sprite",
+									"sid": 706304573202297,
+									"parameters": {
+										"instance-variable": "Welcome_Triggered",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 564257075011752
 						}
 					],
 					"sid": 437694797530256
@@ -25762,31 +25860,6 @@
 								}
 							],
 							"sid": 338195397812321
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "every-x-seconds",
-									"objectClass": "System",
-									"sid": 867260489783298,
-									"parameters": {
-										"interval-seconds": "300"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Shopkeeper_Sprite",
-									"sid": 559995264162538,
-									"parameters": {
-										"instance-variable": "Welcome_Triggered",
-										"value": "0"
-									}
-								}
-							],
-							"sid": 455706586450342
 						}
 					],
 					"sid": 173516556930715
@@ -25865,13 +25938,31 @@
 									"parameters": {
 										"object": "Warehouse_Door"
 									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 485136530397114,
+									"parameters": {
+										"variable": "Entering_Building"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
 								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 408631950866580,
+									"parameters": {
+										"variable": "Entering_Building",
+										"value": "true"
+									}
+								},
+								{
 									"id": "set-position",
 									"objectClass": "Miner_Box",
-									"sid": 712833134287858,
+									"sid": 441704750400211,
 									"parameters": {
 										"x": "960",
 										"y": "1216"
@@ -25880,7 +25971,7 @@
 								{
 									"id": "pin-to-object-properties",
 									"objectClass": "Miner_Box",
-									"sid": 725353866305311,
+									"sid": 680582033084459,
 									"behaviorType": "Pin",
 									"parameters": {
 										"pin-to": "Warehouse_Building_Art",
@@ -25891,166 +25982,6 @@
 										"height-type": "no",
 										"z": false
 									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 980680473684766,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "save",
-									"objectClass": "System",
-									"sid": 275048877322724,
-									"parameters": {
-										"slot": "\"mysave\""
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 658381384762659,
-									"parameters": {
-										"layer": "\"Buildings\"",
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 249187643361803,
-									"parameters": {
-										"layer": "\"Buildings_2\"",
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 863945482333598,
-									"parameters": {
-										"layer": "\"HUD\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 435121922074175,
-									"parameters": {
-										"layer": "\"Player\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 676960838561457,
-									"parameters": {
-										"layer": "\"Background\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 883655761154463,
-									"parameters": {
-										"group-name": "\"Mechanical\"",
-										"state": "deactivated"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Global_Inventory_Background_Black",
-									"sid": 894686718718175,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 480319671833096,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Press_ESC_Background",
-									"sid": 523721119366169,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 935997156123010,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Global_Inventory_Items_Text",
-									"sid": 711747840471194,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Sell_Items_Buttons",
-									"sid": 983507591011277,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Deposit_Menu_Buttons",
-									"sid": 669221496979038,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Warehouse_Deposit_Background",
-									"sid": 885867805751621,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 177871472558396,
-									"parameters": {
-										"group-name": "\"Sell Buttons\"",
-										"state": "deactivated"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Sell_Menu_Buttons",
-									"sid": 106601158436662,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 368791435252041,
-									"parameters": {
-										"group-name": "\"Warehouse Inventory Management\"",
-										"state": "activated"
-									}
 								}
 							],
 							"sid": 617635391608297,
@@ -26059,6 +25990,158 @@
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
+										{
+											"id": "save",
+											"objectClass": "System",
+											"sid": 554050074542612,
+											"parameters": {
+												"slot": "\"mysave\""
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 640080902024332,
+											"parameters": {
+												"layer": "\"Buildings\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 242337901740383,
+											"parameters": {
+												"layer": "\"Buildings_2\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 682753456984262,
+											"parameters": {
+												"layer": "\"HUD\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 809266603532934,
+											"parameters": {
+												"layer": "\"Player\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 587422448300962,
+											"parameters": {
+												"layer": "\"Background\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 283844156162248,
+											"parameters": {
+												"group-name": "\"Mechanical\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Global_Inventory_Background_Black",
+											"sid": 306963576081243,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 683860284024210,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Press_ESC_Background",
+											"sid": 352343467822089,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 734056586867521,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Global_Inventory_Items_Text",
+											"sid": 544729400352757,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Sell_Items_Buttons",
+											"sid": 889443746810748,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Deposit_Menu_Buttons",
+											"sid": 631340081389134,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Warehouse_Deposit_Background",
+											"sid": 122110165497038,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 773203628967069,
+											"parameters": {
+												"group-name": "\"Sell Buttons\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Sell_Menu_Buttons",
+											"sid": 228217389205799,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 262771794773740,
+											"parameters": {
+												"group-name": "\"Warehouse Inventory Management\"",
+												"state": "activated"
+											}
+										},
 										{
 											"id": "set-group-active",
 											"objectClass": "System",
@@ -26093,13 +26176,31 @@
 									"parameters": {
 										"object": "Warehouse_Door"
 									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 177248538059934,
+									"parameters": {
+										"variable": "Entering_Building"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
 								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 972541163681686,
+									"parameters": {
+										"variable": "Entering_Building",
+										"value": "true"
+									}
+								},
+								{
 									"id": "set-position",
 									"objectClass": "Miner_Box",
-									"sid": 813289178616358,
+									"sid": 224656353366433,
 									"parameters": {
 										"x": "960",
 										"y": "1216"
@@ -26108,7 +26209,7 @@
 								{
 									"id": "pin-to-object-properties",
 									"objectClass": "Miner_Box",
-									"sid": 599254503272398,
+									"sid": 669311700358792,
 									"behaviorType": "Pin",
 									"parameters": {
 										"pin-to": "Warehouse_Building_Art",
@@ -26119,166 +26220,6 @@
 										"height-type": "no",
 										"z": false
 									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 378637379761537,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "save",
-									"objectClass": "System",
-									"sid": 337490043895823,
-									"parameters": {
-										"slot": "\"mysave\""
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 542385396441901,
-									"parameters": {
-										"layer": "\"Buildings\"",
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 287336024072036,
-									"parameters": {
-										"layer": "\"Buildings_2\"",
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 743242711558328,
-									"parameters": {
-										"layer": "\"HUD\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 582793296200053,
-									"parameters": {
-										"layer": "\"Player\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 388098670640868,
-									"parameters": {
-										"layer": "\"Background\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 128434353953607,
-									"parameters": {
-										"group-name": "\"Mechanical\"",
-										"state": "deactivated"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Global_Inventory_Background_Black",
-									"sid": 178011239953040,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Press_ESC_Background",
-									"sid": 381772420235629,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Miner_Inventory_Text",
-									"sid": 901148767436828,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 884171304082795,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Global_Inventory_Items_Text",
-									"sid": 980368505885602,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Sell_Items_Buttons",
-									"sid": 905285482754422,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Deposit_Menu_Buttons",
-									"sid": 795381386424656,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Warehouse_Deposit_Background",
-									"sid": 255411796427598,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 202079936070260,
-									"parameters": {
-										"group-name": "\"Sell Buttons\"",
-										"state": "deactivated"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Sell_Menu_Buttons",
-									"sid": 370718518598371,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 277801447361969,
-									"parameters": {
-										"group-name": "\"Warehouse Inventory Management\"",
-										"state": "activated"
-									}
 								}
 							],
 							"sid": 346003028387935,
@@ -26287,6 +26228,158 @@
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
+										{
+											"id": "save",
+											"objectClass": "System",
+											"sid": 165949325311317,
+											"parameters": {
+												"slot": "\"mysave\""
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 419272082088471,
+											"parameters": {
+												"layer": "\"Buildings\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 747990797658732,
+											"parameters": {
+												"layer": "\"Buildings_2\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 176519987531371,
+											"parameters": {
+												"layer": "\"HUD\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 997352728556564,
+											"parameters": {
+												"layer": "\"Player\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 913285346677552,
+											"parameters": {
+												"layer": "\"Background\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 601056143731038,
+											"parameters": {
+												"group-name": "\"Mechanical\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Global_Inventory_Background_Black",
+											"sid": 530123565996443,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Press_ESC_Background",
+											"sid": 829395662758757,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Miner_Inventory_Text",
+											"sid": 896408932401680,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 775698696947371,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Global_Inventory_Items_Text",
+											"sid": 115946572406530,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Sell_Items_Buttons",
+											"sid": 199506173255422,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Deposit_Menu_Buttons",
+											"sid": 863776948114313,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Warehouse_Deposit_Background",
+											"sid": 925084966590421,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 874874590218178,
+											"parameters": {
+												"group-name": "\"Sell Buttons\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Sell_Menu_Buttons",
+											"sid": 443719659100538,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 960859555677223,
+											"parameters": {
+												"group-name": "\"Warehouse Inventory Management\"",
+												"state": "activated"
+											}
+										},
 										{
 											"id": "set-group-active",
 											"objectClass": "System",
@@ -32992,13 +33085,31 @@
 									"parameters": {
 										"object": "Smelter_Door"
 									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 660467102657656,
+									"parameters": {
+										"variable": "Entering_Building"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
 								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 357880743393568,
+									"parameters": {
+										"variable": "Entering_Building",
+										"value": "true"
+									}
+								},
+								{
 									"id": "set-position",
 									"objectClass": "Miner_Box",
-									"sid": 674235552637182,
+									"sid": 382954130193041,
 									"parameters": {
 										"x": "4608",
 										"y": "1216"
@@ -33007,7 +33118,7 @@
 								{
 									"id": "pin-to-object-properties",
 									"objectClass": "Miner_Box",
-									"sid": 363284697243325,
+									"sid": 221867832800379,
 									"behaviorType": "Pin",
 									"parameters": {
 										"pin-to": "Smelter_Building_Art",
@@ -33018,120 +33129,121 @@
 										"height-type": "no",
 										"z": false
 									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 160612285638572,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "save",
-									"objectClass": "System",
-									"sid": 685069628376196,
-									"parameters": {
-										"slot": "\"mysave\""
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 856284388703709,
-									"parameters": {
-										"layer": "\"Buildings\"",
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 501074488468517,
-									"parameters": {
-										"layer": "\"HUD\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 790543531053257,
-									"parameters": {
-										"layer": "\"Player\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 494512975583746,
-									"parameters": {
-										"layer": "\"Background\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 816226989108228,
-									"parameters": {
-										"group-name": "\"Mechanical\"",
-										"state": "deactivated"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Global_Inventory_Background_Black",
-									"sid": 519234744423368,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 535406865843936,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "fade-volume",
-									"objectClass": "SFX",
-									"sid": 318193589275778,
-									"parameters": {
-										"tag": "\"Surface_Music\"",
-										"db": "-100",
-										"duration": "1",
-										"ending": "stop"
-									}
-								},
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 842437440772197,
-									"parameters": {
-										"audio-file": "Smelter Background Felix Blume - Hard Days Work - Factory Ambience Metallic Machine Rattle Hum Whir ",
-										"loop": "not-looping",
-										"volume": "-10",
-										"stereo-pan": "0",
-										"tag-optional": "\"Smelter_Music\""
-									}
-								},
-								{
-									"id": "fade-volume",
-									"objectClass": "SFX",
-									"sid": 536466669207230,
-									"parameters": {
-										"tag": "\"Furnace_Active\"",
-										"db": "100",
-										"duration": "3",
-										"ending": "keep-playing"
-									}
 								}
 							],
-							"sid": 604227822232638
+							"sid": 604227822232638,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "save",
+											"objectClass": "System",
+											"sid": 778929983272454,
+											"parameters": {
+												"slot": "\"mysave\""
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 606681818157574,
+											"parameters": {
+												"layer": "\"Buildings\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 699995414281010,
+											"parameters": {
+												"layer": "\"HUD\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 750655663147801,
+											"parameters": {
+												"layer": "\"Player\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 164348268362028,
+											"parameters": {
+												"layer": "\"Background\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 156518450564794,
+											"parameters": {
+												"group-name": "\"Mechanical\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Global_Inventory_Background_Black",
+											"sid": 720152216992246,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 517183797290068,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "fade-volume",
+											"objectClass": "SFX",
+											"sid": 457869247477584,
+											"parameters": {
+												"tag": "\"Surface_Music\"",
+												"db": "-100",
+												"duration": "1",
+												"ending": "stop"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 492316614885020,
+											"parameters": {
+												"audio-file": "Smelter Background Felix Blume - Hard Days Work - Factory Ambience Metallic Machine Rattle Hum Whir ",
+												"loop": "not-looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"Smelter_Music\""
+											}
+										},
+										{
+											"id": "fade-volume",
+											"objectClass": "SFX",
+											"sid": 464482613663140,
+											"parameters": {
+												"tag": "\"Furnace_Active\"",
+												"db": "100",
+												"duration": "3",
+												"ending": "keep-playing"
+											}
+										}
+									],
+									"sid": 882090740912093
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -33153,9 +33265,27 @@
 									"parameters": {
 										"object": "Smelter_Door"
 									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 138773421627974,
+									"parameters": {
+										"variable": "Entering_Building"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 326114638070029,
+									"parameters": {
+										"variable": "Entering_Building",
+										"value": "true"
+									}
+								},
 								{
 									"id": "set-position",
 									"objectClass": "Miner_Box",
@@ -33179,120 +33309,121 @@
 										"height-type": "no",
 										"z": false
 									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 583745676649054,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "save",
-									"objectClass": "System",
-									"sid": 625554218617215,
-									"parameters": {
-										"slot": "\"mysave\""
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 907048911695484,
-									"parameters": {
-										"layer": "\"Buildings\"",
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 176167745000997,
-									"parameters": {
-										"layer": "\"HUD\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 619992606772766,
-									"parameters": {
-										"layer": "\"Player\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 252041704419916,
-									"parameters": {
-										"layer": "\"Background\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 994563960212570,
-									"parameters": {
-										"group-name": "\"Mechanical\"",
-										"state": "deactivated"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Global_Inventory_Background_Black",
-									"sid": 271438948876437,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Global_Inventory_Text",
-									"sid": 431130686444641,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "fade-volume",
-									"objectClass": "SFX",
-									"sid": 522676951363420,
-									"parameters": {
-										"tag": "\"Surface_Music\"",
-										"db": "-100",
-										"duration": "1",
-										"ending": "stop"
-									}
-								},
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 381724027772426,
-									"parameters": {
-										"audio-file": "Smelter Background Felix Blume - Hard Days Work - Factory Ambience Metallic Machine Rattle Hum Whir ",
-										"loop": "not-looping",
-										"volume": "-10",
-										"stereo-pan": "0",
-										"tag-optional": "\"Smelter_Music\""
-									}
-								},
-								{
-									"id": "fade-volume",
-									"objectClass": "SFX",
-									"sid": 805439869382557,
-									"parameters": {
-										"tag": "\"Furnace_Active\"",
-										"db": "100",
-										"duration": "3",
-										"ending": "keep-playing"
-									}
 								}
 							],
-							"sid": 483552111896154
+							"sid": 483552111896154,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "save",
+											"objectClass": "System",
+											"sid": 752660610019169,
+											"parameters": {
+												"slot": "\"mysave\""
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 244881268009092,
+											"parameters": {
+												"layer": "\"Buildings\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 347378671853236,
+											"parameters": {
+												"layer": "\"HUD\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 766927323023774,
+											"parameters": {
+												"layer": "\"Player\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 173288399393923,
+											"parameters": {
+												"layer": "\"Background\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 402141095548433,
+											"parameters": {
+												"group-name": "\"Mechanical\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Global_Inventory_Background_Black",
+											"sid": 308306808121654,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Global_Inventory_Text",
+											"sid": 821252419585899,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "fade-volume",
+											"objectClass": "SFX",
+											"sid": 448662591723826,
+											"parameters": {
+												"tag": "\"Surface_Music\"",
+												"db": "-100",
+												"duration": "1",
+												"ending": "stop"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 485900203445047,
+											"parameters": {
+												"audio-file": "Smelter Background Felix Blume - Hard Days Work - Factory Ambience Metallic Machine Rattle Hum Whir ",
+												"loop": "not-looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"Smelter_Music\""
+											}
+										},
+										{
+											"id": "fade-volume",
+											"objectClass": "SFX",
+											"sid": 172966017611522,
+											"parameters": {
+												"tag": "\"Furnace_Active\"",
+												"db": "100",
+												"duration": "3",
+												"ending": "keep-playing"
+											}
+										}
+									],
+									"sid": 426838178125631
+								}
+							]
 						}
 					],
 					"sid": 978327708007964
@@ -34753,6 +34884,15 @@
 							],
 							"actions": [
 								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 517589500921141,
+									"parameters": {
+										"variable": "Entering_Building",
+										"value": "false"
+									}
+								},
+								{
 									"type": "comment",
 									"text": "Back to player mode"
 								},
@@ -34951,6 +35091,17 @@
 									"sid": 468759067679176,
 									"parameters": {
 										"tag": "\"Shop_Music\"",
+										"db": "-100",
+										"duration": "1",
+										"ending": "stop"
+									}
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 912886605096595,
+									"parameters": {
+										"tag": "\"Shopkeeper\"",
 										"db": "-100",
 										"duration": "1",
 										"ending": "stop"
@@ -38613,6 +38764,37 @@
 									],
 									"sid": 656775170958235,
 									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 566943526970524
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 532707126330245,
+											"parameters": {
+												"instance-variable": "ANGLE_RIGHT",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 785769492300902,
+											"parameters": {
+												"instance-variable": "RIGHT",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 890449029487421
 								}
 							],
 							"isOrBlock": true
@@ -38741,6 +38923,37 @@
 									],
 									"sid": 672173036278434,
 									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 685122340239001
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 100332994734515,
+											"parameters": {
+												"instance-variable": "ANGLE_LEFT",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 297347991041048,
+											"parameters": {
+												"instance-variable": "LEFT",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 780414573679384
 								}
 							],
 							"isOrBlock": true
@@ -39202,24 +39415,24 @@
 													}
 												},
 												{
-													"id": "trigger-once-while-true",
-													"objectClass": "System",
-													"sid": 785012708962850
-												},
-												{
 													"id": "is-boolean-instance-variable-set",
 													"objectClass": "Miner_Box",
 													"sid": 600939439792734,
 													"parameters": {
 														"instance-variable": "Laser_Gun_Active"
 													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 895879804517465
 												}
 											],
 											"actions": [
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 621291742525003,
+													"sid": 663060942663721,
 													"parameters": {
 														"audio-file": "Laser_Gun_Deploy SoundBits - Everyday Elements - Hydraulic Basket Crane Extending",
 														"loop": "not-looping",
@@ -39297,6 +39510,14 @@
 												{
 													"eventType": "block",
 													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Miner_Box",
+															"sid": 878414125381832,
+															"parameters": {
+																"instance-variable": "Laser_Gun_Active"
+															}
+														},
 														{
 															"id": "trigger-once-while-true",
 															"objectClass": "System",
@@ -47622,6 +47843,40 @@
 								{
 									"eventType": "comment",
 									"text": "ENERGY Consumption"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 933653573603870,
+											"parameters": {
+												"key": 83
+											}
+										},
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 445554201129752,
+											"parameters": {
+												"key": 40
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 650784279739613,
+											"parameters": {
+												"instance-variable": "Energy",
+												"value": "Miner_Energy_Efficiency"
+											}
+										}
+									],
+									"sid": 837278248632248,
+									"isOrBlock": true
 								},
 								{
 									"eventType": "block",
