@@ -119,7 +119,7 @@
 			"eventType": "variable",
 			"name": "Vertical_Speed_Multiplier",
 			"type": "number",
-			"initialValue": "1.1",
+			"initialValue": "1",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -129,7 +129,7 @@
 			"eventType": "variable",
 			"name": "Engine_Efficiency_Multiplier",
 			"type": "number",
-			"initialValue": "0.9",
+			"initialValue": "1",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -3441,17 +3441,17 @@
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Stats_Text",
-											"sid": 970881588688858,
+											"sid": 564683340611384,
 											"parameters": {
-												"text": "\"Drill Damage: \" & Miner_Mining_DMG  & newline\n&\"Max Energy: \" & Miner_Box.Max_Energy & newline\n& \"Energy Consumption: \" & Miner_Energy_Efficiency & newline\n&\"Energy Regeneration: \" & Miner_Energy_Regeneration\n&\"Heat Shield: \" & Miner_Box.Shield_Heat\n&\"Impact Shield: \" & Miner_Box.Shield_Impact\n&\"Vertical Speed Multiplier: \" & Vertical_Speed_Multiplier\n&\"Decrease Weight Multiplier: \" & Engine_Efficiency_Multiplier\n"
+												"text": "\"Drill Damage: \" & Miner_Mining_DMG  & newline\n&\"Max Energy: \" & Miner_Box.Max_Energy & newline\n& \"Energy Consumption: \" & Miner_Energy_Efficiency & newline\n&\"Energy Regeneration: \" & Miner_Energy_Regeneration & newline\n&\"Heat Shield: \" & Miner_Box.Shield_Heat & newline\n&\"Impact Shield: \" & Miner_Box.Shield_Impact & newline\n&\"Vertical Speed Multiplier: \" & Vertical_Speed_Multiplier & newline\n&\"Decrease Weight Multiplier: \" & Engine_Efficiency_Multiplier & newline\n"
 											}
 										},
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Passive_Income_Text",
-											"sid": 475001811321085,
+											"sid": 606576143979320,
 											"parameters": {
-												"text": "\"Every Second: \" & newline &\n\n\"Coal Income: \" & Meta_Passive_Income_Object.Meta_Passive_Coal  & newline &\"Quartz Income: \" & Meta_Passive_Income_Object.Meta_Passive_Quartz & newline\n& \"Bauxite Income: \" & Meta_Passive_Income_Object.Meta_Passive_Bauxite & newline &\"Iron Income: \" & Meta_Passive_Income_Object.Meta_Passive_Iron  & newline &\"Chromium Income: \" & Meta_Passive_Income_Object.Meta_Passive_Chromium & newline &\"Copper Income: \" & Meta_Passive_Income_Object.Meta_Passive_Copper\n&\"Lithium Income: \" & Meta_Passive_Income_Object.Meta_Passive_Lithium\n&\"Silver Income: \" & Meta_Passive_Income_Object.Meta_Passive_Silver\n&\"Nickel Income: \" & Meta_Passive_Income_Object.Meta_Passive_Nickel\n&\"Zinc Income: \" & Meta_Passive_Income_Object.Meta_Passive_Zinc\n"
+												"text": "\"Every Second: \" & newline &  newline &\n\n\"Coal Income: \" & Meta_Passive_Income_Object.Meta_Passive_Coal  & newline &\"Quartz Income: \" & Meta_Passive_Income_Object.Meta_Passive_Quartz & newline\n& \"Bauxite Income: \" & Meta_Passive_Income_Object.Meta_Passive_Bauxite & newline &\"Iron Income: \" & Meta_Passive_Income_Object.Meta_Passive_Iron  & newline &\"Chromium Income: \" & Meta_Passive_Income_Object.Meta_Passive_Chromium & newline &\"Copper Income: \" & Meta_Passive_Income_Object.Meta_Passive_Copper & newline\n&\"Lithium Income: \" & Meta_Passive_Income_Object.Meta_Passive_Lithium & newline\n&\"Silver Income: \" & Meta_Passive_Income_Object.Meta_Passive_Silver & newline\n&\"Nickel Income: \" & Meta_Passive_Income_Object.Meta_Passive_Nickel & newline\n&\"Zinc Income: \" & Meta_Passive_Income_Object.Meta_Passive_Zinc & newline\n"
 											}
 										}
 									],
@@ -4817,6 +4817,15 @@
 							"parameters": {
 								"variable": "Vector_Y_Speed_Down",
 								"value": "200 * Vertical_Speed_Multiplier"
+							}
+						},
+						{
+							"id": "set-acceleration",
+							"objectClass": "Miner_Box",
+							"sid": 206144910676003,
+							"behaviorType": "Platform",
+							"parameters": {
+								"acceleration": "2500 - Miner_Box.Weight *Engine_Efficiency_Multiplier *10"
 							}
 						}
 					],
@@ -38561,6 +38570,51 @@
 								}
 							],
 							"sid": 704151603478823,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 667063459142111,
+											"parameters": {
+												"key": 87
+											}
+										},
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 467689050901112,
+											"parameters": {
+												"key": 38
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 349313459577755,
+											"parameters": {
+												"instance-variable": "RIGHT",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 709073691898051,
+											"parameters": {
+												"instance-variable": "ANGLE_RIGHT",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 656775170958235,
+									"isOrBlock": true
+								}
+							],
 							"isOrBlock": true
 						},
 						{
@@ -38579,6 +38633,15 @@
 									"sid": 933016212732891,
 									"parameters": {
 										"instance-variable": "RIGHT",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 161017102369283,
+									"parameters": {
+										"instance-variable": "ANGLE_RIGHT",
 										"value": "false"
 									}
 								}
@@ -38635,6 +38698,51 @@
 								}
 							],
 							"sid": 646282079087232,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 978523293781280,
+											"parameters": {
+												"key": 87
+											}
+										},
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 263731593123452,
+											"parameters": {
+												"key": 38
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 703247429596481,
+											"parameters": {
+												"instance-variable": "LEFT",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 650793730804249,
+											"parameters": {
+												"instance-variable": "ANGLE_LEFT",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 672173036278434,
+									"isOrBlock": true
+								}
+							],
 							"isOrBlock": true
 						},
 						{
@@ -38653,6 +38761,15 @@
 									"sid": 963685773957223,
 									"parameters": {
 										"instance-variable": "LEFT",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 359522359108227,
+									"parameters": {
+										"instance-variable": "ANGLE_LEFT",
 										"value": "false"
 									}
 								}
@@ -39842,6 +39959,158 @@
 						{
 							"eventType": "block",
 							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Miner_Box",
+									"sid": 875545671281005,
+									"parameters": {
+										"instance-variable": "ANGLE_RIGHT"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-vector-y",
+									"objectClass": "Miner_Box",
+									"sid": 687765840681506,
+									"behaviorType": "Platform",
+									"parameters": {
+										"vector-y": "Vector_Y_Speed_Up"
+									}
+								},
+								{
+									"id": "simulate-control",
+									"objectClass": "Miner_Box",
+									"sid": 927596878559172,
+									"behaviorType": "Platform",
+									"parameters": {
+										"control": "right"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Animations",
+									"sid": 344585249844970,
+									"parameters": {
+										"instance-variable": "DIR",
+										"value": "\"Right\""
+									}
+								}
+							],
+							"sid": 706477140192679,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 984431592583766
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 780275907954220,
+											"disabled": true,
+											"parameters": {
+												"audio-file": "Final Cat Studio - 3D Printers - Servo Motor Movement",
+												"loop": "looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"Engine\""
+											}
+										}
+									],
+									"sid": 755028660579325
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 224030688259815
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Miner_Box",
+									"sid": 113779017129259,
+									"parameters": {
+										"instance-variable": "ANGLE_LEFT"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-vector-y",
+									"objectClass": "Miner_Box",
+									"sid": 917936050550121,
+									"behaviorType": "Platform",
+									"parameters": {
+										"vector-y": "Vector_Y_Speed_Up"
+									}
+								},
+								{
+									"id": "simulate-control",
+									"objectClass": "Miner_Box",
+									"sid": 962505678230759,
+									"behaviorType": "Platform",
+									"parameters": {
+										"control": "left"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Animations",
+									"sid": 262596297270057,
+									"parameters": {
+										"instance-variable": "DIR",
+										"value": "\"Left\""
+									}
+								}
+							],
+							"sid": 122900338518106,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 169627440409350
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 825522614434708,
+											"disabled": true,
+											"parameters": {
+												"audio-file": "Final Cat Studio - 3D Printers - Servo Motor Movement",
+												"loop": "looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"Engine\""
+											}
+										}
+									],
+									"sid": 447930652595531
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 134107696093790
+								},
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "Miner_Box",
@@ -42852,10 +43121,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Miner_Box",
-															"sid": 726030371842110,
+															"sid": 176518488939880,
 															"parameters": {
 																"object": "Item_Pick_Up_Text",
-																"layer": "\"Player\"",
+																"layer": "\"Foreground\"",
 																"image-point": "\"Item_Text\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
@@ -42909,17 +43178,6 @@
 												}
 											],
 											"actions": [
-												{
-													"id": "create-item",
-													"objectClass": "Inventory",
-													"sid": 810436330038992,
-													"parameters": {
-														"type": "\"Quartz_Inv\"",
-														"quantity": "1",
-														"inventory-id": "\"Inventory_Miner\"",
-														"slot-id": "\"\""
-													}
-												},
 												{
 													"id": "destroy",
 													"objectClass": "Quartz",
@@ -42980,10 +43238,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Miner_Box",
-															"sid": 143078501574844,
+															"sid": 451369951123433,
 															"parameters": {
 																"object": "Item_Pick_Up_Text",
-																"layer": "\"Player\"",
+																"layer": "\"Foreground\"",
 																"image-point": "\"Item_Text\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
@@ -43037,17 +43295,6 @@
 												}
 											],
 											"actions": [
-												{
-													"id": "create-item",
-													"objectClass": "Inventory",
-													"sid": 902376120835625,
-													"parameters": {
-														"type": "\"Bauxite_Inv\"",
-														"quantity": "1",
-														"inventory-id": "\"Inventory_Miner\"",
-														"slot-id": "\"\""
-													}
-												},
 												{
 													"id": "destroy",
 													"objectClass": "Bauxite_Ore",
@@ -43108,10 +43355,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Miner_Box",
-															"sid": 934012280256253,
+															"sid": 280271588762450,
 															"parameters": {
 																"object": "Item_Pick_Up_Text",
-																"layer": "\"Player\"",
+																"layer": "\"Foreground\"",
 																"image-point": "\"Item_Text\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
@@ -43165,17 +43412,6 @@
 												}
 											],
 											"actions": [
-												{
-													"id": "create-item",
-													"objectClass": "Inventory",
-													"sid": 690800034109552,
-													"parameters": {
-														"type": "\"Iron_Inv\"",
-														"quantity": "1",
-														"inventory-id": "\"Inventory_Miner\"",
-														"slot-id": "\"\""
-													}
-												},
 												{
 													"id": "destroy",
 													"objectClass": "Iron_Ore",
@@ -43403,10 +43639,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Miner_Box",
-															"sid": 964007305996423,
+															"sid": 250446316021236,
 															"parameters": {
 																"object": "Item_Pick_Up_Text",
-																"layer": "\"Player\"",
+																"layer": "\"Foreground\"",
 																"image-point": "\"Item_Text\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
@@ -43698,10 +43934,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Miner_Box",
-															"sid": 408463888326195,
+															"sid": 893782287981935,
 															"parameters": {
 																"object": "Item_Pick_Up_Text",
-																"layer": "\"Player\"",
+																"layer": "\"Foreground\"",
 																"image-point": "\"Item_Text\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
@@ -43755,17 +43991,6 @@
 												}
 											],
 											"actions": [
-												{
-													"id": "create-item",
-													"objectClass": "Inventory",
-													"sid": 356425973689986,
-													"parameters": {
-														"type": "\"Copper_Inv\"",
-														"quantity": "1",
-														"inventory-id": "\"Inventory_Miner\"",
-														"slot-id": "\"\""
-													}
-												},
 												{
 													"id": "destroy",
 													"objectClass": "Copper_Ore",
@@ -43993,10 +44218,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Miner_Box",
-															"sid": 741908586047484,
+															"sid": 454997654910741,
 															"parameters": {
 																"object": "Item_Pick_Up_Text",
-																"layer": "\"Player\"",
+																"layer": "\"Foreground\"",
 																"image-point": "\"Item_Text\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
@@ -44288,10 +44513,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Miner_Box",
-															"sid": 861906019739954,
+															"sid": 587110389961947,
 															"parameters": {
 																"object": "Item_Pick_Up_Text",
-																"layer": "\"Player\"",
+																"layer": "\"Foreground\"",
 																"image-point": "\"Item_Text\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
@@ -44345,17 +44570,6 @@
 												}
 											],
 											"actions": [
-												{
-													"id": "create-item",
-													"objectClass": "Inventory",
-													"sid": 362780006122662,
-													"parameters": {
-														"type": "\"Silver_Inv\"",
-														"quantity": "1",
-														"inventory-id": "\"Inventory_Miner\"",
-														"slot-id": "\"\""
-													}
-												},
 												{
 													"id": "destroy",
 													"objectClass": "Silver_Ore",
@@ -44583,10 +44797,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Miner_Box",
-															"sid": 747974538957546,
+															"sid": 835304270478654,
 															"parameters": {
 																"object": "Item_Pick_Up_Text",
-																"layer": "\"Player\"",
+																"layer": "\"Foreground\"",
 																"image-point": "\"Item_Text\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
@@ -44640,17 +44854,6 @@
 												}
 											],
 											"actions": [
-												{
-													"id": "create-item",
-													"objectClass": "Inventory",
-													"sid": 947800454890555,
-													"parameters": {
-														"type": "\"Nickel_Inv\"",
-														"quantity": "1",
-														"inventory-id": "\"Inventory_Miner\"",
-														"slot-id": "\"\""
-													}
-												},
 												{
 													"id": "destroy",
 													"objectClass": "Nickel_Ore",
@@ -44878,10 +45081,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Miner_Box",
-															"sid": 429332265193625,
+															"sid": 982888706936153,
 															"parameters": {
 																"object": "Item_Pick_Up_Text",
-																"layer": "\"Player\"",
+																"layer": "\"Foreground\"",
 																"image-point": "\"Item_Text\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
@@ -44935,17 +45138,6 @@
 												}
 											],
 											"actions": [
-												{
-													"id": "create-item",
-													"objectClass": "Inventory",
-													"sid": 196196268796438,
-													"parameters": {
-														"type": "\"Zinc_Inv\"",
-														"quantity": "1",
-														"inventory-id": "\"Inventory_Miner\"",
-														"slot-id": "\"\""
-													}
-												},
 												{
 													"id": "destroy",
 													"objectClass": "Zinc_Ore",
@@ -45173,10 +45365,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Miner_Box",
-															"sid": 543599884142191,
+															"sid": 901141735961674,
 															"parameters": {
 																"object": "Item_Pick_Up_Text",
-																"layer": "\"Player\"",
+																"layer": "\"Foreground\"",
 																"image-point": "\"Item_Text\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
@@ -45230,17 +45422,6 @@
 												}
 											],
 											"actions": [
-												{
-													"id": "create-item",
-													"objectClass": "Inventory",
-													"sid": 911287167832009,
-													"parameters": {
-														"type": "\"Gold_Inv\"",
-														"quantity": "1",
-														"inventory-id": "\"Inventory_Miner\"",
-														"slot-id": "\"\""
-													}
-												},
 												{
 													"id": "destroy",
 													"objectClass": "Gold_Ore",
@@ -45468,10 +45649,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Miner_Box",
-															"sid": 560661770492916,
+															"sid": 298305216972446,
 															"parameters": {
 																"object": "Item_Pick_Up_Text",
-																"layer": "\"Player\"",
+																"layer": "\"Foreground\"",
 																"image-point": "\"Item_Text\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
@@ -45525,17 +45706,6 @@
 												}
 											],
 											"actions": [
-												{
-													"id": "create-item",
-													"objectClass": "Inventory",
-													"sid": 170886115770077,
-													"parameters": {
-														"type": "\"Diamond_Inv\"",
-														"quantity": "1",
-														"inventory-id": "\"Inventory_Miner\"",
-														"slot-id": "\"\""
-													}
-												},
 												{
 													"id": "destroy",
 													"objectClass": "Diamond",
@@ -45718,10 +45888,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Miner_Box",
-															"sid": 484151363170302,
+															"sid": 821527334550286,
 															"parameters": {
 																"object": "Item_Pick_Up_Text",
-																"layer": "\"Player\"",
+																"layer": "\"Foreground\"",
 																"image-point": "\"Item_Text\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
@@ -47507,6 +47677,41 @@
 									"sid": 722710698524813
 								},
 								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Miner_Drill",
+											"sid": 836117069822907,
+											"parameters": {
+												"object": "Mining_Blocks_Family"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Miner_Box",
+											"sid": 120850640617751,
+											"parameters": {
+												"instance-variable": "Energy",
+												"comparison": 5,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 504024940395647,
+											"parameters": {
+												"instance-variable": "Energy",
+												"value": "Miner_Energy_Efficiency"
+											}
+										}
+									],
+									"sid": 201322891755898
+								},
+								{
 									"eventType": "comment",
 									"text": "ENERGY Regeneration"
 								},
@@ -47546,10 +47751,10 @@
 										{
 											"id": "add-to-instvar",
 											"objectClass": "Miner_Box",
-											"sid": 652939607734105,
+											"sid": 546873581537293,
 											"parameters": {
 												"instance-variable": "Energy",
-												"value": "1"
+												"value": "Miner_Energy_Regeneration"
 											}
 										}
 									],
@@ -47646,10 +47851,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Miner_Box",
-															"sid": 555180880066008,
+															"sid": 558342868088221,
 															"parameters": {
 																"object": "Warning_Text_Miner",
-																"layer": "\"Player\"",
+																"layer": "\"Foreground\"",
 																"image-point": "\"Warning_Text\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
@@ -47851,41 +48056,6 @@
 												}
 											],
 											"sid": 837131768023803
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-overlapping-another-object",
-													"objectClass": "Miner_Drill",
-													"sid": 159998599238217,
-													"parameters": {
-														"object": "Mining_Blocks_Family"
-													}
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Miner_Box",
-													"sid": 991800746654811,
-													"parameters": {
-														"instance-variable": "Energy",
-														"comparison": 5,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "subtract-from-instvar",
-													"objectClass": "Miner_Box",
-													"sid": 472067665722243,
-													"parameters": {
-														"instance-variable": "Energy",
-														"value": "Miner_Energy_Efficiency"
-													}
-												}
-											],
-											"sid": 138727243721148
 										},
 										{
 											"eventType": "block",
