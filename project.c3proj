@@ -156,6 +156,13 @@
 		},
 		{
 			"type": "effect",
+			"id": "blacknwhite",
+			"name": "Black & white",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
 			"id": "darken",
 			"name": "Darken",
 			"author": "Scirra",
@@ -315,7 +322,7 @@
 			"HUD_Quest_Background",
 			"Quest_Text",
 			"Reward_Text",
-			"Game_Boundary_Sprite",
+			"Game_Boundary_Sprite_Right",
 			"Game_Upper_Boundary",
 			"Menu_Play_Button",
 			"HUD_Menu_Background",
@@ -373,7 +380,28 @@
 			"Meta_Shield_Impact_T1_Button",
 			"Meta_Shield_Heat_Background",
 			"Meta_Shield_Heat_T1_Button",
-			"Enemy_Background_First"
+			"Enemy_Background_First",
+			"Meta_Laser_Gun_Upg_Button",
+			"Meta_Laser_Gun_Reload_Background",
+			"Meta_Laser_Gun_Damage_Background",
+			"Meta_Laser_Gun_Charged_Shot_Background",
+			"Meta_Laser_Reload_T1_Button",
+			"Meta_Laser_Damage_T1_Button",
+			"Meta_Laser_Reload_T1_Button2",
+			"Enemy_Background_Second",
+			"Game_Lower_Boundary",
+			"Press_ESC_Background",
+			"Meta_Item_Discovered_Object",
+			"Item_Discovered_Background",
+			"Item_Discovered_Text",
+			"Enemy_Body3",
+			"Enemy_Body4",
+			"Enemy_Turret_3",
+			"Enemy_Turret_4",
+			"Meta_Passive_Lithium_Button",
+			"Meta_Passive_Silver_Button",
+			"Meta_Passive_Nickel_Button",
+			"Meta_Passive_Zinc_Button"
 		],
 		"subfolders": [
 			{
@@ -420,7 +448,9 @@
 					"Zinc_Block",
 					"Diamond_Block",
 					"Stone_Block",
-					"Lava_Block"
+					"Lava_Block_1",
+					"Dirt_Block_3",
+					"Lava_Block_2"
 				],
 				"subfolders": [
 					{
@@ -515,7 +545,8 @@
 					"HUD_Weight_Text",
 					"HUD_Height_Text",
 					"Reload_Bar",
-					"Charge_Bar"
+					"Charge_Bar",
+					"HUD_Money_Text"
 				],
 				"subfolders": [],
 				"name": "HUD"
@@ -711,7 +742,9 @@
 					"Meta_All_Buttons",
 					"Meta_Materials",
 					"Meta_Engine_Buttons",
-					"Meta_Shield_Buttons"
+					"Meta_Shield_Buttons",
+					"Meta_Laser_Buttons",
+					"Meta_Text"
 				],
 				"subfolders": [],
 				"name": "META_Upgrades"
@@ -756,7 +789,6 @@
 		"items": [
 			"Game",
 			"Objects",
-			"Smelter",
 			"Main_Menu"
 		],
 		"subfolders": []
@@ -764,7 +796,6 @@
 	"eventSheets": {
 		"items": [
 			"Game_Event_Sheet",
-			"Smelter_Event_Sheet",
 			"Main_Menu_Sheet"
 		],
 		"subfolders": []
@@ -924,6 +955,14 @@
 					"name": "welcomeToMyStore.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 109086801112300,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Unlocked_Soundholder - Retro Games - Achievement Ding.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 687355587743191,
 					"file-info": {
 						"purpose": "none"
 					}
@@ -1293,7 +1332,7 @@
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,
 		"useLoaderLayout": false,
-		"fullscreenMode": "letterbox-integer-scale",
+		"fullscreenMode": "letterbox-scale",
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
