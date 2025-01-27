@@ -4611,7 +4611,6 @@
 							"id": "set-silent",
 							"objectClass": "SFX",
 							"sid": 683047249247073,
-							"disabled": true,
 							"parameters": {
 								"mode": "silent"
 							}
@@ -11977,10 +11976,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Miner_Box",
-													"sid": 757917104551698,
+													"sid": 791876669939688,
 													"parameters": {
 														"instance-variable": "Max_Energy",
-														"value": "10"
+														"value": "25"
 													}
 												},
 												{
@@ -12399,10 +12398,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Miner_Box",
-													"sid": 870152859093831,
+													"sid": 859407728289688,
 													"parameters": {
 														"instance-variable": "Max_Energy",
-														"value": "10"
+														"value": "25"
 													}
 												},
 												{
@@ -12821,10 +12820,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Miner_Box",
-													"sid": 101916892769459,
+													"sid": 581691159257602,
 													"parameters": {
 														"instance-variable": "Max_Energy",
-														"value": "20"
+														"value": "50"
 													}
 												},
 												{
@@ -14491,10 +14490,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Meta_Multiplier_Object",
-													"sid": 617835336509341,
+													"sid": 595809807291882,
 													"parameters": {
 														"instance-variable": "Energy_Regen_Multiplier",
-														"value": "0.1"
+														"value": "0.25"
 													}
 												},
 												{
@@ -14913,10 +14912,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Meta_Multiplier_Object",
-													"sid": 183720044065297,
+													"sid": 846844727084802,
 													"parameters": {
 														"instance-variable": "Energy_Regen_Multiplier",
-														"value": "0.1"
+														"value": "0.25"
 													}
 												},
 												{
@@ -15335,10 +15334,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Meta_Multiplier_Object",
-													"sid": 615654414579887,
+													"sid": 438730851548208,
 													"parameters": {
 														"instance-variable": "Energy_Regen_Multiplier",
-														"value": "0.1"
+														"value": "0.25"
 													}
 												},
 												{
@@ -35355,7 +35354,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "468",
+							"initialValue": "216",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -48349,6 +48348,10 @@
 							"isActiveOnStart": true,
 							"children": [
 								{
+									"eventType": "comment",
+									"text": "Enemy bullet behaviours"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -48368,6 +48371,322 @@
 										}
 									],
 									"sid": 736387908901152
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Rock_Bullet",
+											"sid": 106291679158379,
+											"parameters": {
+												"object": "Mining_Blocks_Family"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Rock_Bullet",
+											"sid": 960035493343969
+										}
+									],
+									"sid": 797822739623085
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Devil_Bullet_Sprite",
+											"sid": 721759633549181,
+											"parameters": {
+												"object": "Miner_Box"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 934615422686633,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 261852181797575,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "5 * Miner_Box.Shield_Impact"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Devil_Bullet_Sprite",
+													"sid": 908564016961384
+												},
+												{
+													"id": "shake",
+													"objectClass": "Miner_Box",
+													"sid": 898714673910777,
+													"behaviorType": "ScrollTo",
+													"parameters": {
+														"magnitude": "10",
+														"duration": "0.1",
+														"mode": "reducing-magnitude"
+													}
+												}
+											],
+											"sid": 195826186621026
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Rock_Bullet",
+											"sid": 185969545039552,
+											"parameters": {
+												"object": "Miner_Box"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 361905865750631,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 425689789899867
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 846467019676481,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "10 * Miner_Box.Shield_Impact"
+													}
+												},
+												{
+													"id": "shake",
+													"objectClass": "Miner_Box",
+													"sid": 852437458999880,
+													"behaviorType": "ScrollTo",
+													"parameters": {
+														"magnitude": "10",
+														"duration": "0.1",
+														"mode": "reducing-magnitude"
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Miner_Animations",
+													"sid": 788456225612055,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"Darken\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 436003943298001,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Miner_Animations",
+													"sid": 424975149824248,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"Darken\""
+													}
+												}
+											],
+											"sid": 587351949567612,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 299180168682430,
+															"parameters": {
+																"seconds": "1.0"
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "Rock_Bullet",
+															"sid": 948468731512834
+														}
+													],
+													"sid": 306346125829215
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "MR. MOLE"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Bullet_Sprite",
+											"sid": 175625015380717,
+											"parameters": {
+												"object": "Enemy_Body"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Enemy_Body",
+											"sid": 548029281513148,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "Laser_Gun.Laser_Gun_Damage"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Bullet_Sprite",
+											"sid": 168414620531362
+										},
+										{
+											"id": "set-x",
+											"objectClass": "Enemy_Body",
+											"sid": 412441365332081,
+											"parameters": {
+												"x": "Enemy_Body.X + 5"
+											}
+										}
+									],
+									"sid": 561435924388749
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Sphere_Bullet_Sprite",
+											"sid": 880793946217713,
+											"parameters": {
+												"object": "Enemy_Body"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Enemy_Body",
+											"sid": 953304855272080,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "Laser_Gun.Laser_Gun_Charged_Damage"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Sphere_Bullet_Sprite",
+											"sid": 262932646880796
+										},
+										{
+											"id": "set-x",
+											"objectClass": "Enemy_Body",
+											"sid": 585474985247136,
+											"parameters": {
+												"x": "Enemy_Body.X + 10"
+											}
+										}
+									],
+									"sid": 378855466197450
+								},
+								{
+									"eventType": "comment",
+									"text": "MRS. MOLE"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Bullet_Sprite",
+											"sid": 173773430028523,
+											"parameters": {
+												"object": "Enemy_Body2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Enemy_Body2",
+											"sid": 541592715909871,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "Laser_Gun.Laser_Gun_Damage"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Bullet_Sprite",
+											"sid": 814706461261465
+										}
+									],
+									"sid": 300166573390268
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Sphere_Bullet_Sprite",
+											"sid": 548955824240564,
+											"parameters": {
+												"object": "Enemy_Body2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Enemy_Body2",
+											"sid": 614575221433773,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "Laser_Gun.Laser_Gun_Charged_Damage"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Sphere_Bullet_Sprite",
+											"sid": 353594180408679
+										}
+									],
+									"sid": 395152023267213
+								},
+								{
+									"eventType": "comment",
+									"text": "DEVIL"
 								},
 								{
 									"eventType": "block",
@@ -48434,161 +48753,24 @@
 									"conditions": [
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Bullet_Sprite",
-											"sid": 522446225337567,
+											"objectClass": "Explosion_Area",
+											"sid": 887697610185348,
 											"parameters": {
-												"object": "Enemy_Body"
+												"object": "Enemies_Object"
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "subtract-from-instvar",
+											"id": "set-x",
 											"objectClass": "Enemy_Body",
-											"sid": 633873353499261,
+											"sid": 324651798926728,
 											"parameters": {
-												"instance-variable": "HP",
-												"value": "Laser_Gun.Laser_Gun_Damage"
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Bullet_Sprite",
-											"sid": 319611458656518
-										}
-									],
-									"sid": 494252636162782
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Bullet_Sprite",
-											"sid": 533045111811256,
-											"parameters": {
-												"object": "Enemy_Body2"
+												"x": "Enemies_Object.X +20"
 											}
 										}
 									],
-									"actions": [
-										{
-											"id": "subtract-from-instvar",
-											"objectClass": "Enemy_Body2",
-											"sid": 764216788610220,
-											"parameters": {
-												"instance-variable": "HP",
-												"value": "Laser_Gun.Laser_Gun_Damage"
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Bullet_Sprite",
-											"sid": 872541889891980
-										}
-									],
-									"sid": 280330684446831
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Sphere_Bullet_Sprite",
-											"sid": 121789024090040,
-											"parameters": {
-												"object": "Enemy_Body"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "subtract-from-instvar",
-											"objectClass": "Enemy_Body",
-											"sid": 807466809608320,
-											"parameters": {
-												"instance-variable": "HP",
-												"value": "Laser_Gun.Laser_Gun_Charged_Damage"
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Sphere_Bullet_Sprite",
-											"sid": 983718158201124
-										}
-									],
-									"sid": 262866365651901
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Sphere_Bullet_Sprite",
-											"sid": 340925951153817,
-											"parameters": {
-												"object": "Enemy_Body2"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "subtract-from-instvar",
-											"objectClass": "Enemy_Body2",
-											"sid": 923625751352943,
-											"parameters": {
-												"instance-variable": "HP",
-												"value": "Laser_Gun.Laser_Gun_Charged_Damage"
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Sphere_Bullet_Sprite",
-											"sid": 358724639116961
-										}
-									],
-									"sid": 531736604567698
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Devil_Bullet_Sprite",
-											"sid": 721522647988906,
-											"parameters": {
-												"object": "Miner_Box"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "subtract-from-instvar",
-											"objectClass": "Miner_Box",
-											"sid": 304428972755810,
-											"parameters": {
-												"instance-variable": "HP",
-												"value": "5 * Miner_Box.Shield_Impact"
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Devil_Bullet_Sprite",
-											"sid": 580962928565370
-										},
-										{
-											"id": "shake",
-											"objectClass": "Miner_Box",
-											"sid": 382872461794839,
-											"behaviorType": "ScrollTo",
-											"parameters": {
-												"magnitude": "10",
-												"duration": "0.1",
-												"mode": "reducing-magnitude"
-											}
-										}
-									],
-									"sid": 506682068383053
+									"sid": 981489900854261
 								}
 							],
 							"sid": 944442221508484
@@ -48644,22 +48826,45 @@
 									],
 									"actions": [
 										{
-											"id": "destroy",
+											"id": "set-animation",
 											"objectClass": "Enemy_Body",
-											"sid": 418228055843802
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Enemy_Turret_1",
-											"sid": 707727346655503
+											"sid": 805094540490307,
+											"parameters": {
+												"animation": "\"Dead\"",
+												"from": "beginning"
+											}
 										}
 									],
 									"sid": 513099584952840,
 									"children": [
 										{
 											"eventType": "block",
-											"conditions": [],
+											"conditions": [
+												{
+													"id": "on-animation-finished",
+													"objectClass": "Enemy_Body",
+													"sid": 417983436293094,
+													"parameters": {
+														"animation": "\"Dead\""
+													}
+												}
+											],
 											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Enemy_Body",
+													"sid": 138099706982761
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Enemy_Turret_1",
+													"sid": 599900536468721
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Dust_Animation_MR_MOLE",
+													"sid": 228204540068968
+												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
@@ -48690,14 +48895,13 @@
 									],
 									"actions": [
 										{
-											"id": "destroy",
+											"id": "set-animation",
 											"objectClass": "Enemy_Body2",
-											"sid": 224221811095218
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Enemy_Turret_2",
-											"sid": 582087451487257
+											"sid": 198491792763044,
+											"parameters": {
+												"animation": "\"Dead\"",
+												"from": "beginning"
+											}
 										}
 									],
 									"sid": 463883373084776,
@@ -48706,6 +48910,21 @@
 											"eventType": "block",
 											"conditions": [],
 											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Enemy_Body2",
+													"sid": 917141269025055
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Enemy_Turret_2",
+													"sid": 382465078542854
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Dust_Animation_MRS_MOLE",
+													"sid": 251183834529215
+												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
@@ -48866,6 +49085,33 @@
 												},
 												{
 													"id": "spawn-another-object",
+													"objectClass": "Enemy_Body",
+													"sid": 672736328132698,
+													"parameters": {
+														"object": "Dust_Animation_MR_MOLE",
+														"layer": "\"Player\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "pin-to-object-properties",
+													"objectClass": "Dust_Animation_MR_MOLE",
+													"sid": 842104392275379,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "Enemy_Body",
+														"x": true,
+														"y": true,
+														"angle": true,
+														"width-type": "no",
+														"height-type": "no",
+														"z": false
+													}
+												},
+												{
+													"id": "spawn-another-object",
 													"objectClass": "Enemy_Body2",
 													"sid": 256612677347861,
 													"parameters": {
@@ -48874,6 +49120,33 @@
 														"image-point": "\"Hand\"",
 														"create-hierarchy": false,
 														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy_Body2",
+													"sid": 651061325644077,
+													"parameters": {
+														"object": "Dust_Animation_MRS_MOLE",
+														"layer": "\"Player\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "pin-to-object-properties",
+													"objectClass": "Dust_Animation_MRS_MOLE",
+													"sid": 909897761407515,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "Enemy_Body2",
+														"x": true,
+														"y": true,
+														"angle": true,
+														"width-type": "no",
+														"height-type": "no",
+														"z": false
 													}
 												},
 												{
@@ -48957,17 +49230,17 @@
 										{
 											"id": "set-text",
 											"objectClass": "HUD_Enemy_1_HP_Text",
-											"sid": 276268828504343,
+											"sid": 169677190645098,
 											"parameters": {
-												"text": "\"Enemy1   \" & Enemy_Body.HP & \" / \" & Enemy_Body.Max_HP"
+												"text": "\"MR MOLE\" & Enemy_Body.HP & \" / \" & Enemy_Body.Max_HP"
 											}
 										},
 										{
 											"id": "set-text",
 											"objectClass": "HUD_Enemy_2_HP_Text",
-											"sid": 186367776773721,
+											"sid": 876506377937180,
 											"parameters": {
-												"text": "\"Enemy 2   \" & Enemy_Body2.HP & \" / \" & Enemy_Body2.Max_HP"
+												"text": "\"MRS MOLE   \" & Enemy_Body2.HP & \" / \" & Enemy_Body2.Max_HP"
 											}
 										},
 										{
@@ -49005,6 +49278,102 @@
 									],
 									"sid": 730360103603304,
 									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "Miner_Box",
+													"sid": 795276192320806,
+													"parameters": {
+														"comparison": 3,
+														"x-co-ordinate": "Enemy_Body.X"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Enemy_Body",
+													"sid": 638624975785678,
+													"parameters": {
+														"instance-variable": "DIR",
+														"value": "\"Left\""
+													}
+												}
+											],
+											"sid": 671655561272820
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 793428181309454
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Enemy_Body",
+													"sid": 195007910959958,
+													"parameters": {
+														"instance-variable": "DIR",
+														"value": "\"Right\""
+													}
+												}
+											],
+											"sid": 317477587782500
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "Miner_Box",
+													"sid": 637708305473388,
+													"parameters": {
+														"comparison": 3,
+														"x-co-ordinate": "Enemy_Body2.X"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Enemy_Body2",
+													"sid": 126962666142703,
+													"parameters": {
+														"instance-variable": "DIR",
+														"value": "\"Left\""
+													}
+												}
+											],
+											"sid": 706393009605367
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 668515453123681
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Enemy_Body2",
+													"sid": 211128224104500,
+													"parameters": {
+														"instance-variable": "DIR",
+														"value": "\"Right\""
+													}
+												}
+											],
+											"sid": 263787031722066
+										},
 										{
 											"eventType": "block",
 											"conditions": [],
@@ -49119,13 +49488,13 @@
 							],
 							"actions": [
 								{
-									"id": "move-to-object",
+									"id": "move-to-position",
 									"objectClass": "Enemy_Body",
-									"sid": 478669538909778,
+									"sid": 175304826022421,
 									"behaviorType": "MoveTo",
 									"parameters": {
-										"object": "Miner_Box",
-										"image-point": "0",
+										"x": "Miner_Animations.X",
+										"y": "Enemy_Body.Y",
 										"mode": "direct"
 									}
 								},
@@ -49162,23 +49531,81 @@
 										{
 											"id": "every-x-seconds",
 											"objectClass": "System",
-											"sid": 907419741120097,
+											"sid": 668731119971443,
 											"parameters": {
-												"interval-seconds": "0.5"
+												"interval-seconds": "2"
 											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Enemy_Body",
+											"sid": 647976296131429,
+											"parameters": {
+												"animation": "\"Dead\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 583443144783275
 										}
 									],
 									"actions": [
 										{
+											"id": "set-instvar-value",
+											"objectClass": "Enemy_Body",
+											"sid": 716915309670502,
+											"parameters": {
+												"instance-variable": "Action",
+												"value": "\"Throw\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Enemy_Body",
+											"sid": 802108264242089,
+											"parameters": {
+												"animation": "Enemy_Body.Action & \"_\" & Enemy_Body.DIR",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 748360979830016,
+											"parameters": {
+												"seconds": "0.3"
+											}
+										},
+										{
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Turret_1",
-											"sid": 899811914836226,
+											"sid": 892394361591402,
 											"parameters": {
-												"object": "Devil_Bullet_Sprite",
-												"layer": "\"Player\"",
+												"object": "Rock_Bullet",
+												"layer": "\"Background\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Enemy_Body",
+											"sid": 119751972108352,
+											"parameters": {
+												"instance-variable": "Action",
+												"value": "\"Idle\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Enemy_Body",
+											"sid": 773406993578977,
+											"parameters": {
+												"animation": "Enemy_Body.Action & \"_\" & Enemy_Body.DIR",
+												"from": "beginning"
 											}
 										}
 									],
@@ -49229,6 +49656,15 @@
 										"object": "Enemy_Background_First",
 										"image-point": "\"Enemy_1\"",
 										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_Body",
+									"sid": 752334136432934,
+									"parameters": {
+										"instance-variable": "Action",
+										"value": "\"Idle\""
 									}
 								}
 							],
@@ -49283,13 +49719,13 @@
 							],
 							"actions": [
 								{
-									"id": "move-to-object",
+									"id": "move-to-position",
 									"objectClass": "Enemy_Body2",
-									"sid": 556813960510079,
+									"sid": 639958720895151,
 									"behaviorType": "MoveTo",
 									"parameters": {
-										"object": "Miner_Box",
-										"image-point": "0",
+										"x": "Miner_Box.X",
+										"y": "Enemy_Body2.Y",
 										"mode": "direct"
 									}
 								},
@@ -49326,27 +49762,85 @@
 										{
 											"id": "every-x-seconds",
 											"objectClass": "System",
-											"sid": 209822099780814,
+											"sid": 766590144692322,
 											"parameters": {
-												"interval-seconds": "0.5"
+												"interval-seconds": "2"
 											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Enemy_Body2",
+											"sid": 572098113141246,
+											"parameters": {
+												"animation": "\"Dead\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 293706871271860
 										}
 									],
 									"actions": [
 										{
+											"id": "set-instvar-value",
+											"objectClass": "Enemy_Body2",
+											"sid": 334160956404156,
+											"parameters": {
+												"instance-variable": "Action",
+												"value": "\"Throw\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Enemy_Body2",
+											"sid": 824744009761286,
+											"parameters": {
+												"animation": "Enemy_Body2.Action & \"_\" & Enemy_Body2.DIR",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 669629139394560,
+											"parameters": {
+												"seconds": "0.3"
+											}
+										},
+										{
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Turret_2",
-											"sid": 981154641835007,
+											"sid": 153006767183406,
 											"parameters": {
-												"object": "Devil_Bullet_Sprite",
-												"layer": "\"Player\"",
+												"object": "Rock_Bullet",
+												"layer": "\"Background\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Enemy_Body2",
+											"sid": 763320863536832,
+											"parameters": {
+												"instance-variable": "Action",
+												"value": "\"Idle\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Enemy_Body2",
+											"sid": 638130154627277,
+											"parameters": {
+												"animation": "Enemy_Body2.Action & \"_\" & Enemy_Body2.DIR",
+												"from": "beginning"
+											}
 										}
 									],
-									"sid": 595565414668691
+									"sid": 884588098916684
 								}
 							]
 						},
@@ -49393,6 +49887,15 @@
 										"object": "Enemy_Background_First",
 										"image-point": "\"Enemy_2\"",
 										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_Body2",
+									"sid": 197080748248144,
+									"parameters": {
+										"instance-variable": "Action",
+										"value": "\"Idle\""
 									}
 								}
 							],
