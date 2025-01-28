@@ -32143,9 +32143,9 @@
 																{
 																	"id": "subtract-from-instvar",
 																	"objectClass": "Global_Inventory_Object",
-																	"sid": 803332355627491,
+																	"sid": 168686776093884,
 																	"parameters": {
-																		"instance-variable": "Zinc",
+																		"instance-variable": "Zinc_Ingot",
 																		"value": "Warehouse_Sell_Cart_Object.Zinc_Ingot"
 																	}
 																}
@@ -48760,17 +48760,56 @@
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 981489900854261,
+									"children": [
 										{
-											"id": "set-x",
-											"objectClass": "Enemy_Body",
-											"sid": 324651798926728,
-											"parameters": {
-												"x": "Enemies_Object.X +20"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "Miner_Box",
+													"sid": 510598088010335,
+													"parameters": {
+														"comparison": 3,
+														"x-co-ordinate": "Enemies_Object.X"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-x",
+													"objectClass": "Enemies_Object",
+													"sid": 422391358292545,
+													"parameters": {
+														"x": "Enemies_Object.X +20"
+													}
+												}
+											],
+											"sid": 282586036289840
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 352252016052637
+												}
+											],
+											"actions": [
+												{
+													"id": "set-x",
+													"objectClass": "Enemies_Object",
+													"sid": 460829085639766,
+													"parameters": {
+														"x": "Enemies_Object.X -20"
+													}
+												}
+											],
+											"sid": 377583690451755
 										}
-									],
-									"sid": 981489900854261
+									]
 								}
 							],
 							"sid": 944442221508484
