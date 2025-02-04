@@ -3819,6 +3819,33 @@
 								},
 								{
 									"id": "spawn-another-object",
+									"objectClass": "HUD_Menu_Background",
+									"sid": 543011226045924,
+									"parameters": {
+										"object": "Save_Menu_Button",
+										"layer": "\"HUD\"",
+										"image-point": "\"Save_Menu_Button\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Save_Menu_Button",
+									"sid": 691451412282632,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "HUD_Menu_Background",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
 									"objectClass": "HUD_Grey",
 									"sid": 405715119358003,
 									"parameters": {
@@ -23182,10 +23209,17 @@
 										"mode": "disable",
 										"effect": "\"Darken\""
 									}
+								},
+								{
+									"id": "save",
+									"objectClass": "System",
+									"sid": 714198471865841,
+									"parameters": {
+										"slot": "\"mysave\""
+									}
 								}
 							],
 							"sid": 653141037724544,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -23200,8 +23234,7 @@
 											}
 										}
 									],
-									"sid": 854528692413539,
-									"disabled": true
+									"sid": 854528692413539
 								}
 							]
 						},
@@ -23319,6 +23352,131 @@
 										}
 									],
 									"sid": 672521303950269
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 457506609223459,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Save_Menu_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 575127653638819,
+									"parameters": {
+										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Save_Menu_Button",
+									"sid": 724166139223945,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 525889160237036,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Save_Menu_Button",
+									"sid": 749110117689626,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "save",
+									"objectClass": "System",
+									"sid": 788610275640122,
+									"parameters": {
+										"slot": "\"mysave\""
+									}
+								}
+							],
+							"sid": 328487081816593,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 930892386484631,
+											"parameters": {
+												"object": "Item_Discovered_Background",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 900349049213700,
+											"parameters": {
+												"object": "Item_Discovered_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 655520453423759,
+											"parameters": {
+												"text": "\"GAME IS SAVED\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 958406280760596,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Background",
+											"sid": 562612699382271
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 873390899081250
+										}
+									],
+									"sid": 249254233914272
 								}
 							]
 						},
@@ -23929,6 +24087,7 @@
 											"id": "save",
 											"objectClass": "System",
 											"sid": 759221530484062,
+											"disabled": true,
 											"parameters": {
 												"slot": "\"mysave\""
 											}
@@ -24132,6 +24291,7 @@
 											"id": "save",
 											"objectClass": "System",
 											"sid": 168887904428274,
+											"disabled": true,
 											"parameters": {
 												"slot": "\"mysave\""
 											}
@@ -26055,6 +26215,7 @@
 											"id": "save",
 											"objectClass": "System",
 											"sid": 554050074542612,
+											"disabled": true,
 											"parameters": {
 												"slot": "\"mysave\""
 											}
@@ -26293,6 +26454,7 @@
 											"id": "save",
 											"objectClass": "System",
 											"sid": 165949325311317,
+											"disabled": true,
 											"parameters": {
 												"slot": "\"mysave\""
 											}
@@ -33207,6 +33369,7 @@
 											"id": "save",
 											"objectClass": "System",
 											"sid": 778929983272454,
+											"disabled": true,
 											"parameters": {
 												"slot": "\"mysave\""
 											}
@@ -33387,6 +33550,7 @@
 											"id": "save",
 											"objectClass": "System",
 											"sid": 752660610019169,
+											"disabled": true,
 											"parameters": {
 												"slot": "\"mysave\""
 											}
@@ -35419,7 +35583,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "468",
+							"initialValue": "50",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
