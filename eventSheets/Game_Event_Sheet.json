@@ -5089,6 +5089,18 @@
 											}
 										},
 										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 859456564427983,
+											"parameters": {
+												"object": "Meta_Weapons_Upg_Button",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Slot_6\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
 											"id": "wait",
 											"objectClass": "System",
 											"sid": 192042427132379,
@@ -5161,6 +5173,21 @@
 											"id": "pin-to-object-properties",
 											"objectClass": "Meta_Shield_Upg_Button",
 											"sid": 551859871998921,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 349755508642454,
 											"behaviorType": "Pin",
 											"parameters": {
 												"pin-to": "Meta_Upg_Background",
@@ -5748,6 +5775,15 @@
 														"instance-variable": "Shield_Upg",
 														"value": "0"
 													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 419299222631376,
+													"parameters": {
+														"instance-variable": "Weapons_Upg",
+														"value": "0"
+													}
 												}
 											],
 											"sid": 490297190216367
@@ -5907,6 +5943,15 @@
 													"sid": 901021907972774,
 													"parameters": {
 														"instance-variable": "Shield_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 426133119279897,
+													"parameters": {
+														"instance-variable": "Weapons_Upg",
 														"value": "0"
 													}
 												}
@@ -6459,6 +6504,15 @@
 													"sid": 435745215955256,
 													"parameters": {
 														"instance-variable": "Energy_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 705409422407007,
+													"parameters": {
+														"instance-variable": "Weapons_Upg",
 														"value": "0"
 													}
 												},
@@ -11379,6 +11433,15 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Meta_Upg_Background",
+													"sid": 199932307767945,
+													"parameters": {
+														"instance-variable": "Weapons_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
 													"sid": 923258683283770,
 													"parameters": {
 														"instance-variable": "Passive_Upg",
@@ -15710,6 +15773,15 @@
 													"sid": 981616486608714,
 													"parameters": {
 														"instance-variable": "Shield_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 459241782212032,
+													"parameters": {
+														"instance-variable": "Weapons_Upg",
 														"value": "0"
 													}
 												},
@@ -20717,6 +20789,15 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Meta_Upg_Background",
+													"sid": 149204092712663,
+													"parameters": {
+														"instance-variable": "Weapons_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
 													"sid": 221251206960446,
 													"parameters": {
 														"instance-variable": "Drill_Upg",
@@ -21899,6 +21980,15 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Meta_Upg_Background",
+													"sid": 777103447198260,
+													"parameters": {
+														"instance-variable": "Weapons_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
 													"sid": 206313742074764,
 													"parameters": {
 														"instance-variable": "Shield_Upg",
@@ -21919,7 +22009,7 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
-															"sid": 686440583012398,
+															"sid": 103291938289313,
 															"parameters": {
 																"object": "Meta_Shield_Impact_Background",
 																"layer": "\"Meta_upgrades_Content\"",
@@ -21931,7 +22021,7 @@
 														{
 															"id": "pin-to-object-properties",
 															"objectClass": "Meta_Shield_Impact_Background",
-															"sid": 631418479852718,
+															"sid": 577361682841465,
 															"behaviorType": "Pin",
 															"parameters": {
 																"pin-to": "Meta_ScrollabeSprite",
@@ -21946,7 +22036,7 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
-															"sid": 339897975128816,
+															"sid": 153115338139455,
 															"parameters": {
 																"object": "Meta_Shield_Impact_T1_Button",
 																"layer": "\"Meta_upgrades_Content\"",
@@ -21958,7 +22048,7 @@
 														{
 															"id": "pin-to-object-properties",
 															"objectClass": "Meta_Shield_Impact_T1_Button",
-															"sid": 374288668065095,
+															"sid": 329692159038641,
 															"behaviorType": "Pin",
 															"parameters": {
 																"pin-to": "Meta_ScrollabeSprite",
@@ -21977,7 +22067,7 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
-															"sid": 876981547918446,
+															"sid": 239789385572727,
 															"parameters": {
 																"object": "Meta_Shield_Heat_Background",
 																"layer": "\"Meta_upgrades_Content\"",
@@ -21989,7 +22079,7 @@
 														{
 															"id": "pin-to-object-properties",
 															"objectClass": "Meta_Shield_Heat_Background",
-															"sid": 232082554917222,
+															"sid": 168052188828617,
 															"behaviorType": "Pin",
 															"parameters": {
 																"pin-to": "Meta_ScrollabeSprite",
@@ -22004,7 +22094,7 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
-															"sid": 468103591498431,
+															"sid": 700991194252568,
 															"parameters": {
 																"object": "Meta_Shield_Heat_T1_Button",
 																"layer": "\"Meta_upgrades_Content\"",
@@ -22016,7 +22106,7 @@
 														{
 															"id": "pin-to-object-properties",
 															"objectClass": "Meta_Shield_Heat_T1_Button",
-															"sid": 236209861850085,
+															"sid": 730881828507555,
 															"behaviorType": "Pin",
 															"parameters": {
 																"pin-to": "Meta_ScrollabeSprite",
@@ -22029,7 +22119,7 @@
 															}
 														}
 													],
-													"sid": 241881304244206
+													"sid": 384537235646305
 												}
 											]
 										}
@@ -22946,6 +23036,1255 @@
 						}
 					],
 					"sid": 586728507975655
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Weapons Upgrade Tree",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Weapons Upgrade Button Spawns",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 426877293148412,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Weapons_Upg_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 746222608016819,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 928545421397688,
+											"parameters": {
+												"instance-variable": "Weapons_Upg",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Weapons_Buttons",
+											"sid": 868859196943097,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 474266082318806,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"BlackWhite\""
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 776647252757292,
+											"parameters": {
+												"y": "Meta_Upg_Background.Y"
+											}
+										}
+									],
+									"sid": 360355171652404,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "Set SHIELD UPG focused and other upgrades not focused"
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 389422204053529,
+													"parameters": {
+														"instance-variable": "Energy_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 205736580729776,
+													"parameters": {
+														"instance-variable": "Passive_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 108533313965253,
+													"parameters": {
+														"instance-variable": "Drill_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 646307889600047,
+													"parameters": {
+														"instance-variable": "Engine_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 416839498161680,
+													"parameters": {
+														"instance-variable": "Shield_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 116856091215580,
+													"parameters": {
+														"instance-variable": "Weapons_Upg",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 443646510915117,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"type": "comment",
+															"text": "Spawn all buttons related to SHIELD Upgrades"
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 910769139467834,
+															"parameters": {
+																"object": "Meta_Laser_Gun_Reload_Background",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_1\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Laser_Gun_Reload_Background",
+															"sid": 113514789695928,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 853326463470905,
+															"parameters": {
+																"object": "Meta_Laser_Reload_T1_Button",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_2\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Laser_Reload_T1_Button",
+															"sid": 869714241790880,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"type": "comment",
+															"text": "Leave space for more tiers of upgrades"
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 402599802789787,
+															"parameters": {
+																"object": "Meta_Laser_Gun_Damage_Background",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_6\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Laser_Gun_Damage_Background",
+															"sid": 677912568888369,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 322691914629697,
+															"parameters": {
+																"object": "Meta_Laser_Damage_T1_Button",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_7\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Laser_Damage_T1_Button",
+															"sid": 194305700570623,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"type": "comment",
+															"text": "Leave space for more tiers of upgrades"
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 532045474603623,
+															"parameters": {
+																"object": "Meta_Laser_Gun_Charged_Shot_Background",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_10\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Laser_Gun_Charged_Shot_Background",
+															"sid": 691287606589543,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 582336444813492,
+															"parameters": {
+																"object": "Meta_Laser_Charged_T1_Button",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_11\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Laser_Charged_T1_Button",
+															"sid": 576007963750831,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														}
+													],
+													"sid": 278164721249700
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 891325753984421,
+											"parameters": {
+												"instance-variable": "Weapons_Upg",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 410211683154532,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 995771958878268
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Weapons_Buttons",
+											"sid": 895177064356576,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 963021357443650,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"BlackWhite\""
+											}
+										}
+									],
+									"sid": 256446364169348,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Meta_Weapons_Buttons",
+													"sid": 889424811554129
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Meta_Materials",
+													"sid": 818235658148572
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Text",
+													"sid": 240393510363078,
+													"parameters": {
+														"text": "\"\""
+													}
+												}
+											],
+											"sid": 684164712635062
+										}
+									]
+								}
+							],
+							"sid": 371531000529800
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Laser Reload Tier 1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 631191371044815,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Laser_Reload_T1_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Laser_Reload_T1_Button",
+											"sid": 614145306872746,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Laser_Reload_T1_Button",
+											"sid": 864751027756669,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 950052646026154,
+											"parameters": {
+												"instance-variable": "Laser_Reload_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Weapons_Buttons",
+											"sid": 109527778617218,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 786117101704081,
+											"parameters": {
+												"text": "\"This will decrease your reload time by X %\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Laser_Reload_T1_Button",
+											"sid": 855515520206644,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 896769858139325,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Laser_Reload_T1_Button",
+													"sid": 696961502137053,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 842906364127872
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 555921703771038,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Laser_Reload_T1_Button",
+											"sid": 901134676569632,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Laser_Reload_T1_Button",
+											"sid": 524876280831215,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 964504511718330,
+											"parameters": {
+												"instance-variable": "Laser_Reload_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 538497570824802,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 768419992470479,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 693389339848227,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 383137972563649,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 739161019537945,
+													"parameters": {
+														"instance-variable": "Gold",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Weapons_Upg_Button",
+													"sid": 844380855717087,
+													"parameters": {
+														"instance-variable": "Laser_Reload_Tier1_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 179111033693796,
+													"parameters": {
+														"instance-variable": "Gold",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Laser_Gun",
+													"sid": 596394700833939,
+													"parameters": {
+														"instance-variable": "Reload_Time",
+														"value": "0.25"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Weapons_Upg_Button",
+													"sid": 716806386622777,
+													"parameters": {
+														"instance-variable": "Laser_Reload_Tier1_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 898867415128840
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 412134290240256
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Laser_Reload_T1_Button",
+											"sid": 936400642649108,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 270338748896924,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Weapons_Upg_Button.Laser_Reload_Tier1_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 694854937021265,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "5+ floor(Current_Level*10)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 920263657218723,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "3"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 158489569273082,
+											"parameters": {
+												"text": "\"GOLD: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 107582805325647,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 562216111240240,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 200401349284108
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 750975526343987,
+											"parameters": {
+												"instance-variable": "Laser_Reload_Tier1_Level",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Laser_Reload_T1_Button",
+											"sid": 645505605944274,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 420029917879008,
+											"parameters": {
+												"instance-variable": "Laser_Reload_Tier1_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 282337699450900
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Laser_Reload_T1_Button",
+											"sid": 912380073915725,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 843301254903575
+										}
+									],
+									"actions": [],
+									"sid": 572161432816112,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 664148636150132,
+													"parameters": {
+														"object": "Gold_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 826223563431347
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Shield_Impact_T1_Button",
+											"sid": 949083779459671,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Gold_Meta",
+											"sid": 171177860899612
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Laser_Reload_T1_Button",
+											"sid": 357433272869343,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 844876030589230,
+									"isOrBlock": true
+								}
+							],
+							"sid": 478896460526171
+						},
+						{
+							"eventType": "group",
+							"disabled": true,
+							"title": "Shield Heat Tier 2",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 732182595334606,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Shield_Heat_T1_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Shield_Heat_T1_Button",
+											"sid": 482605227971792,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Shield_Heat_T1_Button",
+											"sid": 165537355195310,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 671616791993355,
+											"parameters": {
+												"instance-variable": "Shield_Heat_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Shield_Buttons",
+											"sid": 869074818956498,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 483893969564538,
+											"parameters": {
+												"text": "\"This will decrease the damage you take from mining Lava by 10%/level\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Shield_Heat_T1_Button",
+											"sid": 243757838106016,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 676796885247817,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Shield_Heat_T1_Button",
+													"sid": 959637195414969,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 117374353472953,
+											"disabled": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 610219272089981,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Shield_Heat_T1_Button",
+											"sid": 962511218709015,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Shield_Heat_T1_Button",
+											"sid": 477458830387088,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 997896376859069,
+											"parameters": {
+												"instance-variable": "Shield_Heat_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 362269689127313,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 252141280573251,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 952614742075697,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 283847544020020,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 236059738954386,
+													"parameters": {
+														"instance-variable": "Bauxite",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Shield_Upg_Button",
+													"sid": 914729234891346,
+													"parameters": {
+														"instance-variable": "Shield_Heat_Tier1_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 129104088705902,
+													"parameters": {
+														"instance-variable": "Bauxite",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 754381306470910,
+													"parameters": {
+														"instance-variable": "Shield_Heat",
+														"value": "0.1"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Shield_Upg_Button",
+													"sid": 581565349690732,
+													"parameters": {
+														"instance-variable": "Shield_Heat_Tier1_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 382283836926622,
+											"disabled": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 972389822826535
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Shield_Heat_T1_Button",
+											"sid": 891580964400886,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 786583498362482,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Shield_Upg_Button.Shield_Heat_Tier1_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 447404832956444,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "50+ floor(Current_Level*10)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 408859171001279,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "3"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 962897239388770,
+											"parameters": {
+												"text": "\"BAUXITE: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 213268608313777,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 710725173332405,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 669146268821411,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 646652221224633,
+											"parameters": {
+												"instance-variable": "Shield_Heat_Tier1_Level",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Shield_Heat_T1_Button",
+											"sid": 250243576948323,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 997481165665529,
+											"parameters": {
+												"instance-variable": "Shield_Heat_Tier1_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 347184250700912,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Shield_Heat_T1_Button",
+											"sid": 405525065020123,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 376808951355274
+										}
+									],
+									"actions": [],
+									"sid": 711004344726597,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 258993272500689,
+													"parameters": {
+														"object": "Bauxite_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 773017056539042,
+											"disabled": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Shield_Heat_T1_Button",
+											"sid": 846392064093831,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Bauxite_Meta",
+											"sid": 494414674908336
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Shield_Heat_T1_Button",
+											"sid": 781708551252950,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 979951139284498,
+									"disabled": true,
+									"isOrBlock": true
+								}
+							],
+							"sid": 860216255006784
+						}
+					],
+					"sid": 720309021559380
 				}
 			],
 			"sid": 234698063228916
@@ -24087,7 +25426,6 @@
 											"id": "save",
 											"objectClass": "System",
 											"sid": 759221530484062,
-											"disabled": true,
 											"parameters": {
 												"slot": "\"mysave\""
 											}
@@ -24291,7 +25629,6 @@
 											"id": "save",
 											"objectClass": "System",
 											"sid": 168887904428274,
-											"disabled": true,
 											"parameters": {
 												"slot": "\"mysave\""
 											}
@@ -26215,7 +27552,6 @@
 											"id": "save",
 											"objectClass": "System",
 											"sid": 554050074542612,
-											"disabled": true,
 											"parameters": {
 												"slot": "\"mysave\""
 											}
@@ -26454,7 +27790,6 @@
 											"id": "save",
 											"objectClass": "System",
 											"sid": 165949325311317,
-											"disabled": true,
 											"parameters": {
 												"slot": "\"mysave\""
 											}
@@ -33369,7 +34704,6 @@
 											"id": "save",
 											"objectClass": "System",
 											"sid": 778929983272454,
-											"disabled": true,
 											"parameters": {
 												"slot": "\"mysave\""
 											}
@@ -33550,7 +34884,6 @@
 											"id": "save",
 											"objectClass": "System",
 											"sid": 752660610019169,
-											"disabled": true,
 											"parameters": {
 												"slot": "\"mysave\""
 											}
@@ -35793,7 +37126,7 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 230238407736175,
+															"sid": 104344879340687,
 															"parameters": {
 																"object-to-create": "Dirt_Block_Top",
 																"layer": "\"Player\"",
@@ -35987,7 +37320,7 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 384618405889073,
+															"sid": 683766689479034,
 															"parameters": {
 																"object-to-create": "Dirt_Block",
 																"layer": "\"Player\"",
@@ -36520,11 +37853,11 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 893400105652190,
+													"sid": 825750430873167,
 													"parameters": {
 														"first-value": "Y",
 														"comparison": 2,
-														"second-value": "216"
+														"second-value": "214"
 													}
 												},
 												{
@@ -36552,9 +37885,9 @@
 												{
 													"id": "create-object",
 													"objectClass": "System",
-													"sid": 775254068664832,
+													"sid": 336691860969364,
 													"parameters": {
-														"object-to-create": "Stone_Block",
+														"object-to-create": "Mole_Top_Block",
 														"layer": "\"Player\"",
 														"x": "loopindex *64",
 														"y": "Y *64",
@@ -36564,6 +37897,71 @@
 												}
 											],
 											"sid": 219844101456629
+										},
+										{
+											"eventType": "comment",
+											"text": "Mini Boss Layer "
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 554682844668201,
+													"parameters": {
+														"first-value": "Y",
+														"comparison": 5,
+														"second-value": "214"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 793645871659173,
+													"parameters": {
+														"first-value": "Y",
+														"comparison": 2,
+														"second-value": "216"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 621317490915471,
+													"parameters": {
+														"variable": "X",
+														"comparison": 5,
+														"value": "10"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 560331561930132,
+													"parameters": {
+														"variable": "X",
+														"comparison": 3,
+														"value": "109"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 494914416324086,
+													"parameters": {
+														"object-to-create": "Dirt_Block_3",
+														"layer": "\"Player\"",
+														"x": "loopindex *64",
+														"y": "Y *64",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 281074475845873
 										},
 										{
 											"eventType": "comment",
@@ -36840,9 +38238,9 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 162266133525382,
+															"sid": 929902567370193,
 															"parameters": {
-																"object-to-create": "Dirt_Block_2",
+																"object-to-create": "Dirt_Block_3",
 																"layer": "\"Player\"",
 																"x": "loopindex *64",
 																"y": "Y *64",
@@ -37208,9 +38606,9 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 915851294650242,
+															"sid": 535874249294002,
 															"parameters": {
-																"object-to-create": "Dirt_Block_2",
+																"object-to-create": "Dirt_Block_3",
 																"layer": "\"Player\"",
 																"x": "loopindex *64",
 																"y": "Y *64",
@@ -37592,9 +38990,9 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 360475097557718,
+															"sid": 567903772918861,
 															"parameters": {
-																"object-to-create": "Dirt_Block_2",
+																"object-to-create": "Dirt_Block_3",
 																"layer": "\"Player\"",
 																"x": "loopindex *64",
 																"y": "Y *64",
@@ -41996,6 +43394,60 @@
 												}
 											],
 											"sid": 329703686983723
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Dirt_3"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Render_Object",
+											"sid": 261660289605723,
+											"parameters": {
+												"object": "Dirt_Block_3"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 761975766957474,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Dirt_Block_3",
+													"sid": 657164550316364,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Dirt_Block_3",
+													"sid": 622713156968149,
+													"parameters": {
+														"instance-variable": "animationNumber",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Dirt_Block_3",
+													"sid": 860449119251530
+												}
+											],
+											"sid": 628006369843334
 										}
 									]
 								},
@@ -48663,6 +50115,57 @@
 									"conditions": [
 										{
 											"id": "is-overlapping-another-object",
+											"objectClass": "Boulder_Bullet",
+											"sid": 279765125647200,
+											"parameters": {
+												"object": "Mining_Blocks_Family"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Boulder_Bullet",
+											"sid": 408745360546208
+										}
+									],
+									"sid": 353588473080600
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Boulder_Explosion_Area",
+											"sid": 246787324206018,
+											"parameters": {
+												"object": "Miner_Box"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 262220113005962,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "75"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Boulder_Explosion_Area",
+											"sid": 167112344892695
+										}
+									],
+									"sid": 400574979384277
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
 											"objectClass": "Devil_Bullet_Sprite",
 											"sid": 721759633549181,
 											"parameters": {
@@ -48802,6 +50305,123 @@
 														}
 													],
 													"sid": 306346125829215
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Boulder_Bullet",
+											"sid": 352771474322439,
+											"parameters": {
+												"object": "Miner_Box"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 452666559632801,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 287353151596532
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 632120529450018,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "50 * Miner_Box.Shield_Impact"
+													}
+												},
+												{
+													"id": "shake",
+													"objectClass": "Miner_Box",
+													"sid": 721131110017378,
+													"behaviorType": "ScrollTo",
+													"parameters": {
+														"magnitude": "10",
+														"duration": "0.1",
+														"mode": "reducing-magnitude"
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Miner_Animations",
+													"sid": 144012592556510,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"Darken\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 827173914556455,
+													"parameters": {
+														"seconds": "0.1",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Miner_Animations",
+													"sid": 655095972348662,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"Darken\""
+													}
+												}
+											],
+											"sid": 307458336196395,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Boulder_Bullet",
+															"sid": 156373553108339,
+															"parameters": {
+																"object": "Explosion_Anim",
+																"layer": "\"Player\"",
+																"image-point": "0",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "Boulder_Bullet",
+															"sid": 290795413149024
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 411380821472169,
+															"parameters": {
+																"seconds": "1.0",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "Explosion_Anim",
+															"sid": 269933835814826
+														}
+													],
+													"sid": 408633377668567
 												}
 											]
 										}
@@ -48950,6 +50570,134 @@
 										}
 									],
 									"sid": 395152023267213
+								},
+								{
+									"eventType": "comment",
+									"text": "Crab People 1"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Bullet_Sprite",
+											"sid": 775242957133389,
+											"parameters": {
+												"object": "Enemy_Body3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Enemy_Body3",
+											"sid": 785956632530176,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "Laser_Gun.Laser_Gun_Damage"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Bullet_Sprite",
+											"sid": 363255158805956
+										}
+									],
+									"sid": 694119090399842
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Sphere_Bullet_Sprite",
+											"sid": 713256021850107,
+											"parameters": {
+												"object": "Enemy_Body3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Enemy_Body3",
+											"sid": 828616771254280,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "Laser_Gun.Laser_Gun_Charged_Damage"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Sphere_Bullet_Sprite",
+											"sid": 467758031881639
+										}
+									],
+									"sid": 928657738672317
+								},
+								{
+									"eventType": "comment",
+									"text": "Crab People 2"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Bullet_Sprite",
+											"sid": 723583305543543,
+											"parameters": {
+												"object": "Enemy_Body4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Enemy_Body4",
+											"sid": 566604421185466,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "Laser_Gun.Laser_Gun_Damage"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Bullet_Sprite",
+											"sid": 919150240220693
+										}
+									],
+									"sid": 803629674833987
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Sphere_Bullet_Sprite",
+											"sid": 996099447946123,
+											"parameters": {
+												"object": "Enemy_Body4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Enemy_Body4",
+											"sid": 622771060785256,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "Laser_Gun.Laser_Gun_Charged_Damage"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Sphere_Bullet_Sprite",
+											"sid": 515852465555394
+										}
+									],
+									"sid": 453884374260027
 								},
 								{
 									"eventType": "comment",
@@ -49254,6 +51002,98 @@
 											"sid": 973297589323382
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemy_Body3",
+											"sid": 430703959658700,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Enemy_Body3",
+											"sid": 986916643042808,
+											"parameters": {
+												"animation": "\"Dead\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 436205443403920,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Enemy_Body3",
+													"sid": 666946255309776
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Enemy_Turret_3",
+													"sid": 399736964257681
+												}
+											],
+											"sid": 178741975412109
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemy_Body4",
+											"sid": 838424083594866,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Enemy_Body4",
+											"sid": 731019779673675,
+											"parameters": {
+												"animation": "\"Dead\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 596975745384243,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Enemy_Body4",
+													"sid": 836872457415696
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Enemy_Turret_4",
+													"sid": 251906063511450
+												}
+											],
+											"sid": 865238599551234
+										}
+									]
 								}
 							],
 							"sid": 806778892325219
@@ -49302,11 +51142,11 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Background_Second",
-											"sid": 420030230451975,
+											"sid": 352713354766045,
 											"parameters": {
 												"object": "Enemy_Body3",
 												"layer": "\"Player\"",
-												"image-point": "\"Enemy_1\"",
+												"image-point": "\"Enemy_3\"",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -49314,11 +51154,11 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Background_Second",
-											"sid": 459141680817642,
+											"sid": 677003681213065,
 											"parameters": {
 												"object": "Enemy_Body4",
 												"layer": "\"Player\"",
-												"image-point": "\"Enemy_2\"",
+												"image-point": "\"Enemy_4\"",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -49544,46 +51384,6 @@
 									],
 									"actions": [
 										{
-											"id": "set-text",
-											"objectClass": "HUD_Enemy_1_HP_Text",
-											"sid": 169677190645098,
-											"parameters": {
-												"text": "\"MR MOLE\" & Enemy_Body.HP & \" / \" & Enemy_Body.Max_HP"
-											}
-										},
-										{
-											"id": "set-text",
-											"objectClass": "HUD_Enemy_2_HP_Text",
-											"sid": 876506377937180,
-											"parameters": {
-												"text": "\"MRS MOLE   \" & Enemy_Body2.HP & \" / \" & Enemy_Body2.Max_HP"
-											}
-										},
-										{
-											"id": "set-text",
-											"objectClass": "HUD_Devil_HP_Text",
-											"sid": 531698287754578,
-											"parameters": {
-												"text": "\"THE DEVIL   \" & Devil_Boss_Sprite.HP & \" / \" & Devil_Boss_Sprite.Max_HP"
-											}
-										},
-										{
-											"id": "set-width",
-											"objectClass": "HUD_Enemy_1_HP_Bar",
-											"sid": 445762528211763,
-											"parameters": {
-												"width": "HUD_Enemy_1_HP_Background.Width* (Enemy_Body.HP / Enemy_Body.Max_HP)"
-											}
-										},
-										{
-											"id": "set-width",
-											"objectClass": "HUD_Enemy_2_HP_Bar",
-											"sid": 344612912115071,
-											"parameters": {
-												"width": "HUD_Enemy_2_HP_Background.Width* (Enemy_Body2.HP / Enemy_Body2.Max_HP)"
-											}
-										},
-										{
 											"id": "set-width",
 											"objectClass": "HUD_Devil_HP_Bar",
 											"sid": 794632847130240,
@@ -49760,19 +51560,19 @@
 												{
 													"id": "set-position",
 													"objectClass": "Enemy_Turret_3",
-													"sid": 466540293606137,
+													"sid": 269352103746649,
 													"parameters": {
-														"x": "Enemy_Body3.X",
-														"y": "Enemy_Body3.Y"
+														"x": "Enemy_Body3.X ",
+														"y": "Enemy_Body3.Y-64"
 													}
 												},
 												{
 													"id": "set-position",
 													"objectClass": "Enemy_Turret_4",
-													"sid": 935943277939090,
+													"sid": 763545817139239,
 													"parameters": {
 														"x": "Enemy_Body4.X",
-														"y": "Enemy_Body4.Y"
+														"y": "Enemy_Body4.Y -64"
 													}
 												},
 												{
@@ -49786,6 +51586,134 @@
 												}
 											],
 											"sid": 369924070479137
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Render_Object",
+													"sid": 926238790038236,
+													"parameters": {
+														"object": "Enemy_Body"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "HUD_Enemy_1_HP_Text",
+													"sid": 376029733429096,
+													"parameters": {
+														"text": "\"MR MOLE\" & Enemy_Body.HP & \" / \" & Enemy_Body.Max_HP"
+													}
+												},
+												{
+													"id": "set-width",
+													"objectClass": "HUD_Enemy_1_HP_Bar",
+													"sid": 586902164085962,
+													"parameters": {
+														"width": "HUD_Enemy_1_HP_Background.Width* (Enemy_Body.HP / Enemy_Body.Max_HP)"
+													}
+												}
+											],
+											"sid": 994474783656845
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Render_Object",
+													"sid": 376793022652156,
+													"parameters": {
+														"object": "Enemy_Body2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "HUD_Enemy_2_HP_Text",
+													"sid": 876410489705266,
+													"parameters": {
+														"text": "\"MRS MOLE   \" & Enemy_Body2.HP & \" / \" & Enemy_Body2.Max_HP"
+													}
+												},
+												{
+													"id": "set-width",
+													"objectClass": "HUD_Enemy_2_HP_Bar",
+													"sid": 474315212707741,
+													"parameters": {
+														"width": "HUD_Enemy_2_HP_Background.Width* (Enemy_Body2.HP / Enemy_Body2.Max_HP)"
+													}
+												}
+											],
+											"sid": 982953893291941
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Render_Object",
+													"sid": 317152887954567,
+													"parameters": {
+														"object": "Enemy_Body3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "HUD_Enemy_1_HP_Text",
+													"sid": 241954439347000,
+													"parameters": {
+														"text": "\"CRAB PEOPLE   \" & Enemy_Body3.HP & \" / \" & Enemy_Body3.Max_HP"
+													}
+												},
+												{
+													"id": "set-width",
+													"objectClass": "HUD_Enemy_1_HP_Bar",
+													"sid": 756873850593603,
+													"parameters": {
+														"width": "HUD_Enemy_2_HP_Background.Width* (Enemy_Body3.HP / Enemy_Body3.Max_HP)"
+													}
+												}
+											],
+											"sid": 191889348998535
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Render_Object",
+													"sid": 324453530482934,
+													"parameters": {
+														"object": "Enemy_Body4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "HUD_Enemy_2_HP_Text",
+													"sid": 310507906875232,
+													"parameters": {
+														"text": "\"CRAB PEOPLE   \" & Enemy_Body4.HP & \" / \" & Enemy_Body4.Max_HP"
+													}
+												},
+												{
+													"id": "set-width",
+													"objectClass": "HUD_Enemy_2_HP_Bar",
+													"sid": 604018825149262,
+													"parameters": {
+														"width": "HUD_Enemy_2_HP_Background.Width* (Enemy_Body4.HP / Enemy_Body4.Max_HP)"
+													}
+												}
+											],
+											"sid": 769764235378790
 										}
 									]
 								}
@@ -50253,6 +52181,620 @@
 										}
 									],
 									"sid": 758517695808969
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-target",
+									"objectClass": "Enemy_Turret_3",
+									"sid": 724266139875958,
+									"behaviorType": "Turret"
+								}
+							],
+							"actions": [
+								{
+									"id": "move-to-position",
+									"objectClass": "Enemy_Body3",
+									"sid": 921072917692287,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"x": "Miner_Box.X",
+										"y": "Enemy_Body3.Y",
+										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_1_HP_Background",
+									"sid": 588262627246034,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_1_HP_Bar",
+									"sid": 381238476360112,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_1_HP_Text",
+									"sid": 987473961840479,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 525206730882376,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 236198861204698,
+											"parameters": {
+												"interval-seconds": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Enemy_Body3",
+											"sid": 579958767250180,
+											"parameters": {
+												"animation": "\"Dead\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 717533394840136
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Enemy_Body3",
+											"sid": 381397387770838,
+											"parameters": {
+												"instance-variable": "Action",
+												"value": "\"Throw\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Enemy_Body3",
+											"sid": 156243505259761,
+											"parameters": {
+												"animation": "Enemy_Body3.Action & \"_\" & Enemy_Body3.DIR",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 534947800497073,
+											"parameters": {
+												"seconds": "0.3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Enemy_Turret_3",
+											"sid": 802262771162998,
+											"parameters": {
+												"object": "Boulder_Bullet",
+												"layer": "\"Background\"",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Enemy_Body3",
+											"sid": 423377039339242,
+											"parameters": {
+												"instance-variable": "Action",
+												"value": "\"Idle\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Enemy_Body3",
+											"sid": 970418509882090,
+											"parameters": {
+												"animation": "Enemy_Body3.Action & \"_\" & Enemy_Body3.DIR",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 959957038924433,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 253591595433600,
+													"parameters": {
+														"seconds": "1.7",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Boulder_Bullet",
+													"sid": 983894889719179,
+													"parameters": {
+														"object": "Explosion_Anim",
+														"layer": "\"Player\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Boulder_Bullet",
+													"sid": 403358065537740,
+													"parameters": {
+														"object": "Boulder_Explosion_Area",
+														"layer": "\"Player\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Boulder_Bullet",
+													"sid": 240054311420956
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 799297534799065,
+													"parameters": {
+														"seconds": "0.25",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Boulder_Explosion_Area",
+													"sid": 320545064659654
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 247846824441756,
+													"parameters": {
+														"seconds": "0.75",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Explosion_Anim",
+													"sid": 433782878667485
+												}
+											],
+											"sid": 172537548936261
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 308027178259491
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_1_HP_Background",
+									"sid": 546753509311489,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_1_HP_Bar",
+									"sid": 554754461879375,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_1_HP_Text",
+									"sid": 724809681429728,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "move-to-object",
+									"objectClass": "Enemy_Body3",
+									"sid": 320500733699975,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"object": "Enemy_Background_Second",
+										"image-point": "\"Enemy_3\"",
+										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_Body3",
+									"sid": 905594215781698,
+									"parameters": {
+										"instance-variable": "Action",
+										"value": "\"Idle\""
+									}
+								}
+							],
+							"sid": 147983924037789,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 507416316699845,
+											"parameters": {
+												"interval-seconds": "1.0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemy_Body3",
+											"sid": 859693854162941,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 2,
+												"value": "Enemy_Body3.Max_HP"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Enemy_Body3",
+											"sid": 187832647888660,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 696835715967691
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-target",
+									"objectClass": "Enemy_Turret_4",
+									"sid": 428316106663424,
+									"behaviorType": "Turret"
+								}
+							],
+							"actions": [
+								{
+									"id": "move-to-position",
+									"objectClass": "Enemy_Body4",
+									"sid": 950943128915855,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"x": "Miner_Box.X",
+										"y": "Enemy_Body4.Y",
+										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_2_HP_Background",
+									"sid": 533440135241322,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_2_HP_Bar",
+									"sid": 479069653432864,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_2_HP_Text",
+									"sid": 133596192627712,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 736657753066850,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 166719967185243,
+											"parameters": {
+												"interval-seconds": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Enemy_Body4",
+											"sid": 837319694703040,
+											"parameters": {
+												"animation": "\"Dead\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 266298009685199
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Enemy_Body4",
+											"sid": 425911141044290,
+											"parameters": {
+												"instance-variable": "Action",
+												"value": "\"Throw\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Enemy_Body4",
+											"sid": 130335308516015,
+											"parameters": {
+												"animation": "Enemy_Body2.Action & \"_\" & Enemy_Body2.DIR",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 288872384282958,
+											"parameters": {
+												"seconds": "0.3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Enemy_Turret_4",
+											"sid": 229010927109014,
+											"parameters": {
+												"object": "Boulder_Bullet",
+												"layer": "\"Background\"",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Enemy_Body4",
+											"sid": 737695035299840,
+											"parameters": {
+												"instance-variable": "Action",
+												"value": "\"Idle\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Enemy_Body4",
+											"sid": 823825844657852,
+											"parameters": {
+												"animation": "Enemy_Body2.Action & \"_\" & Enemy_Body2.DIR",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 907376896310072,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 584729162930977,
+													"parameters": {
+														"seconds": "1.7",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Boulder_Bullet",
+													"sid": 136109524244713,
+													"parameters": {
+														"object": "Explosion_Anim",
+														"layer": "\"Player\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Boulder_Bullet",
+													"sid": 246924251217524,
+													"parameters": {
+														"object": "Boulder_Explosion_Area",
+														"layer": "\"Player\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Boulder_Bullet",
+													"sid": 693182079009739
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 621074223483604,
+													"parameters": {
+														"seconds": "0.25",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Boulder_Explosion_Area",
+													"sid": 528647069445575
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 862942047821740,
+													"parameters": {
+														"seconds": "0.75",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Explosion_Anim",
+													"sid": 103420530917600
+												}
+											],
+											"sid": 784373005380397
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 200149544142941
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_2_HP_Background",
+									"sid": 832016362352932,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_2_HP_Bar",
+									"sid": 641708663058013,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Enemy_2_HP_Text",
+									"sid": 456066707461563,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "move-to-object",
+									"objectClass": "Enemy_Body4",
+									"sid": 159512144518823,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"object": "Enemy_Background_First",
+										"image-point": "\"Enemy_2\"",
+										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy_Body4",
+									"sid": 735410147414502,
+									"parameters": {
+										"instance-variable": "Action",
+										"value": "\"Idle\""
+									}
+								}
+							],
+							"sid": 104778709079073,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 259858993730903,
+											"parameters": {
+												"interval-seconds": "1.0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemy_Body2",
+											"sid": 687407115895359,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 2,
+												"value": "Enemy_Body2.Max_HP"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Enemy_Body2",
+											"sid": 561137595636351,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 638857092902247
 								}
 							]
 						},
@@ -51154,11 +53696,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Miner_Box",
-							"sid": 360850750106046,
+							"sid": 512278042962817,
 							"parameters": {
 								"instance-variable": "Money",
 								"comparison": 5,
-								"value": "100"
+								"value": "500"
 							}
 						},
 						{
@@ -51296,10 +53838,10 @@
 								{
 									"id": "subtract-from-instvar",
 									"objectClass": "Miner_Box",
-									"sid": 396676771743648,
+									"sid": 951041677602248,
 									"parameters": {
 										"instance-variable": "Money",
-										"value": "100"
+										"value": "500"
 									}
 								},
 								{
@@ -53897,9 +56439,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "Reward_Text",
-									"sid": 370745715946359,
+									"sid": 166125720329116,
 									"parameters": {
-										"text": "\"Your Reward for completing this quest:\" & newline & \"500 $\""
+										"text": "\"Your Reward for completing this quest:\" & newline & \"750 $\""
 									}
 								}
 							],
@@ -53998,10 +56540,10 @@
 								{
 									"id": "add-to-instvar",
 									"objectClass": "Miner_Box",
-									"sid": 590008869518175,
+									"sid": 231007091698861,
 									"parameters": {
 										"instance-variable": "Money",
-										"value": "3000"
+										"value": "750"
 									}
 								},
 								{
@@ -54138,9 +56680,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "Reward_Text",
-									"sid": 126914883953921,
+									"sid": 574489481064040,
 									"parameters": {
-										"text": "\"Your Reward for completing this quest:\" & newline & \"500 $\""
+										"text": "\"Your Reward for completing this quest:\" & newline & \"1000 $\""
 									}
 								}
 							],
@@ -54252,10 +56794,10 @@
 								{
 									"id": "add-to-instvar",
 									"objectClass": "Miner_Box",
-									"sid": 832006432232639,
+									"sid": 819792765097786,
 									"parameters": {
 										"instance-variable": "Money",
-										"value": "3000"
+										"value": "1000"
 									}
 								},
 								{
@@ -54284,6 +56826,11 @@
 										"mode": "disable",
 										"effect": "\"Darken\""
 									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Mole_Top_Block",
+									"sid": 714167492982898
 								}
 							],
 							"sid": 776552417020301,

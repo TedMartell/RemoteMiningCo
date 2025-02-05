@@ -10454,7 +10454,7 @@
 					"properties": {
 						"text": "XXXXXX ORE ADDED",
 						"enable-bbcode": true,
-						"font": "fantasy",
+						"font": "monospace",
 						"size": 21,
 						"line-height": 0,
 						"bold": false,
@@ -10869,7 +10869,7 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 3232,
+						"x": 3264,
 						"y": 1920,
 						"width": 192,
 						"height": 512,
@@ -11101,8 +11101,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1728.889020658535,
-						"y": 3019.955993662774,
+						"x": 1728,
+						"y": 3072,
 						"width": 128,
 						"height": 128,
 						"originX": 0.5,
@@ -12285,7 +12285,7 @@
 					}
 				},
 				{
-					"type": "Meta_Laser_Gun_Upg_Button",
+					"type": "Meta_Weapons_Upg_Button",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -12620,7 +12620,7 @@
 					}
 				},
 				{
-					"type": "Meta_Laser_Reload_T1_Button2",
+					"type": "Meta_Laser_Charged_T1_Button",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Active",
@@ -12879,7 +12879,7 @@
 					"type": "Enemy_Body3",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "Idle_Left",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -12888,16 +12888,18 @@
 					"sid": 107699547179587,
 					"tags": "",
 					"instanceVariables": {
-						"HP": 20,
-						"Max_HP": 20
+						"HP": 150,
+						"Max_HP": 150,
+						"DIR": "",
+						"Action": ""
 					},
 					"behaviors": {
 						"Platform": {
 							"properties": {
-								"max-speed": 330,
+								"max-speed": 50,
 								"acceleration": 1500,
 								"deceleration": 1500,
-								"jump-strength": 650,
+								"jump-strength": 0,
 								"gravity": 3000,
 								"max-fall-speed": 1000,
 								"double-jump": false,
@@ -12914,7 +12916,7 @@
 						},
 						"MoveTo": {
 							"properties": {
-								"max-speed": 200,
+								"max-speed": 50,
 								"acceleration": 600,
 								"deceleration": 600,
 								"rotate-speed": 0,
@@ -12934,7 +12936,7 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1856,
+						"x": 1728,
 						"y": 3264,
 						"width": 128,
 						"height": 128,
@@ -12954,7 +12956,7 @@
 					"type": "Enemy_Body4",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "Idle_Left",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -12963,16 +12965,18 @@
 					"sid": 676123267629829,
 					"tags": "",
 					"instanceVariables": {
-						"HP": 20,
-						"Max_HP": 20
+						"HP": 500,
+						"Max_HP": 500,
+						"DIR": "",
+						"Action": ""
 					},
 					"behaviors": {
 						"Platform": {
 							"properties": {
-								"max-speed": 330,
+								"max-speed": 50,
 								"acceleration": 1500,
 								"deceleration": 1500,
-								"jump-strength": 650,
+								"jump-strength": 0,
 								"gravity": 3000,
 								"max-fall-speed": 1000,
 								"double-jump": false,
@@ -12989,7 +12993,7 @@
 						},
 						"MoveTo": {
 							"properties": {
-								"max-speed": 200,
+								"max-speed": 50,
 								"acceleration": 600,
 								"deceleration": 600,
 								"rotate-speed": 0,
@@ -13074,8 +13078,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1796.2200528100554,
-						"y": 3208.365201453504,
+						"x": 1792,
+						"y": 3200,
 						"width": 32,
 						"height": 32,
 						"originX": 0.5,
@@ -13139,8 +13143,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1920.4444892053425,
-						"y": 3210.882243856646,
+						"x": 1984,
+						"y": 3200,
 						"width": 32,
 						"height": 32,
 						"originX": 0.5,
@@ -13459,8 +13463,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1731.8879295554689,
-						"y": 3075.055712572827,
+						"x": 1728,
+						"y": 2944,
 						"width": 211,
 						"height": 133,
 						"originX": 0.5,
@@ -13563,6 +13567,153 @@
 						"height": 36,
 						"originX": 0,
 						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Mole_Top_Block",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 396,
+					"sid": 683700140595927,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 683700140595927,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 384,
+						"y": 64,
+						"width": 64,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Boulder_Bullet",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 397,
+					"sid": 506696159259324,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Bullet": {
+							"properties": {
+								"speed": 400,
+								"acceleration": 0,
+								"gravity": 50,
+								"bounce-off-solids": false,
+								"set-angle": true,
+								"step": false,
+								"enabled": true
+							}
+						},
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 506696159259324,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1728,
+						"y": 3200,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Boulder_Explosion_Area",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 398,
+					"sid": 406786248208668,
+					"tags": "",
+					"instanceVariables": {
+						"Explosion_Damage": 10
+					},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 406786248208668,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1728,
+						"y": 3456,
+						"width": 110,
+						"height": 111.15789473684211,
+						"originX": 0.5,
+						"originY": 0.5052631578947369,
 						"color": [
 							1,
 							1,
