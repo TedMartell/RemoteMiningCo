@@ -3451,9 +3451,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Stats_Text",
-											"sid": 564683340611384,
+											"sid": 145304066796064,
 											"parameters": {
-												"text": "\"Drill Damage: \" & Miner_Mining_DMG  & newline\n&\"Max Energy: \" & Miner_Box.Max_Energy & newline\n& \"Energy Consumption: \" & Miner_Energy_Efficiency & newline\n&\"Energy Regeneration: \" & Miner_Energy_Regeneration & newline\n&\"Heat Shield: \" & Miner_Box.Shield_Heat & newline\n&\"Impact Shield: \" & Miner_Box.Shield_Impact & newline\n&\"Vertical Speed Multiplier: \" & Vertical_Speed_Multiplier & newline\n&\"Decrease Weight Multiplier: \" & Engine_Efficiency_Multiplier & newline\n"
+												"text": "\"Drill Damage: \" & Miner_Mining_DMG  & newline\n&\"Max Energy: \" & Miner_Box.Max_Energy & newline\n& \"Energy Consumption: \" & Miner_Energy_Efficiency & newline\n&\"Energy Regeneration: \" & Miner_Energy_Regeneration & newline\n&\"Heat Shield: \" & Miner_Box.Shield_Heat & newline\n&\"Impact Shield: \" & Miner_Box.Shield_Impact & newline\n&\"Vertical Speed Multiplier: \" & Vertical_Speed_Multiplier & newline\n&\"Decrease Weight Multiplier: \" & Engine_Efficiency_Multiplier & newline\n&\"Laser Gun Reload tick: \" & Laser_Gun.Tick_Ammount & newline\n&\"Laser Gun Base Damage: \" & Laser_Gun.Laser_Gun_Damage & newline\n&\"Laser Charged Shot Damage: \" & Laser_Gun.Laser_Gun_Charged_Damage & newline\n"
 											}
 										},
 										{
@@ -23649,12 +23649,12 @@
 													}
 												},
 												{
-													"id": "subtract-from-instvar",
+													"id": "add-to-instvar",
 													"objectClass": "Laser_Gun",
-													"sid": 596394700833939,
+													"sid": 858684415718166,
 													"parameters": {
-														"instance-variable": "Reload_Time",
-														"value": "0.25"
+														"instance-variable": "Tick_Ammount",
+														"value": "0.1"
 													}
 												},
 												{
@@ -23829,8 +23829,8 @@
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Shield_Impact_T1_Button",
-											"sid": 949083779459671,
+											"objectClass": "Meta_Laser_Reload_T1_Button",
+											"sid": 946849878066867,
 											"parameters": {
 												"instance-variable": "Focus",
 												"comparison": 0,
@@ -23862,8 +23862,8 @@
 						},
 						{
 							"eventType": "group",
-							"disabled": true,
-							"title": "Shield Heat Tier 2",
+							"disabled": false,
+							"title": "Laser Damage Tier 1",
 							"description": "",
 							"isActiveOnStart": true,
 							"children": [
@@ -23873,17 +23873,17 @@
 										{
 											"id": "on-object-clicked",
 											"objectClass": "Mouse",
-											"sid": 732182595334606,
+											"sid": 282649348943572,
 											"parameters": {
 												"mouse-button": "left",
 												"click-type": "clicked",
-												"object-clicked": "Meta_Shield_Heat_T1_Button"
+												"object-clicked": "Meta_Laser_Damage_T1_Button"
 											}
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Shield_Heat_T1_Button",
-											"sid": 482605227971792,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 253202155216709,
 											"parameters": {
 												"instance-variable": "Focus",
 												"comparison": 0,
@@ -23892,18 +23892,18 @@
 										},
 										{
 											"id": "is-animation-playing",
-											"objectClass": "Meta_Shield_Heat_T1_Button",
-											"sid": 165537355195310,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 491603270903261,
 											"parameters": {
 												"animation": "\"Active\""
 											}
 										},
 										{
 											"id": "is-boolean-instance-variable-set",
-											"objectClass": "Meta_Shield_Upg_Button",
-											"sid": 671616791993355,
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 434270802217157,
 											"parameters": {
-												"instance-variable": "Shield_Heat_Tier1_Completed"
+												"instance-variable": "Laser_Damage_Tier1_Completed"
 											},
 											"isInverted": true
 										}
@@ -23911,8 +23911,8 @@
 									"actions": [
 										{
 											"id": "set-instvar-value",
-											"objectClass": "Meta_Shield_Buttons",
-											"sid": 869074818956498,
+											"objectClass": "Meta_Weapons_Buttons",
+											"sid": 890098884074478,
 											"parameters": {
 												"instance-variable": "Focus",
 												"value": "0"
@@ -23921,23 +23921,22 @@
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Upg_Text",
-											"sid": 483893969564538,
+											"sid": 997093587577971,
 											"parameters": {
-												"text": "\"This will decrease the damage you take from mining Lava by 10%/level\""
+												"text": "\"This will increase your Laser Gun Damage by 1\""
 											}
 										},
 										{
 											"id": "set-effect-enabled",
-											"objectClass": "Meta_Shield_Heat_T1_Button",
-											"sid": 243757838106016,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 572064731518663,
 											"parameters": {
 												"mode": "enable",
 												"effect": "\"Darken\""
 											}
 										}
 									],
-									"sid": 676796885247817,
-									"disabled": true,
+									"sid": 822215209193238,
 									"children": [
 										{
 											"eventType": "block",
@@ -23945,16 +23944,15 @@
 											"actions": [
 												{
 													"id": "set-instvar-value",
-													"objectClass": "Meta_Shield_Heat_T1_Button",
-													"sid": 959637195414969,
+													"objectClass": "Meta_Laser_Damage_T1_Button",
+													"sid": 864254322610805,
 													"parameters": {
 														"instance-variable": "Focus",
 														"value": "1"
 													}
 												}
 											],
-											"sid": 117374353472953,
-											"disabled": true
+											"sid": 264450953597048
 										}
 									]
 								},
@@ -23964,7 +23962,7 @@
 										{
 											"id": "on-object-clicked",
 											"objectClass": "Mouse",
-											"sid": 610219272089981,
+											"sid": 714255009901039,
 											"parameters": {
 												"mouse-button": "left",
 												"click-type": "clicked",
@@ -23973,8 +23971,8 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Shield_Heat_T1_Button",
-											"sid": 962511218709015,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 127058193292215,
 											"parameters": {
 												"instance-variable": "Focus",
 												"comparison": 0,
@@ -23983,18 +23981,18 @@
 										},
 										{
 											"id": "is-animation-playing",
-											"objectClass": "Meta_Shield_Heat_T1_Button",
-											"sid": 477458830387088,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 214942219433914,
 											"parameters": {
 												"animation": "\"Active\""
 											}
 										},
 										{
 											"id": "is-boolean-instance-variable-set",
-											"objectClass": "Meta_Shield_Upg_Button",
-											"sid": 997896376859069,
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 440381094670049,
 											"parameters": {
-												"instance-variable": "Shield_Heat_Tier1_Completed"
+												"instance-variable": "Laser_Damage_Tier1_Completed"
 											},
 											"isInverted": true
 										}
@@ -24003,7 +24001,7 @@
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Meta_Upgrade_button",
-											"sid": 362269689127313,
+											"sid": 806086943292838,
 											"parameters": {
 												"mode": "enable",
 												"effect": "\"Darken\""
@@ -24012,7 +24010,7 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 252141280573251,
+											"sid": 193429461783763,
 											"parameters": {
 												"seconds": "0.1",
 												"use-timescale": true
@@ -24021,15 +24019,14 @@
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Meta_Upgrade_button",
-											"sid": 952614742075697,
+											"sid": 178935334413781,
 											"parameters": {
 												"mode": "disable",
 												"effect": "\"Darken\""
 											}
 										}
 									],
-									"sid": 283847544020020,
-									"disabled": true,
+									"sid": 443431805566739,
 									"children": [
 										{
 											"eventType": "block",
@@ -24037,19 +24034,19 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Global_Inventory_Object",
-													"sid": 236059738954386,
+													"sid": 325991299179908,
 													"parameters": {
-														"instance-variable": "Bauxite",
+														"instance-variable": "Gold_Ingot",
 														"comparison": 5,
 														"value": "Required_Item_Quantity"
 													}
 												},
 												{
 													"id": "compare-instance-variable",
-													"objectClass": "Meta_Shield_Upg_Button",
-													"sid": 914729234891346,
+													"objectClass": "Meta_Weapons_Upg_Button",
+													"sid": 749489375449395,
 													"parameters": {
-														"instance-variable": "Shield_Heat_Tier1_Level",
+														"instance-variable": "Laser_Damage_Tier1_Level",
 														"comparison": 2,
 														"value": "Max_Level"
 													}
@@ -24059,33 +24056,32 @@
 												{
 													"id": "subtract-from-instvar",
 													"objectClass": "Global_Inventory_Object",
-													"sid": 129104088705902,
+													"sid": 166493880266264,
 													"parameters": {
-														"instance-variable": "Bauxite",
+														"instance-variable": "Gold_Ingot",
 														"value": "Required_Item_Quantity"
 													}
 												},
 												{
-													"id": "subtract-from-instvar",
-													"objectClass": "Miner_Box",
-													"sid": 754381306470910,
+													"id": "add-to-instvar",
+													"objectClass": "Laser_Gun",
+													"sid": 630900392658744,
 													"parameters": {
-														"instance-variable": "Shield_Heat",
-														"value": "0.1"
+														"instance-variable": "Laser_Gun_Damage",
+														"value": "1"
 													}
 												},
 												{
 													"id": "add-to-instvar",
-													"objectClass": "Meta_Shield_Upg_Button",
-													"sid": 581565349690732,
+													"objectClass": "Meta_Weapons_Upg_Button",
+													"sid": 550949837460323,
 													"parameters": {
-														"instance-variable": "Shield_Heat_Tier1_Level",
+														"instance-variable": "Laser_Damage_Tier1_Level",
 														"value": "1"
 													}
 												}
 											],
-											"sid": 382283836926622,
-											"disabled": true
+											"sid": 564243004924434
 										}
 									]
 								},
@@ -24095,12 +24091,12 @@
 										{
 											"id": "every-tick",
 											"objectClass": "System",
-											"sid": 972389822826535
+											"sid": 719347999974085
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Shield_Heat_T1_Button",
-											"sid": 891580964400886,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 210138954904513,
 											"parameters": {
 												"instance-variable": "Focus",
 												"comparison": 0,
@@ -24112,25 +24108,25 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 786583498362482,
+											"sid": 206440723867251,
 											"parameters": {
 												"variable": "Current_Level",
-												"value": "Meta_Shield_Upg_Button.Shield_Heat_Tier1_Level"
+												"value": "Meta_Weapons_Upg_Button.Laser_Damage_Tier1_Level"
 											}
 										},
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 447404832956444,
+											"sid": 168478586259158,
 											"parameters": {
 												"variable": "Required_Item_Quantity",
-												"value": "50+ floor(Current_Level*10)"
+												"value": "5+ floor(Current_Level*10)"
 											}
 										},
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 408859171001279,
+											"sid": 183554617738853,
 											"parameters": {
 												"variable": "Max_Level",
 												"value": "3"
@@ -24139,15 +24135,15 @@
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Req_Item_Text",
-											"sid": 962897239388770,
+											"sid": 104749494565884,
 											"parameters": {
-												"text": "\"BAUXITE: \" & Required_Item_Quantity"
+												"text": "\"GOLD INGOT: \" & Required_Item_Quantity"
 											}
 										},
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Max_Level_Text",
-											"sid": 213268608313777,
+											"sid": 923310162029093,
 											"parameters": {
 												"text": "Max_Level"
 											}
@@ -24155,24 +24151,23 @@
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Current_Level_Text",
-											"sid": 710725173332405,
+											"sid": 105898522907747,
 											"parameters": {
 												"text": "Current_Level"
 											}
 										}
 									],
-									"sid": 669146268821411,
-									"disabled": true
+									"sid": 870433647000251
 								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Shield_Upg_Button",
-											"sid": 646652221224633,
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 462748052319342,
 											"parameters": {
-												"instance-variable": "Shield_Heat_Tier1_Level",
+												"instance-variable": "Laser_Damage_Tier1_Level",
 												"comparison": 0,
 												"value": "3"
 											}
@@ -24181,8 +24176,8 @@
 									"actions": [
 										{
 											"id": "set-animation",
-											"objectClass": "Meta_Shield_Heat_T1_Button",
-											"sid": 250243576948323,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 187792577583620,
 											"parameters": {
 												"animation": "\"Completed\"",
 												"from": "beginning"
@@ -24190,24 +24185,23 @@
 										},
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "Meta_Shield_Upg_Button",
-											"sid": 997481165665529,
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 132148956045576,
 											"parameters": {
-												"instance-variable": "Shield_Heat_Tier1_Completed",
+												"instance-variable": "Laser_Damage_Tier1_Completed",
 												"value": "true"
 											}
 										}
 									],
-									"sid": 347184250700912,
-									"disabled": true
+									"sid": 102362138611941
 								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Shield_Heat_T1_Button",
-											"sid": 405525065020123,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 526499556155984,
 											"parameters": {
 												"instance-variable": "Focus",
 												"comparison": 0,
@@ -24217,12 +24211,11 @@
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 376808951355274
+											"sid": 454298455986121
 										}
 									],
 									"actions": [],
-									"sid": 711004344726597,
-									"disabled": true,
+									"sid": 976116970978765,
 									"children": [
 										{
 											"eventType": "block",
@@ -24231,9 +24224,9 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Meta_Upg_Background",
-													"sid": 258993272500689,
+													"sid": 761994896011942,
 													"parameters": {
-														"object": "Bauxite_Meta",
+														"object": "Gold_Ingot_Meta",
 														"layer": "\"Meta_Upgrades\"",
 														"image-point": "\"Req_Items_Sprite\"",
 														"create-hierarchy": false,
@@ -24241,8 +24234,7 @@
 													}
 												}
 											],
-											"sid": 773017056539042,
-											"disabled": true
+											"sid": 325400027125564
 										}
 									]
 								},
@@ -24251,8 +24243,8 @@
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Shield_Heat_T1_Button",
-											"sid": 846392064093831,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 712858218209821,
 											"parameters": {
 												"instance-variable": "Focus",
 												"comparison": 0,
@@ -24263,25 +24255,438 @@
 									"actions": [
 										{
 											"id": "destroy",
-											"objectClass": "Bauxite_Meta",
-											"sid": 494414674908336
+											"objectClass": "Gold_Ingot_Meta",
+											"sid": 409914753521050
 										},
 										{
 											"id": "set-effect-enabled",
-											"objectClass": "Meta_Shield_Heat_T1_Button",
-											"sid": 781708551252950,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 408580146200205,
 											"parameters": {
 												"mode": "disable",
 												"effect": "\"Darken\""
 											}
 										}
 									],
-									"sid": 979951139284498,
-									"disabled": true,
+									"sid": 360105876836752,
 									"isOrBlock": true
 								}
 							],
-							"sid": 860216255006784
+							"sid": 503699181632257
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Laser Charged Shot Damage Tier 1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 386445776302943,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Laser_Damage_T1_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Laser_Charged_T1_Button",
+											"sid": 984927579782547,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Laser_Charged_T1_Button",
+											"sid": 696640336198059,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 588224909217219,
+											"parameters": {
+												"instance-variable": "Laser_Charged_Shot_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Weapons_Buttons",
+											"sid": 432346821712023,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 757891534636475,
+											"parameters": {
+												"text": "\"This will increase your Laser Gun Charged shot Damage by 10\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Laser_Charged_T1_Button",
+											"sid": 260988930654530,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 267081730246123,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Laser_Charged_T1_Button",
+													"sid": 725711972107749,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 310251640365114
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 177016540180448,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Laser_Charged_T1_Button",
+											"sid": 135188796500653,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Laser_Charged_T1_Button",
+											"sid": 893784728714049,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 427980754864797,
+											"parameters": {
+												"instance-variable": "Laser_Charged_Shot_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 425202012881477,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 570150183428158,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 816558496827305,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 462158510646664,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 160715390798442,
+													"parameters": {
+														"instance-variable": "Diamond",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Weapons_Upg_Button",
+													"sid": 421481605217120,
+													"parameters": {
+														"instance-variable": "Laser_Charged_Shot_Tier1_level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 448346706300563,
+													"parameters": {
+														"instance-variable": "Diamond",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Laser_Gun",
+													"sid": 383141818738260,
+													"parameters": {
+														"instance-variable": "Laser_Gun_Charged_Damage",
+														"value": "10"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Weapons_Upg_Button",
+													"sid": 571660476981324,
+													"parameters": {
+														"instance-variable": "Laser_Charged_Shot_Tier1_level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 817910491670394
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 288885884457632
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Laser_Charged_T1_Button",
+											"sid": 974166899456824,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 781425112515734,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Weapons_Upg_Button.Laser_Charged_Shot_Tier1_level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 284273865579713,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "5+ floor(Current_Level*10)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 313879122873890,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "3"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 353108609060832,
+											"parameters": {
+												"text": "\"DIAMOND: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 240982065132303,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 944949729306822,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 971043083065650
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 142160352196397,
+											"parameters": {
+												"instance-variable": "Laser_Charged_Shot_Tier1_level",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Laser_Charged_T1_Button",
+											"sid": 154107565553042,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 803028443963257,
+											"parameters": {
+												"instance-variable": "Laser_Charged_Shot_Tier1_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 554781340181652
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Laser_Charged_T1_Button",
+											"sid": 972021947773596,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 984836543932994
+										}
+									],
+									"actions": [],
+									"sid": 524214717483819,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 864385081848300,
+													"parameters": {
+														"object": "Diamond_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 306103755791063
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Laser_Charged_T1_Button",
+											"sid": 142614458468477,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Diamond_Meta",
+											"sid": 526735568243527
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Laser_Charged_T1_Button",
+											"sid": 327898956533702,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 652623875856655,
+									"isOrBlock": true
+								}
+							],
+							"sid": 298390399292178
 						}
 					],
 					"sid": 720309021559380
@@ -36916,7 +37321,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "50",
+							"initialValue": "468",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -41295,10 +41700,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Laser_Gun",
-													"sid": 877336527704401,
+													"sid": 751829828700802,
 													"parameters": {
 														"instance-variable": "Charge",
-														"value": "0.1"
+														"value": "Laser_Gun.Tick_Ammount"
 													}
 												}
 											],
@@ -41699,10 +42104,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Laser_Gun",
-													"sid": 651582539718470,
+													"sid": 573553094142880,
 													"parameters": {
 														"instance-variable": "Reload",
-														"value": "0.2"
+														"value": "Laser_Gun.Tick_Ammount"
 													}
 												}
 											],
@@ -45348,10 +45753,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Miner_Box",
-													"sid": 950977748912470,
+													"sid": 106609832420839,
 													"parameters": {
 														"instance-variable": "Weight",
-														"value": "1"
+														"value": "2"
 													}
 												}
 											],
@@ -45645,10 +46050,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Miner_Box",
-													"sid": 664472885185060,
+													"sid": 882449919451854,
 													"parameters": {
 														"instance-variable": "Weight",
-														"value": "1"
+														"value": "2"
 													}
 												}
 											],
@@ -45931,10 +46336,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Miner_Box",
-													"sid": 798926800823687,
+													"sid": 809663093941555,
 													"parameters": {
 														"instance-variable": "Weight",
-														"value": "1"
+														"value": "2"
 													}
 												}
 											],
@@ -46228,10 +46633,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Miner_Box",
-													"sid": 896598827562292,
+													"sid": 273459230364968,
 													"parameters": {
 														"instance-variable": "Weight",
-														"value": "1"
+														"value": "2"
 													}
 												}
 											],
@@ -46514,10 +46919,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Miner_Box",
-													"sid": 482632935023975,
+													"sid": 633967252088923,
 													"parameters": {
 														"instance-variable": "Weight",
-														"value": "1"
+														"value": "3"
 													}
 												}
 											],
@@ -46800,10 +47205,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Miner_Box",
-													"sid": 278607579969293,
+													"sid": 943078917125970,
 													"parameters": {
 														"instance-variable": "Weight",
-														"value": "1"
+														"value": "3"
 													}
 												}
 											],
@@ -47086,10 +47491,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Miner_Box",
-													"sid": 589786015513240,
+													"sid": 277732597769694,
 													"parameters": {
 														"instance-variable": "Weight",
-														"value": "1"
+														"value": "3"
 													}
 												}
 											],
@@ -47372,10 +47777,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Miner_Box",
-													"sid": 757048329094352,
+													"sid": 898225928747057,
 													"parameters": {
 														"instance-variable": "Weight",
-														"value": "1"
+														"value": "5"
 													}
 												}
 											],
@@ -47658,10 +48063,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Miner_Box",
-													"sid": 211682127661628,
+													"sid": 640878173123431,
 													"parameters": {
 														"instance-variable": "Weight",
-														"value": "1"
+														"value": "10"
 													}
 												}
 											],
@@ -51603,9 +52008,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "HUD_Enemy_1_HP_Text",
-													"sid": 376029733429096,
+													"sid": 418031929156491,
 													"parameters": {
-														"text": "\"MR MOLE\" & Enemy_Body.HP & \" / \" & Enemy_Body.Max_HP"
+														"text": "\"MR MOLE   \" & Enemy_Body.HP & \" / \" & Enemy_Body.Max_HP"
 													}
 												},
 												{
@@ -51617,7 +52022,147 @@
 													}
 												}
 											],
-											"sid": 994474783656845
+											"sid": 994474783656845,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-visible",
+															"objectClass": "HUD_Enemy_1_HP_Background",
+															"sid": 134715503296806,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "HUD_Enemy_1_HP_Bar",
+															"sid": 605203067841757,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "HUD_Enemy_1_HP_Text",
+															"sid": 494360829529684,
+															"parameters": {
+																"visibility": "visible"
+															}
+														}
+													],
+													"sid": 322321040605533
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 197774837433512
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Render_Object",
+													"sid": 383638540631434,
+													"parameters": {
+														"object": "Enemy_Body3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "HUD_Enemy_1_HP_Text",
+													"sid": 976405941114917,
+													"parameters": {
+														"text": "\"CRAB PEOPLE   \" & Enemy_Body3.HP & \" / \" & Enemy_Body3.Max_HP"
+													}
+												},
+												{
+													"id": "set-width",
+													"objectClass": "HUD_Enemy_1_HP_Bar",
+													"sid": 645330571217481,
+													"parameters": {
+														"width": "HUD_Enemy_2_HP_Background.Width* (Enemy_Body3.HP / Enemy_Body3.Max_HP)"
+													}
+												}
+											],
+											"sid": 393582211975927,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-visible",
+															"objectClass": "HUD_Enemy_1_HP_Background",
+															"sid": 795167955455365,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "HUD_Enemy_1_HP_Bar",
+															"sid": 425272406465764,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "HUD_Enemy_1_HP_Text",
+															"sid": 378165910739265,
+															"parameters": {
+																"visibility": "visible"
+															}
+														}
+													],
+													"sid": 215186842984608
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 561645440661587
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Enemy_1_HP_Background",
+													"sid": 176232907607655,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Enemy_1_HP_Bar",
+													"sid": 414792981516710,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Enemy_1_HP_Text",
+													"sid": 380582090331318,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												}
+											],
+											"sid": 452103620030853
 										},
 										{
 											"eventType": "block",
@@ -51649,47 +52194,53 @@
 													}
 												}
 											],
-											"sid": 982953893291941
+											"sid": 982953893291941,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-visible",
+															"objectClass": "HUD_Enemy_2_HP_Background",
+															"sid": 701375736844421,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "HUD_Enemy_2_HP_Bar",
+															"sid": 655692193597047,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "HUD_Enemy_2_HP_Text",
+															"sid": 284578707810316,
+															"parameters": {
+																"visibility": "visible"
+															}
+														}
+													],
+													"sid": 210272120281184
+												}
+											]
 										},
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "is-overlapping-another-object",
-													"objectClass": "Render_Object",
-													"sid": 317152887954567,
-													"parameters": {
-														"object": "Enemy_Body3"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-text",
-													"objectClass": "HUD_Enemy_1_HP_Text",
-													"sid": 241954439347000,
-													"parameters": {
-														"text": "\"CRAB PEOPLE   \" & Enemy_Body3.HP & \" / \" & Enemy_Body3.Max_HP"
-													}
+													"id": "else",
+													"objectClass": "System",
+													"sid": 373470909715618
 												},
 												{
-													"id": "set-width",
-													"objectClass": "HUD_Enemy_1_HP_Bar",
-													"sid": 756873850593603,
-													"parameters": {
-														"width": "HUD_Enemy_2_HP_Background.Width* (Enemy_Body3.HP / Enemy_Body3.Max_HP)"
-													}
-												}
-											],
-											"sid": 191889348998535
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
 													"id": "is-overlapping-another-object",
 													"objectClass": "Render_Object",
-													"sid": 324453530482934,
+													"sid": 283751832281983,
 													"parameters": {
 														"object": "Enemy_Body4"
 													}
@@ -51699,7 +52250,7 @@
 												{
 													"id": "set-text",
 													"objectClass": "HUD_Enemy_2_HP_Text",
-													"sid": 310507906875232,
+													"sid": 915532767464852,
 													"parameters": {
 														"text": "\"CRAB PEOPLE   \" & Enemy_Body4.HP & \" / \" & Enemy_Body4.Max_HP"
 													}
@@ -51707,13 +52258,83 @@
 												{
 													"id": "set-width",
 													"objectClass": "HUD_Enemy_2_HP_Bar",
-													"sid": 604018825149262,
+													"sid": 995303491405886,
 													"parameters": {
 														"width": "HUD_Enemy_2_HP_Background.Width* (Enemy_Body4.HP / Enemy_Body4.Max_HP)"
 													}
 												}
 											],
-											"sid": 769764235378790
+											"sid": 178416193715928,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-visible",
+															"objectClass": "HUD_Enemy_2_HP_Background",
+															"sid": 992400065768324,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "HUD_Enemy_2_HP_Bar",
+															"sid": 849490917205880,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "HUD_Enemy_2_HP_Text",
+															"sid": 238006089612340,
+															"parameters": {
+																"visibility": "visible"
+															}
+														}
+													],
+													"sid": 883393207284561
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 218297163712414
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Enemy_2_HP_Background",
+													"sid": 247569601016033,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Enemy_2_HP_Bar",
+													"sid": 232322161039658,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Enemy_2_HP_Text",
+													"sid": 397851397195698,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												}
+											],
+											"sid": 458502522104991
 										}
 									]
 								}
@@ -51740,30 +52361,6 @@
 										"x": "Miner_Animations.X",
 										"y": "Enemy_Body.Y",
 										"mode": "direct"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_1_HP_Background",
-									"sid": 497727151090990,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_1_HP_Bar",
-									"sid": 722781963573894,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_1_HP_Text",
-									"sid": 196066625591539,
-									"parameters": {
-										"visibility": "visible"
 									}
 								}
 							],
@@ -51869,30 +52466,6 @@
 							],
 							"actions": [
 								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_1_HP_Background",
-									"sid": 810709973135054,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_1_HP_Bar",
-									"sid": 584240435662235,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_1_HP_Text",
-									"sid": 140404014173982,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
 									"id": "move-to-object",
 									"objectClass": "Enemy_Body",
 									"sid": 662382705427721,
@@ -51972,30 +52545,6 @@
 										"x": "Miner_Box.X",
 										"y": "Enemy_Body2.Y",
 										"mode": "direct"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_2_HP_Background",
-									"sid": 673949304498553,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_2_HP_Bar",
-									"sid": 843610989064800,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_2_HP_Text",
-									"sid": 495815505280606,
-									"parameters": {
-										"visibility": "visible"
 									}
 								}
 							],
@@ -52101,30 +52650,6 @@
 							],
 							"actions": [
 								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_2_HP_Background",
-									"sid": 247569601016033,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_2_HP_Bar",
-									"sid": 232322161039658,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_2_HP_Text",
-									"sid": 397851397195698,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
 									"id": "move-to-object",
 									"objectClass": "Enemy_Body2",
 									"sid": 325726815421391,
@@ -52204,30 +52729,6 @@
 										"x": "Miner_Box.X",
 										"y": "Enemy_Body3.Y",
 										"mode": "direct"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_1_HP_Background",
-									"sid": 588262627246034,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_1_HP_Bar",
-									"sid": 381238476360112,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_1_HP_Text",
-									"sid": 987473961840479,
-									"parameters": {
-										"visibility": "visible"
 									}
 								}
 							],
@@ -52408,30 +52909,6 @@
 							],
 							"actions": [
 								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_1_HP_Background",
-									"sid": 546753509311489,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_1_HP_Bar",
-									"sid": 554754461879375,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_1_HP_Text",
-									"sid": 724809681429728,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
 									"id": "move-to-object",
 									"objectClass": "Enemy_Body3",
 									"sid": 320500733699975,
@@ -52511,30 +52988,6 @@
 										"x": "Miner_Box.X",
 										"y": "Enemy_Body4.Y",
 										"mode": "direct"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_2_HP_Background",
-									"sid": 533440135241322,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_2_HP_Bar",
-									"sid": 479069653432864,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_2_HP_Text",
-									"sid": 133596192627712,
-									"parameters": {
-										"visibility": "visible"
 									}
 								}
 							],
@@ -52714,30 +53167,6 @@
 								}
 							],
 							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_2_HP_Background",
-									"sid": 832016362352932,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_2_HP_Bar",
-									"sid": 641708663058013,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "HUD_Enemy_2_HP_Text",
-									"sid": 456066707461563,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
 								{
 									"id": "move-to-object",
 									"objectClass": "Enemy_Body4",
