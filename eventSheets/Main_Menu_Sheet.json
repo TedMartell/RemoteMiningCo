@@ -11,7 +11,7 @@
 					"parameters": {
 						"mouse-button": "left",
 						"click-type": "clicked",
-						"object-clicked": "Menu_Play_Button"
+						"object-clicked": "Menu_New_Game_Button"
 					}
 				}
 			],
@@ -26,6 +26,32 @@
 				}
 			],
 			"sid": 329016193760410
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 489306976523745,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Menu_Continue_Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "System",
+					"sid": 974042191622677,
+					"parameters": {
+						"slot": "\"mysave\""
+					}
+				}
+			],
+			"sid": 364654079250888
 		}
 	],
 	"sid": 554733571785019
