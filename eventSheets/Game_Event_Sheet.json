@@ -190,6 +190,50 @@
 			"sid": 783482837365566
 		},
 		{
+			"eventType": "comment",
+			"text": "Consumables"
+		},
+		{
+			"eventType": "variable",
+			"name": "Repair_Kit_Max_Ammount",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 822768821303676
+		},
+		{
+			"eventType": "variable",
+			"name": "Battery_Max_Ammount",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 644023021788678
+		},
+		{
+			"eventType": "variable",
+			"name": "Repair_Kit_Effectiveness",
+			"type": "number",
+			"initialValue": "20",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 960809957194804
+		},
+		{
+			"eventType": "variable",
+			"name": "Battery_Effectiveness",
+			"type": "number",
+			"initialValue": "20",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 691098829468797
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Global Events",
@@ -30355,11 +30399,11 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 232199930313346,
+											"sid": 441828331097229,
 											"parameters": {
 												"variable": "Battery_Max",
 												"comparison": 2,
-												"value": "99"
+												"value": "Battery_Max_Ammount"
 											}
 										}
 									],
@@ -30496,11 +30540,11 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 874874042482724,
+													"sid": 125920454304270,
 													"parameters": {
 														"variable": "Battery_Max",
-														"comparison": 2,
-														"value": "90"
+														"comparison": 3,
+														"value": "Battery_Max_Ammount -10"
 													}
 												}
 											],
@@ -30585,11 +30629,11 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 338168723337826,
+											"sid": 984894867708705,
 											"parameters": {
 												"variable": "Repair_Kit_Max",
 												"comparison": 2,
-												"value": "99"
+												"value": "Repair_Kit_Max_Ammount "
 											}
 										}
 									],
@@ -30726,11 +30770,11 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 630375757897011,
+													"sid": 445304089217421,
 													"parameters": {
 														"variable": "Repair_Kit_Max",
-														"comparison": 2,
-														"value": "90"
+														"comparison": 3,
+														"value": "Repair_Kit_Max_Ammount -10"
 													}
 												}
 											],
@@ -31304,9 +31348,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 280486657718098,
+													"sid": 139948368571509,
 													"parameters": {
-														"text": "\"BATTERY - Charges 20% of your max energy\" "
+														"text": "\"BATTERY - Charges \" & Battery_Effectiveness & \"% of your max energy\" & newline & \"Max ammount: \" & Battery_Max_Ammount "
 													}
 												}
 											],
@@ -31328,9 +31372,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 365371933026585,
+													"sid": 737503764266483,
 													"parameters": {
-														"text": "\"REPAIR KIT - Repairs 20% of your max HP\" "
+														"text": "\"REPAIR KIT - Repairs \" & Repair_Kit_Effectiveness  &\"% of your max HP\" & newline & \"Max Ammount: \" & Repair_Kit_Max_Ammount"
 													}
 												}
 											],
@@ -41100,7 +41144,7 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 104344879340687,
+															"sid": 971534166450108,
 															"parameters": {
 																"object-to-create": "Dirt_Block_Top",
 																"layer": "\"Player\"",
@@ -52658,28 +52702,87 @@
 										"instance-variable": "Dynamite",
 										"value": "1"
 									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 306218760060413,
-									"parameters": {
-										"seconds": "1.0",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "destroy",
-									"objectClass": "Explosion_Area",
-									"sid": 981651651418248
-								},
-								{
-									"id": "destroy",
-									"objectClass": "Explosion_Anim",
-									"sid": 881981397306957
 								}
 							],
-							"sid": 513268384051719
+							"sid": 513268384051719,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Explosion_Area",
+											"sid": 828727732921219,
+											"parameters": {
+												"object": "Mining_Blocks_Family"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 560557744288509,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Explosion_Area",
+											"sid": 240871619277731
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 528555493292688,
+											"parameters": {
+												"seconds": "0.9",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Explosion_Anim",
+											"sid": 522342618995650
+										}
+									],
+									"sid": 559673878807096
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 603510245924986
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 119989225880139,
+											"parameters": {
+												"seconds": "1.0",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Explosion_Area",
+											"sid": 816353544329897
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Explosion_Anim",
+											"sid": 160084653475176
+										}
+									],
+									"sid": 313026973782837
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -52815,11 +52918,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Miner_Box",
-									"sid": 509021731363013,
+									"sid": 614445906903115,
 									"parameters": {
 										"instance-variable": "Energy",
 										"comparison": 4,
-										"value": "Miner_Box.Max_Energy * 0.8"
+										"value": "Miner_Box.Max_Energy * (1 -(Battery_Effectiveness /100))"
 									}
 								},
 								{
@@ -52899,11 +53002,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Miner_Box",
-									"sid": 434350482388676,
+									"sid": 296293101569829,
 									"parameters": {
 										"instance-variable": "Energy",
 										"comparison": 3,
-										"value": "Miner_Box.Max_Energy *0.8"
+										"value": "Miner_Box.Max_Energy * (1 -(Battery_Effectiveness /100))"
 									}
 								},
 								{
@@ -52933,10 +53036,10 @@
 								{
 									"id": "add-to-instvar",
 									"objectClass": "Miner_Box",
-									"sid": 234508617699052,
+									"sid": 923304427530468,
 									"parameters": {
 										"instance-variable": "Energy",
-										"value": "Miner_Box.Max_Energy * 0.2"
+										"value": "Miner_Box.Max_Energy * (Battery_Effectiveness / 100)"
 									}
 								},
 								{
@@ -52983,11 +53086,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Miner_Box",
-									"sid": 126992220099246,
+									"sid": 726235650658013,
 									"parameters": {
 										"instance-variable": "HP",
 										"comparison": 4,
-										"value": "Miner_Box.Max_HP * 0.8"
+										"value": "Miner_Box.Max_HP * (1- (Repair_Kit_Effectiveness/100))\n"
 									}
 								},
 								{
@@ -53067,11 +53170,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Miner_Box",
-									"sid": 307335919765909,
+									"sid": 192342291447902,
 									"parameters": {
 										"instance-variable": "HP",
 										"comparison": 3,
-										"value": "Miner_Box.Max_HP * 0.8"
+										"value": "Miner_Box.Max_HP * (1- (Repair_Kit_Effectiveness/100))"
 									}
 								},
 								{
@@ -53101,10 +53204,10 @@
 								{
 									"id": "add-to-instvar",
 									"objectClass": "Miner_Box",
-									"sid": 569537091169041,
+									"sid": 739283480414413,
 									"parameters": {
 										"instance-variable": "HP",
-										"value": "Miner_Box.Max_HP * 0.2"
+										"value": "Miner_Box.Max_HP * (Repair_Kit_Effectiveness /100)"
 									}
 								},
 								{
