@@ -3505,9 +3505,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Stats_Text",
-											"sid": 145304066796064,
+											"sid": 199353283546515,
 											"parameters": {
-												"text": "\"Drill Damage: \" & Miner_Mining_DMG  & newline\n&\"Max Energy: \" & Miner_Box.Max_Energy & newline\n& \"Energy Consumption: \" & Miner_Energy_Efficiency & newline\n&\"Energy Regeneration: \" & Miner_Energy_Regeneration & newline\n&\"Heat Shield: \" & Miner_Box.Shield_Heat & newline\n&\"Impact Shield: \" & Miner_Box.Shield_Impact & newline\n&\"Vertical Speed Multiplier: \" & Vertical_Speed_Multiplier & newline\n&\"Decrease Weight Multiplier: \" & Engine_Efficiency_Multiplier & newline\n&\"Laser Gun Reload tick: \" & Laser_Gun.Tick_Ammount & newline\n&\"Laser Gun Base Damage: \" & Laser_Gun.Laser_Gun_Damage & newline\n&\"Laser Charged Shot Damage: \" & Laser_Gun.Laser_Gun_Charged_Damage & newline\n"
+												"text": "\"Drill Damage: \" & Miner_Mining_DMG  & newline\n&\"Max Energy: \" & Miner_Box.Max_Energy & newline\n& \"Energy Consumption: \" & Miner_Energy_Efficiency & newline\n&\"Energy Regeneration: \" & Miner_Energy_Regeneration & newline\n&\"Heat Shield: \" & Miner_Box.Shield_Heat & newline\n&\"Impact Shield: \" & Miner_Box.Shield_Impact & newline\n&\"Vertical Speed Multiplier: \" & Vertical_Speed_Multiplier & newline\n&\"Decrease Weight Multiplier: \" & Engine_Efficiency_Multiplier & newline\n&\"Laser Gun Reload tick: \" & Laser_Gun.Tick_Ammount & newline\n&\"Laser Gun Base Damage: \" & Laser_Gun.Laser_Gun_Damage & newline\n&\"Laser Charged Shot Damage: \" & Laser_Gun.Laser_Gun_Charged_Damage & newline &\n\"Battery Recharge Effect: \" & Battery_Effectiveness & \"%\" &\nnewline & \n\"Repairt Kit Repair Effect: \" & Repair_Kit_Effectiveness & \"%\" & \nnewline &\n\"Battery Max Inventory: \" & Battery_Max_Ammount & newline &\n\"Repair Kit Max Inventory: \" & Repair_Kit_Max_Ammount & \nnewline"
 											}
 										},
 										{
@@ -5159,6 +5159,18 @@
 											}
 										},
 										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 954356861259267,
+											"parameters": {
+												"object": "Meta_Consumables_Upg_Button",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Slot_7\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
 											"id": "wait",
 											"objectClass": "System",
 											"sid": 192042427132379,
@@ -5246,6 +5258,21 @@
 											"id": "pin-to-object-properties",
 											"objectClass": "Meta_Weapons_Upg_Button",
 											"sid": 349755508642454,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 816829136306298,
 											"behaviorType": "Pin",
 											"parameters": {
 												"pin-to": "Meta_Upg_Background",
@@ -5842,6 +5869,15 @@
 														"instance-variable": "Weapons_Upg",
 														"value": "0"
 													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 474601930827399,
+													"parameters": {
+														"instance-variable": "Consumables_Upg",
+														"value": "0"
+													}
 												}
 											],
 											"sid": 490297190216367
@@ -6010,6 +6046,15 @@
 													"sid": 426133119279897,
 													"parameters": {
 														"instance-variable": "Weapons_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 299858386663938,
+													"parameters": {
+														"instance-variable": "Consumables_Upg",
 														"value": "0"
 													}
 												}
@@ -6555,6 +6600,15 @@
 												{
 													"type": "comment",
 													"text": "Set Drill UPG focused and other upgrades not focused"
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 641793110501495,
+													"parameters": {
+														"instance-variable": "Consumables_Upg",
+														"value": "0"
+													}
 												},
 												{
 													"id": "set-instvar-value",
@@ -11464,6 +11518,15 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Meta_Upg_Background",
+													"sid": 787271937179859,
+													"parameters": {
+														"instance-variable": "Consumables_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
 													"sid": 932988615944935,
 													"parameters": {
 														"instance-variable": "Drill_Upg",
@@ -15806,6 +15869,15 @@
 												{
 													"type": "comment",
 													"text": "Set PASSIVE UPG focused and other upgrades not focused"
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 911766496257754,
+													"parameters": {
+														"instance-variable": "Consumables_Upg",
+														"value": "0"
+													}
 												},
 												{
 													"id": "set-instvar-value",
@@ -20820,6 +20892,15 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Meta_Upg_Background",
+													"sid": 735804093496674,
+													"parameters": {
+														"instance-variable": "Consumables_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
 													"sid": 402494680481401,
 													"parameters": {
 														"instance-variable": "Energy_Upg",
@@ -23793,6 +23874,15 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Meta_Upg_Background",
+													"sid": 955690125509641,
+													"parameters": {
+														"instance-variable": "Consumables_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
 													"sid": 406121696526546,
 													"parameters": {
 														"instance-variable": "Energy_Upg",
@@ -26739,6 +26829,15 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Meta_Upg_Background",
+													"sid": 108663218683733,
+													"parameters": {
+														"instance-variable": "Consumables_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
 													"sid": 389422204053529,
 													"parameters": {
 														"instance-variable": "Energy_Upg",
@@ -26856,17 +26955,13 @@
 															}
 														},
 														{
-															"type": "comment",
-															"text": "Leave space for more tiers of upgrades"
-														},
-														{
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
-															"sid": 402599802789787,
+															"sid": 175954189275845,
 															"parameters": {
 																"object": "Meta_Laser_Gun_Damage_Background",
 																"layer": "\"Meta_upgrades_Content\"",
-																"image-point": "\"Slot_6\"",
+																"image-point": "\"Slot_3\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -26889,11 +26984,11 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
-															"sid": 322691914629697,
+															"sid": 428616337969091,
 															"parameters": {
 																"object": "Meta_Laser_Damage_T1_Button",
 																"layer": "\"Meta_upgrades_Content\"",
-																"image-point": "\"Slot_7\"",
+																"image-point": "\"Slot_4\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -26914,17 +27009,13 @@
 															}
 														},
 														{
-															"type": "comment",
-															"text": "Leave space for more tiers of upgrades"
-														},
-														{
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
-															"sid": 532045474603623,
+															"sid": 192979060714934,
 															"parameters": {
 																"object": "Meta_Laser_Gun_Charged_Shot_Background",
 																"layer": "\"Meta_upgrades_Content\"",
-																"image-point": "\"Slot_10\"",
+																"image-point": "\"Slot_5\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -26947,11 +27038,11 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
-															"sid": 582336444813492,
+															"sid": 485506554252634,
 															"parameters": {
 																"object": "Meta_Laser_Charged_T1_Button",
 																"layer": "\"Meta_upgrades_Content\"",
-																"image-point": "\"Slot_11\"",
+																"image-point": "\"Slot_6\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -28303,6 +28394,3893 @@
 						}
 					],
 					"sid": 720309021559380
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Consumables Upgrade Tree",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Consumables Upgrade Button Spawns",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 465742047849218,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Consumables_Upg_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 696938701160838,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 530062493933375,
+											"parameters": {
+												"instance-variable": "Consumables_Upg",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Consumables_Buttons",
+											"sid": 630217268238220,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 129296453808568,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"BlackWhite\""
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 945766451664900,
+											"parameters": {
+												"y": "Meta_Upg_Background.Y"
+											}
+										}
+									],
+									"sid": 382588577760873,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "Set Consumables UPG focused and other upgrades not focused"
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 203376830032009,
+													"parameters": {
+														"instance-variable": "Energy_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 541354828276628,
+													"parameters": {
+														"instance-variable": "Passive_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 497239591231353,
+													"parameters": {
+														"instance-variable": "Drill_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 615492869077786,
+													"parameters": {
+														"instance-variable": "Engine_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 249831742038206,
+													"parameters": {
+														"instance-variable": "Shield_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 309441767996957,
+													"parameters": {
+														"instance-variable": "Weapons_Upg",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 917802365408915,
+													"parameters": {
+														"instance-variable": "Consumables_Upg",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 195771715648635,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"type": "comment",
+															"text": "Spawn all buttons related to CONS Upgrades"
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 726003025665116,
+															"parameters": {
+																"object": "Meta_Cons_Battery_Effectiveness_Background",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_1\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Cons_Battery_Effectiveness_Background",
+															"sid": 558437392638759,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 593943025521652,
+															"parameters": {
+																"object": "Meta_Cons_Battery_Effectiveness_Tier_1_Button",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_2\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_1_Button",
+															"sid": 327585593629497,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 645027086677563,
+															"parameters": {
+																"object": "Meta_Cons_Battery_Effectiveness_Tier_2_Button",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_3\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_2_Button",
+															"sid": 918468696097839,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 632811936892407,
+															"parameters": {
+																"object": "Meta_Cons_Repair_Kit_Effectiveness_Background",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_4\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Background",
+															"sid": 702752502997085,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 987849180578499,
+															"parameters": {
+																"object": "Meta_Cons_Repair_Kit_Effectiveness_Tier_1_Button",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_5\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_1_Button",
+															"sid": 190598438138229,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 250906168081349,
+															"parameters": {
+																"object": "Meta_Cons_Repair_Kit_Effectiveness_Tier_2_Button",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_6\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_2_Button",
+															"sid": 723991587588702,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 734309956523987,
+															"parameters": {
+																"object": "Meta_Cons_Battery_Max_Amount_Background",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_7\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Cons_Battery_Max_Amount_Background",
+															"sid": 313030681104825,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 242739801834135,
+															"parameters": {
+																"object": "Meta_Cons_Battery_Amount_Tier_1_Button",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_8\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Cons_Battery_Amount_Tier_1_Button",
+															"sid": 323040549752301,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 793655070600629,
+															"parameters": {
+																"object": "Meta_Cons_Battery_Amount_Tier_2_Button",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_9\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Cons_Battery_Amount_Tier_2_Button",
+															"sid": 301506126478590,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 301664938855440,
+															"parameters": {
+																"object": "Meta_Cons_Repair_Kit_Max_Amount_Background2",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_10\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Cons_Repair_Kit_Max_Amount_Background2",
+															"sid": 817180016352654,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 550655903108223,
+															"parameters": {
+																"object": "Meta_Cons_Repair_Amount_Tier_1_Button",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_11\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Cons_Repair_Amount_Tier_1_Button",
+															"sid": 189886550316196,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 447975030381398,
+															"parameters": {
+																"object": "Meta_Cons_Repair_Amount_Tier_2_Button",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_12\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Cons_Repair_Amount_Tier_2_Button",
+															"sid": 594795450871802,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														}
+													],
+													"sid": 418962845933527
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 116734723257870,
+											"parameters": {
+												"instance-variable": "Consumables_Upg",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 495842489624506,
+											"parameters": {
+												"instance-variable": "Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 573892973694801
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Weapons_Buttons",
+											"sid": 394576387629593,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 218967365630467,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"BlackWhite\""
+											}
+										}
+									],
+									"sid": 746102059894727,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Meta_Consumables_Buttons",
+													"sid": 482763612837980
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Meta_Materials",
+													"sid": 839657189139084
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Meta_Text",
+													"sid": 436897271885121,
+													"parameters": {
+														"text": "\"\""
+													}
+												}
+											],
+											"sid": 401021262314115
+										}
+									]
+								}
+							],
+							"sid": 307632188999692
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Battery Effectiveness Tier 1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 869220297940377,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Cons_Battery_Effectiveness_Tier_1_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_1_Button",
+											"sid": 536892276123145,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_1_Button",
+											"sid": 768469537877869,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 144831601581011,
+											"parameters": {
+												"instance-variable": "Battery_Effectiveness_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Consumables_Buttons",
+											"sid": 372990471878036,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 485243438306927,
+											"parameters": {
+												"text": "\"This will increase your battery recharge by 10%\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_1_Button",
+											"sid": 500828232875895,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 978850695389233,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_1_Button",
+													"sid": 895644670778811,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 840662757417144
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 595306855378166,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_1_Button",
+											"sid": 984402583912473,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_1_Button",
+											"sid": 988477061967664,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 609242233553544,
+											"parameters": {
+												"instance-variable": "Battery_Effectiveness_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 624239339850506,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 759523722022085,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 370282423961325,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 512986706856662,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 324913353841962,
+													"parameters": {
+														"instance-variable": "Silicon",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Consumables_Upg_Button",
+													"sid": 873460620628493,
+													"parameters": {
+														"instance-variable": "Battery_Effectiveness_Tier1_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 894941684820598,
+													"parameters": {
+														"instance-variable": "Silicon",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 916578836418687,
+													"parameters": {
+														"variable": "Battery_Effectiveness",
+														"value": "10"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Consumables_Upg_Button",
+													"sid": 589763764231380,
+													"parameters": {
+														"instance-variable": "Battery_Effectiveness_Tier1_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 447290132231082
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 490458320253729
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_1_Button",
+											"sid": 862127532673790,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 513938947174427,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Consumables_Upg_Button.Battery_Effectiveness_Tier1_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 637926240070779,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "5+ floor(Current_Level*10)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 924210286036405,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "3"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 505784019322926,
+											"parameters": {
+												"text": "\"SILICON: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 867426498802018,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 951254474777493,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 767453012499866
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 924798926549024,
+											"parameters": {
+												"instance-variable": "Battery_Effectiveness_Tier1_Level",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_1_Button",
+											"sid": 538200734236120,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 373071758749735,
+											"parameters": {
+												"instance-variable": "Battery_Effectiveness_Tier1_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 661384631087937
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_1_Button",
+											"sid": 374949090982405,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 779902561879172
+										}
+									],
+									"actions": [],
+									"sid": 153323247976866,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 672978550539007,
+													"parameters": {
+														"object": "Silicone_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 449037494127899
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_1_Button",
+											"sid": 575512744001288,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Silicone_Meta",
+											"sid": 447981055983955
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_1_Button",
+											"sid": 400024096714135,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 330983316907974,
+									"isOrBlock": true
+								}
+							],
+							"sid": 734275672956499
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Battery Effectiveness Tier 2",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 350402873835433,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Cons_Battery_Effectiveness_Tier_2_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_2_Button",
+											"sid": 102838582721833,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_2_Button",
+											"sid": 817585312570729,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 462935421251491,
+											"parameters": {
+												"instance-variable": "Battery_Effectiveness_Tier2_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Consumables_Buttons",
+											"sid": 666586194206289,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 711573099344136,
+											"parameters": {
+												"text": "\"This will increase your battery recharge by 10%\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_2_Button",
+											"sid": 990172942270822,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 694829561520884,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_2_Button",
+													"sid": 374264352864443,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 693380311413128
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 122401185423205,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_2_Button",
+											"sid": 934403948867453,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_2_Button",
+											"sid": 434393681065457,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 178100941421586,
+											"parameters": {
+												"instance-variable": "Battery_Effectiveness_Tier2_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 732684853580580,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 180676701912008,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 722504127406139,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 383449733505408,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 196174252526141,
+													"parameters": {
+														"instance-variable": "Copper_Ingot",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Consumables_Upg_Button",
+													"sid": 153092029480174,
+													"parameters": {
+														"instance-variable": "Battery_Effectiveness_Tier2_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 791953841054560,
+													"parameters": {
+														"instance-variable": "Copper_Ingot",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 566029092557502,
+													"parameters": {
+														"variable": "Battery_Effectiveness",
+														"value": "10"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Consumables_Upg_Button",
+													"sid": 431872257580504,
+													"parameters": {
+														"instance-variable": "Battery_Effectiveness_Tier2_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 571254114030131
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 374245540799642
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_2_Button",
+											"sid": 572574678334004,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 480636554285316,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Consumables_Upg_Button.Battery_Effectiveness_Tier2_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 391756526678696,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "5+ floor(Current_Level*10)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 243260381218410,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "3"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 914153296903221,
+											"parameters": {
+												"text": "\"COPPER INGOT: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 774921454747288,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 615231436917029,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 259374993864570
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 227713349631401,
+											"parameters": {
+												"instance-variable": "Battery_Effectiveness_Tier2_Level",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_2_Button",
+											"sid": 627623441482266,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 754593612570759,
+											"parameters": {
+												"instance-variable": "Battery_Effectiveness_Tier2_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 606180106244140
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_2_Button",
+											"sid": 415457876535700,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 796958224452329
+										}
+									],
+									"actions": [],
+									"sid": 891931558596264,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 731277501007460,
+													"parameters": {
+														"object": "Copper_Ingot_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 722649710759699
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_2_Button",
+											"sid": 441850735231047,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Copper_Ingot_Meta",
+											"sid": 982842765268404
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Cons_Battery_Effectiveness_Tier_2_Button",
+											"sid": 110895466510379,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 508965647263131,
+									"isOrBlock": true
+								}
+							],
+							"sid": 389564726943922
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Repair Kit Effectiveness Tier 1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 521961644560773,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Cons_Repair_Kit_Effectiveness_Tier_1_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_1_Button",
+											"sid": 486539056399802,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_1_Button",
+											"sid": 879405415488279,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 273156884637074,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Effectiveness_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Consumables_Buttons",
+											"sid": 311441897190118,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 188374747234846,
+											"parameters": {
+												"text": "\"This will increase your repair effect by 10%\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_1_Button",
+											"sid": 425983914076947,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 219452232057098,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_1_Button",
+													"sid": 405696293070363,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 841492637869998
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 232572878774287,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_1_Button",
+											"sid": 974710771521990,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_1_Button",
+											"sid": 556734930993864,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 793948395360811,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Effectiveness_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 168256439182677,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 923342860209547,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 354424778355126,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 196201472018874,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 616233772720629,
+													"parameters": {
+														"instance-variable": "Aluminium_Ingot",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Consumables_Upg_Button",
+													"sid": 814370019184415,
+													"parameters": {
+														"instance-variable": "Repair_Kit_Effectiveness_Tier1_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 739335202385633,
+													"parameters": {
+														"instance-variable": "Aluminium_Ingot",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 871187295462445,
+													"parameters": {
+														"variable": "Repair_Kit_Effectiveness",
+														"value": "10"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Consumables_Upg_Button",
+													"sid": 661599097278956,
+													"parameters": {
+														"instance-variable": "Repair_Kit_Effectiveness_Tier1_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 581868409067340
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 118673596404068
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_1_Button",
+											"sid": 171277843178743,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 655786701896792,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Consumables_Upg_Button.Repair_Kit_Effectiveness_Tier1_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 837572924146159,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "5+ floor(Current_Level*10)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 938945503629526,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "3"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 953893614582389,
+											"parameters": {
+												"text": "\"ALUMINIUM INGOT: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 188137374234785,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 399757801483875,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 168601608543776
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 859420844780267,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Effectiveness_Tier1_Level",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_1_Button",
+											"sid": 749090455892117,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 771613449922963,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Effectiveness_Tier1_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 587234090918826
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_1_Button",
+											"sid": 973401471348835,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 889475138134480
+										}
+									],
+									"actions": [],
+									"sid": 631822001973440,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 913520970110848,
+													"parameters": {
+														"object": "Aluminium_Ingot_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 307087345406153
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_1_Button",
+											"sid": 416968764572991,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Aluminium_Ingot_Meta",
+											"sid": 744882458916993
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_1_Button",
+											"sid": 723365556588042,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 785616573808328,
+									"isOrBlock": true
+								}
+							],
+							"sid": 827166868562160
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Repair Kit Effectiveness Tier 2",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 687556258932663,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Cons_Repair_Kit_Effectiveness_Tier_2_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_2_Button",
+											"sid": 743979993962996,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_2_Button",
+											"sid": 810948465099470,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 178175464881107,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Effectiveness_Tier2_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Consumables_Buttons",
+											"sid": 603099918857342,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 617866985482464,
+											"parameters": {
+												"text": "\"This will increase your repair effect by 10%\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_2_Button",
+											"sid": 986345556516061,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 847693832306231,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_2_Button",
+													"sid": 288331723484545,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 910215945102755
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 384553349971632,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_2_Button",
+											"sid": 156560796953505,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_2_Button",
+											"sid": 557151830265783,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 933144643227404,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Effectiveness_Tier2_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 156408430840849,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 497744516903779,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 391867893391505,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 498878958151062,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 105660840051958,
+													"parameters": {
+														"instance-variable": "Zinc_Ingot",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Consumables_Upg_Button",
+													"sid": 874816257850595,
+													"parameters": {
+														"instance-variable": "Repair_Kit_Effectiveness_Tier2_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 789463875739094,
+													"parameters": {
+														"instance-variable": "Zinc_Ingot",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 163165704183118,
+													"parameters": {
+														"variable": "Repair_Kit_Effectiveness",
+														"value": "10"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Consumables_Upg_Button",
+													"sid": 906137581580976,
+													"parameters": {
+														"instance-variable": "Repair_Kit_Effectiveness_Tier2_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 190081548311839
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 711605295196635
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_2_Button",
+											"sid": 496598791360307,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 814879313989911,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Consumables_Upg_Button.Repair_Kit_Effectiveness_Tier2_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 634214665549398,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "5+ floor(Current_Level*10)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 227658477782053,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "3"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 862033537982550,
+											"parameters": {
+												"text": "\"ZINC INGOT: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 450024976700549,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 154907587945597,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 808191472566125
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 215173586198655,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Effectiveness_Tier2_Level",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_2_Button",
+											"sid": 747286597135572,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 474431855580827,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Effectiveness_Tier2_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 412732690013136
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_2_Button",
+											"sid": 891284626852636,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 244624894592290
+										}
+									],
+									"actions": [],
+									"sid": 382408417037416,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 221754559675203,
+													"parameters": {
+														"object": "Zinc_Ingot_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 916296051875548
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_2_Button",
+											"sid": 490007655249320,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Zinc_Ingot_Meta",
+											"sid": 170319417008505
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Cons_Repair_Kit_Effectiveness_Tier_2_Button",
+											"sid": 545217568549111,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 780476303429105,
+									"isOrBlock": true
+								}
+							],
+							"sid": 299872033810654
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Battery Max Inventory Amount Tier 1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 815729683231189,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Cons_Battery_Amount_Tier_1_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_1_Button",
+											"sid": 287434435508164,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_1_Button",
+											"sid": 568754201679509,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 349874299956888,
+											"parameters": {
+												"instance-variable": "Battery_Max_Ammount_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Consumables_Buttons",
+											"sid": 183557922945700,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 316274235460018,
+											"parameters": {
+												"text": "\"This will increase your BATTERY Max Inventory Amount by 5\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_1_Button",
+											"sid": 748948659487819,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 504660390595982,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Cons_Battery_Amount_Tier_1_Button",
+													"sid": 785396493463689,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 322491603366267
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 111583249383615,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_1_Button",
+											"sid": 915303613570852,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_1_Button",
+											"sid": 111954981130857,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 457600249392118,
+											"parameters": {
+												"instance-variable": "Battery_Max_Ammount_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 944244871658516,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 374952204422264,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 478663612552437,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 642436922518563,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 189141596415691,
+													"parameters": {
+														"instance-variable": "Lithium_Ingot",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Consumables_Upg_Button",
+													"sid": 526528341440189,
+													"parameters": {
+														"instance-variable": "Battery_Max_Ammount_Tier1_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 246574659052625,
+													"parameters": {
+														"instance-variable": "Lithium_Ingot",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 207222332358657,
+													"parameters": {
+														"variable": "Battery_Max_Ammount",
+														"value": "5"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Consumables_Upg_Button",
+													"sid": 809544220627055,
+													"parameters": {
+														"instance-variable": "Battery_Max_Ammount_Tier1_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 746021162464448
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 255560203630780
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_1_Button",
+											"sid": 644075539088414,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 831595816514372,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Consumables_Upg_Button.Battery_Max_Ammount_Tier1_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 829857827737196,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "5+ floor(Current_Level*10)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 312911184869656,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "3"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 330643914941394,
+											"parameters": {
+												"text": "\"LITHIUM INGOT: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 257227929977665,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 971986356820737,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 715995242894368
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 868195478869251,
+											"parameters": {
+												"instance-variable": "Battery_Max_Ammount_Tier1_Level",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_1_Button",
+											"sid": 897277764169155,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 832231669080554,
+											"parameters": {
+												"instance-variable": "Battery_Max_Ammount_Tier1_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 803778303378350
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_1_Button",
+											"sid": 538106220458926,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 319879037339044
+										}
+									],
+									"actions": [],
+									"sid": 385494565583744,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 990917193660277,
+													"parameters": {
+														"object": "Lithium_Ingot_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 763900435840319
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_1_Button",
+											"sid": 161660718443375,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Lithium_Ingot_Meta",
+											"sid": 499787034511165
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_1_Button",
+											"sid": 221932379239068,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 204579543981198,
+									"isOrBlock": true
+								}
+							],
+							"sid": 142412753603972
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Battery Max Inventory Amount Tier 2",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 512198431109041,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Cons_Battery_Amount_Tier_2_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_2_Button",
+											"sid": 583397853547965,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_2_Button",
+											"sid": 232732650157920,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 844459392265894,
+											"parameters": {
+												"instance-variable": "Battery_Max_Ammount_Tier2_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Consumables_Buttons",
+											"sid": 875316786850066,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 992733566567341,
+											"parameters": {
+												"text": "\"This will increase your BATTERY Max Inventory Amount by 5\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_2_Button",
+											"sid": 820840293143642,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 119924366838558,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Cons_Battery_Amount_Tier_2_Button",
+													"sid": 792056240178017,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 881827300443667
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 603761337214103,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_2_Button",
+											"sid": 385084122604341,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_2_Button",
+											"sid": 952415609019755,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 440521915227107,
+											"parameters": {
+												"instance-variable": "Battery_Max_Ammount_Tier2_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 961525414772428,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 148781089840540,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 557065487675736,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 750556926886874,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 659286541582837,
+													"parameters": {
+														"instance-variable": "Silver_Ingot",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Consumables_Upg_Button",
+													"sid": 554567914636077,
+													"parameters": {
+														"instance-variable": "Battery_Max_Ammount_Tier2_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 346357926846109,
+													"parameters": {
+														"instance-variable": "Silver_Ingot",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 229590234239314,
+													"parameters": {
+														"variable": "Battery_Max_Ammount",
+														"value": "5"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Consumables_Upg_Button",
+													"sid": 825589894062220,
+													"parameters": {
+														"instance-variable": "Battery_Max_Ammount_Tier2_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 512151732193161
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 134316505443053
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_2_Button",
+											"sid": 811286219623007,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 568970227881545,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Consumables_Upg_Button.Battery_Max_Ammount_Tier2_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 420175957121289,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "5+ floor(Current_Level*10)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 396171666363124,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "3"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 461520949006367,
+											"parameters": {
+												"text": "\"SILVER INGOT: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 594483507654877,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 645206015237238,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 782419186125286
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 369603804608555,
+											"parameters": {
+												"instance-variable": "Battery_Max_Ammount_Tier2_Level",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_2_Button",
+											"sid": 780696259208659,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 235028798428479,
+											"parameters": {
+												"instance-variable": "Battery_Max_Ammount_Tier2_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 950566858037362
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_2_Button",
+											"sid": 364338255083720,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 145437100727385
+										}
+									],
+									"actions": [],
+									"sid": 420334677781359,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 583762511984196,
+													"parameters": {
+														"object": "Silver_Ingot_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 559907909575025
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_2_Button",
+											"sid": 780162237626235,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Silver_Ingot_Meta",
+											"sid": 130212571266749
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Cons_Battery_Amount_Tier_2_Button",
+											"sid": 569836521800690,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 399139666304727,
+									"isOrBlock": true
+								}
+							],
+							"sid": 521738165302530
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Repair Kit Max Inventory Tier 1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 194411346327765,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Cons_Repair_Amount_Tier_1_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_1_Button",
+											"sid": 342434933683604,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_1_Button",
+											"sid": 731408176251978,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 617292462349913,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Max_Ammount_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Consumables_Buttons",
+											"sid": 904911650750502,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 761601082759271,
+											"parameters": {
+												"text": "\"This will increase your Repair KIT Max Inventory Amount by 5\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_1_Button",
+											"sid": 307615314990112,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 357126318276091,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Cons_Repair_Amount_Tier_1_Button",
+													"sid": 182590395327917,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 859314301821826
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 588510882905070,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_1_Button",
+											"sid": 768813668571128,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_1_Button",
+											"sid": 691209175198049,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 785814328408313,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Max_Ammount_Tier1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 774477023652847,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 531750351862627,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 690600924137707,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 547684042738236,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 261170459260562,
+													"parameters": {
+														"instance-variable": "Chromium_Ingot",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Consumables_Upg_Button",
+													"sid": 659213093078265,
+													"parameters": {
+														"instance-variable": "Repair_Kit_Max_Ammount_Tier1_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 539481411600560,
+													"parameters": {
+														"instance-variable": "Chromium_Ingot",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 994467955334186,
+													"parameters": {
+														"variable": "Repair_Kit_Max_Ammount",
+														"value": "5"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Consumables_Upg_Button",
+													"sid": 898015196777660,
+													"parameters": {
+														"instance-variable": "Repair_Kit_Max_Ammount_Tier1_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 670751192450445
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 576760860558117
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_1_Button",
+											"sid": 973083251646744,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 335763264262433,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Consumables_Upg_Button.Repair_Kit_Max_Ammount_Tier1_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 219888048032269,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "5+ floor(Current_Level*10)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 944666261444515,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "3"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 777875705794645,
+											"parameters": {
+												"text": "\"CHROMIUM INGOT: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 506562603641523,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 992905346138085,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 347746260617800
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 988812441958893,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Max_Ammount_Tier1_Level",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_1_Button",
+											"sid": 325870564063536,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 993906115129878,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Max_Ammount_Tier1_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 643440449970833
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_1_Button",
+											"sid": 499392912288197,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 245148339637135
+										}
+									],
+									"actions": [],
+									"sid": 620814241076454,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 456402316549009,
+													"parameters": {
+														"object": "Chromium_Ingot_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 509296495747866
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_1_Button",
+											"sid": 310364394938614,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Chromium_Ingot_Meta",
+											"sid": 904270299299621
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_1_Button",
+											"sid": 509080681958495,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 884108090878157,
+									"isOrBlock": true
+								}
+							],
+							"sid": 709868834471412
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Repair Kit Max Inventory Tier 2",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 248280445932694,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Cons_Repair_Amount_Tier_2_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_2_Button",
+											"sid": 200481273940057,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_2_Button",
+											"sid": 266598644174789,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 433556114936515,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Max_Ammount_Tier2_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Consumables_Buttons",
+											"sid": 782296606587536,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 835955391780704,
+											"parameters": {
+												"text": "\"This will increase your Repair KIT Max Inventory Amount by 5\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_2_Button",
+											"sid": 861784897266784,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 201864392160382,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Cons_Repair_Amount_Tier_2_Button",
+													"sid": 176248358982397,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 179498761718466
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 163975211508034,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_2_Button",
+											"sid": 332279435097778,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_2_Button",
+											"sid": 763179992408815,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 623235036508502,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Max_Ammount_Tier2_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 379425056238398,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 859941818002483,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 701723383400166,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 150744962167419,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 990613862333481,
+													"parameters": {
+														"instance-variable": "Nickel_Ingot",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Consumables_Upg_Button",
+													"sid": 993975610591657,
+													"parameters": {
+														"instance-variable": "Repair_Kit_Max_Ammount_Tier2_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Global_Inventory_Object",
+													"sid": 275559771187121,
+													"parameters": {
+														"instance-variable": "Nickel_Ingot",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 191636071769978,
+													"parameters": {
+														"variable": "Repair_Kit_Max_Ammount",
+														"value": "5"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Consumables_Upg_Button",
+													"sid": 453729524390402,
+													"parameters": {
+														"instance-variable": "Repair_Kit_Max_Ammount_Tier2_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 974216566495519
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 137907854663508
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_2_Button",
+											"sid": 498433945894413,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 135327855496341,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Consumables_Upg_Button.Repair_Kit_Max_Ammount_Tier2_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 896970464575986,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "5+ floor(Current_Level*10)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 409287736115663,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "3"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 756787209984491,
+											"parameters": {
+												"text": "\"NICKEL INGOT: \" & Required_Item_Quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 232429236653262,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 952779136675365,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 878594620767021
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 251768571466073,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Max_Ammount_Tier2_Level",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_2_Button",
+											"sid": 833669749151465,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 936581125639325,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Max_Ammount_Tier2_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 115871608518293
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_2_Button",
+											"sid": 610917179989302,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 455102455759469
+										}
+									],
+									"actions": [],
+									"sid": 342550799957427,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 393771145378806,
+													"parameters": {
+														"object": "Nickel_Ingot_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 567084967206789
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_2_Button",
+											"sid": 734314737060294,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Nickel_Ingot_Meta",
+											"sid": 627855140337832
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Cons_Repair_Amount_Tier_2_Button",
+											"sid": 545222771158578,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 131959442775747,
+									"isOrBlock": true
+								}
+							],
+							"sid": 631779165318622
+						}
+					],
+					"sid": 946911697992304
 				}
 			],
 			"sid": 234698063228916
@@ -28525,6 +32503,11 @@
 										"click-type": "clicked",
 										"object-clicked": "Main_Menu_Button"
 									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "HUD_Menu_Buttons",
+									"sid": 143604921394977
 								}
 							],
 							"actions": [
@@ -28566,14 +32549,6 @@
 										"mode": "disable",
 										"effect": "\"Darken\""
 									}
-								},
-								{
-									"id": "save",
-									"objectClass": "System",
-									"sid": 714198471865841,
-									"parameters": {
-										"slot": "\"mysave\""
-									}
 								}
 							],
 							"sid": 653141037724544,
@@ -28607,6 +32582,11 @@
 										"click-type": "clicked",
 										"object-clicked": "Settings_Menu_Button"
 									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "HUD_Menu_Buttons",
+									"sid": 434109195274742
 								}
 							],
 							"actions": [
@@ -28724,6 +32704,11 @@
 										"click-type": "clicked",
 										"object-clicked": "Save_Menu_Button"
 									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "HUD_Menu_Buttons",
+									"sid": 943938963392674
 								}
 							],
 							"actions": [
