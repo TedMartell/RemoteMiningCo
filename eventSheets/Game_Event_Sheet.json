@@ -34086,6 +34086,119 @@
 			"children": [
 				{
 					"eventType": "comment",
+					"text": "Repair Workshop"
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Quick Fix Workshop",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 978993276767960,
+									"parameters": {
+										"object": "Quick_Repair_Door"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Repair_Button",
+									"sid": 449946764006516,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 258457348645764
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 959338294925210
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Repair_Button",
+									"sid": 482396603270354,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 501617768338433
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 357958181057062,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Repair_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Miner_Box",
+									"sid": 204389925445661,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "Miner_Box.Max_HP"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Repair_Button",
+									"sid": 937856395248158,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Lighten\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 388995244554115,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Repair_Button",
+									"sid": 676771112302668,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Lighten\""
+									}
+								}
+							],
+							"sid": 614872839952054
+						}
+					],
+					"sid": 815527262810391
+				},
+				{
+					"eventType": "comment",
 					"text": "Reset Map Building aka BIG BERTHA"
 				},
 				{
@@ -34146,156 +34259,213 @@
 								{
 									"id": "on-object-clicked",
 									"objectClass": "Mouse",
-									"sid": 497587641083959,
+									"sid": 199711089597211,
 									"parameters": {
 										"mouse-button": "left",
 										"click-type": "clicked",
-										"object-clicked": "Reset_Map_Button"
+										"object-clicked": "Yes_Button"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 468895640903867,
+									"parameters": {
+										"instance-variable": "Money",
+										"comparison": 5,
+										"value": "5000"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-animation",
-									"objectClass": "Map_Reset_Building",
-									"sid": 381368336643191,
-									"parameters": {
-										"animation": "\"Reset_Map\"",
-										"from": "beginning"
-									}
+									"id": "destroy",
+									"objectClass": "Reset_Pop_Up_Window",
+									"sid": 366367966796246
 								},
 								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 838472016888721,
+									"id": "destroy",
+									"objectClass": "Yes_Button",
+									"sid": 903884156965790
+								},
+								{
+									"id": "destroy",
+									"objectClass": "No_Button",
+									"sid": 352589079168732
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Reset_Text",
+									"sid": 898399617999548
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 374643623561705,
 									"parameters": {
-										"seconds": "3",
-										"use-timescale": true
+										"instance-variable": "Money",
+										"value": "5000"
 									}
 								}
 							],
-							"sid": 418199952755528,
+							"sid": 583115686573170,
 							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Claim_Button",
+											"sid": 733058016101584,
+											"parameters": {
+												"instance-variable": "Quest_12_Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 221959059480949,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 995598678677975
+								},
 								{
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
 										{
-											"id": "destroy",
-											"objectClass": "Mining_Blocks_Family",
-											"sid": 499038556136344
+											"id": "set-animation",
+											"objectClass": "Map_Reset_Building",
+											"sid": 708575036094547,
+											"parameters": {
+												"animation": "\"Reset_Map\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 636981954475885,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
 										}
 									],
-									"sid": 478110255420209,
+									"sid": 638414040434674,
 									"children": [
 										{
-											"eventType": "variable",
-											"name": "Value",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 611558600305171
-										},
-										{
-											"eventType": "variable",
-											"name": "Y",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 341050488772730
-										},
-										{
-											"eventType": "variable",
-											"name": "X",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 895611029097934
-										},
-										{
-											"eventType": "variable",
-											"name": "Ore",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 134602071575442
-										},
-										{
-											"eventType": "variable",
-											"name": "StartY",
-											"type": "number",
-											"initialValue": "20",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 562480642100123
-										},
-										{
-											"eventType": "comment",
-											"text": "Real End Y is 468"
-										},
-										{
-											"eventType": "variable",
-											"name": "EndY",
-											"type": "number",
-											"initialValue": "50",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 115674144476370
-										},
-										{
 											"eventType": "block",
-											"conditions": [
-												{
-													"id": "repeat",
-													"objectClass": "System",
-													"sid": 915836796867977,
-													"parameters": {
-														"count": "(LayoutHeight / 64) - StartY"
-													}
-												},
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 972171924143376,
-													"parameters": {
-														"variable": "Y",
-														"comparison": 2,
-														"value": "EndY"
-													}
-												}
-											],
+											"conditions": [],
 											"actions": [
 												{
-													"id": "set-eventvar-value",
+													"id": "destroy",
+													"objectClass": "Mining_Blocks_Family",
+													"sid": 559413531428508
+												},
+												{
+													"id": "set-group-active",
 													"objectClass": "System",
-													"sid": 391458072348675,
+													"sid": 119089981218505,
 													"parameters": {
-														"variable": "Y",
-														"value": "loopindex +StartY"
+														"group-name": "\"Mechanical\"",
+														"state": "activated"
 													}
 												}
 											],
-											"sid": 946535800706322,
+											"sid": 886551811886721,
 											"children": [
+												{
+													"eventType": "variable",
+													"name": "Value",
+													"type": "number",
+													"initialValue": "0",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 324428270701926
+												},
+												{
+													"eventType": "variable",
+													"name": "Y",
+													"type": "number",
+													"initialValue": "0",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 481846666934789
+												},
+												{
+													"eventType": "variable",
+													"name": "X",
+													"type": "number",
+													"initialValue": "0",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 319663302759479
+												},
+												{
+													"eventType": "variable",
+													"name": "Ore",
+													"type": "number",
+													"initialValue": "0",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 463967880785471
+												},
+												{
+													"eventType": "variable",
+													"name": "StartY",
+													"type": "number",
+													"initialValue": "20",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 101754001097035
+												},
+												{
+													"eventType": "comment",
+													"text": "Real End Y is 468"
+												},
+												{
+													"eventType": "variable",
+													"name": "EndY",
+													"type": "number",
+													"initialValue": "50",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 796959071766186
+												},
 												{
 													"eventType": "block",
 													"conditions": [
 														{
 															"id": "repeat",
 															"objectClass": "System",
-															"sid": 306845964331418,
+															"sid": 413098929453028,
 															"parameters": {
-																"count": "LayoutWidth / 64"
+																"count": "(LayoutHeight / 64) - StartY"
+															}
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 351225318816086,
+															"parameters": {
+																"variable": "Y",
+																"comparison": 2,
+																"value": "EndY"
 															}
 														}
 													],
@@ -34303,140 +34473,52 @@
 														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 809432875158308,
+															"sid": 990039228138335,
 															"parameters": {
-																"variable": "X",
-																"value": "loopindex"
+																"variable": "Y",
+																"value": "loopindex +StartY"
 															}
-														},
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 103096615460051,
-															"parameters": {
-																"variable": "Ore",
-																"value": "random(0,1)"
-															}
-														},
-														{
-															"type": "script",
-															"script": "console.log(localVars.Ore)"
 														}
 													],
-													"sid": 839829434708051,
+													"sid": 565436313716044,
 													"children": [
 														{
 															"eventType": "block",
 															"conditions": [
 																{
-																	"id": "compare-eventvar",
+																	"id": "repeat",
 																	"objectClass": "System",
-																	"sid": 907954689566705,
+																	"sid": 242227123036678,
 																	"parameters": {
-																		"variable": "X",
-																		"comparison": 2,
-																		"value": "10"
+																		"count": "LayoutWidth / 64"
 																	}
 																}
 															],
 															"actions": [
 																{
-																	"id": "create-object",
+																	"id": "set-eventvar-value",
 																	"objectClass": "System",
-																	"sid": 320679381019818,
-																	"parameters": {
-																		"object-to-create": "Game_Wall_Block",
-																		"layer": "\"Player\"",
-																		"x": "loopindex * 64",
-																		"y": "Y *64",
-																		"create-hierarchy": false,
-																		"template-name": "\"\""
-																	}
-																}
-															],
-															"sid": 539878096349005
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 250689032705095,
+																	"sid": 724567692038768,
 																	"parameters": {
 																		"variable": "X",
-																		"comparison": 4,
-																		"value": "109"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "create-object",
-																	"objectClass": "System",
-																	"sid": 804630742039766,
-																	"parameters": {
-																		"object-to-create": "Game_Wall_Block",
-																		"layer": "\"Player\"",
-																		"x": "loopindex * 64",
-																		"y": "Y *64",
-																		"create-hierarchy": false,
-																		"template-name": "\"\""
-																	}
-																}
-															],
-															"sid": 586018452957342
-														},
-														{
-															"eventType": "comment",
-															"text": "Grass Layer"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 196947209574167,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 5,
-																		"second-value": "StartY"
+																		"value": "loopindex"
 																	}
 																},
 																{
-																	"id": "compare-two-values",
+																	"id": "set-eventvar-value",
 																	"objectClass": "System",
-																	"sid": 114382013019256,
+																	"sid": 990599506615937,
 																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 2,
-																		"second-value": "StartY +1"
+																		"variable": "Ore",
+																		"value": "random(0,1)"
 																	}
 																},
 																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 521821276635324,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 5,
-																		"value": "10"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 687048668096856,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 3,
-																		"value": "109"
-																	}
+																	"type": "script",
+																	"script": "console.log(localVars.Ore)"
 																}
 															],
-															"actions": [],
-															"sid": 594144383664236,
+															"sid": 849887537497484,
 															"children": [
 																{
 																	"eventType": "block",
@@ -34444,179 +34526,385 @@
 																		{
 																			"id": "compare-eventvar",
 																			"objectClass": "System",
-																			"sid": 119737497612294,
+																			"sid": 710472997889707,
 																			"parameters": {
-																				"variable": "Ore",
+																				"variable": "X",
+																				"comparison": 2,
+																				"value": "10"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "create-object",
+																			"objectClass": "System",
+																			"sid": 735543851514031,
+																			"parameters": {
+																				"object-to-create": "Game_Wall_Block",
+																				"layer": "\"Player\"",
+																				"x": "loopindex * 64",
+																				"y": "Y *64",
+																				"create-hierarchy": false,
+																				"template-name": "\"\""
+																			}
+																		}
+																	],
+																	"sid": 373614484888814
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 272977589903797,
+																			"parameters": {
+																				"variable": "X",
+																				"comparison": 4,
+																				"value": "109"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "create-object",
+																			"objectClass": "System",
+																			"sid": 494341818022601,
+																			"parameters": {
+																				"object-to-create": "Game_Wall_Block",
+																				"layer": "\"Player\"",
+																				"x": "loopindex * 64",
+																				"y": "Y *64",
+																				"create-hierarchy": false,
+																				"template-name": "\"\""
+																			}
+																		}
+																	],
+																	"sid": 649469724137100
+																},
+																{
+																	"eventType": "comment",
+																	"text": "Grass Layer"
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 471237083637022,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 5,
+																				"second-value": "StartY"
+																			}
+																		},
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 463326832306143,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 2,
+																				"second-value": "StartY +1"
+																			}
+																		},
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 338393658951076,
+																			"parameters": {
+																				"variable": "X",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		},
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 904865055963494,
+																			"parameters": {
+																				"variable": "X",
 																				"comparison": 3,
-																				"value": "1"
+																				"value": "109"
 																			}
 																		}
 																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 529203137693513,
-																			"parameters": {
-																				"object-to-create": "Dirt_Block_Top",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 817822502676445
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [],
 																	"actions": [],
-																	"sid": 951553766211512
-																}
-															]
-														},
-														{
-															"eventType": "comment",
-															"text": "Tier 1 layer"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 696793968893325,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 5,
-																		"second-value": "StartY +1"
-																	}
+																	"sid": 773406838196360,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 526167336968150,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 3,
+																						"value": "1"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 727413684412441,
+																					"parameters": {
+																						"object-to-create": "Dirt_Block_Top",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 955940944183487
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [],
+																			"actions": [],
+																			"sid": 236764706354532
+																		}
+																	]
 																},
 																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 723386111224439,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 2,
-																		"second-value": "70"
-																	}
+																	"eventType": "comment",
+																	"text": "Tier 1 layer"
 																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 361429555654225,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 5,
-																		"value": "10"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 777277664555023,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 3,
-																		"value": "109"
-																	}
-																}
-															],
-															"actions": [],
-															"sid": 888980433735309,
-															"children": [
 																{
 																	"eventType": "block",
-																	"conditions": [],
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 992747124291492,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 5,
+																				"second-value": "StartY +1"
+																			}
+																		},
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 761582302309934,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 2,
+																				"second-value": "70"
+																			}
+																		},
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 515286780158930,
+																			"parameters": {
+																				"variable": "X",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		},
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 186864692068685,
+																			"parameters": {
+																				"variable": "X",
+																				"comparison": 3,
+																				"value": "109"
+																			}
+																		}
+																	],
 																	"actions": [],
-																	"sid": 462864597711722
+																	"sid": 645303640405520,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [],
+																			"actions": [],
+																			"sid": 343260010765988
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 835799197426048,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.85"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 583662223708256,
+																					"parameters": {
+																						"object-to-create": "Coal_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 352528581353401
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 271840429799099
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 158913124416934,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.7"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 499802578187077,
+																					"parameters": {
+																						"object-to-create": "Bauxite_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 420756865301248
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 503548455246350
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 248568802204982,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.55"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 276828223155423,
+																					"parameters": {
+																						"object-to-create": "Quartz_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 593328400481531
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 345001715058439
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 459073955786857,
+																					"parameters": {
+																						"object-to-create": "Dirt_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 496304355093461
+																		}
+																	]
+																},
+																{
+																	"eventType": "comment",
+																	"text": "Stone Block Layer"
 																},
 																{
 																	"eventType": "block",
 																	"conditions": [
 																		{
-																			"id": "compare-eventvar",
+																			"id": "compare-two-values",
 																			"objectClass": "System",
-																			"sid": 570032969130564,
+																			"sid": 123990496107290,
 																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.90"
+																				"first-value": "Y",
+																				"comparison": 5,
+																				"second-value": "70"
 																			}
-																		}
-																	],
-																	"actions": [
+																		},
 																		{
-																			"id": "create-object",
+																			"id": "compare-two-values",
 																			"objectClass": "System",
-																			"sid": 631196080189727,
+																			"sid": 652239991692795,
 																			"parameters": {
-																				"object-to-create": "Coal_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
+																				"first-value": "Y",
+																				"comparison": 2,
+																				"second-value": "75"
 																			}
-																		}
-																	],
-																	"sid": 676604856725332
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 459764569052958
 																		},
 																		{
 																			"id": "compare-eventvar",
 																			"objectClass": "System",
-																			"sid": 953209799990573,
+																			"sid": 843120395194275,
 																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.85"
+																				"variable": "X",
+																				"comparison": 5,
+																				"value": "10"
 																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 280494202020076,
-																			"parameters": {
-																				"object-to-create": "Bauxite_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 224599540177408
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 195369904780408
 																		},
 																		{
 																			"id": "compare-eventvar",
 																			"objectClass": "System",
-																			"sid": 349818330504581,
+																			"sid": 933409544141029,
 																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.80"
+																				"variable": "X",
+																				"comparison": 3,
+																				"value": "109"
 																			}
 																		}
 																	],
@@ -34624,296 +34912,7 @@
 																		{
 																			"id": "create-object",
 																			"objectClass": "System",
-																			"sid": 535007835867360,
-																			"parameters": {
-																				"object-to-create": "Quartz_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 509249645908324
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 583164836508745
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 471940556241074,
-																			"parameters": {
-																				"object-to-create": "Dirt_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 825697762070476
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [],
-																	"actions": [],
-																	"sid": 765311170024011
-																}
-															]
-														},
-														{
-															"eventType": "comment",
-															"text": "Stone Block Layer"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 750190077414367,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 5,
-																		"second-value": "70"
-																	}
-																},
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 692517201330999,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 2,
-																		"second-value": "75"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 991787410839994,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 5,
-																		"value": "10"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 910261752009459,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 3,
-																		"value": "109"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "create-object",
-																	"objectClass": "System",
-																	"sid": 139980060619670,
-																	"parameters": {
-																		"object-to-create": "Stone_Block",
-																		"layer": "\"Player\"",
-																		"x": "loopindex *64",
-																		"y": "Y *64",
-																		"create-hierarchy": false,
-																		"template-name": "\"\""
-																	}
-																}
-															],
-															"sid": 733231292853911
-														},
-														{
-															"eventType": "comment",
-															"text": "Tier 2 Layer with stone"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 974496018754209,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 5,
-																		"second-value": "75"
-																	}
-																},
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 399723191327562,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 2,
-																		"second-value": "200"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 771068490074901,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 5,
-																		"value": "10"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 832313646955092,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 3,
-																		"value": "109"
-																	}
-																}
-															],
-															"actions": [],
-															"sid": 584273005961002,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 548172978628928,
-																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.95"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 603353544572820,
-																			"parameters": {
-																				"object-to-create": "Iron_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 252673643796875
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 310535355031914
-																		},
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 803993927182897,
-																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.9"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 337448183863284,
-																			"parameters": {
-																				"object-to-create": "Chromium_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 864653024339928
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 940957606002596
-																		},
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 567637208341314,
-																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.85"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 272925381482917,
-																			"parameters": {
-																				"object-to-create": "Copper_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 208644788520539
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 745615157379029
-																		},
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 571352955692393,
-																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.8"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 271884883662851,
+																			"sid": 680447591895587,
 																			"parameters": {
 																				"object-to-create": "Stone_Block",
 																				"layer": "\"Player\"",
@@ -34924,132 +34923,415 @@
 																			}
 																		}
 																	],
-																	"sid": 160734536917982
+																	"sid": 417160161787763
+																},
+																{
+																	"eventType": "comment",
+																	"text": "Tier 2 Layer with stone"
 																},
 																{
 																	"eventType": "block",
 																	"conditions": [
 																		{
-																			"id": "else",
+																			"id": "compare-two-values",
 																			"objectClass": "System",
-																			"sid": 461397229958072
+																			"sid": 148631815074435,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 5,
+																				"second-value": "75"
+																			}
+																		},
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 603136745957383,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 2,
+																				"second-value": "200"
+																			}
 																		},
 																		{
 																			"id": "compare-eventvar",
 																			"objectClass": "System",
-																			"sid": 594575080096133,
+																			"sid": 619403645246066,
 																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.7"
+																				"variable": "X",
+																				"comparison": 5,
+																				"value": "10"
 																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 743566257967283,
-																			"parameters": {
-																				"object-to-create": "Coal_Block_2",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 215893572757252
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 289612752594686
 																		},
 																		{
 																			"id": "compare-eventvar",
 																			"objectClass": "System",
-																			"sid": 739086611193750,
+																			"sid": 696940357605328,
 																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.6999"
+																				"variable": "X",
+																				"comparison": 3,
+																				"value": "109"
 																			}
 																		}
 																	],
-																	"actions": [
+																	"actions": [],
+																	"sid": 627964196879593,
+																	"children": [
 																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 298674218449246,
-																			"parameters": {
-																				"object-to-create": "Lithium_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 486883830657168,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.85"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 750194178086073,
+																					"parameters": {
+																						"object-to-create": "Iron_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 451459563341372
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 397667561839882
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 992064220751548,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.7"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 230610063942304,
+																					"parameters": {
+																						"object-to-create": "Chromium_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 511732275791122
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 839280391303358
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 410415652572760,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.55"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 354823450483715,
+																					"parameters": {
+																						"object-to-create": "Copper_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 148365936014640
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 323358886835510
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 583905221741617,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.5"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 365402836718235,
+																					"parameters": {
+																						"object-to-create": "Stone_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 226375621952202
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 862586369463200
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 670327317518406,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.47"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 989213678322245,
+																					"parameters": {
+																						"object-to-create": "Coal_Block_2",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 468918562367838
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 459004275591414
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 846820675837482,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.46"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 701133705800611,
+																					"parameters": {
+																						"object-to-create": "Lithium_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 841260901225029
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 607969027288527
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 665042344392236,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.45"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 259082122475093,
+																					"parameters": {
+																						"object-to-create": "Silver_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 754772246157687
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 685130353056514
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 813601032407393,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.44"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 682681300608072,
+																					"parameters": {
+																						"object-to-create": "Nickel_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 738032218808536
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 132423517993763
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 403045708951201,
+																					"parameters": {
+																						"object-to-create": "Dirt_Block_2",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 926419048271328
 																		}
-																	],
-																	"sid": 848612621475032
+																	]
+																},
+																{
+																	"eventType": "comment",
+																	"text": "Lava Layer"
 																},
 																{
 																	"eventType": "block",
 																	"conditions": [
 																		{
-																			"id": "else",
+																			"id": "compare-two-values",
 																			"objectClass": "System",
-																			"sid": 406911576210901
+																			"sid": 275159363647341,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 5,
+																				"second-value": "200"
+																			}
+																		},
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 467846798914056,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 2,
+																				"second-value": "203"
+																			}
 																		},
 																		{
 																			"id": "compare-eventvar",
 																			"objectClass": "System",
-																			"sid": 551305407669813,
+																			"sid": 703392563302678,
 																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.6998"
+																				"variable": "X",
+																				"comparison": 5,
+																				"value": "10"
 																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 648092731917817,
-																			"parameters": {
-																				"object-to-create": "Silver_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 804153897841936
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 392550658398569
 																		},
 																		{
 																			"id": "compare-eventvar",
 																			"objectClass": "System",
-																			"sid": 453741518985931,
+																			"sid": 520349401019261,
 																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.6997"
+																				"variable": "X",
+																				"comparison": 3,
+																				"value": "109"
 																			}
 																		}
 																	],
@@ -35057,420 +35339,7 @@
 																		{
 																			"id": "create-object",
 																			"objectClass": "System",
-																			"sid": 230540861010745,
-																			"parameters": {
-																				"object-to-create": "Nickel_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 395931814035788
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 385991246216789
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 726728261723327,
-																			"parameters": {
-																				"object-to-create": "Dirt_Block_2",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 671912364703494
-																}
-															]
-														},
-														{
-															"eventType": "comment",
-															"text": "Lava Layer"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 187116422264030,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 5,
-																		"second-value": "200"
-																	}
-																},
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 439331958894229,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 2,
-																		"second-value": "203"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 241094686576136,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 5,
-																		"value": "10"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 531495158401135,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 3,
-																		"value": "109"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "create-object",
-																	"objectClass": "System",
-																	"sid": 840513582933156,
-																	"parameters": {
-																		"object-to-create": "Lava_Block_1",
-																		"layer": "\"Player\"",
-																		"x": "loopindex *64",
-																		"y": "Y *64",
-																		"create-hierarchy": false,
-																		"template-name": "\"\""
-																	}
-																}
-															],
-															"sid": 897475341150244
-														},
-														{
-															"eventType": "comment",
-															"text": "Mini Boss Layer "
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 897426924854798,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 5,
-																		"second-value": "213"
-																	}
-																},
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 896813028334676,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 2,
-																		"second-value": "214"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 526771638245044,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 5,
-																		"value": "10"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 534187551618050,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 3,
-																		"value": "109"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "create-object",
-																	"objectClass": "System",
-																	"sid": 242414975460625,
-																	"parameters": {
-																		"object-to-create": "Mole_Top_Block",
-																		"layer": "\"Player\"",
-																		"x": "loopindex *64",
-																		"y": "Y *64",
-																		"create-hierarchy": false,
-																		"template-name": "\"\""
-																	}
-																}
-															],
-															"sid": 495890733863358
-														},
-														{
-															"eventType": "comment",
-															"text": "Mini Boss Layer "
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 441902078773688,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 5,
-																		"second-value": "214"
-																	}
-																},
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 376407850775266,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 2,
-																		"second-value": "216"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 642571078926384,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 5,
-																		"value": "10"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 397931759837334,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 3,
-																		"value": "109"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "create-object",
-																	"objectClass": "System",
-																	"sid": 129999661558640,
-																	"parameters": {
-																		"object-to-create": "Dirt_Block_3",
-																		"layer": "\"Player\"",
-																		"x": "loopindex *64",
-																		"y": "Y *64",
-																		"create-hierarchy": false,
-																		"template-name": "\"\""
-																	}
-																}
-															],
-															"sid": 169685689959670
-														},
-														{
-															"eventType": "comment",
-															"text": "Tier 3 layer with Lava_1 and Stone"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 327597076564986,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 5,
-																		"second-value": "216"
-																	}
-																},
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 456812769984092,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 2,
-																		"second-value": "250"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 575341380491026,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 5,
-																		"value": "10"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 844443458302271,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 3,
-																		"value": "109"
-																	}
-																}
-															],
-															"actions": [],
-															"sid": 614354639468106,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 485081909107500,
-																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.95"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 352768156945065,
-																			"parameters": {
-																				"object-to-create": "Lithium_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 477582694163885
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 947577530653908
-																		},
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 351776139675955,
-																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.8"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 450897327037555,
-																			"parameters": {
-																				"object-to-create": "Silver_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 920034326064077
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 779319797332056
-																		},
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 613865790360693,
-																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.7"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 683871204159156,
-																			"parameters": {
-																				"object-to-create": "Nickel_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 747040097547366
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 779139744257738
-																		},
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 309292337755292,
-																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.65"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 785952554034423,
+																			"sid": 366166193110273,
 																			"parameters": {
 																				"object-to-create": "Lava_Block_1",
 																				"layer": "\"Player\"",
@@ -35481,60 +35350,53 @@
 																			}
 																		}
 																	],
-																	"sid": 364433031701047
+																	"sid": 620215380419700
+																},
+																{
+																	"eventType": "comment",
+																	"text": "Mini Boss Layer "
 																},
 																{
 																	"eventType": "block",
 																	"conditions": [
 																		{
-																			"id": "else",
+																			"id": "compare-two-values",
 																			"objectClass": "System",
-																			"sid": 752347561289232
+																			"sid": 652966355487963,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 5,
+																				"second-value": "213"
+																			}
+																		},
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 753104022074463,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 2,
+																				"second-value": "216"
+																			}
 																		},
 																		{
 																			"id": "compare-eventvar",
 																			"objectClass": "System",
-																			"sid": 816480293856233,
+																			"sid": 747565371332905,
 																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.60"
+																				"variable": "X",
+																				"comparison": 5,
+																				"value": "10"
 																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 258776041251913,
-																			"parameters": {
-																				"object-to-create": "Stone_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 136226714280185
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 926091575043218
 																		},
 																		{
 																			"id": "compare-eventvar",
 																			"objectClass": "System",
-																			"sid": 908037367918150,
+																			"sid": 876311097140864,
 																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.55"
+																				"variable": "X",
+																				"comparison": 3,
+																				"value": "109"
 																			}
 																		}
 																	],
@@ -35542,33 +35404,7 @@
 																		{
 																			"id": "create-object",
 																			"objectClass": "System",
-																			"sid": 740187551052957,
-																			"parameters": {
-																				"object-to-create": "Coal_Block_2",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 387570894470404
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 137848092344882
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 905553184879650,
+																			"sid": 548108444434025,
 																			"parameters": {
 																				"object-to-create": "Dirt_Block_3",
 																				"layer": "\"Player\"",
@@ -35579,222 +35415,711 @@
 																			}
 																		}
 																	],
-																	"sid": 856597805187803
+																	"sid": 566634268025249
+																},
+																{
+																	"eventType": "comment",
+																	"text": "Tier 3 layer with Lava_1 and Stone"
 																},
 																{
 																	"eventType": "block",
-																	"conditions": [],
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 788623878454149,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 5,
+																				"second-value": "216"
+																			}
+																		},
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 132415932186572,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 2,
+																				"second-value": "250"
+																			}
+																		},
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 242280381522325,
+																			"parameters": {
+																				"variable": "X",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		},
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 924759903571848,
+																			"parameters": {
+																				"variable": "X",
+																				"comparison": 3,
+																				"value": "109"
+																			}
+																		}
+																	],
 																	"actions": [],
-																	"sid": 374373109685481
-																}
-															]
-														},
-														{
-															"eventType": "comment",
-															"text": "Tier 4 layer with Diamonds Gold and Zinc"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 500069036137792,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 5,
-																		"second-value": "250"
-																	}
+																	"sid": 272571827905370,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 780928259899834,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.85"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 424146091704754,
+																					"parameters": {
+																						"object-to-create": "Lithium_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 734374073258313
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 585760271167953
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 937801804791541,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.7"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 311823626564960,
+																					"parameters": {
+																						"object-to-create": "Silver_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 397246305970261
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 585534635334881
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 891099185338447,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.55"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 253083544151512,
+																					"parameters": {
+																						"object-to-create": "Nickel_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 494143196885483
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 622539254495019
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 989583103276554,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.5"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 120072794281075,
+																					"parameters": {
+																						"object-to-create": "Lava_Block_1",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 602209202803510
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 411884978720758
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 247753284290575,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.45"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 364265304662478,
+																					"parameters": {
+																						"object-to-create": "Stone_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 876108001643948
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 782007042646794
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 420201279273257,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.4"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 920224756485551,
+																					"parameters": {
+																						"object-to-create": "Coal_Block_2",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 746748712059683
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 790847212288473
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 570181974066855,
+																					"parameters": {
+																						"object-to-create": "Dirt_Block_3",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 399283268632997
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [],
+																			"actions": [],
+																			"sid": 233050647019396
+																		}
+																	]
 																},
 																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 887185672000850,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 2,
-																		"second-value": "335"
-																	}
+																	"eventType": "comment",
+																	"text": "Tier 4 layer with Diamonds Gold and Zinc"
 																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 461110957155505,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 5,
-																		"value": "10"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 628990872419871,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 3,
-																		"value": "109"
-																	}
-																}
-															],
-															"actions": [],
-															"sid": 300506358592213,
-															"children": [
 																{
 																	"eventType": "block",
 																	"conditions": [
 																		{
-																			"id": "compare-eventvar",
+																			"id": "compare-two-values",
 																			"objectClass": "System",
-																			"sid": 234056748358810,
+																			"sid": 299750750573034,
 																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.95"
+																				"first-value": "Y",
+																				"comparison": 5,
+																				"second-value": "250"
 																			}
-																		}
-																	],
-																	"actions": [
+																		},
 																		{
-																			"id": "create-object",
+																			"id": "compare-two-values",
 																			"objectClass": "System",
-																			"sid": 265879774174669,
+																			"sid": 509140843510950,
 																			"parameters": {
-																				"object-to-create": "Zinc_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
+																				"first-value": "Y",
+																				"comparison": 2,
+																				"second-value": "335"
 																			}
-																		}
-																	],
-																	"sid": 967715056314585
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 752032118449081
 																		},
 																		{
 																			"id": "compare-eventvar",
 																			"objectClass": "System",
-																			"sid": 541057174701182,
+																			"sid": 529602039328410,
 																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.8"
+																				"variable": "X",
+																				"comparison": 5,
+																				"value": "10"
 																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 956642364855492,
-																			"parameters": {
-																				"object-to-create": "Gold_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 620481129044586
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 160041533585613
 																		},
 																		{
 																			"id": "compare-eventvar",
 																			"objectClass": "System",
-																			"sid": 376794216267695,
+																			"sid": 189702281541924,
 																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.799"
+																				"variable": "X",
+																				"comparison": 3,
+																				"value": "109"
 																			}
 																		}
 																	],
-																	"actions": [
+																	"actions": [],
+																	"sid": 389556280855115,
+																	"children": [
 																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 578084844605643,
-																			"parameters": {
-																				"object-to-create": "Diamond_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 164870078957528,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.85"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 958740380275030,
+																					"parameters": {
+																						"object-to-create": "Zinc_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 328485228283356
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 794570542705198
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 525454940971312,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.7"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 108473384142312,
+																					"parameters": {
+																						"object-to-create": "Gold_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 727194430236942
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 240634943442240
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 657683230191270,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.65"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 604288406274928,
+																					"parameters": {
+																						"object-to-create": "Diamond_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 528681212255990
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 669857932744302
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 596536802094412,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.55"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 270070748261504,
+																					"parameters": {
+																						"object-to-create": "Nickel_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 212495699861142
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 542473956311559
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 886969874052545,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.45"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 361075263024498,
+																					"parameters": {
+																						"object-to-create": "Silver_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 756479897238319
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 833857524638192
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 387374678270305,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.35"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 291889595781050,
+																					"parameters": {
+																						"object-to-create": "Lithium_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 608135946263995
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 641148730362695
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 579006563083062,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.34"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 364240836032183,
+																					"parameters": {
+																						"object-to-create": "Lava_Block_1",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 973441141411970
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 877090414258613
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 752086450047626,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.33"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 609738925671690,
+																					"parameters": {
+																						"object-to-create": "Stone_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 394430142737703
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 849270191612802
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 933666972290013,
+																					"parameters": {
+																						"object-to-create": "Dirt_Block_3",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 727518045277004
 																		}
-																	],
-																	"sid": 389605115534305
+																	]
+																},
+																{
+																	"eventType": "comment",
+																	"text": "Lava layer before mini boss 2"
 																},
 																{
 																	"eventType": "block",
 																	"conditions": [
 																		{
-																			"id": "else",
+																			"id": "compare-two-values",
 																			"objectClass": "System",
-																			"sid": 676063100806560
+																			"sid": 603009881856934,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 5,
+																				"second-value": "335"
+																			}
+																		},
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 850228309997628,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 2,
+																				"second-value": "340"
+																			}
 																		},
 																		{
 																			"id": "compare-eventvar",
 																			"objectClass": "System",
-																			"sid": 597604329897217,
+																			"sid": 174778742956036,
 																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.75"
+																				"variable": "X",
+																				"comparison": 5,
+																				"value": "10"
 																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 834229892714185,
-																			"parameters": {
-																				"object-to-create": "Nickel_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 541214704780918
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 437735000424733
 																		},
 																		{
 																			"id": "compare-eventvar",
 																			"objectClass": "System",
-																			"sid": 140781017183127,
+																			"sid": 851727676949795,
 																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.72"
+																				"variable": "X",
+																				"comparison": 3,
+																				"value": "109"
 																			}
 																		}
 																	],
@@ -35802,524 +36127,7 @@
 																		{
 																			"id": "create-object",
 																			"objectClass": "System",
-																			"sid": 545849509834749,
-																			"parameters": {
-																				"object-to-create": "Silver_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 985091890586402
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 901666236922617
-																		},
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 312736736706826,
-																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.69"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 984837351781105,
-																			"parameters": {
-																				"object-to-create": "Lithium_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 414988650023202
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 138484390969507
-																		},
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 536287920700503,
-																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.59"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 569108134721462,
-																			"parameters": {
-																				"object-to-create": "Lava_Block_1",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 565571994560296
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 358468186103012
-																		},
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 409751490049637,
-																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.5"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 584520101315323,
-																			"parameters": {
-																				"object-to-create": "Stone_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 709822371793929
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 263808861424143
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 412587868623070,
-																			"parameters": {
-																				"object-to-create": "Dirt_Block_3",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 291627606457506
-																}
-															]
-														},
-														{
-															"eventType": "comment",
-															"text": "Lava layer before mini boss 2"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 825367074523443,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 5,
-																		"second-value": "335"
-																	}
-																},
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 754881080659189,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 2,
-																		"second-value": "340"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 954355232743364,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 5,
-																		"value": "10"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 838664470539849,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 3,
-																		"value": "109"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "create-object",
-																	"objectClass": "System",
-																	"sid": 613057024128944,
-																	"parameters": {
-																		"object-to-create": "Lava_Block_2",
-																		"layer": "\"Player\"",
-																		"x": "loopindex *64",
-																		"y": "Y *64",
-																		"create-hierarchy": false,
-																		"template-name": "\"\""
-																	}
-																}
-															],
-															"sid": 555001931977202
-														},
-														{
-															"eventType": "comment",
-															"text": "Mini Boss Layer 2"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 989741876352973,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 5,
-																		"second-value": "350"
-																	}
-																},
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 588155728455416,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 2,
-																		"second-value": "351"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 885130773732669,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 5,
-																		"value": "10"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 259644261767583,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 3,
-																		"value": "109"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "create-object",
-																	"objectClass": "System",
-																	"sid": 279221895019362,
-																	"parameters": {
-																		"object-to-create": "Crab_Top_Block",
-																		"layer": "\"Player\"",
-																		"x": "loopindex *64",
-																		"y": "Y *64",
-																		"create-hierarchy": false,
-																		"template-name": "\"\""
-																	}
-																}
-															],
-															"sid": 220211037818881
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 365744893646120,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 5,
-																		"second-value": "351"
-																	}
-																},
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 380718577930724,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 2,
-																		"second-value": "353"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 397006884405933,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 5,
-																		"value": "10"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 365950761949807,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 3,
-																		"value": "109"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "create-object",
-																	"objectClass": "System",
-																	"sid": 346130993163936,
-																	"parameters": {
-																		"object-to-create": "Stone_Block",
-																		"layer": "\"Player\"",
-																		"x": "loopindex *64",
-																		"y": "Y *64",
-																		"create-hierarchy": false,
-																		"template-name": "\"\""
-																	}
-																}
-															],
-															"sid": 837068442519063
-														},
-														{
-															"eventType": "comment",
-															"text": "Last layer with more Diamonds, gold and Zinc + Lava"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 883988150816016,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 5,
-																		"second-value": "353"
-																	}
-																},
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 634949835923524,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 2,
-																		"second-value": "440"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 859948290426655,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 5,
-																		"value": "10"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 691763128394952,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 3,
-																		"value": "109"
-																	}
-																}
-															],
-															"actions": [],
-															"sid": 290752124165885,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 637226235612250,
-																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.95"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 469103706746884,
-																			"parameters": {
-																				"object-to-create": "Zinc_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 945144413741710
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 985452285716205
-																		},
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 142671130840997,
-																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.8"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 460746065434157,
-																			"parameters": {
-																				"object-to-create": "Gold_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 178282383794414
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 426340595965734
-																		},
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 163669491056425,
-																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.70"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 359375447230615,
-																			"parameters": {
-																				"object-to-create": "Diamond_Block",
-																				"layer": "\"Player\"",
-																				"x": "loopindex *64",
-																				"y": "Y *64",
-																				"create-hierarchy": false,
-																				"template-name": "\"\""
-																			}
-																		}
-																	],
-																	"sid": 359629387101691
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 572234850561378
-																		},
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 363898009266804,
-																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.50"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "create-object",
-																			"objectClass": "System",
-																			"sid": 644480848981790,
+																			"sid": 718612372759382,
 																			"parameters": {
 																				"object-to-create": "Lava_Block_2",
 																				"layer": "\"Player\"",
@@ -36330,24 +36138,53 @@
 																			}
 																		}
 																	],
-																	"sid": 286683946431195
+																	"sid": 850303781057409
+																},
+																{
+																	"eventType": "comment",
+																	"text": "Mini Boss Layer 2"
 																},
 																{
 																	"eventType": "block",
 																	"conditions": [
 																		{
-																			"id": "else",
+																			"id": "compare-two-values",
 																			"objectClass": "System",
-																			"sid": 606599890429497
+																			"sid": 631001603146571,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 5,
+																				"second-value": "350"
+																			}
+																		},
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 702576466005478,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 2,
+																				"second-value": "353"
+																			}
 																		},
 																		{
 																			"id": "compare-eventvar",
 																			"objectClass": "System",
-																			"sid": 232776914511364,
+																			"sid": 113656853242869,
 																			"parameters": {
-																				"variable": "Ore",
-																				"comparison": 4,
-																				"value": "0.4"
+																				"variable": "X",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		},
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 615428176694531,
+																			"parameters": {
+																				"variable": "X",
+																				"comparison": 3,
+																				"value": "109"
 																			}
 																		}
 																	],
@@ -36355,7 +36192,7 @@
 																		{
 																			"id": "create-object",
 																			"objectClass": "System",
-																			"sid": 134034816843729,
+																			"sid": 826586596941892,
 																			"parameters": {
 																				"object-to-create": "Stone_Block",
 																				"layer": "\"Player\"",
@@ -36366,24 +36203,317 @@
 																			}
 																		}
 																	],
-																	"sid": 156400366018942
+																	"sid": 233949658518439
+																},
+																{
+																	"eventType": "comment",
+																	"text": "Last layer with more Diamonds, gold and Zinc + Lava"
 																},
 																{
 																	"eventType": "block",
 																	"conditions": [
 																		{
-																			"id": "else",
+																			"id": "compare-two-values",
 																			"objectClass": "System",
-																			"sid": 879421330319180
+																			"sid": 164683979251980,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 5,
+																				"second-value": "353"
+																			}
+																		},
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 279957608363297,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 2,
+																				"second-value": "440"
+																			}
+																		},
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 136985331321620,
+																			"parameters": {
+																				"variable": "X",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		},
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 805159625056163,
+																			"parameters": {
+																				"variable": "X",
+																				"comparison": 3,
+																				"value": "109"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 685429324410037,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 166160276715337,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.95"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 747976366910119,
+																					"parameters": {
+																						"object-to-create": "Zinc_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 597186964119211
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 685827774890615
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 766240487599184,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.8"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 167649081133757,
+																					"parameters": {
+																						"object-to-create": "Gold_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 992189533470128
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 912715175694433
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 854872106306975,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.70"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 554528543486572,
+																					"parameters": {
+																						"object-to-create": "Diamond_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 335879494067395
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 237317091938186
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 758863148382172,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.50"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 358800709161568,
+																					"parameters": {
+																						"object-to-create": "Lava_Block_2",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 836044851587415
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 243447798226496
+																				},
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 257554491218928,
+																					"parameters": {
+																						"variable": "Ore",
+																						"comparison": 4,
+																						"value": "0.4"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 976161369456248,
+																					"parameters": {
+																						"object-to-create": "Stone_Block",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 917872625829875
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 612962532812719
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 863350060742661,
+																					"parameters": {
+																						"object-to-create": "Dirt_Block_3",
+																						"layer": "\"Player\"",
+																						"x": "loopindex *64",
+																						"y": "Y *64",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 125857298619883
+																		}
+																	]
+																},
+																{
+																	"eventType": "comment",
+																	"text": "Last Lava before final boss"
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 527082254420010,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 5,
+																				"second-value": "440"
+																			}
+																		},
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 569638368165457,
+																			"parameters": {
+																				"first-value": "Y",
+																				"comparison": 2,
+																				"second-value": "447"
+																			}
+																		},
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 887533602756546,
+																			"parameters": {
+																				"variable": "X",
+																				"comparison": 5,
+																				"value": "10"
+																			}
+																		},
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 173534557368605,
+																			"parameters": {
+																				"variable": "X",
+																				"comparison": 3,
+																				"value": "109"
+																			}
 																		}
 																	],
 																	"actions": [
 																		{
 																			"id": "create-object",
 																			"objectClass": "System",
-																			"sid": 283066436002824,
+																			"sid": 633106535901374,
 																			"parameters": {
-																				"object-to-create": "Dirt_Block_3",
+																				"object-to-create": "Lava_Block_2",
 																				"layer": "\"Player\"",
 																				"x": "loopindex *64",
 																				"y": "Y *64",
@@ -36392,74 +36522,9 @@
 																			}
 																		}
 																	],
-																	"sid": 515598957204629
+																	"sid": 203407759497320
 																}
 															]
-														},
-														{
-															"eventType": "comment",
-															"text": "Last Lava before final boss"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 104057885030534,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 5,
-																		"second-value": "440"
-																	}
-																},
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 859064745478851,
-																	"parameters": {
-																		"first-value": "Y",
-																		"comparison": 2,
-																		"second-value": "447"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 489841287558213,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 5,
-																		"value": "10"
-																	}
-																},
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 676413619163674,
-																	"parameters": {
-																		"variable": "X",
-																		"comparison": 3,
-																		"value": "109"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "create-object",
-																	"objectClass": "System",
-																	"sid": 648914520694403,
-																	"parameters": {
-																		"object-to-create": "Lava_Block_2",
-																		"layer": "\"Player\"",
-																		"x": "loopindex *64",
-																		"y": "Y *64",
-																		"create-hierarchy": false,
-																		"template-name": "\"\""
-																	}
-																}
-															],
-															"sid": 288977283189880
 														}
 													]
 												}
@@ -36468,6 +36533,136 @@
 									]
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 790327508434257,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "No_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 612152664820475,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Reset_Pop_Up_Window",
+									"sid": 284720380764592
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Yes_Button",
+									"sid": 379483419377078
+								},
+								{
+									"id": "destroy",
+									"objectClass": "No_Button",
+									"sid": 802373517414516
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Reset_Text",
+									"sid": 318810293150036
+								}
+							],
+							"sid": 489294967589922
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 497587641083959,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Reset_Map_Button"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Reset_Map_Button",
+									"sid": 820594302872285,
+									"parameters": {
+										"animation": "\"Active\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 751114093268765,
+									"parameters": {
+										"object": "Reset_Pop_Up_Window",
+										"layer": "\"Foreground\"",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Reset_Pop_Up_Window",
+									"sid": 145029269265084,
+									"parameters": {
+										"object": "Yes_Button",
+										"layer": "\"Foreground\"",
+										"image-point": "\"Yes_Button\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Reset_Pop_Up_Window",
+									"sid": 264055752897222,
+									"parameters": {
+										"object": "No_Button",
+										"layer": "\"Foreground\"",
+										"image-point": "\"No_Button\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Reset_Pop_Up_Window",
+									"sid": 107000728678754,
+									"parameters": {
+										"object": "Reset_Text",
+										"layer": "\"Foreground\"",
+										"image-point": "\"Reset_Text\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 341263832582685,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "deactivated"
+									}
+								}
+							],
+							"sid": 418199952755528
 						},
 						{
 							"eventType": "block",
@@ -36513,6 +36708,10 @@
 						}
 					],
 					"sid": 827557084595084
+				},
+				{
+					"eventType": "comment",
+					"text": "Mitch to buy weapons"
 				},
 				{
 					"eventType": "group",
@@ -68541,6 +68740,24 @@
 												"instance-variable": "Quest_11_Active",
 												"value": "1"
 											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 479705791433152,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 317819125758909,
+											"parameters": {
+												"variable": "Quest_Objective_2",
+												"value": "0"
+											}
 										}
 									],
 									"sid": 630223391465889
@@ -68764,6 +68981,15 @@
 											}
 										},
 										{
+											"id": "set-animation",
+											"objectClass": "Reset_Map_Button",
+											"sid": 301666797638000,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										},
+										{
 											"id": "set-instvar-value",
 											"objectClass": "Claim_Button",
 											"sid": 103684346054159,
@@ -68791,12 +69017,29 @@
 											}
 										},
 										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 833298873517065,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 732230746761771,
+											"parameters": {
+												"variable": "Quest_Objective_2",
+												"value": "0"
+											}
+										},
+										{
 											"id": "set-instvar-value",
 											"objectClass": "Claim_Button",
-											"sid": 505653483559084,
-											"disabled": true,
+											"sid": 286276414581104,
 											"parameters": {
-												"instance-variable": "Quest_10_Active",
+												"instance-variable": "Quest_12_Active",
 												"value": "1"
 											}
 										}
@@ -68807,6 +69050,290 @@
 						}
 					],
 					"sid": 800940010506745
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "12th Quest",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 896148072585723
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 949949027178323,
+									"parameters": {
+										"instance-variable": "Quest_11_Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 410254108037556,
+									"parameters": {
+										"variable": "Quest_Target_1",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 585017042662360,
+									"parameters": {
+										"variable": "Quest_Target_2",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Quest_Text",
+									"sid": 578137528536996,
+									"parameters": {
+										"text": "\"Go deeper and defeat the next 2 enemies\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Reward_Text",
+									"sid": 728783976637448,
+									"parameters": {
+										"text": "\"Your Reward for completing this quest:\" & newline & \"2500 $\""
+									}
+								}
+							],
+							"sid": 360948128638968,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 579524412841935,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"comparison": 5,
+												"value": "Quest_Target_1"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 613164125017825,
+											"parameters": {
+												"variable": "Quest_Objective_2",
+												"comparison": 5,
+												"value": "Quest_Target_2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 816901947499891,
+											"parameters": {
+												"instance-variable": "Quest_11_Completed",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 752077899241607,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 927427160027195
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 417412926706459,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Claim_Button"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Claim_Button",
+									"sid": 500872924157975,
+									"parameters": {
+										"animation": "\"Active\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 147565226867436,
+									"parameters": {
+										"instance-variable": "Quest_11_Completed",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 428783248841617,
+									"parameters": {
+										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 202435809274931,
+									"parameters": {
+										"instance-variable": "Money",
+										"value": "2500"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 759669848649319,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 917515338158758,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 745772654230018,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Crab_Top_Block",
+									"sid": 460022101254804
+								}
+							],
+							"sid": 575979409917723,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Quest_Text",
+											"sid": 638880607150851,
+											"parameters": {
+												"text": "\"NO MORE QUESTS\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Reset_Map_Button",
+											"sid": 888538412984870,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 674788420279664,
+											"parameters": {
+												"instance-variable": "Quest_11_Completed",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 630151587649366,
+											"parameters": {
+												"instance-variable": "Quest_11_Active",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 857214309492307,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 341413942551373,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 220190063722152,
+											"parameters": {
+												"variable": "Quest_Objective_2",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 975666584635290,
+											"parameters": {
+												"instance-variable": "Quest_12_Active",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 119341803473311
+								}
+							]
+						}
+					],
+					"sid": 363898007239904
 				}
 			],
 			"sid": 697321010246842
