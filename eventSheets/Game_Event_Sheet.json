@@ -34820,6 +34820,15 @@
 														"group-name": "\"Mechanical\"",
 														"state": "activated"
 													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Reset_Map_Button",
+													"sid": 849927622250225,
+													"parameters": {
+														"animation": "\"Active\"",
+														"from": "beginning"
+													}
 												}
 											],
 											"sid": 886551811886721,
@@ -37057,6 +37066,15 @@
 									"id": "destroy",
 									"objectClass": "Reset_Text",
 									"sid": 318810293150036
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Reset_Map_Button",
+									"sid": 298011054235180,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
 								}
 							],
 							"sid": 489294967589922
@@ -37081,12 +37099,6 @@
 									"parameters": {
 										"animation": "\"Active\""
 									}
-								},
-								{
-									"id": "is-visible",
-									"objectClass": "Reset_Pop_Up_Window",
-									"sid": 572562479589124,
-									"isInverted": true
 								}
 							],
 							"actions": [
@@ -37160,7 +37172,25 @@
 									}
 								}
 							],
-							"sid": 418199952755528
+							"sid": 418199952755528,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Reset_Map_Button",
+											"sid": 213273044891934,
+											"parameters": {
+												"animation": "\"Locked\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 991733556786947
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -65317,11 +65347,11 @@
 								{
 									"id": "move-to-object",
 									"objectClass": "Enemy_Body4",
-									"sid": 159512144518823,
+									"sid": 701750627186690,
 									"behaviorType": "MoveTo",
 									"parameters": {
 										"object": "Enemy_Background_First",
-										"image-point": "\"Enemy_2\"",
+										"image-point": "\"Enemy_4\"",
 										"mode": "direct"
 									}
 								},
@@ -65351,11 +65381,11 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Enemy_Body4",
-											"sid": 343396588515094,
+											"sid": 454441913241725,
 											"parameters": {
 												"instance-variable": "HP",
 												"comparison": 2,
-												"value": "Enemy_Body2.Max_HP"
+												"value": "Enemy_Body4.Max_HP"
 											}
 										}
 									],
