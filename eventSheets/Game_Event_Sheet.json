@@ -4870,327 +4870,6 @@
 					"sid": 686414873303369
 				},
 				{
-					"eventType": "group",
-					"disabled": true,
-					"title": "Inventory_Sprites Spawn",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "comment",
-							"text": "Inventory Setup"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-start-of-layout",
-									"objectClass": "System",
-									"sid": 560046041486002
-								}
-							],
-							"actions": [
-								{
-									"id": "create-inventory",
-									"objectClass": "Inventory",
-									"sid": 790538821566098,
-									"parameters": {
-										"id": "\"Inventory_Miner\"",
-										"columns": "5",
-										"rows": "5"
-									}
-								},
-								{
-									"id": "create-inventory",
-									"objectClass": "Inventory",
-									"sid": 727952787326959,
-									"parameters": {
-										"id": "\"Inventory_Consumables\"",
-										"columns": "5",
-										"rows": "1"
-									}
-								},
-								{
-									"id": "create-inventory",
-									"objectClass": "Inventory",
-									"sid": 678425367586897,
-									"parameters": {
-										"id": "\"Inventory_Global\"",
-										"columns": "10",
-										"rows": "10"
-									}
-								},
-								{
-									"id": "design-inventory",
-									"objectClass": "Inventory",
-									"sid": 403339344573349,
-									"parameters": {
-										"id": "\"Inventory_Miner\"",
-										"slot-object": "minerInventory_Slot_Art",
-										"slot-width": "32",
-										"slot-height": "32",
-										"quantity-text-object": "SpriteFont",
-										"text-offset-x": "30",
-										"text-offset-y": "12"
-									}
-								},
-								{
-									"id": "design-inventory",
-									"objectClass": "Inventory",
-									"sid": 990801177540928,
-									"parameters": {
-										"id": "\"Inventory_Consumables\"",
-										"slot-object": "Consumables_Slot_Art",
-										"slot-width": "32",
-										"slot-height": "32",
-										"quantity-text-object": "SpriteFont",
-										"text-offset-x": "30",
-										"text-offset-y": "12"
-									}
-								},
-								{
-									"id": "design-inventory",
-									"objectClass": "Inventory",
-									"sid": 851239442780647,
-									"parameters": {
-										"id": "\"Inventory_Global\"",
-										"slot-object": "GlobalInventory_Slot_Art",
-										"slot-width": "96",
-										"slot-height": "32",
-										"quantity-text-object": "SpriteFont",
-										"text-offset-x": "30",
-										"text-offset-y": "12"
-									}
-								},
-								{
-									"id": "create-inventory",
-									"objectClass": "Inventory",
-									"sid": 636727138299878,
-									"parameters": {
-										"id": "\"Inventory_Smelter\"",
-										"columns": "5",
-										"rows": "1"
-									}
-								},
-								{
-									"id": "design-inventory",
-									"objectClass": "Inventory",
-									"sid": 250293576541647,
-									"parameters": {
-										"id": "\"Inventory_Smelter\"",
-										"slot-object": "Smelter_Slot_Art",
-										"slot-width": "32",
-										"slot-height": "32",
-										"quantity-text-object": "SpriteFont",
-										"text-offset-x": "30",
-										"text-offset-y": "12"
-									}
-								}
-							],
-							"sid": 176657323683944,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 911667437988416,
-											"parameters": {
-												"type": "\"Coal_Inv\"",
-												"icon": "Coal_Inv_Sprite",
-												"max-stack": "1000000",
-												"destroy-at-stack-0": "yes"
-											}
-										},
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 788327286478791,
-											"parameters": {
-												"type": "\"Quartz_Inv\"",
-												"icon": "Quartz_Inv_Sprite",
-												"max-stack": "1000000",
-												"destroy-at-stack-0": "yes"
-											}
-										},
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 686853758373964,
-											"parameters": {
-												"type": "\"Bauxite_Inv\"",
-												"icon": "Bauxite_Ore_Inv_Sprite",
-												"max-stack": "1000000",
-												"destroy-at-stack-0": "yes"
-											}
-										},
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 844360441619014,
-											"parameters": {
-												"type": "\"Iron_Inv\"",
-												"icon": "Iron_Inv_Sprite",
-												"max-stack": "1000000",
-												"destroy-at-stack-0": "yes"
-											}
-										},
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 655018463272302,
-											"parameters": {
-												"type": "\"Chromium_Inv\"",
-												"icon": "Chromium_Inv_Sprite",
-												"max-stack": "1000000",
-												"destroy-at-stack-0": "yes"
-											}
-										},
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 713905266794279,
-											"parameters": {
-												"type": "\"Copper_Inv\"",
-												"icon": "Copper_Inv_Sprite",
-												"max-stack": "1000000",
-												"destroy-at-stack-0": "yes"
-											}
-										},
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 162489204738910,
-											"parameters": {
-												"type": "\"Lithium_Inv\"",
-												"icon": "Lithium_Inv_Sprite",
-												"max-stack": "1000000",
-												"destroy-at-stack-0": "yes"
-											}
-										},
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 534634368365195,
-											"parameters": {
-												"type": "\"Silver_Inv\"",
-												"icon": "Silver_Inv_Sprite",
-												"max-stack": "1000000",
-												"destroy-at-stack-0": "yes"
-											}
-										},
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 449311425644215,
-											"parameters": {
-												"type": "\"Nickel_Inv\"",
-												"icon": "Nickel_Inv_Sprite",
-												"max-stack": "1000000",
-												"destroy-at-stack-0": "yes"
-											}
-										},
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 712396464604355,
-											"parameters": {
-												"type": "\"Zinc_Inv\"",
-												"icon": "Zinc_Inv_Sprite",
-												"max-stack": "1000000",
-												"destroy-at-stack-0": "yes"
-											}
-										},
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 718463127423067,
-											"parameters": {
-												"type": "\"Gold_Inv\"",
-												"icon": "Gold_Inv_Sprite",
-												"max-stack": "1000000",
-												"destroy-at-stack-0": "yes"
-											}
-										},
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 490152330070715,
-											"parameters": {
-												"type": "\"Diamond_Inv\"",
-												"icon": "Diamond_Inv_Sprite",
-												"max-stack": "1000000",
-												"destroy-at-stack-0": "yes"
-											}
-										},
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 261653683575969,
-											"parameters": {
-												"type": "\"Teleporter_Inv\"",
-												"icon": "Teleporter_Inv_Sprite",
-												"max-stack": "1000000",
-												"destroy-at-stack-0": "yes"
-											}
-										},
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 241893158172391,
-											"parameters": {
-												"type": "\"Dynamite_Inv\"",
-												"icon": "Dynamite_Inv_Sprite",
-												"max-stack": "1000",
-												"destroy-at-stack-0": "yes"
-											}
-										},
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 273730373690992,
-											"parameters": {
-												"type": "\"Repair_Kit_Inv\"",
-												"icon": "Repair_Kit_Inv_Sprite",
-												"max-stack": "1000",
-												"destroy-at-stack-0": "yes"
-											}
-										},
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 208128026743908,
-											"parameters": {
-												"type": "\"Battery_Inv\"",
-												"icon": "Battery_Inv_Sprite",
-												"max-stack": "1000",
-												"destroy-at-stack-0": "yes"
-											}
-										},
-										{
-											"id": "create-item-type",
-											"objectClass": "Inventory",
-											"sid": 350168325434264,
-											"parameters": {
-												"type": "\"Aluminium_Ingot_Inv\"",
-												"icon": "Aluminium_Ingot_Inv_Sprite",
-												"max-stack": "1000",
-												"destroy-at-stack-0": "yes"
-											}
-										}
-									],
-									"sid": 432015796790543,
-									"disabled": true
-								}
-							]
-						}
-					],
-					"sid": 809594016601864
-				},
-				{
 					"eventType": "comment",
 					"text": "//Animation "
 				},
@@ -37096,6 +36775,7 @@
 									"id": "is-animation-playing",
 									"objectClass": "Reset_Map_Button",
 									"sid": 820594302872285,
+									"disabled": true,
 									"parameters": {
 										"animation": "\"Active\""
 									}
@@ -49035,7 +48715,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "468",
+							"initialValue": "50",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -63434,6 +63114,11 @@
 											"id": "destroy",
 											"objectClass": "Devil_Boss_Pentagram",
 											"sid": 335870413128492
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Devil_Fire_Ring",
+											"sid": 541264041520991
 										}
 									],
 									"sid": 176256345256932
@@ -63701,6 +63386,7 @@
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Background_First",
 											"sid": 254154467202977,
+											"disabled": true,
 											"parameters": {
 												"object": "Enemy_Body",
 												"layer": "\"Player\"",
@@ -63713,6 +63399,7 @@
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Background_First",
 											"sid": 505588260225430,
+											"disabled": true,
 											"parameters": {
 												"object": "Enemy_Body2",
 												"layer": "\"Player\"",
@@ -63725,6 +63412,7 @@
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Background_Second",
 											"sid": 352713354766045,
+											"disabled": true,
 											"parameters": {
 												"object": "Enemy_Body3",
 												"layer": "\"Player\"",
@@ -63737,6 +63425,7 @@
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Background_Second",
 											"sid": 677003681213065,
+											"disabled": true,
 											"parameters": {
 												"object": "Enemy_Body4",
 												"layer": "\"Player\"",
@@ -63971,6 +63660,14 @@
 											"sid": 794632847130240,
 											"parameters": {
 												"width": "HUD_Devil_HP_Background2.Width* (Devil_Boss_Sprite.HP / Devil_Boss_Sprite.Max_HP)"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "HUD_Devil_HP_Text",
+											"sid": 731950201301541,
+											"parameters": {
+												"text": "\"THE DEVIL:   \" & Devil_Boss_Sprite.HP & \" / \" & Devil_Boss_Sprite.Max_HP"
 											}
 										}
 									],
@@ -65449,6 +65146,15 @@
 									"parameters": {
 										"visibility": "visible"
 									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Devil_Fire",
+									"sid": 416293014636789,
+									"parameters": {
+										"animation": "\"Fire\"",
+										"from": "beginning"
+									}
 								}
 							],
 							"sid": 757943521609757,
@@ -65480,6 +65186,34 @@
 										}
 									],
 									"sid": 745029716153067
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 707297572180547,
+											"parameters": {
+												"interval-seconds": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Devil_Boss_Pentagram",
+											"sid": 943302344914180,
+											"parameters": {
+												"object": "Devil_Big_Bullet_Sprite",
+												"layer": "\"Player\"",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 304140441745676
 								}
 							]
 						},
@@ -65515,6 +65249,15 @@
 									"sid": 471718462833160,
 									"parameters": {
 										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Devil_Fire",
+									"sid": 300535792446573,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
 									}
 								}
 							],
@@ -65563,17 +65306,17 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Miner_Box",
-									"sid": 439454239856921,
+									"sid": 941184666861878,
 									"parameters": {
-										"object": "Devil_Fire_Ring"
+										"object": "Devil_Fire"
 									}
 								},
 								{
-									"id": "every-x-seconds",
-									"objectClass": "System",
-									"sid": 773561700023969,
+									"id": "is-animation-playing",
+									"objectClass": "Devil_Fire",
+									"sid": 228876859010985,
 									"parameters": {
-										"interval-seconds": "1.0"
+										"animation": "\"Fire\""
 									}
 								}
 							],
@@ -65581,77 +65324,295 @@
 								{
 									"id": "subtract-from-instvar",
 									"objectClass": "Miner_Box",
-									"sid": 408792565252613,
+									"sid": 168682388086668,
 									"parameters": {
 										"instance-variable": "HP",
-										"value": "10"
-									}
-								},
-								{
-									"id": "shake",
-									"objectClass": "Miner_Box",
-									"sid": 228157016561150,
-									"behaviorType": "ScrollTo",
-									"parameters": {
-										"magnitude": "20",
-										"duration": "0.4",
-										"mode": "reducing-magnitude"
+										"value": "1"
 									}
 								}
 							],
-							"sid": 472480343545833,
+							"sid": 132123824793587
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 922481712837004,
+									"parameters": {
+										"object": "Devil_Big_Bullet_Sprite"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 595762584319453,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 164080941336365
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 844418280733485,
+									"parameters": {
+										"first-value": "Miner_Box.X",
+										"comparison": 3,
+										"second-value": "Devil_Boss_Sprite.X"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 475793096786289,
 							"children": [
 								{
 									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"conditions": [
 										{
-											"id": "set-effect-enabled",
-											"objectClass": "Miner_Animations",
-											"sid": 665493228358183,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Miner_Box",
+											"sid": 890075008831673,
 											"parameters": {
-												"mode": "enable",
-												"effect": "\"HardLight\""
+												"object": "Devil_Fire_Ring"
 											}
 										},
 										{
-											"id": "set-effect-enabled",
-											"objectClass": "HP_Bar",
-											"sid": 320674858180751,
-											"parameters": {
-												"mode": "enable",
-												"effect": "\"HardLight\""
-											}
-										},
-										{
-											"id": "wait",
+											"id": "every-x-seconds",
 											"objectClass": "System",
-											"sid": 784215738177663,
+											"sid": 462544855983139,
 											"parameters": {
-												"seconds": "0.25",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "set-effect-enabled",
-											"objectClass": "HP_Bar",
-											"sid": 618006438986446,
-											"parameters": {
-												"mode": "disable",
-												"effect": "\"HardLight\""
-											}
-										},
-										{
-											"id": "set-effect-enabled",
-											"objectClass": "Miner_Animations",
-											"sid": 671266908461721,
-											"parameters": {
-												"mode": "disable",
-												"effect": "\"HardLight\""
+												"interval-seconds": "1.0"
 											}
 										}
 									],
-									"sid": 520858398653407
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 835007280686699,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "10"
+											}
+										},
+										{
+											"id": "shake",
+											"objectClass": "Miner_Box",
+											"sid": 830861064466421,
+											"behaviorType": "ScrollTo",
+											"parameters": {
+												"magnitude": "20",
+												"duration": "0.4",
+												"mode": "reducing-magnitude"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "Devil_Boss_Sprite",
+											"sid": 684196627417698,
+											"parameters": {
+												"x": "Devil_Boss_Sprite.X +150",
+												"y": "Devil_Boss_Sprite.Y"
+											}
+										}
+									],
+									"sid": 100354088342523,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Miner_Animations",
+													"sid": 655553518622362,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"HardLight\""
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "HP_Bar",
+													"sid": 802441107612495,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"HardLight\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 113447169076414,
+													"parameters": {
+														"seconds": "0.25",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "HP_Bar",
+													"sid": 261679251283536,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"HardLight\""
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Miner_Animations",
+													"sid": 563305330672370,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"HardLight\""
+													}
+												}
+											],
+											"sid": 418140806702215
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 960591703429248
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 702949991048739,
+									"parameters": {
+										"first-value": "Miner_Box.X",
+										"comparison": 5,
+										"second-value": "Devil_Boss_Sprite.X"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 605890041068974,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Miner_Box",
+											"sid": 239067306208157,
+											"parameters": {
+												"object": "Devil_Fire_Ring"
+											}
+										},
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 254918799420976,
+											"parameters": {
+												"interval-seconds": "1.0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Miner_Box",
+											"sid": 891669556666741,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "10"
+											}
+										},
+										{
+											"id": "shake",
+											"objectClass": "Miner_Box",
+											"sid": 456545851693326,
+											"behaviorType": "ScrollTo",
+											"parameters": {
+												"magnitude": "20",
+												"duration": "0.4",
+												"mode": "reducing-magnitude"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "Devil_Boss_Sprite",
+											"sid": 856869652556414,
+											"parameters": {
+												"x": "Devil_Boss_Sprite.X -150",
+												"y": "Devil_Boss_Sprite.Y"
+											}
+										}
+									],
+									"sid": 463434510011526,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Miner_Animations",
+													"sid": 310272942604518,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"HardLight\""
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "HP_Bar",
+													"sid": 492328746024110,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"HardLight\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 584958559668724,
+													"parameters": {
+														"seconds": "0.25",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "HP_Bar",
+													"sid": 124978027091400,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"HardLight\""
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Miner_Animations",
+													"sid": 924950820531425,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"HardLight\""
+													}
+												}
+											],
+											"sid": 246144163583173
+										}
+									]
 								}
 							]
 						}
