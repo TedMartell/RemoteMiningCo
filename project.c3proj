@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 42400,
+	"savedWithRelease": 42402,
 	"name": "Motherload2",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -212,6 +212,13 @@
 		},
 		{
 			"type": "effect",
+			"id": "screen",
+			"name": "Screen",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
 			"id": "swirl",
 			"name": "Swirl",
 			"author": "Brad Larson",
@@ -416,7 +423,36 @@
 			"Meta_Shield_Heat_T2_Button",
 			"Meta_Shield_Heat_T3_Button",
 			"Meta_Consumables_Upg_Button",
-			"Meta_Battery_Effectiveness_Background"
+			"Meta_Cons_Battery_Effectiveness_Background",
+			"Meta_Cons_Repair_Kit_Effectiveness_Background",
+			"Meta_Cons_Battery_Max_Amount_Background",
+			"Meta_Cons_Repair_Kit_Max_Amount_Background2",
+			"Meta_Cons_Battery_Effectiveness_Tier_1_Button",
+			"Meta_Cons_Battery_Effectiveness_Tier_2_Button",
+			"Meta_Cons_Repair_Kit_Effectiveness_Tier_1_Button",
+			"Meta_Cons_Repair_Kit_Effectiveness_Tier_2_Button",
+			"Meta_Cons_Battery_Amount_Tier_1_Button",
+			"Meta_Cons_Battery_Amount_Tier_2_Button",
+			"Meta_Cons_Repair_Amount_Tier_1_Button",
+			"Meta_Cons_Repair_Amount_Tier_2_Button",
+			"Meta_Dynamite_Damage_T1_Button",
+			"Meta_Dynamite_Damage_Background",
+			"Meta_Dynamite_Explosion_Area_Background",
+			"Meta_Dynamite_Explosion_Area_T1_Button",
+			"Map_Reset_Building",
+			"Reset_Map_Button",
+			"Reset_Pop_Up_Window",
+			"Yes_Button",
+			"No_Button",
+			"Workshop_Building",
+			"Repair_Button",
+			"Dump_Inv_Button",
+			"Devil_Fire",
+			"Devil_Big_Bullet_Sprite",
+			"HUD_Narrator",
+			"HUD_Head",
+			"HUD_Head_Static",
+			"HUD_Narrator_Text"
 		],
 		"subfolders": [
 			{
@@ -469,7 +505,8 @@
 					"Lava_Block_1",
 					"Dirt_Block_3",
 					"Lava_Block_2",
-					"Mole_Top_Block"
+					"Mole_Top_Block",
+					"Crab_Top_Block"
 				],
 				"subfolders": [
 					{
@@ -565,7 +602,8 @@
 					"HUD_Height_Text",
 					"Reload_Bar",
 					"Charge_Bar",
-					"HUD_Money_Text"
+					"HUD_Money_Text",
+					"Reset_Text"
 				],
 				"subfolders": [],
 				"name": "HUD"
@@ -701,7 +739,9 @@
 							"Enter_Warehouse_Text",
 							"Shop_Door",
 							"Warehouse_Door",
-							"Smelter_Door"
+							"Smelter_Door",
+							"Reset_Building_Door",
+							"Quick_Repair_Door"
 						],
 						"subfolders": [],
 						"name": "Doors"
@@ -764,7 +804,8 @@
 					"Meta_Shield_Buttons",
 					"Meta_Laser_Buttons",
 					"Meta_Text",
-					"Meta_Weapons_Buttons"
+					"Meta_Weapons_Buttons",
+					"Meta_Consumables_Buttons"
 				],
 				"subfolders": [],
 				"name": "META_Upgrades"
@@ -983,6 +1024,14 @@
 					"name": "Unlocked_Soundholder - Retro Games - Achievement Ding.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 687355587743191,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Big BERTHA OG SoundFX - Boom - Big Echoing Explosion Light Debris Falling.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 530575600277379,
 					"file-info": {
 						"purpose": "none"
 					}
@@ -1342,13 +1391,13 @@
 		"subfolders": []
 	},
 	"properties": {
-		"description": "",
+		"description": "Mining Game",
 		"version": "1.0.0.0",
 		"autoIncrementVersion": false,
-		"author": "",
-		"authorEmail": "",
+		"author": "Ted Martell",
+		"authorEmail": "martellted@gmail.com",
 		"authorWebsite": "",
-		"appId": "",
+		"appId": "remoteminerco.app",
 		"pixelRounding": true,
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,
@@ -1396,5 +1445,5 @@
 	},
 	"viewportWidth": 1280,
 	"viewportHeight": 720,
-	"firstLayout": "Game"
+	"firstLayout": "Main_Menu"
 }
