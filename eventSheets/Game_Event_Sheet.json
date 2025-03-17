@@ -254,6 +254,74 @@
 			"sid": 493083328782311
 		},
 		{
+			"eventType": "comment",
+			"text": "General Volume Settings"
+		},
+		{
+			"eventType": "variable",
+			"name": "Volume_General",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 230460190830711
+		},
+		{
+			"eventType": "variable",
+			"name": "Volume_General_Slider_Value",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 514084543047903
+		},
+		{
+			"eventType": "variable",
+			"name": "Volume_General_tindex",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 565444843534975
+		},
+		{
+			"eventType": "variable",
+			"name": "Volume_General_sindex",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 682293257246700
+		},
+		{
+			"eventType": "comment",
+			"text": "Music Volume Settings"
+		},
+		{
+			"eventType": "variable",
+			"name": "Volume_Music",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 999022843810370
+		},
+		{
+			"eventType": "variable",
+			"name": "Volume_SFX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 450106636197663
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Global Events",
@@ -4560,9 +4628,14 @@
 									}
 								},
 								{
+									"type": "comment",
+									"text": "HUD Narrator spawns"
+								},
+								{
 									"id": "spawn-another-object",
 									"objectClass": "HUD_Narrator",
 									"sid": 958397323282020,
+									"disabled": true,
 									"parameters": {
 										"object": "HUD_Head",
 										"layer": "\"HUD\"",
@@ -4575,6 +4648,7 @@
 									"id": "pin-to-object-properties",
 									"objectClass": "HUD_Head",
 									"sid": 167554696001268,
+									"disabled": true,
 									"behaviorType": "Pin",
 									"parameters": {
 										"pin-to": "HUD_Narrator",
@@ -4590,6 +4664,7 @@
 									"id": "spawn-another-object",
 									"objectClass": "HUD_Narrator",
 									"sid": 394131070185887,
+									"disabled": true,
 									"parameters": {
 										"object": "HUD_Head_Static",
 										"layer": "\"HUD\"",
@@ -4602,6 +4677,7 @@
 									"id": "pin-to-object-properties",
 									"objectClass": "HUD_Head_Static",
 									"sid": 944544133959235,
+									"disabled": true,
 									"behaviorType": "Pin",
 									"parameters": {
 										"pin-to": "HUD_Narrator",
@@ -4617,6 +4693,7 @@
 									"id": "spawn-another-object",
 									"objectClass": "HUD_Narrator",
 									"sid": 252992121670360,
+									"disabled": true,
 									"parameters": {
 										"object": "HUD_Narrator_Text",
 										"layer": "\"HUD\"",
@@ -4629,6 +4706,7 @@
 									"id": "pin-to-object-properties",
 									"objectClass": "HUD_Narrator_Text",
 									"sid": 299395583651885,
+									"disabled": true,
 									"behaviorType": "Pin",
 									"parameters": {
 										"pin-to": "HUD_Narrator",
@@ -4644,6 +4722,7 @@
 									"id": "typewriter-text",
 									"objectClass": "HUD_Narrator_Text",
 									"sid": 162004907551962,
+									"disabled": true,
 									"parameters": {
 										"text": "\"WELCOME MINER #65482EZ ! \" & newline &\n\n\"Your job is to sit at home and control this remote controlled mining machine and gather resources. Complete all the quests and you will be handsomely rewarded\"",
 										"duration": "10"
@@ -33383,6 +33462,197 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "General Volume",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-start-of-layout",
+											"objectClass": "System",
+											"sid": 349782375964123
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Set_General_Volume",
+											"sid": 401294901886174
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 246304379374617,
+											"parameters": {
+												"audio-file": "Assaf Ayalon - Its All Right Baby",
+												"loop": "looping",
+												"volume": "0 ",
+												"stereo-pan": "0",
+												"tag-optional": "\"Surface_Music\""
+											}
+										}
+									],
+									"sid": 498979898616981
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-dragging",
+											"objectClass": "Volume_General_Thump",
+											"sid": 345117185883302,
+											"behaviorType": "DragDrop"
+										},
+										{
+											"id": "on-drop",
+											"objectClass": "Volume_General_Thump",
+											"sid": 519698703786910,
+											"behaviorType": "DragDrop"
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Set_General_Volume",
+											"sid": 243126563435910
+										}
+									],
+									"sid": 749866281272775,
+									"isOrBlock": true
+								},
+								{
+									"functionName": "Set_General_Volume",
+									"functionDescription": "",
+									"functionCategory": "",
+									"functionReturnType": "none",
+									"functionCopyPicked": false,
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-x",
+											"objectClass": "Volume_General_Thump",
+											"sid": 443704479707471,
+											"parameters": {
+												"x": "clamp(Volume_General_Thump.X,Volume_General_Slider.ImagePointX(\"Start\"),Volume_General_Slider.ImagePointX(\"End\"))"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 925101975278013,
+											"parameters": {
+												"variable": "Volume_General_tindex",
+												"value": "Volume_General_Thump.X-Volume_General_Slider.ImagePointX(\"Start\")"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 340874762109882,
+											"parameters": {
+												"variable": "Volume_General_Slider_Value",
+												"value": "round(Volume_General_tindex/Volume_General_sindex)/100"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 226062496121170,
+											"parameters": {
+												"variable": "Volume_General",
+												"value": "log10(Volume_General_Slider_Value)*20"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 786382499722428,
+											"parameters": {
+												"tag": "\"Surface_Music\"",
+												"db": "Volume_General"
+											}
+										}
+									],
+									"sid": 980986355703993,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-touching-object",
+													"objectClass": "Touch",
+													"sid": 173933748400243,
+													"parameters": {
+														"object": "Volume_General_Thump"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "drop",
+													"objectClass": "Volume_General_Thump",
+													"sid": 317990910174157,
+													"behaviorType": "DragDrop"
+												}
+											],
+											"sid": 678821748209548
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-drag-start",
+											"objectClass": "Volume_General_Thump",
+											"sid": 952479970271083,
+											"behaviorType": "DragDrop"
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Volume_General_Thump",
+											"sid": 293723254337526,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 256044502966366
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-drop",
+											"objectClass": "Volume_General_Thump",
+											"sid": 463822403381335,
+											"behaviorType": "DragDrop"
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Volume_General_Thump",
+											"sid": 683863065784585,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 855794306224690
+								}
+							],
+							"sid": 476620658609588
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -33454,9 +33724,64 @@
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Settings_Menu",
+											"sid": 533126323006826,
+											"parameters": {
+												"object": "Volume_General_Slider",
+												"layer": "\"Foreground\"",
+												"image-point": "\"Volume_General_Slider\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Settings_Menu",
+											"sid": 272555535139011,
+											"disabled": true,
+											"parameters": {
+												"object": "Volume_General_Text",
+												"layer": "\"Foreground\"",
+												"image-point": "\"Volume_General_Text\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
 										}
 									],
-									"sid": 361950369416983
+									"sid": 361950369416983,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Volume_General_Slider",
+													"sid": 360764763755462,
+													"parameters": {
+														"object": "Volume_General_Thump",
+														"layer": "\"Foreground\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 162918533635421,
+													"parameters": {
+														"variable": "Volume_General_sindex",
+														"value": "round(Volume_General_Slider.ImagePointX(\"End\")-Volume_General_Slider.ImagePointX(\"Start\"))/100"
+													}
+												}
+											],
+											"sid": 466960051702080
+										}
+									]
 								}
 							]
 						},
@@ -54552,10 +54877,10 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 621809808030655,
+													"sid": 935259518906121,
 													"parameters": {
 														"variable": "Offset",
-														"comparison": 4,
+														"comparison": 5,
 														"value": "0"
 													}
 												}
@@ -65728,20 +66053,7 @@
 							"sid": 430142078614311
 						}
 					],
-					"actions": [
-						{
-							"id": "play",
-							"objectClass": "SFX",
-							"sid": 589366982724983,
-							"parameters": {
-								"audio-file": "Assaf Ayalon - Its All Right Baby",
-								"loop": "looping",
-								"volume": "0",
-								"stereo-pan": "0",
-								"tag-optional": "\"Surface_Music\""
-							}
-						}
-					],
+					"actions": [],
 					"sid": 697757647811780
 				},
 				{
@@ -65812,6 +66124,37 @@
 						}
 					],
 					"sid": 211666462471142
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 339161059160356
+						}
+					],
+					"actions": [
+						{
+							"id": "set-volume",
+							"objectClass": "SFX",
+							"sid": 128005445756775,
+							"disabled": true,
+							"parameters": {
+								"tag": "\"Surface_Music\"",
+								"db": "Volume_General"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Volume_General_Text",
+							"sid": 570838441144839,
+							"parameters": {
+								"text": "Volume_General_sindex"
+							}
+						}
+					],
+					"sid": 702174459512367
 				}
 			],
 			"sid": 616610756106818
