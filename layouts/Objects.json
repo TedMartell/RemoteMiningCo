@@ -9981,7 +9981,7 @@
 				{
 					"type": "Sound_Settings_Button",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Active",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -10033,7 +10033,7 @@
 				{
 					"type": "Mute_Button",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Off",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -10043,7 +10043,13 @@
 					"sid": 382410968871447,
 					"tags": "",
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
 					"effects": {
 						"Darken": {
 							"isEnabled": false,
@@ -15612,7 +15618,7 @@
 				{
 					"type": "Volume_General_Slider",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Off",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -15622,7 +15628,13 @@
 					"sid": 714170703489478,
 					"tags": "",
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
 					"effects": {
 						"Darken": {
 							"isEnabled": false,
@@ -15658,7 +15670,7 @@
 				{
 					"type": "Volume_General_Thump",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Off",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -15673,6 +15685,11 @@
 							"properties": {
 								"axes": "horizontal-only",
 								"enabled": true
+							}
+						},
+						"Pin": {
+							"properties": {
+								"destroy": false
 							}
 						}
 					},

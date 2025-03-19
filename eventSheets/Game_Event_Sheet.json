@@ -4224,6 +4224,14 @@
 										"height-type": "no",
 										"z": false
 									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "TestText",
+									"sid": 463095904653181,
+									"parameters": {
+										"text": "Volume_General"
+									}
 								}
 							],
 							"sid": 654324202187970
@@ -6463,11 +6471,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 916730022523676,
+											"sid": 557554250534168,
 											"parameters": {
 												"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -6676,11 +6684,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 492216569474163,
+											"sid": 513893474852687,
 											"parameters": {
 												"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -6748,11 +6756,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 998181467559013,
+											"sid": 921682924556772,
 											"parameters": {
 												"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -33479,23 +33487,173 @@
 									],
 									"actions": [
 										{
-											"callFunction": "Set_General_Volume",
-											"sid": 401294901886174
+											"id": "spawn-another-object",
+											"objectClass": "Settings_Menu",
+											"sid": 105523428399482,
+											"parameters": {
+												"object": "Sound_Settings_Button",
+												"layer": "\"Foreground\"",
+												"image-point": "\"Sound_Settings_Button\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
 										},
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 246304379374617,
+											"id": "pin-to-object-properties",
+											"objectClass": "Sound_Settings_Button",
+											"sid": 626215787962412,
+											"behaviorType": "Pin",
 											"parameters": {
-												"audio-file": "Assaf Ayalon - Its All Right Baby",
-												"loop": "looping",
-												"volume": "0 ",
-												"stereo-pan": "0",
-												"tag-optional": "\"Surface_Music\""
+												"pin-to": "Settings_Menu",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Settings_Menu",
+											"sid": 416119076272003,
+											"parameters": {
+												"object": "Mute_Button",
+												"layer": "\"Foreground\"",
+												"image-point": "\"Mute_Button\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Mute_Button",
+											"sid": 188694205087066,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Settings_Menu",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Settings_Menu",
+											"sid": 284520131320621,
+											"parameters": {
+												"object": "Volume_General_Slider",
+												"layer": "\"Foreground\"",
+												"image-point": "\"Volume_General_Slider\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Volume_General_Slider",
+											"sid": 953156777861326,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Settings_Menu",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Volume_General_Slider",
+											"sid": 307342479573181,
+											"parameters": {
+												"object": "Volume_General_Thump",
+												"layer": "\"Foreground\"",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Volume_General_Thump",
+											"sid": 527229446739426,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Volume_General_Slider",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 483466033678543,
+											"parameters": {
+												"variable": "Volume_General_tindex",
+												"value": "Volume_General_Thump.X-Volume_General_Slider.ImagePointX(\"Start\")"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 785316726468609,
+											"parameters": {
+												"variable": "Volume_General_sindex",
+												"value": "round(Volume_General_Slider.ImagePointX(\"End\")-Volume_General_Slider.ImagePointX(\"Start\"))/100"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 895652086876985,
+											"parameters": {
+												"variable": "Volume_General_Slider_Value",
+												"value": "round(Volume_General_tindex/Volume_General_sindex)/100"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 815448393910402,
+											"parameters": {
+												"variable": "Volume_General",
+												"value": "log10(Volume_General_Slider_Value)*20"
 											}
 										}
 									],
-									"sid": 498979898616981
+									"sid": 498979898616981,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 707232706042591,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"callFunction": "Set_General_Volume",
+															"sid": 152532303739902,
+															"disabled": true
+														}
+													],
+													"sid": 198784532588115
+												}
+											]
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -33571,15 +33729,241 @@
 										{
 											"id": "set-volume",
 											"objectClass": "SFX",
-											"sid": 786382499722428,
+											"sid": 982374965702038,
 											"parameters": {
 												"tag": "\"Surface_Music\"",
+												"db": "Volume_General"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 373717101436520,
+											"parameters": {
+												"tag": "\"Shop_Music\"",
+												"db": "Volume_General"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 883117522300108,
+											"parameters": {
+												"tag": "\"Shopkeeper\"",
+												"db": "Volume_General -5"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 779991253935045,
+											"parameters": {
+												"tag": "\"Smelter_Music\"",
+												"db": "Volume_General -10"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 894818978122249,
+											"parameters": {
+												"tag": "\"Furnace_Active\"",
+												"db": "Volume_General"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 486531582051185,
+											"parameters": {
+												"tag": "\"Engine\"",
+												"db": "Volume_General -20"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 632090122350038,
+											"parameters": {
+												"tag": "\"Charge\"",
+												"db": "Volume_General"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 757378581221463,
+											"parameters": {
+												"tag": "\"Drill_Right\"",
+												"db": "Volume_General -15"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 745145387970972,
+											"parameters": {
+												"tag": "\"Drill_Left\"",
+												"db": "Volume_General -15"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 916309503283095,
+											"parameters": {
+												"tag": "\"Drill_Down\"",
+												"db": "Volume_General -15"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 571373275898350,
+											"parameters": {
+												"tag": "\"Lava\"",
+												"db": "Volume_General"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 768967365233430,
+											"parameters": {
+												"tag": "\"Low_Energy\"",
+												"db": "Volume_General -10"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 967891693907379,
+											"parameters": {
+												"tag": "\"Death_Music\"",
+												"db": "Volume_General"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 502848805668390,
+											"parameters": {
+												"tag": "\"Button\"",
+												"db": "Volume_General"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 860897532284322,
+											"parameters": {
+												"tag": "\"Explosion\"",
+												"db": "Volume_General"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 487140286617650,
+											"parameters": {
+												"tag": "\"Item_Crafted\"",
+												"db": "Volume_General"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 334100894327591,
+											"parameters": {
+												"tag": "\"Laser\"",
+												"db": "Volume_General"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 538635955416499,
+											"parameters": {
+												"tag": "\"Weapon_Deploy\"",
+												"db": "Volume_General"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 330521702641625,
+											"parameters": {
+												"tag": "\"Crumble\"",
+												"db": "Volume_General -10"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 842616876648913,
+											"parameters": {
+												"tag": "\"Ding\"",
+												"db": "Volume_General"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 975025192935423,
+											"parameters": {
+												"tag": "\"Pick_Up\"",
+												"db": "Volume_General +10"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 614422901211045,
+											"parameters": {
+												"tag": "\"Battery\"",
+												"db": "Volume_General"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 554596143548239,
+											"parameters": {
+												"tag": "\"Teleporter\"",
+												"db": "Volume_General"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 984426020669786,
+											"parameters": {
+												"tag": "\"Repair\"",
+												"db": "Volume_General"
+											}
+										},
+										{
+											"id": "set-volume",
+											"objectClass": "SFX",
+											"sid": 292440524831940,
+											"parameters": {
+												"tag": "\"Crash\"",
 												"db": "Volume_General"
 											}
 										}
 									],
 									"sid": 980986355703993,
 									"children": [
+										{
+											"eventType": "comment",
+											"text": "Set all the volumes"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 629336415219484
+										},
 										{
 											"eventType": "block",
 											"conditions": [
@@ -33623,6 +34007,12 @@
 											"parameters": {
 												"frame-number": "1"
 											}
+										},
+										{
+											"id": "unpin",
+											"objectClass": "Volume_General_Thump",
+											"sid": 135430944612749,
+											"behaviorType": "Pin"
 										}
 									],
 									"sid": 256044502966366
@@ -33644,6 +34034,21 @@
 											"sid": 683863065784585,
 											"parameters": {
 												"frame-number": "0"
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Volume_General_Thump",
+											"sid": 371319460519835,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Volume_General_Slider",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
 											}
 										}
 									],
@@ -33670,11 +34075,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 739818038611532,
+									"sid": 138374121703048,
 									"parameters": {
 										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -33716,30 +34121,6 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Settings_Menu",
-											"sid": 445965432937352,
-											"parameters": {
-												"object": "Mute_Button",
-												"layer": "\"Foreground\"",
-												"image-point": "\"Mute_Button\"",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "spawn-another-object",
-											"objectClass": "Settings_Menu",
-											"sid": 533126323006826,
-											"parameters": {
-												"object": "Volume_General_Slider",
-												"layer": "\"Foreground\"",
-												"image-point": "\"Volume_General_Slider\"",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "spawn-another-object",
-											"objectClass": "Settings_Menu",
 											"sid": 272555535139011,
 											"disabled": true,
 											"parameters": {
@@ -33756,29 +34137,7 @@
 										{
 											"eventType": "block",
 											"conditions": [],
-											"actions": [
-												{
-													"id": "spawn-another-object",
-													"objectClass": "Volume_General_Slider",
-													"sid": 360764763755462,
-													"parameters": {
-														"object": "Volume_General_Thump",
-														"layer": "\"Foreground\"",
-														"image-point": "0",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 162918533635421,
-													"parameters": {
-														"variable": "Volume_General_sindex",
-														"value": "round(Volume_General_Slider.ImagePointX(\"End\")-Volume_General_Slider.ImagePointX(\"Start\"))/100"
-													}
-												}
-											],
+											"actions": [],
 											"sid": 466960051702080
 										}
 									]
@@ -33875,11 +34234,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 208102809555419,
+											"sid": 844959865339661,
 											"parameters": {
 												"audio-file": "Assaf Ayalon - Its All Right Baby",
 												"loop": "looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Surface_Music\""
 											}
@@ -33922,11 +34281,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 324123719424884,
+									"sid": 749427386057892,
 									"parameters": {
 										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -34001,11 +34360,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 590408885049439,
+									"sid": 916184739607636,
 									"parameters": {
 										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -34045,15 +34404,20 @@
 									"conditions": [],
 									"actions": [
 										{
-											"id": "spawn-another-object",
-											"objectClass": "Miner_Box",
-											"sid": 821734801074982,
+											"id": "set-visible",
+											"objectClass": "Settings_Menu_Buttons",
+											"sid": 477039570979164,
 											"parameters": {
-												"object": "Settings_Menu",
-												"layer": "\"Foreground\"",
-												"image-point": "0",
-												"create-hierarchy": false,
-												"template-name": "\"\""
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "Settings_Menu",
+											"sid": 591026850547379,
+											"parameters": {
+												"x": "Miner_Box.X",
+												"y": "Miner_Box.Y"
 											}
 										},
 										{
@@ -34081,18 +34445,6 @@
 											"parameters": {
 												"layer": "\"HUD\"",
 												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "spawn-another-object",
-											"objectClass": "Settings_Menu",
-											"sid": 137695820212359,
-											"parameters": {
-												"object": "Sound_Settings_Button",
-												"layer": "\"Foreground\"",
-												"image-point": "\"Sound_Settings_Button\"",
-												"create-hierarchy": false,
-												"template-name": "\"\""
 											}
 										}
 									],
@@ -34123,11 +34475,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 459522380435027,
+									"sid": 927689719410176,
 									"parameters": {
 										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -34256,9 +34608,12 @@
 									],
 									"actions": [
 										{
-											"id": "destroy",
+											"id": "set-visible",
 											"objectClass": "Settings_Menu_Buttons",
-											"sid": 104739074615726
+											"sid": 563965855111294,
+											"parameters": {
+												"visibility": "invisible"
+											}
 										},
 										{
 											"id": "set-group-active",
@@ -34308,11 +34663,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 993784897723296,
+									"sid": 819857778367163,
 									"parameters": {
 										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -34416,11 +34771,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 891422179134977,
+									"sid": 550719450869008,
 									"parameters": {
 										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -34625,11 +34980,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 980998578346418,
+									"sid": 640416520508169,
 									"parameters": {
 										"audio-file": "Repair Kit Artlist Foley - Toolbox - Electric Screwdriver Short",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -34637,11 +34992,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 579892000222486,
+									"sid": 147229397641613,
 									"parameters": {
 										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -34772,11 +35127,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 424855018296347,
+									"sid": 956654581340367,
 									"parameters": {
 										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -37096,11 +37451,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 593762536985361,
+									"sid": 449399060816331,
 									"parameters": {
 										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -37200,11 +37555,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 851771202185395,
+									"sid": 222111631813993,
 									"parameters": {
 										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -37328,11 +37683,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 785955348037725,
+											"sid": 985514082051962,
 											"parameters": {
 												"audio-file": "Big BERTHA OG SoundFX - Boom - Big Echoing Explosion Light Debris Falling",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Explosion\""
 											}
@@ -37703,11 +38058,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 453417313565637,
+											"sid": 839457814564476,
 											"parameters": {
 												"audio-file": "T. Bless - Froggy Fraud Adventure",
 												"loop": "looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Shop_Music\""
 											}
@@ -37742,11 +38097,11 @@
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 946482078477794,
+													"sid": 953176924800614,
 													"parameters": {
 														"audio-file": "welcomeToMyStore",
 														"loop": "not-looping",
-														"volume": "-5",
+														"volume": "Volume_General-5",
 														"stereo-pan": "0",
 														"tag-optional": "\"Shopkeeper\""
 													}
@@ -37945,11 +38300,11 @@
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 576245096680900,
+													"sid": 102565229529776,
 													"parameters": {
 														"audio-file": "welcomeToMyStore",
 														"loop": "not-looping",
-														"volume": "-5",
+														"volume": "Volume_General-5",
 														"stereo-pan": "0",
 														"tag-optional": "\"Shopkeeper\""
 													}
@@ -38147,11 +38502,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 478777752904517,
+											"sid": 599210134164877,
 											"parameters": {
 												"audio-file": "Artlist Studios - Credit Card - ATM Single Button Beep",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -38238,11 +38593,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 334749548054461,
+															"sid": 526884381130348,
 															"parameters": {
 																"audio-file": "boomDynamite",
 																"loop": "not-looping",
-																"volume": "-5",
+																"volume": "Volume_General-5",
 																"stereo-pan": "0",
 																"tag-optional": "\"Shopkeeper\""
 															}
@@ -38323,11 +38678,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 120185294550866,
+															"sid": 691877403343121,
 															"parameters": {
 																"audio-file": "boomDynamite",
 																"loop": "not-looping",
-																"volume": "-5",
+																"volume": "Volume_General-5",
 																"stereo-pan": "0",
 																"tag-optional": "\"Shopkeeper\""
 															}
@@ -38377,11 +38732,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 170285492071221,
+											"sid": 605051459647609,
 											"parameters": {
 												"audio-file": "Artlist Studios - Credit Card - ATM Single Button Beep",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -38468,11 +38823,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 385143593281128,
+															"sid": 725458238080960,
 															"parameters": {
 																"audio-file": "zipZap",
 																"loop": "not-looping",
-																"volume": "-5",
+																"volume": "Volume_General-5",
 																"stereo-pan": "0",
 																"tag-optional": "\"Shopkeeper\""
 															}
@@ -38553,11 +38908,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 615269542410085,
+															"sid": 425525470206894,
 															"parameters": {
-																"audio-file": "boomDynamite",
+																"audio-file": "zipZap",
 																"loop": "not-looping",
-																"volume": "-5",
+																"volume": "Volume_General-5",
 																"stereo-pan": "0",
 																"tag-optional": "\"Shopkeeper\""
 															}
@@ -38607,11 +38962,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 977336170411339,
+											"sid": 729548989308298,
 											"parameters": {
 												"audio-file": "Artlist Studios - Credit Card - ATM Single Button Beep",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -38698,11 +39053,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 529243345059682,
+															"sid": 790817139359758,
 															"parameters": {
 																"audio-file": "keepsYouGoin",
 																"loop": "not-looping",
-																"volume": "-5",
+																"volume": "Volume_General-5",
 																"stereo-pan": "0",
 																"tag-optional": "\"Shopkeeper\""
 															}
@@ -38783,11 +39138,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 412199846348836,
+															"sid": 158567778646365,
 															"parameters": {
-																"audio-file": "boomDynamite",
+																"audio-file": "keepsYouGoin",
 																"loop": "not-looping",
-																"volume": "-5",
+																"volume": "Volume_General-5",
 																"stereo-pan": "0",
 																"tag-optional": "\"Shopkeeper\""
 															}
@@ -38837,11 +39192,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 945404019920366,
+											"sid": 631084934371866,
 											"parameters": {
 												"audio-file": "Artlist Studios - Credit Card - ATM Single Button Beep",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -38928,11 +39283,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 604872056456252,
+															"sid": 683343577728045,
 															"parameters": {
 																"audio-file": "repairRepair",
 																"loop": "not-looping",
-																"volume": "-5",
+																"volume": "Volume_General-5",
 																"stereo-pan": "0",
 																"tag-optional": "\"Shopkeeper\""
 															}
@@ -39013,11 +39368,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 259694577397085,
+															"sid": 838306489442048,
 															"parameters": {
-																"audio-file": "boomDynamite",
+																"audio-file": "repairRepair",
 																"loop": "not-looping",
-																"volume": "-5",
+																"volume": "Volume_General-5",
 																"stereo-pan": "0",
 																"tag-optional": "\"Shopkeeper\""
 															}
@@ -39108,11 +39463,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 533312720259963,
+											"sid": 986388675999878,
 											"parameters": {
 												"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -39301,11 +39656,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 959986196411094,
+															"sid": 945372162399621,
 															"parameters": {
 																"audio-file": "oohMoney",
 																"loop": "not-looping",
-																"volume": "0",
+																"volume": "Volume_General -5",
 																"stereo-pan": "0",
 																"tag-optional": "\"Shopkeeper\""
 															}
@@ -39443,11 +39798,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 965950487354928,
+															"sid": 849873829618626,
 															"parameters": {
 																"audio-file": "notGoodEnough",
 																"loop": "not-looping",
-																"volume": "0",
+																"volume": "Volume_General -5",
 																"stereo-pan": "0",
 																"tag-optional": "\"Shopkeeper\""
 															}
@@ -40229,11 +40584,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 759851214449352,
+									"sid": 770128567997139,
 									"parameters": {
 										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -40580,11 +40935,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 361960278423085,
+											"sid": 276054298740159,
 											"parameters": {
 												"audio-file": "Sonic Bat - Essential Clicks - Gently Pressing on Plastic Button ",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -40741,11 +41096,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 560150093729125,
+															"sid": 193941910896550,
 															"parameters": {
 																"audio-file": "SoundBits - Hitting - Rock Hitting Pile of Rocks Clacking",
 																"loop": "not-looping",
-																"volume": "-10",
+																"volume": "Volume_General-10",
 																"stereo-pan": "0",
 																"tag-optional": "\"Button\""
 															}
@@ -45608,11 +45963,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 856768970236863,
+															"sid": 147474836478291,
 															"parameters": {
 																"audio-file": "Mechanical Wave - Toys - Button Pushing Beeping",
 																"loop": "not-looping",
-																"volume": "0",
+																"volume": "Volume_General",
 																"stereo-pan": "0",
 																"tag-optional": "\"Button\""
 															}
@@ -45669,11 +46024,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 915145568376966,
+															"sid": 514209393995848,
 															"parameters": {
 																"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
 																"loop": "not-looping",
-																"volume": "0",
+																"volume": "Volume_General",
 																"stereo-pan": "0",
 																"tag-optional": "\"Button\""
 															}
@@ -46997,11 +47352,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 492316614885020,
+											"sid": 389851115015193,
 											"parameters": {
 												"audio-file": "Smelter Background Felix Blume - Hard Days Work - Factory Ambience Metallic Machine Rattle Hum Whir ",
 												"loop": "not-looping",
-												"volume": "-10",
+												"volume": "Volume_General-10",
 												"stereo-pan": "0",
 												"tag-optional": "\"Smelter_Music\""
 											}
@@ -47177,11 +47532,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 485900203445047,
+											"sid": 206241563198387,
 											"parameters": {
 												"audio-file": "Smelter Background Felix Blume - Hard Days Work - Factory Ambience Metallic Machine Rattle Hum Whir ",
 												"loop": "not-looping",
-												"volume": "-10",
+												"volume": "Volume_General-10",
 												"stereo-pan": "0",
 												"tag-optional": "\"Smelter_Music\""
 											}
@@ -47262,11 +47617,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 375963153561689,
+											"sid": 729103239338831,
 											"parameters": {
 												"audio-file": "Epic Stock Media - Mobile Game - Menu Double Click Vintage Type Writer Button Reverb",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -47462,11 +47817,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 257948421328907,
+											"sid": 626759773033936,
 											"parameters": {
 												"audio-file": "Epic Stock Media - Mobile Game - Menu Double Click Vintage Type Writer Button Reverb",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -47636,11 +47991,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 136931075623701,
+											"sid": 700903745462010,
 											"parameters": {
 												"audio-file": "Epic Stock Media - Mobile Game - Menu Double Click Vintage Type Writer Button Reverb",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -47744,11 +48099,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 829670181672090,
+									"sid": 659926393486920,
 									"parameters": {
 										"audio-file": "Epic Stock Media - Mobile Game - Menu Double Click Vintage Type Writer Button Reverb",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -47869,11 +48224,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 488702999073035,
+									"sid": 240523930812390,
 									"parameters": {
 										"audio-file": "Epic Stock Media - Mobile Game - Menu Double Click Vintage Type Writer Button Reverb",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -48070,11 +48425,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 566437602850192,
+											"sid": 816629960900922,
 											"parameters": {
 												"audio-file": "Smelter Item crafted Marcello Del Monaco - Sci Craft Game - Item Pop Up",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Item_Crafted\""
 											}
@@ -48623,11 +48978,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 553619211035482,
+									"sid": 547957489505813,
 									"parameters": {
 										"audio-file": "Smelter Furnace Active Bjorn Lynne - Flameable - Torch Burning Continuous",
 										"loop": "looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Furnace_Active\""
 									}
@@ -48915,11 +49270,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 608181791039229,
+									"sid": 920298453548580,
 									"parameters": {
 										"audio-file": "Assaf Ayalon - Its All Right Baby",
 										"loop": "looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Surface_Music\""
 									}
@@ -51431,11 +51786,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 314400677799624,
+											"sid": 866858368715629,
 											"parameters": {
 												"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -51562,11 +51917,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 827952507523540,
+											"sid": 443632199052724,
 											"parameters": {
 												"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -51699,11 +52054,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 659076624250829,
+											"sid": 686418144722198,
 											"parameters": {
 												"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -51830,11 +52185,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 164943736039234,
+											"sid": 918512052049511,
 											"parameters": {
 												"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -51933,11 +52288,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 750602750540838,
+											"sid": 556941111846488,
 											"parameters": {
 												"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -52097,11 +52452,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 432111736572688,
+											"sid": 303216824088143,
 											"parameters": {
 												"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -52267,11 +52622,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 174614546868826,
+											"sid": 630056583134302,
 											"parameters": {
 												"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -52423,11 +52778,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 745041315996513,
+											"sid": 894827542612239,
 											"parameters": {
 												"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -52633,11 +52988,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 222056828452293,
+											"sid": 841288084003895,
 											"parameters": {
 												"audio-file": "Mechanical Wave - Toys - Button Pushing Beeping",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
 											}
@@ -53315,11 +53670,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 839580271782706,
+											"sid": 541602754118441,
 											"parameters": {
 												"audio-file": "Laser_Gun_Shot_Shapeforms - Sci Fi Weapons - Laser Gun Firing Echo",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Laser\""
 											}
@@ -53453,11 +53808,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 571921342535348,
+											"sid": 894043914268095,
 											"parameters": {
 												"audio-file": "Laser_Gun_Shot_Shapeforms - Sci Fi Weapons - Laser Gun Firing Echo",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Laser\""
 											}
@@ -53578,11 +53933,11 @@
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 684265485546666,
+													"sid": 545837907625027,
 													"parameters": {
 														"audio-file": "Laser_Gun_Deploy SoundBits - Everyday Elements - Hydraulic Basket Crane Extending",
 														"loop": "not-looping",
-														"volume": "0",
+														"volume": "Volume_General",
 														"stereo-pan": "0",
 														"tag-optional": "\"Weapon_Deploy\""
 													}
@@ -53675,11 +54030,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 898831520113777,
+															"sid": 316129632845237,
 															"parameters": {
 																"audio-file": "Laser_Gun_Deploy SoundBits - Everyday Elements - Hydraulic Basket Crane Extending",
 																"loop": "not-looping",
-																"volume": "0",
+																"volume": "Volume_General",
 																"stereo-pan": "0",
 																"tag-optional": "\"Weapon_Deploy\""
 															}
@@ -53944,11 +54299,11 @@
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 579633055617483,
+													"sid": 671862827233553,
 													"parameters": {
 														"audio-file": "Laser_Gun_Sphere_Shot_Sound Spark - Sci Fi Weapons - Powerful Laser Gun Shooting",
 														"loop": "not-looping",
-														"volume": "0",
+														"volume": "Volume_General",
 														"stereo-pan": "0",
 														"tag-optional": "\"Laser\""
 													}
@@ -54073,11 +54428,11 @@
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 112744738849647,
+													"sid": 952956204795917,
 													"parameters": {
 														"audio-file": "Laser_Gun_Sphere_Shot_Sound Spark - Sci Fi Weapons - Powerful Laser Gun Shooting",
 														"loop": "not-looping",
-														"volume": "0",
+														"volume": "Volume_General",
 														"stereo-pan": "0",
 														"tag-optional": "\"Laser\""
 													}
@@ -54274,11 +54629,11 @@
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 677693124414173,
+													"sid": 665833115126015,
 													"parameters": {
 														"audio-file": "Laser_Gun_Charge_Cristian Lucchetta - Classic Sci Fi Weapons - Blaster Charging up And Single Shot",
 														"loop": "looping",
-														"volume": "0",
+														"volume": "Volume_General",
 														"stereo-pan": "0",
 														"tag-optional": "\"Charge\""
 													}
@@ -54390,11 +54745,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 326458014279140,
+											"sid": 992770730765643,
 											"parameters": {
 												"audio-file": "Final Cat Studio - 3D Printers - Servo Motor Movement",
 												"loop": "looping",
-												"volume": "-20",
+												"volume": "Volume_General-20",
 												"stereo-pan": "0",
 												"tag-optional": "\"Engine\""
 											}
@@ -54474,11 +54829,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 420224851946191,
+											"sid": 253579834943240,
 											"parameters": {
 												"audio-file": "Final Cat Studio - 3D Printers - Servo Motor Movement",
 												"loop": "looping",
-												"volume": "-20",
+												"volume": "Volume_General-20",
 												"stereo-pan": "0",
 												"tag-optional": "\"Engine\""
 											}
@@ -54540,11 +54895,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 844946500380738,
+											"sid": 270550341696858,
 											"parameters": {
 												"audio-file": "Final Cat Studio - 3D Printers - Servo Motor Movement",
 												"loop": "looping",
-												"volume": "-20",
+												"volume": "Volume_General-20",
 												"stereo-pan": "0",
 												"tag-optional": "\"Engine\""
 											}
@@ -54606,11 +54961,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 415540885878181,
+											"sid": 419131690323821,
 											"parameters": {
 												"audio-file": "Final Cat Studio - 3D Printers - Servo Motor Movement",
 												"loop": "looping",
-												"volume": "-20",
+												"volume": "Volume_General-20",
 												"stereo-pan": "0",
 												"tag-optional": "\"Engine\""
 											}
@@ -54681,11 +55036,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 772819140465800,
+											"sid": 353655443238572,
 											"parameters": {
 												"audio-file": "InspectorJ - Up in the Air - Hot Air Balloon burner ",
 												"loop": "looping",
-												"volume": "-20",
+												"volume": "Volume_General-20",
 												"stereo-pan": "0",
 												"tag-optional": "\"Engine\""
 											}
@@ -54756,11 +55111,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 461246081042611,
+											"sid": 237364714074584,
 											"parameters": {
 												"audio-file": "Final Cat Studio - 3D Printers - Servo Motor Movement",
 												"loop": "looping",
-												"volume": "-20",
+												"volume": "Volume_General-20",
 												"stereo-pan": "0",
 												"tag-optional": "\"Engine\""
 											}
@@ -55365,11 +55720,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 209605822762176,
+											"sid": 703171644575288,
 											"parameters": {
 												"audio-file": "SoundBits - Mechanized - Loud Jackhammer Drilling",
 												"loop": "looping",
-												"volume": "-15",
+												"volume": "Volume_General-15",
 												"stereo-pan": "0",
 												"tag-optional": "\"Drill_Right\""
 											}
@@ -55478,11 +55833,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 114418037308648,
+											"sid": 429497233071309,
 											"parameters": {
 												"audio-file": "SoundBits - Mechanized - Loud Jackhammer Drilling",
 												"loop": "looping",
-												"volume": "-15",
+												"volume": "Volume_General-15",
 												"stereo-pan": "0",
 												"tag-optional": "\"Drill_Left\""
 											}
@@ -55600,11 +55955,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 579487768160972,
+											"sid": 204473561656895,
 											"parameters": {
 												"audio-file": "SoundBits - Mechanized - Loud Jackhammer Drilling",
 												"loop": "looping",
-												"volume": "-15",
+												"volume": "Volume_General-15",
 												"stereo-pan": "0",
 												"tag-optional": "\"Drill_Down\""
 											}
@@ -57027,11 +57382,11 @@
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 922324329748336,
+													"sid": 991164239263004,
 													"parameters": {
 														"audio-file": "Low Energy Flaviu Ciocan - Space Sci Fi - Warning Alarm",
 														"loop": "not-looping",
-														"volume": "0",
+														"volume": "Volume_General",
 														"stereo-pan": "0",
 														"tag-optional": "\"Lava\""
 													}
@@ -57196,11 +57551,11 @@
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 806348248713429,
+													"sid": 626957392757173,
 													"parameters": {
 														"audio-file": "Low Energy Flaviu Ciocan - Space Sci Fi - Warning Alarm",
 														"loop": "not-looping",
-														"volume": "0",
+														"volume": "Volume_General",
 														"stereo-pan": "0",
 														"tag-optional": "\"Lava\""
 													}
@@ -57374,11 +57729,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 519900693324451,
+															"sid": 272193005195562,
 															"parameters": {
 																"audio-file": "DT Sound - Aural Impacts - Crumbling Debris ",
 																"loop": "not-looping",
-																"volume": "-10",
+																"volume": "Volume_General-10",
 																"stereo-pan": "0",
 																"tag-optional": "\"Crumble\""
 															}
@@ -57415,11 +57770,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 769381233129055,
+															"sid": 957434665696112,
 															"parameters": {
 																"audio-file": "DT Sound - Aural Impacts - Crumbling Debris ",
 																"loop": "not-looping",
-																"volume": "-10",
+																"volume": "Volume_General-10",
 																"stereo-pan": "0",
 																"tag-optional": "\"Crumble\""
 															}
@@ -57456,11 +57811,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 692068000326343,
+															"sid": 408247707711721,
 															"parameters": {
 																"audio-file": "DT Sound - Aural Impacts - Crumbling Debris ",
 																"loop": "not-looping",
-																"volume": "-10",
+																"volume": "Volume_General-10",
 																"stereo-pan": "0",
 																"tag-optional": "\"Crumble\""
 															}
@@ -57889,11 +58244,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 212448768721663,
+															"sid": 755004450888125,
 															"parameters": {
 																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
 																"loop": "not-looping",
-																"volume": "0",
+																"volume": "Volume_General",
 																"stereo-pan": "0",
 																"tag-optional": "\"Ding\""
 															}
@@ -58175,11 +58530,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 367405130215230,
+															"sid": 740898095186433,
 															"parameters": {
 																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
 																"loop": "not-looping",
-																"volume": "0",
+																"volume": "Volume_General",
 																"stereo-pan": "0",
 																"tag-optional": "\"Ding\""
 															}
@@ -58461,11 +58816,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 129913861296142,
+															"sid": 958022162350278,
 															"parameters": {
 																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
 																"loop": "not-looping",
-																"volume": "0",
+																"volume": "Volume_General",
 																"stereo-pan": "0",
 																"tag-optional": "\"Ding\""
 															}
@@ -58747,11 +59102,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 209530832444132,
+															"sid": 841798619611732,
 															"parameters": {
 																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
 																"loop": "not-looping",
-																"volume": "0",
+																"volume": "Volume_General",
 																"stereo-pan": "0",
 																"tag-optional": "\"Ding\""
 															}
@@ -59033,11 +59388,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 103304220943364,
+															"sid": 530288080962252,
 															"parameters": {
 																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
 																"loop": "not-looping",
-																"volume": "0",
+																"volume": "Volume_General",
 																"stereo-pan": "0",
 																"tag-optional": "\"Ding\""
 															}
@@ -59319,11 +59674,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 142893214858790,
+															"sid": 395560512871514,
 															"parameters": {
 																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
 																"loop": "not-looping",
-																"volume": "0",
+																"volume": "Volume_General",
 																"stereo-pan": "0",
 																"tag-optional": "\"Ding\""
 															}
@@ -59605,11 +59960,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 825045223121258,
+															"sid": 690487071289327,
 															"parameters": {
 																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
 																"loop": "not-looping",
-																"volume": "0",
+																"volume": "Volume_General",
 																"stereo-pan": "0",
 																"tag-optional": "\"Ding\""
 															}
@@ -59891,11 +60246,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 639811829793826,
+															"sid": 157973968801449,
 															"parameters": {
 																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
 																"loop": "not-looping",
-																"volume": "0",
+																"volume": "Volume_General",
 																"stereo-pan": "0",
 																"tag-optional": "\"Ding\""
 															}
@@ -60177,11 +60532,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 174166912924241,
+															"sid": 885451886525701,
 															"parameters": {
 																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
 																"loop": "not-looping",
-																"volume": "0",
+																"volume": "Volume_General",
 																"stereo-pan": "0",
 																"tag-optional": "\"Ding\""
 															}
@@ -60383,11 +60738,11 @@
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 646264899572480,
+													"sid": 959567034081807,
 													"parameters": {
 														"audio-file": "DT Sound - Aural Impacts - Debris Wreckage Bricks and Rocks",
 														"loop": "not-looping",
-														"volume": "10",
+														"volume": "Volume_General + 10",
 														"stereo-pan": "0",
 														"tag-optional": "\"Pick_Up\""
 													}
@@ -60635,11 +60990,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 609912607434646,
+															"sid": 334833736338213,
 															"parameters": {
 																"audio-file": "Dynamite 2 CB Sounddesign - Kaboom - Dynamite Explosion with Debris",
 																"loop": "not-looping",
-																"volume": "0",
+																"volume": "Volume_General",
 																"stereo-pan": "0",
 																"tag-optional": "\"Explosion\""
 															}
@@ -60831,11 +61186,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 832884857291013,
+									"sid": 339641829214786,
 									"parameters": {
 										"audio-file": "Dynamite 2 CB Sounddesign - Kaboom - Dynamite Explosion with Debris",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Explosion\""
 									}
@@ -60958,11 +61313,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 511133171321945,
+									"sid": 120959871546349,
 									"parameters": {
 										"audio-file": "Teleporter Alex Cummings - Extreme Force - Cinematic Hyper Warp Stutter Impact",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Teleporter\""
 									}
@@ -61088,11 +61443,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 805222541083976,
+									"sid": 387246105160403,
 									"parameters": {
 										"audio-file": "Battery Epic Stock Media - Mobile Game - Blocky Power Up",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Battery\""
 									}
@@ -61172,11 +61527,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 403275161992860,
+									"sid": 907457319194956,
 									"parameters": {
 										"audio-file": "Battery Epic Stock Media - Mobile Game - Blocky Power Up",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Battery\""
 									}
@@ -61256,11 +61611,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 569292393366023,
+									"sid": 523421021541252,
 									"parameters": {
 										"audio-file": "Repair Kit Artlist Foley - Toolbox - Electric Screwdriver Short",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Repair\""
 									}
@@ -61340,11 +61695,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 487865971989923,
+									"sid": 402073923534114,
 									"parameters": {
 										"audio-file": "Repair Kit Artlist Foley - Toolbox - Electric Screwdriver Short",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Repair\""
 									}
@@ -61454,11 +61809,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 418442911777461,
+											"sid": 372980910089041,
 											"parameters": {
 												"audio-file": "Damage take J.BoB - Anime Go - Box Crash",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Crash\""
 											}
@@ -61564,11 +61919,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 638959381970017,
+											"sid": 342102049485183,
 											"parameters": {
 												"audio-file": "Damage take J.BoB - Anime Go - Box Crash",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Crash\""
 											}
@@ -62025,11 +62380,11 @@
 														{
 															"id": "play",
 															"objectClass": "SFX",
-															"sid": 620127025316546,
+															"sid": 354880678199759,
 															"parameters": {
 																"audio-file": "Low Energy Flaviu Ciocan - Space Sci Fi - Warning Alarm",
 																"loop": "looping",
-																"volume": "-10",
+																"volume": "Volume_General-10",
 																"stereo-pan": "0",
 																"tag-optional": "\"Low_Energy\""
 															}
@@ -65727,7 +66082,20 @@
 							"sid": 430142078614311
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "SFX",
+							"sid": 107932064017813,
+							"parameters": {
+								"audio-file": "Assaf Ayalon - Its All Right Baby",
+								"loop": "looping",
+								"volume": "Volume_General",
+								"stereo-pan": "0",
+								"tag-optional": "\"Surface_Music\""
+							}
+						}
+					],
 					"sid": 697757647811780
 				},
 				{
@@ -65758,11 +66126,11 @@
 						{
 							"id": "play",
 							"objectClass": "SFX",
-							"sid": 765855193029174,
+							"sid": 411637618003031,
 							"parameters": {
 								"audio-file": "Sonic Bat - Essential Clicks - Gently Pressing on Plastic Button ",
 								"loop": "not-looping",
-								"volume": "0",
+								"volume": "Volume_General",
 								"stereo-pan": "0",
 								"tag-optional": "\"Button\""
 							}
@@ -66109,11 +66477,11 @@
 						{
 							"id": "play",
 							"objectClass": "SFX",
-							"sid": 334505558255762,
+							"sid": 943986404566212,
 							"parameters": {
 								"audio-file": "Teleporter Alex Cummings - Extreme Force - Cinematic Hyper Warp Stutter Impact",
 								"loop": "not-looping",
-								"volume": "0",
+								"volume": "Volume_General",
 								"stereo-pan": "0",
 								"tag-optional": "\"Button\""
 							}
@@ -66369,11 +66737,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 870244052315370,
+									"sid": 216644735601316,
 									"parameters": {
 										"audio-file": "Assaf Ayalon - Its All Right Baby",
 										"loop": "looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Surface_Music\""
 									}
@@ -66459,11 +66827,11 @@
 						{
 							"id": "play",
 							"objectClass": "SFX",
-							"sid": 494278874371761,
+							"sid": 448091063462928,
 							"parameters": {
 								"audio-file": "Teleporter Alex Cummings - Extreme Force - Cinematic Hyper Warp Stutter Impact",
 								"loop": "not-looping",
-								"volume": "0",
+								"volume": "Volume_General",
 								"stereo-pan": "0",
 								"tag-optional": "\"Button\""
 							}
@@ -66602,11 +66970,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 106473675243380,
+									"sid": 664254973248330,
 									"parameters": {
 										"audio-file": "Assaf Ayalon - Its All Right Baby",
 										"loop": "looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Surface_Music\""
 									}
@@ -66693,11 +67061,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 923054076362123,
+									"sid": 101771296900122,
 									"parameters": {
 										"audio-file": "Game Over Alberto Sueri - 8 Bit Fun -  Dramatic Game Theme Musical Phrase",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Death_Music\""
 									}
@@ -66714,11 +67082,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 706806006386297,
+									"sid": 307225715862518,
 									"parameters": {
 										"audio-file": "Death Music Sparrow Tree - Shimmering Light",
 										"loop": "looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Death_Music\""
 									}
@@ -66805,11 +67173,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 237527829369139,
+									"sid": 848297224427052,
 									"parameters": {
 										"audio-file": "Game Over Alberto Sueri - 8 Bit Fun -  Dramatic Game Theme Musical Phrase",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Death_Music\""
 									}
@@ -66826,11 +67194,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 537857961243469,
+									"sid": 255577458721173,
 									"parameters": {
 										"audio-file": "Death Music Sparrow Tree - Shimmering Light",
 										"loop": "looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Death_Music\""
 									}
@@ -67065,11 +67433,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 225834743616863,
+									"sid": 216173682689310,
 									"parameters": {
 										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -67377,11 +67745,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 691854651842741,
+									"sid": 152598978509518,
 									"parameters": {
 										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -67630,11 +67998,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 109303927026595,
+									"sid": 504149222807105,
 									"parameters": {
 										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -67933,11 +68301,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 138238585741939,
+									"sid": 335999472447222,
 									"parameters": {
 										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -68204,11 +68572,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 789083581732736,
+									"sid": 726311323502921,
 									"parameters": {
 										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -68465,11 +68833,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 152624707456395,
+									"sid": 723078692001684,
 									"parameters": {
 										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -68727,11 +69095,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 506795148884572,
+									"sid": 369925445160498,
 									"parameters": {
 										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -69008,11 +69376,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 669901639086415,
+									"sid": 919729145969211,
 									"parameters": {
 										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -69231,11 +69599,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 899331597383184,
+									"sid": 545736183474272,
 									"parameters": {
 										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -69485,11 +69853,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 106325083738164,
+									"sid": 550518717752653,
 									"parameters": {
 										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -69752,11 +70120,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 358663359586194,
+									"sid": 893012811332798,
 									"parameters": {
 										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
@@ -70068,11 +70436,11 @@
 								{
 									"id": "play",
 									"objectClass": "SFX",
-									"sid": 436606822200693,
+									"sid": 116010820490156,
 									"parameters": {
 										"audio-file": "2496 SFX - Retro Machines - Vintage Cash Register Cha Ching Bell",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "Volume_General",
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
