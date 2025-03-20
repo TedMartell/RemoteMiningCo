@@ -299,13 +299,13 @@
 		},
 		{
 			"eventType": "comment",
-			"text": "Music Volume Settings"
+			"text": "Global Sound Booleans"
 		},
 		{
 			"eventType": "variable",
-			"name": "Volume_Music",
-			"type": "number",
-			"initialValue": "0",
+			"name": "Music_Muted",
+			"type": "boolean",
+			"initialValue": "false",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -313,13 +313,37 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "Volume_SFX",
-			"type": "number",
-			"initialValue": "0",
+			"name": "Alerts_Muted",
+			"type": "boolean",
+			"initialValue": "false",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 450106636197663
+			"sid": 963932671224015
+		},
+		{
+			"eventType": "comment",
+			"text": "Game Settings Booleans"
+		},
+		{
+			"eventType": "variable",
+			"name": "Text_Alerts_Disabled",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 402456357536700
+		},
+		{
+			"eventType": "variable",
+			"name": "Mouse_Targeting_Enabled",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 926991699251177
 		},
 		{
 			"eventType": "group",
@@ -5302,55 +5326,6 @@
 						}
 					],
 					"sid": 557502173694722
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 225894599665630
-						},
-						{
-							"id": "is-silent",
-							"objectClass": "SFX",
-							"sid": 983375007603936
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Mute_Button",
-							"sid": 672748868670575,
-							"parameters": {
-								"animation": "\"On\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 665251127782871
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 836081900037402
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Mute_Button",
-							"sid": 867395839300505,
-							"parameters": {
-								"animation": "\"Off\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 654045036036691
 				}
 			],
 			"sid": 769195620327841
@@ -33487,6 +33462,11 @@
 									],
 									"actions": [
 										{
+											"id": "move-to-top",
+											"objectClass": "Settings_Menu",
+											"sid": 677557241420523
+										},
+										{
 											"id": "spawn-another-object",
 											"objectClass": "Settings_Menu",
 											"sid": 105523428399482,
@@ -33529,6 +33509,60 @@
 											"id": "pin-to-object-properties",
 											"objectClass": "Mute_Button",
 											"sid": 188694205087066,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Settings_Menu",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Settings_Menu",
+											"sid": 227730947417316,
+											"parameters": {
+												"object": "Mute_Music_Button",
+												"layer": "\"Foreground\"",
+												"image-point": "\"Mute_Music_Button\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Mute_Music_Button",
+											"sid": 169317218738209,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Settings_Menu",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Settings_Menu",
+											"sid": 458506852440641,
+											"parameters": {
+												"object": "Mute_Alerts_Button",
+												"layer": "\"Foreground\"",
+												"image-point": "\"Mute_Alerts_Button\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Mute_Alerts_Button",
+											"sid": 790992909694897,
 											"behaviorType": "Pin",
 											"parameters": {
 												"pin-to": "Settings_Menu",
@@ -33631,33 +33665,16 @@
 											}
 										}
 									],
-									"sid": 498979898616981,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 707232706042591,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [],
-													"actions": [
-														{
-															"callFunction": "Set_General_Volume",
-															"sid": 152532303739902,
-															"disabled": true
-														}
-													],
-													"sid": 198784532588115
-												}
-											]
-										}
-									]
+									"sid": 498979898616981
 								},
 								{
 									"eventType": "block",
 									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "Settings_Menu",
+											"sid": 326648192005067
+										},
 										{
 											"id": "is-dragging",
 											"objectClass": "Volume_General_Thump",
@@ -33997,6 +34014,11 @@
 											"objectClass": "Volume_General_Thump",
 											"sid": 952479970271083,
 											"behaviorType": "DragDrop"
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "Settings_Menu",
+											"sid": 400792778876422
 										}
 									],
 									"actions": [
@@ -34025,6 +34047,11 @@
 											"objectClass": "Volume_General_Thump",
 											"sid": 463822403381335,
 											"behaviorType": "DragDrop"
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "Settings_Menu",
+											"sid": 654686852303130
 										}
 									],
 									"actions": [
@@ -34053,200 +34080,1013 @@
 										}
 									],
 									"sid": 855794306224690
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 818929727805094,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Sound_Settings_Button"
+											}
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "Settings_Menu",
+											"sid": 620615434437200
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 449678658484568,
+											"parameters": {
+												"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+												"loop": "not-looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Button\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Sound_Settings_Button",
+											"sid": 521409906007715,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 682321224942169,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Sound_Settings_Button",
+											"sid": 195166496327033,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 808982311161449,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Settings_Menu",
+													"sid": 107570457554525,
+													"disabled": true,
+													"parameters": {
+														"object": "Volume_General_Text",
+														"layer": "\"Foreground\"",
+														"image-point": "\"Volume_General_Text\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 864830011356655
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Mute Buttons"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 919925383924174,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Mute_Button"
+											}
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "Settings_Menu",
+											"sid": 495237899507832
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Mute_Button",
+											"sid": 638164254583612,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 830767041565016,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Mute_Button",
+											"sid": 518018072105021,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 847907558465050,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Mute_Button",
+													"sid": 572574336975222,
+													"parameters": {
+														"animation": "\"Off\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-silent",
+													"objectClass": "SFX",
+													"sid": 271116157589369,
+													"parameters": {
+														"mode": "silent"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Mute_Button",
+													"sid": 191473768789191,
+													"parameters": {
+														"animation": "\"On\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 551526548346089
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 831669714978426
+												}
+											],
+											"actions": [
+												{
+													"id": "set-silent",
+													"objectClass": "SFX",
+													"sid": 332486871975555,
+													"parameters": {
+														"mode": "not-silent"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Mute_Button",
+													"sid": 917217741633436,
+													"parameters": {
+														"animation": "\"Off\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 990959575665975,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 207929707485354,
+															"parameters": {
+																"variable": "Music_Muted"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 894078386042846,
+															"parameters": {
+																"audio-file": "Assaf Ayalon - Its All Right Baby",
+																"loop": "looping",
+																"volume": "Volume_General",
+																"stereo-pan": "0",
+																"tag-optional": "\"Surface_Music\""
+															}
+														}
+													],
+													"sid": 716855580400841
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 127093803122026,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Mute_Music_Button"
+											}
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "Settings_Menu",
+											"sid": 313117441602751
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Mute_Music_Button",
+											"sid": 484135927104924,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 966419109308128,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Mute_Music_Button",
+											"sid": 878781233409515,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 277905750230680,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Mute_Music_Button",
+													"sid": 964757954136237,
+													"parameters": {
+														"animation": "\"Off\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 726114753653643,
+													"parameters": {
+														"tag": "\"Surface_Music\"",
+														"state": "muted"
+													}
+												},
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 293070265570932,
+													"parameters": {
+														"tag": "\"Shop_Music\"",
+														"state": "muted"
+													}
+												},
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 416589028423195,
+													"parameters": {
+														"tag": "\"Smelter_Music\"",
+														"state": "muted"
+													}
+												},
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 553394053187166,
+													"parameters": {
+														"tag": "\"Death_Music\"",
+														"state": "muted"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Mute_Music_Button",
+													"sid": 388523722461840,
+													"parameters": {
+														"animation": "\"On\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 754683880159938,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 689833300720369,
+															"parameters": {
+																"variable": "Music_Muted",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 785123335578274
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 588338463314387
+												}
+											],
+											"actions": [
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 420803096686293,
+													"parameters": {
+														"tag": "\"Surface_Music\"",
+														"state": "unmuted"
+													}
+												},
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 473493575498002,
+													"parameters": {
+														"tag": "\"Shop_Music\"",
+														"state": "unmuted"
+													}
+												},
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 951188029580048,
+													"parameters": {
+														"tag": "\"Smelter_Music\"",
+														"state": "unmuted"
+													}
+												},
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 678583943429013,
+													"parameters": {
+														"tag": "\"Death_Music\"",
+														"state": "unmuted"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Mute_Music_Button",
+													"sid": 163158656813473,
+													"parameters": {
+														"animation": "\"Off\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 500010479208724,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 671992148545471,
+															"parameters": {
+																"variable": "Music_Muted",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 418701317253793
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 396422738611339,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Mute_Alerts_Button"
+											}
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "Settings_Menu",
+											"sid": 183947071928590
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Mute_Alerts_Button",
+											"sid": 921587654088745,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 713570528822722,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Mute_Alerts_Button",
+											"sid": 997801521405664,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 573239807444162,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Mute_Alerts_Button",
+													"sid": 291513092121452,
+													"parameters": {
+														"animation": "\"Off\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 752804975906140,
+													"parameters": {
+														"tag": "\"Crash\"",
+														"state": "muted"
+													}
+												},
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 281587795825175,
+													"parameters": {
+														"tag": "\"Pick_Up\"",
+														"state": "muted"
+													}
+												},
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 634444944277932,
+													"parameters": {
+														"tag": "\"Ding\"",
+														"state": "muted"
+													}
+												},
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 279988040913280,
+													"parameters": {
+														"tag": "\"Low_Energy\"",
+														"state": "muted"
+													}
+												},
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 626035164536171,
+													"parameters": {
+														"tag": "\"Lava\"",
+														"state": "muted"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Mute_Alerts_Button",
+													"sid": 536745509533969,
+													"parameters": {
+														"animation": "\"On\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 339949677744306,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 722710431927068,
+															"parameters": {
+																"variable": "Alerts_Muted",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 287215937000693
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 390300283013813
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Mute_Alerts_Button",
+													"sid": 707084795586848,
+													"parameters": {
+														"animation": "\"Off\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 938495904557931,
+													"parameters": {
+														"tag": "\"Crash\"",
+														"state": "unmuted"
+													}
+												},
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 312295520340022,
+													"parameters": {
+														"tag": "\"Pick_Up\"",
+														"state": "unmuted"
+													}
+												},
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 322811194533794,
+													"parameters": {
+														"tag": "\"Ding\"",
+														"state": "unmuted"
+													}
+												},
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 283732265472443,
+													"parameters": {
+														"tag": "\"Low_Energy\"",
+														"state": "unmuted"
+													}
+												},
+												{
+													"id": "set-muted",
+													"objectClass": "SFX",
+													"sid": 885540225960545,
+													"parameters": {
+														"tag": "\"Lava\"",
+														"state": "unmuted"
+													}
+												}
+											],
+											"sid": 637679964204968,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 960528701916401,
+															"parameters": {
+																"variable": "Music_Muted",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 742334329989449
+												}
+											]
+										}
+									]
 								}
 							],
 							"sid": 476620658609588
 						},
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 817621716300105,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Sound_Settings_Button"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 138374121703048,
-									"parameters": {
-										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
-										"loop": "not-looping",
-										"volume": "Volume_General",
-										"stereo-pan": "0",
-										"tag-optional": "\"Button\""
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Sound_Settings_Button",
-									"sid": 439780614632933,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 902805969843530,
-									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Sound_Settings_Button",
-									"sid": 376947328889685,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Darken\""
-									}
-								}
-							],
-							"sid": 195653684335437,
+							"eventType": "group",
+							"disabled": false,
+							"title": "General Game",
+							"description": "",
+							"isActiveOnStart": true,
 							"children": [
 								{
 									"eventType": "block",
-									"conditions": [],
+									"conditions": [
+										{
+											"id": "on-start-of-layout",
+											"objectClass": "System",
+											"sid": 973006638269339
+										}
+									],
 									"actions": [
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Settings_Menu",
-											"sid": 272555535139011,
-											"disabled": true,
+											"sid": 658081213952910,
 											"parameters": {
-												"object": "Volume_General_Text",
+												"object": "Disable_Text_Alerts_Button",
 												"layer": "\"Foreground\"",
-												"image-point": "\"Volume_General_Text\"",
+												"image-point": "\"Disable_Text_Alerts_Button\"",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
-										}
-									],
-									"sid": 361950369416983,
-									"children": [
+										},
 										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 466960051702080
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 734369752201089,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "Mute_Button"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Mute_Button",
-									"sid": 232035328695437,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 195163991794504,
-									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Mute_Button",
-									"sid": 388588642149760,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Darken\""
-									}
-								}
-							],
-							"sid": 233356428089333,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-animation-playing",
-											"objectClass": "Mute_Button",
-											"sid": 113295717196625,
+											"id": "pin-to-object-properties",
+											"objectClass": "Disable_Text_Alerts_Button",
+											"sid": 138871933618028,
+											"behaviorType": "Pin",
 											"parameters": {
-												"animation": "\"Off\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-silent",
-											"objectClass": "SFX",
-											"sid": 985563887828236,
-											"parameters": {
-												"mode": "silent"
-											}
-										}
-									],
-									"sid": 225840991464136
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 628462406530442
-										}
-									],
-									"actions": [
-										{
-											"id": "set-silent",
-											"objectClass": "SFX",
-											"sid": 625838815227286,
-											"parameters": {
-												"mode": "not-silent"
+												"pin-to": "Settings_Menu",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
 											}
 										},
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 844959865339661,
+											"id": "spawn-another-object",
+											"objectClass": "Settings_Menu",
+											"sid": 371488856515932,
 											"parameters": {
-												"audio-file": "Assaf Ayalon - Its All Right Baby",
-												"loop": "looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Surface_Music\""
+												"object": "Game_Settings_Button",
+												"layer": "\"Foreground\"",
+												"image-point": "\"Game_Settings_Button\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Game_Settings_Button",
+											"sid": 204042467655608,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Settings_Menu",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Settings_Menu",
+											"sid": 419121310903027,
+											"parameters": {
+												"object": "Mouse_Targeting_Button",
+												"layer": "\"Foreground\"",
+												"image-point": "\"Mouse_Targeting_Button\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Mouse_Targeting_Button",
+											"sid": 715850834861337,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Settings_Menu",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
 											}
 										}
 									],
-									"sid": 388307131075251
+									"sid": 361039698545690
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 762413958078959,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Disable_Text_Alerts_Button"
+											}
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "Settings_Menu",
+											"sid": 667207876045464
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Disable_Text_Alerts_Button",
+											"sid": 978164721782756,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 484661885072344,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Disable_Text_Alerts_Button",
+											"sid": 744722267785984,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 138240865170703,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Disable_Text_Alerts_Button",
+													"sid": 186433275711201,
+													"parameters": {
+														"animation": "\"Off\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 413237892664730,
+													"parameters": {
+														"variable": "Text_Alerts_Disabled",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Disable_Text_Alerts_Button",
+													"sid": 347927190827096,
+													"parameters": {
+														"animation": "\"On\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 462712549146294
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 882906504078885
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 810522279665670,
+													"parameters": {
+														"variable": "Text_Alerts_Disabled",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Disable_Text_Alerts_Button",
+													"sid": 545712346076879,
+													"parameters": {
+														"animation": "\"Off\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 527778576211570
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 990577460459720,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Mouse_Targeting_Button"
+											}
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "Settings_Menu",
+											"sid": 920185245944993
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Mouse_Targeting_Button",
+											"sid": 879198121392467,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 227622371643363,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Mouse_Targeting_Button",
+											"sid": 699042057817846,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 539183954508074,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Mouse_Targeting_Button",
+													"sid": 626002582297010,
+													"parameters": {
+														"animation": "\"Off\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 970115387104547,
+													"parameters": {
+														"variable": "Mouse_Targeting_Enabled",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Mouse_Targeting_Button",
+													"sid": 409884908098727,
+													"parameters": {
+														"animation": "\"On\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 668606380021366
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 774997372986209
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 947617471317588,
+													"parameters": {
+														"variable": "Mouse_Targeting_Enabled",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Mouse_Targeting_Button",
+													"sid": 336725371839599,
+													"parameters": {
+														"animation": "\"Off\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 220673152921880
+										}
+									]
 								}
-							]
+							],
+							"sid": 281916205469704
 						}
 					],
 					"sid": 853414724366451
@@ -37989,6 +38829,35 @@
 							"children": [
 								{
 									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 635966697552586,
+											"parameters": {
+												"variable": "Music_Muted"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 640085724854750,
+											"parameters": {
+												"audio-file": "T. Bless - Froggy Fraud Adventure",
+												"loop": "looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Shop_Music\""
+											}
+										}
+									],
+									"sid": 224045602139255
+								},
+								{
+									"eventType": "block",
 									"conditions": [],
 									"actions": [
 										{
@@ -38053,18 +38922,6 @@
 												"db": "-100",
 												"duration": "1",
 												"ending": "stop"
-											}
-										},
-										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 839457814564476,
-											"parameters": {
-												"audio-file": "T. Bless - Froggy Fraud Adventure",
-												"loop": "looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Shop_Music\""
 											}
 										}
 									],
@@ -38192,6 +39049,35 @@
 							"children": [
 								{
 									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 637409071545319,
+											"parameters": {
+												"variable": "Music_Muted"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 613657015918383,
+											"parameters": {
+												"audio-file": "T. Bless - Froggy Fraud Adventure",
+												"loop": "looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Shop_Music\""
+											}
+										}
+									],
+									"sid": 621672255899152
+								},
+								{
+									"eventType": "block",
 									"conditions": [],
 									"actions": [
 										{
@@ -38256,18 +39142,6 @@
 												"db": "-100",
 												"duration": "1",
 												"ending": "stop"
-											}
-										},
-										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 720445817513109,
-											"parameters": {
-												"audio-file": "T. Bless - Froggy Fraud Adventure",
-												"loop": "not-looping",
-												"volume": "0",
-												"stereo-pan": "0",
-												"tag-optional": "\"Shop_Music\""
 											}
 										}
 									],
@@ -39690,13 +40564,13 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 639208837877743,
+											"sid": 361692029692712,
 											"parameters": {
 												"audio-file": "Mechanical Wave - Toys - Button Pushing Beeping",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
-												"tag-optional": "\"\""
+												"tag-optional": "\"Button\""
 											}
 										},
 										{
@@ -47350,18 +48224,6 @@
 											}
 										},
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 389851115015193,
-											"parameters": {
-												"audio-file": "Smelter Background Felix Blume - Hard Days Work - Factory Ambience Metallic Machine Rattle Hum Whir ",
-												"loop": "not-looping",
-												"volume": "Volume_General-10",
-												"stereo-pan": "0",
-												"tag-optional": "\"Smelter_Music\""
-											}
-										},
-										{
 											"id": "fade-volume",
 											"objectClass": "SFX",
 											"sid": 464482613663140,
@@ -47373,7 +48235,38 @@
 											}
 										}
 									],
-									"sid": 882090740912093
+									"sid": 882090740912093,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 829837469977639,
+													"parameters": {
+														"variable": "Music_Muted"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 233136042825163,
+													"parameters": {
+														"audio-file": "Smelter Background Felix Blume - Hard Days Work - Factory Ambience Metallic Machine Rattle Hum Whir ",
+														"loop": "not-looping",
+														"volume": "Volume_General-10",
+														"stereo-pan": "0",
+														"tag-optional": "\"Smelter_Music\""
+													}
+												}
+											],
+											"sid": 852230326319788
+										}
+									]
 								}
 							]
 						},
@@ -47530,18 +48423,6 @@
 											}
 										},
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 206241563198387,
-											"parameters": {
-												"audio-file": "Smelter Background Felix Blume - Hard Days Work - Factory Ambience Metallic Machine Rattle Hum Whir ",
-												"loop": "not-looping",
-												"volume": "Volume_General-10",
-												"stereo-pan": "0",
-												"tag-optional": "\"Smelter_Music\""
-											}
-										},
-										{
 											"id": "fade-volume",
 											"objectClass": "SFX",
 											"sid": 172966017611522,
@@ -47553,7 +48434,38 @@
 											}
 										}
 									],
-									"sid": 426838178125631
+									"sid": 426838178125631,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 281266182501703,
+													"parameters": {
+														"variable": "Music_Muted"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 393456186601375,
+													"parameters": {
+														"audio-file": "Smelter Background Felix Blume - Hard Days Work - Factory Ambience Metallic Machine Rattle Hum Whir ",
+														"loop": "not-looping",
+														"volume": "Volume_General-10",
+														"stereo-pan": "0",
+														"tag-optional": "\"Smelter_Music\""
+													}
+												}
+											],
+											"sid": 319080796069427
+										}
+									]
 								}
 							]
 						}
@@ -49207,10 +50119,6 @@
 									}
 								},
 								{
-									"callFunction": "Reset_Warehouse_Sell_cart",
-									"sid": 468110426525286
-								},
-								{
 									"id": "set-group-active",
 									"objectClass": "System",
 									"sid": 280081100227462,
@@ -49266,21 +50174,258 @@
 										"duration": "1",
 										"ending": "keep-playing"
 									}
-								},
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 920298453548580,
-									"parameters": {
-										"audio-file": "Assaf Ayalon - Its All Right Baby",
-										"loop": "looping",
-										"volume": "Volume_General",
-										"stereo-pan": "0",
-										"tag-optional": "\"Surface_Music\""
-									}
 								}
 							],
-							"sid": 928299702346000
+							"sid": 928299702346000,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 578999815833378,
+											"parameters": {
+												"variable": "Music_Muted"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 816880476811272,
+											"parameters": {
+												"audio-file": "Assaf Ayalon - Its All Right Baby",
+												"loop": "looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Surface_Music\""
+											}
+										}
+									],
+									"sid": 647729812042271
+								},
+								{
+									"eventType": "comment",
+									"text": "Reset Sell Cart in Warehouse"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 207281519131417,
+											"parameters": {
+												"instance-variable": "Aluminium_Ingot",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 284271947611672,
+											"parameters": {
+												"instance-variable": "Bauxite",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 700121780374187,
+											"parameters": {
+												"instance-variable": "Chromium",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 298104081992907,
+											"parameters": {
+												"instance-variable": "Chromium_Ingot",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 801701784028688,
+											"parameters": {
+												"instance-variable": "Coal",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 947397450585929,
+											"parameters": {
+												"instance-variable": "Copper",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 995077555489193,
+											"parameters": {
+												"instance-variable": "Copper_Ingot",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 516973920543249,
+											"parameters": {
+												"instance-variable": "Diamond",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 207365404312619,
+											"parameters": {
+												"instance-variable": "Gold",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 668429840029819,
+											"parameters": {
+												"instance-variable": "Gold_Ingot",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 200721532849857,
+											"parameters": {
+												"instance-variable": "Iron",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 543539040239593,
+											"parameters": {
+												"instance-variable": "Iron_Ingot",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 348186741381013,
+											"parameters": {
+												"instance-variable": "Lithium",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 283197836540799,
+											"parameters": {
+												"instance-variable": "Lithium_Ingot",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 319019116981538,
+											"parameters": {
+												"instance-variable": "Nickel",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 263444031906285,
+											"parameters": {
+												"instance-variable": "Nickel_Ingot",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 389558849080027,
+											"parameters": {
+												"instance-variable": "Quartz",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 839067830157557,
+											"parameters": {
+												"instance-variable": "Silicon",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 965084741815870,
+											"parameters": {
+												"instance-variable": "Silver",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 192626256409184,
+											"parameters": {
+												"instance-variable": "Silver_Ingot",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 435850313247020,
+											"parameters": {
+												"instance-variable": "Value",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 320703505157653,
+											"parameters": {
+												"instance-variable": "Zinc",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 419913999348057,
+											"parameters": {
+												"instance-variable": "Zinc_Ingot",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 986271556835875
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -49485,7 +50630,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "50",
+							"initialValue": "468",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -53195,32 +54340,45 @@
 										"instance-variable": "RIGHT",
 										"value": "true"
 									}
-								},
-								{
-									"type": "script",
-									"script": ""
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Laser_Gun",
-									"sid": 568853337442733,
-									"parameters": {
-										"instance-variable": "Direction",
-										"value": "1"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Laser_Gun",
-									"sid": 602593278655480,
-									"parameters": {
-										"instance-variable": "DIR",
-										"value": "\"Right\""
-									}
 								}
 							],
 							"sid": 704151603478823,
 							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 990344612660046,
+											"parameters": {
+												"variable": "Mouse_Targeting_Enabled"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Laser_Gun",
+											"sid": 512666212484608,
+											"parameters": {
+												"instance-variable": "Direction",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Laser_Gun",
+											"sid": 757767062186040,
+											"parameters": {
+												"instance-variable": "DIR",
+												"value": "\"Right\""
+											}
+										}
+									],
+									"sid": 656362852397275
+								},
 								{
 									"eventType": "block",
 									"conditions": [
@@ -53358,28 +54516,45 @@
 										"instance-variable": "LEFT",
 										"value": "true"
 									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Laser_Gun",
-									"sid": 100624431650929,
-									"parameters": {
-										"instance-variable": "Direction",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Laser_Gun",
-									"sid": 455268159680657,
-									"parameters": {
-										"instance-variable": "DIR",
-										"value": "\"Left\""
-									}
 								}
 							],
 							"sid": 646282079087232,
 							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 262310302309081,
+											"parameters": {
+												"variable": "Mouse_Targeting_Enabled"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Laser_Gun",
+											"sid": 599843443588156,
+											"parameters": {
+												"instance-variable": "Direction",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Laser_Gun",
+											"sid": 857872008728255,
+											"parameters": {
+												"instance-variable": "DIR",
+												"value": "\"Left\""
+											}
+										}
+									],
+									"sid": 961585913875050
+								},
 								{
 									"eventType": "block",
 									"conditions": [
@@ -53599,6 +54774,96 @@
 								}
 							],
 							"sid": 506666680667968
+						},
+						{
+							"eventType": "comment",
+							"text": "Mouse Targeting"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 247392270596673,
+									"parameters": {
+										"variable": "Mouse_Targeting_Enabled"
+									}
+								},
+								{
+									"id": "compare-x",
+									"objectClass": "Miner_Box",
+									"sid": 714505839971203,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "Mouse.X"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Laser_Gun",
+									"sid": 647658832733660,
+									"parameters": {
+										"instance-variable": "Direction",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Laser_Gun",
+									"sid": 126422118206322,
+									"parameters": {
+										"instance-variable": "DIR",
+										"value": "\"Right\""
+									}
+								}
+							],
+							"sid": 315346845002244
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 813095109899871,
+									"parameters": {
+										"variable": "Mouse_Targeting_Enabled"
+									}
+								},
+								{
+									"id": "compare-x",
+									"objectClass": "Miner_Box",
+									"sid": 960438901706694,
+									"parameters": {
+										"comparison": 5,
+										"x-co-ordinate": "Mouse.X"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Laser_Gun",
+									"sid": 395319703332811,
+									"parameters": {
+										"instance-variable": "Direction",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Laser_Gun",
+									"sid": 242937107959134,
+									"parameters": {
+										"instance-variable": "DIR",
+										"value": "\"Left\""
+									}
+								}
+							],
+							"sid": 425165314365207
 						},
 						{
 							"eventType": "group",
@@ -57373,6 +58638,15 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 732399286567017,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												},
+												{
 													"id": "trigger-once-while-true",
 													"objectClass": "System",
 													"sid": 537969938379183
@@ -57541,6 +58815,15 @@
 										{
 											"eventType": "block",
 											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 995012233748944,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												},
 												{
 													"id": "trigger-once-while-true",
 													"objectClass": "System",
@@ -57902,7 +59185,17 @@
 												},
 												{
 													"eventType": "block",
-													"conditions": [],
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 239930555546862,
+															"parameters": {
+																"variable": "Text_Alerts_Disabled"
+															},
+															"isInverted": true
+														}
+													],
 													"actions": [
 														{
 															"id": "spawn-another-object",
@@ -57919,9 +59212,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Item_Pick_Up_Text",
-															"sid": 519709981058019,
+															"sid": 598699948983446,
 															"parameters": {
-																"text": "\"[b]COAL[/b]\" & newline & \"[size=14]Added to Inventory[/size]\""
+																"text": "\"[b]COAL[/b]\" "
 															}
 														}
 													],
@@ -58020,7 +59313,17 @@
 												},
 												{
 													"eventType": "block",
-													"conditions": [],
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 121225694141723,
+															"parameters": {
+																"variable": "Text_Alerts_Disabled"
+															},
+															"isInverted": true
+														}
+													],
 													"actions": [
 														{
 															"id": "spawn-another-object",
@@ -58037,9 +59340,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Item_Pick_Up_Text",
-															"sid": 980169623612414,
+															"sid": 397746905742259,
 															"parameters": {
-																"text": "\"[b]QUARTZ[/b]\" & newline & \"[size=14]Added to Inventory[/size]\""
+																"text": "\"[b]QUARTZ[/b]\" "
 															}
 														}
 													],
@@ -58138,7 +59441,17 @@
 												},
 												{
 													"eventType": "block",
-													"conditions": [],
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 750748819833176,
+															"parameters": {
+																"variable": "Text_Alerts_Disabled"
+															},
+															"isInverted": true
+														}
+													],
 													"actions": [
 														{
 															"id": "spawn-another-object",
@@ -58155,9 +59468,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Item_Pick_Up_Text",
-															"sid": 989242552369672,
+															"sid": 626019115867525,
 															"parameters": {
-																"text": "\"[b]BAUXITE[/b]\" & newline & \"[size=14]Added to Inventory[/size]\""
+																"text": "\"[b]BAUXITE[/b]\" "
 															}
 														}
 													],
@@ -58242,18 +59555,6 @@
 													],
 													"actions": [
 														{
-															"id": "play",
-															"objectClass": "SFX",
-															"sid": 755004450888125,
-															"parameters": {
-																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
-																"loop": "not-looping",
-																"volume": "Volume_General",
-																"stereo-pan": "0",
-																"tag-optional": "\"Ding\""
-															}
-														},
-														{
 															"id": "spawn-another-object",
 															"objectClass": "HUD_Grey",
 															"sid": 931016373320938,
@@ -58298,6 +59599,35 @@
 													],
 													"sid": 324646165602437,
 													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 836845206377379,
+																	"parameters": {
+																		"variable": "Alerts_Muted"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "play",
+																	"objectClass": "SFX",
+																	"sid": 120139397868555,
+																	"parameters": {
+																		"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
+																		"loop": "not-looping",
+																		"volume": "Volume_General",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Ding\""
+																	}
+																}
+															],
+															"sid": 332441992956155
+														},
 														{
 															"eventType": "block",
 															"conditions": [],
@@ -58424,7 +59754,17 @@
 												},
 												{
 													"eventType": "block",
-													"conditions": [],
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 752307443946166,
+															"parameters": {
+																"variable": "Text_Alerts_Disabled"
+															},
+															"isInverted": true
+														}
+													],
 													"actions": [
 														{
 															"id": "spawn-another-object",
@@ -58441,9 +59781,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Item_Pick_Up_Text",
-															"sid": 932400210084664,
+															"sid": 338060398247494,
 															"parameters": {
-																"text": "\"[b]IRON ORE[/b]\" & newline & \"[size=14]Added to Inventory[/size]\""
+																"text": "\"[b]IRON ORE[/b]\" "
 															}
 														}
 													],
@@ -58528,18 +59868,6 @@
 													],
 													"actions": [
 														{
-															"id": "play",
-															"objectClass": "SFX",
-															"sid": 740898095186433,
-															"parameters": {
-																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
-																"loop": "not-looping",
-																"volume": "Volume_General",
-																"stereo-pan": "0",
-																"tag-optional": "\"Ding\""
-															}
-														},
-														{
 															"id": "spawn-another-object",
 															"objectClass": "HUD_Grey",
 															"sid": 333539964236799,
@@ -58584,6 +59912,35 @@
 													],
 													"sid": 985844431064930,
 													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 634032185034656,
+																	"parameters": {
+																		"variable": "Alerts_Muted"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "play",
+																	"objectClass": "SFX",
+																	"sid": 936778331421601,
+																	"parameters": {
+																		"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
+																		"loop": "not-looping",
+																		"volume": "Volume_General",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Ding\""
+																	}
+																}
+															],
+															"sid": 241226103089406
+														},
 														{
 															"eventType": "block",
 															"conditions": [],
@@ -58710,7 +60067,17 @@
 												},
 												{
 													"eventType": "block",
-													"conditions": [],
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 998789443030023,
+															"parameters": {
+																"variable": "Text_Alerts_Disabled"
+															},
+															"isInverted": true
+														}
+													],
 													"actions": [
 														{
 															"id": "spawn-another-object",
@@ -58727,9 +60094,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Item_Pick_Up_Text",
-															"sid": 733233707796238,
+															"sid": 453111884248783,
 															"parameters": {
-																"text": "\"[b]CHROMIUM ORE[/b]\" & newline & \"[size=14]Added to Inventory[/size]\""
+																"text": "\"[b]CHROMIUM ORE[/b]\" "
 															}
 														}
 													],
@@ -58814,18 +60181,6 @@
 													],
 													"actions": [
 														{
-															"id": "play",
-															"objectClass": "SFX",
-															"sid": 958022162350278,
-															"parameters": {
-																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
-																"loop": "not-looping",
-																"volume": "Volume_General",
-																"stereo-pan": "0",
-																"tag-optional": "\"Ding\""
-															}
-														},
-														{
 															"id": "spawn-another-object",
 															"objectClass": "HUD_Grey",
 															"sid": 831109737815972,
@@ -58870,6 +60225,35 @@
 													],
 													"sid": 738034193431563,
 													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 129411975452308,
+																	"parameters": {
+																		"variable": "Alerts_Muted"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "play",
+																	"objectClass": "SFX",
+																	"sid": 204422240822931,
+																	"parameters": {
+																		"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
+																		"loop": "not-looping",
+																		"volume": "Volume_General",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Ding\""
+																	}
+																}
+															],
+															"sid": 197532945320010
+														},
 														{
 															"eventType": "block",
 															"conditions": [],
@@ -58996,7 +60380,17 @@
 												},
 												{
 													"eventType": "block",
-													"conditions": [],
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 209531154244582,
+															"parameters": {
+																"variable": "Text_Alerts_Disabled"
+															},
+															"isInverted": true
+														}
+													],
 													"actions": [
 														{
 															"id": "spawn-another-object",
@@ -59013,9 +60407,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Item_Pick_Up_Text",
-															"sid": 779189595520778,
+															"sid": 987376125666232,
 															"parameters": {
-																"text": "\"[b]COPPER ORE[/b]\" & newline & \"[size=14]Added to Inventory[/size]\""
+																"text": "\"[b]COPPER ORE[/b]\" "
 															}
 														}
 													],
@@ -59100,18 +60494,6 @@
 													],
 													"actions": [
 														{
-															"id": "play",
-															"objectClass": "SFX",
-															"sid": 841798619611732,
-															"parameters": {
-																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
-																"loop": "not-looping",
-																"volume": "Volume_General",
-																"stereo-pan": "0",
-																"tag-optional": "\"Ding\""
-															}
-														},
-														{
 															"id": "spawn-another-object",
 															"objectClass": "HUD_Grey",
 															"sid": 379856138277586,
@@ -59156,6 +60538,35 @@
 													],
 													"sid": 383593423392647,
 													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 566644439197746,
+																	"parameters": {
+																		"variable": "Alerts_Muted"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "play",
+																	"objectClass": "SFX",
+																	"sid": 849467498742105,
+																	"parameters": {
+																		"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
+																		"loop": "not-looping",
+																		"volume": "Volume_General",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Ding\""
+																	}
+																}
+															],
+															"sid": 423768825522664
+														},
 														{
 															"eventType": "block",
 															"conditions": [],
@@ -59282,7 +60693,17 @@
 												},
 												{
 													"eventType": "block",
-													"conditions": [],
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 115341605898169,
+															"parameters": {
+																"variable": "Text_Alerts_Disabled"
+															},
+															"isInverted": true
+														}
+													],
 													"actions": [
 														{
 															"id": "spawn-another-object",
@@ -59299,9 +60720,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Item_Pick_Up_Text",
-															"sid": 647502716490898,
+															"sid": 105787833426130,
 															"parameters": {
-																"text": "\"[b]LITHIUM ORE[/b]\" & newline & \"[size=14]Added to Inventory[/size]\""
+																"text": "\"[b]LITHIUM ORE[/b]\" "
 															}
 														}
 													],
@@ -59386,18 +60807,6 @@
 													],
 													"actions": [
 														{
-															"id": "play",
-															"objectClass": "SFX",
-															"sid": 530288080962252,
-															"parameters": {
-																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
-																"loop": "not-looping",
-																"volume": "Volume_General",
-																"stereo-pan": "0",
-																"tag-optional": "\"Ding\""
-															}
-														},
-														{
 															"id": "spawn-another-object",
 															"objectClass": "HUD_Grey",
 															"sid": 461378512897743,
@@ -59442,6 +60851,35 @@
 													],
 													"sid": 224371705008752,
 													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 852806057704285,
+																	"parameters": {
+																		"variable": "Alerts_Muted"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "play",
+																	"objectClass": "SFX",
+																	"sid": 812769890429347,
+																	"parameters": {
+																		"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
+																		"loop": "not-looping",
+																		"volume": "Volume_General",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Ding\""
+																	}
+																}
+															],
+															"sid": 282097427392361
+														},
 														{
 															"eventType": "block",
 															"conditions": [],
@@ -59568,7 +61006,17 @@
 												},
 												{
 													"eventType": "block",
-													"conditions": [],
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 519871076924901,
+															"parameters": {
+																"variable": "Text_Alerts_Disabled"
+															},
+															"isInverted": true
+														}
+													],
 													"actions": [
 														{
 															"id": "spawn-another-object",
@@ -59585,9 +61033,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Item_Pick_Up_Text",
-															"sid": 212073911715639,
+															"sid": 515447939179669,
 															"parameters": {
-																"text": "\"[b]SILVER ORE[/b]\" & newline & \"[size=14]Added to Inventory[/size]\""
+																"text": "\"[b]SILVER ORE[/b]\" "
 															}
 														}
 													],
@@ -59672,18 +61120,6 @@
 													],
 													"actions": [
 														{
-															"id": "play",
-															"objectClass": "SFX",
-															"sid": 395560512871514,
-															"parameters": {
-																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
-																"loop": "not-looping",
-																"volume": "Volume_General",
-																"stereo-pan": "0",
-																"tag-optional": "\"Ding\""
-															}
-														},
-														{
 															"id": "spawn-another-object",
 															"objectClass": "HUD_Grey",
 															"sid": 161697908766088,
@@ -59728,6 +61164,35 @@
 													],
 													"sid": 480037747556269,
 													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 424685226534224,
+																	"parameters": {
+																		"variable": "Alerts_Muted"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "play",
+																	"objectClass": "SFX",
+																	"sid": 257678766805226,
+																	"parameters": {
+																		"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
+																		"loop": "not-looping",
+																		"volume": "Volume_General",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Ding\""
+																	}
+																}
+															],
+															"sid": 110554499735914
+														},
 														{
 															"eventType": "block",
 															"conditions": [],
@@ -59854,7 +61319,17 @@
 												},
 												{
 													"eventType": "block",
-													"conditions": [],
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 497444927844668,
+															"parameters": {
+																"variable": "Text_Alerts_Disabled"
+															},
+															"isInverted": true
+														}
+													],
 													"actions": [
 														{
 															"id": "spawn-another-object",
@@ -59871,9 +61346,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Item_Pick_Up_Text",
-															"sid": 291985337201460,
+															"sid": 706447817238339,
 															"parameters": {
-																"text": "\"[b]NICKEL ORE[/b]\" & newline & \"[size=14]Added to Inventory[/size]\""
+																"text": "\"[b]NICKEL ORE[/b]\" "
 															}
 														}
 													],
@@ -59958,18 +61433,6 @@
 													],
 													"actions": [
 														{
-															"id": "play",
-															"objectClass": "SFX",
-															"sid": 690487071289327,
-															"parameters": {
-																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
-																"loop": "not-looping",
-																"volume": "Volume_General",
-																"stereo-pan": "0",
-																"tag-optional": "\"Ding\""
-															}
-														},
-														{
 															"id": "spawn-another-object",
 															"objectClass": "HUD_Grey",
 															"sid": 375036695968243,
@@ -60014,6 +61477,35 @@
 													],
 													"sid": 170626370204087,
 													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 627079645051173,
+																	"parameters": {
+																		"variable": "Alerts_Muted"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "play",
+																	"objectClass": "SFX",
+																	"sid": 131330135975824,
+																	"parameters": {
+																		"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
+																		"loop": "not-looping",
+																		"volume": "Volume_General",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Ding\""
+																	}
+																}
+															],
+															"sid": 120067367920298
+														},
 														{
 															"eventType": "block",
 															"conditions": [],
@@ -60140,7 +61632,17 @@
 												},
 												{
 													"eventType": "block",
-													"conditions": [],
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 841408185376386,
+															"parameters": {
+																"variable": "Text_Alerts_Disabled"
+															},
+															"isInverted": true
+														}
+													],
 													"actions": [
 														{
 															"id": "spawn-another-object",
@@ -60157,9 +61659,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Item_Pick_Up_Text",
-															"sid": 750491938613803,
+															"sid": 415206358171354,
 															"parameters": {
-																"text": "\"[b]ZINC ORE[/b]\" & newline & \"[size=14]Added to Inventory[/size]\""
+																"text": "\"[b]ZINC ORE[/b]\" "
 															}
 														}
 													],
@@ -60244,18 +61746,6 @@
 													],
 													"actions": [
 														{
-															"id": "play",
-															"objectClass": "SFX",
-															"sid": 157973968801449,
-															"parameters": {
-																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
-																"loop": "not-looping",
-																"volume": "Volume_General",
-																"stereo-pan": "0",
-																"tag-optional": "\"Ding\""
-															}
-														},
-														{
 															"id": "spawn-another-object",
 															"objectClass": "HUD_Grey",
 															"sid": 799811438831200,
@@ -60300,6 +61790,35 @@
 													],
 													"sid": 753421619626363,
 													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 231997794864795,
+																	"parameters": {
+																		"variable": "Alerts_Muted"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "play",
+																	"objectClass": "SFX",
+																	"sid": 339889322644897,
+																	"parameters": {
+																		"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
+																		"loop": "not-looping",
+																		"volume": "Volume_General",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Ding\""
+																	}
+																}
+															],
+															"sid": 757293759982648
+														},
 														{
 															"eventType": "block",
 															"conditions": [],
@@ -60426,7 +61945,17 @@
 												},
 												{
 													"eventType": "block",
-													"conditions": [],
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 278468984275534,
+															"parameters": {
+																"variable": "Text_Alerts_Disabled"
+															},
+															"isInverted": true
+														}
+													],
 													"actions": [
 														{
 															"id": "spawn-another-object",
@@ -60443,9 +61972,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Item_Pick_Up_Text",
-															"sid": 728670104352950,
+															"sid": 436756379139812,
 															"parameters": {
-																"text": "\"[b]GOLD ORE[/b]\" & newline & \"[size=14]Added to Inventory[/size]\""
+																"text": "\"[b]GOLD ORE[/b]\" "
 															}
 														}
 													],
@@ -60530,18 +62059,6 @@
 													],
 													"actions": [
 														{
-															"id": "play",
-															"objectClass": "SFX",
-															"sid": 885451886525701,
-															"parameters": {
-																"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
-																"loop": "not-looping",
-																"volume": "Volume_General",
-																"stereo-pan": "0",
-																"tag-optional": "\"Ding\""
-															}
-														},
-														{
 															"id": "spawn-another-object",
 															"objectClass": "HUD_Grey",
 															"sid": 768289360461667,
@@ -60577,6 +62094,35 @@
 													],
 													"sid": 954013706521262,
 													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 280839787242719,
+																	"parameters": {
+																		"variable": "Alerts_Muted"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "play",
+																	"objectClass": "SFX",
+																	"sid": 724232676351150,
+																	"parameters": {
+																		"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
+																		"loop": "not-looping",
+																		"volume": "Volume_General",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"Ding\""
+																	}
+																}
+															],
+															"sid": 171123860627919
+														},
 														{
 															"eventType": "block",
 															"conditions": [],
@@ -60667,7 +62213,17 @@
 												},
 												{
 													"eventType": "block",
-													"conditions": [],
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 978774601841816,
+															"parameters": {
+																"variable": "Text_Alerts_Disabled"
+															},
+															"isInverted": true
+														}
+													],
 													"actions": [
 														{
 															"id": "spawn-another-object",
@@ -60684,9 +62240,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Item_Pick_Up_Text",
-															"sid": 252001597817562,
+															"sid": 599730045829581,
 															"parameters": {
-																"text": "\"[b]DIAMOND[/b]\" & newline & \"[size=14]Added to Inventory[/size]\""
+																"text": "\"[b]DIAMOND[/b]\" "
 															}
 														}
 													],
@@ -60720,6 +62276,15 @@
 										{
 											"eventType": "block",
 											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 357905578734955,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												},
 												{
 													"id": "is-overlapping-another-object",
 													"objectClass": "Miner_Box",
@@ -61807,18 +63372,6 @@
 									],
 									"actions": [
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 372980910089041,
-											"parameters": {
-												"audio-file": "Damage take J.BoB - Anime Go - Box Crash",
-												"loop": "not-looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Crash\""
-											}
-										},
-										{
 											"id": "shake",
 											"objectClass": "Miner_Box",
 											"sid": 945748708835529,
@@ -61893,7 +63446,38 @@
 											}
 										}
 									],
-									"sid": 183415952722697
+									"sid": 183415952722697,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 373527314766889,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 964259429963129,
+													"parameters": {
+														"audio-file": "Damage take J.BoB - Anime Go - Box Crash",
+														"loop": "not-looping",
+														"volume": "Volume_General",
+														"stereo-pan": "0",
+														"tag-optional": "\"Crash\""
+													}
+												}
+											],
+											"sid": 286939540384552
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -61916,18 +63500,6 @@
 										}
 									],
 									"actions": [
-										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 342102049485183,
-											"parameters": {
-												"audio-file": "Damage take J.BoB - Anime Go - Box Crash",
-												"loop": "not-looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Crash\""
-											}
-										},
 										{
 											"id": "shake",
 											"objectClass": "Miner_Box",
@@ -62003,7 +63575,38 @@
 											}
 										}
 									],
-									"sid": 107094387234714
+									"sid": 107094387234714,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 599063243684684,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 854530005018748,
+													"parameters": {
+														"audio-file": "Damage take J.BoB - Anime Go - Box Crash",
+														"loop": "not-looping",
+														"volume": "Volume_General",
+														"stereo-pan": "0",
+														"tag-optional": "\"Crash\""
+													}
+												}
+											],
+											"sid": 121654766650291
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -62286,11 +63889,11 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 869233700069848,
+											"sid": 184347166819642,
 											"parameters": {
 												"variable": "Miner_Height",
 												"comparison": 4,
-												"value": "-1"
+												"value": "-2"
 											}
 										},
 										{
@@ -62371,6 +63974,15 @@
 													"eventType": "block",
 													"conditions": [
 														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 383092208331686,
+															"parameters": {
+																"variable": "Alerts_Muted"
+															},
+															"isInverted": true
+														},
+														{
 															"id": "trigger-once-while-true",
 															"objectClass": "System",
 															"sid": 539925425372859
@@ -62402,6 +64014,15 @@
 															"parameters": {
 																"interval-seconds": "5"
 															}
+														},
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 824606093538337,
+															"parameters": {
+																"variable": "Text_Alerts_Disabled"
+															},
+															"isInverted": true
 														}
 													],
 													"actions": [
@@ -66733,21 +68354,40 @@
 										"duration": "1",
 										"ending": "stop"
 									}
-								},
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 216644735601316,
-									"parameters": {
-										"audio-file": "Assaf Ayalon - Its All Right Baby",
-										"loop": "looping",
-										"volume": "Volume_General",
-										"stereo-pan": "0",
-										"tag-optional": "\"Surface_Music\""
-									}
 								}
 							],
-							"sid": 870021009896672
+							"sid": 870021009896672,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 110424932663163,
+											"parameters": {
+												"variable": "Music_Muted"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 201624033096545,
+											"parameters": {
+												"audio-file": "Assaf Ayalon - Its All Right Baby",
+												"loop": "looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Surface_Music\""
+											}
+										}
+									],
+									"sid": 771194368241604
+								}
+							]
 						}
 					]
 				},
@@ -66966,21 +68606,40 @@
 										"duration": "1",
 										"ending": "stop"
 									}
-								},
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 664254973248330,
-									"parameters": {
-										"audio-file": "Assaf Ayalon - Its All Right Baby",
-										"loop": "looping",
-										"volume": "Volume_General",
-										"stereo-pan": "0",
-										"tag-optional": "\"Surface_Music\""
-									}
 								}
 							],
-							"sid": 391638584474625
+							"sid": 391638584474625,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 815174418848371,
+											"parameters": {
+												"variable": "Music_Muted"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 402427808350929,
+											"parameters": {
+												"audio-file": "Assaf Ayalon - Its All Right Baby",
+												"loop": "looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Surface_Music\""
+											}
+										}
+									],
+									"sid": 934040369322410
+								}
+							]
 						}
 					]
 				},
@@ -67051,6 +68710,15 @@
 						{
 							"eventType": "block",
 							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 223852046092568,
+									"parameters": {
+										"variable": "Music_Muted"
+									},
+									"isInverted": true
+								},
 								{
 									"id": "trigger-once-while-true",
 									"objectClass": "System",
@@ -67163,6 +68831,15 @@
 						{
 							"eventType": "block",
 							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 861218349793340,
+									"parameters": {
+										"variable": "Music_Muted"
+									},
+									"isInverted": true
+								},
 								{
 									"id": "trigger-once-while-true",
 									"objectClass": "System",

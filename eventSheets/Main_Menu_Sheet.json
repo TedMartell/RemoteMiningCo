@@ -130,6 +130,196 @@
 				}
 			],
 			"sid": 364654079250888
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 850954530087488
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Main_Menu_Options_Background",
+					"sid": 189865859145538,
+					"parameters": {
+						"object": "Menu_Continue_Button",
+						"layer": "\"Foreground\"",
+						"image-point": "\"Continue_Button\"",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Main_Menu_Options_Background",
+					"sid": 491875279346077,
+					"parameters": {
+						"object": "Menu_New_Game_Button",
+						"layer": "\"Foreground\"",
+						"image-point": "\"New_Game_Button\"",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Main_Menu_Options_Background",
+					"sid": 409907715840126,
+					"parameters": {
+						"object": "Menu_Settings_Button",
+						"layer": "\"Foreground\"",
+						"image-point": "\"Settings_Button\"",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 624170740991798
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 908737771771109,
+					"parameters": {
+						"object": "Menu_Continue_Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Menu_Continue_Button",
+					"sid": 455464376563018,
+					"parameters": {
+						"animation": "\"Focused\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 367256320192065
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 482287942896332
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Menu_Continue_Button",
+					"sid": 747819986544747,
+					"parameters": {
+						"animation": "\"Not_Focused\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 442588894501725
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 732175948979765,
+					"parameters": {
+						"object": "Menu_New_Game_Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Menu_New_Game_Button",
+					"sid": 441588509341315,
+					"parameters": {
+						"animation": "\"Focused\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 750455075266580
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 492424615118246
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Menu_New_Game_Button",
+					"sid": 989261004577913,
+					"parameters": {
+						"animation": "\"Not_Focused\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 737047086077819
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 976924398412929,
+					"parameters": {
+						"object": "Menu_Settings_Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Menu_Settings_Button",
+					"sid": 794867857525464,
+					"parameters": {
+						"animation": "\"Focused\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 493068305060983
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 189468250328830
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Menu_Settings_Button",
+					"sid": 435106372204916,
+					"parameters": {
+						"animation": "\"Not_Focused\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 881010160407950
 		}
 	],
 	"sid": 554733571785019
