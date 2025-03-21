@@ -35198,6 +35198,21 @@
 							],
 							"actions": [
 								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Miner_Box",
+									"sid": 900094724267356,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Smelter_Building_Art",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
 									"id": "play",
 									"objectClass": "SFX",
 									"sid": 916184739607636,
@@ -35434,7 +35449,14 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "unpin",
+									"objectClass": "Miner_Box",
+									"sid": 693096613528626,
+									"behaviorType": "Pin"
+								}
+							],
 							"sid": 991580811635877,
 							"children": [
 								{
@@ -35514,6 +35536,7 @@
 								}
 							],
 							"sid": 929418796993709,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -35551,7 +35574,8 @@
 											}
 										}
 									],
-									"sid": 479380214708439
+									"sid": 479380214708439,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -35589,7 +35613,8 @@
 											}
 										}
 									],
-									"sid": 707535387348701
+									"sid": 707535387348701,
+									"disabled": true
 								}
 							]
 						},
@@ -50630,7 +50655,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "468",
+							"initialValue": "50",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
