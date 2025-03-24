@@ -2,6 +2,10 @@
 	"name": "Game_Event_Sheet",
 	"events": [
 		{
+			"eventType": "comment",
+			"text": "General Variables"
+		},
+		{
 			"eventType": "variable",
 			"name": "Test",
 			"type": "string",
@@ -10,6 +14,30 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 114113821679705
+		},
+		{
+			"eventType": "variable",
+			"name": "Narrator_Progress",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 755678001284543
+		},
+		{
+			"eventType": "variable",
+			"name": "Entering_Building",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 226068780034034
+		},
+		{
+			"eventType": "comment",
+			"text": "Miner Variables"
 		},
 		{
 			"eventType": "variable",
@@ -90,16 +118,6 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 358713849439888
-		},
-		{
-			"eventType": "variable",
-			"name": "Entering_Building",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 223173363732188
 		},
 		{
 			"eventType": "comment",
@@ -4658,107 +4676,6 @@
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
-								},
-								{
-									"type": "comment",
-									"text": "HUD Narrator spawns"
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Narrator",
-									"sid": 958397323282020,
-									"disabled": true,
-									"parameters": {
-										"object": "HUD_Head",
-										"layer": "\"HUD\"",
-										"image-point": "\"Head\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "HUD_Head",
-									"sid": 167554696001268,
-									"disabled": true,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "HUD_Narrator",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Narrator",
-									"sid": 394131070185887,
-									"disabled": true,
-									"parameters": {
-										"object": "HUD_Head_Static",
-										"layer": "\"HUD\"",
-										"image-point": "\"Head\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "HUD_Head_Static",
-									"sid": 944544133959235,
-									"disabled": true,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "HUD_Narrator",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Narrator",
-									"sid": 252992121670360,
-									"disabled": true,
-									"parameters": {
-										"object": "HUD_Narrator_Text",
-										"layer": "\"HUD\"",
-										"image-point": "\"Text\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "pin-to-object-properties",
-									"objectClass": "HUD_Narrator_Text",
-									"sid": 299395583651885,
-									"disabled": true,
-									"behaviorType": "Pin",
-									"parameters": {
-										"pin-to": "HUD_Narrator",
-										"x": true,
-										"y": true,
-										"angle": true,
-										"width-type": "no",
-										"height-type": "no",
-										"z": false
-									}
-								},
-								{
-									"id": "typewriter-text",
-									"objectClass": "HUD_Narrator_Text",
-									"sid": 162004907551962,
-									"disabled": true,
-									"parameters": {
-										"text": "\"WELCOME MINER #65482EZ ! \" & newline &\n\n\"Your job is to sit at home and control this remote controlled mining machine and gather resources. Complete all the quests and you will be handsomely rewarded\"",
-										"duration": "10"
-									}
 								}
 							],
 							"sid": 694474009091340,
@@ -5088,7 +5005,6 @@
 							"id": "set-silent",
 							"objectClass": "SFX",
 							"sid": 683047249247073,
-							"disabled": true,
 							"parameters": {
 								"mode": "silent"
 							}
@@ -5223,7 +5139,11 @@
 						},
 						{
 							"type": "script",
-							"script": "runtime.globalVars.minerInventoryValue = String(minerInventory.value);\nruntime.globalVars.minerInventoryWeight = String(minerInventory.weight);\n"
+							"script": [
+								"runtime.globalVars.minerInventoryValue = String(minerInventory.value);",
+								"runtime.globalVars.minerInventoryWeight = String(minerInventory.weight);",
+								""
+							]
 						},
 						{
 							"id": "set-text",
@@ -36279,7 +36199,9 @@
 																},
 																{
 																	"type": "script",
-																	"script": "console.log(localVars.Ore)"
+																	"script": [
+																		"console.log(localVars.Ore)"
+																	]
 																}
 															],
 															"sid": 849887537497484,
@@ -40295,7 +40217,9 @@
 									"actions": [
 										{
 											"type": "script",
-											"script": "localVars.Shopping_List = `Dynamite ${runtime.objects.Shop_Cart_Object.instVars}`"
+											"script": [
+												"localVars.Shopping_List = `Dynamite ${runtime.objects.Shop_Cart_Object.instVars}`"
+											]
 										},
 										{
 											"id": "set-text",
@@ -41577,7 +41501,10 @@
 									"actions": [
 										{
 											"type": "script",
-											"script": "moveAllItems(minerInventory, globalInventory)\n"
+											"script": [
+												"moveAllItems(minerInventory, globalInventory)",
+												""
+											]
 										},
 										{
 											"id": "add-to-instvar",
@@ -48592,7 +48519,11 @@
 												},
 												{
 													"type": "script",
-													"script": "if (localVars.selectedRecipe in smelterRecipes) {\n\tlocalVars.isRecipeSelected = 1\n}"
+													"script": [
+														"if (localVars.selectedRecipe in smelterRecipes) {",
+														"\tlocalVars.isRecipeSelected = 1",
+														"}"
+													]
 												},
 												{
 													"id": "set-instvar-value",
@@ -48848,7 +48779,32 @@
 												},
 												{
 													"type": "script",
-													"script": "// get the correct furnace\nvar smelterFurnaces = runtime.objects.Smelter_Furnace_1_Object.getAllInstances()\nfor (var i = 0; i < smelterFurnaces.length; i++) {\n\tvar tmpSmelterFurnace = smelterFurnaces[i]\n\tif (tmpSmelterFurnace.instVars.ID == localVars.smelterId) {\n\t\tvar smelterFurnace = smelterFurnaces[i]\n\t}\n}\n\n// get the crafting amount\nvar craftingAmount = smelterFurnace.instVars.Crafting_Amount\n\n// get the global inventoty\nvar globalInventory = runtime.objects.Global_Inventory_Object.getFirstInstance()\n// subtract the required items from global inventory\nvar recipe = smelterRecipes[localVars.selectedRecipe]\nvar requiredItemList = Object.keys(recipe.requiredItems)\nfor (var i = 0; i < requiredItemList.length; i++) {\n\tglobalInventory.instVars[requiredItemList[i]] -= \n\t\tcraftingAmount * recipe.requiredItems[requiredItemList[i]]\n}\n\n// setting smelting time per item\nlocalVars.smeltingTimePerItem = recipe.smelting_time"
+													"script": [
+														"// get the correct furnace",
+														"var smelterFurnaces = runtime.objects.Smelter_Furnace_1_Object.getAllInstances()",
+														"for (var i = 0; i < smelterFurnaces.length; i++) {",
+														"\tvar tmpSmelterFurnace = smelterFurnaces[i]",
+														"\tif (tmpSmelterFurnace.instVars.ID == localVars.smelterId) {",
+														"\t\tvar smelterFurnace = smelterFurnaces[i]",
+														"\t}",
+														"}",
+														"",
+														"// get the crafting amount",
+														"var craftingAmount = smelterFurnace.instVars.Crafting_Amount",
+														"",
+														"// get the global inventoty",
+														"var globalInventory = runtime.objects.Global_Inventory_Object.getFirstInstance()",
+														"// subtract the required items from global inventory",
+														"var recipe = smelterRecipes[localVars.selectedRecipe]",
+														"var requiredItemList = Object.keys(recipe.requiredItems)",
+														"for (var i = 0; i < requiredItemList.length; i++) {",
+														"\tglobalInventory.instVars[requiredItemList[i]] -= ",
+														"\t\tcraftingAmount * recipe.requiredItems[requiredItemList[i]]",
+														"}",
+														"",
+														"// setting smelting time per item",
+														"localVars.smeltingTimePerItem = recipe.smelting_time"
+													]
 												},
 												{
 													"id": "set-instvar-value",
@@ -49340,7 +49296,22 @@
 										},
 										{
 											"type": "script",
-											"script": "var smelterFurnaces = runtime.objects.Smelter_Furnace_1_Object.getAllInstances()\nfor (var i = 0; i < smelterFurnaces.length; i++) {\n\tvar tmpSmelterFurnace = smelterFurnaces[i]\n\tif (tmpSmelterFurnace.instVars.ID == localVars.localSmelterId) {\n\t\tvar smelterFurnace = smelterFurnaces[i]\n\t}\n}\n\nsmelterFurnace.instVars.Smelt_Next_Item = 0\n\n// getting recipe\nvar recipe = smelterRecipes[localVars.localSelectedRecipe]\n// setting smelting time per item\nlocalVars.smeltingTimePerItem = recipe.smelting_time"
+											"script": [
+												"var smelterFurnaces = runtime.objects.Smelter_Furnace_1_Object.getAllInstances()",
+												"for (var i = 0; i < smelterFurnaces.length; i++) {",
+												"\tvar tmpSmelterFurnace = smelterFurnaces[i]",
+												"\tif (tmpSmelterFurnace.instVars.ID == localVars.localSmelterId) {",
+												"\t\tvar smelterFurnace = smelterFurnaces[i]",
+												"\t}",
+												"}",
+												"",
+												"smelterFurnace.instVars.Smelt_Next_Item = 0",
+												"",
+												"// getting recipe",
+												"var recipe = smelterRecipes[localVars.localSelectedRecipe]",
+												"// setting smelting time per item",
+												"localVars.smeltingTimePerItem = recipe.smelting_time"
+											]
 										},
 										{
 											"id": "wait",
@@ -49353,7 +49324,35 @@
 										},
 										{
 											"type": "script",
-											"script": "var smelterFurnaces = runtime.objects.Smelter_Furnace_1_Object.getAllInstances()\nfor (var i = 0; i < smelterFurnaces.length; i++) {\n\tvar tmpSmelterFurnace = smelterFurnaces[i]\n\tif (tmpSmelterFurnace.instVars.ID == localVars.localSmelterId) {\n\t\tvar smelterFurnace = smelterFurnaces[i]\n\t}\n}\n\nsmelterFurnace.instVars.Crafting_Amount -= 1\n\n// get the global inventoty\nvar globalInventory = runtime.objects.Global_Inventory_Object.getFirstInstance()\n\n// add a the output item to the global inventory\nvar recipe = smelterRecipes[localVars.localSelectedRecipe]\nvar outputList = Object.keys(recipe.output)\nfor (var i = 0; i < outputList.length; i++) {\n\tglobalInventory.instVars[outputList[i]] += \n\t\trecipe.output[outputList[i]]\n}\n\nif (smelterFurnace.instVars.Crafting_Amount == 0) {\n\tsmelterFurnace.instVars.Furnace_Active = 0\n\tsmelterFurnace.instVars.Smelt_Next_Item = 0\n} else {\n\tsmelterFurnace.instVars.Smelt_Next_Item = 1\n}"
+											"script": [
+												"var smelterFurnaces = runtime.objects.Smelter_Furnace_1_Object.getAllInstances()",
+												"for (var i = 0; i < smelterFurnaces.length; i++) {",
+												"\tvar tmpSmelterFurnace = smelterFurnaces[i]",
+												"\tif (tmpSmelterFurnace.instVars.ID == localVars.localSmelterId) {",
+												"\t\tvar smelterFurnace = smelterFurnaces[i]",
+												"\t}",
+												"}",
+												"",
+												"smelterFurnace.instVars.Crafting_Amount -= 1",
+												"",
+												"// get the global inventoty",
+												"var globalInventory = runtime.objects.Global_Inventory_Object.getFirstInstance()",
+												"",
+												"// add a the output item to the global inventory",
+												"var recipe = smelterRecipes[localVars.localSelectedRecipe]",
+												"var outputList = Object.keys(recipe.output)",
+												"for (var i = 0; i < outputList.length; i++) {",
+												"\tglobalInventory.instVars[outputList[i]] += ",
+												"\t\trecipe.output[outputList[i]]",
+												"}",
+												"",
+												"if (smelterFurnace.instVars.Crafting_Amount == 0) {",
+												"\tsmelterFurnace.instVars.Furnace_Active = 0",
+												"\tsmelterFurnace.instVars.Smelt_Next_Item = 0",
+												"} else {",
+												"\tsmelterFurnace.instVars.Smelt_Next_Item = 1",
+												"}"
+											]
 										},
 										{
 											"type": "comment",
@@ -49645,7 +49644,31 @@
 													"actions": [
 														{
 															"type": "script",
-															"script": "localVars.maxAmount = Number.POSITIVE_INFINITY\n// getting global inventory\nvar globalInventory = runtime.objects.Global_Inventory_Object.getFirstInstance()\n// getting recipe\nvar recipe = smelterRecipes[localVars.selectedRecipe]\n// looping through all required items for the recipe\nvar requiredItemList = Object.keys(recipe.requiredItems)\nfor (var i = 0; i < requiredItemList.length; i++) {\n\t// setting recipeText\n\tlocalVars.recipeText += requiredItemList[i] + \" X\" \n\tlocalVars.recipeText += recipe.requiredItems[requiredItemList[i]]\n\tif (i < requiredItemList.length - 1) {\n\t\tlocalVars.recipeText += \", \"\n\t}\n\t// setting max amount according to the amount \n\t// of required item which player can create the least amount\n\t// of items from\n\tvar numberOfitemsInInventory = globalInventory.instVars[requiredItemList[i]]\n\tvar itemMaxAmount = Math.floor(numberOfitemsInInventory/recipe.requiredItems[requiredItemList[i]])\n\tif (itemMaxAmount < localVars.maxAmount) {\n\t\tlocalVars.maxAmount = itemMaxAmount\n\t}\n}"
+															"script": [
+																"localVars.maxAmount = Number.POSITIVE_INFINITY",
+																"// getting global inventory",
+																"var globalInventory = runtime.objects.Global_Inventory_Object.getFirstInstance()",
+																"// getting recipe",
+																"var recipe = smelterRecipes[localVars.selectedRecipe]",
+																"// looping through all required items for the recipe",
+																"var requiredItemList = Object.keys(recipe.requiredItems)",
+																"for (var i = 0; i < requiredItemList.length; i++) {",
+																"\t// setting recipeText",
+																"\tlocalVars.recipeText += requiredItemList[i] + \" X\" ",
+																"\tlocalVars.recipeText += recipe.requiredItems[requiredItemList[i]]",
+																"\tif (i < requiredItemList.length - 1) {",
+																"\t\tlocalVars.recipeText += \", \"",
+																"\t}",
+																"\t// setting max amount according to the amount ",
+																"\t// of required item which player can create the least amount",
+																"\t// of items from",
+																"\tvar numberOfitemsInInventory = globalInventory.instVars[requiredItemList[i]]",
+																"\tvar itemMaxAmount = Math.floor(numberOfitemsInInventory/recipe.requiredItems[requiredItemList[i]])",
+																"\tif (itemMaxAmount < localVars.maxAmount) {",
+																"\t\tlocalVars.maxAmount = itemMaxAmount",
+																"\t}",
+																"}"
+															]
 														},
 														{
 															"id": "set-animation",
@@ -50729,7 +50752,9 @@
 										},
 										{
 											"type": "script",
-											"script": "console.log(localVars.Ore)"
+											"script": [
+												"console.log(localVars.Ore)"
+											]
 										}
 									],
 									"sid": 499969832029489,
@@ -52893,6 +52918,587 @@
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "HUD Narrator",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-start-of-layout",
+											"objectClass": "System",
+											"sid": 717225019538025
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "HUD Narrator spawns"
+										}
+									],
+									"sid": 142483271882665,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "HUD_Narrator",
+													"sid": 518463470946458,
+													"parameters": {
+														"object": "HUD_Head",
+														"layer": "\"HUD\"",
+														"image-point": "\"Head\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "pin-to-object-properties",
+													"objectClass": "HUD_Head",
+													"sid": 727114973371679,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "HUD_Narrator",
+														"x": true,
+														"y": true,
+														"angle": true,
+														"width-type": "no",
+														"height-type": "no",
+														"z": false
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "HUD_Narrator",
+													"sid": 868425124370904,
+													"parameters": {
+														"object": "HUD_Head_Static",
+														"layer": "\"HUD\"",
+														"image-point": "\"Head\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "pin-to-object-properties",
+													"objectClass": "HUD_Head_Static",
+													"sid": 773867848264460,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "HUD_Narrator",
+														"x": true,
+														"y": true,
+														"angle": true,
+														"width-type": "no",
+														"height-type": "no",
+														"z": false
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "HUD_Narrator",
+													"sid": 530906828426034,
+													"parameters": {
+														"object": "HUD_Narrator_Text",
+														"layer": "\"HUD\"",
+														"image-point": "\"Text\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "pin-to-object-properties",
+													"objectClass": "HUD_Narrator_Text",
+													"sid": 271664577807634,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "HUD_Narrator",
+														"x": true,
+														"y": true,
+														"angle": true,
+														"width-type": "no",
+														"height-type": "no",
+														"z": false
+													}
+												}
+											],
+											"sid": 631585733544466,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [],
+													"sid": 356706334222221
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-typewriter-text-finished",
+											"objectClass": "HUD_Narrator_Text",
+											"sid": 288592578702813
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 303537067069923,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										}
+									],
+									"sid": 298476731236746,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Narrator_Sprites",
+													"sid": 838722276752443,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Narrator_Text",
+													"sid": 313162023526971,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												}
+											],
+											"sid": 608812261671151
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Intro Narrator"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-start-of-layout",
+											"objectClass": "System",
+											"sid": 666992004530524
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 520730094836982,
+											"parameters": {
+												"first-value": "Narrator_Progress",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 645143607956180,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Narrator_Sprites",
+													"sid": 551309664407069,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Narrator_Text",
+													"sid": 985650972551736,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "typewriter-text",
+													"objectClass": "HUD_Narrator_Text",
+													"sid": 232617950510015,
+													"parameters": {
+														"text": "\"### REMOTE MINING CO. ###\"\r\n\r\n&newline & newline &\n\n\"WELCOME MINER #65482EZ ! \" & newline &\n\n\"Your job is to sit at home and control this remote controlled mining machine and gather resources. \" &newline & \r\n \" Complete all the quests and you will be handsomely rewarded\"\n\n & newline & \"### OVER ### \"\n",
+														"duration": "10"
+													}
+												}
+											],
+											"sid": 137950396292829
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-typewriter-text-finished",
+											"objectClass": "HUD_Narrator_Text",
+											"sid": 941511403640618
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 703429901285335,
+											"parameters": {
+												"first-value": "Narrator_Progress",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 336061199188619,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										}
+									],
+									"sid": 401077532061695,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Narrator_Sprites",
+													"sid": 820923200777547,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Narrator_Text",
+													"sid": 263256062646416,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 828355350986954,
+													"parameters": {
+														"variable": "Narrator_Progress",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 839715324819767
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Narrator when reaching rocks REAL HEIGHT -50"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 590101667488031,
+											"parameters": {
+												"first-value": "Miner_Height",
+												"comparison": 3,
+												"second-value": "-5"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 659438527173835,
+											"parameters": {
+												"first-value": "Narrator_Progress",
+												"comparison": 0,
+												"second-value": "2"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 206823302799641,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 687835759392613
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Narrator_Sprites",
+													"sid": 732196099445315,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Narrator_Text",
+													"sid": 901280591072136,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "typewriter-text",
+													"objectClass": "HUD_Narrator_Text",
+													"sid": 962398960925995,
+													"parameters": {
+														"text": "\"### REMOTE MINING CO. ###\"\n\n&newline & newline & \"Ohh can´t drill through that, guess you will have to use some dynamite. Do not worry explosives are cheap around theese parts of the world.\"\n\n&newline & newline & \"### OVER ### \"\n",
+														"duration": "8"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 203750423328054,
+													"parameters": {
+														"variable": "Narrator_Progress",
+														"value": "3"
+													}
+												}
+											],
+											"sid": 976560502925415
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-typewriter-text-finished",
+											"objectClass": "HUD_Narrator_Text",
+											"sid": 986140212628482
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 316632367079236,
+											"parameters": {
+												"first-value": "Narrator_Progress",
+												"comparison": 0,
+												"second-value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 426130129550577,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										}
+									],
+									"sid": 356764866767967,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Narrator_Sprites",
+													"sid": 363949932378261,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Narrator_Text",
+													"sid": 453472703727585,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												}
+											],
+											"sid": 941753556614365
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Next text at -160m MoleTown"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 763873913919710,
+											"parameters": {
+												"first-value": "Miner_Height",
+												"comparison": 3,
+												"second-value": "-160"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 142728361845422,
+											"parameters": {
+												"first-value": "Narrator_Progress",
+												"comparison": 0,
+												"second-value": "3"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 731586555776138,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 556294038301300
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Narrator_Sprites",
+													"sid": 236514977101947,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Narrator_Text",
+													"sid": 480384604801385,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "typewriter-text",
+													"objectClass": "HUD_Narrator_Text",
+													"sid": 578499324970788,
+													"parameters": {
+														"text": "\"### REMOTE MINING CO. ###\"\r\n\r\n&newline & newline &\n\n\"BTW beware of rodents, they tend to build settlements at theese depths...\" & newline & newline & \"I will send you some funds to help clear them out!\" & newline & \"### $1000 added ###\" &newline & \"### OVER ### \"",
+														"duration": "5"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 524191683615055,
+													"parameters": {
+														"variable": "Narrator_Progress",
+														"value": "4"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 809462793916995,
+													"parameters": {
+														"instance-variable": "Money",
+														"value": "1000"
+													}
+												}
+											],
+											"sid": 969544392784268
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-typewriter-text-finished",
+											"objectClass": "HUD_Narrator_Text",
+											"sid": 217097431333898
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 613844690520714,
+											"parameters": {
+												"first-value": "Narrator_Progress",
+												"comparison": 0,
+												"second-value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 799943097127216,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										}
+									],
+									"sid": 829964982571560,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Narrator_Sprites",
+													"sid": 768784183382904,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Narrator_Text",
+													"sid": 655423283939316,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												}
+											],
+											"sid": 926895959296116
+										}
+									]
+								}
+							],
+							"sid": 263794519965527
+						},
 						{
 							"eventType": "group",
 							"disabled": false,
@@ -63856,7 +64462,7 @@
 										},
 										{
 											"type": "script",
-											"script": ""
+											"script": []
 										}
 									],
 									"sid": 722710698524813
