@@ -37,13 +37,23 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "Dump_Inventory",
+			"name": "Dump_Inventory_Active",
 			"type": "boolean",
 			"initialValue": "false",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 823251030936044
+		},
+		{
+			"eventType": "variable",
+			"name": "Big_Bertha_Active",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 749101542773121
 		},
 		{
 			"eventType": "comment",
@@ -55079,7 +55089,7 @@
 											"objectClass": "System",
 											"sid": 873603371706115,
 											"parameters": {
-												"variable": "Dump_Inventory",
+												"variable": "Dump_Inventory_Active",
 												"value": "true"
 											}
 										}
@@ -55149,7 +55159,7 @@
 											"objectClass": "System",
 											"sid": 626586089741217,
 											"parameters": {
-												"variable": "Dump_Inventory"
+												"variable": "Dump_Inventory_Active"
 											}
 										}
 									],
@@ -55295,7 +55305,7 @@
 															"objectClass": "System",
 															"sid": 467097877615009,
 															"parameters": {
-																"variable": "Dump_Inventory",
+																"variable": "Dump_Inventory_Active",
 																"value": "false"
 															}
 														},
@@ -55339,7 +55349,7 @@
 											"objectClass": "System",
 											"sid": 324735255435905,
 											"parameters": {
-												"variable": "Dump_Inventory"
+												"variable": "Dump_Inventory_Active"
 											}
 										}
 									],
@@ -55361,7 +55371,7 @@
 													"objectClass": "System",
 													"sid": 867310016832902,
 													"parameters": {
-														"variable": "Dump_Inventory",
+														"variable": "Dump_Inventory_Active",
 														"value": "false"
 													}
 												},
@@ -65783,14 +65793,6 @@
 											"sid": 987174061544959
 										},
 										{
-											"id": "set-x",
-											"objectClass": "Enemy_Body",
-											"sid": 536349567374062,
-											"parameters": {
-												"x": "Enemy_Body.X + 5"
-											}
-										},
-										{
 											"id": "play",
 											"objectClass": "SFX",
 											"sid": 890872935358354,
@@ -65867,14 +65869,6 @@
 											"id": "destroy",
 											"objectClass": "Sphere_Bullet_Sprite",
 											"sid": 262932646880796
-										},
-										{
-											"id": "set-x",
-											"objectClass": "Enemy_Body",
-											"sid": 585474985247136,
-											"parameters": {
-												"x": "Enemy_Body.X + 10"
-											}
 										},
 										{
 											"id": "play",
@@ -65957,9 +65951,57 @@
 											"id": "destroy",
 											"objectClass": "Bullet_Sprite",
 											"sid": 814706461261465
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 471496830164213,
+											"parameters": {
+												"audio-file": "Hit-Alberto Sueri - 8 Bit Fun - Super Jump Fail Gritty Pluck",
+												"loop": "not-looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"Crash\""
+											}
 										}
 									],
-									"sid": 300166573390268
+									"sid": 300166573390268,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Enemy_Body2",
+													"sid": 750296035821188,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"Darken\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 351793509643871,
+													"parameters": {
+														"seconds": "0.1",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Enemy_Body2",
+													"sid": 688009816418601,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"Darken\""
+													}
+												}
+											],
+											"sid": 389563261734065
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -65987,9 +66029,57 @@
 											"id": "destroy",
 											"objectClass": "Sphere_Bullet_Sprite",
 											"sid": 353594180408679
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 858300965163823,
+											"parameters": {
+												"audio-file": "Hit-Alberto Sueri - 8 Bit Fun - Super Jump Fail Gritty Pluck",
+												"loop": "not-looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"Crash\""
+											}
 										}
 									],
-									"sid": 395152023267213
+									"sid": 395152023267213,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Enemy_Body2",
+													"sid": 373127647746562,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"Darken\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 111650511066614,
+													"parameters": {
+														"seconds": "0.1",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Enemy_Body2",
+													"sid": 920263158319367,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"Darken\""
+													}
+												}
+											],
+											"sid": 134878738849519
+										}
+									]
 								},
 								{
 									"eventType": "comment",
@@ -66530,34 +66620,68 @@
 									"children": [
 										{
 											"eventType": "block",
-											"conditions": [],
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 529558659925059
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 404066252804695,
+													"parameters": {
+														"audio-file": "Dying-Airborne Sound - Video game 8-Bit low pitched falling ",
+														"loop": "not-looping",
+														"volume": "-10",
+														"stereo-pan": "0",
+														"tag-optional": "\"Crash\""
+													}
+												}
+											],
+											"sid": 111290249875812
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-animation-finished",
+													"objectClass": "Enemy_Body2",
+													"sid": 299529253751083,
+													"parameters": {
+														"animation": "\"Dead\""
+													}
+												}
+											],
 											"actions": [
 												{
 													"id": "destroy",
 													"objectClass": "Enemy_Body2",
-													"sid": 917141269025055
+													"sid": 250471565418103
 												},
 												{
 													"id": "destroy",
 													"objectClass": "Enemy_Turret_2",
-													"sid": 382465078542854
+													"sid": 116291862156168
 												},
 												{
 													"id": "destroy",
 													"objectClass": "Dust_Animation_MRS_MOLE",
-													"sid": 251183834529215
+													"sid": 816501105319909
 												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 910870269479106,
+													"sid": 268084213331798,
 													"parameters": {
 														"variable": "Quest_Objective_2",
 														"value": "1"
 													}
 												}
 											],
-											"sid": 973297589323382
+											"sid": 972896192514515
 										}
 									]
 								},
@@ -66707,7 +66831,6 @@
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Background_First",
 											"sid": 505588260225430,
-											"disabled": true,
 											"parameters": {
 												"object": "Enemy_Body2",
 												"layer": "\"Player\"",
