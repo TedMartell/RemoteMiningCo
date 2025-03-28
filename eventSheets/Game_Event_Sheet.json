@@ -5025,7 +5025,6 @@
 							"id": "set-silent",
 							"objectClass": "SFX",
 							"sid": 683047249247073,
-							"disabled": true,
 							"parameters": {
 								"mode": "silent"
 							}
@@ -5128,7 +5127,110 @@
 							}
 						}
 					],
-					"sid": 215528164269866
+					"sid": 215528164269866,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Set Recipe List in Smelter"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "add-item-at",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 294802211588364,
+									"parameters": {
+										"index": "2",
+										"text": "\"Silicon\""
+									}
+								},
+								{
+									"id": "add-item-at",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 268148992061859,
+									"parameters": {
+										"index": "3",
+										"text": "\"Aluminium Ingot\""
+									}
+								},
+								{
+									"id": "add-item-at",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 826374253166837,
+									"parameters": {
+										"index": "4",
+										"text": "\"-\""
+									}
+								},
+								{
+									"id": "add-item-at",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 897275453995232,
+									"parameters": {
+										"index": "5",
+										"text": "\"-\""
+									}
+								},
+								{
+									"id": "add-item-at",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 167852296743593,
+									"parameters": {
+										"index": "6",
+										"text": "\"-\""
+									}
+								},
+								{
+									"id": "add-item-at",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 499653327131846,
+									"parameters": {
+										"index": "7",
+										"text": "\"-\""
+									}
+								},
+								{
+									"id": "add-item-at",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 653995673151529,
+									"parameters": {
+										"index": "8",
+										"text": "\"-\""
+									}
+								},
+								{
+									"id": "add-item-at",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 665965557345260,
+									"parameters": {
+										"index": "9",
+										"text": "\"-\""
+									}
+								},
+								{
+									"id": "add-item-at",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 961106182079170,
+									"parameters": {
+										"index": "10",
+										"text": "\"-\""
+									}
+								},
+								{
+									"id": "add-item-at",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 206984925910891,
+									"parameters": {
+										"index": "11",
+										"text": "\"-\""
+									}
+								}
+							],
+							"sid": 729689098277988
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -35927,6 +36029,23 @@
 										"comparison": 5,
 										"value": "5000"
 									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 111286208421587,
+									"parameters": {
+										"variable": "Big_Bertha_Active"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 971747545964707,
+									"parameters": {
+										"variable": "Dump_Inventory_Active"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -35997,37 +36116,23 @@
 										"instance-variable": "Money",
 										"value": "5000"
 									}
+								},
+								{
+									"type": "comment",
+									"text": "This is for Quest 12"
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 678324015947488,
+									"parameters": {
+										"variable": "Quest_Objective_3",
+										"value": "1"
+									}
 								}
 							],
 							"sid": 583115686573170,
 							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Claim_Button",
-											"sid": 733058016101584,
-											"parameters": {
-												"instance-variable": "Quest_12_Active",
-												"comparison": 0,
-												"value": "1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 221959059480949,
-											"parameters": {
-												"variable": "Quest_Objective_1",
-												"value": "1"
-											}
-										}
-									],
-									"sid": 995598678677975
-								},
 								{
 									"eventType": "block",
 									"conditions": [],
@@ -36083,6 +36188,15 @@
 													"parameters": {
 														"animation": "\"Active\"",
 														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 983257666652046,
+													"parameters": {
+														"variable": "Big_Bertha_Active",
+														"value": "false"
 													}
 												}
 											],
@@ -36140,13 +36254,13 @@
 												},
 												{
 													"eventType": "comment",
-													"text": "Real End Y is 468"
+													"text": "Real End Y is 468 // Demo End in 215"
 												},
 												{
 													"eventType": "variable",
 													"name": "EndY",
 													"type": "number",
-													"initialValue": "468",
+													"initialValue": "215",
 													"comment": "",
 													"isStatic": false,
 													"isConstant": false,
@@ -38253,6 +38367,23 @@
 										"click-type": "clicked",
 										"object-clicked": "No_Button"
 									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 753994421869049,
+									"parameters": {
+										"variable": "Big_Bertha_Active"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 149407842649519,
+									"parameters": {
+										"variable": "Dump_Inventory_Active"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -38267,74 +38398,92 @@
 										"stereo-pan": "0",
 										"tag-optional": "\"Button\""
 									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "No_Button",
-									"sid": 407995621282652,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"Lighten\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 718469075280846,
-									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "No_Button",
-									"sid": 509353109811439,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Lighten\""
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 612152664820475,
-									"parameters": {
-										"group-name": "\"Mechanical\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "destroy",
-									"objectClass": "Are_You_Sure_Window",
-									"sid": 284720380764592
-								},
-								{
-									"id": "destroy",
-									"objectClass": "Yes_Button",
-									"sid": 379483419377078
-								},
-								{
-									"id": "destroy",
-									"objectClass": "No_Button",
-									"sid": 802373517414516
-								},
-								{
-									"id": "destroy",
-									"objectClass": "Reset_Text",
-									"sid": 318810293150036
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Reset_Map_Button",
-									"sid": 298011054235180,
-									"parameters": {
-										"animation": "\"Active\"",
-										"from": "beginning"
-									}
 								}
 							],
-							"sid": 489294967589922
+							"sid": 489294967589922,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "No_Button",
+											"sid": 967213706155532,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Lighten\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 898964526980860,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "No_Button",
+											"sid": 283533298085135,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Lighten\""
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 553660993566586,
+											"parameters": {
+												"group-name": "\"Mechanical\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Are_You_Sure_Window",
+											"sid": 309667070172418
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Yes_Button",
+											"sid": 720259732044744
+										},
+										{
+											"id": "destroy",
+											"objectClass": "No_Button",
+											"sid": 232774970957968
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Reset_Text",
+											"sid": 818009799680671
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Reset_Map_Button",
+											"sid": 952328379985612,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 438986730685509,
+											"parameters": {
+												"variable": "Big_Bertha_Active",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 209473923147838
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -38353,7 +38502,6 @@
 									"id": "is-animation-playing",
 									"objectClass": "Reset_Map_Button",
 									"sid": 820594302872285,
-									"disabled": true,
 									"parameters": {
 										"animation": "\"Active\""
 									}
@@ -38440,9 +38588,19 @@
 											"id": "set-animation",
 											"objectClass": "Reset_Map_Button",
 											"sid": 213273044891934,
+											"disabled": true,
 											"parameters": {
 												"animation": "\"Locked\"",
 												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 264844805462326,
+											"parameters": {
+												"variable": "Big_Bertha_Active",
+												"value": "true"
 											}
 										}
 									],
@@ -48356,6 +48514,36 @@
 										"height-type": "no",
 										"z": false
 									}
+								},
+								{
+									"id": "move-to-top",
+									"objectClass": "Furnace_1_Buttons",
+									"sid": 308636869929105,
+									"disabled": true
+								},
+								{
+									"id": "move-to-top",
+									"objectClass": "Furnace_1_Text",
+									"sid": 803838104486475,
+									"disabled": true
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Furnace_1_Buttons",
+									"sid": 379309714455493,
+									"disabled": true,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Furnace_1_Text",
+									"sid": 788827846298613,
+									"disabled": true,
+									"parameters": {
+										"visibility": "visible"
+									}
 								}
 							],
 							"sid": 604227822232638,
@@ -51255,7 +51443,7 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 249036548786131,
+															"sid": 923487999376130,
 															"parameters": {
 																"object-to-create": "Coal_Block",
 																"layer": "\"Player\"",
@@ -55157,10 +55345,19 @@
 										{
 											"id": "compare-boolean-eventvar",
 											"objectClass": "System",
-											"sid": 626586089741217,
+											"sid": 546452403585616,
 											"parameters": {
 												"variable": "Dump_Inventory_Active"
 											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 850208650901060,
+											"parameters": {
+												"variable": "Big_Bertha_Active"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [],
@@ -55347,10 +55544,19 @@
 										{
 											"id": "compare-boolean-eventvar",
 											"objectClass": "System",
-											"sid": 324735255435905,
+											"sid": 402681749963269,
 											"parameters": {
 												"variable": "Dump_Inventory_Active"
 											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 978861270492178,
+											"parameters": {
+												"variable": "Big_Bertha_Active"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [],
@@ -60685,9 +60891,9 @@
 															}
 														},
 														{
-															"id": "add-item-at",
+															"id": "set-item-text",
 															"objectClass": "Smelter_recipe_List",
-															"sid": 158025941687490,
+															"sid": 665452094985294,
 															"parameters": {
 																"index": "4",
 																"text": "\"Iron Ingot\""
@@ -60998,9 +61204,9 @@
 															}
 														},
 														{
-															"id": "add-item-at",
+															"id": "set-item-text",
 															"objectClass": "Smelter_recipe_List",
-															"sid": 658345596949388,
+															"sid": 633917147264877,
 															"parameters": {
 																"index": "5",
 																"text": "\"Chromium Ingot\""
@@ -61311,9 +61517,9 @@
 															}
 														},
 														{
-															"id": "add-item-at",
+															"id": "set-item-text",
 															"objectClass": "Smelter_recipe_List",
-															"sid": 788130558634941,
+															"sid": 411260853150198,
 															"parameters": {
 																"index": "6",
 																"text": "\"Copper Ingot\""
@@ -61624,9 +61830,9 @@
 															}
 														},
 														{
-															"id": "add-item-at",
+															"id": "set-item-text",
 															"objectClass": "Smelter_recipe_List",
-															"sid": 795990257457793,
+															"sid": 848447564140943,
 															"parameters": {
 																"index": "7",
 																"text": "\"Lithium Ingot\""
@@ -61937,9 +62143,9 @@
 															}
 														},
 														{
-															"id": "add-item-at",
+															"id": "set-item-text",
 															"objectClass": "Smelter_recipe_List",
-															"sid": 726770448184430,
+															"sid": 259640959992272,
 															"parameters": {
 																"index": "8",
 																"text": "\"Silver Ingot\""
@@ -62250,9 +62456,9 @@
 															}
 														},
 														{
-															"id": "add-item-at",
+															"id": "set-item-text",
 															"objectClass": "Smelter_recipe_List",
-															"sid": 264410381478247,
+															"sid": 846634403413818,
 															"parameters": {
 																"index": "9",
 																"text": "\"Nickel Ingot\""
@@ -62563,9 +62769,9 @@
 															}
 														},
 														{
-															"id": "add-item-at",
+															"id": "set-item-text",
 															"objectClass": "Smelter_recipe_List",
-															"sid": 594857025312020,
+															"sid": 605354546357758,
 															"parameters": {
 																"index": "10",
 																"text": "\"Zinc Ingot\""
@@ -62876,9 +63082,9 @@
 															}
 														},
 														{
-															"id": "add-item-at",
+															"id": "set-item-text",
 															"objectClass": "Smelter_recipe_List",
-															"sid": 947128871125133,
+															"sid": 231833093663352,
 															"parameters": {
 																"index": "11",
 																"text": "\"Gold Ingot\""
@@ -73224,6 +73430,7 @@
 											"id": "spawn-another-object",
 											"objectClass": "HUD_Grey",
 											"sid": 190263299610512,
+											"disabled": true,
 											"parameters": {
 												"object": "Item_Discovered_Background",
 												"layer": "\"HUD\"",
@@ -73236,6 +73443,7 @@
 											"id": "spawn-another-object",
 											"objectClass": "HUD_Grey",
 											"sid": 451470634481198,
+											"disabled": true,
 											"parameters": {
 												"object": "Item_Discovered_Text",
 												"layer": "\"HUD\"",
@@ -73248,6 +73456,7 @@
 											"id": "set-text",
 											"objectClass": "Item_Discovered_Text",
 											"sid": 271186642271389,
+											"disabled": true,
 											"parameters": {
 												"text": "\"BIG BERTHA Unlocked!\""
 											}
@@ -73380,9 +73589,9 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 410254108037556,
+									"sid": 170250116209579,
 									"parameters": {
-										"variable": "Quest_Target_1",
+										"variable": "Quest_Target_3",
 										"value": "1"
 									}
 								},
@@ -73411,9 +73620,9 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 579524412841935,
+											"sid": 520764418442164,
 											"parameters": {
-												"variable": "Quest_Objective_1",
+												"variable": "Quest_Objective_3",
 												"comparison": 5,
 												"value": "Quest_Target_1"
 											}
