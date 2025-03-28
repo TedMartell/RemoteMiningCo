@@ -6072,9 +6072,18 @@
 												{
 													"id": "set-group-active",
 													"objectClass": "System",
-													"sid": 684076143423150,
+													"sid": 117348012854092,
 													"parameters": {
-														"group-name": "\"Mechanical\"",
+														"group-name": "\"Player Movement\"",
+														"state": "deactivated"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 711919665805037,
+													"parameters": {
+														"group-name": "\"Fall Damage\"",
 														"state": "deactivated"
 													}
 												},
@@ -6082,6 +6091,7 @@
 													"id": "set-group-active",
 													"objectClass": "System",
 													"sid": 260651549158207,
+													"disabled": true,
 													"parameters": {
 														"group-name": "\"Buildings\"",
 														"state": "deactivated"
@@ -6224,9 +6234,18 @@
 												{
 													"id": "set-group-active",
 													"objectClass": "System",
-													"sid": 453350056515819,
+													"sid": 232166282164146,
 													"parameters": {
-														"group-name": "\"Mechanical\"",
+														"group-name": "\"Player Movement\"",
+														"state": "activated"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 623495586038725,
+													"parameters": {
+														"group-name": "\"Fall Damage\"",
 														"state": "activated"
 													}
 												},
@@ -6234,6 +6253,7 @@
 													"id": "set-group-active",
 													"objectClass": "System",
 													"sid": 707157032946059,
+													"disabled": true,
 													"parameters": {
 														"group-name": "\"Buildings\"",
 														"state": "activated"
@@ -6404,9 +6424,18 @@
 												{
 													"id": "set-group-active",
 													"objectClass": "System",
-													"sid": 932325432075905,
+													"sid": 866811206840805,
 													"parameters": {
-														"group-name": "\"Mechanical\"",
+														"group-name": "\"Player Movement\"",
+														"state": "activated"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 136890070066749,
+													"parameters": {
+														"group-name": "\"Fall Damage\"",
 														"state": "activated"
 													}
 												},
@@ -6414,6 +6443,7 @@
 													"id": "set-group-active",
 													"objectClass": "System",
 													"sid": 346738976973486,
+													"disabled": true,
 													"parameters": {
 														"group-name": "\"Buildings\"",
 														"state": "activated"
@@ -6612,9 +6642,18 @@
 												{
 													"id": "set-group-active",
 													"objectClass": "System",
-													"sid": 434323796706704,
+													"sid": 832277735170903,
 													"parameters": {
-														"group-name": "\"Mechanical\"",
+														"group-name": "\"Player Movement\"",
+														"state": "deactivated"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 680021254031152,
+													"parameters": {
+														"group-name": "\"Fall Damage\"",
 														"state": "deactivated"
 													}
 												},
@@ -6622,6 +6661,7 @@
 													"id": "set-group-active",
 													"objectClass": "System",
 													"sid": 154309477195306,
+													"disabled": true,
 													"parameters": {
 														"group-name": "\"Buildings\"",
 														"state": "deactivated"
@@ -13401,9 +13441,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Req_Item_Text",
-											"sid": 777642988287027,
+											"sid": 587619399924997,
 											"parameters": {
-												"text": "\"SILVER INGOT: \" & Required_Item_Quantity & newline \r\n& \"Inventory: \" & floor(Global_Inventory_Object.Silver)"
+												"text": "\"SILVER INGOT: \" & Required_Item_Quantity & newline \r\n& \"Inventory: \" & floor(Global_Inventory_Object.Silver_Ingot)"
 											}
 										},
 										{
@@ -28108,9 +28148,9 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Meta_Weapons_Upg_Button",
-													"sid": 610854874738146,
+													"sid": 543611527123160,
 													"parameters": {
-														"instance-variable": "Dynamite_Damage_Tier1_Level",
+														"instance-variable": "Dynamite_Area_Tier1_Level",
 														"comparison": 2,
 														"value": "Max_Level"
 													}
@@ -41125,9 +41165,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 786895160813640,
+													"sid": 835192208409653,
 													"parameters": {
-														"text": "\"DYNAMITE - Used to destroy mining obstacles\" "
+														"text": "\"DYNAMITE - Used to destroy mining obstacles\" & newline & \"Max ammount: 99\""
 													}
 												}
 											],
@@ -41327,6 +41367,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 106788837821513,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
 								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
@@ -41565,6 +41614,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 726994778820351,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
 								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
@@ -42181,6 +42239,14 @@
 												"mouse-button": "left",
 												"click-type": "clicked",
 												"object-clicked": "Warehouse_Sell_Button"
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 174158958961493,
+											"parameters": {
+												"layer": "\"Buildings_2\""
 											}
 										}
 									],
@@ -63753,9 +63819,47 @@
 												},
 												{
 													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 227062259886653,
+															"parameters": {
+																"instance-variable": "Hp",
+																"comparison": 2,
+																"value": "Mining_Blocks_Family.MaxHp / 2"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 854590441278355
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 718629107417407,
+															"parameters": {
+																"animation": "\"Cracked\"",
+																"from": "current-frame"
+															}
+														}
+													],
+													"sid": 244159768568558
+												},
+												{
+													"eventType": "block",
 													"conditions": [],
 													"actions": [],
 													"sid": 862727223398065
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [],
+													"sid": 801704313440917
 												}
 											]
 										}
