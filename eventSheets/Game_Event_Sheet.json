@@ -5025,6 +5025,7 @@
 							"id": "set-silent",
 							"objectClass": "SFX",
 							"sid": 683047249247073,
+							"disabled": true,
 							"parameters": {
 								"mode": "silent"
 							}
@@ -58818,7 +58819,44 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Dirt_Block",
-													"sid": 419031111131590,
+													"sid": 863411578174526,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 3,
+														"value": "Dirt_Block.MaxHp / 2"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Dirt_Block",
+													"sid": 479146410248928,
+													"parameters": {
+														"instance-variable": "Hp",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Dirt_Block",
+													"sid": 987939336412559,
+													"parameters": {
+														"frame-number": "1"
+													}
+												}
+											],
+											"sid": 180016716588941,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Dirt_Block",
+													"sid": 760652779693013,
 													"parameters": {
 														"instance-variable": "Hp",
 														"comparison": 3,
@@ -58828,7 +58866,7 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Dirt_Block",
-													"sid": 518918168525008,
+													"sid": 131965601991563,
 													"parameters": {
 														"instance-variable": "animationNumber",
 														"comparison": 0,
@@ -58840,10 +58878,10 @@
 												{
 													"id": "destroy",
 													"objectClass": "Dirt_Block",
-													"sid": 425878024316262
+													"sid": 451130584934030
 												}
 											],
-											"sid": 967206990000868
+											"sid": 719918068905380
 										}
 									]
 								},
@@ -63818,12 +63856,16 @@
 													"sid": 158422790032287
 												},
 												{
+													"eventType": "comment",
+													"text": "cracked blocks"
+												},
+												{
 													"eventType": "block",
 													"conditions": [
 														{
 															"id": "compare-instance-variable",
 															"objectClass": "Mining_Blocks_Family",
-															"sid": 227062259886653,
+															"sid": 881358369362427,
 															"parameters": {
 																"instance-variable": "Hp",
 																"comparison": 2,
@@ -63831,35 +63873,28 @@
 															}
 														},
 														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 854590441278355
+															"id": "compare-instance-variable",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 161021178549110,
+															"parameters": {
+																"instance-variable": "Hp",
+																"comparison": 4,
+																"value": "0"
+															}
 														}
 													],
 													"actions": [
 														{
 															"id": "set-animation",
 															"objectClass": "Mining_Blocks_Family",
-															"sid": 718629107417407,
+															"sid": 689112704438090,
 															"parameters": {
-																"animation": "\"Cracked\"",
+																"animation": "\"cracked\"",
 																"from": "current-frame"
 															}
 														}
 													],
-													"sid": 244159768568558
-												},
-												{
-													"eventType": "block",
-													"conditions": [],
-													"actions": [],
-													"sid": 862727223398065
-												},
-												{
-													"eventType": "block",
-													"conditions": [],
-													"actions": [],
-													"sid": 801704313440917
+													"sid": 529334924356746
 												}
 											]
 										}
@@ -64062,55 +64097,6 @@
 								}
 							],
 							"sid": 136858336682439
-						},
-						{
-							"eventType": "group",
-							"disabled": true,
-							"title": "Cracked",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "comment",
-									"text": "Cracked Blocks"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Mining_Blocks_Family",
-											"sid": 885862867030754,
-											"parameters": {
-												"instance-variable": "Hp",
-												"comparison": 2,
-												"value": "Mining_Blocks_Family.MaxHp / 2"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation",
-											"objectClass": "Mining_Blocks_Family",
-											"sid": 742814792661740,
-											"parameters": {
-												"animation": "\"Cracked\"",
-												"from": "current-frame"
-											}
-										}
-									],
-									"sid": 911359198925640,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [],
-									"sid": 324845588589167,
-									"disabled": true
-								}
-							],
-							"sid": 963962089847186
 						}
 					],
 					"sid": 834979858214962
@@ -73250,11 +73236,6 @@
 										"mode": "disable",
 										"effect": "\"Darken\""
 									}
-								},
-								{
-									"id": "destroy",
-									"objectClass": "Mole_Top_Block",
-									"sid": 714167492982898
 								}
 							],
 							"sid": 776552417020301,
@@ -73318,7 +73299,42 @@
 											}
 										}
 									],
-									"sid": 630223391465889
+									"sid": 630223391465889,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "For the Demo only"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Mole_Top_Block",
+													"sid": 369958142895888,
+													"disabled": true
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Quest_Text",
+													"sid": 692047841443183,
+													"parameters": {
+														"text": "\"NO MORE QUESTS INTHIS DEMO\""
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Reward_Text",
+													"sid": 943000260006652,
+													"parameters": {
+														"text": "\"$ 0\""
+													}
+												}
+											],
+											"sid": 351301986403892
+										}
+									]
 								}
 							]
 						}
