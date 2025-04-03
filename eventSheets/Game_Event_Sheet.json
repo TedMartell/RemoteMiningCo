@@ -5940,6 +5940,33 @@
 												"height-type": "no",
 												"z": false
 											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 546024657823823,
+											"parameters": {
+												"object": "Meta_Track_button",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Track_Button\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Track_button",
+											"sid": 644678662328100,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
 										}
 									],
 									"sid": 882954226124112
@@ -51314,7 +51341,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "215",
+							"initialValue": "50",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -55331,6 +55358,10 @@
 									]
 								},
 								{
+									"eventType": "comment",
+									"text": "Dump Inventory Button"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -55777,6 +55808,132 @@
 												}
 											],
 											"sid": 879539269098766
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Upgrades Tracker"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 195891746583998,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "HUD_Show_Upgrades_Tracker"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "HUD_Show_Upgrades_Tracker",
+											"sid": 234809881238817,
+											"parameters": {
+												"animation": "\"Show\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Upgrades_Tracker",
+											"sid": 488392822024526,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 587322680056974,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 478590797368757,
+													"parameters": {
+														"seconds": "0.1",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Show_Upgrades_Tracker",
+													"sid": 370697386874741,
+													"parameters": {
+														"animation": "\"Hide\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 151919328293775
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 610412103888743,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "HUD_Show_Upgrades_Tracker"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "HUD_Show_Upgrades_Tracker",
+											"sid": 221132641856262,
+											"parameters": {
+												"animation": "\"Hide\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "HUD_Upgrades_Tracker",
+											"sid": 127779233699451,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 422900595076279,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 162901927381108,
+													"parameters": {
+														"seconds": "0.1",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Show_Upgrades_Tracker",
+													"sid": 297020041202989,
+													"parameters": {
+														"animation": "\"Show\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 556363691086219
 										}
 									]
 								}
