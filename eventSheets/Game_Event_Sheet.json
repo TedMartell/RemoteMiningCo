@@ -384,6 +384,110 @@
 			"sid": 926991699251177
 		},
 		{
+			"eventType": "comment",
+			"text": "Upgrades Tracker"
+		},
+		{
+			"eventType": "variable",
+			"name": "Tracker_Count",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 513575400137726
+		},
+		{
+			"eventType": "variable",
+			"name": "Tracker_Number_Inventory_1",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 461604763953991
+		},
+		{
+			"eventType": "variable",
+			"name": "Tracker_Number_Requirements_1",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 611877245028573
+		},
+		{
+			"eventType": "variable",
+			"name": "Tracker_Number_Inventory_2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 935185933856188
+		},
+		{
+			"eventType": "variable",
+			"name": "Tracker_Number_Requirements_2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 887698385078049
+		},
+		{
+			"eventType": "variable",
+			"name": "Tracker_Number_Inventory_3",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 535324766493547
+		},
+		{
+			"eventType": "variable",
+			"name": "Tracker_Number_Requirements_3",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 905348584541652
+		},
+		{
+			"eventType": "variable",
+			"name": "Tracker_Slot_1_Active",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 823276540779046
+		},
+		{
+			"eventType": "variable",
+			"name": "Tracker_Slot_2_Active",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 173831328517103
+		},
+		{
+			"eventType": "variable",
+			"name": "Tracker_Slot_3_Active",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 369415260028945
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Global Events",
@@ -5366,6 +5470,14 @@
 							"parameters": {
 								"acceleration": "(2500 + Engine_Effect_Acc_Add) - Miner_Box.Weight *Engine_Efficiency_Multiplier *10"
 							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Tracker_Count",
+							"sid": 785088173133911,
+							"parameters": {
+								"text": "\"Upgrades Tracked:\" & newline & \nTracker_Count & \" / 3\""
+							}
 						}
 					],
 					"sid": 557502173694722
@@ -7771,6 +7883,24 @@
 														"variable": "Miner_Mining_DMG",
 														"value": "Miner_Box.DMG * Meta_Multiplier_Object.DMG_Multiplier_1"
 													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Tracker_Object",
+													"sid": 798677457607863,
+													"parameters": {
+														"instance-variable": "Drill_DMG_1",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Track_button",
+													"sid": 284548674229940,
+													"parameters": {
+														"animation": "\"Track\"",
+														"from": "beginning"
+													}
 												}
 											],
 											"sid": 449669380092855
@@ -7962,6 +8092,874 @@
 									],
 									"sid": 775470146550972,
 									"isOrBlock": true
+								},
+								{
+									"eventType": "comment",
+									"text": "Upgrades Tracker"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 380943476929753,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Track_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_DMG_T1_Button",
+											"sid": 393904450015904,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Drill_DMG_T1_Button",
+											"sid": 223712617119296,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Track_button",
+											"sid": 837512605468314,
+											"parameters": {
+												"animation": "\"Track\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 515224381087528,
+											"parameters": {
+												"instance-variable": "Damage_Tier_1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Track_button",
+											"sid": 298601703321871,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 987508988938223,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Track_button",
+											"sid": 902381825196833,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 247205257424273,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-text",
+													"objectClass": "Upgrades_Tracker_1_Text",
+													"sid": 527463037344825,
+													"parameters": {
+														"text-to-compare": "\"-\"",
+														"case-sensitivity": "ignore-case"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Tracker_Object",
+													"sid": 997050262175966,
+													"parameters": {
+														"instance-variable": "Drill_DMG_1",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 353845527212779,
+													"parameters": {
+														"variable": "Tracker_Slot_1_Active",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 640707372222995,
+													"parameters": {
+														"variable": "Tracker_Number_Requirements_1",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Track_button",
+													"sid": 623684319680169,
+													"parameters": {
+														"animation": "\"Untrack\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Upgrades_Tracker_1_Text",
+													"sid": 960306884921245,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"value": "\"Drill_DMG_1\""
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 750902791736307,
+													"parameters": {
+														"variable": "Tracker_Count",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 349811627815724
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 120151882135725
+												},
+												{
+													"id": "compare-text",
+													"objectClass": "Upgrades_Tracker_2_Text",
+													"sid": 260462248929995,
+													"parameters": {
+														"text-to-compare": "\"-\"",
+														"case-sensitivity": "ignore-case"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Tracker_Object",
+													"sid": 550675296343065,
+													"parameters": {
+														"instance-variable": "Drill_DMG_1",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 588830472087184,
+													"parameters": {
+														"variable": "Tracker_Slot_2_Active",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 203925521364910,
+													"parameters": {
+														"variable": "Tracker_Number_Requirements_2",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Track_button",
+													"sid": 668850455835209,
+													"parameters": {
+														"animation": "\"Untrack\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Upgrades_Tracker_2_Text",
+													"sid": 870578735048191,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"value": "\"Drill_DMG_1\""
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 823563113052147,
+													"parameters": {
+														"variable": "Tracker_Count",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 331186841689699
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 775074171579431
+												},
+												{
+													"id": "compare-text",
+													"objectClass": "Upgrades_Tracker_3_Text",
+													"sid": 409546379829707,
+													"parameters": {
+														"text-to-compare": "\"-\"",
+														"case-sensitivity": "ignore-case"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Tracker_Object",
+													"sid": 192641621902122,
+													"parameters": {
+														"instance-variable": "Drill_DMG_1",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 447407251696014,
+													"parameters": {
+														"variable": "Tracker_Slot_3_Active",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 495795253608290,
+													"parameters": {
+														"variable": "Tracker_Number_Requirements_3",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Track_button",
+													"sid": 224176713709500,
+													"parameters": {
+														"animation": "\"Untrack\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Upgrades_Tracker_3_Text",
+													"sid": 196956736749854,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"value": "\"Drill_DMG_1\""
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 315794601490192,
+													"parameters": {
+														"variable": "Tracker_Count",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 523150992684879
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 549867298049692
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 681741053983363,
+													"parameters": {
+														"audio-file": "Error Sound Slava Pogorelsky - Futuristic Ui - Error Tone Access Denied",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												}
+											],
+											"sid": 765061467275190
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 814478154571789
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Tracker_Object",
+											"sid": 212822239840323,
+											"parameters": {
+												"instance-variable": "Drill_DMG_1"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 313395087444759,
+											"parameters": {
+												"variable": "Tracker_Slot_1_Active"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Upgrades_Tracker_1_Text",
+											"sid": 749679256747477,
+											"parameters": {
+												"instance-variable": "Occupant",
+												"comparison": 0,
+												"value": "\"Drill_DMG_1\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 864994476898439,
+											"parameters": {
+												"variable": "Tracker_Number_Inventory_1",
+												"value": "Global_Inventory_Object.Coal"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Upgrades_Tracker_1_Text",
+											"sid": 780106324481154,
+											"parameters": {
+												"text": "\"Drill DMG Tier 1\" & newline & \"COAL \" & Tracker_Number_Inventory_1 & \" / \"  & Tracker_Number_Requirements_1"
+											}
+										}
+									],
+									"sid": 252275978193223
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 401616472149544
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Tracker_Object",
+											"sid": 852459967475114,
+											"parameters": {
+												"instance-variable": "Drill_DMG_1"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 844512090787669,
+											"parameters": {
+												"variable": "Tracker_Slot_2_Active"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Upgrades_Tracker_2_Text",
+											"sid": 664665554527547,
+											"parameters": {
+												"instance-variable": "Occupant",
+												"comparison": 0,
+												"value": "\"Drill_DMG_1\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 666705196761506,
+											"parameters": {
+												"variable": "Tracker_Number_Inventory_2",
+												"value": "Global_Inventory_Object.Coal"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Upgrades_Tracker_2_Text",
+											"sid": 443757269019832,
+											"parameters": {
+												"text": "\"Drill DMG Tier 1\" & newline & \"COAL \" & Tracker_Number_Inventory_2 & \" / \"  & Tracker_Number_Requirements_2"
+											}
+										}
+									],
+									"sid": 760564853788122
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 628964130932250
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Tracker_Object",
+											"sid": 819686488641457,
+											"parameters": {
+												"instance-variable": "Drill_DMG_1"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 378192042034636,
+											"parameters": {
+												"variable": "Tracker_Slot_3_Active"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Upgrades_Tracker_3_Text",
+											"sid": 223114976990570,
+											"parameters": {
+												"instance-variable": "Occupant",
+												"comparison": 0,
+												"value": "\"Drill_DMG_1\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 922894697458418,
+											"parameters": {
+												"variable": "Tracker_Number_Inventory_3",
+												"value": "Global_Inventory_Object.Coal"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Upgrades_Tracker_3_Text",
+											"sid": 607426328300148,
+											"parameters": {
+												"text": "\"Drill DMG Tier 1\" & newline & \"COAL \" & Tracker_Number_Inventory_3 & \" / \"  & Tracker_Number_Requirements_3"
+											}
+										}
+									],
+									"sid": 786173692375961
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 902721730057367,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Track_button"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Drill_DMG_T1_Button",
+											"sid": 661768921307153,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_DMG_T1_Button",
+											"sid": 738417588362159,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Track_button",
+											"sid": 541773126308377,
+											"parameters": {
+												"animation": "\"Untrack\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 803313226140792,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Tracker_Object",
+													"sid": 280620850091223,
+													"parameters": {
+														"instance-variable": "Drill_DMG_1"
+													}
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 797970521289840,
+													"parameters": {
+														"variable": "Tracker_Slot_1_Active"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Tracker_Object",
+													"sid": 378879446388486,
+													"parameters": {
+														"instance-variable": "Drill_DMG_1",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Upgrades_Tracker_1_Text",
+													"sid": 810123052145139,
+													"parameters": {
+														"text": "\"-\""
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 442732987906208,
+													"parameters": {
+														"variable": "Tracker_Slot_1_Active",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Track_button",
+													"sid": 715967385653447,
+													"parameters": {
+														"animation": "\"Track\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Upgrades_Tracker_1_Text",
+													"sid": 529180711696632,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"value": "\"\""
+													}
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 443853400831581,
+													"parameters": {
+														"variable": "Tracker_Count",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 295779389564376
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 321455286520791
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Tracker_Object",
+													"sid": 241257480671421,
+													"parameters": {
+														"instance-variable": "Drill_DMG_1"
+													}
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 401420597962940,
+													"parameters": {
+														"variable": "Tracker_Slot_2_Active"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Tracker_Object",
+													"sid": 417023895826576,
+													"parameters": {
+														"instance-variable": "Drill_DMG_1",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Upgrades_Tracker_2_Text",
+													"sid": 166582672849718,
+													"parameters": {
+														"text": "\"-\""
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 801539236149906,
+													"parameters": {
+														"variable": "Tracker_Slot_2_Active",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Track_button",
+													"sid": 369497838891946,
+													"parameters": {
+														"animation": "\"Track\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Upgrades_Tracker_2_Text",
+													"sid": 366237315152628,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"value": "\"\""
+													}
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 990915616364194,
+													"parameters": {
+														"variable": "Tracker_Count",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 930868395023198
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 197251007941040
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Tracker_Object",
+													"sid": 711262012117620,
+													"parameters": {
+														"instance-variable": "Drill_DMG_1"
+													}
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 979597310906194,
+													"parameters": {
+														"variable": "Tracker_Slot_3_Active"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Tracker_Object",
+													"sid": 214992116886336,
+													"parameters": {
+														"instance-variable": "Drill_DMG_1",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Upgrades_Tracker_3_Text",
+													"sid": 200528513236846,
+													"parameters": {
+														"text": "\"-\""
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 142221848603041,
+													"parameters": {
+														"variable": "Tracker_Slot_3_Active",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Track_button",
+													"sid": 834754437668244,
+													"parameters": {
+														"animation": "\"Track\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Upgrades_Tracker_3_Text",
+													"sid": 302281738088672,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"value": "\"\""
+													}
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 188146439802862,
+													"parameters": {
+														"variable": "Tracker_Count",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 570481047063930
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 816042304060778
+										}
+									],
+									"actions": [],
+									"sid": 557646423563411,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Drill_DMG_T1_Button",
+													"sid": 658908467493600,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 276404494825627,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Tracker_Object",
+															"sid": 759025486128196,
+															"parameters": {
+																"instance-variable": "Drill_DMG_1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Meta_Track_button",
+															"sid": 542240707870835,
+															"parameters": {
+																"animation": "\"Untrack\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 796570050161632
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 553237984464627
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Meta_Track_button",
+															"sid": 435241667961746,
+															"parameters": {
+																"animation": "\"Track\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 778843769219626
+												}
+											]
+										}
+									]
 								}
 							],
 							"sid": 513240528143772
@@ -9892,7 +10890,226 @@
 													}
 												}
 											],
-											"sid": 216152754208252
+											"sid": 216152754208252,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Reset Tracker after Upgrade"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Upgrades_Tracker_1_Text",
+															"sid": 648100258003292,
+															"parameters": {
+																"instance-variable": "Occupant",
+																"comparison": 0,
+																"value": "\"Drill_Base_DMG_1\""
+															}
+														},
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 516163768345901,
+															"parameters": {
+																"variable": "Tracker_Slot_1_Active"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Upgrades_Tracker_1_Text",
+															"sid": 286411276143844,
+															"parameters": {
+																"instance-variable": "Occupant",
+																"value": "\"-\""
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Tracker_Object",
+															"sid": 614155204094685,
+															"parameters": {
+																"instance-variable": "Drill_Base_DMG_1",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "Meta_Track_button",
+															"sid": 189276967267764,
+															"parameters": {
+																"animation": "\"Track\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 424744955909389,
+															"parameters": {
+																"seconds": "0.1",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 160864298181979,
+															"parameters": {
+																"variable": "Tracker_Slot_1_Active",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 672474511231688
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Upgrades_Tracker_2_Text",
+															"sid": 683429597886897,
+															"parameters": {
+																"instance-variable": "Occupant",
+																"comparison": 0,
+																"value": "\"Drill_Base_DMG_1\""
+															}
+														},
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 868771146126686,
+															"parameters": {
+																"variable": "Tracker_Slot_2_Active"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Upgrades_Tracker_2_Text",
+															"sid": 511003532184427,
+															"parameters": {
+																"instance-variable": "Occupant",
+																"value": "\"-\""
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Tracker_Object",
+															"sid": 557883060908214,
+															"parameters": {
+																"instance-variable": "Drill_Base_DMG_1",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "Meta_Track_button",
+															"sid": 929465085968227,
+															"parameters": {
+																"animation": "\"Track\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 212025947404030,
+															"parameters": {
+																"seconds": "0.1",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 672216994473953,
+															"parameters": {
+																"variable": "Tracker_Slot_2_Active",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 332649659105551
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Upgrades_Tracker_3_Text",
+															"sid": 108324095856404,
+															"parameters": {
+																"instance-variable": "Occupant",
+																"comparison": 0,
+																"value": "\"Drill_Base_DMG_1\""
+															}
+														},
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 738754547442372,
+															"parameters": {
+																"variable": "Tracker_Slot_3_Active"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Tracker_Object",
+															"sid": 582171583354585,
+															"parameters": {
+																"instance-variable": "Drill_Base_DMG_1",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "Meta_Track_button",
+															"sid": 988608143636435,
+															"parameters": {
+																"animation": "\"Track\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 548516215833163,
+															"parameters": {
+																"seconds": "0.1",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Upgrades_Tracker_3_Text",
+															"sid": 195830104190961,
+															"parameters": {
+																"instance-variable": "Occupant",
+																"value": "\"-\""
+															}
+														},
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 980033519798382,
+															"parameters": {
+																"variable": "Tracker_Slot_3_Active",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 948542933015259
+												}
+											]
 										}
 									]
 								},
@@ -10081,6 +11298,904 @@
 									],
 									"sid": 235267857325058,
 									"isOrBlock": true
+								},
+								{
+									"eventType": "comment",
+									"text": "Upgrades Tracker"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 126854993176866,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Track_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+											"sid": 906730368259989,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+											"sid": 785530899607905,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 973858440209665,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_1_Completed"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Track_button",
+											"sid": 331578222341718,
+											"parameters": {
+												"animation": "\"Track\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Track_button",
+											"sid": 268456720014808,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 354307829980080,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Track_button",
+											"sid": 622667639684311,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 503605460568254,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-text",
+													"objectClass": "Upgrades_Tracker_1_Text",
+													"sid": 420652188185882,
+													"parameters": {
+														"text-to-compare": "\"-\"",
+														"case-sensitivity": "ignore-case"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Tracker_Object",
+													"sid": 423213887131614,
+													"parameters": {
+														"instance-variable": "Drill_Base_DMG_1",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 628961938157004,
+													"parameters": {
+														"variable": "Tracker_Slot_1_Active",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 629751858573328,
+													"parameters": {
+														"variable": "Tracker_Number_Requirements_1",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Track_button",
+													"sid": 201845477014296,
+													"parameters": {
+														"animation": "\"Untrack\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Upgrades_Tracker_1_Text",
+													"sid": 708582581558576,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"value": "\"Drill_Base_DMG_1\""
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 311810178223656,
+													"parameters": {
+														"variable": "Tracker_Count",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 593089562226414
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 963551535673920
+												},
+												{
+													"id": "compare-text",
+													"objectClass": "Upgrades_Tracker_2_Text",
+													"sid": 985792592047488,
+													"parameters": {
+														"text-to-compare": "\"-\"",
+														"case-sensitivity": "ignore-case"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Tracker_Object",
+													"sid": 284874735598985,
+													"parameters": {
+														"instance-variable": "Drill_Base_DMG_1",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 260413417788545,
+													"parameters": {
+														"variable": "Tracker_Slot_2_Active",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 625107350502049,
+													"parameters": {
+														"variable": "Tracker_Number_Requirements_2",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Track_button",
+													"sid": 395561063475941,
+													"parameters": {
+														"animation": "\"Untrack\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Upgrades_Tracker_2_Text",
+													"sid": 427856475853561,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"value": "\"Drill_Base_DMG_1\""
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 379022714051718,
+													"parameters": {
+														"variable": "Tracker_Count",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 670482100095129
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 939785333985656
+												},
+												{
+													"id": "compare-text",
+													"objectClass": "Upgrades_Tracker_3_Text",
+													"sid": 580974896859940,
+													"parameters": {
+														"text-to-compare": "\"-\"",
+														"case-sensitivity": "ignore-case"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Tracker_Object",
+													"sid": 396434702035380,
+													"parameters": {
+														"instance-variable": "Drill_Base_DMG_1",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 390638338391804,
+													"parameters": {
+														"variable": "Tracker_Slot_3_Active",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 855440353071744,
+													"parameters": {
+														"variable": "Tracker_Number_Requirements_3",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Track_button",
+													"sid": 695036837679564,
+													"parameters": {
+														"animation": "\"Untrack\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Upgrades_Tracker_3_Text",
+													"sid": 808578903196142,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"value": "\"Drill_Base_DMG_1\""
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 595477308333778,
+													"parameters": {
+														"variable": "Tracker_Count",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 497767032900761
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 406597431473998
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 980894498036941,
+													"parameters": {
+														"audio-file": "Error Sound Slava Pogorelsky - Futuristic Ui - Error Tone Access Denied",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												}
+											],
+											"sid": 673533681188287
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 322035368090138
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 544610436936389,
+											"parameters": {
+												"variable": "Tracker_Slot_1_Active"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 700221665598609,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Tracker_Object",
+													"sid": 691075023699520,
+													"parameters": {
+														"instance-variable": "Drill_Base_DMG_1"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Upgrades_Tracker_1_Text",
+													"sid": 418906384235872,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"comparison": 0,
+														"value": "\"Drill_Base_DMG_1\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 962326420715244,
+													"parameters": {
+														"variable": "Tracker_Number_Inventory_1",
+														"value": "Global_Inventory_Object.Aluminium_Ingot"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Upgrades_Tracker_1_Text",
+													"sid": 394807311514160,
+													"parameters": {
+														"text": "\"Drill BASE DMG Tier 1\" & newline & \"Aluminium Ingot \" & Tracker_Number_Inventory_1 & \" / \"  & Tracker_Number_Requirements_1"
+													}
+												}
+											],
+											"sid": 841179377523517
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 182928779948574
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Upgrades_Tracker_1_Text",
+													"sid": 245564881223757,
+													"parameters": {
+														"text": "\"\""
+													}
+												}
+											],
+											"sid": 871787779794008
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 274559328783038
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Tracker_Object",
+											"sid": 451491781922171,
+											"parameters": {
+												"instance-variable": "Drill_Base_DMG_1"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 229844353609555,
+											"parameters": {
+												"variable": "Tracker_Slot_2_Active"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Upgrades_Tracker_2_Text",
+											"sid": 201412569755946,
+											"parameters": {
+												"instance-variable": "Occupant",
+												"comparison": 0,
+												"value": "\"Drill_Base_DMG_1\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 821075131968740,
+											"parameters": {
+												"variable": "Tracker_Number_Inventory_2",
+												"value": "Global_Inventory_Object.Aluminium_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Upgrades_Tracker_2_Text",
+											"sid": 490889219826860,
+											"parameters": {
+												"text": "\"Drill BASE DMG Tier 1\" & newline & \"Aluminium Ingot \" & Tracker_Number_Inventory_2 & \" / \"  & Tracker_Number_Requirements_2"
+											}
+										}
+									],
+									"sid": 515870086250848
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 465902905469425
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Tracker_Object",
+											"sid": 705707072881921,
+											"parameters": {
+												"instance-variable": "Drill_Base_DMG_1"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 982419694527986,
+											"parameters": {
+												"variable": "Tracker_Slot_3_Active"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Upgrades_Tracker_3_Text",
+											"sid": 350213188648329,
+											"parameters": {
+												"instance-variable": "Occupant",
+												"comparison": 0,
+												"value": "\"Drill_Base_DMG_1\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 491115639910220,
+											"parameters": {
+												"variable": "Tracker_Number_Inventory_3",
+												"value": "Global_Inventory_Object.Aluminium_Ingot"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Upgrades_Tracker_3_Text",
+											"sid": 915792786782531,
+											"parameters": {
+												"text": "\"Drill BASE DMG Tier 1\" & newline & \"Aluminium Ingot \" & Tracker_Number_Inventory_3 & \" / \"  & Tracker_Number_Requirements_3"
+											}
+										}
+									],
+									"sid": 784616379657835
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 760062298958003,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Track_button"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+											"sid": 151219212678095,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+											"sid": 350405686163670,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Track_button",
+											"sid": 538218006993370,
+											"parameters": {
+												"animation": "\"Untrack\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 741379593419832,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Tracker_Object",
+													"sid": 978433790489815,
+													"parameters": {
+														"instance-variable": "Drill_Base_DMG_1"
+													}
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 921075409089234,
+													"parameters": {
+														"variable": "Tracker_Slot_1_Active"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Tracker_Object",
+													"sid": 691587643878618,
+													"parameters": {
+														"instance-variable": "Drill_Base_DMG_1",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Upgrades_Tracker_1_Text",
+													"sid": 828776897906836,
+													"parameters": {
+														"text": "\"-\""
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 514817506019387,
+													"parameters": {
+														"variable": "Tracker_Slot_1_Active",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Track_button",
+													"sid": 577828135086657,
+													"parameters": {
+														"animation": "\"Track\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Upgrades_Tracker_1_Text",
+													"sid": 956981170238644,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"value": "\"\""
+													}
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 167356465428640,
+													"parameters": {
+														"variable": "Tracker_Count",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 591770173309713
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 957691482431946
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Tracker_Object",
+													"sid": 901094234697191,
+													"parameters": {
+														"instance-variable": "Drill_Base_DMG_1"
+													}
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 405484787806419,
+													"parameters": {
+														"variable": "Tracker_Slot_2_Active"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Tracker_Object",
+													"sid": 518123877047264,
+													"parameters": {
+														"instance-variable": "Drill_Base_DMG_1",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Upgrades_Tracker_2_Text",
+													"sid": 105922475303335,
+													"parameters": {
+														"text": "\"-\""
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 826065147908012,
+													"parameters": {
+														"variable": "Tracker_Slot_2_Active",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Track_button",
+													"sid": 966287518033595,
+													"parameters": {
+														"animation": "\"Track\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Upgrades_Tracker_2_Text",
+													"sid": 767305324439576,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"value": "\"\""
+													}
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 533572719745000,
+													"parameters": {
+														"variable": "Tracker_Count",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 239837351108421
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 701917314549115
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Tracker_Object",
+													"sid": 117182510319942,
+													"parameters": {
+														"instance-variable": "Drill_Base_DMG_1"
+													}
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 930024410227364,
+													"parameters": {
+														"variable": "Tracker_Slot_3_Active"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Tracker_Object",
+													"sid": 495317781275495,
+													"parameters": {
+														"instance-variable": "Drill_Base_DMG_1",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Upgrades_Tracker_3_Text",
+													"sid": 833270118199883,
+													"parameters": {
+														"text": "\"-\""
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 221527891036765,
+													"parameters": {
+														"variable": "Tracker_Slot_3_Active",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Meta_Track_button",
+													"sid": 694188461388183,
+													"parameters": {
+														"animation": "\"Track\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Upgrades_Tracker_3_Text",
+													"sid": 556226373690161,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"value": "\"\""
+													}
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 974921881711532,
+													"parameters": {
+														"variable": "Tracker_Count",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 706973209578972
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 219379602912251
+										}
+									],
+									"actions": [],
+									"sid": 558243285254069,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Drill_BASE_DMG_T1_Button",
+													"sid": 688293795339921,
+													"parameters": {
+														"instance-variable": "Focus",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 702635760248141,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Tracker_Object",
+															"sid": 115440950568117,
+															"parameters": {
+																"instance-variable": "Drill_Base_DMG_1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Meta_Track_button",
+															"sid": 882646089037972,
+															"parameters": {
+																"animation": "\"Untrack\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 158088765075629
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 247190563137653
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Meta_Track_button",
+															"sid": 753683023384530,
+															"parameters": {
+																"animation": "\"Track\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 816711665469865
+												}
+											]
+										}
+									]
 								}
 							],
 							"sid": 400575364160183
@@ -55839,11 +57954,30 @@
 									],
 									"actions": [
 										{
-											"id": "set-visible",
-											"objectClass": "HUD_Upgrades_Tracker",
-											"sid": 488392822024526,
+											"id": "set-effect-enabled",
+											"objectClass": "HUD_Show_Upgrades_Tracker",
+											"sid": 717425329460329,
 											"parameters": {
-												"visibility": "visible"
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 976023502427649,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HUD_Show_Upgrades_Tracker",
+											"sid": 120268127662747,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
 											}
 										}
 									],
@@ -55854,12 +57988,43 @@
 											"conditions": [],
 											"actions": [
 												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 478590797368757,
+													"id": "set-visible",
+													"objectClass": "HUD_Upgrades_Tracker",
+													"sid": 787211860310161,
 													"parameters": {
-														"seconds": "0.1",
-														"use-timescale": true
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Upgrades_Tracker_1_Text",
+													"sid": 875349655944492,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Upgrades_Tracker_2_Text",
+													"sid": 905750275725389,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Upgrades_Tracker_3_Text",
+													"sid": 148207947110531,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Tracker_Count",
+													"sid": 469419753603097,
+													"parameters": {
+														"visibility": "visible"
 													}
 												},
 												{
@@ -55900,11 +58065,30 @@
 									],
 									"actions": [
 										{
-											"id": "set-visible",
-											"objectClass": "HUD_Upgrades_Tracker",
-											"sid": 127779233699451,
+											"id": "set-effect-enabled",
+											"objectClass": "HUD_Show_Upgrades_Tracker",
+											"sid": 175204109381939,
 											"parameters": {
-												"visibility": "invisible"
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 638756208406612,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HUD_Show_Upgrades_Tracker",
+											"sid": 869646356932589,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
 											}
 										}
 									],
@@ -55915,12 +58099,43 @@
 											"conditions": [],
 											"actions": [
 												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 162901927381108,
+													"id": "set-visible",
+													"objectClass": "HUD_Upgrades_Tracker",
+													"sid": 655403898268854,
 													"parameters": {
-														"seconds": "0.1",
-														"use-timescale": true
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Upgrades_Tracker_1_Text",
+													"sid": 903152175226931,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Upgrades_Tracker_2_Text",
+													"sid": 212821628542943,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Upgrades_Tracker_3_Text",
+													"sid": 561558155519618,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Tracker_Count",
+													"sid": 886677681106873,
+													"parameters": {
+														"visibility": "invisible"
 													}
 												},
 												{
