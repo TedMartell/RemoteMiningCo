@@ -11062,6 +11062,15 @@
 													],
 													"actions": [
 														{
+															"id": "set-instvar-value",
+															"objectClass": "Upgrades_Tracker_3_Text",
+															"sid": 103703208558701,
+															"parameters": {
+																"instance-variable": "Occupant",
+																"value": "\"-\""
+															}
+														},
+														{
 															"id": "set-boolean-instvar",
 															"objectClass": "Tracker_Object",
 															"sid": 582171583354585,
@@ -11086,15 +11095,6 @@
 															"parameters": {
 																"seconds": "0.1",
 																"use-timescale": true
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Upgrades_Tracker_3_Text",
-															"sid": 195830104190961,
-															"parameters": {
-																"instance-variable": "Occupant",
-																"value": "\"-\""
 															}
 														},
 														{
@@ -11642,11 +11642,11 @@
 											"sid": 322035368090138
 										},
 										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 544610436936389,
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Tracker_Object",
+											"sid": 656873191862156,
 											"parameters": {
-												"variable": "Tracker_Slot_1_Active"
+												"instance-variable": "Drill_Base_DMG_1"
 											}
 										}
 									],
@@ -11657,14 +11657,6 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "Tracker_Object",
-													"sid": 691075023699520,
-													"parameters": {
-														"instance-variable": "Drill_Base_DMG_1"
-													}
-												},
-												{
 													"id": "compare-instance-variable",
 													"objectClass": "Upgrades_Tracker_1_Text",
 													"sid": 418906384235872,
@@ -11672,6 +11664,14 @@
 														"instance-variable": "Occupant",
 														"comparison": 0,
 														"value": "\"Drill_Base_DMG_1\""
+													}
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 765457083754928,
+													"parameters": {
+														"variable": "Tracker_Slot_1_Active"
 													}
 												}
 											],
@@ -11703,15 +11703,20 @@
 													"id": "else",
 													"objectClass": "System",
 													"sid": 182928779948574
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 221991527704468
 												}
 											],
 											"actions": [
 												{
 													"id": "set-text",
 													"objectClass": "Upgrades_Tracker_1_Text",
-													"sid": 245564881223757,
+													"sid": 443330833169851,
 													"parameters": {
-														"text": "\"\""
+														"text": "\"-\""
 													}
 												}
 											],
@@ -11730,50 +11735,85 @@
 										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "Tracker_Object",
-											"sid": 451491781922171,
+											"sid": 710892862636728,
 											"parameters": {
 												"instance-variable": "Drill_Base_DMG_1"
 											}
-										},
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 229844353609555,
-											"parameters": {
-												"variable": "Tracker_Slot_2_Active"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Upgrades_Tracker_2_Text",
-											"sid": 201412569755946,
-											"parameters": {
-												"instance-variable": "Occupant",
-												"comparison": 0,
-												"value": "\"Drill_Base_DMG_1\""
-											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 515870086250848,
+									"children": [
 										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 821075131968740,
-											"parameters": {
-												"variable": "Tracker_Number_Inventory_2",
-												"value": "Global_Inventory_Object.Aluminium_Ingot"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Upgrades_Tracker_2_Text",
+													"sid": 259180878149214,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"comparison": 0,
+														"value": "\"Drill_Base_DMG_1\""
+													}
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 426745529583617,
+													"parameters": {
+														"variable": "Tracker_Slot_2_Active"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Upgrades_Tracker_2_Text",
+													"sid": 244801052974963,
+													"parameters": {
+														"text": "\"Drill BASE DMG Tier 1\" & newline & \"Aluminium Ingot \" & Tracker_Number_Inventory_2 & \" / \"  & Tracker_Number_Requirements_2"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 339647967457011,
+													"parameters": {
+														"variable": "Tracker_Number_Inventory_2",
+														"value": "Global_Inventory_Object.Aluminium_Ingot"
+													}
+												}
+											],
+											"sid": 485028535957070
 										},
 										{
-											"id": "set-text",
-											"objectClass": "Upgrades_Tracker_2_Text",
-											"sid": 490889219826860,
-											"parameters": {
-												"text": "\"Drill BASE DMG Tier 1\" & newline & \"Aluminium Ingot \" & Tracker_Number_Inventory_2 & \" / \"  & Tracker_Number_Requirements_2"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 340041078409634
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 890086384691162
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Upgrades_Tracker_1_Text",
+													"sid": 997704526798970,
+													"parameters": {
+														"text": "\"-\""
+													}
+												}
+											],
+											"sid": 125383928829918
 										}
-									],
-									"sid": 515870086250848
+									]
 								},
 								{
 									"eventType": "block",
@@ -11790,46 +11830,81 @@
 											"parameters": {
 												"instance-variable": "Drill_Base_DMG_1"
 											}
-										},
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 982419694527986,
-											"parameters": {
-												"variable": "Tracker_Slot_3_Active"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Upgrades_Tracker_3_Text",
-											"sid": 350213188648329,
-											"parameters": {
-												"instance-variable": "Occupant",
-												"comparison": 0,
-												"value": "\"Drill_Base_DMG_1\""
-											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 784616379657835,
+									"children": [
 										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 491115639910220,
-											"parameters": {
-												"variable": "Tracker_Number_Inventory_3",
-												"value": "Global_Inventory_Object.Aluminium_Ingot"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Upgrades_Tracker_3_Text",
+													"sid": 679141450967120,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"comparison": 0,
+														"value": "\"Drill_Base_DMG_1\""
+													}
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 400405493220617,
+													"parameters": {
+														"variable": "Tracker_Slot_3_Active"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 310385010107337,
+													"parameters": {
+														"variable": "Tracker_Number_Inventory_3",
+														"value": "Global_Inventory_Object.Aluminium_Ingot"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Upgrades_Tracker_3_Text",
+													"sid": 384176027083597,
+													"parameters": {
+														"text": "\"Drill BASE DMG Tier 1\" & newline & \"Aluminium Ingot \" & Tracker_Number_Inventory_3 & \" / \"  & Tracker_Number_Requirements_3"
+													}
+												}
+											],
+											"sid": 683212175634478
 										},
 										{
-											"id": "set-text",
-											"objectClass": "Upgrades_Tracker_3_Text",
-											"sid": 915792786782531,
-											"parameters": {
-												"text": "\"Drill BASE DMG Tier 1\" & newline & \"Aluminium Ingot \" & Tracker_Number_Inventory_3 & \" / \"  & Tracker_Number_Requirements_3"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 901343029422326
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 474219142566538
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Upgrades_Tracker_1_Text",
+													"sid": 434617111332450,
+													"parameters": {
+														"text": "\"-\""
+													}
+												}
+											],
+											"sid": 231280734818556
 										}
-									],
-									"sid": 784616379657835
+									]
 								},
 								{
 									"eventType": "block",
