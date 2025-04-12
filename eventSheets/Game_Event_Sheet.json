@@ -6057,6 +6057,7 @@
 											"id": "spawn-another-object",
 											"objectClass": "Meta_Upg_Background",
 											"sid": 546024657823823,
+											"disabled": true,
 											"parameters": {
 												"object": "Meta_Track_button",
 												"layer": "\"Meta_Upgrades\"",
@@ -6069,6 +6070,7 @@
 											"id": "pin-to-object-properties",
 											"objectClass": "Meta_Track_button",
 											"sid": 644678662328100,
+											"disabled": true,
 											"behaviorType": "Pin",
 											"parameters": {
 												"pin-to": "Meta_Upg_Background",
@@ -6234,6 +6236,35 @@
 													"parameters": {
 														"group-name": "\"Buildings\"",
 														"state": "deactivated"
+													}
+												},
+												{
+													"type": "comment",
+													"text": "Move Notepad to Upgrades"
+												},
+												{
+													"id": "set-position-to-another-object",
+													"objectClass": "Notepad",
+													"sid": 543251458024462,
+													"parameters": {
+														"object": "Meta_Upg_Background",
+														"image-point-optional": "\"Notepad\""
+													}
+												},
+												{
+													"id": "move-to-layer",
+													"objectClass": "Notepad",
+													"sid": 372660774329735,
+													"parameters": {
+														"layer": "\"Meta_Upgrades\""
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Notepad",
+													"sid": 250421442788845,
+													"parameters": {
+														"visibility": "visible"
 													}
 												}
 											],
@@ -6425,9 +6456,64 @@
 														"instance-variable": "Active",
 														"value": "0"
 													}
+												},
+												{
+													"type": "comment",
+													"text": "Move Notepad to Upgrades"
+												},
+												{
+													"id": "move-to-layer",
+													"objectClass": "Notepad",
+													"sid": 825716635574799,
+													"parameters": {
+														"layer": "\"HUD\""
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Notepad",
+													"sid": 998962322135471,
+													"parameters": {
+														"x": "3",
+														"y": "460"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Notepad",
+													"sid": 379959585910868,
+													"parameters": {
+														"visibility": "visible"
+													}
 												}
 											],
-											"sid": 490297190216367
+											"sid": 490297190216367,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "HUD_Show_Notepad",
+															"sid": 722523543822200,
+															"parameters": {
+																"animation": "\"Show\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-visible",
+															"objectClass": "Notepad",
+															"sid": 546606751502692,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														}
+													],
+													"sid": 479787547089589
+												}
+											]
 										}
 									]
 								},
@@ -6615,9 +6701,64 @@
 														"instance-variable": "Active",
 														"value": "0"
 													}
+												},
+												{
+													"type": "comment",
+													"text": "Move Notepad to Upgrades"
+												},
+												{
+													"id": "move-to-layer",
+													"objectClass": "Notepad",
+													"sid": 823797709116965,
+													"parameters": {
+														"layer": "\"HUD\""
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Notepad",
+													"sid": 623098129484075,
+													"parameters": {
+														"x": "3",
+														"y": "460"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Notepad",
+													"sid": 153887333780471,
+													"parameters": {
+														"visibility": "visible"
+													}
 												}
 											],
-											"sid": 893149211984807
+											"sid": 893149211984807,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "HUD_Show_Notepad",
+															"sid": 666944261357527,
+															"parameters": {
+																"animation": "\"Show\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-visible",
+															"objectClass": "Notepad",
+															"sid": 797306760118827,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														}
+													],
+													"sid": 434586270743125
+												}
+											]
 										}
 									]
 								},
@@ -6804,6 +6945,35 @@
 													"parameters": {
 														"group-name": "\"Buildings\"",
 														"state": "deactivated"
+													}
+												},
+												{
+													"type": "comment",
+													"text": "Move Notepad to Upgrades"
+												},
+												{
+													"id": "set-position-to-another-object",
+													"objectClass": "Notepad",
+													"sid": 966683435996246,
+													"parameters": {
+														"object": "Meta_Upg_Background",
+														"image-point-optional": "\"Notepad\""
+													}
+												},
+												{
+													"id": "move-to-layer",
+													"objectClass": "Notepad",
+													"sid": 948139633672564,
+													"parameters": {
+														"layer": "\"Meta_Upgrades\""
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Notepad",
+													"sid": 105971164353392,
+													"parameters": {
+														"visibility": "visible"
 													}
 												}
 											],
@@ -7888,6 +8058,7 @@
 													"id": "set-boolean-instvar",
 													"objectClass": "Tracker_Object",
 													"sid": 798677457607863,
+													"disabled": true,
 													"parameters": {
 														"instance-variable": "Drill_DMG_1",
 														"value": "false"
@@ -7897,6 +8068,7 @@
 													"id": "set-animation",
 													"objectClass": "Meta_Track_button",
 													"sid": 284548674229940,
+													"disabled": true,
 													"parameters": {
 														"animation": "\"Track\"",
 														"from": "beginning"
@@ -8098,6 +8270,10 @@
 									"text": "Upgrades Tracker"
 								},
 								{
+									"eventType": "comment",
+									"text": "When tracking"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -8176,6 +8352,7 @@
 										}
 									],
 									"sid": 247205257424273,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -8246,7 +8423,8 @@
 													}
 												}
 											],
-											"sid": 349811627815724
+											"sid": 349811627815724,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -8322,7 +8500,8 @@
 													}
 												}
 											],
-											"sid": 331186841689699
+											"sid": 331186841689699,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -8398,7 +8577,8 @@
 													}
 												}
 											],
-											"sid": 523150992684879
+											"sid": 523150992684879,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -8423,7 +8603,8 @@
 													}
 												}
 											],
-											"sid": 765061467275190
+											"sid": 765061467275190,
+											"disabled": true
 										}
 									]
 								},
@@ -8481,7 +8662,8 @@
 											}
 										}
 									],
-									"sid": 252275978193223
+									"sid": 252275978193223,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -8537,7 +8719,8 @@
 											}
 										}
 									],
-									"sid": 760564853788122
+									"sid": 760564853788122,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -8593,7 +8776,12 @@
 											}
 										}
 									],
-									"sid": 786173692375961
+									"sid": 786173692375961,
+									"disabled": true
+								},
+								{
+									"eventType": "comment",
+									"text": "When Untracking"
 								},
 								{
 									"eventType": "block",
@@ -8637,6 +8825,7 @@
 									],
 									"actions": [],
 									"sid": 803313226140792,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -8713,7 +8902,8 @@
 													}
 												}
 											],
-											"sid": 295779389564376
+											"sid": 295779389564376,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -8795,7 +8985,8 @@
 													}
 												}
 											],
-											"sid": 930868395023198
+											"sid": 930868395023198,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -8877,7 +9068,8 @@
 													}
 												}
 											],
-											"sid": 570481047063930
+											"sid": 570481047063930,
+											"disabled": true
 										}
 									]
 								},
@@ -8892,6 +9084,7 @@
 									],
 									"actions": [],
 									"sid": 557646423563411,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -8909,6 +9102,7 @@
 											],
 											"actions": [],
 											"sid": 276404494825627,
+											"disabled": true,
 											"children": [
 												{
 													"eventType": "block",
@@ -8933,7 +9127,8 @@
 															}
 														}
 													],
-													"sid": 796570050161632
+													"sid": 796570050161632,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -8955,7 +9150,8 @@
 															}
 														}
 													],
-													"sid": 778843769219626
+													"sid": 778843769219626,
+													"disabled": true
 												}
 											]
 										}
@@ -10801,7 +10997,7 @@
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Meta_Upgrade_button",
-											"sid": 307120527626956,
+											"sid": 968488876112235,
 											"parameters": {
 												"mode": "enable",
 												"effect": "\"Darken\""
@@ -10810,7 +11006,7 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 157630306075053,
+											"sid": 121038557525471,
 											"parameters": {
 												"seconds": "0.1",
 												"use-timescale": true
@@ -10819,7 +11015,7 @@
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Meta_Upgrade_button",
-											"sid": 384183738543820,
+											"sid": 596559148889756,
 											"parameters": {
 												"mode": "disable",
 												"effect": "\"Darken\""
@@ -10834,7 +11030,7 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Global_Inventory_Object",
-													"sid": 627908338673176,
+													"sid": 944159359656822,
 													"parameters": {
 														"instance-variable": "Aluminium_Ingot",
 														"comparison": 5,
@@ -10844,7 +11040,7 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Meta_Drill_Upg_Button",
-													"sid": 255425532280780,
+													"sid": 116639979598366,
 													"parameters": {
 														"instance-variable": "Base_Damage_Tier_1_Level",
 														"comparison": 2,
@@ -10856,7 +11052,7 @@
 												{
 													"id": "subtract-from-instvar",
 													"objectClass": "Global_Inventory_Object",
-													"sid": 427088066518167,
+													"sid": 744377389547088,
 													"parameters": {
 														"instance-variable": "Aluminium_Ingot",
 														"value": "Required_Item_Quantity"
@@ -10865,7 +11061,7 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Miner_Box",
-													"sid": 934818595194073,
+													"sid": 262828123047725,
 													"parameters": {
 														"instance-variable": "DMG",
 														"value": "0.02"
@@ -10874,7 +11070,7 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Meta_Drill_Upg_Button",
-													"sid": 423592314077491,
+													"sid": 799237962771007,
 													"parameters": {
 														"instance-variable": "Base_Damage_Tier_1_Level",
 														"value": "1"
@@ -10883,14 +11079,14 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 581553714657078,
+													"sid": 299816634630405,
 													"parameters": {
 														"variable": "Miner_Mining_DMG",
 														"value": "Miner_Box.DMG * Meta_Multiplier_Object.DMG_Multiplier_1"
 													}
 												}
 											],
-											"sid": 216152754208252,
+											"sid": 854017787001741,
 											"children": [
 												{
 													"eventType": "comment",
@@ -10902,7 +11098,7 @@
 														{
 															"id": "compare-instance-variable",
 															"objectClass": "Upgrades_Tracker_1_Text",
-															"sid": 648100258003292,
+															"sid": 808457590172334,
 															"parameters": {
 																"instance-variable": "Occupant",
 																"comparison": 0,
@@ -10912,7 +11108,7 @@
 														{
 															"id": "compare-boolean-eventvar",
 															"objectClass": "System",
-															"sid": 516163768345901,
+															"sid": 511429436293014,
 															"parameters": {
 																"variable": "Tracker_Slot_1_Active"
 															}
@@ -10922,7 +11118,8 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Upgrades_Tracker_1_Text",
-															"sid": 286411276143844,
+															"sid": 540321697029155,
+															"disabled": true,
 															"parameters": {
 																"instance-variable": "Occupant",
 																"value": "\"-\""
@@ -10931,7 +11128,7 @@
 														{
 															"id": "set-boolean-instvar",
 															"objectClass": "Tracker_Object",
-															"sid": 614155204094685,
+															"sid": 168738322876695,
 															"parameters": {
 																"instance-variable": "Drill_Base_DMG_1",
 																"value": "false"
@@ -10940,7 +11137,7 @@
 														{
 															"id": "set-animation",
 															"objectClass": "Meta_Track_button",
-															"sid": 189276967267764,
+															"sid": 557636422771987,
 															"parameters": {
 																"animation": "\"Track\"",
 																"from": "beginning"
@@ -10949,7 +11146,7 @@
 														{
 															"id": "wait",
 															"objectClass": "System",
-															"sid": 424744955909389,
+															"sid": 962420561396933,
 															"parameters": {
 																"seconds": "0.1",
 																"use-timescale": true
@@ -10958,14 +11155,15 @@
 														{
 															"id": "set-boolean-eventvar",
 															"objectClass": "System",
-															"sid": 160864298181979,
+															"sid": 215083813240167,
 															"parameters": {
 																"variable": "Tracker_Slot_1_Active",
 																"value": "false"
 															}
 														}
 													],
-													"sid": 672474511231688
+													"sid": 692200827676716,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -10973,7 +11171,7 @@
 														{
 															"id": "compare-instance-variable",
 															"objectClass": "Upgrades_Tracker_2_Text",
-															"sid": 683429597886897,
+															"sid": 624138464970311,
 															"parameters": {
 																"instance-variable": "Occupant",
 																"comparison": 0,
@@ -10983,7 +11181,7 @@
 														{
 															"id": "compare-boolean-eventvar",
 															"objectClass": "System",
-															"sid": 868771146126686,
+															"sid": 415009422211983,
 															"parameters": {
 																"variable": "Tracker_Slot_2_Active"
 															}
@@ -10993,7 +11191,8 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Upgrades_Tracker_2_Text",
-															"sid": 511003532184427,
+															"sid": 783935996635208,
+															"disabled": true,
 															"parameters": {
 																"instance-variable": "Occupant",
 																"value": "\"-\""
@@ -11002,7 +11201,7 @@
 														{
 															"id": "set-boolean-instvar",
 															"objectClass": "Tracker_Object",
-															"sid": 557883060908214,
+															"sid": 316606769449671,
 															"parameters": {
 																"instance-variable": "Drill_Base_DMG_1",
 																"value": "false"
@@ -11011,7 +11210,7 @@
 														{
 															"id": "set-animation",
 															"objectClass": "Meta_Track_button",
-															"sid": 929465085968227,
+															"sid": 296503768946696,
 															"parameters": {
 																"animation": "\"Track\"",
 																"from": "beginning"
@@ -11020,7 +11219,7 @@
 														{
 															"id": "wait",
 															"objectClass": "System",
-															"sid": 212025947404030,
+															"sid": 444504631751683,
 															"parameters": {
 																"seconds": "0.1",
 																"use-timescale": true
@@ -11029,14 +11228,15 @@
 														{
 															"id": "set-boolean-eventvar",
 															"objectClass": "System",
-															"sid": 672216994473953,
+															"sid": 668338507628696,
 															"parameters": {
 																"variable": "Tracker_Slot_2_Active",
 																"value": "false"
 															}
 														}
 													],
-													"sid": 332649659105551
+													"sid": 508996495487593,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -11044,7 +11244,7 @@
 														{
 															"id": "compare-instance-variable",
 															"objectClass": "Upgrades_Tracker_3_Text",
-															"sid": 108324095856404,
+															"sid": 556190863245531,
 															"parameters": {
 																"instance-variable": "Occupant",
 																"comparison": 0,
@@ -11054,7 +11254,7 @@
 														{
 															"id": "compare-boolean-eventvar",
 															"objectClass": "System",
-															"sid": 738754547442372,
+															"sid": 187484588686243,
 															"parameters": {
 																"variable": "Tracker_Slot_3_Active"
 															}
@@ -11064,7 +11264,8 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Upgrades_Tracker_3_Text",
-															"sid": 103703208558701,
+															"sid": 805635966464048,
+															"disabled": true,
 															"parameters": {
 																"instance-variable": "Occupant",
 																"value": "\"-\""
@@ -11073,7 +11274,7 @@
 														{
 															"id": "set-boolean-instvar",
 															"objectClass": "Tracker_Object",
-															"sid": 582171583354585,
+															"sid": 134914554579694,
 															"parameters": {
 																"instance-variable": "Drill_Base_DMG_1",
 																"value": "false"
@@ -11082,7 +11283,7 @@
 														{
 															"id": "set-animation",
 															"objectClass": "Meta_Track_button",
-															"sid": 988608143636435,
+															"sid": 835401091690822,
 															"parameters": {
 																"animation": "\"Track\"",
 																"from": "beginning"
@@ -11091,7 +11292,7 @@
 														{
 															"id": "wait",
 															"objectClass": "System",
-															"sid": 548516215833163,
+															"sid": 412189422945560,
 															"parameters": {
 																"seconds": "0.1",
 																"use-timescale": true
@@ -11100,14 +11301,15 @@
 														{
 															"id": "set-boolean-eventvar",
 															"objectClass": "System",
-															"sid": 980033519798382,
+															"sid": 770037716409605,
 															"parameters": {
 																"variable": "Tracker_Slot_3_Active",
 																"value": "false"
 															}
 														}
 													],
-													"sid": 948542933015259
+													"sid": 146160882329112,
+													"disabled": true
 												}
 											]
 										}
@@ -11382,6 +11584,7 @@
 										}
 									],
 									"sid": 503605460568254,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -11452,7 +11655,8 @@
 													}
 												}
 											],
-											"sid": 593089562226414
+											"sid": 593089562226414,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -11528,7 +11732,8 @@
 													}
 												}
 											],
-											"sid": 670482100095129
+											"sid": 670482100095129,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -11604,7 +11809,8 @@
 													}
 												}
 											],
-											"sid": 497767032900761
+											"sid": 497767032900761,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -11629,7 +11835,8 @@
 													}
 												}
 											],
-											"sid": 673533681188287
+											"sid": 673533681188287,
+											"disabled": true
 										}
 									]
 								},
@@ -11652,6 +11859,7 @@
 									],
 									"actions": [],
 									"sid": 700221665598609,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -11694,7 +11902,8 @@
 													}
 												}
 											],
-											"sid": 841179377523517
+											"sid": 841179377523517,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -11705,12 +11914,33 @@
 													"sid": 182928779948574
 												},
 												{
+													"id": "compare-instance-variable",
+													"objectClass": "Upgrades_Tracker_1_Text",
+													"sid": 839944896737626,
+													"disabled": true,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"comparison": 0,
+														"value": "\"Drill_Base_DMG_1\""
+													}
+												},
+												{
 													"id": "trigger-once-while-true",
 													"objectClass": "System",
-													"sid": 221991527704468
+													"sid": 221991527704468,
+													"disabled": true
 												}
 											],
 											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 864225392505064,
+													"parameters": {
+														"seconds": "0.1",
+														"use-timescale": true
+													}
+												},
 												{
 													"id": "set-text",
 													"objectClass": "Upgrades_Tracker_1_Text",
@@ -11720,7 +11950,8 @@
 													}
 												}
 											],
-											"sid": 871787779794008
+											"sid": 871787779794008,
+											"disabled": true
 										}
 									]
 								},
@@ -11743,6 +11974,7 @@
 									],
 									"actions": [],
 									"sid": 515870086250848,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -11785,7 +12017,8 @@
 													}
 												}
 											],
-											"sid": 485028535957070
+											"sid": 485028535957070,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -11796,12 +12029,32 @@
 													"sid": 340041078409634
 												},
 												{
+													"id": "compare-instance-variable",
+													"objectClass": "Upgrades_Tracker_2_Text",
+													"sid": 173976929307435,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"comparison": 0,
+														"value": "\"Drill_Base_DMG_1\""
+													}
+												},
+												{
 													"id": "trigger-once-while-true",
 													"objectClass": "System",
-													"sid": 890086384691162
+													"sid": 890086384691162,
+													"disabled": true
 												}
 											],
 											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 829108547478880,
+													"parameters": {
+														"seconds": "0.1",
+														"use-timescale": true
+													}
+												},
 												{
 													"id": "set-text",
 													"objectClass": "Upgrades_Tracker_1_Text",
@@ -11811,7 +12064,8 @@
 													}
 												}
 											],
-											"sid": 125383928829918
+											"sid": 125383928829918,
+											"disabled": true
 										}
 									]
 								},
@@ -11834,6 +12088,7 @@
 									],
 									"actions": [],
 									"sid": 784616379657835,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -11876,7 +12131,8 @@
 													}
 												}
 											],
-											"sid": 683212175634478
+											"sid": 683212175634478,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -11887,12 +12143,32 @@
 													"sid": 901343029422326
 												},
 												{
+													"id": "compare-instance-variable",
+													"objectClass": "Upgrades_Tracker_2_Text",
+													"sid": 273997266101000,
+													"parameters": {
+														"instance-variable": "Occupant",
+														"comparison": 0,
+														"value": "\"Drill_Base_DMG_1\""
+													}
+												},
+												{
 													"id": "trigger-once-while-true",
 													"objectClass": "System",
-													"sid": 474219142566538
+													"sid": 474219142566538,
+													"disabled": true
 												}
 											],
 											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 345184407998215,
+													"parameters": {
+														"seconds": "0.1",
+														"use-timescale": true
+													}
+												},
 												{
 													"id": "set-text",
 													"objectClass": "Upgrades_Tracker_1_Text",
@@ -11902,7 +12178,8 @@
 													}
 												}
 											],
-											"sid": 231280734818556
+											"sid": 231280734818556,
+											"disabled": true
 										}
 									]
 								},
@@ -11948,6 +12225,7 @@
 									],
 									"actions": [],
 									"sid": 741379593419832,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -12024,7 +12302,8 @@
 													}
 												}
 											],
-											"sid": 591770173309713
+											"sid": 591770173309713,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -12106,7 +12385,8 @@
 													}
 												}
 											],
-											"sid": 239837351108421
+											"sid": 239837351108421,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -12188,7 +12468,8 @@
 													}
 												}
 											],
-											"sid": 706973209578972
+											"sid": 706973209578972,
+											"disabled": true
 										}
 									]
 								},
@@ -12203,6 +12484,7 @@
 									],
 									"actions": [],
 									"sid": 558243285254069,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -12220,6 +12502,7 @@
 											],
 											"actions": [],
 											"sid": 702635760248141,
+											"disabled": true,
 											"children": [
 												{
 													"eventType": "block",
@@ -12244,7 +12527,8 @@
 															}
 														}
 													],
-													"sid": 158088765075629
+													"sid": 158088765075629,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -12266,7 +12550,8 @@
 															}
 														}
 													],
-													"sid": 816711665469865
+													"sid": 816711665469865,
+													"disabled": true
 												}
 											]
 										}
@@ -51038,6 +51323,35 @@
 												"duration": "3",
 												"ending": "keep-playing"
 											}
+										},
+										{
+											"type": "comment",
+											"text": "Move Notepad to Smelter"
+										},
+										{
+											"id": "set-position-to-another-object",
+											"objectClass": "Notepad",
+											"sid": 241985785702746,
+											"parameters": {
+												"object": "Global_Inventory_Background_Black",
+												"image-point-optional": "\"Notepad\""
+											}
+										},
+										{
+											"id": "move-to-layer",
+											"objectClass": "Notepad",
+											"sid": 359590034721697,
+											"parameters": {
+												"layer": "\"Buildings\""
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Notepad",
+											"sid": 668355211234973,
+											"parameters": {
+												"visibility": "visible"
+											}
 										}
 									],
 									"sid": 882090740912093,
@@ -51236,6 +51550,35 @@
 												"db": "100",
 												"duration": "3",
 												"ending": "keep-playing"
+											}
+										},
+										{
+											"type": "comment",
+											"text": "Move Notepad to Smelter"
+										},
+										{
+											"id": "set-position-to-another-object",
+											"objectClass": "Notepad",
+											"sid": 115736659531871,
+											"parameters": {
+												"object": "Global_Inventory_Background_Black",
+												"image-point-optional": "\"Notepad\""
+											}
+										},
+										{
+											"id": "move-to-layer",
+											"objectClass": "Notepad",
+											"sid": 353303843755277,
+											"parameters": {
+												"layer": "\"Buildings\""
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Notepad",
+											"sid": 192689078339024,
+											"parameters": {
+												"visibility": "visible"
 											}
 										}
 									],
@@ -53075,10 +53418,83 @@
 										"duration": "1",
 										"ending": "keep-playing"
 									}
+								},
+								{
+									"type": "comment",
+									"text": "If Narrator then remove him"
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Narrator_Sprites",
+									"sid": 335900278086752,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Narrator_Text",
+									"sid": 930983060757488,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "Move Notepad to HUD"
+								},
+								{
+									"id": "move-to-layer",
+									"objectClass": "Notepad",
+									"sid": 630753520288109,
+									"parameters": {
+										"layer": "\"HUD\""
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Notepad",
+									"sid": 136396387206529,
+									"parameters": {
+										"x": "3",
+										"y": "460"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Notepad",
+									"sid": 988807505687068,
+									"parameters": {
+										"visibility": "visible"
+									}
 								}
 							],
 							"sid": 928299702346000,
 							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "HUD_Show_Notepad",
+											"sid": 291692989706562,
+											"parameters": {
+												"animation": "\"Show\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Notepad",
+											"sid": 886809583609391,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 414323094661190
+								},
 								{
 									"eventType": "block",
 									"conditions": [
@@ -58057,6 +58473,7 @@
 										}
 									],
 									"sid": 587322680056974,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -58112,7 +58529,8 @@
 													}
 												}
 											],
-											"sid": 151919328293775
+											"sid": 151919328293775,
+											"disabled": true
 										}
 									]
 								},
@@ -58168,6 +58586,7 @@
 										}
 									],
 									"sid": 422900595076279,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -58223,7 +58642,170 @@
 													}
 												}
 											],
-											"sid": 556363691086219
+											"sid": 556363691086219,
+											"disabled": true
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "NOTEPAD"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 236972638482022,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "HUD_Show_Notepad"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "HUD_Show_Notepad",
+											"sid": 436329369917724,
+											"parameters": {
+												"animation": "\"Show\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HUD_Show_Notepad",
+											"sid": 551628135497309,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 653617104860055,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HUD_Show_Notepad",
+											"sid": 833245992460611,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 219082049151680,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Notepad",
+													"sid": 323798055415625,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Show_Notepad",
+													"sid": 257060344276641,
+													"parameters": {
+														"animation": "\"Hide\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 779083260361584
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 983241455550303,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "HUD_Show_Notepad"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "HUD_Show_Notepad",
+											"sid": 765633059378387,
+											"parameters": {
+												"animation": "\"Hide\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HUD_Show_Notepad",
+											"sid": 743884731417411,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 548848187414976,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HUD_Show_Notepad",
+											"sid": 113528756333985,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 217280491679922,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Notepad",
+													"sid": 570435754232621,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_Show_Notepad",
+													"sid": 650010829247348,
+													"parameters": {
+														"animation": "\"Show\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 150855001544738
 										}
 									]
 								}
