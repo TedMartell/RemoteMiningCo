@@ -4658,6 +4658,45 @@
 								},
 								{
 									"id": "spawn-another-object",
+									"objectClass": "HUD_Menu_Background",
+									"sid": 987275321224742,
+									"parameters": {
+										"object": "Movement_Menu_Button",
+										"layer": "\"HUD\"",
+										"image-point": "\"Movement_Menu_Button\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Movement_Menu_Button",
+									"sid": 473585584630367,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "HUD_Menu_Background",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 255501206215148,
+									"parameters": {
+										"object": "Movement_Menu_Background",
+										"layer": "\"HUD\"",
+										"image-point": "\"Movement\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
 									"objectClass": "HUD_Grey",
 									"sid": 405715119358003,
 									"parameters": {
@@ -4842,6 +4881,33 @@
 												"image-point": "\"Claim_Button\"",
 												"create-hierarchy": false,
 												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Movement_Menu_Background",
+											"sid": 956592979263032,
+											"parameters": {
+												"object": "Movement_Menu_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Movement_Text\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Movement_Menu_Text",
+											"sid": 218775410353689,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Movement_Menu_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
 											}
 										}
 									],
@@ -5129,6 +5195,7 @@
 							"id": "set-silent",
 							"objectClass": "SFX",
 							"sid": 683047249247073,
+							"disabled": true,
 							"parameters": {
 								"mode": "silent"
 							}
@@ -38026,6 +38093,217 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 922591495519427,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Movement_Menu_Button"
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "HUD_Menu_Buttons",
+									"sid": 996368326537281
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 198533694808459,
+									"parameters": {
+										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+										"loop": "not-looping",
+										"volume": "Volume_General",
+										"stereo-pan": "0",
+										"tag-optional": "\"Button\""
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Movement_Menu_Button",
+									"sid": 996391061903052,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 174440185602830,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Movement_Menu_Button",
+									"sid": 245583992936634,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 101752580113905,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Movement_Menu_Text",
+											"sid": 752571002288661,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Movement_Menu_Background",
+											"sid": 257164490342636,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 300278589769130
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 720947154365799,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Movement_Menu_Button"
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Movement_Menu_Background",
+									"sid": 488316307404019
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 795310680049768,
+									"parameters": {
+										"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+										"loop": "not-looping",
+										"volume": "Volume_General",
+										"stereo-pan": "0",
+										"tag-optional": "\"Button\""
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Movement_Menu_Button",
+									"sid": 626009088823685,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 289620297545650,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Movement_Menu_Button",
+									"sid": 699813305399083,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 271479116911741,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Movement_Menu_Background",
+											"sid": 821946349943669,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Movement_Menu_Text",
+											"sid": 554791582076808,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 618898074732556
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 155169340361861,
+									"parameters": {
+										"key": 27
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Movement_Menu_Background",
+									"sid": 457853361143894
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Movement_Menu_Background",
+									"sid": 736755351171546,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Movement_Menu_Text",
+									"sid": 608770031629977,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 321031049110883
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "on-key-pressed",
 									"objectClass": "Keyboard",
 									"sid": 586601499153128,
@@ -38675,7 +38953,7 @@
 								{
 									"id": "set-enabled",
 									"objectClass": "Miner_Box",
-									"sid": 724736120941113,
+									"sid": 377673144252372,
 									"behaviorType": "Platform",
 									"parameters": {
 										"state": "disabled"
@@ -38702,9 +38980,9 @@
 												{
 													"id": "wait",
 													"objectClass": "System",
-													"sid": 616727905955878,
+													"sid": 323935733448895,
 													"parameters": {
-														"seconds": "0.5",
+														"seconds": "3",
 														"use-timescale": true
 													}
 												},
@@ -41370,9 +41648,200 @@
 										"animation": "\"Open\"",
 										"from": "beginning"
 									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Mitch",
+									"sid": 506964725388214,
+									"parameters": {
+										"animation": "\"Talking\"",
+										"from": "beginning"
+									}
 								}
 							],
-							"sid": 908375064509355
+							"sid": 908375064509355,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Mitch",
+											"sid": 632655786407696,
+											"parameters": {
+												"instance-variable": "Talking"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Mitch",
+											"sid": 884915541853374,
+											"parameters": {
+												"instance-variable": "Voiceline",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Mitch",
+											"sid": 228525163312577,
+											"parameters": {
+												"instance-variable": "Talking",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 745510753637042,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 577780850861298
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 607777505864385,
+													"parameters": {
+														"audio-file": "Mitch_Howdy",
+														"loop": "not-looping",
+														"volume": "-5",
+														"stereo-pan": "0",
+														"tag-optional": "\"Mitch\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 523220668003466,
+													"parameters": {
+														"seconds": "5",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Mitch",
+													"sid": 998957319149135,
+													"parameters": {
+														"instance-variable": "Talking",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Mitch",
+													"sid": 995399228874715,
+													"parameters": {
+														"instance-variable": "Voiceline",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 825122351279454
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Mitch",
+											"sid": 932303421459473,
+											"parameters": {
+												"instance-variable": "Talking"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Mitch",
+											"sid": 765730543321959,
+											"parameters": {
+												"instance-variable": "Voiceline",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Mitch",
+											"sid": 928753571373612,
+											"parameters": {
+												"instance-variable": "Talking",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 848684055643714,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 243483613084085
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 386631648285421,
+													"parameters": {
+														"audio-file": "Mitch_Boom_Boom",
+														"loop": "not-looping",
+														"volume": "-5",
+														"stereo-pan": "0",
+														"tag-optional": "\"Mitch\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 717239724371098,
+													"parameters": {
+														"seconds": "5",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Mitch",
+													"sid": 272845946165949,
+													"parameters": {
+														"instance-variable": "Talking",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Mitch",
+													"sid": 743498314192240,
+													"parameters": {
+														"instance-variable": "Voiceline",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 849677974542959
+										}
+									]
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -41398,6 +41867,15 @@
 									"sid": 637309878860781,
 									"parameters": {
 										"animation": "\"Closed\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Mitch",
+									"sid": 929124792671331,
+									"parameters": {
+										"animation": "\"Idle\"",
 										"from": "beginning"
 									}
 								}
@@ -41483,7 +41961,45 @@
 											}
 										}
 									],
-									"sid": 957277087402482
+									"sid": 957277087402482,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "stop",
+													"objectClass": "SFX",
+													"sid": 916136065098954,
+													"parameters": {
+														"tag": "\"Mitch\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 127087305914379,
+													"parameters": {
+														"seconds": "0.1",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 790088078857079,
+													"parameters": {
+														"audio-file": "Mitch_Purchase",
+														"loop": "not-looping",
+														"volume": "-5",
+														"stereo-pan": "0",
+														"tag-optional": "\"Mitch\""
+													}
+												}
+											],
+											"sid": 859946646859481
+										}
+									]
 								}
 							]
 						}
@@ -41572,6 +42088,12 @@
 									"parameters": {
 										"variable": "Entering_Building"
 									},
+									"isInverted": true
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 692630905847678,
 									"isInverted": true
 								}
 							],
@@ -41792,6 +42314,12 @@
 									"parameters": {
 										"variable": "Entering_Building"
 									},
+									"isInverted": true
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 701063937306252,
 									"isInverted": true
 								}
 							],
@@ -42135,6 +42663,14 @@
 												"click-type": "clicked",
 												"object-clicked": "Add_To_Cart_Dynamite_Text"
 											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 635662857057693,
+											"parameters": {
+												"layer": "\"Buildings\""
+											}
 										}
 									],
 									"actions": [],
@@ -42425,6 +42961,14 @@
 												"mouse-button": "left",
 												"click-type": "clicked",
 												"object-clicked": "Add_To_Cart_Teleporter_Text"
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 560362981447898,
+											"parameters": {
+												"layer": "\"Buildings\""
 											}
 										}
 									],
@@ -42717,6 +43261,14 @@
 												"click-type": "clicked",
 												"object-clicked": "Add_To_Cart_Battery_Text"
 											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 131326087456109,
+											"parameters": {
+												"layer": "\"Buildings\""
+											}
 										}
 									],
 									"actions": [],
@@ -43007,6 +43559,14 @@
 												"mouse-button": "left",
 												"click-type": "clicked",
 												"object-clicked": "Add_To_Cart_Repair_Kit_Text"
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 869371631229674,
+											"parameters": {
+												"layer": "\"Buildings\""
 											}
 										}
 									],
@@ -43362,6 +43922,14 @@
 												"click-type": "clicked",
 												"object-clicked": "Shop_Buy_Button"
 											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 444271894770908,
+											"parameters": {
+												"layer": "\"Buildings\""
+											}
 										}
 									],
 									"actions": [
@@ -43588,6 +44156,14 @@
 												"mouse-button": "left",
 												"click-type": "clicked",
 												"object-clicked": "Shop_Reset_Button"
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 247501102043241,
+											"parameters": {
+												"layer": "\"Buildings\""
 											}
 										}
 									],
@@ -43979,6 +44555,12 @@
 										"variable": "Entering_Building"
 									},
 									"isInverted": true
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 820954240204943,
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -44225,6 +44807,12 @@
 									"parameters": {
 										"variable": "Entering_Building"
 									},
+									"isInverted": true
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 536554137721127,
 									"isInverted": true
 								}
 							],
@@ -51160,6 +51748,12 @@
 										"variable": "Entering_Building"
 									},
 									"isInverted": true
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 538801005630948,
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -51417,6 +52011,12 @@
 									"parameters": {
 										"variable": "Entering_Building"
 									},
+									"isInverted": true
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Meta_Upg_Background",
+									"sid": 855538374921025,
 									"isInverted": true
 								}
 							],
@@ -51818,6 +52418,14 @@
 										"click-type": "clicked",
 										"object-clicked": "Smelter_Crafting_Button"
 									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 970834088189524,
+									"parameters": {
+										"layer": "\"Buildings\""
+									}
 								}
 							],
 							"actions": [],
@@ -52057,6 +52665,14 @@
 										"click-type": "clicked",
 										"object-clicked": "Smelter_Add_Amount"
 									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 493985416516982,
+									"parameters": {
+										"layer": "\"Buildings\""
+									}
 								}
 							],
 							"actions": [],
@@ -52182,6 +52798,14 @@
 										"click-type": "clicked",
 										"object-clicked": "Smelter_Subtract_Amount"
 									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 795888103155609,
+									"parameters": {
+										"layer": "\"Buildings\""
+									}
 								}
 							],
 							"actions": [
@@ -52306,6 +52930,14 @@
 										"mouse-button": "left",
 										"click-type": "clicked",
 										"object-clicked": "Smelter_Max_Amount"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 573802015211529,
+									"parameters": {
+										"layer": "\"Buildings\""
 									}
 								}
 							],
@@ -53947,7 +54579,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "50",
+							"initialValue": "215",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -56379,7 +57011,41 @@
 											}
 										}
 									],
-									"actions": [],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 555949822042633,
+											"parameters": {
+												"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
+												"loop": "not-looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"Narrator\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 513059679122996,
+											"parameters": {
+												"seconds": "1.0",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 745820479053162,
+											"parameters": {
+												"audio-file": "Narrator1",
+												"loop": "not-looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"Narrator\""
+											}
+										}
+									],
 									"sid": 645143607956180,
 									"children": [
 										{
@@ -56405,9 +57071,9 @@
 												{
 													"id": "typewriter-text",
 													"objectClass": "HUD_Narrator_Text",
-													"sid": 232617950510015,
+													"sid": 728288409239716,
 													"parameters": {
-														"text": "\"### REMOTE MINING CO. ###\"\r\n\r\n&newline & newline &\n\n\"WELCOME MINER #65482EZ ! \" & newline &\n\n\"Your job is to sit at home and control this remote controlled mining machine and gather resources. \" &newline & \r\n \" Complete all the quests and you will be handsomely rewarded\"\n\n & newline & \"### OVER ### \"\n",
+														"text": "\"### REMOTE MINING CO. ###\"\r\n\r\n&newline & newline &\n\n\"WELCOME MINER ! \" & newline &\n\n\"Your job is to sit at home and control this remote controlled mining machine and gather resources. \" &newline & \r\n \" Complete all the quests and you will be handsomely rewarded\"\n\n & newline & \"### OVER ### \"\n",
 														"duration": "10"
 													}
 												}
@@ -56524,6 +57190,39 @@
 											],
 											"actions": [
 												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 114980557756404,
+													"parameters": {
+														"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
+														"loop": "not-looping",
+														"volume": "-10",
+														"stereo-pan": "0",
+														"tag-optional": "\"Narrator\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 630283116771668,
+													"parameters": {
+														"seconds": "1.0",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 375114285213671,
+													"parameters": {
+														"audio-file": "Narrator2",
+														"loop": "not-looping",
+														"volume": "-5",
+														"stereo-pan": "0",
+														"tag-optional": "\"Narrator\""
+													}
+												},
+												{
 													"id": "set-visible",
 													"objectClass": "HUD_Narrator_Sprites",
 													"sid": 732196099445315,
@@ -56542,10 +57241,10 @@
 												{
 													"id": "typewriter-text",
 													"objectClass": "HUD_Narrator_Text",
-													"sid": 962398960925995,
+													"sid": 230743889003083,
 													"parameters": {
 														"text": "\"### REMOTE MINING CO. ###\"\n\n&newline & newline & \"Ohh can´t drill through that, guess you will have to use some dynamite. Do not worry explosives are cheap around theese parts of the world.\"\n\n&newline & newline & \"### OVER ### \"\n",
-														"duration": "8"
+														"duration": "9"
 													}
 												},
 												{
@@ -56661,6 +57360,39 @@
 											],
 											"actions": [
 												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 193640243775564,
+													"parameters": {
+														"audio-file": "Unlocked_Soundholder - Retro Games - Achievement Ding",
+														"loop": "not-looping",
+														"volume": "-10",
+														"stereo-pan": "0",
+														"tag-optional": "\"Narrator\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 930247382915915,
+													"parameters": {
+														"seconds": "1.0",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 977000232851140,
+													"parameters": {
+														"audio-file": "Narrator3",
+														"loop": "not-looping",
+														"volume": "-5",
+														"stereo-pan": "0",
+														"tag-optional": "\"Narrator\""
+													}
+												},
+												{
 													"id": "set-visible",
 													"objectClass": "HUD_Narrator_Sprites",
 													"sid": 236514977101947,
@@ -56679,10 +57411,10 @@
 												{
 													"id": "typewriter-text",
 													"objectClass": "HUD_Narrator_Text",
-													"sid": 578499324970788,
+													"sid": 694579529059395,
 													"parameters": {
 														"text": "\"### REMOTE MINING CO. ###\"\r\n\r\n&newline & newline &\n\n\"BTW beware of rodents, they tend to build settlements at theese depths...\" & newline & newline & \"I will send you some funds to help clear them out!\" & newline & \"### $1000 added ###\" &newline & \"### OVER ### \"",
-														"duration": "5"
+														"duration": "9"
 													}
 												},
 												{
@@ -61507,6 +62239,22 @@
 										}
 									],
 									"sid": 501146917978129
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Dust_Animation_Right",
+											"sid": 912927656140860,
+											"parameters": {
+												"x": "Miner_Box.X +32",
+												"y": "Miner_Box.Y +32"
+											}
+										}
+									],
+									"sid": 490155938205619
 								}
 							]
 						},
@@ -61620,6 +62368,22 @@
 										}
 									],
 									"sid": 675158843125562
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Dust_Animation_Left",
+											"sid": 615695604994635,
+											"parameters": {
+												"x": "Miner_Box.X +32",
+												"y": "Miner_Box.Y +32"
+											}
+										}
+									],
+									"sid": 389632546057369
 								}
 							]
 						},
@@ -61742,6 +62506,22 @@
 										}
 									],
 									"sid": 545048594450224
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Dust_Animation_Down",
+											"sid": 883684700444405,
+											"parameters": {
+												"x": "Miner_Box.X +32",
+												"y": "Miner_Box.Y +16"
+											}
+										}
+									],
+									"sid": 728482099163891
 								}
 							]
 						},
@@ -76539,9 +77319,14 @@
 											}
 										},
 										{
+											"type": "comment",
+											"text": "Disabled for Demo"
+										},
+										{
 											"id": "set-instvar-value",
 											"objectClass": "Claim_Button",
 											"sid": 351469608831480,
+											"disabled": true,
 											"parameters": {
 												"instance-variable": "Quest_11_Active",
 												"value": "1"
@@ -76577,6 +77362,57 @@
 											"conditions": [],
 											"actions": [
 												{
+													"id": "spawn-another-object",
+													"objectClass": "HUD_Grey",
+													"sid": 962913827837005,
+													"parameters": {
+														"object": "Item_Discovered_Background",
+														"layer": "\"HUD\"",
+														"image-point": "\"Item_Discovered\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "HUD_Grey",
+													"sid": 473464217405803,
+													"parameters": {
+														"object": "Item_Discovered_Text",
+														"layer": "\"HUD\"",
+														"image-point": "\"Item_Discovered\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 935791945729861,
+													"parameters": {
+														"text": "\"YOU HAVE COMPLETED THE DEMO!\" & newline & \"You can keep mining if you want but get full game for alot more content!\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 732072373327308,
+													"parameters": {
+														"seconds": "10",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Background",
+													"sid": 169092830498348
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 541899899285275
+												},
+												{
 													"id": "destroy",
 													"objectClass": "Mole_Top_Block",
 													"sid": 369958142895888,
@@ -76585,9 +77421,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Quest_Text",
-													"sid": 692047841443183,
+													"sid": 305680598388954,
 													"parameters": {
-														"text": "\"NO MORE QUESTS INTHIS DEMO\""
+														"text": "\"NO MORE QUESTS IN THIS DEMO\""
 													}
 												},
 												{

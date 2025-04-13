@@ -7145,9 +7145,9 @@
 						"bold": false,
 						"italic": false,
 						"color": [
-							0,
-							0,
-							0,
+							0.09019607843137255,
+							0.803921568627451,
+							0.0392156862745098,
 							1
 						],
 						"horizontal-alignment": "left",
@@ -7201,9 +7201,9 @@
 						"bold": false,
 						"italic": false,
 						"color": [
-							0,
-							0,
-							0,
+							0.09019607843137255,
+							0.803921568627451,
+							0.0392156862745098,
 							1
 						],
 						"horizontal-alignment": "left",
@@ -7401,7 +7401,7 @@
 						"x": 3328,
 						"y": 128,
 						"width": 190,
-						"height": 110,
+						"height": 146,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -7451,7 +7451,7 @@
 					"locked": false,
 					"world": {
 						"x": 3584,
-						"y": 128,
+						"y": 192,
 						"width": 186,
 						"height": 36,
 						"originX": 0,
@@ -10037,7 +10037,7 @@
 					"locked": false,
 					"world": {
 						"x": 3584,
-						"y": 192,
+						"y": 128,
 						"width": 186,
 						"height": 36,
 						"originX": 0,
@@ -11064,7 +11064,7 @@
 					"type": "Mitch",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "Talking",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -11072,7 +11072,10 @@
 					"uid": 351,
 					"sid": 777279817723380,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Talking": false,
+						"Voiceline": 0
+					},
 					"behaviors": {},
 					"instanceFolderItem": {
 						"sid": 777279817723380,
@@ -16152,6 +16155,58 @@
 						"width": 120,
 						"height": 30,
 						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Movement_Menu_Button",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Active",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 763,
+					"sid": 182213080387100,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"effects": {
+						"Darken": {
+							"isEnabled": false,
+							"parameters": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 182213080387100,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 3584,
+						"y": 320,
+						"width": 186,
+						"height": 36,
+						"originX": 0,
 						"originY": 0,
 						"color": [
 							1,
