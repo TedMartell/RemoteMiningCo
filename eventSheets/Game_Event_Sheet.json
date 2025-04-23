@@ -5195,7 +5195,6 @@
 							"id": "set-silent",
 							"objectClass": "SFX",
 							"sid": 683047249247073,
-							"disabled": true,
 							"parameters": {
 								"mode": "silent"
 							}
@@ -44796,20 +44795,73 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 341494365302818
+									"sid": 713999125648823
 								}
 							],
 							"actions": [
 								{
 									"id": "set-visible",
 									"objectClass": "Enter_Warehouse_Text",
-									"sid": 821468423982301,
+									"sid": 751039663340788,
 									"parameters": {
 										"visibility": "invisible"
 									}
 								}
 							],
-							"sid": 404861519594340
+							"sid": 252680553049771
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 441619534913805,
+									"parameters": {
+										"object": "Warehouse_Door"
+									}
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 277417914075366,
+									"parameters": {
+										"object": "Warehouse_Door"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-cursor-style2",
+									"objectClass": "Mouse",
+									"sid": 491418496059138,
+									"parameters": {
+										"cursor-style": "pointer"
+									}
+								}
+							],
+							"sid": 683614060781470
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 786226593625594
+								}
+							],
+							"actions": [
+								{
+									"id": "set-cursor-style2",
+									"objectClass": "Mouse",
+									"sid": 272209246244102,
+									"parameters": {
+										"cursor-style": "normal"
+									}
+								}
+							],
+							"sid": 920262716509204
 						},
 						{
 							"eventType": "block",

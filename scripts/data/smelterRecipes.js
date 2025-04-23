@@ -7,7 +7,7 @@ export const smelterRecipes = {
     "Silicon": {
        requiredItems: {Quartz: 4, Coal: 2},
 	   output: {Silicon: 1},
-	   smelting_time: 3
+	   smelting_time: 3,
     },
     "Iron Ingot": {
        requiredItems: {Iron: 5, Coal: 2},
