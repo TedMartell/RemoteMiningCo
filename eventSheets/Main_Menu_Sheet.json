@@ -135,6 +135,123 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 684665423307443,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Menu_Controls_Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "SFX",
+					"sid": 876962229180039,
+					"parameters": {
+						"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Menu_Controls_Button",
+					"sid": 351421293877419,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"Darken\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 821156504233786,
+					"parameters": {
+						"seconds": "0.1",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Menu_Controls_Button",
+					"sid": 582020492462085,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"Darken\""
+					}
+				}
+			],
+			"sid": 252463312723835,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "Movement_Menu_Background",
+							"sid": 740643074872758
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Movement_Menu_Background",
+							"sid": 739141150476323,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Movement_Menu_Text",
+							"sid": 368655319488650,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 951448976808819
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 282549079095389
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Movement_Menu_Background",
+							"sid": 240665189203487,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Movement_Menu_Text",
+							"sid": 992405040335564,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 576955366592066
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
 					"sid": 850954530087488
@@ -170,7 +287,7 @@
 					"objectClass": "Main_Menu_Options_Background",
 					"sid": 409907715840126,
 					"parameters": {
-						"object": "Menu_Settings_Button",
+						"object": "Menu_Controls_Button",
 						"layer": "\"Foreground\"",
 						"image-point": "\"Settings_Button\"",
 						"create-hierarchy": false,
@@ -179,6 +296,10 @@
 				}
 			],
 			"sid": 624170740991798
+		},
+		{
+			"eventType": "comment",
+			"text": "Mouse over Menu Buttons"
 		},
 		{
 			"eventType": "block",
@@ -282,14 +403,14 @@
 					"objectClass": "Mouse",
 					"sid": 976924398412929,
 					"parameters": {
-						"object": "Menu_Settings_Button"
+						"object": "Menu_Controls_Button"
 					}
 				}
 			],
 			"actions": [
 				{
 					"id": "set-animation",
-					"objectClass": "Menu_Settings_Button",
+					"objectClass": "Menu_Controls_Button",
 					"sid": 794867857525464,
 					"parameters": {
 						"animation": "\"Focused\"",
@@ -311,7 +432,7 @@
 			"actions": [
 				{
 					"id": "set-animation",
-					"objectClass": "Menu_Settings_Button",
+					"objectClass": "Menu_Controls_Button",
 					"sid": 435106372204916,
 					"parameters": {
 						"animation": "\"Not_Focused\"",
