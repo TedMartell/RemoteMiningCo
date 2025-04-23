@@ -42297,9 +42297,9 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Miner_Box",
-									"sid": 483982416304166,
+									"sid": 581268696871211,
 									"parameters": {
-										"object": "Shop_Door"
+										"object": "Shop_Building"
 									}
 								}
 							],
@@ -42313,7 +42313,85 @@
 									}
 								}
 							],
-							"sid": 281516083523701
+							"sid": 281516083523701,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 974498573459703
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Shop_Building",
+											"sid": 877909329604808,
+											"parameters": {
+												"animation": "\"Opening\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 729239810046288
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 655220003555304,
+											"parameters": {
+												"object": "Shop_Building"
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 567467052972425,
+											"parameters": {
+												"layer": "\"Buildings\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 291901856008278,
+											"parameters": {
+												"cursor-style": "pointer"
+											}
+										}
+									],
+									"sid": 112283007225910
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 712453583217505
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 736534006424039,
+											"parameters": {
+												"cursor-style": "normal"
+											}
+										}
+									],
+									"sid": 565334981112138
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -42334,7 +42412,39 @@
 									}
 								}
 							],
-							"sid": 510460439443000
+							"sid": 510460439443000,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 305646525287893
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Shop_Building",
+											"sid": 367602411666912,
+											"parameters": {
+												"animation": "\"Closing\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 602958085730332,
+											"parameters": {
+												"cursor-style": "normal"
+											}
+										}
+									],
+									"sid": 567009853388665
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -42350,9 +42460,9 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Miner_Box",
-									"sid": 839393619508538,
+									"sid": 193817762949936,
 									"parameters": {
-										"object": "Shop_Door"
+										"object": "Shop_Building"
 									}
 								},
 								{
@@ -42397,10 +42507,10 @@
 								{
 									"id": "pin-to-object-properties",
 									"objectClass": "Miner_Box",
-									"sid": 865940718147139,
+									"sid": 458509755471216,
 									"behaviorType": "Pin",
 									"parameters": {
-										"pin-to": "Shop_Building_art",
+										"pin-to": "Shop_Building",
 										"x": true,
 										"y": true,
 										"angle": true,
@@ -42570,19 +42680,19 @@
 								{
 									"id": "on-object-clicked",
 									"objectClass": "Mouse",
-									"sid": 334752677985343,
+									"sid": 364419296483309,
 									"parameters": {
 										"mouse-button": "left",
 										"click-type": "clicked",
-										"object-clicked": "Shop_Door"
+										"object-clicked": "Shop_Building"
 									}
 								},
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Miner_Box",
-									"sid": 270273219827333,
+									"sid": 556351337386712,
 									"parameters": {
-										"object": "Shop_Door"
+										"object": "Shop_Building"
 									}
 								},
 								{
@@ -42627,10 +42737,10 @@
 								{
 									"id": "pin-to-object-properties",
 									"objectClass": "Miner_Box",
-									"sid": 896738744543782,
+									"sid": 945465311926405,
 									"behaviorType": "Pin",
 									"parameters": {
-										"pin-to": "Shop_Building_art",
+										"pin-to": "Shop_Building",
 										"x": true,
 										"y": true,
 										"angle": true,
@@ -44771,9 +44881,9 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Miner_Box",
-									"sid": 263448238652982,
+									"sid": 837895220044165,
 									"parameters": {
-										"object": "Warehouse_Door"
+										"object": "Warehouse_Building"
 									}
 								}
 							],
@@ -44787,7 +44897,84 @@
 									}
 								}
 							],
-							"sid": 226522167809464
+							"sid": 226522167809464,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 278248664108835
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Warehouse_Building",
+											"sid": 801064271589076,
+											"parameters": {
+												"animation": "\"Opening\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 362269733716189
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 543133625878159,
+											"parameters": {
+												"object": "Warehouse_Building"
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 545442599313647,
+											"parameters": {
+												"layer": "\"Background\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 407189755114389,
+											"parameters": {
+												"cursor-style": "pointer"
+											}
+										}
+									],
+									"sid": 114971456056275
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 938066614825301
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 835261890834752,
+											"parameters": {
+												"cursor-style": "normal"
+											}
+										}
+									],
+									"sid": 268562473594857
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -44808,60 +44995,39 @@
 									}
 								}
 							],
-							"sid": 252680553049771
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+							"sid": 252680553049771,
+							"children": [
 								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Miner_Box",
-									"sid": 441619534913805,
-									"parameters": {
-										"object": "Warehouse_Door"
-									}
-								},
-								{
-									"id": "cursor-is-over-object",
-									"objectClass": "Mouse",
-									"sid": 277417914075366,
-									"parameters": {
-										"object": "Warehouse_Door"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 346492922753830
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Warehouse_Building",
+											"sid": 340115941139637,
+											"parameters": {
+												"animation": "\"Closing\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 534576808550923,
+											"parameters": {
+												"cursor-style": "normal"
+											}
+										}
+									],
+									"sid": 709497027403075
 								}
-							],
-							"actions": [
-								{
-									"id": "set-cursor-style2",
-									"objectClass": "Mouse",
-									"sid": 491418496059138,
-									"parameters": {
-										"cursor-style": "pointer"
-									}
-								}
-							],
-							"sid": 683614060781470
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 786226593625594
-								}
-							],
-							"actions": [
-								{
-									"id": "set-cursor-style2",
-									"objectClass": "Mouse",
-									"sid": 272209246244102,
-									"parameters": {
-										"cursor-style": "normal"
-									}
-								}
-							],
-							"sid": 920262716509204
+							]
 						},
 						{
 							"eventType": "block",
@@ -44877,9 +45043,9 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Miner_Box",
-									"sid": 512897745255445,
+									"sid": 995430263352972,
 									"parameters": {
-										"object": "Warehouse_Door"
+										"object": "Warehouse_Building"
 									}
 								},
 								{
@@ -44933,10 +45099,10 @@
 								{
 									"id": "pin-to-object-properties",
 									"objectClass": "Miner_Box",
-									"sid": 680582033084459,
+									"sid": 793201218073338,
 									"behaviorType": "Pin",
 									"parameters": {
-										"pin-to": "Warehouse_Building_Art",
+										"pin-to": "Warehouse_Building",
 										"x": true,
 										"y": true,
 										"angle": true,
@@ -44952,6 +45118,14 @@
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 476211109408208,
+											"parameters": {
+												"cursor-style": "normal"
+											}
+										},
 										{
 											"id": "save",
 											"objectClass": "System",
@@ -45124,19 +45298,19 @@
 								{
 									"id": "on-object-clicked",
 									"objectClass": "Mouse",
-									"sid": 130978150196260,
+									"sid": 957306872882664,
 									"parameters": {
 										"mouse-button": "left",
 										"click-type": "clicked",
-										"object-clicked": "Warehouse_Door"
+										"object-clicked": "Warehouse_Building"
 									}
 								},
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Miner_Box",
-									"sid": 338345364268716,
+									"sid": 859376992426166,
 									"parameters": {
-										"object": "Warehouse_Door"
+										"object": "Warehouse_Building"
 									}
 								},
 								{
@@ -45190,10 +45364,10 @@
 								{
 									"id": "pin-to-object-properties",
 									"objectClass": "Miner_Box",
-									"sid": 669311700358792,
+									"sid": 764725080324196,
 									"behaviorType": "Pin",
 									"parameters": {
-										"pin-to": "Warehouse_Building_Art",
+										"pin-to": "Warehouse_Building",
 										"x": true,
 										"y": true,
 										"angle": true,
@@ -45209,6 +45383,14 @@
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 770359222233232,
+											"parameters": {
+												"cursor-style": "normal"
+											}
+										},
 										{
 											"id": "save",
 											"objectClass": "System",
@@ -52025,9 +52207,9 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Miner_Box",
-									"sid": 207438297699785,
+									"sid": 522353133162595,
 									"parameters": {
-										"object": "Smelter_Door"
+										"object": "Smelter_Building"
 									}
 								}
 							],
@@ -52041,7 +52223,85 @@
 									}
 								}
 							],
-							"sid": 604700721801858
+							"sid": 604700721801858,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 801216925823632
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Smelter_Building",
+											"sid": 390849547663455,
+											"parameters": {
+												"animation": "\"Opening\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 314543206573657
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 618804139851763,
+											"parameters": {
+												"object": "Smelter_Building"
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 833726871116835,
+											"parameters": {
+												"layer": "\"Buildings\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 481763172627097,
+											"parameters": {
+												"cursor-style": "pointer"
+											}
+										}
+									],
+									"sid": 430730805663918
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 360219334608099
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 151155773247896,
+											"parameters": {
+												"cursor-style": "normal"
+											}
+										}
+									],
+									"sid": 384091384031308
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -52062,7 +52322,39 @@
 									}
 								}
 							],
-							"sid": 814157995140560
+							"sid": 814157995140560,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 144740849713168
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Smelter_Building",
+											"sid": 714732325237664,
+											"parameters": {
+												"animation": "\"Closing\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 705461124086099,
+											"parameters": {
+												"cursor-style": "normal"
+											}
+										}
+									],
+									"sid": 637597330718613
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -52078,9 +52370,9 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Miner_Box",
-									"sid": 319752518330436,
+									"sid": 208511844931676,
 									"parameters": {
-										"object": "Smelter_Door"
+										"object": "Smelter_Building"
 									}
 								},
 								{
@@ -52125,10 +52417,10 @@
 								{
 									"id": "pin-to-object-properties",
 									"objectClass": "Miner_Box",
-									"sid": 221867832800379,
+									"sid": 955149172855669,
 									"behaviorType": "Pin",
 									"parameters": {
-										"pin-to": "Smelter_Building_Art",
+										"pin-to": "Smelter_Building",
 										"x": true,
 										"y": true,
 										"angle": true,
@@ -52336,19 +52628,19 @@
 								{
 									"id": "on-object-clicked",
 									"objectClass": "Mouse",
-									"sid": 352881334777988,
+									"sid": 887374396144021,
 									"parameters": {
 										"mouse-button": "left",
 										"click-type": "clicked",
-										"object-clicked": "Smelter_Door"
+										"object-clicked": "Smelter_Building"
 									}
 								},
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Miner_Box",
-									"sid": 104926451834136,
+									"sid": 713624032021777,
 									"parameters": {
-										"object": "Smelter_Door"
+										"object": "Smelter_Building"
 									}
 								},
 								{
@@ -52393,10 +52685,10 @@
 								{
 									"id": "pin-to-object-properties",
 									"objectClass": "Miner_Box",
-									"sid": 276522108123457,
+									"sid": 128650089919989,
 									"behaviorType": "Pin",
 									"parameters": {
-										"pin-to": "Smelter_Building_Art",
+										"pin-to": "Smelter_Building",
 										"x": true,
 										"y": true,
 										"angle": true,
@@ -54846,6 +55138,718 @@
 									]
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 203075305582527,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Exit_Sign"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 658425382853272,
+									"parameters": {
+										"layer": "\"Buildings\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 628290735012337,
+									"parameters": {
+										"variable": "Entering_Building",
+										"value": "false"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "Back to player mode"
+								},
+								{
+									"id": "unpin",
+									"objectClass": "Miner_Box",
+									"sid": 222401489366228,
+									"behaviorType": "Pin"
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 280732550049025,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 618229438595893,
+									"parameters": {
+										"group-name": "\"Warehouse Inventory Management\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 691370019738598,
+									"parameters": {
+										"layer": "\"Buildings\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 181185741079250,
+									"parameters": {
+										"layer": "\"Buildings_2\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 313817820834407,
+									"parameters": {
+										"layer": "\"HUD\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 219157366746749,
+									"parameters": {
+										"layer": "\"Player\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 595909748903495,
+									"parameters": {
+										"layer": "\"Background\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "Reset Shop"
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 836785360632011,
+									"parameters": {
+										"instance-variable": "Amount_Due",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 822911853837856,
+									"parameters": {
+										"instance-variable": "Battery",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 639405549766684,
+									"parameters": {
+										"instance-variable": "Dynamite",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 846367846700466,
+									"parameters": {
+										"instance-variable": "Repair_Kit",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Shop_Cart_Object",
+									"sid": 474384312812947,
+									"parameters": {
+										"instance-variable": "Teleporter",
+										"value": "0"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "Reset Warehouse"
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Global_Inventory_Background_Black",
+									"sid": 912130069574734,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Miner_Inventory_Background_Black",
+									"sid": 841237450564414,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Miner_Inventory_Text",
+									"sid": 808057948981344,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Global_Inventory_Text",
+									"sid": 614954530873893,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Miner_Inventory_Button",
+									"sid": 697447450566276,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_Global_Inventory_Button",
+									"sid": 224977862053619,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 837902926231983,
+									"parameters": {
+										"group-name": "\"Enter Warehouse\"",
+										"state": "activated"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "Reset Music"
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 391986806394726,
+									"parameters": {
+										"tag": "\"Shop_Music\"",
+										"db": "-100",
+										"duration": "1",
+										"ending": "stop"
+									}
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 974765965887353,
+									"parameters": {
+										"tag": "\"Shopkeeper\"",
+										"db": "-100",
+										"duration": "1",
+										"ending": "stop"
+									}
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 119094303926337,
+									"parameters": {
+										"tag": "\"Smelter_Music\"",
+										"db": "-100",
+										"duration": "1",
+										"ending": "stop"
+									}
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 193111464356177,
+									"parameters": {
+										"tag": "\"Furnace_Active\"",
+										"db": "-100",
+										"duration": "1",
+										"ending": "keep-playing"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "If Narrator then remove him"
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Narrator_Sprites",
+									"sid": 277603018982612,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HUD_Narrator_Text",
+									"sid": 854075501163901,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "Move Notepad to HUD"
+								},
+								{
+									"id": "move-to-layer",
+									"objectClass": "Notepad",
+									"sid": 486867298241001,
+									"parameters": {
+										"layer": "\"HUD\""
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Notepad",
+									"sid": 419938076355551,
+									"parameters": {
+										"x": "3",
+										"y": "460"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Notepad",
+									"sid": 685416162256187,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 671436675690872,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "HUD_Show_Notepad",
+											"sid": 891376924458104,
+											"parameters": {
+												"animation": "\"Show\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Notepad",
+											"sid": 284019814340690,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 858865700956705
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 348419962858618,
+											"parameters": {
+												"variable": "Music_Muted"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 158006295533096,
+											"parameters": {
+												"audio-file": "Assaf Ayalon - Its All Right Baby",
+												"loop": "looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Surface_Music\""
+											}
+										}
+									],
+									"sid": 379542351686528
+								},
+								{
+									"eventType": "comment",
+									"text": "Reset Sell Cart in Warehouse"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 182291144609598,
+											"parameters": {
+												"instance-variable": "Aluminium_Ingot",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 631406202882377,
+											"parameters": {
+												"instance-variable": "Bauxite",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 694812288958929,
+											"parameters": {
+												"instance-variable": "Chromium",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 658187306893729,
+											"parameters": {
+												"instance-variable": "Chromium_Ingot",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 452037805753420,
+											"parameters": {
+												"instance-variable": "Coal",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 490081500621555,
+											"parameters": {
+												"instance-variable": "Copper",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 447887933427016,
+											"parameters": {
+												"instance-variable": "Copper_Ingot",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 789885341111503,
+											"parameters": {
+												"instance-variable": "Diamond",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 857039737510024,
+											"parameters": {
+												"instance-variable": "Gold",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 362591218347885,
+											"parameters": {
+												"instance-variable": "Gold_Ingot",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 902777757273177,
+											"parameters": {
+												"instance-variable": "Iron",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 466544665070123,
+											"parameters": {
+												"instance-variable": "Iron_Ingot",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 220333246281785,
+											"parameters": {
+												"instance-variable": "Lithium",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 858338163084261,
+											"parameters": {
+												"instance-variable": "Lithium_Ingot",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 682346572353588,
+											"parameters": {
+												"instance-variable": "Nickel",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 325488090296980,
+											"parameters": {
+												"instance-variable": "Nickel_Ingot",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 468600816453392,
+											"parameters": {
+												"instance-variable": "Quartz",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 815967989991572,
+											"parameters": {
+												"instance-variable": "Silicon",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 683850758849291,
+											"parameters": {
+												"instance-variable": "Silver",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 754082316669059,
+											"parameters": {
+												"instance-variable": "Silver_Ingot",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 321984145518182,
+											"parameters": {
+												"instance-variable": "Value",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 738237575995919,
+											"parameters": {
+												"instance-variable": "Zinc",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Warehouse_Sell_Cart_Object",
+											"sid": 983699241709465,
+											"parameters": {
+												"instance-variable": "Zinc_Ingot",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 958890380073648
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 453872916321348,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Exit_Sign"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Reset Smelter"
+								}
+							],
+							"sid": 166164433832158,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 889807486912004,
+											"parameters": {
+												"object": "Smelter_recipe_List"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 901312357735457,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Smelter_Furnace_1_Object",
+													"sid": 395701003657022,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "Smelter_recipe_List.ID"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 739079678657467,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Smelter_Furnace_1_Object",
+															"sid": 933570574636926,
+															"parameters": {
+																"instance-variable": "Furnace_Active",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Smelter_Furnace_1_Object",
+															"sid": 586965743468138,
+															"parameters": {
+																"instance-variable": "Busy",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Smelter_Furnace_1_Object",
+															"sid": 225459445373260,
+															"parameters": {
+																"instance-variable": "Crafting_Amount",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Smelter_Furnace_1_Object",
+															"sid": 995022750397489,
+															"parameters": {
+																"instance-variable": "Crafting_Time",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Smelter_Furnace_1_Object",
+															"sid": 166681981856147,
+															"parameters": {
+																"instance-variable": "Max_Amount",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-selection",
+															"objectClass": "Smelter_recipe_List",
+															"sid": 364561897043763,
+															"parameters": {
+																"index": "0"
+															}
+														}
+													],
+													"sid": 541171850667279
+												}
+											]
+										}
+									]
+								}
+							]
 						}
 					],
 					"sid": 147513351800279
@@ -54930,7 +55934,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "215",
+							"initialValue": "50",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
