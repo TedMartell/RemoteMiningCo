@@ -253,6 +253,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "Dynamite_Max_Ammount",
+			"type": "number",
+			"initialValue": "25",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 445189151038360
+		},
+		{
+			"eventType": "variable",
 			"name": "Repair_Kit_Effectiveness",
 			"type": "number",
 			"initialValue": "20",
@@ -29871,11 +29881,65 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
-															"sid": 409728289883173,
+															"sid": 952929661604343,
+															"parameters": {
+																"object": "Meta_Dynamite_Max_amount_Background",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_5\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Dynamite_Max_amount_Background",
+															"sid": 897408644687073,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 279051976718545,
+															"parameters": {
+																"object": "Meta_Dynamite_Max_Amount_T1_Button",
+																"layer": "\"Meta_upgrades_Content\"",
+																"image-point": "\"Slot_6\"",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "pin-to-object-properties",
+															"objectClass": "Meta_Dynamite_Max_Amount_T1_Button",
+															"sid": 926202332247389,
+															"behaviorType": "Pin",
+															"parameters": {
+																"pin-to": "Meta_ScrollabeSprite",
+																"x": true,
+																"y": true,
+																"angle": true,
+																"width-type": "no",
+																"height-type": "no",
+																"z": false
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Meta_ScrollabeSprite",
+															"sid": 948355489226789,
 															"parameters": {
 																"object": "Meta_Laser_Gun_Reload_Background",
 																"layer": "\"Meta_upgrades_Content\"",
-																"image-point": "\"Slot_5\"",
+																"image-point": "\"Slot_7\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -29898,11 +29962,11 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
-															"sid": 244546356117045,
+															"sid": 780271157955326,
 															"parameters": {
 																"object": "Meta_Laser_Reload_T1_Button",
 																"layer": "\"Meta_upgrades_Content\"",
-																"image-point": "\"Slot_6\"",
+																"image-point": "\"Slot_8\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -29925,11 +29989,11 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
-															"sid": 757200224531516,
+															"sid": 842553351587429,
 															"parameters": {
 																"object": "Meta_Laser_Gun_Damage_Background",
 																"layer": "\"Meta_upgrades_Content\"",
-																"image-point": "\"Slot_7\"",
+																"image-point": "\"Slot_9\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -29952,11 +30016,11 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
-															"sid": 777392670476192,
+															"sid": 354110197585159,
 															"parameters": {
 																"object": "Meta_Laser_Damage_T1_Button",
 																"layer": "\"Meta_upgrades_Content\"",
-																"image-point": "\"Slot_8\"",
+																"image-point": "\"Slot_10\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -29979,11 +30043,11 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
-															"sid": 238256869808299,
+															"sid": 208203141512221,
 															"parameters": {
 																"object": "Meta_Laser_Gun_Charged_Shot_Background",
 																"layer": "\"Meta_upgrades_Content\"",
-																"image-point": "\"Slot_9\"",
+																"image-point": "\"Slot_11\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -30006,11 +30070,11 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
-															"sid": 565999460208274,
+															"sid": 122549582768701,
 															"parameters": {
 																"object": "Meta_Laser_Charged_T1_Button",
 																"layer": "\"Meta_upgrades_Content\"",
-																"image-point": "\"Slot_10\"",
+																"image-point": "\"Slot_12\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -30945,6 +31009,420 @@
 								}
 							],
 							"sid": 384802313951485
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Dynamite Max Amount Tier 1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 581728410074683,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Dynamite_Max_Amount_T1_Button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Dynamite_Max_Amount_T1_Button",
+											"sid": 853448785884848,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Dynamite_Max_Amount_T1_Button",
+											"sid": 518893801485980,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 683914477867986,
+											"parameters": {
+												"instance-variable": "Dynamite_Max_Amount_Tier_1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Meta_Weapons_Buttons",
+											"sid": 313921537336858,
+											"parameters": {
+												"instance-variable": "Focus",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Upg_Text",
+											"sid": 387374386446303,
+											"parameters": {
+												"text": "\"Increase your DYNAMITE Max Inventory Amount by 25 / level\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Dynamite_Max_Amount_T1_Button",
+											"sid": 985292423215291,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 633926553990241,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Meta_Dynamite_Max_Amount_T1_Button",
+													"sid": 875066805753357,
+													"parameters": {
+														"instance-variable": "Focus",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 833937058630285
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 368914844876660,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Upgrade_button"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Dynamite_Max_Amount_T1_Button",
+											"sid": 712452057517727,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_Dynamite_Max_Amount_T1_Button",
+											"sid": 348321440820676,
+											"parameters": {
+												"animation": "\"Active\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 591723378019619,
+											"parameters": {
+												"instance-variable": "Dynamite_Max_Amount_Tier_1_Completed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 941743460014731,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 394119331319877,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Upgrade_button",
+											"sid": 352889080180562,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 473307969857697,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Miner_Box",
+													"sid": 326654994452743,
+													"parameters": {
+														"instance-variable": "Money",
+														"comparison": 5,
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Meta_Weapons_Upg_Button",
+													"sid": 673621973401956,
+													"parameters": {
+														"instance-variable": "Dynamite_Max_Amount_Tier_1_Level",
+														"comparison": 2,
+														"value": "Max_Level"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Miner_Box",
+													"sid": 882270481149020,
+													"parameters": {
+														"instance-variable": "Money",
+														"value": "Required_Item_Quantity"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 400207760081939,
+													"parameters": {
+														"variable": "Dynamite_Max_Ammount",
+														"value": "25"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Meta_Weapons_Upg_Button",
+													"sid": 483327194102109,
+													"parameters": {
+														"instance-variable": "Dynamite_Max_Amount_Tier_1_Level",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 611931064688871
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-tick",
+											"objectClass": "System",
+											"sid": 469987443050829
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Dynamite_Max_Amount_T1_Button",
+											"sid": 147071747920156,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 620116568586843,
+											"parameters": {
+												"variable": "Current_Level",
+												"value": "Meta_Weapons_Upg_Button.Dynamite_Max_Amount_Tier_1_Level"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 512870457595479,
+											"parameters": {
+												"variable": "Required_Item_Quantity",
+												"value": "2500 + 100 * floor(Current_Level* 5)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 295333581749287,
+											"parameters": {
+												"variable": "Max_Level",
+												"value": "3"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Req_Item_Text",
+											"sid": 343918762315561,
+											"parameters": {
+												"text": "\"MONEY: \" & Required_Item_Quantity & newline \r\n& \"Inventory: \" & floor(Miner_Box.Money)"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Max_Level_Text",
+											"sid": 311494321558927,
+											"parameters": {
+												"text": "Max_Level"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Meta_Current_Level_Text",
+											"sid": 161670319135730,
+											"parameters": {
+												"text": "Current_Level"
+											}
+										}
+									],
+									"sid": 441624670241922
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 828917396289379,
+											"parameters": {
+												"instance-variable": "Dynamite_Max_Amount_Tier_1_Level",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Dynamite_Max_Amount_T1_Button",
+											"sid": 951593120019940,
+											"parameters": {
+												"animation": "\"Completed\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 852072135642711,
+											"parameters": {
+												"instance-variable": "Dynamite_Max_Amount_Tier_1_Completed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 437923259583859
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Dynamite_Max_Amount_T1_Button",
+											"sid": 786681794705847,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 542123870640655
+										}
+									],
+									"actions": [],
+									"sid": 618204997216099,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Meta_Upg_Background",
+													"sid": 315549491244505,
+													"parameters": {
+														"object": "Money_Meta",
+														"layer": "\"Meta_Upgrades\"",
+														"image-point": "\"Req_Items_Sprite\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												}
+											],
+											"sid": 697892231813056
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Meta_Dynamite_Max_Amount_T1_Button",
+											"sid": 438519929240505,
+											"parameters": {
+												"instance-variable": "Focus",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Money_Meta",
+											"sid": 407153753331561
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_Dynamite_Max_Amount_T1_Button",
+											"sid": 879442242225230,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 928502751712850,
+									"isOrBlock": true
+								}
+							],
+							"sid": 980182382229412
 						},
 						{
 							"eventType": "group",
@@ -38811,6 +39289,7 @@
 								}
 							],
 							"sid": 505407651693881,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -38848,7 +39327,8 @@
 											}
 										}
 									],
-									"sid": 491547385066582
+									"sid": 491547385066582,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -38886,7 +39366,8 @@
 											}
 										}
 									],
-									"sid": 421970319097548
+									"sid": 421970319097548,
+									"disabled": true
 								}
 							]
 						}
@@ -38934,6 +39415,15 @@
 									"parameters": {
 										"visibility": "visible"
 									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Repair_Shop_Building",
+									"sid": 385481041524238,
+									"parameters": {
+										"animation": "\"Talking\"",
+										"from": "beginning"
+									}
 								}
 							],
 							"sid": 258457348645764
@@ -38954,6 +39444,15 @@
 									"sid": 482396603270354,
 									"parameters": {
 										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Repair_Shop_Building",
+									"sid": 924540059148215,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
 									}
 								}
 							],
@@ -43084,11 +43583,11 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 609598503493849,
+													"sid": 540436705591748,
 													"parameters": {
 														"variable": "Dynamite_Max",
 														"comparison": 2,
-														"value": "99"
+														"value": "Dynamite_Max_Ammount"
 													}
 												}
 											],
@@ -43225,11 +43724,11 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 713184912333680,
+															"sid": 664872839455906,
 															"parameters": {
 																"variable": "Dynamite_Max",
 																"comparison": 2,
-																"value": "90"
+																"value": "Dynamite_Max_Ammount -10"
 															}
 														}
 													],
@@ -44748,9 +45247,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Shop_Explainer_Text",
-													"sid": 835192208409653,
+													"sid": 983077710528970,
 													"parameters": {
-														"text": "\"DYNAMITE - Used to destroy mining obstacles\" & newline & \"Max ammount: 99\""
+														"text": "\"DYNAMITE - Used to destroy mining obstacles\" & newline & \"Max ammount: \" & Dynamite_Max_Ammount"
 													}
 												}
 											],
