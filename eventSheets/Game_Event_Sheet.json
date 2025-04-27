@@ -82251,6 +82251,718 @@
 				}
 			],
 			"sid": 882352933895715
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Cursor Over",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Meta Buttons Cursor over",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 796819299319904
+								}
+							],
+							"actions": [],
+							"sid": 848732144228809,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 672874058834375,
+											"parameters": {
+												"object": "Meta_All_Buttons"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_All_Buttons",
+											"sid": 970520338920002,
+											"parameters": {
+												"animation": "\"Locked\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Meta_All_Buttons",
+											"sid": 118680326855845,
+											"parameters": {
+												"animation": "\"Background\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 936802663894946,
+											"parameters": {
+												"layer": "\"Meta_Upgrades\""
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 677732251099860
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Meta_All_Buttons",
+											"sid": 883220075418521,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"AdjustHSL\""
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 407600288827842,
+											"parameters": {
+												"audio-file": "Epic Stock Media - Mobile Game - Menu Double Click Vintage Type Writer Button Reverb",
+												"loop": "not-looping",
+												"volume": "-30",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 554692938377217,
+											"parameters": {
+												"cursor-style": "pointer"
+											}
+										}
+									],
+									"sid": 215227647616224
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 926889240616149
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 798254457365595,
+									"parameters": {
+										"object": "Meta_All_Buttons"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 741701704438909,
+									"parameters": {
+										"layer": "\"Meta_Upgrades\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Meta_All_Buttons",
+									"sid": 602056151929734,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"AdjustHSL\""
+									}
+								},
+								{
+									"id": "set-cursor-style2",
+									"objectClass": "Mouse",
+									"sid": 121595567781049,
+									"parameters": {
+										"cursor-style": "normal"
+									}
+								}
+							],
+							"sid": 614728169895405
+						}
+					],
+					"sid": 301456201056884
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "HUD Cursor over",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 368214384186755
+								}
+							],
+							"actions": [],
+							"sid": 161123991098516,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 239988247991953,
+											"parameters": {
+												"object": "HUD_All_Buttons"
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 181106702673403,
+											"parameters": {
+												"layer": "\"HUD\""
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 498952636121486
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HUD_All_Buttons",
+											"sid": 910732968263300,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"AdjustHSL2\""
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 570247712374363,
+											"parameters": {
+												"audio-file": "Epic Stock Media - Mobile Game - Menu Double Click Vintage Type Writer Button Reverb",
+												"loop": "not-looping",
+												"volume": "-30",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 791390425144100
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 562069181653009
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 186426472263604,
+									"parameters": {
+										"object": "HUD_All_Buttons"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "HUD_All_Buttons",
+									"sid": 195179940045311,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"AdjustHSL2\""
+									}
+								}
+							],
+							"sid": 803927523504473
+						}
+					],
+					"sid": 564457011956533
+				},
+				{
+					"eventType": "comment",
+					"text": "INTE GJORT"
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Buildings Cursor Over",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 937719661259834
+								}
+							],
+							"actions": [],
+							"sid": 260175080652946,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 579589422316901,
+											"parameters": {
+												"object": "Buildings_All_Buttons"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 746429473996213,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "layer-is-visible",
+													"objectClass": "System",
+													"sid": 438786353488308,
+													"parameters": {
+														"layer": "\"Buildings\""
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 294679363966644
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Buildings_All_Buttons",
+													"sid": 826944865630648,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"AdjustHSL\""
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 331510869482513,
+													"parameters": {
+														"audio-file": "Epic Stock Media - Mobile Game - Menu Double Click Vintage Type Writer Button Reverb",
+														"loop": "not-looping",
+														"volume": "-30",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "set-cursor-style2",
+													"objectClass": "Mouse",
+													"sid": 959891574653371,
+													"parameters": {
+														"cursor-style": "pointer"
+													}
+												}
+											],
+											"sid": 148536451425174
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "layer-is-visible",
+													"objectClass": "System",
+													"sid": 157876445761468,
+													"parameters": {
+														"layer": "\"Buildings_2\""
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 943049262208243
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Buildings_All_Buttons",
+													"sid": 856549300094543,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"AdjustHSL\""
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 103204318717950,
+													"parameters": {
+														"audio-file": "Epic Stock Media - Mobile Game - Menu Double Click Vintage Type Writer Button Reverb",
+														"loop": "not-looping",
+														"volume": "-30",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "set-cursor-style2",
+													"objectClass": "Mouse",
+													"sid": 140878695444498,
+													"parameters": {
+														"cursor-style": "pointer"
+													}
+												}
+											],
+											"sid": 673512696813668
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 653054605957031,
+									"parameters": {
+										"object": "Buildings_All_Buttons"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 727090398696338,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 233181571585123,
+											"parameters": {
+												"layer": "\"Buildings\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Buildings_All_Buttons",
+											"sid": 741991736849086,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"AdjustHSL\""
+											}
+										},
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 853188096995190,
+											"parameters": {
+												"cursor-style": "normal"
+											}
+										}
+									],
+									"sid": 708539726146974
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 460238975230680,
+											"parameters": {
+												"layer": "\"Buildings_2\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Buildings_All_Buttons",
+											"sid": 106270233893668,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"AdjustHSL\""
+											}
+										},
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 618075708121457,
+											"parameters": {
+												"cursor-style": "normal"
+											}
+										}
+									],
+									"sid": 823489289816358
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Background buttons"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 469299873169938
+								}
+							],
+							"actions": [],
+							"sid": 621209611274872,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 913031060297892,
+											"parameters": {
+												"object": "Buildings_All_Button_Background"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 404199471366428,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "layer-is-visible",
+													"objectClass": "System",
+													"sid": 708712074987108,
+													"parameters": {
+														"layer": "\"Buildings\""
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 145655091390626
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Buildings_All_Button_Background",
+													"sid": 594228132684663,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"AdjustHSL\""
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 848647335015536,
+													"parameters": {
+														"audio-file": "Epic Stock Media - Mobile Game - Menu Double Click Vintage Type Writer Button Reverb",
+														"loop": "not-looping",
+														"volume": "-30",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "set-cursor-style2",
+													"objectClass": "Mouse",
+													"sid": 594466190644802,
+													"parameters": {
+														"cursor-style": "pointer"
+													}
+												}
+											],
+											"sid": 358659680392677
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "layer-is-visible",
+													"objectClass": "System",
+													"sid": 716680253302130,
+													"parameters": {
+														"layer": "\"Buildings_2\""
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 932508237687563
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Buildings_All_Button_Background",
+													"sid": 381468440225039,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"AdjustHSL\""
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 809222584226005,
+													"parameters": {
+														"audio-file": "Epic Stock Media - Mobile Game - Menu Double Click Vintage Type Writer Button Reverb",
+														"loop": "not-looping",
+														"volume": "-30",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "set-cursor-style2",
+													"objectClass": "Mouse",
+													"sid": 902450726103159,
+													"parameters": {
+														"cursor-style": "pointer"
+													}
+												}
+											],
+											"sid": 925710417046929
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 421672968429475,
+									"parameters": {
+										"object": "Buildings_All_Button_Background"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 914263294116923,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 537974344392604,
+											"parameters": {
+												"layer": "\"Buildings\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Buildings_All_Button_Background",
+											"sid": 613668871865971,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"AdjustHSL\""
+											}
+										},
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 780553234901363,
+											"parameters": {
+												"cursor-style": "normal"
+											}
+										}
+									],
+									"sid": 371331595171138
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 453225364659366,
+											"parameters": {
+												"layer": "\"Buildings_2\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Buildings_All_Button_Background",
+											"sid": 724860584266367,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"AdjustHSL\""
+											}
+										},
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 121627759388152,
+											"parameters": {
+												"cursor-style": "normal"
+											}
+										}
+									],
+									"sid": 195480454133765
+								}
+							]
+						}
+					],
+					"sid": 559771403170868
+				}
+			],
+			"sid": 600881721655078
 		}
 	],
 	"sid": 196935397098049
