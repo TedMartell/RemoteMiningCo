@@ -42438,6 +42438,53 @@
 									"eventType": "block",
 									"conditions": [
 										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 710141112503298,
+											"parameters": {
+												"object": "Gun_Crate"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Gun_Crate",
+											"sid": 813176200958402,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 823384021267324
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 308838089163559
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Gun_Crate",
+											"sid": 168770480701854,
+											"parameters": {
+												"animation": "\"Open\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 829670725621488
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "Mitch",
 											"sid": 632655786407696,
@@ -42681,9 +42728,9 @@
 								{
 									"id": "is-animation-playing",
 									"objectClass": "Gun_Crate",
-									"sid": 672054949085359,
+									"sid": 803936865766251,
 									"parameters": {
-										"animation": "\"Open\""
+										"animation": "\"Active\""
 									}
 								}
 							],
@@ -44839,9 +44886,9 @@
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Shop_Buy_Button",
-											"sid": 900883613804053,
+											"sid": 231357694364289,
 											"parameters": {
-												"mode": "disable",
+												"mode": "enable",
 												"effect": "\"Darken\""
 											}
 										},
@@ -44857,9 +44904,9 @@
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Shop_Buy_Button",
-											"sid": 854679234563980,
+											"sid": 288077879371552,
 											"parameters": {
-												"mode": "enable",
+												"mode": "disable",
 												"effect": "\"Darken\""
 											}
 										},
@@ -45074,9 +45121,9 @@
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Shop_Reset_Button",
-											"sid": 928476690663605,
+											"sid": 564099517552583,
 											"parameters": {
-												"mode": "disable",
+												"mode": "enable",
 												"effect": "\"Darken\""
 											}
 										},
@@ -45092,9 +45139,9 @@
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Shop_Reset_Button",
-											"sid": 135874346625130,
+											"sid": 100000174488124,
 											"parameters": {
-												"mode": "enable",
+												"mode": "disable",
 												"effect": "\"Darken\""
 											}
 										}
@@ -75453,7 +75500,7 @@
 									"objectClass": "Death_Screen",
 									"sid": 517910537820587,
 									"parameters": {
-										"object": "Death_Dump_Inventory_Button2",
+										"object": "Death_Dump_Inventory_Button",
 										"layer": "\"Foreground\"",
 										"image-point": "\"Dump_Inventory\"",
 										"create-hierarchy": false,
@@ -75563,7 +75610,7 @@
 									"objectClass": "Death_Screen",
 									"sid": 793113224968849,
 									"parameters": {
-										"object": "Death_Dump_Inventory_Button2",
+										"object": "Death_Dump_Inventory_Button",
 										"layer": "\"Foreground\"",
 										"image-point": "\"Dump_Inventory\"",
 										"create-hierarchy": false,
@@ -75626,14 +75673,14 @@
 							"parameters": {
 								"mouse-button": "left",
 								"click-type": "clicked",
-								"object-clicked": "Death_Dump_Inventory_Button2"
+								"object-clicked": "Death_Dump_Inventory_Button"
 							}
 						}
 					],
 					"actions": [
 						{
 							"id": "set-effect-enabled",
-							"objectClass": "Death_Dump_Inventory_Button2",
+							"objectClass": "Death_Dump_Inventory_Button",
 							"sid": 528589787276908,
 							"parameters": {
 								"mode": "enable",
@@ -75651,7 +75698,7 @@
 						},
 						{
 							"id": "set-effect-enabled",
-							"objectClass": "Death_Dump_Inventory_Button2",
+							"objectClass": "Death_Dump_Inventory_Button",
 							"sid": 353964357625272,
 							"parameters": {
 								"mode": "disable",
@@ -82325,9 +82372,9 @@
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Meta_All_Buttons",
-											"sid": 883220075418521,
+											"sid": 437586235402948,
 											"parameters": {
-												"mode": "enable",
+												"mode": "disable",
 												"effect": "\"AdjustHSL\""
 											}
 										},
@@ -82387,9 +82434,9 @@
 								{
 									"id": "set-effect-enabled",
 									"objectClass": "Meta_All_Buttons",
-									"sid": 602056151929734,
+									"sid": 135692910133726,
 									"parameters": {
-										"mode": "disable",
+										"mode": "enable",
 										"effect": "\"AdjustHSL\""
 									}
 								},
@@ -82455,9 +82502,9 @@
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "HUD_All_Buttons",
-											"sid": 910732968263300,
+											"sid": 837506624861584,
 											"parameters": {
-												"mode": "enable",
+												"mode": "disable",
 												"effect": "\"AdjustHSL2\""
 											}
 										},
@@ -82501,9 +82548,9 @@
 								{
 									"id": "set-effect-enabled",
 									"objectClass": "HUD_All_Buttons",
-									"sid": 195179940045311,
+									"sid": 541021475531240,
 									"parameters": {
-										"mode": "disable",
+										"mode": "enable",
 										"effect": "\"AdjustHSL2\""
 									}
 								}
@@ -82512,10 +82559,6 @@
 						}
 					],
 					"sid": 564457011956533
-				},
-				{
-					"eventType": "comment",
-					"text": "INTE GJORT"
 				},
 				{
 					"eventType": "group",
@@ -82572,9 +82615,9 @@
 												{
 													"id": "set-effect-enabled",
 													"objectClass": "Buildings_All_Buttons",
-													"sid": 826944865630648,
+													"sid": 330816127775276,
 													"parameters": {
-														"mode": "enable",
+														"mode": "disable",
 														"effect": "\"AdjustHSL\""
 													}
 												},
@@ -82622,9 +82665,9 @@
 												{
 													"id": "set-effect-enabled",
 													"objectClass": "Buildings_All_Buttons",
-													"sid": 856549300094543,
+													"sid": 784345178850561,
 													"parameters": {
-														"mode": "enable",
+														"mode": "disable",
 														"effect": "\"AdjustHSL\""
 													}
 												},
@@ -82687,9 +82730,9 @@
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Buildings_All_Buttons",
-											"sid": 741991736849086,
+											"sid": 854742248616055,
 											"parameters": {
-												"mode": "disable",
+												"mode": "enable",
 												"effect": "\"AdjustHSL\""
 											}
 										},
@@ -82720,9 +82763,9 @@
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Buildings_All_Buttons",
-											"sid": 106270233893668,
+											"sid": 532682451485771,
 											"parameters": {
-												"mode": "disable",
+												"mode": "enable",
 												"effect": "\"AdjustHSL\""
 											}
 										},
@@ -82791,9 +82834,9 @@
 												{
 													"id": "set-effect-enabled",
 													"objectClass": "Buildings_All_Button_Background",
-													"sid": 594228132684663,
+													"sid": 264944390238901,
 													"parameters": {
-														"mode": "enable",
+														"mode": "disable",
 														"effect": "\"AdjustHSL\""
 													}
 												},
@@ -82841,9 +82884,9 @@
 												{
 													"id": "set-effect-enabled",
 													"objectClass": "Buildings_All_Button_Background",
-													"sid": 381468440225039,
+													"sid": 693073449480930,
 													"parameters": {
-														"mode": "enable",
+														"mode": "disable",
 														"effect": "\"AdjustHSL\""
 													}
 												},
@@ -82906,9 +82949,9 @@
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Buildings_All_Button_Background",
-											"sid": 613668871865971,
+											"sid": 424107518662434,
 											"parameters": {
-												"mode": "disable",
+												"mode": "enable",
 												"effect": "\"AdjustHSL\""
 											}
 										},
@@ -82939,9 +82982,9 @@
 										{
 											"id": "set-effect-enabled",
 											"objectClass": "Buildings_All_Button_Background",
-											"sid": 724860584266367,
+											"sid": 215137768038025,
 											"parameters": {
-												"mode": "disable",
+												"mode": "enable",
 												"effect": "\"AdjustHSL\""
 											}
 										},
@@ -82960,6 +83003,298 @@
 						}
 					],
 					"sid": 559771403170868
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Menu and Other Cursor Over",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 988921391442514,
+									"parameters": {
+										"object": "Yes_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Yes_Button",
+									"sid": 198339044039737,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 987291548357001
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 999482290453443
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Yes_Button",
+									"sid": 243050501121373,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 238566743537299
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 863092086301710,
+									"parameters": {
+										"object": "No_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "No_Button",
+									"sid": 349804843054607,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 655336074980263
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 454469140825563
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "No_Button",
+									"sid": 907442280910757,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 245998077941472
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 475233460391317,
+									"parameters": {
+										"object": "Buy_Gun_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Buy_Gun_Button",
+									"sid": 438140377463935,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 674587173665970
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 726362694008271
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Buy_Gun_Button",
+									"sid": 713832918805320,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 765931335875012
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 165802267941375,
+									"parameters": {
+										"object": "Repair_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Repair_Button",
+									"sid": 410437728706127,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 717925743212051
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 909777865238766
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Repair_Button",
+									"sid": 990368925139753,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 198506073638148
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 790939377460595,
+									"parameters": {
+										"object": "Death_Dump_Inventory_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Death_Dump_Inventory_Button",
+									"sid": 609285622853955,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 278677064484864
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 618347163275471
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Death_Dump_Inventory_Button",
+									"sid": 955107478791022,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 448895021961768
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 841891568455289,
+									"parameters": {
+										"object": "Death_Keep_Inventory_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Death_Keep_Inventory_Button",
+									"sid": 706419357282673,
+									"parameters": {
+										"animation": "\"Active\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 466705444561966
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 641361679111531
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Death_Keep_Inventory_Button",
+									"sid": 903993729042588,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 604780415414568
+						}
+					],
+					"sid": 973633840662035
 				}
 			],
 			"sid": 600881721655078
