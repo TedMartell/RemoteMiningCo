@@ -19,9 +19,9 @@
 				{
 					"id": "play",
 					"objectClass": "SFX",
-					"sid": 944883911488815,
+					"sid": 944352623313817,
 					"parameters": {
-						"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+						"audio-file": "Button_short",
 						"loop": "not-looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -62,6 +62,17 @@
 					"parameters": {
 						"layout": "Game"
 					}
+				},
+				{
+					"id": "fade-volume",
+					"objectClass": "SFX",
+					"sid": 495526526620532,
+					"parameters": {
+						"tag": "\"Surface_Music\"",
+						"db": "-100",
+						"duration": "3",
+						"ending": "stop"
+					}
 				}
 			],
 			"sid": 329016193760410
@@ -84,9 +95,9 @@
 				{
 					"id": "play",
 					"objectClass": "SFX",
-					"sid": 902951903431442,
+					"sid": 789623454446124,
 					"parameters": {
-						"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
+						"audio-file": "Button_short",
 						"loop": "not-looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -127,6 +138,17 @@
 					"parameters": {
 						"slot": "\"mysave\""
 					}
+				},
+				{
+					"id": "fade-volume",
+					"objectClass": "SFX",
+					"sid": 111744199889943,
+					"parameters": {
+						"tag": "\"Surface_Music\"",
+						"db": "-100",
+						"duration": "3",
+						"ending": "stop"
+					}
 				}
 			],
 			"sid": 364654079250888
@@ -146,18 +168,6 @@
 				}
 			],
 			"actions": [
-				{
-					"id": "play",
-					"objectClass": "SFX",
-					"sid": 876962229180039,
-					"parameters": {
-						"audio-file": "Stats Button InspectorJ - Robotic Functions - Clicking Pressing Selecting",
-						"loop": "not-looping",
-						"volume": "0",
-						"stereo-pan": "0",
-						"tag-optional": "\"\""
-					}
-				},
 				{
 					"id": "set-effect-enabled",
 					"objectClass": "Menu_Controls_Button",
@@ -324,7 +334,42 @@
 					}
 				}
 			],
-			"sid": 367256320192065
+			"sid": 367256320192065,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 948901243429695
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "SFX",
+							"sid": 357327458737771,
+							"parameters": {
+								"audio-file": "Button_short",
+								"loop": "not-looping",
+								"volume": "-30",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-cursor-style2",
+							"objectClass": "Mouse",
+							"sid": 311759827570709,
+							"parameters": {
+								"cursor-style": "pointer"
+							}
+						}
+					],
+					"sid": 481907278268657
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -371,7 +416,42 @@
 					}
 				}
 			],
-			"sid": 750455075266580
+			"sid": 750455075266580,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 359270534900531
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "SFX",
+							"sid": 888461358862809,
+							"parameters": {
+								"audio-file": "Button_short",
+								"loop": "not-looping",
+								"volume": "-30",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-cursor-style2",
+							"objectClass": "Mouse",
+							"sid": 263183186928584,
+							"parameters": {
+								"cursor-style": "pointer"
+							}
+						}
+					],
+					"sid": 425353255193238
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -418,7 +498,42 @@
 					}
 				}
 			],
-			"sid": 493068305060983
+			"sid": 493068305060983,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 932369065830850
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "SFX",
+							"sid": 282776174638239,
+							"parameters": {
+								"audio-file": "Button_short",
+								"loop": "not-looping",
+								"volume": "-30",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-cursor-style2",
+							"objectClass": "Mouse",
+							"sid": 732652022885160,
+							"parameters": {
+								"cursor-style": "pointer"
+							}
+						}
+					],
+					"sid": 211918024209447
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -441,6 +556,78 @@
 				}
 			],
 			"sid": 881010160407950
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 495570784038528,
+					"parameters": {
+						"object": "Menu_Controls_Button"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 749728758390775,
+					"parameters": {
+						"object": "Menu_New_Game_Button"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 480824902209067,
+					"parameters": {
+						"object": "Menu_Continue_Button"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style2",
+					"objectClass": "Mouse",
+					"sid": 468072267713265,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 510967446337586
+		},
+		{
+			"eventType": "comment",
+			"text": "Intro music"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 949799580621705
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "SFX",
+					"sid": 273420485095923,
+					"parameters": {
+						"audio-file": "Backgroundmusic",
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"Surface_Music\""
+					}
+				}
+			],
+			"sid": 468886624636201
 		}
 	],
 	"sid": 554733571785019
