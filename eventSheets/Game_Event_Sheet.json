@@ -56498,7 +56498,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "50",
+							"initialValue": "468",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -56986,6 +56986,11 @@
 														"create-hierarchy": false,
 														"template-name": "\"\""
 													}
+												},
+												{
+													"id": "wait-for-previous-actions",
+													"objectClass": "System",
+													"sid": 242846463887762
 												}
 											],
 											"sid": 868310544923750
@@ -72757,7 +72762,25 @@
 											"sid": 541264041520991
 										}
 									],
-									"sid": 176256345256932
+									"sid": 176256345256932,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 188019092283564,
+													"parameters": {
+														"variable": "Quest_Objective_1",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 931955752299416
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -73105,7 +73128,6 @@
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Background_Second",
 											"sid": 352713354766045,
-											"disabled": true,
 											"parameters": {
 												"object": "Enemy_Body3",
 												"layer": "\"Player\"",
@@ -73118,7 +73140,6 @@
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Background_Second",
 											"sid": 677003681213065,
-											"disabled": true,
 											"parameters": {
 												"object": "Enemy_Body4",
 												"layer": "\"Player\"",
@@ -79311,11 +79332,19 @@
 											"id": "set-instvar-value",
 											"objectClass": "Claim_Button",
 											"sid": 351469608831480,
-											"disabled": true,
 											"parameters": {
 												"instance-variable": "Quest_11_Active",
 												"value": "1"
 											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Mole_Top_Block",
+											"sid": 759367783762790
+										},
+										{
+											"type": "comment",
+											"text": "Demo above disabled"
 										},
 										{
 											"id": "set-eventvar-value",
@@ -79340,7 +79369,7 @@
 									"children": [
 										{
 											"eventType": "comment",
-											"text": "For the Demo only"
+											"text": "For the Demo only (Disable for full game)"
 										},
 										{
 											"eventType": "block",
@@ -79398,12 +79427,6 @@
 													"sid": 541899899285275
 												},
 												{
-													"id": "destroy",
-													"objectClass": "Mole_Top_Block",
-													"sid": 369958142895888,
-													"disabled": true
-												},
-												{
 													"id": "set-text",
 													"objectClass": "Quest_Text",
 													"sid": 305680598388954,
@@ -79420,7 +79443,8 @@
 													}
 												}
 											],
-											"sid": 351301986403892
+											"sid": 351301986403892,
+											"disabled": true
 										}
 									]
 								}
@@ -79995,10 +80019,9 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "Claim_Button",
-											"sid": 975666584635290,
-											"disabled": true,
+											"sid": 182716218491262,
 											"parameters": {
-												"instance-variable": "Quest_12_Active",
+												"instance-variable": "Quest_13_Active",
 												"value": "1"
 											}
 										}
@@ -80009,6 +80032,308 @@
 						}
 					],
 					"sid": 363898007239904
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "13th Quest",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 611469932381686
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 584727818538806,
+									"parameters": {
+										"instance-variable": "Quest_13_Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 455231070952551,
+									"parameters": {
+										"variable": "Quest_Target_3",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Quest_Text",
+									"sid": 356016835000568,
+									"parameters": {
+										"text": "\"Go EVEN deeper and defeat the FINAL BOSS!!! \""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Reward_Text",
+									"sid": 502987712008525,
+									"parameters": {
+										"text": "\"Your Reward for completing this quest:\" & newline & \"10000 $\""
+									}
+								}
+							],
+							"sid": 766287356458402,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 669851963430610,
+											"parameters": {
+												"variable": "Quest_Objective_3",
+												"comparison": 5,
+												"value": "Quest_Target_3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 367282025645299,
+											"parameters": {
+												"instance-variable": "Quest_13_Completed",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 340202290200573,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 121438806376864
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 572048264875613,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Claim_Button"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Claim_Button",
+									"sid": 641422465381667,
+									"parameters": {
+										"animation": "\"Active\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 834070387427871,
+									"parameters": {
+										"instance-variable": "Quest_13_Completed",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 883297131999689,
+									"parameters": {
+										"audio-file": "Button_buy",
+										"loop": "not-looping",
+										"volume": "Volume_General",
+										"stereo-pan": "0",
+										"tag-optional": "\"Button\""
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 472814323526592,
+									"parameters": {
+										"instance-variable": "Money",
+										"value": "10000"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 695277573123752,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 521860678706377,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Claim_Button",
+									"sid": 947014877887652,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 156452587181413,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 554209557279904,
+											"parameters": {
+												"object": "Item_Discovered_Background",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 958670247848633,
+											"parameters": {
+												"object": "Item_Discovered_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 884570094407314,
+											"parameters": {
+												"text": "\"YOU HAVE COMPLETED THE GAME!\""
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Quest_Text",
+											"sid": 105729150503189,
+											"parameters": {
+												"text": "\"NO MORE QUESTS\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 116471161749021,
+											"parameters": {
+												"instance-variable": "Quest_11_Completed",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 395477853745865,
+											"parameters": {
+												"instance-variable": "Quest_11_Active",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Claim_Button",
+											"sid": 992929622836183,
+											"parameters": {
+												"animation": "\"Passive\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 443903621917500,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 421444622223345,
+											"parameters": {
+												"variable": "Quest_Objective_2",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Claim_Button",
+											"sid": 131740307773045,
+											"parameters": {
+												"instance-variable": "Quest_12_Active",
+												"value": "1"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 299023627272131,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Background",
+											"sid": 458181751772358
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 155969020835566
+										}
+									],
+									"sid": 742373861909828
+								}
+							]
+						}
+					],
+					"sid": 937618799466877
 				}
 			],
 			"sid": 697321010246842
@@ -80166,7 +80491,7 @@
 											"eventType": "variable",
 											"name": "EndY",
 											"type": "number",
-											"initialValue": "215",
+											"initialValue": "468",
 											"comment": "",
 											"isStatic": false,
 											"isConstant": false,
