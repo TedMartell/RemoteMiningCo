@@ -5443,6 +5443,7 @@
 						},
 						{
 							"type": "script",
+							"language": "javascript",
 							"script": [
 								"runtime.globalVars.minerInventoryValue = String(minerInventory.value);",
 								"runtime.globalVars.minerInventoryWeight = String(minerInventory.weight);",
@@ -39987,6 +39988,7 @@
 																},
 																{
 																	"type": "script",
+																	"language": "javascript",
 																	"script": [
 																		"console.log(localVars.Ore)"
 																	]
@@ -44798,6 +44800,7 @@
 									"actions": [
 										{
 											"type": "script",
+											"language": "javascript",
 											"script": [
 												"localVars.Shopping_List = `Dynamite ${runtime.objects.Shop_Cart_Object.instVars}`"
 											]
@@ -46261,6 +46264,7 @@
 									"actions": [
 										{
 											"type": "script",
+											"language": "javascript",
 											"script": [
 												"moveAllItems(minerInventory, globalInventory)",
 												""
@@ -53492,6 +53496,7 @@
 												},
 												{
 													"type": "script",
+													"language": "javascript",
 													"script": [
 														"if (localVars.selectedRecipe in smelterRecipes) {",
 														"\tlocalVars.isRecipeSelected = 1",
@@ -53760,6 +53765,7 @@
 												},
 												{
 													"type": "script",
+													"language": "javascript",
 													"script": [
 														"// get the correct furnace",
 														"var smelterFurnaces = runtime.objects.Smelter_Furnace_1_Object.getAllInstances()",
@@ -54301,6 +54307,7 @@
 										},
 										{
 											"type": "script",
+											"language": "javascript",
 											"script": [
 												"var smelterFurnaces = runtime.objects.Smelter_Furnace_1_Object.getAllInstances()",
 												"for (var i = 0; i < smelterFurnaces.length; i++) {",
@@ -54329,6 +54336,7 @@
 										},
 										{
 											"type": "script",
+											"language": "javascript",
 											"script": [
 												"var smelterFurnaces = runtime.objects.Smelter_Furnace_1_Object.getAllInstances()",
 												"for (var i = 0; i < smelterFurnaces.length; i++) {",
@@ -54649,6 +54657,7 @@
 													"actions": [
 														{
 															"type": "script",
+															"language": "javascript",
 															"script": [
 																"localVars.maxAmount = Number.POSITIVE_INFINITY",
 																"// getting global inventory",
@@ -56572,6 +56581,7 @@
 										},
 										{
 											"type": "script",
+											"language": "javascript",
 											"script": [
 												"console.log(localVars.Ore)"
 											]
@@ -57850,7 +57860,7 @@
 										},
 										{
 											"eventType": "comment",
-											"text": "Tier 4 layer with Diamonds Gold and Zinc"
+											"text": "Tier 4 layer with minimal Diamonds Gold and Zinc"
 										},
 										{
 											"eventType": "block",
@@ -57905,11 +57915,11 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 376818678756136,
+															"sid": 948079854988775,
 															"parameters": {
 																"variable": "Ore",
 																"comparison": 4,
-																"value": "0.95"
+																"value": "0.999"
 															}
 														}
 													],
@@ -57941,11 +57951,11 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 845932212696576,
+															"sid": 325998163857387,
 															"parameters": {
 																"variable": "Ore",
 																"comparison": 4,
-																"value": "0.8"
+																"value": "0.998"
 															}
 														}
 													],
@@ -57977,11 +57987,11 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 986475340228895,
+															"sid": 549400354429069,
 															"parameters": {
 																"variable": "Ore",
 																"comparison": 4,
-																"value": "0.799"
+																"value": "0.997"
 															}
 														}
 													],
@@ -58013,11 +58023,11 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 453247298617656,
+															"sid": 413264607559942,
 															"parameters": {
 																"variable": "Ore",
 																"comparison": 4,
-																"value": "0.75"
+																"value": "0.9"
 															}
 														}
 													],
@@ -58049,11 +58059,11 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 298997372563676,
+															"sid": 183450086154002,
 															"parameters": {
 																"variable": "Ore",
 																"comparison": 4,
-																"value": "0.72"
+																"value": "0.8"
 															}
 														}
 													],
@@ -58085,11 +58095,11 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 181975492336559,
+															"sid": 471811663951155,
 															"parameters": {
 																"variable": "Ore",
 																"comparison": 4,
-																"value": "0.69"
+																"value": "0.7"
 															}
 														}
 													],
@@ -71195,6 +71205,7 @@
 										},
 										{
 											"type": "script",
+											"language": "javascript",
 											"script": []
 										}
 									],
@@ -75487,14 +75498,12 @@
 					],
 					"actions": [
 						{
-							"id": "fade-volume",
+							"id": "set-muted",
 							"objectClass": "SFX",
-							"sid": 294734874096046,
+							"sid": 641492705571482,
 							"parameters": {
 								"tag": "\"Surface_Music\"",
-								"db": "-100",
-								"duration": "3",
-								"ending": "stop"
+								"state": "muted"
 							}
 						},
 						{
@@ -75511,6 +75520,39 @@
 						}
 					],
 					"sid": 326470153590903
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 127595585480019
+						}
+					],
+					"actions": [
+						{
+							"id": "set-muted",
+							"objectClass": "SFX",
+							"sid": 630687836381114,
+							"parameters": {
+								"tag": "\"Surface_Music\"",
+								"state": "unmuted"
+							}
+						},
+						{
+							"id": "fade-volume",
+							"objectClass": "SFX",
+							"sid": 607971827029134,
+							"parameters": {
+								"tag": "\"Moleboss\"",
+								"db": "-100",
+								"duration": "3",
+								"ending": "stop"
+							}
+						}
+					],
+					"sid": 140262262769724
 				}
 			],
 			"sid": 616610756106818
@@ -80565,6 +80607,7 @@
 														},
 														{
 															"type": "script",
+															"language": "javascript",
 															"script": [
 																"console.log(localVars.Ore)"
 															]
