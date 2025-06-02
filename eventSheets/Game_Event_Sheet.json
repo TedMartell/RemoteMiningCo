@@ -51071,36 +51071,6 @@
 										"height-type": "no",
 										"z": false
 									}
-								},
-								{
-									"id": "move-to-top",
-									"objectClass": "Furnace_1_Buttons",
-									"sid": 308636869929105,
-									"disabled": true
-								},
-								{
-									"id": "move-to-top",
-									"objectClass": "Furnace_1_Text",
-									"sid": 803838104486475,
-									"disabled": true
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Furnace_1_Buttons",
-									"sid": 379309714455493,
-									"disabled": true,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Furnace_1_Text",
-									"sid": 788827846298613,
-									"disabled": true,
-									"parameters": {
-										"visibility": "visible"
-									}
 								}
 							],
 							"sid": 604227822232638,
@@ -51187,17 +51157,6 @@
 												"db": "-100",
 												"duration": "1",
 												"ending": "stop"
-											}
-										},
-										{
-											"id": "fade-volume",
-											"objectClass": "SFX",
-											"sid": 464482613663140,
-											"parameters": {
-												"tag": "\"Furnace_Active\"",
-												"db": "100",
-												"duration": "3",
-												"ending": "keep-playing"
 											}
 										},
 										{
@@ -51428,17 +51387,6 @@
 											}
 										},
 										{
-											"id": "fade-volume",
-											"objectClass": "SFX",
-											"sid": 172966017611522,
-											"parameters": {
-												"tag": "\"Furnace_Active\"",
-												"db": "100",
-												"duration": "3",
-												"ending": "keep-playing"
-											}
-										},
-										{
 											"type": "comment",
 											"text": "Move Notepad to Smelter"
 										},
@@ -51483,7 +51431,20 @@
 													"isInverted": true
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 278147379438792,
+													"parameters": {
+														"audio-file": "Smelterbackground",
+														"loop": "not-looping",
+														"volume": "Volume_General-10",
+														"stereo-pan": "0",
+														"tag-optional": "\"Smelter_Music\""
+													}
+												}
+											],
 											"sid": 319080796069427
 										}
 									]
@@ -53321,12 +53282,12 @@
 								{
 									"id": "fade-volume",
 									"objectClass": "SFX",
-									"sid": 820534430016201,
+									"sid": 922726060611186,
 									"parameters": {
 										"tag": "\"Furnace_Active\"",
 										"db": "-100",
 										"duration": "1",
-										"ending": "keep-playing"
+										"ending": "stop"
 									}
 								},
 								{
@@ -54031,12 +53992,12 @@
 								{
 									"id": "fade-volume",
 									"objectClass": "SFX",
-									"sid": 193111464356177,
+									"sid": 946098812393098,
 									"parameters": {
 										"tag": "\"Furnace_Active\"",
 										"db": "-100",
 										"duration": "1",
-										"ending": "keep-playing"
+										"ending": "stop"
 									}
 								},
 								{
