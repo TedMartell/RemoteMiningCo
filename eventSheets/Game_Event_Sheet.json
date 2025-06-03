@@ -4730,6 +4730,33 @@
 								},
 								{
 									"id": "spawn-another-object",
+									"objectClass": "HUD_Menu_Background",
+									"sid": 508052481613747,
+									"parameters": {
+										"object": "Achievement_Menu_Button",
+										"layer": "\"HUD\"",
+										"image-point": "\"Achievement_Menu_Button\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Achievement_Menu_Button",
+									"sid": 357572212563132,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "HUD_Menu_Background",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
 									"objectClass": "HUD_Grey",
 									"sid": 255501206215148,
 									"parameters": {
@@ -38305,6 +38332,21 @@
 							],
 							"actions": [
 								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Miner_Box",
+									"sid": 972614701268425,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Smelter_Building_Art",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
 									"id": "play",
 									"objectClass": "SFX",
 									"sid": 927487826443423,
@@ -38604,6 +38646,12 @@
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
+										{
+											"id": "unpin",
+											"objectClass": "Miner_Box",
+											"sid": 430479759209169,
+											"behaviorType": "Pin"
+										},
 										{
 											"id": "set-enabled",
 											"objectClass": "Miner_Box",
@@ -39178,253 +39226,6 @@
 										}
 									],
 									"sid": 517527766296562
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 160028734058041,
-									"parameters": {
-										"key": 80
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 904485038327352,
-									"parameters": {
-										"audio-file": "Button_short",
-										"loop": "not-looping",
-										"volume": "Volume_General",
-										"stereo-pan": "0",
-										"tag-optional": "\"Button\""
-									}
-								}
-							],
-							"sid": 929418796993709,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-visible",
-											"objectClass": "HUD_Credit_Card_Background",
-											"sid": 854412256371521
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "HUD_Credit_Card_Background",
-											"sid": 151607145886480,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "Money_Text",
-											"sid": 674551072824749,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "HUD_Money_Button",
-											"sid": 765875249274521,
-											"parameters": {
-												"animation": "\"Active\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 479380214708439,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 737817023621326
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "HUD_Credit_Card_Background",
-											"sid": 601842727228565,
-											"parameters": {
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "Money_Text",
-											"sid": 224207123001465,
-											"parameters": {
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "HUD_Money_Button",
-											"sid": 833827919382865,
-											"parameters": {
-												"animation": "\"Passive\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 707535387348701,
-									"disabled": true
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-object-clicked",
-									"objectClass": "Mouse",
-									"sid": 723283976349693,
-									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked",
-										"object-clicked": "HUD_Money_Button"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "play",
-									"objectClass": "SFX",
-									"sid": 170994443410019,
-									"parameters": {
-										"audio-file": "Button_short",
-										"loop": "not-looping",
-										"volume": "Volume_General",
-										"stereo-pan": "0",
-										"tag-optional": "\"Button\""
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "HUD_Money_Button",
-									"sid": 499691563356575,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 896271900256871,
-									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "HUD_Money_Button",
-									"sid": 718033259952379,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Darken\""
-									}
-								}
-							],
-							"sid": 505407651693881,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-visible",
-											"objectClass": "HUD_Credit_Card_Background",
-											"sid": 916521439710691
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "HUD_Credit_Card_Background",
-											"sid": 501719436516829,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "Money_Text",
-											"sid": 664310276964513,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "HUD_Money_Button",
-											"sid": 846146069048093,
-											"parameters": {
-												"animation": "\"Active\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 491547385066582,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 296871415215829
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "HUD_Credit_Card_Background",
-											"sid": 486033050144273,
-											"parameters": {
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "Money_Text",
-											"sid": 230775947290863,
-											"parameters": {
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "HUD_Money_Button",
-											"sid": 712677306731408,
-											"parameters": {
-												"animation": "\"Passive\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 421970319097548,
-									"disabled": true
 								}
 							]
 						}
@@ -54560,7 +54361,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "468",
+							"initialValue": "50",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -86289,6 +86090,242 @@
 				}
 			],
 			"sid": 184990098666026
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Achievements",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 236907239940998,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Achievement_Menu_Button"
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "HUD_Menu_Buttons",
+							"sid": 413061488937834
+						}
+					],
+					"actions": [
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Miner_Box",
+							"sid": 367364978531179,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Smelter_Building_Art",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Miner_Box",
+							"sid": 201486092686528,
+							"behaviorType": "Platform",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Achievements_Background",
+							"sid": 866923294076434,
+							"parameters": {
+								"x": "Miner_Box.X",
+								"y": "Miner_Box.Y"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "SFX",
+							"sid": 208605018132778,
+							"parameters": {
+								"audio-file": "Button_short",
+								"loop": "not-looping",
+								"volume": "Volume_General",
+								"stereo-pan": "0",
+								"tag-optional": "\"Button\""
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Achievement_Menu_Button",
+							"sid": 165222282008626,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Darken\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 576196403061160,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Achievement_Menu_Button",
+							"sid": 894395411599116,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Darken\""
+							}
+						}
+					],
+					"sid": 549701694071872,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Achievements_Background",
+									"sid": 559769142698117,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 815325303810329,
+									"parameters": {
+										"group-name": "\"Mechanical\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 510590829107152,
+									"parameters": {
+										"group-name": "\"Buildings\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 113000173993436,
+									"parameters": {
+										"layer": "\"HUD\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 899988036370899
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 657323030845970,
+							"parameters": {
+								"key": 27
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Achievements_Background",
+							"sid": 876455068791456
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Achievements_Background",
+							"sid": 815873921019039,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 767549089730046,
+							"parameters": {
+								"group-name": "\"Mechanical\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 728033136975188,
+							"parameters": {
+								"group-name": "\"Buildings\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 424783843209538,
+							"parameters": {
+								"layer": "\"HUD\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "unpin",
+							"objectClass": "Miner_Box",
+							"sid": 142689837457961,
+							"behaviorType": "Pin"
+						}
+					],
+					"sid": 834270967082503
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 219838099896108
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 561307203291285,
+							"parameters": {
+								"object": "Achievements_Background",
+								"layer": "\"Foreground\"",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 647132914921233
+				}
+			],
+			"sid": 641353228943237
 		}
 	],
 	"sid": 196935397098049
