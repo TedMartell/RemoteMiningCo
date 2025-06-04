@@ -5267,7 +5267,6 @@
 							"id": "set-silent",
 							"objectClass": "SFX",
 							"sid": 683047249247073,
-							"disabled": true,
 							"parameters": {
 								"mode": "silent"
 							}
@@ -64300,6 +64299,58 @@
 													"eventType": "block",
 													"conditions": [
 														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Achievements_Object",
+															"sid": 796486798081955,
+															"parameters": {
+																"instance-variable": "Achievement_1_Coal"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Achievements_Object",
+															"sid": 679749496514362,
+															"parameters": {
+																"instance-variable": "Achievement_1_Coal",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 252168038213035
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Achievements_Object",
+															"sid": 360367552607256,
+															"parameters": {
+																"instance-variable": "Achievement_2_Coal"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Achievements_Object",
+															"sid": 892994338582529,
+															"parameters": {
+																"instance-variable": "Achievement_2_Coal_Count",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 399959812729646
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
 															"id": "compare-boolean-eventvar",
 															"objectClass": "System",
 															"sid": 239930555546862,
@@ -86099,143 +86150,1040 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "group",
+					"disabled": false,
+					"title": "Achievement Triggers",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "on-object-clicked",
-							"objectClass": "Mouse",
-							"sid": 236907239940998,
-							"parameters": {
-								"mouse-button": "left",
-								"click-type": "clicked",
-								"object-clicked": "Achievement_Menu_Button"
-							}
+							"eventType": "comment",
+							"text": "1# Coal"
 						},
 						{
-							"id": "is-visible",
-							"objectClass": "HUD_Menu_Buttons",
-							"sid": 413061488937834
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 395722236108759,
+									"parameters": {
+										"instance-variable": "Achievement_1_Coal"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 438580787591691
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 416262414625996,
+									"parameters": {
+										"object": "Item_Discovered_Background",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 427538308656349,
+									"parameters": {
+										"object": "Item_Discovered_Text",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Achievement_1_Coal",
+									"sid": 488796343641430,
+									"parameters": {
+										"animation": "\"Unlocked\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "unlock-achievement",
+									"objectClass": "Steamworks",
+									"sid": 287787677698298,
+									"parameters": {
+										"achievement": "\"Achievement_1_Coal\""
+									}
+								}
+							],
+							"sid": 406131940367653,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 418212168477882,
+											"parameters": {
+												"variable": "Alerts_Muted"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 660780074402544
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 631143626954284,
+											"parameters": {
+												"audio-file": "Ding",
+												"loop": "not-looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Ding\""
+											}
+										}
+									],
+									"sid": 126528761523227
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 946965123104611,
+											"parameters": {
+												"text": "\"Achievement Unlocked\" & newline & \"Lump of Coal\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 844898720449044,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Background",
+											"sid": 692677188974117
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 765205104721514
+										}
+									],
+									"sid": 445779214258506
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "2# Coal"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Achievements_Object",
+									"sid": 856469251271179,
+									"parameters": {
+										"instance-variable": "Achievement_2_Coal_Count",
+										"comparison": 5,
+										"value": "250"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 791854768003062
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Achievements_Object",
+									"sid": 654696607646800,
+									"parameters": {
+										"instance-variable": "Achievement_2_Coal",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 705160331960425
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 561845339282217,
+									"parameters": {
+										"instance-variable": "Achievement_2_Coal"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 299938989452777
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 792778748468098,
+									"parameters": {
+										"object": "Item_Discovered_Background",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 989568137193686,
+									"parameters": {
+										"object": "Item_Discovered_Text",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Achievement_2_Coal",
+									"sid": 898823713278902,
+									"parameters": {
+										"animation": "\"Unlocked\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "unlock-achievement",
+									"objectClass": "Steamworks",
+									"sid": 652711564037873,
+									"parameters": {
+										"achievement": "\"Achievement_2_Coal\""
+									}
+								}
+							],
+							"sid": 654622823263203,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 225411937360458,
+											"parameters": {
+												"variable": "Alerts_Muted"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 153201915758493
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 541301448925369,
+											"parameters": {
+												"audio-file": "Ding",
+												"loop": "not-looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Ding\""
+											}
+										}
+									],
+									"sid": 618648191305945
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 670094801490400,
+											"parameters": {
+												"text": "\"Achievement Unlocked\" & newline & \"Mine 250 Coal\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 631680894311111,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Background",
+											"sid": 720275727245679
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 728920073137580
+										}
+									],
+									"sid": 324850115955762
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "3# Coal"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 148942187930670,
+									"parameters": {
+										"instance-variable": "Coal",
+										"comparison": 5,
+										"value": "10000"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 575525559362879
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Achievements_Object",
+									"sid": 837925131335362,
+									"parameters": {
+										"instance-variable": "Achievement_3_Coal",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 135052954511528
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 668743184742564,
+									"parameters": {
+										"instance-variable": "Achievement_3_Coal"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 576881941219766,
+									"parameters": {
+										"layer": "\"HUD\""
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 786870456964142
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 497511937107031,
+									"parameters": {
+										"object": "Item_Discovered_Background",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 209193878657591,
+									"parameters": {
+										"object": "Item_Discovered_Text",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Achievement_3_Coal",
+									"sid": 581665714432087,
+									"parameters": {
+										"animation": "\"Unlocked\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "unlock-achievement",
+									"objectClass": "Steamworks",
+									"sid": 178349618879653,
+									"parameters": {
+										"achievement": "\"Achievement_3_Coal\""
+									}
+								}
+							],
+							"sid": 878834987493653,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 260603545779930,
+											"parameters": {
+												"variable": "Alerts_Muted"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 972653947943313
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 336194720331100,
+											"parameters": {
+												"audio-file": "Ding",
+												"loop": "not-looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Ding\""
+											}
+										}
+									],
+									"sid": 864820870835529
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 289061450427122,
+											"parameters": {
+												"text": "\"Achievement Unlocked\" & newline & \"Have 10K Coal in your Global Inventory\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 662930736350237,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Background",
+											"sid": 201305232648449
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 488749585155726
+										}
+									],
+									"sid": 851587391079908
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "4# Coal"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 391373004097877,
+									"parameters": {
+										"variable": "Miner_Height",
+										"comparison": 2,
+										"value": "-100"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 464157585264512
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Achievements_Object",
+									"sid": 468315711028284,
+									"parameters": {
+										"instance-variable": "Achievement_4_Deep",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 590188100477822
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 734707398242396,
+									"parameters": {
+										"instance-variable": "Achievement_4_Deep"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 918408839331280
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 190788445911797,
+									"parameters": {
+										"object": "Item_Discovered_Background",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 190541444606604,
+									"parameters": {
+										"object": "Item_Discovered_Text",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Achievement_4_Deep",
+									"sid": 968206906500901,
+									"parameters": {
+										"animation": "\"Unlocked\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "unlock-achievement",
+									"objectClass": "Steamworks",
+									"sid": 457358084525158,
+									"parameters": {
+										"achievement": "\"Achievement_4_Deep\""
+									}
+								}
+							],
+							"sid": 317880024583894,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 687406628747769,
+											"parameters": {
+												"variable": "Alerts_Muted"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 573280552325130
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 575906229337334,
+											"parameters": {
+												"audio-file": "Ding",
+												"loop": "not-looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Ding\""
+											}
+										}
+									],
+									"sid": 175272728173843
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 321961562133131,
+											"parameters": {
+												"text": "\"Achievement Unlocked\" & newline & \"Reach a depth of -100m\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 240863935157481,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Background",
+											"sid": 813481581968456
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 676745187665655
+										}
+									],
+									"sid": 307138292432559
+								}
+							]
 						}
 					],
-					"actions": [
-						{
-							"id": "pin-to-object-properties",
-							"objectClass": "Miner_Box",
-							"sid": 367364978531179,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "Smelter_Building_Art",
-								"x": true,
-								"y": true,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						},
-						{
-							"id": "set-enabled",
-							"objectClass": "Miner_Box",
-							"sid": 201486092686528,
-							"behaviorType": "Platform",
-							"parameters": {
-								"state": "disabled"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "Achievements_Background",
-							"sid": 866923294076434,
-							"parameters": {
-								"x": "Miner_Box.X",
-								"y": "Miner_Box.Y"
-							}
-						},
-						{
-							"id": "play",
-							"objectClass": "SFX",
-							"sid": 208605018132778,
-							"parameters": {
-								"audio-file": "Button_short",
-								"loop": "not-looping",
-								"volume": "Volume_General",
-								"stereo-pan": "0",
-								"tag-optional": "\"Button\""
-							}
-						},
-						{
-							"id": "set-effect-enabled",
-							"objectClass": "Achievement_Menu_Button",
-							"sid": 165222282008626,
-							"parameters": {
-								"mode": "enable",
-								"effect": "\"Darken\""
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 576196403061160,
-							"parameters": {
-								"seconds": "0.1",
-								"use-timescale": true
-							}
-						},
-						{
-							"id": "set-effect-enabled",
-							"objectClass": "Achievement_Menu_Button",
-							"sid": 894395411599116,
-							"parameters": {
-								"mode": "disable",
-								"effect": "\"Darken\""
-							}
-						}
-					],
-					"sid": 549701694071872,
+					"sid": 691944185943877
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Achievement General",
+					"description": "",
+					"isActiveOnStart": true,
 					"children": [
 						{
 							"eventType": "block",
-							"conditions": [],
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 586531816989931
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 869208156444182,
+									"parameters": {
+										"object": "Achievements_Background",
+										"layer": "\"Foreground\"",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 354518817890813,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 440663135928140,
+											"parameters": {
+												"object": "Achievement_1_Coal",
+												"layer": "\"Foreground\"",
+												"image-point": "\"1\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_1_Coal",
+											"sid": 886665131887881,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 118413860197689,
+											"parameters": {
+												"object": "Achievement_2_Coal",
+												"layer": "\"Foreground\"",
+												"image-point": "\"2\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_2_Coal",
+											"sid": 522538543224234,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 482055579871392,
+											"parameters": {
+												"object": "Achievement_3_Coal",
+												"layer": "\"Foreground\"",
+												"image-point": "\"3\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_3_Coal",
+											"sid": 792934622528943,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 487414736132727,
+											"parameters": {
+												"object": "Achievement_4_Deep",
+												"layer": "\"Foreground\"",
+												"image-point": "\"4\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_4_Deep",
+											"sid": 253408918040492,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										}
+									],
+									"sid": 446928897386945
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 712389563335506,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Achievement_Menu_Button"
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "HUD_Menu_Buttons",
+									"sid": 404416193215622
+								}
+							],
+							"actions": [
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Miner_Box",
+									"sid": 397014990663802,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Smelter_Building_Art",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Miner_Box",
+									"sid": 652998599792411,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Achievements_Background",
+									"sid": 908755719630957,
+									"parameters": {
+										"x": "Miner_Box.X",
+										"y": "Miner_Box.Y"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 471858874870447,
+									"parameters": {
+										"audio-file": "Button_short",
+										"loop": "not-looping",
+										"volume": "Volume_General",
+										"stereo-pan": "0",
+										"tag-optional": "\"Button\""
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Achievement_Menu_Button",
+									"sid": 968054439407116,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 681541800607088,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Achievement_Menu_Button",
+									"sid": 117121257041514,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 435191161286091,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Achievements_Background",
+											"sid": 908742683096574,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 741699312567590,
+											"parameters": {
+												"group-name": "\"Mechanical\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 945486817867268,
+											"parameters": {
+												"group-name": "\"Buildings\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 180694458607445,
+											"parameters": {
+												"layer": "\"HUD\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Achievement_Sprites",
+											"sid": 847471069448382,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 741239576886228
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 227343419313883,
+									"parameters": {
+										"key": 27
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Achievements_Background",
+									"sid": 874218579834825
+								}
+							],
 							"actions": [
 								{
 									"id": "set-visible",
 									"objectClass": "Achievements_Background",
-									"sid": 559769142698117,
+									"sid": 967850101295134,
 									"parameters": {
-										"visibility": "visible"
+										"visibility": "invisible"
 									}
 								},
 								{
 									"id": "set-group-active",
 									"objectClass": "System",
-									"sid": 815325303810329,
+									"sid": 420934722913291,
 									"parameters": {
 										"group-name": "\"Mechanical\"",
-										"state": "deactivated"
+										"state": "activated"
 									}
 								},
 								{
 									"id": "set-group-active",
 									"objectClass": "System",
-									"sid": 510590829107152,
+									"sid": 975283647574380,
 									"parameters": {
 										"group-name": "\"Buildings\"",
-										"state": "deactivated"
+										"state": "activated"
 									}
 								},
 								{
 									"id": "set-layer-visible",
 									"objectClass": "System",
-									"sid": 113000173993436,
+									"sid": 994405616257975,
 									"parameters": {
 										"layer": "\"HUD\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "unpin",
+									"objectClass": "Miner_Box",
+									"sid": 618019194919558,
+									"behaviorType": "Pin"
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Achievement_Sprites",
+									"sid": 759070282517988,
+									"parameters": {
 										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Miner_Box",
+									"sid": 404701276591432,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "enabled"
 									}
 								}
 							],
-							"sid": 899988036370899
+							"sid": 695689299367080
 						}
-					]
+					],
+					"sid": 173131618287236
 				},
 				{
 					"eventType": "block",
@@ -86243,86 +87191,41 @@
 						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 657323030845970,
+							"sid": 737785920940717,
 							"parameters": {
-								"key": 27
+								"key": 79
 							}
-						},
-						{
-							"id": "is-visible",
-							"objectClass": "Achievements_Background",
-							"sid": 876455068791456
 						}
 					],
 					"actions": [
 						{
-							"id": "set-visible",
-							"objectClass": "Achievements_Background",
-							"sid": 815873921019039,
+							"id": "clear-achievement",
+							"objectClass": "Steamworks",
+							"sid": 679961299550077,
 							"parameters": {
-								"visibility": "invisible"
+								"achievement": "\"Achievement_1_Coal\""
 							}
 						},
 						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 767549089730046,
+							"id": "set-boolean-instvar",
+							"objectClass": "Achievements_Object",
+							"sid": 832499963906908,
 							"parameters": {
-								"group-name": "\"Mechanical\"",
-								"state": "activated"
+								"instance-variable": "Achievement_1_Coal",
+								"value": "false"
 							}
 						},
 						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 728033136975188,
+							"id": "set-animation",
+							"objectClass": "Achievement_1_Coal",
+							"sid": 178718526567786,
 							"parameters": {
-								"group-name": "\"Buildings\"",
-								"state": "activated"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 424783843209538,
-							"parameters": {
-								"layer": "\"HUD\"",
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "unpin",
-							"objectClass": "Miner_Box",
-							"sid": 142689837457961,
-							"behaviorType": "Pin"
-						}
-					],
-					"sid": 834270967082503
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 219838099896108
-						}
-					],
-					"actions": [
-						{
-							"id": "spawn-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 561307203291285,
-							"parameters": {
-								"object": "Achievements_Background",
-								"layer": "\"Foreground\"",
-								"image-point": "0",
-								"create-hierarchy": false,
-								"template-name": "\"\""
+								"animation": "\"Locked\"",
+								"from": "beginning"
 							}
 						}
 					],
-					"sid": 647132914921233
+					"sid": 248466226535705
 				}
 			],
 			"sid": 641353228943237
