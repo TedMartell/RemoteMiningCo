@@ -86638,7 +86638,7 @@
 						},
 						{
 							"eventType": "comment",
-							"text": "4# Coal"
+							"text": "4# Depth"
 						},
 						{
 							"eventType": "block",
@@ -86803,6 +86803,534 @@
 									"sid": 307138292432559
 								}
 							]
+						},
+						{
+							"eventType": "comment",
+							"text": "5# Money"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 654061559668586,
+									"parameters": {
+										"instance-variable": "Money",
+										"comparison": 5,
+										"value": "1000"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 893058142064278
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Achievements_Object",
+									"sid": 141748745562350,
+									"parameters": {
+										"instance-variable": "Achievement_5_Money",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 743300857223133
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 514691771018880,
+									"parameters": {
+										"instance-variable": "Achievement_5_Money"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 223590254612847,
+									"parameters": {
+										"layer": "\"HUD\""
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 149581165438324
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 106151751145546,
+									"parameters": {
+										"object": "Item_Discovered_Background",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 558411313459996,
+									"parameters": {
+										"object": "Item_Discovered_Text",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Achievement_5_Money",
+									"sid": 499238261536539,
+									"parameters": {
+										"animation": "\"Unlocked\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "unlock-achievement",
+									"objectClass": "Steamworks",
+									"sid": 165809534444161,
+									"parameters": {
+										"achievement": "\"Achievement_5_Money\""
+									}
+								}
+							],
+							"sid": 434465759760218,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 800472384438601,
+											"parameters": {
+												"variable": "Alerts_Muted"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 777125430298515
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 450782888035159,
+											"parameters": {
+												"audio-file": "Ding",
+												"loop": "not-looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Ding\""
+											}
+										}
+									],
+									"sid": 423154436921994
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 965067469716599,
+											"parameters": {
+												"text": "\"Achievement Unlocked\" & newline & \"Have $1000 in your account\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 731435314578397,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Background",
+											"sid": 746020608033053
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 900884972788876
+										}
+									],
+									"sid": 456994575278305
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "6# Money"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 817940368981996,
+									"parameters": {
+										"instance-variable": "Money",
+										"comparison": 5,
+										"value": "10000"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 186317541794814
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Achievements_Object",
+									"sid": 528629277502688,
+									"parameters": {
+										"instance-variable": "Achievement_6_Money",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 193655916790873
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 296017988021775,
+									"parameters": {
+										"instance-variable": "Achievement_6_Money"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 464634414116821,
+									"parameters": {
+										"layer": "\"HUD\""
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 454201813522109
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 732167000692797,
+									"parameters": {
+										"object": "Item_Discovered_Background",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 323194666490952,
+									"parameters": {
+										"object": "Item_Discovered_Text",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Achievement_6_Money",
+									"sid": 474773732750919,
+									"parameters": {
+										"animation": "\"Unlocked\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "unlock-achievement",
+									"objectClass": "Steamworks",
+									"sid": 889509772833718,
+									"parameters": {
+										"achievement": "\"Achievement_6_Money\""
+									}
+								}
+							],
+							"sid": 114365053550917,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 817449562582210,
+											"parameters": {
+												"variable": "Alerts_Muted"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 570921686125630
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 341812751731935,
+											"parameters": {
+												"audio-file": "Ding",
+												"loop": "not-looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Ding\""
+											}
+										}
+									],
+									"sid": 282716209912420
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 995547938710846,
+											"parameters": {
+												"text": "\"Achievement Unlocked\" & newline & \"Have $10 000 in your account\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 573964820416416,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Background",
+											"sid": 877791524303005
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 612029477185391
+										}
+									],
+									"sid": 693278508945907
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "7# Money"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 290870849126242,
+									"parameters": {
+										"instance-variable": "Money",
+										"comparison": 5,
+										"value": "100000"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 152487350333248
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Achievements_Object",
+									"sid": 251016346004483,
+									"parameters": {
+										"instance-variable": "Achievement_7_Money",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 683039003757177
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 390837471154878,
+									"parameters": {
+										"instance-variable": "Achievement_7_Money"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 646045523563928,
+									"parameters": {
+										"layer": "\"HUD\""
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 762855191364004
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 234210357556055,
+									"parameters": {
+										"object": "Item_Discovered_Background",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 729109629840467,
+									"parameters": {
+										"object": "Item_Discovered_Text",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Achievement_7_Money",
+									"sid": 821359914834048,
+									"parameters": {
+										"animation": "\"Unlocked\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "unlock-achievement",
+									"objectClass": "Steamworks",
+									"sid": 965517261138716,
+									"parameters": {
+										"achievement": "\"Achievement_7_Money\""
+									}
+								}
+							],
+							"sid": 692023638232924,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 394533179001561,
+											"parameters": {
+												"variable": "Alerts_Muted"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 293686495023763
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 932537123809022,
+											"parameters": {
+												"audio-file": "Ding",
+												"loop": "not-looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Ding\""
+											}
+										}
+									],
+									"sid": 241608595478771
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 862006790559596,
+											"parameters": {
+												"text": "\"Achievement Unlocked\" & newline & \"Have $100 000 in your account\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 251759471428875,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Background",
+											"sid": 241975386171108
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 722418507222281
+										}
+									],
+									"sid": 859079550265770
+								}
+							]
 						}
 					],
 					"sid": 691944185943877
@@ -86940,6 +87468,87 @@
 											"id": "pin-to-object-properties",
 											"objectClass": "Achievement_4_Deep",
 											"sid": 253408918040492,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 393999577844336,
+											"parameters": {
+												"object": "Achievement_5_Money",
+												"layer": "\"Foreground\"",
+												"image-point": "\"5\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_5_Money",
+											"sid": 374635156565294,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 799755442144702,
+											"parameters": {
+												"object": "Achievement_6_Money",
+												"layer": "\"Foreground\"",
+												"image-point": "\"6\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_6_Money",
+											"sid": 690202380342073,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 323016162341363,
+											"parameters": {
+												"object": "Achievement_7_Money",
+												"layer": "\"Foreground\"",
+												"image-point": "\"7\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_7_Money",
+											"sid": 512676939820244,
 											"behaviorType": "Pin",
 											"parameters": {
 												"pin-to": "Achievements_Background",
