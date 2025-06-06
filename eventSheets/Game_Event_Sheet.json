@@ -78266,6 +78266,32 @@
 										}
 									],
 									"sid": 742373861909828
+								},
+								{
+									"eventType": "comment",
+									"text": "Achievement unlock"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 993465836217477
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Achievements_Object",
+											"sid": 731376262426442,
+											"parameters": {
+												"instance-variable": "Achievement_10_Complete",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 189714089832522
 								}
 							]
 						}
@@ -86118,31 +86144,6 @@
 			"sid": 600881721655078
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 457388286130262,
-					"parameters": {
-						"key": 80
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "request-fullscreen",
-					"objectClass": "Browser",
-					"sid": 963185172701204,
-					"parameters": {
-						"mode": "stretch-letterbox-scale",
-						"navigation-ui": "auto"
-					}
-				}
-			],
-			"sid": 184990098666026
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Achievements",
@@ -87331,6 +87332,1303 @@
 									"sid": 859079550265770
 								}
 							]
+						},
+						{
+							"eventType": "comment",
+							"text": "8# Ingot"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 573529718248370,
+									"parameters": {
+										"instance-variable": "Silicon",
+										"comparison": 5,
+										"value": "10"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 772812860021295,
+									"parameters": {
+										"instance-variable": "Aluminium_Ingot",
+										"comparison": 5,
+										"value": "10"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 384925145173653,
+									"parameters": {
+										"instance-variable": "Iron_Ingot",
+										"comparison": 5,
+										"value": "10"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 715511359609311,
+									"parameters": {
+										"instance-variable": "Chromium_Ingot",
+										"comparison": 5,
+										"value": "10"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 343010989154822,
+									"parameters": {
+										"instance-variable": "Copper_Ingot",
+										"comparison": 5,
+										"value": "10"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 460966513173301,
+									"parameters": {
+										"instance-variable": "Lithium_Ingot",
+										"comparison": 5,
+										"value": "10"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 895825050449912,
+									"parameters": {
+										"instance-variable": "Silver_Ingot",
+										"comparison": 5,
+										"value": "10"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 222949257669592,
+									"parameters": {
+										"instance-variable": "Nickel_Ingot",
+										"comparison": 5,
+										"value": "10"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 969932040910312,
+									"parameters": {
+										"instance-variable": "Zinc_Ingot",
+										"comparison": 5,
+										"value": "10"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 146853198703564,
+									"parameters": {
+										"instance-variable": "Gold_Ingot",
+										"comparison": 5,
+										"value": "10"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 231158423746272
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Achievements_Object",
+									"sid": 927548440471058,
+									"parameters": {
+										"instance-variable": "Achievement_8_Ingot",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 794893903675421
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 991197303686851,
+									"parameters": {
+										"instance-variable": "Achievement_8_Ingot"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 249350919687436,
+									"parameters": {
+										"layer": "\"HUD\""
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 320917885207853
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 345886415028447,
+									"parameters": {
+										"object": "Item_Discovered_Background",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 951038473071026,
+									"parameters": {
+										"object": "Item_Discovered_Text",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Achievement_8_Ingot",
+									"sid": 196363208206408,
+									"parameters": {
+										"animation": "\"Unlocked\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "unlock-achievement",
+									"objectClass": "Steamworks",
+									"sid": 308735010193189,
+									"parameters": {
+										"achievement": "\"Achievement_8_Ingot\""
+									}
+								}
+							],
+							"sid": 922269572887356,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 689033184281812,
+											"parameters": {
+												"variable": "Alerts_Muted"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 428153130330614
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 121035881819245,
+											"parameters": {
+												"audio-file": "Ding",
+												"loop": "not-looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Ding\""
+											}
+										}
+									],
+									"sid": 216893644238869
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 266685357163755,
+											"parameters": {
+												"text": "\"Achievement Unlocked\" & newline & \"Have 10 of each Ingot in Global Inventory\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 777716786115886,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Background",
+											"sid": 806906785226746
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 764575448240851
+										}
+									],
+									"sid": 497517464251501
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "9# Ingot"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 144706495448528,
+									"parameters": {
+										"instance-variable": "Silicon",
+										"comparison": 5,
+										"value": "100"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 212888112646077,
+									"parameters": {
+										"instance-variable": "Aluminium_Ingot",
+										"comparison": 5,
+										"value": "100"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 109373175095427,
+									"parameters": {
+										"instance-variable": "Iron_Ingot",
+										"comparison": 5,
+										"value": "100"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 571608281547937,
+									"parameters": {
+										"instance-variable": "Chromium_Ingot",
+										"comparison": 5,
+										"value": "100"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 209963576824606,
+									"parameters": {
+										"instance-variable": "Copper_Ingot",
+										"comparison": 5,
+										"value": "100"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 812233853014855,
+									"parameters": {
+										"instance-variable": "Lithium_Ingot",
+										"comparison": 5,
+										"value": "100"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 410134052898096,
+									"parameters": {
+										"instance-variable": "Silver_Ingot",
+										"comparison": 5,
+										"value": "100"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 606303283591679,
+									"parameters": {
+										"instance-variable": "Nickel_Ingot",
+										"comparison": 5,
+										"value": "100"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 726563488933702,
+									"parameters": {
+										"instance-variable": "Zinc_Ingot",
+										"comparison": 5,
+										"value": "100"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 837016510262071,
+									"parameters": {
+										"instance-variable": "Gold_Ingot",
+										"comparison": 5,
+										"value": "100"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 743959254255311
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Achievements_Object",
+									"sid": 704533834045018,
+									"parameters": {
+										"instance-variable": "Achievement_9_Ingot",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 960847129699913
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 527936835397648,
+									"parameters": {
+										"instance-variable": "Achievement_9_Ingot"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 830423767845140,
+									"parameters": {
+										"layer": "\"HUD\""
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 485189202663297
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 916917942519290,
+									"parameters": {
+										"object": "Item_Discovered_Background",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 145215367933618,
+									"parameters": {
+										"object": "Item_Discovered_Text",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Achievement_9_Ingot",
+									"sid": 288408168436773,
+									"parameters": {
+										"animation": "\"Unlocked\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "unlock-achievement",
+									"objectClass": "Steamworks",
+									"sid": 892815573088032,
+									"parameters": {
+										"achievement": "\"Achievement_9_Ingot\""
+									}
+								}
+							],
+							"sid": 131850261994824,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 887015506172851,
+											"parameters": {
+												"variable": "Alerts_Muted"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 400667176664269
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 472886898180573,
+											"parameters": {
+												"audio-file": "Ding",
+												"loop": "not-looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Ding\""
+											}
+										}
+									],
+									"sid": 408895425486671
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 968659409789767,
+											"parameters": {
+												"text": "\"Achievement Unlocked\" & newline & \"Have 100 of each Ingot in Global Inventory\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 972314713639744,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Background",
+											"sid": 369820683794644
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 898153371573318
+										}
+									],
+									"sid": 791252402778973
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "10# Complete"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 241302119467526,
+									"parameters": {
+										"instance-variable": "Achievement_10_Complete"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 780275332167152,
+									"parameters": {
+										"layer": "\"HUD\""
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 843302297213288
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 337659519993420,
+									"parameters": {
+										"object": "Item_Discovered_Background",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 318185967035398,
+									"parameters": {
+										"object": "Item_Discovered_Text",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Achievement_10_Complete",
+									"sid": 285555224026665,
+									"parameters": {
+										"animation": "\"Unlocked\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "unlock-achievement",
+									"objectClass": "Steamworks",
+									"sid": 732753421650702,
+									"parameters": {
+										"achievement": "\"Achievement_10_Complete\""
+									}
+								}
+							],
+							"sid": 925785605926626,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 582435609406426,
+											"parameters": {
+												"variable": "Alerts_Muted"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 732044427745105
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 296514402218144,
+											"parameters": {
+												"audio-file": "Ding",
+												"loop": "not-looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Ding\""
+											}
+										}
+									],
+									"sid": 440909422766565
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 381577713275029,
+											"parameters": {
+												"text": "\"Achievement Unlocked\" & newline & \"Complete all Quests!\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 208165121463915,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Background",
+											"sid": 218894140667770
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 841915509589304
+										}
+									],
+									"sid": 739126619187480
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "11# Triggers"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"language": "javascript",
+									"script": [
+										"// Open to reveal all the conditions to Trigger "
+									]
+								}
+							],
+							"sid": 531580668934491,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 667209030973023,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 822645619482388,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_2_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 290333248238830,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_3_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 909264294064183,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_4_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 316479190379697,
+											"parameters": {
+												"instance-variable": "Base_Damage_Tier_5_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 669360978442869,
+											"parameters": {
+												"instance-variable": "Damage_Tier_1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 634669967979964,
+											"parameters": {
+												"instance-variable": "Damage_Tier_2_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 709638101178985,
+											"parameters": {
+												"instance-variable": "Damage_Tier_3_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 752824001232064,
+											"parameters": {
+												"instance-variable": "Damage_Tier_4_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Drill_Upg_Button",
+											"sid": 547042478613301,
+											"parameters": {
+												"instance-variable": "Damage_Tier_5_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 894130843094651,
+											"parameters": {
+												"instance-variable": "Energy_Effi_Tier_1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 428574135351483,
+											"parameters": {
+												"instance-variable": "Energy_Effi_Tier_2_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 830913225007813,
+											"parameters": {
+												"instance-variable": "Energy_Effi_Tier_3_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 595374952225095,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 625331775730519,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_2_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 167573670554834,
+											"parameters": {
+												"instance-variable": "Energy_Max_Tier_3_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 410767394603944,
+											"parameters": {
+												"instance-variable": "Energy_Regen_Tier_1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 657485038015593,
+											"parameters": {
+												"instance-variable": "Energy_Regen_Tier_2_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Energy_Upg_Button",
+											"sid": 323074015922378,
+											"parameters": {
+												"instance-variable": "Energy_Regen_Tier_3_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Passive_Upg_Button",
+											"sid": 716045407659089,
+											"parameters": {
+												"instance-variable": "Passive_Bauxite_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Passive_Upg_Button",
+											"sid": 339861354353522,
+											"parameters": {
+												"instance-variable": "Passive_Chromium_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Passive_Upg_Button",
+											"sid": 218463677005421,
+											"parameters": {
+												"instance-variable": "Passive_Coal_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Passive_Upg_Button",
+											"sid": 388788416264126,
+											"parameters": {
+												"instance-variable": "Passive_Copper_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Passive_Upg_Button",
+											"sid": 674731165199182,
+											"parameters": {
+												"instance-variable": "Passive_Iron_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Passive_Upg_Button",
+											"sid": 750491448963384,
+											"parameters": {
+												"instance-variable": "Passive_Lithium_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Passive_Upg_Button",
+											"sid": 365370549689708,
+											"parameters": {
+												"instance-variable": "Passive_Nickel_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Passive_Upg_Button",
+											"sid": 344370317258508,
+											"parameters": {
+												"instance-variable": "Passive_Quartz_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Passive_Upg_Button",
+											"sid": 147953688581193,
+											"parameters": {
+												"instance-variable": "Passive_Silver_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Passive_Upg_Button",
+											"sid": 604454828249316,
+											"parameters": {
+												"instance-variable": "Passive_Zinc_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 184151424787197,
+											"parameters": {
+												"instance-variable": "Engine_Effect_Tier1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 119790168837533,
+											"parameters": {
+												"instance-variable": "Engine_Effect_Tier_2_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 529483288301425,
+											"parameters": {
+												"instance-variable": "Engine_Effect_Tier_3_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 148564669229664,
+											"parameters": {
+												"instance-variable": "Engine_Efficiency_Tier1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 179027807493274,
+											"parameters": {
+												"instance-variable": "Engine_Efficiency_Tier2_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Engine_Upg_Button",
+											"sid": 699464638673153,
+											"parameters": {
+												"instance-variable": "Engine_Efficiency_Tier3_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 279923413839614,
+											"parameters": {
+												"instance-variable": "Shield_Heat_Tier1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 523948625491841,
+											"parameters": {
+												"instance-variable": "Shield_Heat_Tier2_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 974992187354867,
+											"parameters": {
+												"instance-variable": "Shield_Heat_Tier3_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 464585155473480,
+											"parameters": {
+												"instance-variable": "Shield_Impact_Tier1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 455649307315130,
+											"parameters": {
+												"instance-variable": "Shield_Heat_Tier2_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Shield_Upg_Button",
+											"sid": 533950819530636,
+											"parameters": {
+												"instance-variable": "Shield_Impact_Tier3_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 130850108181354,
+											"parameters": {
+												"instance-variable": "Dynamite_Area_Tier1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 555800804734507,
+											"parameters": {
+												"instance-variable": "Dynamite_Damage_Tier1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 372584501282561,
+											"parameters": {
+												"instance-variable": "Dynamite_Max_Amount_Tier_1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 621717559247611,
+											"parameters": {
+												"instance-variable": "Laser_Charged_Shot_Tier1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 419365242099717,
+											"parameters": {
+												"instance-variable": "Laser_Damage_Tier1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Weapons_Upg_Button",
+											"sid": 452210354370264,
+											"parameters": {
+												"instance-variable": "Laser_Reload_Tier1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 469203944815995,
+											"parameters": {
+												"instance-variable": "Battery_Effectiveness_Tier1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 935727750173787,
+											"parameters": {
+												"instance-variable": "Battery_Effectiveness_Tier2_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 944126953268321,
+											"parameters": {
+												"instance-variable": "Battery_Max_Ammount_Tier1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 907985305996286,
+											"parameters": {
+												"instance-variable": "Battery_Max_Ammount_Tier2_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 156600496371319,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Effectiveness_Tier1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 675809972497697,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Effectiveness_Tier2_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 291976995661528,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Max_Ammount_Tier1_Completed"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Meta_Consumables_Upg_Button",
+											"sid": 796130053749264,
+											"parameters": {
+												"instance-variable": "Repair_Kit_Max_Ammount_Tier2_Completed"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Achievements_Object",
+											"sid": 742302422462624,
+											"parameters": {
+												"instance-variable": "Achievement_11_Complete",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 337005481703215
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "11# Complete"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 145499417466498,
+									"parameters": {
+										"instance-variable": "Achievement_11_Complete"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 960751814293681,
+									"parameters": {
+										"layer": "\"HUD\""
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 189069511228285
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 224321654742751,
+									"parameters": {
+										"object": "Item_Discovered_Background",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 878846769363787,
+									"parameters": {
+										"object": "Item_Discovered_Text",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Achievement_11_Complete",
+									"sid": 492148121619298,
+									"parameters": {
+										"animation": "\"Unlocked\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "unlock-achievement",
+									"objectClass": "Steamworks",
+									"sid": 367599737828795,
+									"parameters": {
+										"achievement": "\"Achievement_11_Complete\""
+									}
+								}
+							],
+							"sid": 368061797317146,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 673099169698783,
+											"parameters": {
+												"variable": "Alerts_Muted"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 236126942016098
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 990378914831353,
+											"parameters": {
+												"audio-file": "Ding",
+												"loop": "not-looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Ding\""
+											}
+										}
+									],
+									"sid": 361985028986914
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 872384064245327,
+											"parameters": {
+												"text": "\"Achievement Unlocked\" & newline & \"Upgrade EVERYTHING to the max!\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 217205929873563,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Background",
+											"sid": 447761931590207
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 675491664227006
+										}
+									],
+									"sid": 146000803001117
+								}
+							]
 						}
 					],
 					"sid": 691944185943877
@@ -87549,6 +88847,114 @@
 											"id": "pin-to-object-properties",
 											"objectClass": "Achievement_7_Money",
 											"sid": 512676939820244,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 632438654956142,
+											"parameters": {
+												"object": "Achievement_8_Ingot",
+												"layer": "\"Foreground\"",
+												"image-point": "\"8\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_8_Ingot",
+											"sid": 640751606325005,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 700116762008333,
+											"parameters": {
+												"object": "Achievement_9_Ingot",
+												"layer": "\"Foreground\"",
+												"image-point": "\"9\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_9_Ingot",
+											"sid": 190286939341879,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 453290285903121,
+											"parameters": {
+												"object": "Achievement_10_Complete",
+												"layer": "\"Foreground\"",
+												"image-point": "\"10\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_10_Complete",
+											"sid": 653709372879918,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 364831620019140,
+											"parameters": {
+												"object": "Achievement_11_Complete",
+												"layer": "\"Foreground\"",
+												"image-point": "\"11\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_11_Complete",
+											"sid": 860455266470444,
 											"behaviorType": "Pin",
 											"parameters": {
 												"pin-to": "Achievements_Background",
@@ -87838,6 +89244,31 @@
 				}
 			],
 			"sid": 641353228943237
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 589994221138590,
+					"parameters": {
+						"key": 80
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "request-fullscreen",
+					"objectClass": "Browser",
+					"sid": 621771778977927,
+					"parameters": {
+						"mode": "stretch-letterbox-scale",
+						"navigation-ui": "auto"
+					}
+				}
+			],
+			"sid": 852472795740408
 		}
 	],
 	"sid": 196935397098049
