@@ -68622,6 +68622,19 @@
 												"instance-variable": "Fall_Timer",
 												"value": "0.5"
 											}
+										},
+										{
+											"type": "script",
+											"language": "javascript",
+											"script": []
+										},
+										{
+											"id": "set-text",
+											"objectClass": "TestText",
+											"sid": 637200048526171,
+											"parameters": {
+												"text": "Miner_Box.Fall_Timer"
+											}
 										}
 									],
 									"sid": 952364154008419
@@ -88627,6 +88640,167 @@
 										}
 									],
 									"sid": 146000803001117
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "12# Fall"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Miner_Box",
+									"sid": 754380743742475,
+									"parameters": {
+										"instance-variable": "Fall_Timer",
+										"comparison": 5,
+										"value": "30"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 336829950812812
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 971957324268598,
+									"parameters": {
+										"instance-variable": "Achievement_11_Complete"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 574044842426998,
+									"parameters": {
+										"layer": "\"HUD\""
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 869421370822186
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 381343490595903,
+									"parameters": {
+										"object": "Item_Discovered_Background",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HUD_Grey",
+									"sid": 323995875363971,
+									"parameters": {
+										"object": "Item_Discovered_Text",
+										"layer": "\"HUD\"",
+										"image-point": "\"Item_Discovered\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Achievement_11_Complete",
+									"sid": 373711125401975,
+									"parameters": {
+										"animation": "\"Unlocked\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "unlock-achievement",
+									"objectClass": "Steamworks",
+									"sid": 403540514657483,
+									"parameters": {
+										"achievement": "\"Achievement_11_Complete\""
+									}
+								}
+							],
+							"sid": 788675355534455,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 948285549301242,
+											"parameters": {
+												"variable": "Alerts_Muted"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 203843593181090
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 664306591568189,
+											"parameters": {
+												"audio-file": "Ding",
+												"loop": "not-looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Ding\""
+											}
+										}
+									],
+									"sid": 670792463900594
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 100522424982058,
+											"parameters": {
+												"text": "\"Achievement Unlocked\" & newline & \"Upgrade EVERYTHING to the max!\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 811738439090019,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Background",
+											"sid": 928796010506570
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 420889968978767
+										}
+									],
+									"sid": 226593840659259
 								}
 							]
 						}
