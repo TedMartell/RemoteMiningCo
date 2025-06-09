@@ -5264,9 +5264,14 @@
 					],
 					"actions": [
 						{
+							"type": "comment",
+							"text": "Should be disabled on live version"
+						},
+						{
 							"id": "set-silent",
 							"objectClass": "SFX",
 							"sid": 683047249247073,
+							"disabled": true,
 							"parameters": {
 								"mode": "silent"
 							}
@@ -40727,6 +40732,31 @@
 											"conditions": [],
 											"actions": [
 												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 784156855906593,
+													"parameters": {
+														"seconds": "3",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Achievements_Object",
+													"sid": 911077227553645,
+													"parameters": {
+														"instance-variable": "Achievement_14_Laser",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 263802025927772
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
 													"id": "stop",
 													"objectClass": "SFX",
 													"sid": 916136065098954,
@@ -40761,31 +40791,6 @@
 									]
 								}
 							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 746707115305732,
-									"parameters": {
-										"seconds": "3",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Achievements_Object",
-									"sid": 590943399465526,
-									"parameters": {
-										"instance-variable": "Achievement_14_Laser",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 896404027325023
 						}
 					],
 					"sid": 187206239009548
@@ -54491,7 +54496,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "50",
+							"initialValue": "468",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -90848,6 +90853,276 @@
 											"id": "pin-to-object-properties",
 											"objectClass": "Achievement_11_Complete",
 											"sid": 860455266470444,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 728011933401150,
+											"parameters": {
+												"object": "Achievement_12_Fall",
+												"layer": "\"Foreground\"",
+												"image-point": "\"12\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_12_Fall",
+											"sid": 718649693577788,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 293200818143940,
+											"parameters": {
+												"object": "Achievement_13_Diamond",
+												"layer": "\"Foreground\"",
+												"image-point": "\"13\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_13_Diamond",
+											"sid": 303226965540618,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 329966656285792,
+											"parameters": {
+												"object": "Achievement_14_Laser",
+												"layer": "\"Foreground\"",
+												"image-point": "\"14\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_14_Laser",
+											"sid": 375914412427095,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 903752172545731,
+											"parameters": {
+												"object": "Achievement_15_Reset",
+												"layer": "\"Foreground\"",
+												"image-point": "\"15\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_15_Reset",
+											"sid": 185336513132971,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 205389080632578,
+											"parameters": {
+												"object": "Achievement_16_Reset",
+												"layer": "\"Foreground\"",
+												"image-point": "\"16\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_16_Reset",
+											"sid": 252934826590718,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 416338803935727,
+											"parameters": {
+												"object": "Achievement_17_Gold",
+												"layer": "\"Foreground\"",
+												"image-point": "\"17\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_17_Gold",
+											"sid": 558829381656466,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 596327872428827,
+											"parameters": {
+												"object": "Achievement_18_Gold",
+												"layer": "\"Foreground\"",
+												"image-point": "\"18\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_18_Gold",
+											"sid": 580124660650862,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 447245529777355,
+											"parameters": {
+												"object": "Achievement_19_Lava",
+												"layer": "\"Foreground\"",
+												"image-point": "\"19\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_19_Lava",
+											"sid": 207712482690054,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 765939761561324,
+											"parameters": {
+												"object": "Achievement_20_Lava",
+												"layer": "\"Foreground\"",
+												"image-point": "\"20\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_20_Lava",
+											"sid": 974868724278980,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Achievements_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Achievements_Background",
+											"sid": 270231141861297,
+											"parameters": {
+												"object": "Achievement_21_End",
+												"layer": "\"Foreground\"",
+												"image-point": "\"21\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Achievement_21_End",
+											"sid": 852207322262147,
 											"behaviorType": "Pin",
 											"parameters": {
 												"pin-to": "Achievements_Background",
