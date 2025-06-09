@@ -38064,6 +38064,33 @@
 												"height-type": "no",
 												"z": false
 											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Settings_Menu",
+											"sid": 540459067966223,
+											"parameters": {
+												"object": "Game_Fullscreen_Button",
+												"layer": "\"Foreground\"",
+												"image-point": "\"Fullscreen_Button\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Game_Fullscreen_Button",
+											"sid": 563637935447289,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Settings_Menu",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
 										}
 									],
 									"sid": 361039698545690
@@ -49861,60 +49888,6 @@
 																	"sid": 789134982297209
 																}
 															]
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Warehouse_Sell_Cart_Object",
-																	"sid": 671748006317665,
-																	"parameters": {
-																		"instance-variable": "Gold",
-																		"comparison": 5,
-																		"value": "100"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-boolean-instvar",
-																	"objectClass": "Achievements_Object",
-																	"sid": 139569770595970,
-																	"parameters": {
-																		"instance-variable": "Achievement_17_Gold",
-																		"value": "true"
-																	}
-																}
-															],
-															"sid": 350554577820473
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Warehouse_Sell_Cart_Object",
-																	"sid": 123232455107588,
-																	"parameters": {
-																		"instance-variable": "Gold_Ingot",
-																		"comparison": 5,
-																		"value": "50"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-boolean-instvar",
-																	"objectClass": "Achievements_Object",
-																	"sid": 283173781788319,
-																	"parameters": {
-																		"instance-variable": "Achievement_18_Gold",
-																		"value": "true"
-																	}
-																}
-															],
-															"sid": 803219174723606
 														}
 													]
 												},
@@ -54496,7 +54469,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "468",
+							"initialValue": "50",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -63853,7 +63826,35 @@
 													"sid": 108682844332235
 												}
 											],
-											"sid": 679298613838370
+											"sid": 679298613838370,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Achievements_Object",
+															"sid": 549536348763344,
+															"parameters": {
+																"instance-variable": "Achievement_20_Lava"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-instvar",
+															"objectClass": "Achievements_Object",
+															"sid": 227091546014960,
+															"parameters": {
+																"instance-variable": "Achievement_20_Lava_Count",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 693520467361750
+												}
+											]
 										}
 									]
 								},
@@ -78469,32 +78470,6 @@
 										}
 									],
 									"sid": 742373861909828
-								},
-								{
-									"eventType": "comment",
-									"text": "Achievement unlock"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "trigger-once-while-true",
-											"objectClass": "System",
-											"sid": 993465836217477
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Achievements_Object",
-											"sid": 731376262426442,
-											"parameters": {
-												"instance-variable": "Achievement_10_Complete",
-												"value": "true"
-											}
-										}
-									],
-									"sid": 189714089832522
 								}
 							]
 						}
@@ -86672,6 +86647,15 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 829106271301358,
+									"parameters": {
+										"instance-variable": "Achievement_3_Coal"
+									},
+									"isInverted": true
+								},
+								{
 									"id": "compare-instance-variable",
 									"objectClass": "Global_Inventory_Object",
 									"sid": 148942187930670,
@@ -86680,163 +86664,151 @@
 										"comparison": 5,
 										"value": "10000"
 									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 575525559362879
 								}
 							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Achievements_Object",
-									"sid": 837925131335362,
-									"parameters": {
-										"instance-variable": "Achievement_3_Coal",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 135052954511528
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Achievements_Object",
-									"sid": 668743184742564,
-									"parameters": {
-										"instance-variable": "Achievement_3_Coal"
-									}
-								},
-								{
-									"id": "layer-is-visible",
-									"objectClass": "System",
-									"sid": 576881941219766,
-									"parameters": {
-										"layer": "\"HUD\""
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 786870456964142
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 497511937107031,
-									"parameters": {
-										"object": "Item_Discovered_Background",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 209193878657591,
-									"parameters": {
-										"object": "Item_Discovered_Text",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Achievement_3_Coal",
-									"sid": 581665714432087,
-									"parameters": {
-										"animation": "\"Unlocked\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "unlock-achievement",
-									"objectClass": "Steamworks",
-									"sid": 178349618879653,
-									"parameters": {
-										"achievement": "\"Achievement_3_Coal\""
-									}
-								}
-							],
-							"sid": 878834987493653,
+							"actions": [],
+							"sid": 135052954511528,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-boolean-eventvar",
+											"id": "layer-is-visible",
 											"objectClass": "System",
-											"sid": 260603545779930,
+											"sid": 519521631245668,
 											"parameters": {
-												"variable": "Alerts_Muted"
-											},
-											"isInverted": true
+												"layer": "\"HUD\""
+											}
 										},
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 972653947943313
+											"sid": 248968241236990
 										}
 									],
 									"actions": [
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 336194720331100,
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 551251279890271,
 											"parameters": {
-												"audio-file": "Ding",
-												"loop": "not-looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Ding\""
+												"object": "Item_Discovered_Background",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 481963766527479,
+											"parameters": {
+												"object": "Item_Discovered_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Achievement_3_Coal",
+											"sid": 586063374183220,
+											"parameters": {
+												"animation": "\"Unlocked\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "unlock-achievement",
+											"objectClass": "Steamworks",
+											"sid": 555385572805682,
+											"parameters": {
+												"achievement": "\"Achievement_3_Coal\""
 											}
 										}
 									],
-									"sid": 864820870835529
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"sid": 561503319626156,
+									"children": [
 										{
-											"id": "set-text",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 289061450427122,
-											"parameters": {
-												"text": "\"Achievement Unlocked\" & newline & \"Have 10K Coal in your Global Inventory\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 720808568853974,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 558373448545738
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 740713115061449,
+													"parameters": {
+														"audio-file": "Ding",
+														"loop": "not-looping",
+														"volume": "Volume_General",
+														"stereo-pan": "0",
+														"tag-optional": "\"Ding\""
+													}
+												}
+											],
+											"sid": 872503318571707
 										},
 										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 662930736350237,
-											"parameters": {
-												"seconds": "3",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Background",
-											"sid": 201305232648449
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 488749585155726
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 376971208014540,
+													"parameters": {
+														"text": "\"Achievement Unlocked\" & newline & \"Have 10K Coal in your Global Inventory\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 790213725240053,
+													"parameters": {
+														"seconds": "3",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Background",
+													"sid": 406281022052428
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 627951848812175
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Achievements_Object",
+													"sid": 874680533573315,
+													"parameters": {
+														"instance-variable": "Achievement_3_Coal",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 530093355817856
 										}
-									],
-									"sid": 851587391079908
+									]
 								}
 							]
 						},
@@ -87033,163 +87005,151 @@
 										"instance-variable": "Achievement_5_Money"
 									},
 									"isInverted": true
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 893058142064278
 								}
 							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Achievements_Object",
-									"sid": 141748745562350,
-									"parameters": {
-										"instance-variable": "Achievement_5_Money",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 743300857223133
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Achievements_Object",
-									"sid": 514691771018880,
-									"parameters": {
-										"instance-variable": "Achievement_5_Money"
-									}
-								},
-								{
-									"id": "layer-is-visible",
-									"objectClass": "System",
-									"sid": 223590254612847,
-									"parameters": {
-										"layer": "\"HUD\""
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 149581165438324
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 106151751145546,
-									"parameters": {
-										"object": "Item_Discovered_Background",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 558411313459996,
-									"parameters": {
-										"object": "Item_Discovered_Text",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Achievement_5_Money",
-									"sid": 499238261536539,
-									"parameters": {
-										"animation": "\"Unlocked\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "unlock-achievement",
-									"objectClass": "Steamworks",
-									"sid": 165809534444161,
-									"parameters": {
-										"achievement": "\"Achievement_5_Money\""
-									}
-								}
-							],
-							"sid": 434465759760218,
+							"actions": [],
+							"sid": 743300857223133,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-boolean-eventvar",
+											"id": "layer-is-visible",
 											"objectClass": "System",
-											"sid": 800472384438601,
+											"sid": 739676974118264,
 											"parameters": {
-												"variable": "Alerts_Muted"
-											},
-											"isInverted": true
+												"layer": "\"HUD\""
+											}
 										},
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 777125430298515
+											"sid": 272967325290709
 										}
 									],
 									"actions": [
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 450782888035159,
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 685149614030738,
 											"parameters": {
-												"audio-file": "Ding",
-												"loop": "not-looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Ding\""
+												"object": "Item_Discovered_Background",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 197037552250213,
+											"parameters": {
+												"object": "Item_Discovered_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Achievement_5_Money",
+											"sid": 991506055882599,
+											"parameters": {
+												"animation": "\"Unlocked\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "unlock-achievement",
+											"objectClass": "Steamworks",
+											"sid": 999130663876091,
+											"parameters": {
+												"achievement": "\"Achievement_5_Money\""
 											}
 										}
 									],
-									"sid": 423154436921994
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"sid": 277692303409069,
+									"children": [
 										{
-											"id": "set-text",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 965067469716599,
-											"parameters": {
-												"text": "\"Achievement Unlocked\" & newline & \"Have $1000 in your account\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 713535063468516,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 808443760780001
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 346790120911517,
+													"parameters": {
+														"audio-file": "Ding",
+														"loop": "not-looping",
+														"volume": "Volume_General",
+														"stereo-pan": "0",
+														"tag-optional": "\"Ding\""
+													}
+												}
+											],
+											"sid": 123001048225045
 										},
 										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 731435314578397,
-											"parameters": {
-												"seconds": "3",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Background",
-											"sid": 746020608033053
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 900884972788876
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 967645143212000,
+													"parameters": {
+														"text": "\"Achievement Unlocked\" & newline & \"Have $1000 in your account\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 663918139614590,
+													"parameters": {
+														"seconds": "3",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Background",
+													"sid": 766945557701829
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 224976923167809
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Achievements_Object",
+													"sid": 252528942626922,
+													"parameters": {
+														"instance-variable": "Achievement_5_Money",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 469922898764736
 										}
-									],
-									"sid": 456994575278305
+									]
 								}
 							]
 						},
@@ -87211,161 +87171,158 @@
 									}
 								},
 								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 186317541794814
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Achievements_Object",
-									"sid": 528629277502688,
-									"parameters": {
-										"instance-variable": "Achievement_6_Money",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 193655916790873
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "Achievements_Object",
-									"sid": 296017988021775,
+									"sid": 598050288238266,
 									"parameters": {
 										"instance-variable": "Achievement_6_Money"
-									}
-								},
-								{
-									"id": "layer-is-visible",
-									"objectClass": "System",
-									"sid": 464634414116821,
-									"parameters": {
-										"layer": "\"HUD\""
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 454201813522109
+									},
+									"isInverted": true
 								}
 							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 732167000692797,
-									"parameters": {
-										"object": "Item_Discovered_Background",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 323194666490952,
-									"parameters": {
-										"object": "Item_Discovered_Text",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Achievement_6_Money",
-									"sid": 474773732750919,
-									"parameters": {
-										"animation": "\"Unlocked\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "unlock-achievement",
-									"objectClass": "Steamworks",
-									"sid": 889509772833718,
-									"parameters": {
-										"achievement": "\"Achievement_6_Money\""
-									}
-								}
-							],
-							"sid": 114365053550917,
+							"actions": [],
+							"sid": 193655916790873,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-boolean-eventvar",
+											"id": "layer-is-visible",
 											"objectClass": "System",
-											"sid": 817449562582210,
+											"sid": 344189557655818,
 											"parameters": {
-												"variable": "Alerts_Muted"
-											},
-											"isInverted": true
+												"layer": "\"HUD\""
+											}
 										},
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 570921686125630
+											"sid": 815094879895579
 										}
 									],
 									"actions": [
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 341812751731935,
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 465672988719107,
 											"parameters": {
-												"audio-file": "Ding",
-												"loop": "not-looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Ding\""
+												"object": "Item_Discovered_Background",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 771022283443161,
+											"parameters": {
+												"object": "Item_Discovered_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Achievement_6_Money",
+											"sid": 713553414888697,
+											"parameters": {
+												"animation": "\"Unlocked\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "unlock-achievement",
+											"objectClass": "Steamworks",
+											"sid": 311554287218858,
+											"parameters": {
+												"achievement": "\"Achievement_6_Money\""
 											}
 										}
 									],
-									"sid": 282716209912420
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"sid": 319382024654529,
+									"children": [
 										{
-											"id": "set-text",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 995547938710846,
-											"parameters": {
-												"text": "\"Achievement Unlocked\" & newline & \"Have $10 000 in your account\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 194429941822674,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 921140489887510
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 784513996866122,
+													"parameters": {
+														"audio-file": "Ding",
+														"loop": "not-looping",
+														"volume": "Volume_General",
+														"stereo-pan": "0",
+														"tag-optional": "\"Ding\""
+													}
+												}
+											],
+											"sid": 337948952640759
 										},
 										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 573964820416416,
-											"parameters": {
-												"seconds": "3",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Background",
-											"sid": 877791524303005
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 612029477185391
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 182134566211098,
+													"parameters": {
+														"text": "\"Achievement Unlocked\" & newline & \"Have $10 000 in your account\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 423434635084589,
+													"parameters": {
+														"seconds": "3",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Background",
+													"sid": 278710909405718
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 652763170978127
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Achievements_Object",
+													"sid": 921083744388906,
+													"parameters": {
+														"instance-variable": "Achievement_6_Money",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 996037081864830
 										}
-									],
-									"sid": 693278508945907
+									]
 								}
 							]
 						},
@@ -87387,161 +87344,169 @@
 									}
 								},
 								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 151657169451927,
+									"parameters": {
+										"instance-variable": "Achievement_6_Money"
+									},
+									"isInverted": true
+								},
+								{
 									"id": "trigger-once-while-true",
 									"objectClass": "System",
 									"sid": 152487350333248
 								}
 							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Achievements_Object",
-									"sid": 251016346004483,
-									"parameters": {
-										"instance-variable": "Achievement_7_Money",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 683039003757177
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Achievements_Object",
-									"sid": 390837471154878,
-									"parameters": {
-										"instance-variable": "Achievement_7_Money"
-									}
-								},
-								{
-									"id": "layer-is-visible",
-									"objectClass": "System",
-									"sid": 646045523563928,
-									"parameters": {
-										"layer": "\"HUD\""
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 762855191364004
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 234210357556055,
-									"parameters": {
-										"object": "Item_Discovered_Background",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 729109629840467,
-									"parameters": {
-										"object": "Item_Discovered_Text",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Achievement_7_Money",
-									"sid": 821359914834048,
-									"parameters": {
-										"animation": "\"Unlocked\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "unlock-achievement",
-									"objectClass": "Steamworks",
-									"sid": 965517261138716,
-									"parameters": {
-										"achievement": "\"Achievement_7_Money\""
-									}
-								}
-							],
-							"sid": 692023638232924,
+							"actions": [],
+							"sid": 683039003757177,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-boolean-eventvar",
+											"id": "layer-is-visible",
 											"objectClass": "System",
-											"sid": 394533179001561,
+											"sid": 669453220516553,
 											"parameters": {
-												"variable": "Alerts_Muted"
-											},
-											"isInverted": true
+												"layer": "\"HUD\""
+											}
 										},
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 293686495023763
+											"sid": 225049449409958
 										}
 									],
 									"actions": [
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 932537123809022,
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 440885631284433,
 											"parameters": {
-												"audio-file": "Ding",
-												"loop": "not-looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Ding\""
+												"object": "Item_Discovered_Background",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 210209092555276,
+											"parameters": {
+												"object": "Item_Discovered_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Achievement_7_Money",
+											"sid": 420683325332065,
+											"parameters": {
+												"animation": "\"Unlocked\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "unlock-achievement",
+											"objectClass": "Steamworks",
+											"sid": 959318476584146,
+											"parameters": {
+												"achievement": "\"Achievement_7_Money\""
 											}
 										}
 									],
-									"sid": 241608595478771
+									"sid": 796151141271183,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 709596855819109,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 994831207612349
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 522006847188172,
+													"parameters": {
+														"audio-file": "Ding",
+														"loop": "not-looping",
+														"volume": "Volume_General",
+														"stereo-pan": "0",
+														"tag-optional": "\"Ding\""
+													}
+												}
+											],
+											"sid": 573182529684390
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 386251865421333,
+													"parameters": {
+														"text": "\"Achievement Unlocked\" & newline & \"Have $100 000 in your account\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 501314859033781,
+													"parameters": {
+														"seconds": "3",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Background",
+													"sid": 225712423175640
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 119098514140820
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Achievements_Object",
+													"sid": 889087946398015,
+													"parameters": {
+														"instance-variable": "Achievement_7_Money",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 970186207187533
+										}
+									]
 								},
 								{
 									"eventType": "block",
 									"conditions": [],
-									"actions": [
-										{
-											"id": "set-text",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 862006790559596,
-											"parameters": {
-												"text": "\"Achievement Unlocked\" & newline & \"Have $100 000 in your account\""
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 251759471428875,
-											"parameters": {
-												"seconds": "3",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Background",
-											"sid": 241975386171108
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 722418507222281
-										}
-									],
-									"sid": 859079550265770
+									"actions": [],
+									"sid": 274290691712752
 								}
 							]
 						},
@@ -87552,6 +87517,15 @@
 						{
 							"eventType": "block",
 							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 498735268818707,
+									"parameters": {
+										"instance-variable": "Achievement_8_Ingot"
+									},
+									"isInverted": true
+								},
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Global_Inventory_Object",
@@ -87651,163 +87625,151 @@
 										"comparison": 5,
 										"value": "10"
 									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 231158423746272
 								}
 							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Achievements_Object",
-									"sid": 927548440471058,
-									"parameters": {
-										"instance-variable": "Achievement_8_Ingot",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 794893903675421
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Achievements_Object",
-									"sid": 991197303686851,
-									"parameters": {
-										"instance-variable": "Achievement_8_Ingot"
-									}
-								},
-								{
-									"id": "layer-is-visible",
-									"objectClass": "System",
-									"sid": 249350919687436,
-									"parameters": {
-										"layer": "\"HUD\""
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 320917885207853
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 345886415028447,
-									"parameters": {
-										"object": "Item_Discovered_Background",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 951038473071026,
-									"parameters": {
-										"object": "Item_Discovered_Text",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Achievement_8_Ingot",
-									"sid": 196363208206408,
-									"parameters": {
-										"animation": "\"Unlocked\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "unlock-achievement",
-									"objectClass": "Steamworks",
-									"sid": 308735010193189,
-									"parameters": {
-										"achievement": "\"Achievement_8_Ingot\""
-									}
-								}
-							],
-							"sid": 922269572887356,
+							"actions": [],
+							"sid": 794893903675421,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-boolean-eventvar",
+											"id": "layer-is-visible",
 											"objectClass": "System",
-											"sid": 689033184281812,
+											"sid": 551479377046352,
 											"parameters": {
-												"variable": "Alerts_Muted"
-											},
-											"isInverted": true
+												"layer": "\"HUD\""
+											}
 										},
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 428153130330614
+											"sid": 222917657639400
 										}
 									],
 									"actions": [
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 121035881819245,
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 387422707252915,
 											"parameters": {
-												"audio-file": "Ding",
-												"loop": "not-looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Ding\""
+												"object": "Item_Discovered_Background",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 924078395343375,
+											"parameters": {
+												"object": "Item_Discovered_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Achievement_8_Ingot",
+											"sid": 969757441051592,
+											"parameters": {
+												"animation": "\"Unlocked\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "unlock-achievement",
+											"objectClass": "Steamworks",
+											"sid": 785514479258615,
+											"parameters": {
+												"achievement": "\"Achievement_8_Ingot\""
 											}
 										}
 									],
-									"sid": 216893644238869
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"sid": 157728962280252,
+									"children": [
 										{
-											"id": "set-text",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 266685357163755,
-											"parameters": {
-												"text": "\"Achievement Unlocked\" & newline & \"Have 10 of each Ingot in Global Inventory\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 827379130067004,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 316189154209195
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 340611863399615,
+													"parameters": {
+														"audio-file": "Ding",
+														"loop": "not-looping",
+														"volume": "Volume_General",
+														"stereo-pan": "0",
+														"tag-optional": "\"Ding\""
+													}
+												}
+											],
+											"sid": 266882013934166
 										},
 										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 777716786115886,
-											"parameters": {
-												"seconds": "3",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Background",
-											"sid": 806906785226746
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 764575448240851
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 891498091689447,
+													"parameters": {
+														"text": "\"Achievement Unlocked\" & newline & \"Have 10 of each Ingot in Global Inventory\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 333160882485170,
+													"parameters": {
+														"seconds": "3",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Background",
+													"sid": 639259274422747
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 494940862642528
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Achievements_Object",
+													"sid": 410430584011133,
+													"parameters": {
+														"instance-variable": "Achievement_8_Ingot",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 540877511101403
 										}
-									],
-									"sid": 497517464251501
+									]
 								}
 							]
 						},
@@ -87818,6 +87780,15 @@
 						{
 							"eventType": "block",
 							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 806518420021677,
+									"parameters": {
+										"instance-variable": "Achievement_9_Ingot"
+									},
+									"isInverted": true
+								},
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Global_Inventory_Object",
@@ -87917,163 +87888,151 @@
 										"comparison": 5,
 										"value": "100"
 									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 743959254255311
 								}
 							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Achievements_Object",
-									"sid": 704533834045018,
-									"parameters": {
-										"instance-variable": "Achievement_9_Ingot",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 960847129699913
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Achievements_Object",
-									"sid": 527936835397648,
-									"parameters": {
-										"instance-variable": "Achievement_9_Ingot"
-									}
-								},
-								{
-									"id": "layer-is-visible",
-									"objectClass": "System",
-									"sid": 830423767845140,
-									"parameters": {
-										"layer": "\"HUD\""
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 485189202663297
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 916917942519290,
-									"parameters": {
-										"object": "Item_Discovered_Background",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 145215367933618,
-									"parameters": {
-										"object": "Item_Discovered_Text",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Achievement_9_Ingot",
-									"sid": 288408168436773,
-									"parameters": {
-										"animation": "\"Unlocked\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "unlock-achievement",
-									"objectClass": "Steamworks",
-									"sid": 892815573088032,
-									"parameters": {
-										"achievement": "\"Achievement_9_Ingot\""
-									}
-								}
-							],
-							"sid": 131850261994824,
+							"actions": [],
+							"sid": 960847129699913,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-boolean-eventvar",
+											"id": "layer-is-visible",
 											"objectClass": "System",
-											"sid": 887015506172851,
+											"sid": 310953480837702,
 											"parameters": {
-												"variable": "Alerts_Muted"
-											},
-											"isInverted": true
+												"layer": "\"HUD\""
+											}
 										},
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 400667176664269
+											"sid": 829987438901526
 										}
 									],
 									"actions": [
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 472886898180573,
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 332345411814202,
 											"parameters": {
-												"audio-file": "Ding",
-												"loop": "not-looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Ding\""
+												"object": "Item_Discovered_Background",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 220036447196569,
+											"parameters": {
+												"object": "Item_Discovered_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Achievement_9_Ingot",
+											"sid": 567763281416648,
+											"parameters": {
+												"animation": "\"Unlocked\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "unlock-achievement",
+											"objectClass": "Steamworks",
+											"sid": 703829413566901,
+											"parameters": {
+												"achievement": "\"Achievement_9_Ingot\""
 											}
 										}
 									],
-									"sid": 408895425486671
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"sid": 352816459114675,
+									"children": [
 										{
-											"id": "set-text",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 968659409789767,
-											"parameters": {
-												"text": "\"Achievement Unlocked\" & newline & \"Have 100 of each Ingot in Global Inventory\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 552395014123433,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 849059049843296
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 310109076173407,
+													"parameters": {
+														"audio-file": "Ding",
+														"loop": "not-looping",
+														"volume": "Volume_General",
+														"stereo-pan": "0",
+														"tag-optional": "\"Ding\""
+													}
+												}
+											],
+											"sid": 963921197350230
 										},
 										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 972314713639744,
-											"parameters": {
-												"seconds": "3",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Background",
-											"sid": 369820683794644
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 898153371573318
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 318042656466756,
+													"parameters": {
+														"text": "\"Achievement Unlocked\" & newline & \"Have 100 of each Ingot in Global Inventory\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 384125578397716,
+													"parameters": {
+														"seconds": "3",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Background",
+													"sid": 330352121289650
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 845648047152708
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Achievements_Object",
+													"sid": 650130950078393,
+													"parameters": {
+														"instance-variable": "Achievement_9_Ingot",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 652338933913081
 										}
-									],
-									"sid": 791252402778973
+									]
 								}
 							]
 						},
@@ -88087,137 +88046,166 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "Achievements_Object",
-									"sid": 241302119467526,
+									"sid": 472663517128661,
 									"parameters": {
 										"instance-variable": "Achievement_10_Complete"
-									}
+									},
+									"isInverted": true
 								},
 								{
-									"id": "layer-is-visible",
-									"objectClass": "System",
-									"sid": 780275332167152,
+									"id": "compare-instance-variable",
+									"objectClass": "Claim_Button",
+									"sid": 232803018329740,
 									"parameters": {
-										"layer": "\"HUD\""
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 843302297213288
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 337659519993420,
-									"parameters": {
-										"object": "Item_Discovered_Background",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 318185967035398,
-									"parameters": {
-										"object": "Item_Discovered_Text",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Achievement_10_Complete",
-									"sid": 285555224026665,
-									"parameters": {
-										"animation": "\"Unlocked\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "unlock-achievement",
-									"objectClass": "Steamworks",
-									"sid": 732753421650702,
-									"parameters": {
-										"achievement": "\"Achievement_10_Complete\""
+										"instance-variable": "Quest_13_Completed",
+										"comparison": 0,
+										"value": "1"
 									}
 								}
 							],
-							"sid": 925785605926626,
+							"actions": [],
+							"sid": 165044817396262,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-boolean-eventvar",
+											"id": "layer-is-visible",
 											"objectClass": "System",
-											"sid": 582435609406426,
+											"sid": 174680887151949,
 											"parameters": {
-												"variable": "Alerts_Muted"
-											},
-											"isInverted": true
+												"layer": "\"HUD\""
+											}
 										},
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 732044427745105
+											"sid": 466208393873549
 										}
 									],
 									"actions": [
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 296514402218144,
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 272391963605383,
 											"parameters": {
-												"audio-file": "Ding",
-												"loop": "not-looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Ding\""
+												"object": "Item_Discovered_Background",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 677631984598594,
+											"parameters": {
+												"object": "Item_Discovered_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Achievement_10_Complete",
+											"sid": 299200891115195,
+											"parameters": {
+												"animation": "\"Unlocked\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "unlock-achievement",
+											"objectClass": "Steamworks",
+											"sid": 124440264527025,
+											"parameters": {
+												"achievement": "\"Achievement_10_Complete\""
 											}
 										}
 									],
-									"sid": 440909422766565
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"sid": 288538181849249,
+									"children": [
 										{
-											"id": "set-text",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 381577713275029,
-											"parameters": {
-												"text": "\"Achievement Unlocked\" & newline & \"Complete all Quests!\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 270741664616781,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 347776332902057
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 621241174457756,
+													"parameters": {
+														"audio-file": "Ding",
+														"loop": "not-looping",
+														"volume": "Volume_General",
+														"stereo-pan": "0",
+														"tag-optional": "\"Ding\""
+													}
+												}
+											],
+											"sid": 477773304471015
 										},
 										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 208165121463915,
-											"parameters": {
-												"seconds": "3",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Background",
-											"sid": 218894140667770
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 841915509589304
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 623263967698934,
+													"parameters": {
+														"text": "\"Achievement Unlocked\" & newline & \"Complete all Quests!\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 615761355085168,
+													"parameters": {
+														"seconds": "3",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Background",
+													"sid": 862708587695244
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 735139256372732
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Achievements_Object",
+													"sid": 703502039718763,
+													"parameters": {
+														"instance-variable": "Achievement_10_Complete",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 747433527094631
 										}
-									],
-									"sid": 739126619187480
+									]
 								}
 							]
 						},
@@ -88242,6 +88230,15 @@
 								{
 									"eventType": "block",
 									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Achievements_Object",
+											"sid": 459663897780582,
+											"parameters": {
+												"instance-variable": "Achievement_11_Complete"
+											},
+											"isInverted": true
+										},
 										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "Meta_Drill_Upg_Button",
@@ -88683,162 +88680,155 @@
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 337005481703215,
+									"children": [
 										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Achievements_Object",
-											"sid": 742302422462624,
-											"parameters": {
-												"instance-variable": "Achievement_11_Complete",
-												"value": "true"
-											}
-										}
-									],
-									"sid": 337005481703215
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "11# Complete"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Achievements_Object",
-									"sid": 145499417466498,
-									"parameters": {
-										"instance-variable": "Achievement_11_Complete"
-									}
-								},
-								{
-									"id": "layer-is-visible",
-									"objectClass": "System",
-									"sid": 960751814293681,
-									"parameters": {
-										"layer": "\"HUD\""
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 189069511228285
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 224321654742751,
-									"parameters": {
-										"object": "Item_Discovered_Background",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 878846769363787,
-									"parameters": {
-										"object": "Item_Discovered_Text",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Achievement_11_Complete",
-									"sid": 492148121619298,
-									"parameters": {
-										"animation": "\"Unlocked\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "unlock-achievement",
-									"objectClass": "Steamworks",
-									"sid": 367599737828795,
-									"parameters": {
-										"achievement": "\"Achievement_11_Complete\""
-									}
-								}
-							],
-							"sid": 368061797317146,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 673099169698783,
-											"parameters": {
-												"variable": "Alerts_Muted"
-											},
-											"isInverted": true
+											"eventType": "comment",
+											"text": "11# Complete"
 										},
 										{
-											"id": "trigger-once-while-true",
-											"objectClass": "System",
-											"sid": 236126942016098
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "layer-is-visible",
+													"objectClass": "System",
+													"sid": 650162692559116,
+													"parameters": {
+														"layer": "\"HUD\""
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 801885799158898
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "HUD_Grey",
+													"sid": 880874396060961,
+													"parameters": {
+														"object": "Item_Discovered_Background",
+														"layer": "\"HUD\"",
+														"image-point": "\"Item_Discovered\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "HUD_Grey",
+													"sid": 167412362647514,
+													"parameters": {
+														"object": "Item_Discovered_Text",
+														"layer": "\"HUD\"",
+														"image-point": "\"Item_Discovered\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Achievement_11_Complete",
+													"sid": 343954656525782,
+													"parameters": {
+														"animation": "\"Unlocked\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "unlock-achievement",
+													"objectClass": "Steamworks",
+													"sid": 639873679183684,
+													"parameters": {
+														"achievement": "\"Achievement_11_Complete\""
+													}
+												}
+											],
+											"sid": 518486809369567,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 591458247734532,
+															"parameters": {
+																"variable": "Alerts_Muted"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 104622393468880
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "SFX",
+															"sid": 104158286574487,
+															"parameters": {
+																"audio-file": "Ding",
+																"loop": "not-looping",
+																"volume": "Volume_General",
+																"stereo-pan": "0",
+																"tag-optional": "\"Ding\""
+															}
+														}
+													],
+													"sid": 132407198199210
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-text",
+															"objectClass": "Item_Discovered_Text",
+															"sid": 249870677557019,
+															"parameters": {
+																"text": "\"Achievement Unlocked\" & newline & \"Upgrade EVERYTHING to the max!\""
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 599404710870506,
+															"parameters": {
+																"seconds": "3",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "Item_Discovered_Background",
+															"sid": 513116773810133
+														},
+														{
+															"id": "destroy",
+															"objectClass": "Item_Discovered_Text",
+															"sid": 807894162129507
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Achievements_Object",
+															"sid": 882103577907798,
+															"parameters": {
+																"instance-variable": "Achievement_11_Complete",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 976634274978579
+												}
+											]
 										}
-									],
-									"actions": [
-										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 990378914831353,
-											"parameters": {
-												"audio-file": "Ding",
-												"loop": "not-looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Ding\""
-											}
-										}
-									],
-									"sid": 361985028986914
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "set-text",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 872384064245327,
-											"parameters": {
-												"text": "\"Achievement Unlocked\" & newline & \"Upgrade EVERYTHING to the max!\""
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 217205929873563,
-											"parameters": {
-												"seconds": "3",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Background",
-											"sid": 447761931590207
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 675491664227006
-										}
-									],
-									"sid": 146000803001117
+									]
 								}
 							]
 						},
@@ -88849,6 +88839,15 @@
 						{
 							"eventType": "block",
 							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
+									"sid": 542133215671631,
+									"parameters": {
+										"instance-variable": "Achievement_12_Fall"
+									},
+									"isInverted": true
+								},
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Miner_Box",
@@ -88865,156 +88864,149 @@
 									"sid": 487647498612933
 								}
 							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Achievements_Object",
-									"sid": 248340267687103,
-									"parameters": {
-										"instance-variable": "Achievement_12_Fall",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 336829950812812
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Achievements_Object",
-									"sid": 864746431309388,
-									"parameters": {
-										"instance-variable": "Achievement_12_Fall"
-									}
-								},
-								{
-									"id": "layer-is-visible",
-									"objectClass": "System",
-									"sid": 574044842426998,
-									"parameters": {
-										"layer": "\"HUD\""
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 869421370822186
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 381343490595903,
-									"parameters": {
-										"object": "Item_Discovered_Background",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 323995875363971,
-									"parameters": {
-										"object": "Item_Discovered_Text",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Achievement_12_Fall",
-									"sid": 141549738877646,
-									"parameters": {
-										"animation": "\"Unlocked\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "unlock-achievement",
-									"objectClass": "Steamworks",
-									"sid": 311738251533434,
-									"parameters": {
-										"achievement": "\"Achievement_12_Fall\""
-									}
-								}
-							],
-							"sid": 788675355534455,
+							"actions": [],
+							"sid": 336829950812812,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-boolean-eventvar",
+											"id": "layer-is-visible",
 											"objectClass": "System",
-											"sid": 948285549301242,
+											"sid": 109062250688582,
 											"parameters": {
-												"variable": "Alerts_Muted"
-											},
-											"isInverted": true
+												"layer": "\"HUD\""
+											}
 										},
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 203843593181090
+											"sid": 408834984716060
 										}
 									],
 									"actions": [
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 664306591568189,
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 836649299997975,
 											"parameters": {
-												"audio-file": "Ding",
-												"loop": "not-looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Ding\""
+												"object": "Item_Discovered_Background",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 804823394827191,
+											"parameters": {
+												"object": "Item_Discovered_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Achievement_12_Fall",
+											"sid": 645314990740213,
+											"parameters": {
+												"animation": "\"Unlocked\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "unlock-achievement",
+											"objectClass": "Steamworks",
+											"sid": 921420191705869,
+											"parameters": {
+												"achievement": "\"Achievement_12_Fall\""
 											}
 										}
 									],
-									"sid": 670792463900594
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"sid": 314362553090434,
+									"children": [
 										{
-											"id": "set-text",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 526961054396338,
-											"parameters": {
-												"text": "\"Achievement Unlocked\" & newline & \"Fall from Heaven to Hell\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 535808500103716,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 306681273713331
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 969855676232213,
+													"parameters": {
+														"audio-file": "Ding",
+														"loop": "not-looping",
+														"volume": "Volume_General",
+														"stereo-pan": "0",
+														"tag-optional": "\"Ding\""
+													}
+												}
+											],
+											"sid": 101344369329014
 										},
 										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 811738439090019,
-											"parameters": {
-												"seconds": "3",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Background",
-											"sid": 928796010506570
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 420889968978767
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 932745255538575,
+													"parameters": {
+														"text": "\"Achievement Unlocked\" & newline & \"Fall from Heaven to Hell\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 776184489796089,
+													"parameters": {
+														"seconds": "3",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Background",
+													"sid": 337558957696835
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 823362323014333
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Achievements_Object",
+													"sid": 318767897461178,
+													"parameters": {
+														"instance-variable": "Achievement_12_Fall",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 809417188449810
 										}
-									],
-									"sid": 226593840659259
+									]
 								}
 							]
 						},
@@ -89466,158 +89458,222 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "Achievements_Object",
-									"sid": 754716850235939,
-									"parameters": {
-										"instance-variable": "Achievement_16_Reset_Count",
-										"comparison": 5,
-										"value": "10"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Achievements_Object",
-									"sid": 301745526467804,
-									"parameters": {
-										"instance-variable": "Achievement_16_Reset",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 983651227231869
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "Achievements_Object",
-									"sid": 420950687960312,
+									"sid": 166960548562066,
 									"parameters": {
 										"instance-variable": "Achievement_16_Reset"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Meta_Item_Discovered_Object",
+									"sid": 231729254195767,
+									"parameters": {
+										"instance-variable": "Chromium_Discovered"
 									}
 								},
 								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 671978244770852
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Meta_Item_Discovered_Object",
+									"sid": 346381728583117,
+									"parameters": {
+										"instance-variable": "Copper_Discovered"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Meta_Item_Discovered_Object",
+									"sid": 800109844731703,
+									"parameters": {
+										"instance-variable": "Diamond_Discovered"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Meta_Item_Discovered_Object",
+									"sid": 619817755579963,
+									"parameters": {
+										"instance-variable": "Gold_Discovered"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Meta_Item_Discovered_Object",
+									"sid": 569783226534613,
+									"parameters": {
+										"instance-variable": "Iron_Discovered"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Meta_Item_Discovered_Object",
+									"sid": 159273132095825,
+									"parameters": {
+										"instance-variable": "Lithium_Discovered"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Meta_Item_Discovered_Object",
+									"sid": 380658336185149,
+									"parameters": {
+										"instance-variable": "Nickel_Discovered"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Meta_Item_Discovered_Object",
+									"sid": 466339976297455,
+									"parameters": {
+										"instance-variable": "Silver_Discovered"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Meta_Item_Discovered_Object",
+									"sid": 710236113157051,
+									"parameters": {
+										"instance-variable": "Zinc_Discovered"
+									}
 								}
 							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 309030861482743,
-									"parameters": {
-										"object": "Item_Discovered_Background",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 203333266531690,
-									"parameters": {
-										"object": "Item_Discovered_Text",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Achievement_16_Reset",
-									"sid": 662849644549768,
-									"parameters": {
-										"animation": "\"Unlocked\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "unlock-achievement",
-									"objectClass": "Steamworks",
-									"sid": 397262594770050,
-									"parameters": {
-										"achievement": "\"Achievement_16_Reset\""
-									}
-								}
-							],
-							"sid": 694192339079182,
+							"actions": [],
+							"sid": 983651227231869,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 997807965026230,
-											"parameters": {
-												"variable": "Alerts_Muted"
-											},
-											"isInverted": true
-										},
-										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 314800991218652
+											"sid": 511492530608899
 										}
 									],
 									"actions": [
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 732241226806174,
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 829286241717664,
 											"parameters": {
-												"audio-file": "Ding",
-												"loop": "not-looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Ding\""
+												"object": "Item_Discovered_Background",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 959937687838192,
+											"parameters": {
+												"object": "Item_Discovered_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Achievement_16_Discover",
+											"sid": 207828958990280,
+											"parameters": {
+												"animation": "\"Unlocked\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "unlock-achievement",
+											"objectClass": "Steamworks",
+											"sid": 873302462375573,
+											"parameters": {
+												"achievement": "\"Achievement_16_Discover\""
 											}
 										}
 									],
-									"sid": 901020495275560
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"sid": 970785636108647,
+									"children": [
 										{
-											"id": "set-text",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 122824632066559,
-											"parameters": {
-												"text": "\"Achievement Unlocked\" & newline & \"Use Big Bertha 10x times\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 502186215778920,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 697589301092958
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 701980623360509,
+													"parameters": {
+														"audio-file": "Ding",
+														"loop": "not-looping",
+														"volume": "Volume_General",
+														"stereo-pan": "0",
+														"tag-optional": "\"Ding\""
+													}
+												}
+											],
+											"sid": 514886457804475
 										},
 										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 141169834468125,
-											"parameters": {
-												"seconds": "3",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Background",
-											"sid": 853126454405528
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 500865151991501
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 831604757410687,
+													"parameters": {
+														"text": "\"Achievement Unlocked\" & newline & \"Discover all mineables\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 507246548227203,
+													"parameters": {
+														"seconds": "3",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Background",
+													"sid": 691706344673755
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 571361730259878
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Achievements_Object",
+													"sid": 618359206960529,
+													"parameters": {
+														"instance-variable": "Achievement_16_Reset",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 292777839838820
 										}
-									],
-									"sid": 597738109587400
+									]
 								}
 							]
 						},
@@ -89631,129 +89687,166 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "Achievements_Object",
-									"sid": 609911789865412,
+									"sid": 435416120813560,
 									"parameters": {
 										"instance-variable": "Achievement_17_Gold"
-									}
+									},
+									"isInverted": true
 								},
 								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 426564935153249
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 742330529830739,
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 314422457036469,
 									"parameters": {
-										"object": "Item_Discovered_Background",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 588812595812769,
-									"parameters": {
-										"object": "Item_Discovered_Text",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Achievement_17_Gold",
-									"sid": 686102895751823,
-									"parameters": {
-										"animation": "\"Unlocked\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "unlock-achievement",
-									"objectClass": "Steamworks",
-									"sid": 168036991597063,
-									"parameters": {
-										"achievement": "\"Achievement_17_Gold\""
+										"instance-variable": "Gold",
+										"comparison": 5,
+										"value": "100"
 									}
 								}
 							],
-							"sid": 198892141223015,
+							"actions": [],
+							"sid": 400331596005079,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-boolean-eventvar",
+											"id": "layer-is-visible",
 											"objectClass": "System",
-											"sid": 587613611537572,
+											"sid": 600571763664708,
 											"parameters": {
-												"variable": "Alerts_Muted"
-											},
-											"isInverted": true
+												"layer": "\"HUD\""
+											}
 										},
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 756290049488417
+											"sid": 253302301387747
 										}
 									],
 									"actions": [
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 908429569115604,
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 274455614519761,
 											"parameters": {
-												"audio-file": "Ding",
-												"loop": "not-looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Ding\""
+												"object": "Item_Discovered_Background",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 987286828514981,
+											"parameters": {
+												"object": "Item_Discovered_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Achievement_17_Gold",
+											"sid": 582198684596470,
+											"parameters": {
+												"animation": "\"Unlocked\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "unlock-achievement",
+											"objectClass": "Steamworks",
+											"sid": 477345926224189,
+											"parameters": {
+												"achievement": "\"Achievement_17_Gold\""
 											}
 										}
 									],
-									"sid": 507917412003885
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"sid": 432875247855584,
+									"children": [
 										{
-											"id": "set-text",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 248866519396808,
-											"parameters": {
-												"text": "\"Achievement Unlocked\" & newline & \"Sell 100 Gold Ore at once\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 870134165926097,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 340317355307948
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 999877572947236,
+													"parameters": {
+														"audio-file": "Ding",
+														"loop": "not-looping",
+														"volume": "Volume_General",
+														"stereo-pan": "0",
+														"tag-optional": "\"Ding\""
+													}
+												}
+											],
+											"sid": 116566662097649
 										},
 										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 976062718706001,
-											"parameters": {
-												"seconds": "3",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Background",
-											"sid": 108225779068156
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 219659727047070
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 974748796855004,
+													"parameters": {
+														"text": "\"Achievement Unlocked\" & newline & \"Sell 100 Gold Ore at once\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 296336675667724,
+													"parameters": {
+														"seconds": "3",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Background",
+													"sid": 369922069393910
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 505049719215853
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Achievements_Object",
+													"sid": 779994140847916,
+													"parameters": {
+														"instance-variable": "Achievement_17_Gold",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 571297032242176
 										}
-									],
-									"sid": 456286419479410
+									]
 								}
 							]
 						},
@@ -89767,129 +89860,166 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "Achievements_Object",
-									"sid": 157144990348720,
+									"sid": 310514236724604,
 									"parameters": {
 										"instance-variable": "Achievement_18_Gold"
-									}
+									},
+									"isInverted": true
 								},
 								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 768478825331699
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 386840692262222,
+									"id": "compare-instance-variable",
+									"objectClass": "Global_Inventory_Object",
+									"sid": 911152344872236,
 									"parameters": {
-										"object": "Item_Discovered_Background",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 925904883017471,
-									"parameters": {
-										"object": "Item_Discovered_Text",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Achievement_18_Gold",
-									"sid": 480438294001501,
-									"parameters": {
-										"animation": "\"Unlocked\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "unlock-achievement",
-									"objectClass": "Steamworks",
-									"sid": 292473382927129,
-									"parameters": {
-										"achievement": "\"Achievement_18_Gold\""
+										"instance-variable": "Gold_Ingot",
+										"comparison": 5,
+										"value": "50"
 									}
 								}
 							],
-							"sid": 455234574035807,
+							"actions": [],
+							"sid": 688359266394687,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-boolean-eventvar",
+											"id": "layer-is-visible",
 											"objectClass": "System",
-											"sid": 156485378366899,
+											"sid": 523298197407987,
 											"parameters": {
-												"variable": "Alerts_Muted"
-											},
-											"isInverted": true
+												"layer": "\"HUD\""
+											}
 										},
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 972959602692054
+											"sid": 595739726940029
 										}
 									],
 									"actions": [
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 602079914413325,
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 417599310681714,
 											"parameters": {
-												"audio-file": "Ding",
-												"loop": "not-looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Ding\""
+												"object": "Item_Discovered_Background",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 580947071739739,
+											"parameters": {
+												"object": "Item_Discovered_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Achievement_18_Gold",
+											"sid": 238320219531500,
+											"parameters": {
+												"animation": "\"Unlocked\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "unlock-achievement",
+											"objectClass": "Steamworks",
+											"sid": 248434702086836,
+											"parameters": {
+												"achievement": "\"Achievement_18_Gold\""
 											}
 										}
 									],
-									"sid": 664575690787221
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"sid": 383864453282456,
+									"children": [
 										{
-											"id": "set-text",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 523042981033936,
-											"parameters": {
-												"text": "\"Achievement Unlocked\" & newline & \"Sell 50 Gold Ingots at once\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 131380245949910,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 759264793384950
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 519807958546078,
+													"parameters": {
+														"audio-file": "Ding",
+														"loop": "not-looping",
+														"volume": "Volume_General",
+														"stereo-pan": "0",
+														"tag-optional": "\"Ding\""
+													}
+												}
+											],
+											"sid": 727095790343022
 										},
 										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 783400403458646,
-											"parameters": {
-												"seconds": "3",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Background",
-											"sid": 783910933335838
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 645001913961841
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 332191551555267,
+													"parameters": {
+														"text": "\"Achievement Unlocked\" & newline & \"Sell 50 Gold Ingots at once\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 996024202638037,
+													"parameters": {
+														"seconds": "3",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Background",
+													"sid": 526483584407090
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 971287935732392
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Achievements_Object",
+													"sid": 708234618774964,
+													"parameters": {
+														"instance-variable": "Achievement_18_Gold",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 590902139355725
 										}
-									],
-									"sid": 427520043122234
+									]
 								}
 							]
 						},
@@ -90229,6 +90359,15 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "Achievements_Object",
+									"sid": 438015785375840,
+									"parameters": {
+										"instance-variable": "Achievement_21_End"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Achievements_Object",
 									"sid": 593143121967545,
 									"parameters": {
 										"instance-variable": "Achievement_1_Coal"
@@ -90385,155 +90524,151 @@
 									"parameters": {
 										"instance-variable": "Achievement_20_Lava"
 									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 928873440334216
 								}
 							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Achievements_Object",
-									"sid": 104622022263733,
-									"parameters": {
-										"instance-variable": "Achievement_21_End",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 354569918501599
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Achievements_Object",
-									"sid": 327387542372774,
-									"parameters": {
-										"instance-variable": "Achievement_21_End"
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 188727403522288
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 515858605091365,
-									"parameters": {
-										"object": "Item_Discovered_Background",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "HUD_Grey",
-									"sid": 831489438243705,
-									"parameters": {
-										"object": "Item_Discovered_Text",
-										"layer": "\"HUD\"",
-										"image-point": "\"Item_Discovered\"",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Achievement_21_End",
-									"sid": 614254017405096,
-									"parameters": {
-										"animation": "\"Unlocked\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "unlock-achievement",
-									"objectClass": "Steamworks",
-									"sid": 901331023132799,
-									"parameters": {
-										"achievement": "\"Achievement_21_End\""
-									}
-								}
-							],
-							"sid": 227313588197898,
+							"actions": [],
+							"sid": 354569918501599,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-boolean-eventvar",
+											"id": "layer-is-visible",
 											"objectClass": "System",
-											"sid": 462970007319645,
+											"sid": 247863658592567,
 											"parameters": {
-												"variable": "Alerts_Muted"
-											},
-											"isInverted": true
+												"layer": "\"HUD\""
+											}
 										},
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 896279976441760
+											"sid": 299569459893112
 										}
 									],
 									"actions": [
 										{
-											"id": "play",
-											"objectClass": "SFX",
-											"sid": 255880858743457,
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 506706589595814,
 											"parameters": {
-												"audio-file": "Ding",
-												"loop": "not-looping",
-												"volume": "Volume_General",
-												"stereo-pan": "0",
-												"tag-optional": "\"Ding\""
+												"object": "Item_Discovered_Background",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 745069631460651,
+											"parameters": {
+												"object": "Item_Discovered_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Achievement_21_End",
+											"sid": 763284685307083,
+											"parameters": {
+												"animation": "\"Unlocked\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "unlock-achievement",
+											"objectClass": "Steamworks",
+											"sid": 282553284615771,
+											"parameters": {
+												"achievement": "\"Achievement_21_End\""
 											}
 										}
 									],
-									"sid": 276693126729769
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"sid": 754367010176435,
+									"children": [
 										{
-											"id": "set-text",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 354174866548133,
-											"parameters": {
-												"text": "\"Achievement Unlocked\" & newline & \"Complete all Achievements\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 512814726726371,
+													"parameters": {
+														"variable": "Alerts_Muted"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 992666653664592
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 716459689734205,
+													"parameters": {
+														"audio-file": "Ding",
+														"loop": "not-looping",
+														"volume": "Volume_General",
+														"stereo-pan": "0",
+														"tag-optional": "\"Ding\""
+													}
+												}
+											],
+											"sid": 426892705443661
 										},
 										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 693978558655023,
-											"parameters": {
-												"seconds": "3",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Background",
-											"sid": 653554607169899
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Item_Discovered_Text",
-											"sid": 782342472932814
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 724419920473002,
+													"parameters": {
+														"text": "\"Achievement Unlocked\" & newline & \"Complete all Achievements\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 802873921069154,
+													"parameters": {
+														"seconds": "3",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Background",
+													"sid": 590841360200736
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Item_Discovered_Text",
+													"sid": 791547004230433
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Achievements_Object",
+													"sid": 603621779761366,
+													"parameters": {
+														"instance-variable": "Achievement_21_End",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 259503332447065
 										}
-									],
-									"sid": 840637801253651
+									]
 								}
 							]
 						}
@@ -90986,7 +91121,7 @@
 											"objectClass": "Achievements_Background",
 											"sid": 205389080632578,
 											"parameters": {
-												"object": "Achievement_16_Reset",
+												"object": "Achievement_16_Discover",
 												"layer": "\"Foreground\"",
 												"image-point": "\"16\"",
 												"create-hierarchy": false,
@@ -90995,7 +91130,7 @@
 										},
 										{
 											"id": "pin-to-object-properties",
-											"objectClass": "Achievement_16_Reset",
+											"objectClass": "Achievement_16_Discover",
 											"sid": 252934826590718,
 											"behaviorType": "Pin",
 											"parameters": {
