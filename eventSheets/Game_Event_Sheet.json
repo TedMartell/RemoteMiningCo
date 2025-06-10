@@ -5264,6 +5264,22 @@
 					],
 					"actions": [
 						{
+							"id": "set-visible",
+							"objectClass": "Mute_Button",
+							"sid": 576142864524930,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Game_Fullscreen_Button",
+							"sid": 910366723946029,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
 							"type": "comment",
 							"text": "Should be disabled on live version"
 						},
@@ -5367,6 +5383,21 @@
 							"parameters": {
 								"pin-to": "Miner_Animations",
 								"image-point": "\"Laser_Gun\"",
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Achievements_Explainer_Text",
+							"sid": 561117621496966,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Achievements_Explainer_Background",
+								"x": true,
+								"y": true,
 								"angle": true,
 								"width-type": "no",
 								"height-type": "no",
@@ -5624,7 +5655,59 @@
 							}
 						}
 					],
-					"sid": 557502173694722
+					"sid": 557502173694722,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 955180684646891,
+									"parameters": {
+										"variable": "Muted"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Mute_Button",
+									"sid": 620788022548632,
+									"parameters": {
+										"animation": "\"On\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 271412099130637
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 693308362694313,
+									"parameters": {
+										"variable": "Fullscreen"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Game_Fullscreen_Button",
+									"sid": 760310472537350,
+									"parameters": {
+										"animation": "\"On\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 721597697199317
+						}
+					]
 				}
 			],
 			"sid": 769195620327841
@@ -36637,6 +36720,169 @@
 				{
 					"eventType": "group",
 					"disabled": false,
+					"title": "Display",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 957648025228677,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Game_Fullscreen_Button"
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Settings_Menu",
+									"sid": 797931426371284
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Game_Fullscreen_Button",
+									"sid": 445976148451778,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 284021714722486,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Game_Fullscreen_Button",
+									"sid": 288064926913019,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 527935720533603,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Game_Fullscreen_Button",
+											"sid": 460091577866753,
+											"parameters": {
+												"animation": "\"Off\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Game_Fullscreen_Button",
+											"sid": 576444101403426,
+											"parameters": {
+												"animation": "\"On\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 165138972542280,
+											"parameters": {
+												"variable": "Fullscreen",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 930217290250376,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "request-fullscreen",
+													"objectClass": "Browser",
+													"sid": 608454849705532,
+													"parameters": {
+														"mode": "stretch-letterbox-scale",
+														"navigation-ui": "auto"
+													}
+												}
+											],
+											"sid": 855679976489052
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 385758161716913
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Game_Fullscreen_Button",
+											"sid": 555794474557937,
+											"parameters": {
+												"animation": "\"Off\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 672567544473253,
+											"parameters": {
+												"variable": "Fullscreen",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 669919375970204,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-window-size",
+													"objectClass": "Browser",
+													"sid": 824464047842431,
+													"parameters": {
+														"width": "1920",
+														"height": "1080"
+													}
+												}
+											],
+											"sid": 891755059107539
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 366445133715441
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
 					"title": "Sound Settings",
 					"description": "",
 					"isActiveOnStart": true,
@@ -37445,6 +37691,15 @@
 														"animation": "\"On\"",
 														"from": "beginning"
 													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 922433431861424,
+													"parameters": {
+														"variable": "Muted",
+														"value": "true"
+													}
 												}
 											],
 											"sid": 551526548346089
@@ -37474,6 +37729,15 @@
 													"parameters": {
 														"animation": "\"Off\"",
 														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 104274745352492,
+													"parameters": {
+														"variable": "Muted",
+														"value": "false"
 													}
 												}
 											],
@@ -44494,6 +44758,357 @@
 							]
 						},
 						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 858153057032668,
+									"parameters": {
+										"key": 9
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Warehouse_Deposit_Background",
+									"sid": 523063641659880
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 666105095116897,
+									"parameters": {
+										"audio-file": "Button_short",
+										"loop": "not-looping",
+										"volume": "Volume_General",
+										"stereo-pan": "0",
+										"tag-optional": "\"Button\""
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Warehouse_Deposit_Button",
+									"sid": 574638363278896,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Darken\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 474295228841170,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "Warehouse_Deposit_Button",
+									"sid": 656764208862968,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Darken\""
+									}
+								}
+							],
+							"sid": 217802192481914,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Quest 2"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Claim_Button",
+											"sid": 503084185274391,
+											"parameters": {
+												"instance-variable": "Quest_2_Active",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 596835245321938,
+											"parameters": {
+												"variable": "Quest_Objective_1",
+												"value": "Miner_Box.Coal"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 389801657298290,
+											"parameters": {
+												"variable": "Quest_Objective_2",
+												"value": "Miner_Box.Quartz"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 256461157518017,
+											"parameters": {
+												"variable": "Quest_Objective_3",
+												"value": "Miner_Box.Bauxite"
+											}
+										}
+									],
+									"sid": 340393844006213
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"type": "script",
+											"language": "javascript",
+											"script": [
+												"moveAllItems(minerInventory, globalInventory)",
+												""
+											]
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 732725007096325,
+											"parameters": {
+												"instance-variable": "Coal",
+												"value": "Miner_Box.Coal"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 554149800444984,
+											"parameters": {
+												"instance-variable": "Quartz",
+												"value": "Miner_Box.Quartz"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 627112642332514,
+											"parameters": {
+												"instance-variable": "Bauxite",
+												"value": "Miner_Box.Bauxite"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 226363425462201,
+											"parameters": {
+												"instance-variable": "Iron",
+												"value": "Miner_Box.Iron"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 159727875062843,
+											"parameters": {
+												"instance-variable": "Chromium",
+												"value": "Miner_Box.Chromium"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 205652378806734,
+											"parameters": {
+												"instance-variable": "Copper",
+												"value": "Miner_Box.Copper"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 180646665707410,
+											"parameters": {
+												"instance-variable": "Lithium",
+												"value": "Miner_Box.Lithium"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 776815585789313,
+											"parameters": {
+												"instance-variable": "Silver",
+												"value": "Miner_Box.Silver"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 588947966193547,
+											"parameters": {
+												"instance-variable": "Nickel",
+												"value": "Miner_Box.Nickel"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 923655817375357,
+											"parameters": {
+												"instance-variable": "Zinc",
+												"value": "Miner_Box.Zinc"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 134282998128647,
+											"parameters": {
+												"instance-variable": "Gold",
+												"value": "Miner_Box.Gold"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Global_Inventory_Object",
+											"sid": 668484819353933,
+											"parameters": {
+												"instance-variable": "Diamond",
+												"value": "Miner_Box.Diamond"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 231337382408161,
+											"parameters": {
+												"instance-variable": "Coal",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 190617974576098,
+											"parameters": {
+												"instance-variable": "Quartz",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 164784716822988,
+											"parameters": {
+												"instance-variable": "Bauxite",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 906108716476742,
+											"parameters": {
+												"instance-variable": "Iron",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 512005924635832,
+											"parameters": {
+												"instance-variable": "Chromium",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 288247228190470,
+											"parameters": {
+												"instance-variable": "Copper",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 602134745166096,
+											"parameters": {
+												"instance-variable": "Lithium",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 980249452128530,
+											"parameters": {
+												"instance-variable": "Silver",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 957156954620912,
+											"parameters": {
+												"instance-variable": "Nickel",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 821526327746035,
+											"parameters": {
+												"instance-variable": "Zinc",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 397197336737603,
+											"parameters": {
+												"instance-variable": "Gold",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 697776181732834,
+											"parameters": {
+												"instance-variable": "Diamond",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Miner_Box",
+											"sid": 283648788439724,
+											"parameters": {
+												"instance-variable": "Weight",
+												"value": "100"
+											}
+										}
+									],
+									"sid": 753278436901518
+								}
+							]
+						},
+						{
 							"eventType": "group",
 							"disabled": false,
 							"title": "Sell Menu",
@@ -44652,6 +45267,159 @@
 												}
 											],
 											"sid": 889429831534557
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 977701812420756,
+											"parameters": {
+												"key": 70
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 567730437757283,
+											"parameters": {
+												"layer": "\"Buildings_2\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 994023541821220,
+											"parameters": {
+												"audio-file": "Button_short",
+												"loop": "not-looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Button\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Warehouse_Sell_Button",
+											"sid": 887341545699907,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Darken\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 396601983303786,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "Warehouse_Sell_Button",
+											"sid": 983769503036329,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Darken\""
+											}
+										}
+									],
+									"sid": 607552153430472,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Global_Inventory_Background_Black",
+													"sid": 691218281005612,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Miner_Inventory_Text",
+													"sid": 577575256940152,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HUD_Global_Inventory_Text",
+													"sid": 963079751257466,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Global_Inventory_Items_Text",
+													"sid": 984849921413158,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Sell_Items_Buttons",
+													"sid": 569495172679844,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Warehouse_Deposit_Background",
+													"sid": 282181202423861,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 645485237713888,
+													"parameters": {
+														"group-name": "\"Sell Buttons\"",
+														"state": "activated"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Deposit_Menu_Buttons",
+													"sid": 116588264361119,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Sell_Menu_Buttons",
+													"sid": 199108560424339,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Press_ESC_Background",
+													"sid": 719104614556539,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												}
+											],
+											"sid": 353219787983724
 										}
 									]
 								},
@@ -54469,7 +55237,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "50",
+							"initialValue": "468",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -86331,6 +87099,605 @@
 				{
 					"eventType": "group",
 					"disabled": false,
+					"title": "Cursor Over Achievements",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 205248308881355,
+									"parameters": {
+										"object": "Achievement_Sprites"
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Achievements_Background",
+									"sid": 122436115128786
+								}
+							],
+							"actions": [
+								{
+									"id": "move-to-top",
+									"objectClass": "Achievements_Explainer_Background",
+									"sid": 688239108443929
+								},
+								{
+									"id": "move-to-top",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 795780812935365
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Achievements_Explainer_Background",
+									"sid": 749459367450944,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 519933625777420,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Achievements_Explainer_Background",
+									"sid": 464501030923635,
+									"parameters": {
+										"x": "Mouse.X",
+										"y": "Mouse.Y"
+									}
+								}
+							],
+							"sid": 421808482700911
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 566702681629898
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Achievements_Explainer_Background",
+									"sid": 984946685663932,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 846631231473667,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 216132944902460
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 670468129835116,
+									"parameters": {
+										"object": "Achievement_1_Coal"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 926678332792512,
+									"parameters": {
+										"text": "\"[b]Lump of Coal[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Mine 1X Coal\""
+									}
+								}
+							],
+							"sid": 347632655034450
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 721028517224212,
+									"parameters": {
+										"object": "Achievement_2_Coal"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 430751597333655,
+									"parameters": {
+										"text": "\"[b]Got Coal?[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Mine 250x Coal\""
+									}
+								}
+							],
+							"sid": 794285768303175
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 363272892440064,
+									"parameters": {
+										"object": "Achievement_3_Coal"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 158212946317707,
+									"parameters": {
+										"text": "\"[b]Coal Coal and more Coal[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Have 10K Coal in your Global Inventory\""
+									}
+								}
+							],
+							"sid": 106935408586134
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 204182298654191,
+									"parameters": {
+										"object": "Achievement_4_Deep"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 723104137170071,
+									"parameters": {
+										"text": "\"[b]In the Deeeeeep[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Reach a depth of -100m\""
+									}
+								}
+							],
+							"sid": 615645267139487
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 295142530333673,
+									"parameters": {
+										"object": "Achievement_5_Money"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 882314430688068,
+									"parameters": {
+										"text": "\"[b]Emergency fund[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Have $1000 in your account\""
+									}
+								}
+							],
+							"sid": 610942214023759
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 559620599627278,
+									"parameters": {
+										"object": "Achievement_6_Money"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 195929658325081,
+									"parameters": {
+										"text": "\"[b]Reasanoble savings[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Have $10 000 in your account\""
+									}
+								}
+							],
+							"sid": 566002205200218
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 722246291847777,
+									"parameters": {
+										"object": "Achievement_7_Money"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 891866565467802,
+									"parameters": {
+										"text": "\"[b]Millionaire / 10[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Have $100 000 in your account\""
+									}
+								}
+							],
+							"sid": 439507507923755
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 648896237408077,
+									"parameters": {
+										"object": "Achievement_8_Ingot"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 341197843907169,
+									"parameters": {
+										"text": "\"[b]Ingots all day[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Have 10 of each ingot in Global Inventory\""
+									}
+								}
+							],
+							"sid": 435098710320387
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 583047150641290,
+									"parameters": {
+										"object": "Achievement_9_Ingot"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 325860224584062,
+									"parameters": {
+										"text": "\"[b]The one who smelt it, dealt it[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Have 100 of each ingot in Global Inventory\""
+									}
+								}
+							],
+							"sid": 712314984262399
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 390251901454313,
+									"parameters": {
+										"object": "Achievement_10_Complete"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 320735747749996,
+									"parameters": {
+										"text": "\"[b]Finish it![b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Complete all Quests\""
+									}
+								}
+							],
+							"sid": 160179107841041
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 782067598808323,
+									"parameters": {
+										"object": "Achievement_11_Complete"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 834976045265261,
+									"parameters": {
+										"text": "\"[b]So many useless Upgrades[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Upgrade EVERYTHING to the max\""
+									}
+								}
+							],
+							"sid": 193583880432880
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 520808774432491,
+									"parameters": {
+										"object": "Achievement_12_Fall"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 693374909108463,
+									"parameters": {
+										"text": "\"[b]Highway to Hell[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Fall from Heaven to Hell\""
+									}
+								}
+							],
+							"sid": 744485838780055
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 141491900827925,
+									"parameters": {
+										"object": "Achievement_13_Diamond"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 190308509144532,
+									"parameters": {
+										"text": "\"[b]Diamonds are forever[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Mine 100x Diamonds\""
+									}
+								}
+							],
+							"sid": 597838394422376
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 133947929438063,
+									"parameters": {
+										"object": "Achievement_14_Laser"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 843201158721391,
+									"parameters": {
+										"text": "\"[b]Pew Pew[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Buy the Laser Gun\""
+									}
+								}
+							],
+							"sid": 560284191654001
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 495988369439748,
+									"parameters": {
+										"object": "Achievement_15_Reset"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 777622255763668,
+									"parameters": {
+										"text": "\"[b]Earthquake[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Use Big Bertha to reset the map\""
+									}
+								}
+							],
+							"sid": 953525568273118
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 141324381176129,
+									"parameters": {
+										"object": "Achievement_16_Discover"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 152494053082651,
+									"parameters": {
+										"text": "\"[b]Spelunking[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Discover all mineables\""
+									}
+								}
+							],
+							"sid": 153734900825204
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 187183778697796,
+									"parameters": {
+										"object": "Achievement_17_Gold"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 536792208125071,
+									"parameters": {
+										"text": "\"[b]Gold Rush[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Have 100 Gold Ore in Global Inventory\""
+									}
+								}
+							],
+							"sid": 783738047176171
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 157494873917794,
+									"parameters": {
+										"object": "Achievement_18_Gold"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 618590116565931,
+									"parameters": {
+										"text": "\"[b]Goldfinger[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Have 50 Gold Ingots in Global Inventory\""
+									}
+								}
+							],
+							"sid": 814130093759289
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 920359415360458,
+									"parameters": {
+										"object": "Achievement_19_Lava"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 472785713181023,
+									"parameters": {
+										"text": "\"[b]Can you eat Lava?[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Mine 10x Lava Blocks\""
+									}
+								}
+							],
+							"sid": 439032924070021
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 648679704079123,
+									"parameters": {
+										"object": "Achievement_20_Lava"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 962185757009986,
+									"parameters": {
+										"text": "\"[b]Eyjafjallajökull[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Mine 100x Lava Blocks\""
+									}
+								}
+							],
+							"sid": 426616610054334
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 783214849391229,
+									"parameters": {
+										"object": "Achievement_21_End"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 812104854208910,
+									"parameters": {
+										"text": "\"[b]Platinum Trophy[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Complete all Achievements\""
+									}
+								}
+							],
+							"sid": 786387378343876
+						}
+					],
+					"sid": 907676149008139
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
 					"title": "Achievement Triggers",
 					"description": "",
 					"isActiveOnStart": true,
@@ -88211,7 +89578,7 @@
 						},
 						{
 							"eventType": "comment",
-							"text": "11# Triggers"
+							"text": "11# All Upgrades Triggers"
 						},
 						{
 							"eventType": "block",
@@ -91580,7 +92947,8 @@
 					}
 				}
 			],
-			"sid": 852472795740408
+			"sid": 852472795740408,
+			"disabled": true
 		}
 	],
 	"sid": 196935397098049
