@@ -532,6 +532,20 @@
 			"sid": 369415260028945
 		},
 		{
+			"eventType": "comment",
+			"text": "Map Reset check"
+		},
+		{
+			"eventType": "variable",
+			"name": "Reseting_Map",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 702574346066075
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Global Events",
@@ -5264,6 +5278,18 @@
 					],
 					"actions": [
 						{
+							"type": "comment",
+							"text": "Should be disabled on live version"
+						},
+						{
+							"id": "set-silent",
+							"objectClass": "SFX",
+							"sid": 547617209315410,
+							"parameters": {
+								"mode": "silent"
+							}
+						},
+						{
 							"id": "set-visible",
 							"objectClass": "Mute_Button",
 							"sid": 576142864524930,
@@ -5277,19 +5303,6 @@
 							"sid": 910366723946029,
 							"parameters": {
 								"visibility": "invisible"
-							}
-						},
-						{
-							"type": "comment",
-							"text": "Should be disabled on live version"
-						},
-						{
-							"id": "set-silent",
-							"objectClass": "SFX",
-							"sid": 683047249247073,
-							"disabled": true,
-							"parameters": {
-								"mode": "silent"
 							}
 						},
 						{
@@ -36864,10 +36877,10 @@
 												{
 													"id": "set-window-size",
 													"objectClass": "Browser",
-													"sid": 824464047842431,
+													"sid": 103848514790831,
 													"parameters": {
-														"width": "1920",
-														"height": "1080"
+														"width": "1280",
+														"height": "720"
 													}
 												}
 											],
@@ -39856,6 +39869,15 @@
 									}
 								},
 								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 344283787417490,
+									"parameters": {
+										"variable": "Reseting_Map",
+										"value": "true"
+									}
+								},
+								{
 									"id": "set-effect-enabled",
 									"objectClass": "Yes_Button",
 									"sid": 243167151724086,
@@ -39997,6 +40019,15 @@
 														"variable": "Reset_Count",
 														"value": "1"
 													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 970687945385630,
+													"parameters": {
+														"variable": "Reseting_Map",
+														"value": "false"
+													}
 												}
 											],
 											"sid": 242796665012619
@@ -40064,6 +40095,15 @@
 														"variable": "Reset_Count",
 														"value": "1"
 													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 555941989581401,
+													"parameters": {
+														"variable": "Reseting_Map",
+														"value": "false"
+													}
 												}
 											],
 											"sid": 444754016771848
@@ -40130,6 +40170,15 @@
 													"parameters": {
 														"variable": "Reset_Count",
 														"value": "1"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 713275369232117,
+													"parameters": {
+														"variable": "Reseting_Map",
+														"value": "false"
 													}
 												}
 											],
@@ -40341,6 +40390,21 @@
 									"parameters": {
 										"animation": "\"Active\""
 									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Are_You_Sure_Window",
+									"sid": 367671330937080,
+									"isInverted": true
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 308686766209103,
+									"parameters": {
+										"variable": "Reseting_Map"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -53670,6 +53734,14 @@
 									"sid": 160065381808974,
 									"parameters": {
 										"animation": "\"Active\""
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 527125868319750,
+									"parameters": {
+										"layer": "\"Buildings\""
 									}
 								},
 								{
@@ -73301,9 +73373,9 @@
 												{
 													"id": "wait",
 													"objectClass": "System",
-													"sid": 253591595433600,
+													"sid": 152268197696931,
 													"parameters": {
-														"seconds": "1.7",
+														"seconds": "2",
 														"use-timescale": true
 													}
 												},
@@ -73505,9 +73577,9 @@
 										{
 											"id": "set-animation",
 											"objectClass": "Enemy_Body4",
-											"sid": 130335308516015,
+											"sid": 655146516308465,
 											"parameters": {
-												"animation": "Enemy_Body2.Action & \"_\" & Enemy_Body2.DIR",
+												"animation": "Enemy_Body4.Action & \"_\" & Enemy_Body4.DIR",
 												"from": "beginning"
 											}
 										},
@@ -73544,9 +73616,9 @@
 										{
 											"id": "set-animation",
 											"objectClass": "Enemy_Body4",
-											"sid": 823825844657852,
+											"sid": 859231690453522,
 											"parameters": {
-												"animation": "Enemy_Body2.Action & \"_\" & Enemy_Body2.DIR",
+												"animation": "Enemy_Body4.Action & \"_\" & Enemy_Body4.DIR",
 												"from": "beginning"
 											}
 										}
@@ -73560,9 +73632,9 @@
 												{
 													"id": "wait",
 													"objectClass": "System",
-													"sid": 584729162930977,
+													"sid": 909620029483421,
 													"parameters": {
-														"seconds": "1.7",
+														"seconds": "2",
 														"use-timescale": true
 													}
 												},
@@ -87228,9 +87300,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "Achievements_Explainer_Text",
-									"sid": 430751597333655,
+									"sid": 647941154349483,
 									"parameters": {
-										"text": "\"[b]Got Coal?[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Mine 250x Coal\""
+										"text": "\"[b]Got Coal?[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Mine 250x Coal\" & newline & \"[b]Progress: [b\\]\" &Achievements_Object.Achievement_2_Coal_Count & \" / 250\""
 									}
 								}
 							],
@@ -87492,9 +87564,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "Achievements_Explainer_Text",
-									"sid": 190308509144532,
+									"sid": 270934764148911,
 									"parameters": {
-										"text": "\"[b]Diamonds are forever[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Mine 100x Diamonds\""
+										"text": "\"[b]Diamonds are forever[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Mine 100x Diamonds\" & newline & \"[b]Progress: [b\\]\" & Achievements_Object.Achievement_13_Diamond_Count & \" / 100\""
 									}
 								}
 							],
@@ -87660,9 +87732,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "Achievements_Explainer_Text",
-									"sid": 962185757009986,
+									"sid": 335197441674665,
 									"parameters": {
-										"text": "\"[b]Eyjafjallajökull[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Mine 100x Lava Blocks\""
+										"text": "\"[b]Eyjafjallajökull[b\\]\" & newline & newline & \"[b]Description: [b\\]\" & \"Mine 100x Lava Blocks\" & newline & \"[b]Progress: [b\\]\" & Achievements_Object.Achievement_20_Lava_Count & \" / 100\""
 									}
 								}
 							],
@@ -88713,9 +88785,9 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "Achievements_Object",
-									"sid": 151657169451927,
+									"sid": 505250471406314,
 									"parameters": {
-										"instance-variable": "Achievement_6_Money"
+										"instance-variable": "Achievement_7_Money"
 									},
 									"isInverted": true
 								},
@@ -92923,32 +92995,6 @@
 				}
 			],
 			"sid": 641353228943237
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 589994221138590,
-					"parameters": {
-						"key": 80
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "request-fullscreen",
-					"objectClass": "Browser",
-					"sid": 621771778977927,
-					"parameters": {
-						"mode": "stretch-letterbox-scale",
-						"navigation-ui": "auto"
-					}
-				}
-			],
-			"sid": 852472795740408,
-			"disabled": true
 		}
 	],
 	"sid": 196935397098049
