@@ -2,6 +2,26 @@
 	"name": "Main_Menu_Sheet",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "Muted",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 769934680227483
+		},
+		{
+			"eventType": "variable",
+			"name": "Fullscreen",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 852703969776434
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -625,9 +645,392 @@
 						"stereo-pan": "0",
 						"tag-optional": "\"Surface_Music\""
 					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Mute_Button",
+					"sid": 179951207982095,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Game_Fullscreen_Button",
+					"sid": 991318949091962,
+					"parameters": {
+						"visibility": "visible"
+					}
 				}
 			],
-			"sid": 468886624636201
+			"sid": 468886624636201,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 668641631674168,
+							"parameters": {
+								"variable": "Muted"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Mute_Button",
+							"sid": 695018771904172,
+							"parameters": {
+								"animation": "\"On\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 700537721438123
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 364039591576207,
+							"parameters": {
+								"variable": "Fullscreen"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Game_Fullscreen_Button",
+							"sid": 513087679441071,
+							"parameters": {
+								"animation": "\"On\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 387001764204589
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Fullscreen Button"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 944286731455053,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Game_Fullscreen_Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Game_Fullscreen_Button",
+					"sid": 903211429007242,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"Darken\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 992812613675905,
+					"parameters": {
+						"seconds": "0.1",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Game_Fullscreen_Button",
+					"sid": 675175828233651,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"Darken\""
+					}
+				}
+			],
+			"sid": 656264384387014,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Game_Fullscreen_Button",
+							"sid": 491590428086068,
+							"parameters": {
+								"animation": "\"Off\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Game_Fullscreen_Button",
+							"sid": 146600246146941,
+							"parameters": {
+								"animation": "\"On\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 434325766306103,
+							"parameters": {
+								"variable": "Fullscreen",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 638358155490666,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "request-fullscreen",
+									"objectClass": "Browser",
+									"sid": 254076871293450,
+									"parameters": {
+										"mode": "stretch-letterbox-scale",
+										"navigation-ui": "auto"
+									}
+								}
+							],
+							"sid": 356944529693725
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 240008428903885
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Game_Fullscreen_Button",
+							"sid": 502758292374931,
+							"parameters": {
+								"animation": "\"Off\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 480754647977122,
+							"parameters": {
+								"variable": "Fullscreen",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 192081763473745,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-window-size",
+									"objectClass": "Browser",
+									"sid": 361193365978747,
+									"parameters": {
+										"width": "1920",
+										"height": "1080"
+									}
+								}
+							],
+							"sid": 545274938742143
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Mute Button"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 799303455003371,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Mute_Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Mute_Button",
+					"sid": 281907709897197,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"Darken\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 886210330195730,
+					"parameters": {
+						"seconds": "0.1",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Mute_Button",
+					"sid": 848722639076727,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"Darken\""
+					}
+				}
+			],
+			"sid": 243917796848826,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Mute_Button",
+							"sid": 894650281017396,
+							"parameters": {
+								"animation": "\"Off\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-silent",
+							"objectClass": "SFX",
+							"sid": 780189573150460,
+							"parameters": {
+								"mode": "silent"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Mute_Button",
+							"sid": 817008269520022,
+							"parameters": {
+								"animation": "\"On\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 379377149839939,
+							"parameters": {
+								"variable": "Muted",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 720334715712931
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 924517800647165
+						}
+					],
+					"actions": [
+						{
+							"id": "set-silent",
+							"objectClass": "SFX",
+							"sid": 667068889469853,
+							"parameters": {
+								"mode": "not-silent"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Mute_Button",
+							"sid": 695386401958782,
+							"parameters": {
+								"animation": "\"Off\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 616216995106959,
+							"parameters": {
+								"variable": "Muted",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 654901463542146,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 633550852406299,
+									"parameters": {
+										"variable": "Music_Muted"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 681864918287746,
+									"parameters": {
+										"audio-file": "Backgroundmusic",
+										"loop": "looping",
+										"volume": "Volume_General -10",
+										"stereo-pan": "0",
+										"tag-optional": "\"Surface_Music\""
+									}
+								}
+							],
+							"sid": 394575972970757
+						}
+					]
+				}
+			]
 		}
 	],
 	"sid": 554733571785019
