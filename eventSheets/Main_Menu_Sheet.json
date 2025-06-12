@@ -22,6 +22,36 @@
 			"sid": 852703969776434
 		},
 		{
+			"eventType": "variable",
+			"name": "New_Game",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 917203455607356
+		},
+		{
+			"eventType": "variable",
+			"name": "Exit_Game",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 495160384799471
+		},
+		{
+			"eventType": "variable",
+			"name": "Main_Menu_Buttons",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 116029967305997
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -33,9 +63,41 @@
 						"click-type": "clicked",
 						"object-clicked": "Menu_New_Game_Button"
 					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "Main_Are_You_Sure_Window",
+					"sid": 560033940275092,
+					"isInverted": true
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 438229915071711,
+					"parameters": {
+						"variable": "Main_Menu_Buttons"
+					}
 				}
 			],
 			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 421045702585586,
+					"parameters": {
+						"variable": "Main_Menu_Buttons",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 862725248444484,
+					"parameters": {
+						"variable": "New_Game",
+						"value": "true"
+					}
+				},
 				{
 					"id": "play",
 					"objectClass": "SFX",
@@ -76,26 +138,278 @@
 					}
 				},
 				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 501748131956688,
+					"id": "set-text",
+					"objectClass": "Main_Are_You_Sure_Text",
+					"sid": 526762320328842,
 					"parameters": {
-						"layout": "Game"
-					}
-				},
-				{
-					"id": "fade-volume",
-					"objectClass": "SFX",
-					"sid": 495526526620532,
-					"parameters": {
-						"tag": "\"Surface_Music\"",
-						"db": "-100",
-						"duration": "3",
-						"ending": "stop"
+						"text": "\"ALL Previous saves will be lost if you start a new game\""
 					}
 				}
 			],
-			"sid": 329016193760410
+			"sid": 329016193760410,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "move-to-top",
+							"objectClass": "Main_Menu_Are_Y_S",
+							"sid": 761360564454258
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Main_Are_You_Sure_Text",
+							"sid": 580542697095005
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Main_Menu_Are_Y_S",
+							"sid": 421024807520977,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Main_Are_You_Sure_Text",
+							"sid": 706982230341708,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 618625203665830
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 834035958891924,
+					"parameters": {
+						"variable": "New_Game"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "Main_Menu_Are_Y_S",
+					"sid": 713337960400926
+				}
+			],
+			"actions": [],
+			"sid": 318783581159205,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 407948892326375,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Main_Yes_Button"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Main_Yes_Button",
+							"sid": 453980513520432,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Darken\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 285501965884503,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Main_Yes_Button",
+							"sid": 787343324564451,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Darken\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 250079920772466,
+							"parameters": {
+								"variable": "Main_Menu_Buttons",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 922998386191177,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 638369138302743,
+									"parameters": {
+										"variable": "New_Game",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 444773921492560,
+									"parameters": {
+										"layer": "\"Loading\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 566809954856982,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 470696010519994,
+									"parameters": {
+										"layout": "Game"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 506459644327288,
+									"parameters": {
+										"layer": "\"Loading\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "SFX",
+									"sid": 527759215786603,
+									"parameters": {
+										"tag": "\"Surface_Music\"",
+										"db": "-100",
+										"duration": "3",
+										"ending": "stop"
+									}
+								}
+							],
+							"sid": 139402857119270
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 294511375190653,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Main_No_Button"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Main_No_Button",
+							"sid": 561176845469871,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Darken\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 125271083390713,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Main_No_Button",
+							"sid": 947448073568990,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Darken\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 763875461653633,
+							"parameters": {
+								"variable": "Main_Menu_Buttons",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 269503112781973,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Main_Menu_Are_Y_S",
+									"sid": 258624407179528,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 785751117172606,
+									"parameters": {
+										"variable": "New_Game",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Main_Are_You_Sure_Text",
+									"sid": 881455766298772,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 380942874185917
+						}
+					]
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -109,6 +423,20 @@
 						"click-type": "clicked",
 						"object-clicked": "Menu_Continue_Button"
 					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 525319589619914,
+					"parameters": {
+						"variable": "Main_Menu_Buttons"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "Main_Are_You_Sure_Window",
+					"sid": 801886498575038,
+					"isInverted": true
 				}
 			],
 			"actions": [
@@ -185,6 +513,20 @@
 						"click-type": "clicked",
 						"object-clicked": "Menu_Controls_Button"
 					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 658295628590778,
+					"parameters": {
+						"variable": "Main_Menu_Buttons"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "Main_Are_You_Sure_Window",
+					"sid": 893282968741889,
+					"isInverted": true
 				}
 			],
 			"actions": [
@@ -282,6 +624,313 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 934908607537152,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Menu_Exit_Game_Button"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 184712495218383,
+					"parameters": {
+						"variable": "Main_Menu_Buttons"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "Main_Are_You_Sure_Window",
+					"sid": 159879117637612,
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Menu_Exit_Game_Button",
+					"sid": 553277388608417,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"Darken\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 326709739736707,
+					"parameters": {
+						"seconds": "0.1",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Menu_Exit_Game_Button",
+					"sid": 339870846905598,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"Darken\""
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 205250213344172,
+					"parameters": {
+						"variable": "Exit_Game",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 125367599122576,
+					"parameters": {
+						"variable": "Main_Menu_Buttons",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Main_Are_You_Sure_Text",
+					"sid": 241618033954446,
+					"parameters": {
+						"text": "\"Exit the game to Desktop\""
+					}
+				}
+			],
+			"sid": 591779056472340,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "move-to-top",
+							"objectClass": "Main_Menu_Are_Y_S",
+							"sid": 720626252924499
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Main_Are_You_Sure_Text",
+							"sid": 347978332234799
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Main_Menu_Are_Y_S",
+							"sid": 587038381175312,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Main_Are_You_Sure_Text",
+							"sid": 897482792349782,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 278440326149811
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 958635456642064,
+					"parameters": {
+						"variable": "Exit_Game"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "Main_Menu_Are_Y_S",
+					"sid": 560806061960556
+				}
+			],
+			"actions": [],
+			"sid": 246711687199538,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 292956229016896,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Main_Yes_Button"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Main_Yes_Button",
+							"sid": 704802917875002,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Darken\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 554560648161044,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Main_Yes_Button",
+							"sid": 668634214542979,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Darken\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 201236524813316,
+							"parameters": {
+								"variable": "Main_Menu_Buttons",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 113562187483772,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 737374516517506,
+									"parameters": {
+										"variable": "Exit_Game",
+										"value": "false"
+									}
+								},
+								{
+									"id": "close",
+									"objectClass": "Browser",
+									"sid": 998255282926308
+								}
+							],
+							"sid": 625318503676584
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 292108625729852,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Main_No_Button"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Main_No_Button",
+							"sid": 891887363247793,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Darken\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 540751067363873,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Main_No_Button",
+							"sid": 369152975281425,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Darken\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 348834614627735,
+							"parameters": {
+								"variable": "Main_Menu_Buttons",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 316802649784874,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Main_Menu_Are_Y_S",
+									"sid": 421484185981209,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Main_Are_You_Sure_Text",
+									"sid": 579536529981301,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 385301557973167,
+									"parameters": {
+										"variable": "Exit_Game",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 929302342062074
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
 					"sid": 850954530087488
@@ -320,6 +969,18 @@
 						"object": "Menu_Controls_Button",
 						"layer": "\"Foreground\"",
 						"image-point": "\"Settings_Button\"",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Main_Menu_Options_Background",
+					"sid": 900121845240477,
+					"parameters": {
+						"object": "Menu_Exit_Game_Button",
+						"layer": "\"Foreground\"",
+						"image-point": "\"Exit_Button\"",
 						"create-hierarchy": false,
 						"template-name": "\"\""
 					}
@@ -376,14 +1037,6 @@
 								"volume": "-30",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
-							}
-						},
-						{
-							"id": "set-cursor-style2",
-							"objectClass": "Mouse",
-							"sid": 311759827570709,
-							"parameters": {
-								"cursor-style": "pointer"
 							}
 						}
 					],
@@ -459,14 +1112,6 @@
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
-						},
-						{
-							"id": "set-cursor-style2",
-							"objectClass": "Mouse",
-							"sid": 263183186928584,
-							"parameters": {
-								"cursor-style": "pointer"
-							}
 						}
 					],
 					"sid": 425353255193238
@@ -541,17 +1186,83 @@
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
-						},
-						{
-							"id": "set-cursor-style2",
-							"objectClass": "Mouse",
-							"sid": 732652022885160,
-							"parameters": {
-								"cursor-style": "pointer"
-							}
 						}
 					],
 					"sid": 211918024209447
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 488275669109764
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Menu_Controls_Button",
+					"sid": 956001278590234,
+					"parameters": {
+						"animation": "\"Not_Focused\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 763624629594574
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 939127902325672,
+					"parameters": {
+						"object": "Menu_Exit_Game_Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Menu_Exit_Game_Button",
+					"sid": 284302782296599,
+					"parameters": {
+						"animation": "\"Focused\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 673701754912495,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 705857051997423
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "SFX",
+							"sid": 516064271585200,
+							"parameters": {
+								"audio-file": "Button_short",
+								"loop": "not-looping",
+								"volume": "-30",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 634106388550954
 				}
 			]
 		},
@@ -567,8 +1278,8 @@
 			"actions": [
 				{
 					"id": "set-animation",
-					"objectClass": "Menu_Controls_Button",
-					"sid": 435106372204916,
+					"objectClass": "Menu_Exit_Game_Button",
+					"sid": 360902927202698,
 					"parameters": {
 						"animation": "\"Not_Focused\"",
 						"from": "beginning"
@@ -601,9 +1312,18 @@
 				{
 					"id": "cursor-is-over-object",
 					"objectClass": "Mouse",
-					"sid": 480824902209067,
+					"sid": 825551206719826,
 					"parameters": {
 						"object": "Menu_Continue_Button"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 971489831749180,
+					"parameters": {
+						"object": "Menu_Exit_Game_Button"
 					},
 					"isInverted": true
 				}
@@ -879,19 +1599,19 @@
 				{
 					"id": "on-object-clicked",
 					"objectClass": "Mouse",
-					"sid": 799303455003371,
+					"sid": 678903368360704,
 					"parameters": {
 						"mouse-button": "left",
 						"click-type": "clicked",
-						"object-clicked": "Mute_Button"
+						"object-clicked": "Main_Menu_Mute_Button"
 					}
 				}
 			],
 			"actions": [
 				{
 					"id": "set-effect-enabled",
-					"objectClass": "Mute_Button",
-					"sid": 281907709897197,
+					"objectClass": "Main_Menu_Mute_Button",
+					"sid": 922224500127346,
 					"parameters": {
 						"mode": "enable",
 						"effect": "\"Darken\""
@@ -908,8 +1628,8 @@
 				},
 				{
 					"id": "set-effect-enabled",
-					"objectClass": "Mute_Button",
-					"sid": 848722639076727,
+					"objectClass": "Main_Menu_Mute_Button",
+					"sid": 156176805395003,
 					"parameters": {
 						"mode": "disable",
 						"effect": "\"Darken\""
@@ -923,8 +1643,8 @@
 					"conditions": [
 						{
 							"id": "is-animation-playing",
-							"objectClass": "Mute_Button",
-							"sid": 894650281017396,
+							"objectClass": "Main_Menu_Mute_Button",
+							"sid": 798936666916119,
 							"parameters": {
 								"animation": "\"Off\""
 							}
@@ -941,8 +1661,8 @@
 						},
 						{
 							"id": "set-animation",
-							"objectClass": "Mute_Button",
-							"sid": 817008269520022,
+							"objectClass": "Main_Menu_Mute_Button",
+							"sid": 834427770508452,
 							"parameters": {
 								"animation": "\"On\"",
 								"from": "beginning"
@@ -980,8 +1700,8 @@
 						},
 						{
 							"id": "set-animation",
-							"objectClass": "Mute_Button",
-							"sid": 695386401958782,
+							"objectClass": "Main_Menu_Mute_Button",
+							"sid": 186602219227973,
 							"parameters": {
 								"animation": "\"Off\"",
 								"from": "beginning"
@@ -1031,6 +1751,310 @@
 					]
 				}
 			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Cursor over Yes / No buttons"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 210365964371750,
+					"parameters": {
+						"object": "Main_Yes_Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Main_Yes_Button",
+					"sid": 727849765112283,
+					"parameters": {
+						"animation": "\"Active\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 435623834958986,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 903462646845587
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "SFX",
+							"sid": 827136322172651,
+							"parameters": {
+								"audio-file": "Button_short",
+								"loop": "not-looping",
+								"volume": "-30",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 623062278841434
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 133887763460758
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Main_Yes_Button",
+					"sid": 118463503868020,
+					"parameters": {
+						"animation": "\"Idle\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 124152448027594
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 978562021972475,
+					"parameters": {
+						"object": "Main_No_Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Main_No_Button",
+					"sid": 282614526410763,
+					"parameters": {
+						"animation": "\"Active\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 400984164085240,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 965777153012697
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "SFX",
+							"sid": 824628045479445,
+							"parameters": {
+								"audio-file": "Button_short",
+								"loop": "not-looping",
+								"volume": "-30",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 288423013872355
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 300571355363090
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Main_No_Button",
+					"sid": 837888586520219,
+					"parameters": {
+						"animation": "\"Idle\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 116766316006415
+		},
+		{
+			"eventType": "comment",
+			"text": "Cursor over Other Menu Buttons"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 295476328206061,
+					"parameters": {
+						"object": "Game_Fullscreen_Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Game_Fullscreen_Button",
+					"sid": 981641995315077,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"ReplaceColor\""
+					}
+				}
+			],
+			"sid": 181315083679071,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 336645499778821
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "SFX",
+							"sid": 125628103618979,
+							"parameters": {
+								"audio-file": "Button_short",
+								"loop": "not-looping",
+								"volume": "-30",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 444937891046386
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 585161576345403
+				}
+			],
+			"actions": [
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Game_Fullscreen_Button",
+					"sid": 106426433957491,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"ReplaceColor\""
+					}
+				}
+			],
+			"sid": 793514113428847
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 798074261848846,
+					"parameters": {
+						"object": "Main_Menu_Mute_Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Main_Menu_Mute_Button",
+					"sid": 911143867369097,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"ReplaceColor\""
+					}
+				}
+			],
+			"sid": 662904504073088,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 191433262106379
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "SFX",
+							"sid": 537363227519342,
+							"parameters": {
+								"audio-file": "Button_short",
+								"loop": "not-looping",
+								"volume": "-30",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 956742340046444
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 700127354449071
+				}
+			],
+			"actions": [
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Main_Menu_Mute_Button",
+					"sid": 318263228858985,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"ReplaceColor\""
+					}
+				}
+			],
+			"sid": 808428053645330
 		}
 	],
 	"sid": 554733571785019
