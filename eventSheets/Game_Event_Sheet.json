@@ -5432,6 +5432,15 @@
 								"height-type": "no",
 								"z": false
 							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Loading_Screen",
+							"sid": 558148975055600,
+							"parameters": {
+								"animation": "\"Open\"",
+								"from": "beginning"
+							}
 						}
 					],
 					"sid": 215528164269866,
@@ -5536,6 +5545,30 @@
 								}
 							],
 							"sid": 729689098277988
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 486346003285505,
+									"parameters": {
+										"seconds": "2",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Loading_Screen",
+									"sid": 272911540871059,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 356607977964954
 						}
 					]
 				},
@@ -55330,7 +55363,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "50",
+							"initialValue": "468",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,

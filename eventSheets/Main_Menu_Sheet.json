@@ -219,6 +219,24 @@
 					],
 					"actions": [
 						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 432728477248481,
+							"parameters": {
+								"layer": "\"Loading\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Loading_Screen",
+							"sid": 726475755069576,
+							"parameters": {
+								"animation": "\"Close\"",
+								"from": "beginning"
+							}
+						},
+						{
 							"id": "set-effect-enabled",
 							"objectClass": "Main_Yes_Button",
 							"sid": 453980513520432,
@@ -253,6 +271,30 @@
 								"variable": "Main_Menu_Buttons",
 								"value": "true"
 							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Main_Menu_Buttons",
+							"sid": 180677412860470,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Main_Menu_Are_Y_S",
+							"sid": 724408338114446,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Main_Are_You_Sure_Text",
+							"sid": 346636194601498,
+							"parameters": {
+								"visibility": "invisible"
+							}
 						}
 					],
 					"sid": 922998386191177,
@@ -271,20 +313,11 @@
 									}
 								},
 								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 444773921492560,
-									"parameters": {
-										"layer": "\"Loading\"",
-										"visibility": "visible"
-									}
-								},
-								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 566809954856982,
+									"sid": 487186327292639,
 									"parameters": {
-										"seconds": "1.0",
+										"seconds": "3",
 										"use-timescale": true
 									}
 								},
@@ -314,6 +347,30 @@
 										"db": "-100",
 										"duration": "3",
 										"ending": "stop"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Main_Menu_Buttons",
+									"sid": 224730650610731,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Main_Menu_Are_Y_S",
+									"sid": 777585029500718,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Main_Are_You_Sure_Text",
+									"sid": 205430550264225,
+									"parameters": {
+										"visibility": "visible"
 									}
 								}
 							],
