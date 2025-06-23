@@ -36925,18 +36925,112 @@
 											"conditions": [],
 											"actions": [
 												{
-													"id": "set-window-size",
+													"id": "cancel-fullscreen",
 													"objectClass": "Browser",
-													"sid": 103848514790831,
-													"parameters": {
-														"width": "1280",
-														"height": "720"
-													}
+													"sid": 779718031701676
 												}
 											],
 											"sid": 891755059107539
 										}
 									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 169527033966431,
+									"parameters": {
+										"key": 76
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 531718980710423,
+									"parameters": {
+										"variable": "Fullscreen",
+										"value": "true"
+									}
+								},
+								{
+									"id": "request-fullscreen",
+									"objectClass": "Browser",
+									"sid": 218337633931213,
+									"parameters": {
+										"mode": "stretch-letterbox-scale",
+										"navigation-ui": "auto"
+									}
+								}
+							],
+							"sid": 832114708933900,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 130236178138432,
+											"parameters": {
+												"variable": "Fullscreen"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 232231986382294,
+											"parameters": {
+												"variable": "Fullscreen",
+												"value": "true"
+											}
+										},
+										{
+											"id": "request-fullscreen",
+											"objectClass": "Browser",
+											"sid": 652543460587777,
+											"parameters": {
+												"mode": "stretch-letterbox-scale",
+												"navigation-ui": "auto"
+											}
+										}
+									],
+									"sid": 177639622234181
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 746497331706761
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 138630100297271,
+											"parameters": {
+												"variable": "Fullscreen",
+												"value": "false"
+											}
+										},
+										{
+											"id": "cancel-fullscreen",
+											"objectClass": "Browser",
+											"sid": 596146817630183
+										}
+									],
+									"sid": 318479832247761
 								}
 							]
 						}
