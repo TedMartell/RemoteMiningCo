@@ -329,7 +329,7 @@
 			"eventType": "variable",
 			"name": "Explosion_Damage",
 			"type": "number",
-			"initialValue": "2",
+			"initialValue": "10",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -5285,7 +5285,6 @@
 							"id": "set-silent",
 							"objectClass": "SFX",
 							"sid": 547617209315410,
-							"disabled": true,
 							"parameters": {
 								"mode": "silent"
 							}
@@ -5744,33 +5743,38 @@
 								}
 							],
 							"sid": 271412099130637
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 693308362694313,
-									"parameters": {
-										"variable": "Fullscreen"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "Game_Fullscreen_Button",
-									"sid": 760310472537350,
-									"parameters": {
-										"animation": "\"On\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 721597697199317
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 595468947079342
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 781451931558353,
+							"parameters": {
+								"variable": "Fullscreen"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Game_Fullscreen_Button",
+							"sid": 752490777918839,
+							"parameters": {
+								"animation": "\"On\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 537823970777538
 				}
 			],
 			"sid": 769195620327841
@@ -41575,14 +41579,6 @@
 									"conditions": [],
 									"actions": [
 										{
-											"id": "save",
-											"objectClass": "System",
-											"sid": 759221530484062,
-											"parameters": {
-												"slot": "\"mysave\""
-											}
-										},
-										{
 											"id": "set-layer-visible",
 											"objectClass": "System",
 											"sid": 494152517738236,
@@ -41804,14 +41800,6 @@
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
-										{
-											"id": "save",
-											"objectClass": "System",
-											"sid": 168887904428274,
-											"parameters": {
-												"slot": "\"mysave\""
-											}
-										},
 										{
 											"id": "set-layer-visible",
 											"objectClass": "System",
@@ -44147,14 +44135,6 @@
 											}
 										},
 										{
-											"id": "save",
-											"objectClass": "System",
-											"sid": 554050074542612,
-											"parameters": {
-												"slot": "\"mysave\""
-											}
-										},
-										{
 											"id": "set-layer-visible",
 											"objectClass": "System",
 											"sid": 640080902024332,
@@ -44409,14 +44389,6 @@
 											"sid": 770359222233232,
 											"parameters": {
 												"cursor-style": "normal"
-											}
-										},
-										{
-											"id": "save",
-											"objectClass": "System",
-											"sid": 165949325311317,
-											"parameters": {
-												"slot": "\"mysave\""
 											}
 										},
 										{
@@ -51970,14 +51942,6 @@
 									"conditions": [],
 									"actions": [
 										{
-											"id": "save",
-											"objectClass": "System",
-											"sid": 778929983272454,
-											"parameters": {
-												"slot": "\"mysave\""
-											}
-										},
-										{
 											"id": "set-layer-visible",
 											"objectClass": "System",
 											"sid": 606681818157574,
@@ -52196,14 +52160,6 @@
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
-										{
-											"id": "save",
-											"objectClass": "System",
-											"sid": 752660610019169,
-											"parameters": {
-												"slot": "\"mysave\""
-											}
-										},
 										{
 											"id": "set-layer-visible",
 											"objectClass": "System",
@@ -55458,7 +55414,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "468",
+							"initialValue": "50",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -60443,6 +60399,62 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "mouse-button-is-down",
+									"objectClass": "Mouse",
+									"sid": 381937375454483,
+									"parameters": {
+										"mouse-button": "left"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 908890810712362,
+									"parameters": {
+										"first-value": "Mouse.X",
+										"comparison": 4,
+										"second-value": "ViewportMidX(\"HUD\")"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 579986136572607,
+									"parameters": {
+										"first-value": "Mouse.y",
+										"comparison": 3,
+										"second-value": "Mouse.x"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 146295042799942,
+									"parameters": {
+										"first-value": "Mouse.y",
+										"comparison": 3,
+										"second-value": "Mouse.x*-1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Miner_Box",
+									"sid": 455249267408779,
+									"parameters": {
+										"instance-variable": "RIGHT",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 917586458815366,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "key-is-down",
 									"objectClass": "Keyboard",
 									"sid": 691545783713163,
@@ -63873,6 +63885,14 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 787744670017947,
+													"parameters": {
+														"object": "Coal_Block"
+													}
+												},
+												{
 													"id": "compare-instance-variable",
 													"objectClass": "Coal_Block",
 													"sid": 668586896370453,
@@ -63939,6 +63959,14 @@
 										{
 											"eventType": "block",
 											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 319615929592638,
+													"parameters": {
+														"object": "Coal_Block_2"
+													}
+												},
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Coal_Block_2",
@@ -64007,6 +64035,14 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 797599197440313,
+													"parameters": {
+														"object": "Quartz_Block"
+													}
+												},
+												{
 													"id": "compare-instance-variable",
 													"objectClass": "Quartz_Block",
 													"sid": 110977410705754,
@@ -64073,6 +64109,14 @@
 										{
 											"eventType": "block",
 											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 922149075720789,
+													"parameters": {
+														"object": "Bauxite_Block"
+													}
+												},
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Bauxite_Block",
@@ -64141,6 +64185,14 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 992764614049842,
+													"parameters": {
+														"object": "Iron_Block"
+													}
+												},
+												{
 													"id": "compare-instance-variable",
 													"objectClass": "Iron_Block",
 													"sid": 524117639772408,
@@ -64207,6 +64259,14 @@
 										{
 											"eventType": "block",
 											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 682135245885393,
+													"parameters": {
+														"object": "Chromium_Block"
+													}
+												},
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Chromium_Block",
@@ -64275,6 +64335,14 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 203303916266356,
+													"parameters": {
+														"object": "Copper_Block"
+													}
+												},
+												{
 													"id": "compare-instance-variable",
 													"objectClass": "Copper_Block",
 													"sid": 323522685570263,
@@ -64341,6 +64409,14 @@
 										{
 											"eventType": "block",
 											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 657290622714898,
+													"parameters": {
+														"object": "Lithium_Block"
+													}
+												},
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Lithium_Block",
@@ -64409,6 +64485,14 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 309320982552333,
+													"parameters": {
+														"object": "Silver_Block"
+													}
+												},
+												{
 													"id": "compare-instance-variable",
 													"objectClass": "Silver_Block",
 													"sid": 109140860826747,
@@ -64475,6 +64559,14 @@
 										{
 											"eventType": "block",
 											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 449775874386432,
+													"parameters": {
+														"object": "Nickel_Block"
+													}
+												},
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Nickel_Block",
@@ -64543,6 +64635,14 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 562029875038920,
+													"parameters": {
+														"object": "Zinc_Block"
+													}
+												},
+												{
 													"id": "compare-instance-variable",
 													"objectClass": "Zinc_Block",
 													"sid": 154339649401327,
@@ -64610,6 +64710,14 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 575920870156238,
+													"parameters": {
+														"object": "Gold_Block"
+													}
+												},
+												{
 													"id": "compare-instance-variable",
 													"objectClass": "Gold_Block",
 													"sid": 343159109524941,
@@ -64676,6 +64784,14 @@
 										{
 											"eventType": "block",
 											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 245783012678844,
+													"parameters": {
+														"object": "Diamond_Block"
+													}
+												},
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Diamond_Block",
@@ -68965,18 +69081,54 @@
 													}
 												}
 											],
-											"actions": [
+											"actions": [],
+											"sid": 949264317642140,
+											"children": [
 												{
-													"id": "subtract-from-instvar",
-													"objectClass": "Mining_Blocks_Family",
-													"sid": 930813070619338,
-													"parameters": {
-														"instance-variable": "Hp",
-														"value": "Explosion_Damage"
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 995898911558914,
+															"parameters": {
+																"object": "Mining_Blocks_Family"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 629674051448409
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "Mining_Blocks_Family",
+															"sid": 265679192880226,
+															"parameters": {
+																"instance-variable": "Hp",
+																"value": "Explosion_Damage"
+															}
+														}
+													],
+													"sid": 523416421115827,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "Explosion_Area",
+																	"sid": 624963887575006
+																}
+															],
+															"sid": 173946359985016
+														}
+													]
 												}
-											],
-											"sid": 949264317642140
+											]
 										},
 										{
 											"eventType": "block",
@@ -69252,23 +69404,9 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 733115550032390,
+											"sid": 456797796321070,
 											"parameters": {
-												"seconds": "0.1",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Explosion_Area",
-											"sid": 831201235380467
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 789071435937456,
-											"parameters": {
-												"seconds": "0.9",
+												"seconds": "1",
 												"use-timescale": true
 											}
 										},
