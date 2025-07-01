@@ -41233,11 +41233,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 167939517008154,
+											"sid": 553819153373476,
 											"parameters": {
 												"audio-file": "Ding",
 												"loop": "not-looping",
-												"volume": "0",
+												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Ding\""
 											}
@@ -55192,6 +55192,14 @@
 										"click-type": "clicked",
 										"object-clicked": "Exit_Sign"
 									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 908860326132781,
+									"parameters": {
+										"layer": "\"Buildings\""
+									}
 								}
 							],
 							"actions": [
@@ -55317,17 +55325,25 @@
 								"click-type": "clicked",
 								"object-clicked": "Exit_Sign"
 							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 546555621269348,
+							"parameters": {
+								"layer": "\"Buildings\""
+							}
 						}
 					],
 					"actions": [
 						{
 							"id": "play",
 							"objectClass": "SFX",
-							"sid": 889220050100633,
+							"sid": 531234011750579,
 							"parameters": {
 								"audio-file": "Button_short",
 								"loop": "not-looping",
-								"volume": "0",
+								"volume": "Volume_General",
 								"stereo-pan": "0",
 								"tag-optional": "\"Button\""
 							}
@@ -57857,11 +57873,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 883021093337257,
+											"sid": 446224522814421,
 											"parameters": {
 												"audio-file": "Ding",
 												"loop": "not-looping",
-												"volume": "-10",
+												"volume": "Volume_General-10",
 												"stereo-pan": "0",
 												"tag-optional": "\"Narrator\""
 											}
@@ -58034,11 +58050,11 @@
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 820394569600393,
+													"sid": 905396392199268,
 													"parameters": {
 														"audio-file": "Ding",
 														"loop": "not-looping",
-														"volume": "-10",
+														"volume": "Volume_General-10",
 														"stereo-pan": "0",
 														"tag-optional": "\"Narrator\""
 													}
@@ -58204,11 +58220,11 @@
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 273636043095923,
+													"sid": 231134861544445,
 													"parameters": {
 														"audio-file": "Ding",
 														"loop": "not-looping",
-														"volume": "-10",
+														"volume": "Volume_General-10",
 														"stereo-pan": "0",
 														"tag-optional": "\"Narrator\""
 													}
@@ -69143,18 +69159,54 @@
 													}
 												}
 											],
-											"actions": [
+											"actions": [],
+											"sid": 750126411804701,
+											"children": [
 												{
-													"id": "subtract-from-instvar",
-													"objectClass": "Stone_Block",
-													"sid": 545599199683737,
-													"parameters": {
-														"instance-variable": "HP",
-														"value": "Explosion_Area.Explosion_Damage"
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 726389428856327,
+															"parameters": {
+																"object": "Stone_Block"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 143596476339931
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "Stone_Block",
+															"sid": 783066896678463,
+															"parameters": {
+																"instance-variable": "HP",
+																"value": "Explosion_Area.Explosion_Damage"
+															}
+														}
+													],
+													"sid": 141014979636772,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "Explosion_Area",
+																	"sid": 203885269205996
+																}
+															],
+															"sid": 517086385628749
+														}
+													]
 												}
-											],
-											"sid": 750126411804701
+											]
 										},
 										{
 											"eventType": "group",
@@ -69415,6 +69467,11 @@
 											"id": "destroy",
 											"objectClass": "Explosion_Anim",
 											"sid": 160084653475176
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Explosion_Area",
+											"sid": 687548702718160
 										}
 									],
 									"sid": 313026973782837
@@ -70908,12 +70965,72 @@
 									],
 									"actions": [
 										{
+											"id": "spawn-another-object",
+											"objectClass": "Boulder_Bullet",
+											"sid": 834339727311349,
+											"parameters": {
+												"object": "Explosion_Anim",
+												"layer": "\"Player\"",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
 											"id": "destroy",
 											"objectClass": "Boulder_Bullet",
-											"sid": 408745360546208
+											"sid": 640766709752685
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 710526063580876,
+											"parameters": {
+												"seconds": "1.0",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Explosion_Anim",
+											"sid": 293496514079225
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 731616971157992,
+											"parameters": {
+												"audio-file": "Dynamite",
+												"loop": "not-looping",
+												"volume": "Volume_General -20",
+												"stereo-pan": "0",
+												"tag-optional": "\"Explosion\""
+											}
 										}
 									],
 									"sid": 353588473080600
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Sphere_Bullet_Sprite",
+											"sid": 830100759994563,
+											"parameters": {
+												"object": "Render_Object"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Sphere_Bullet_Sprite",
+											"sid": 514451758464114
+										}
+									],
+									"sid": 810726817880577
 								},
 								{
 									"eventType": "block",
@@ -71281,11 +71398,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 141867547424083,
+											"sid": 846019279875018,
 											"parameters": {
 												"audio-file": "Moledamage",
 												"loop": "not-looping",
-												"volume": "-10",
+												"volume": "Volume_General-10",
 												"stereo-pan": "0",
 												"tag-optional": "\"Crash\""
 											}
@@ -71359,11 +71476,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 938431027126502,
+											"sid": 979540978260957,
 											"parameters": {
 												"audio-file": "Moledamage",
 												"loop": "not-looping",
-												"volume": "-10",
+												"volume": "Volume_General-10",
 												"stereo-pan": "0",
 												"tag-optional": "\"Crash\""
 											}
@@ -71441,11 +71558,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 751900267701090,
+											"sid": 235274119689468,
 											"parameters": {
 												"audio-file": "Moledamage",
 												"loop": "not-looping",
-												"volume": "-10",
+												"volume": "Volume_General-10",
 												"stereo-pan": "0",
 												"tag-optional": "\"Crash\""
 											}
@@ -71519,11 +71636,11 @@
 										{
 											"id": "play",
 											"objectClass": "SFX",
-											"sid": 697167158593530,
+											"sid": 831574986130426,
 											"parameters": {
 												"audio-file": "Moledamage",
 												"loop": "not-looping",
-												"volume": "-10",
+												"volume": "Volume_General-10",
 												"stereo-pan": "0",
 												"tag-optional": "\"Crash\""
 											}
@@ -71627,9 +71744,57 @@
 											"id": "destroy",
 											"objectClass": "Sphere_Bullet_Sprite",
 											"sid": 467758031881639
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 904712558294293,
+											"parameters": {
+												"audio-file": "Moledamage",
+												"loop": "not-looping",
+												"volume": "Volume_General-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"Crash\""
+											}
 										}
 									],
-									"sid": 928657738672317
+									"sid": 928657738672317,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Enemy_Body3",
+													"sid": 550290522845111,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"Darken\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 283858129888538,
+													"parameters": {
+														"seconds": "0.1",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Enemy_Body3",
+													"sid": 148069923149338,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"Darken\""
+													}
+												}
+											],
+											"sid": 652484490010193
+										}
+									]
 								},
 								{
 									"eventType": "comment",
@@ -71691,9 +71856,57 @@
 											"id": "destroy",
 											"objectClass": "Sphere_Bullet_Sprite",
 											"sid": 515852465555394
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 343087604870775,
+											"parameters": {
+												"audio-file": "Moledamage",
+												"loop": "not-looping",
+												"volume": "Volume_General-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"Crash\""
+											}
 										}
 									],
-									"sid": 453884374260027
+									"sid": 453884374260027,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Enemy_Body4",
+													"sid": 295940436303936,
+													"parameters": {
+														"mode": "enable",
+														"effect": "\"Darken\""
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 279187220205689,
+													"parameters": {
+														"seconds": "0.1",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-effect-enabled",
+													"objectClass": "Enemy_Body4",
+													"sid": 791773020058891,
+													"parameters": {
+														"mode": "disable",
+														"effect": "\"Darken\""
+													}
+												}
+											],
+											"sid": 304627892931297
+										}
+									]
 								},
 								{
 									"eventType": "comment",
@@ -71769,6 +71982,18 @@
 										}
 									],
 									"actions": [
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 995438713581783,
+											"parameters": {
+												"audio-file": "Dynamite",
+												"loop": "not-looping",
+												"volume": "Volume_General -20",
+												"stereo-pan": "0",
+												"tag-optional": "\"Explosion\""
+											}
+										},
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Boulder_Bullet",
@@ -72041,11 +72266,11 @@
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 972019677456444,
+													"sid": 900539115987816,
 													"parameters": {
 														"audio-file": "Boss dead",
 														"loop": "not-looping",
-														"volume": "-10",
+														"volume": "Volume_General-10",
 														"stereo-pan": "0",
 														"tag-optional": "\"Crash\""
 													}
@@ -72135,11 +72360,11 @@
 												{
 													"id": "play",
 													"objectClass": "SFX",
-													"sid": 852744860721775,
+													"sid": 152636727843980,
 													"parameters": {
 														"audio-file": "Boss dead",
 														"loop": "not-looping",
-														"volume": "-10",
+														"volume": "Volume_General-10",
 														"stereo-pan": "0",
 														"tag-optional": "\"Crash\""
 													}
@@ -72218,7 +72443,41 @@
 									"children": [
 										{
 											"eventType": "block",
-											"conditions": [],
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 784345011406630
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 859308865762869,
+													"parameters": {
+														"audio-file": "Boss dead",
+														"loop": "not-looping",
+														"volume": "Volume_General-10",
+														"stereo-pan": "0",
+														"tag-optional": "\"Crash\""
+													}
+												}
+											],
+											"sid": 287180322587078
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-animation-finished",
+													"objectClass": "Enemy_Body3",
+													"sid": 900490534134180,
+													"parameters": {
+														"animation": "\"Dead\""
+													}
+												}
+											],
 											"actions": [
 												{
 													"id": "destroy",
@@ -72273,7 +72532,41 @@
 									"children": [
 										{
 											"eventType": "block",
-											"conditions": [],
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 690815120537128
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 574523959802036,
+													"parameters": {
+														"audio-file": "Boss dead",
+														"loop": "not-looping",
+														"volume": "Volume_General-10",
+														"stereo-pan": "0",
+														"tag-optional": "\"Crash\""
+													}
+												}
+											],
+											"sid": 760385547673010
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-animation-finished",
+													"objectClass": "Enemy_Body4",
+													"sid": 440772932023294,
+													"parameters": {
+														"animation": "\"Dead\""
+													}
+												}
+											],
 											"actions": [
 												{
 													"id": "destroy",
@@ -73642,6 +73935,18 @@
 													}
 												},
 												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 368794820168569,
+													"parameters": {
+														"audio-file": "Dynamite",
+														"loop": "not-looping",
+														"volume": "Volume_General -20",
+														"stereo-pan": "0",
+														"tag-optional": "\"Explosion\""
+													}
+												},
+												{
 													"id": "spawn-another-object",
 													"objectClass": "Boulder_Bullet",
 													"sid": 983894889719179,
@@ -73901,6 +74206,18 @@
 													}
 												},
 												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 547475717720821,
+													"parameters": {
+														"audio-file": "Dynamite",
+														"loop": "not-looping",
+														"volume": "Volume_General -20",
+														"stereo-pan": "0",
+														"tag-optional": "\"Explosion\""
+													}
+												},
+												{
 													"id": "spawn-another-object",
 													"objectClass": "Boulder_Bullet",
 													"sid": 136109524244713,
@@ -73977,10 +74294,10 @@
 								{
 									"id": "move-to-object",
 									"objectClass": "Enemy_Body4",
-									"sid": 701750627186690,
+									"sid": 439835694012703,
 									"behaviorType": "MoveTo",
 									"parameters": {
-										"object": "Enemy_Background_First",
+										"object": "Enemy_Background_Second",
 										"image-point": "\"Enemy_4\"",
 										"mode": "direct"
 									}
@@ -74700,35 +75017,82 @@
 							}
 						},
 						{
-							"id": "trigger-once-while-true",
-							"objectClass": "System",
-							"sid": 926717360820145
-						}
-					],
-					"actions": [
-						{
-							"id": "set-muted",
-							"objectClass": "SFX",
-							"sid": 641492705571482,
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 799504616458099,
 							"parameters": {
-								"tag": "\"Surface_Music\"",
-								"state": "muted"
+								"object": "Enemy_Background_Second"
 							}
 						},
 						{
-							"id": "play",
-							"objectClass": "SFX",
-							"sid": 136361720136265,
+							"id": "is-overlapping-another-object",
+							"objectClass": "Miner_Box",
+							"sid": 156389343486458,
 							"parameters": {
-								"audio-file": "Moleboss",
-								"loop": "looping",
-								"volume": "-20",
-								"stereo-pan": "0",
-								"tag-optional": "\"Moleboss\""
+								"object": "Hell_Background"
 							}
 						}
 					],
-					"sid": 326470153590903
+					"actions": [],
+					"sid": 326470153590903,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 799626998628500,
+									"parameters": {
+										"variable": "Music_Muted"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 313638176149616
+								}
+							],
+							"actions": [
+								{
+									"id": "set-muted",
+									"objectClass": "SFX",
+									"sid": 539744327817063,
+									"parameters": {
+										"tag": "\"Surface_Music\"",
+										"state": "muted"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 668045619461579,
+									"parameters": {
+										"audio-file": "Moleboss",
+										"loop": "looping",
+										"volume": "-20",
+										"stereo-pan": "0",
+										"tag-optional": "\"Moleboss\""
+									}
+								}
+							],
+							"sid": 668404252405705
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 371530495382896
+								}
+							],
+							"actions": [],
+							"sid": 481430902078024
+						}
+					],
+					"isOrBlock": true
 				},
 				{
 					"eventType": "block",
@@ -74736,14 +75100,14 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 127595585480019
+							"sid": 834059446094644
 						}
 					],
 					"actions": [
 						{
 							"id": "set-muted",
 							"objectClass": "SFX",
-							"sid": 630687836381114,
+							"sid": 891773538146111,
 							"parameters": {
 								"tag": "\"Surface_Music\"",
 								"state": "unmuted"
@@ -74752,7 +75116,7 @@
 						{
 							"id": "fade-volume",
 							"objectClass": "SFX",
-							"sid": 607971827029134,
+							"sid": 160405670441604,
 							"parameters": {
 								"tag": "\"Moleboss\"",
 								"db": "-100",
@@ -74761,7 +75125,7 @@
 							}
 						}
 					],
-					"sid": 140262262769724
+					"sid": 544519147724273
 				}
 			],
 			"sid": 616610756106818
@@ -91577,9 +91941,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Item_Discovered_Text",
-													"sid": 974748796855004,
+													"sid": 198576988224083,
 													"parameters": {
-														"text": "\"Achievement Unlocked\" & newline & \"Sell 100 Gold Ore at once\""
+														"text": "\"Achievement Unlocked\" & newline & \"Hoard 100 Gold Ore in Global Inventory\""
 													}
 												},
 												{
@@ -91750,9 +92114,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Item_Discovered_Text",
-													"sid": 332191551555267,
+													"sid": 905432572472736,
 													"parameters": {
-														"text": "\"Achievement Unlocked\" & newline & \"Sell 50 Gold Ingots at once\""
+														"text": "\"Achievement Unlocked\" & newline & \"Hoard 50 Gold Ingots at once in Global Inventory\""
 													}
 												},
 												{
