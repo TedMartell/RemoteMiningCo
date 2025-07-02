@@ -965,15 +965,6 @@
 												"animation": "\"Active\"",
 												"from": "beginning"
 											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Meta_Laser_Damage_T1_Button",
-											"sid": 305171781781118,
-											"parameters": {
-												"animation": "\"Active\"",
-												"from": "beginning"
-											}
 										}
 									],
 									"sid": 872337844701586
@@ -1004,6 +995,15 @@
 											"id": "set-animation",
 											"objectClass": "Meta_Laser_Charged_T1_Button",
 											"sid": 143304668558083,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 762288735594641,
 											"parameters": {
 												"animation": "\"Active\"",
 												"from": "beginning"
@@ -4282,9 +4282,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Stats_Text",
-											"sid": 199353283546515,
+											"sid": 655513198798010,
 											"parameters": {
-												"text": "\"Drill Damage: \" & Miner_Mining_DMG  & newline\n&\"Max Energy: \" & Miner_Box.Max_Energy & newline\n& \"Energy Consumption: \" & Miner_Energy_Efficiency & newline\n&\"Energy Regeneration: \" & Miner_Energy_Regeneration & newline\n&\"Heat Shield: \" & Miner_Box.Shield_Heat & newline\n&\"Impact Shield: \" & Miner_Box.Shield_Impact & newline\n&\"Vertical Speed Multiplier: \" & Vertical_Speed_Multiplier & newline\n&\"Decrease Weight Multiplier: \" & Engine_Efficiency_Multiplier & newline\n&\"Laser Gun Reload tick: \" & Laser_Gun.Tick_Ammount & newline\n&\"Laser Gun Base Damage: \" & Laser_Gun.Laser_Gun_Damage & newline\n&\"Laser Charged Shot Damage: \" & Laser_Gun.Laser_Gun_Charged_Damage & newline &\n\"Battery Recharge Effect: \" & Battery_Effectiveness & \"%\" &\nnewline & \n\"Repairt Kit Repair Effect: \" & Repair_Kit_Effectiveness & \"%\" & \nnewline &\n\"Battery Max Inventory: \" & Battery_Max_Ammount & newline &\n\"Repair Kit Max Inventory: \" & Repair_Kit_Max_Ammount & \nnewline"
+												"text": "\"Drill Damage: \" & Miner_Mining_DMG  & newline\n&\"Max Energy: \" & Miner_Box.Max_Energy & newline\n& \"Energy Consumption: \" & Miner_Energy_Efficiency & newline\n&\"Energy Regeneration: \" & Miner_Energy_Regeneration & newline\n&\"Heat Shield: \" & Miner_Box.Shield_Heat & newline\n&\"Impact Shield: \" & Miner_Box.Shield_Impact & newline\n&\"Vertical Speed Multiplier: \" & Vertical_Speed_Multiplier & newline\n&\"Decrease Weight Multiplier: \" & Engine_Efficiency_Multiplier & newline\n&\"Laser Gun Damage: \" & Laser_Gun.Laser_Gun_Charged_Damage & newline &\n\"Battery Recharge Effect: \" & Battery_Effectiveness & \"%\" &\nnewline & \n\"Repairt Kit Repair Effect: \" & Repair_Kit_Effectiveness & \"%\" & \nnewline &\n\"Battery Max Inventory: \" & Battery_Max_Ammount & newline &\n\"Repair Kit Max Inventory: \" & Repair_Kit_Max_Ammount & \nnewline"
 											}
 										},
 										{
@@ -4557,6 +4557,7 @@
 									"id": "spawn-another-object",
 									"objectClass": "HUD_Grey",
 									"sid": 313085874939475,
+									"disabled": true,
 									"parameters": {
 										"object": "Reload_Bar",
 										"layer": "\"HUD\"",
@@ -5285,7 +5286,6 @@
 							"id": "set-silent",
 							"objectClass": "SFX",
 							"sid": 547617209315410,
-							"disabled": true,
 							"parameters": {
 								"mode": "silent"
 							}
@@ -30155,6 +30155,7 @@
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
 															"sid": 948355489226789,
+															"disabled": true,
 															"parameters": {
 																"object": "Meta_Laser_Gun_Reload_Background",
 																"layer": "\"Meta_upgrades_Content\"",
@@ -30167,6 +30168,7 @@
 															"id": "pin-to-object-properties",
 															"objectClass": "Meta_Laser_Gun_Reload_Background",
 															"sid": 431202561644091,
+															"disabled": true,
 															"behaviorType": "Pin",
 															"parameters": {
 																"pin-to": "Meta_ScrollabeSprite",
@@ -30182,6 +30184,7 @@
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
 															"sid": 780271157955326,
+															"disabled": true,
 															"parameters": {
 																"object": "Meta_Laser_Reload_T1_Button",
 																"layer": "\"Meta_upgrades_Content\"",
@@ -30194,6 +30197,7 @@
 															"id": "pin-to-object-properties",
 															"objectClass": "Meta_Laser_Reload_T1_Button",
 															"sid": 685548220322808,
+															"disabled": true,
 															"behaviorType": "Pin",
 															"parameters": {
 																"pin-to": "Meta_ScrollabeSprite",
@@ -30208,11 +30212,11 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
-															"sid": 842553351587429,
+															"sid": 139391093534613,
 															"parameters": {
 																"object": "Meta_Laser_Gun_Damage_Background",
 																"layer": "\"Meta_upgrades_Content\"",
-																"image-point": "\"Slot_9\"",
+																"image-point": "\"Slot_7\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -30235,11 +30239,11 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
-															"sid": 354110197585159,
+															"sid": 929650444835928,
 															"parameters": {
 																"object": "Meta_Laser_Damage_T1_Button",
 																"layer": "\"Meta_upgrades_Content\"",
-																"image-point": "\"Slot_10\"",
+																"image-point": "\"Slot_8\"",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -30263,6 +30267,7 @@
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
 															"sid": 208203141512221,
+															"disabled": true,
 															"parameters": {
 																"object": "Meta_Laser_Gun_Charged_Shot_Background",
 																"layer": "\"Meta_upgrades_Content\"",
@@ -30275,6 +30280,7 @@
 															"id": "pin-to-object-properties",
 															"objectClass": "Meta_Laser_Gun_Charged_Shot_Background",
 															"sid": 217182280973157,
+															"disabled": true,
 															"behaviorType": "Pin",
 															"parameters": {
 																"pin-to": "Meta_ScrollabeSprite",
@@ -30290,6 +30296,7 @@
 															"id": "spawn-another-object",
 															"objectClass": "Meta_ScrollabeSprite",
 															"sid": 122549582768701,
+															"disabled": true,
 															"parameters": {
 																"object": "Meta_Laser_Charged_T1_Button",
 																"layer": "\"Meta_upgrades_Content\"",
@@ -30302,6 +30309,7 @@
 															"id": "pin-to-object-properties",
 															"objectClass": "Meta_Laser_Charged_T1_Button",
 															"sid": 345374200971020,
+															"disabled": true,
 															"behaviorType": "Pin",
 															"parameters": {
 																"pin-to": "Meta_ScrollabeSprite",
@@ -31645,7 +31653,7 @@
 						},
 						{
 							"eventType": "group",
-							"disabled": false,
+							"disabled": true,
 							"title": "Laser Reload Tier 1",
 							"description": "",
 							"isActiveOnStart": true,
@@ -31720,6 +31728,7 @@
 										}
 									],
 									"sid": 896769858139325,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -31735,7 +31744,8 @@
 													}
 												}
 											],
-											"sid": 842906364127872
+											"sid": 842906364127872,
+											"disabled": true
 										}
 									]
 								},
@@ -31810,6 +31820,7 @@
 										}
 									],
 									"sid": 383137972563649,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -31864,7 +31875,8 @@
 													}
 												}
 											],
-											"sid": 898867415128840
+											"sid": 898867415128840,
+											"disabled": true
 										}
 									]
 								},
@@ -31940,7 +31952,8 @@
 											}
 										}
 									],
-									"sid": 200401349284108
+									"sid": 200401349284108,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -31976,7 +31989,8 @@
 											}
 										}
 									],
-									"sid": 282337699450900
+									"sid": 282337699450900,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -31999,6 +32013,7 @@
 									],
 									"actions": [],
 									"sid": 572161432816112,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -32017,7 +32032,8 @@
 													}
 												}
 											],
-											"sid": 826223563431347
+											"sid": 826223563431347,
+											"disabled": true
 										}
 									]
 								},
@@ -32052,6 +32068,7 @@
 										}
 									],
 									"sid": 844876030589230,
+									"disabled": true,
 									"isOrBlock": true
 								}
 							],
@@ -32059,7 +32076,7 @@
 						},
 						{
 							"eventType": "group",
-							"disabled": false,
+							"disabled": true,
 							"title": "Laser Damage Tier 1",
 							"description": "",
 							"isActiveOnStart": true,
@@ -32134,6 +32151,7 @@
 										}
 									],
 									"sid": 822215209193238,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -32149,7 +32167,8 @@
 													}
 												}
 											],
-											"sid": 264450953597048
+											"sid": 264450953597048,
+											"disabled": true
 										}
 									]
 								},
@@ -32224,6 +32243,7 @@
 										}
 									],
 									"sid": 443431805566739,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -32278,7 +32298,8 @@
 													}
 												}
 											],
-											"sid": 564243004924434
+											"sid": 564243004924434,
+											"disabled": true
 										}
 									]
 								},
@@ -32354,7 +32375,8 @@
 											}
 										}
 									],
-									"sid": 870433647000251
+									"sid": 870433647000251,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -32390,7 +32412,8 @@
 											}
 										}
 									],
-									"sid": 102362138611941
+									"sid": 102362138611941,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -32413,6 +32436,7 @@
 									],
 									"actions": [],
 									"sid": 976116970978765,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -32431,7 +32455,8 @@
 													}
 												}
 											],
-											"sid": 325400027125564
+											"sid": 325400027125564,
+											"disabled": true
 										}
 									]
 								},
@@ -32466,6 +32491,7 @@
 										}
 									],
 									"sid": 360105876836752,
+									"disabled": true,
 									"isOrBlock": true
 								}
 							],
@@ -32484,17 +32510,17 @@
 										{
 											"id": "on-object-clicked",
 											"objectClass": "Mouse",
-											"sid": 904484670901712,
+											"sid": 255563406216126,
 											"parameters": {
 												"mouse-button": "left",
 												"click-type": "clicked",
-												"object-clicked": "Meta_Laser_Charged_T1_Button"
+												"object-clicked": "Meta_Laser_Damage_T1_Button"
 											}
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Laser_Charged_T1_Button",
-											"sid": 984927579782547,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 454381747881860,
 											"parameters": {
 												"instance-variable": "Focus",
 												"comparison": 0,
@@ -32503,8 +32529,8 @@
 										},
 										{
 											"id": "is-animation-playing",
-											"objectClass": "Meta_Laser_Charged_T1_Button",
-											"sid": 696640336198059,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 582323658687107,
 											"parameters": {
 												"animation": "\"Active\""
 											}
@@ -32512,9 +32538,9 @@
 										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "Meta_Weapons_Upg_Button",
-											"sid": 588224909217219,
+											"sid": 637337342617060,
 											"parameters": {
-												"instance-variable": "Laser_Charged_Shot_Tier1_Completed"
+												"instance-variable": "Laser_Damage_Tier1_Completed"
 											},
 											"isInverted": true
 										}
@@ -32532,15 +32558,15 @@
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Upg_Text",
-											"sid": 186576973571634,
+											"sid": 574053232142352,
 											"parameters": {
-												"text": "\"Increase Laser Gun Charged shot damage\""
+												"text": "\"Increase Laser Gun Damage\""
 											}
 										},
 										{
 											"id": "set-effect-enabled",
-											"objectClass": "Meta_Laser_Charged_T1_Button",
-											"sid": 260988930654530,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 699965961782529,
 											"parameters": {
 												"mode": "enable",
 												"effect": "\"Darken\""
@@ -32555,8 +32581,8 @@
 											"actions": [
 												{
 													"id": "set-instvar-value",
-													"objectClass": "Meta_Laser_Charged_T1_Button",
-													"sid": 725711972107749,
+													"objectClass": "Meta_Laser_Damage_T1_Button",
+													"sid": 523106276487324,
 													"parameters": {
 														"instance-variable": "Focus",
 														"value": "1"
@@ -32582,8 +32608,8 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Laser_Charged_T1_Button",
-											"sid": 135188796500653,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 483933700495983,
 											"parameters": {
 												"instance-variable": "Focus",
 												"comparison": 0,
@@ -32592,8 +32618,8 @@
 										},
 										{
 											"id": "is-animation-playing",
-											"objectClass": "Meta_Laser_Charged_T1_Button",
-											"sid": 893784728714049,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 788028402288203,
 											"parameters": {
 												"animation": "\"Active\""
 											}
@@ -32601,9 +32627,9 @@
 										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "Meta_Weapons_Upg_Button",
-											"sid": 427980754864797,
+											"sid": 482736877516288,
 											"parameters": {
-												"instance-variable": "Laser_Charged_Shot_Tier1_Completed"
+												"instance-variable": "Laser_Damage_Tier1_Completed"
 											},
 											"isInverted": true
 										}
@@ -32655,9 +32681,9 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Meta_Weapons_Upg_Button",
-													"sid": 421481605217120,
+													"sid": 881833923222459,
 													"parameters": {
-														"instance-variable": "Laser_Charged_Shot_Tier1_level",
+														"instance-variable": "Laser_Damage_Tier1_Level",
 														"comparison": 2,
 														"value": "Max_Level"
 													}
@@ -32685,9 +32711,9 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Meta_Weapons_Upg_Button",
-													"sid": 571660476981324,
+													"sid": 778546698673325,
 													"parameters": {
-														"instance-variable": "Laser_Charged_Shot_Tier1_level",
+														"instance-variable": "Laser_Damage_Tier1_Level",
 														"value": "1"
 													}
 												}
@@ -32706,8 +32732,8 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Laser_Charged_T1_Button",
-											"sid": 974166899456824,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 231901247579200,
 											"parameters": {
 												"instance-variable": "Focus",
 												"comparison": 0,
@@ -32719,10 +32745,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 781425112515734,
+											"sid": 837130784243855,
 											"parameters": {
 												"variable": "Current_Level",
-												"value": "Meta_Weapons_Upg_Button.Laser_Charged_Shot_Tier1_level"
+												"value": "Meta_Weapons_Upg_Button.Laser_Damage_Tier1_Level"
 											}
 										},
 										{
@@ -32776,9 +32802,9 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Meta_Weapons_Upg_Button",
-											"sid": 142160352196397,
+											"sid": 373798015818909,
 											"parameters": {
-												"instance-variable": "Laser_Charged_Shot_Tier1_level",
+												"instance-variable": "Laser_Damage_Tier1_Level",
 												"comparison": 0,
 												"value": "3"
 											}
@@ -32787,8 +32813,8 @@
 									"actions": [
 										{
 											"id": "set-animation",
-											"objectClass": "Meta_Laser_Charged_T1_Button",
-											"sid": 154107565553042,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 485531423152832,
 											"parameters": {
 												"animation": "\"Completed\"",
 												"from": "beginning"
@@ -32797,9 +32823,9 @@
 										{
 											"id": "set-boolean-instvar",
 											"objectClass": "Meta_Weapons_Upg_Button",
-											"sid": 803028443963257,
+											"sid": 771143799231367,
 											"parameters": {
-												"instance-variable": "Laser_Charged_Shot_Tier1_Completed",
+												"instance-variable": "Laser_Damage_Tier1_Completed",
 												"value": "true"
 											}
 										}
@@ -32811,8 +32837,8 @@
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Laser_Charged_T1_Button",
-											"sid": 972021947773596,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 587342381948226,
 											"parameters": {
 												"instance-variable": "Focus",
 												"comparison": 0,
@@ -32854,8 +32880,8 @@
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Meta_Laser_Charged_T1_Button",
-											"sid": 142614458468477,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 292599671840996,
 											"parameters": {
 												"instance-variable": "Focus",
 												"comparison": 0,
@@ -32871,8 +32897,8 @@
 										},
 										{
 											"id": "set-effect-enabled",
-											"objectClass": "Meta_Laser_Charged_T1_Button",
-											"sid": 327898956533702,
+											"objectClass": "Meta_Laser_Damage_T1_Button",
+											"sid": 793829362383161,
 											"parameters": {
 												"mode": "disable",
 												"effect": "\"Darken\""
@@ -55431,7 +55457,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "468",
+							"initialValue": "50",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -61165,7 +61191,8 @@
 											}
 										}
 									],
-									"sid": 471691647466365
+									"sid": 471691647466365,
+									"disabled": true
 								},
 								{
 									"eventType": "comment",
@@ -61303,7 +61330,8 @@
 											}
 										}
 									],
-									"sid": 470353034035625
+									"sid": 470353034035625,
+									"disabled": true
 								},
 								{
 									"eventType": "comment",
@@ -72191,23 +72219,42 @@
 									],
 									"actions": [
 										{
-											"id": "destroy",
+											"id": "set-animation",
 											"objectClass": "Devil_Boss_Sprite",
-											"sid": 192418747183099
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Devil_Boss_Pentagram",
-											"sid": 335870413128492
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Devil_Fire_Ring",
-											"sid": 541264041520991
+											"sid": 577709440417092,
+											"parameters": {
+												"animation": "\"Dead\"",
+												"from": "beginning"
+											}
 										}
 									],
 									"sid": 176256345256932,
 									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 503288961878756
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 540924349886976,
+													"parameters": {
+														"audio-file": "Boss dead",
+														"loop": "not-looping",
+														"volume": "Volume_General-10",
+														"stereo-pan": "0",
+														"tag-optional": "\"Crash\""
+													}
+												}
+											],
+											"sid": 141159190189795
+										},
 										{
 											"eventType": "block",
 											"conditions": [],
@@ -72223,6 +72270,37 @@
 												}
 											],
 											"sid": 931955752299416
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-animation-finished",
+													"objectClass": "Devil_Boss_Sprite",
+													"sid": 588900277167489,
+													"parameters": {
+														"animation": "\"Dead\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Devil_Boss_Sprite",
+													"sid": 268891855472862
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Devil_Boss_Pentagram",
+													"sid": 143609993960815
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Devil_Fire_Ring",
+													"sid": 474163371893975
+												}
+											],
+											"sid": 703404433913417
 										}
 									]
 								},
@@ -72640,6 +72718,7 @@
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Background_Second",
 											"sid": 352713354766045,
+											"disabled": true,
 											"parameters": {
 												"object": "Enemy_Body3",
 												"layer": "\"Player\"",
@@ -72652,6 +72731,7 @@
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Background_Second",
 											"sid": 677003681213065,
+											"disabled": true,
 											"parameters": {
 												"object": "Enemy_Body4",
 												"layer": "\"Player\"",
@@ -74464,6 +74544,31 @@
 										}
 									],
 									"sid": 304140441745676
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 571883067833127,
+											"parameters": {
+												"interval-seconds": "10"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Devil_Boss_Sprite",
+											"sid": 883402368224729,
+											"parameters": {
+												"animation": "\"Fire\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 521904918467541
 								}
 							]
 						},
@@ -74547,6 +74652,163 @@
 										}
 									],
 									"sid": 906833839610114
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Devil_Boss_Sprite",
+									"sid": 950018239768628,
+									"parameters": {
+										"animation": "\"Fire\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 404105578225249,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 678919174922693,
+											"parameters": {
+												"interval-seconds": "0.2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Devil_Boss_Pentagram",
+											"sid": 769161205543605,
+											"parameters": {
+												"object": "Boulder_Bullet",
+												"layer": "\"Player\"",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 713129755869904,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 848912949112257,
+													"parameters": {
+														"seconds": "2",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "SFX",
+													"sid": 399682058274273,
+													"parameters": {
+														"audio-file": "Dynamite",
+														"loop": "not-looping",
+														"volume": "Volume_General -20",
+														"stereo-pan": "0",
+														"tag-optional": "\"Explosion\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Boulder_Bullet",
+													"sid": 471964367096852,
+													"parameters": {
+														"object": "Explosion_Anim",
+														"layer": "\"Player\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Boulder_Bullet",
+													"sid": 136290302974699,
+													"parameters": {
+														"object": "Boulder_Explosion_Area",
+														"layer": "\"Player\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Boulder_Bullet",
+													"sid": 948053288679054
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 956916414028627,
+													"parameters": {
+														"seconds": "0.25",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Boulder_Explosion_Area",
+													"sid": 410959559970034
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 108902986186471,
+													"parameters": {
+														"seconds": "0.75",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Explosion_Anim",
+													"sid": 809043325898389
+												}
+											],
+											"sid": 429315628965761
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 735382696530925,
+											"parameters": {
+												"seconds": "3",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Devil_Boss_Sprite",
+											"sid": 910466682250967,
+											"parameters": {
+												"animation": "\"Idle\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 819392659203140
 								}
 							]
 						},
