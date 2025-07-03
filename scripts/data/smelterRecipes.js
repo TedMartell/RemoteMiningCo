@@ -1,23 +1,23 @@
 export const smelterRecipes = {
 	"Aluminium Ingot": {
-    	requiredItems: {Bauxite: 4, Coal: 2},
+    	requiredItems: {Bauxite: 3, Coal: 3},
 		output: {Aluminium_Ingot: 1},
 		smelting_time: 3
     },
     "Silicon": {
-       requiredItems: {Quartz: 4, Coal: 2},
+       requiredItems: {Quartz: 2, Coal: 1},
 	   output: {Silicon: 1},
-	   smelting_time: 3,
+	   smelting_time: 2,
     },
     "Iron Ingot": {
-       requiredItems: {Iron: 5, Coal: 2},
+       requiredItems: {Iron: 4, Coal: 3},
 	   output: {Iron_Ingot: 1},
-	   smelting_time: 5
+	   smelting_time: 4
     },
     "Chromium Ingot": {
-       requiredItems: {Chromium: 5, Coal: 2}, 
+       requiredItems: {Chromium: 6, Coal: 1}, 
 	   output: {Chromium_Ingot: 1},
-	   smelting_time: 5
+	   smelting_time: 6
     },
     "Copper Ingot": {
 		requiredItems: {Copper: 5, Coal: 2},
@@ -25,9 +25,9 @@ export const smelterRecipes = {
 		smelting_time: 5
     },
     "Lithium Ingot": {
-		requiredItems: {Lithium: 6, Coal: 3},
+		requiredItems: {Lithium: 3, Coal: 6},
 		output: {Lithium_Ingot: 1},
-		smelting_time: 10
+		smelting_time: 8
     },
     "Silver Ingot": {
         requiredItems: {Silver: 6, Coal: 3}, 
@@ -35,9 +35,9 @@ export const smelterRecipes = {
 		smelting_time: 10
     },
     "Nickel Ingot": {
-		requiredItems: {Nickel: 6, Coal: 3}, 
+		requiredItems: {Nickel: 7, Coal: 2}, 
 		output: {Nickel_Ingot: 1},
-		smelting_time: 10
+		smelting_time: 15
     },
     "Zinc Ingot": {
 		requiredItems: {Zinc: 8, Coal: 4},
