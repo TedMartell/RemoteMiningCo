@@ -3,6 +3,20 @@
 	"events": [
 		{
 			"eventType": "comment",
+			"text": "Set True for demo version"
+		},
+		{
+			"eventType": "variable",
+			"name": "Demo_Version",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 921821974745407
+		},
+		{
+			"eventType": "comment",
 			"text": "General Variables"
 		},
 		{
@@ -40587,6 +40601,14 @@
 										"variable": "Reseting_Map"
 									},
 									"isInverted": true
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Reset_Map_Button",
+									"sid": 274939197989718,
+									"parameters": {
+										"animation": "\"Active\""
+									}
 								}
 							],
 							"actions": [],
@@ -40855,6 +40877,67 @@
 										}
 									],
 									"sid": 470733603865301
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 254215346126179
+								}
+							],
+							"actions": [],
+							"sid": 680906375497781,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 443488396623367,
+											"parameters": {
+												"variable": "Demo_Version"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Reset_Map_Button",
+											"sid": 847289700785830,
+											"parameters": {
+												"animation": "\"Locked\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 964288693877261
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 972041176084480
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Reset_Map_Button",
+											"sid": 616951060227612,
+											"parameters": {
+												"animation": "\"Active\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 987907990718677
 								}
 							]
 						}
@@ -79181,7 +79264,17 @@
 							"children": [
 								{
 									"eventType": "block",
-									"conditions": [],
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 103673188611945,
+											"parameters": {
+												"variable": "Demo_Version"
+											},
+											"isInverted": true
+										}
+									],
 									"actions": [
 										{
 											"id": "set-instvar-value",
@@ -79251,88 +79344,87 @@
 											}
 										}
 									],
-									"sid": 630223391465889,
-									"children": [
+									"sid": 630223391465889
+								},
+								{
+									"eventType": "block",
+									"conditions": [
 										{
-											"eventType": "comment",
-											"text": "For the Demo only (Disable for full game)"
+											"id": "else",
+											"objectClass": "System",
+											"sid": 910426876954634
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 875200472373994,
+											"parameters": {
+												"object": "Item_Discovered_Background",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
 										},
 										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "spawn-another-object",
-													"objectClass": "HUD_Grey",
-													"sid": 962913827837005,
-													"parameters": {
-														"object": "Item_Discovered_Background",
-														"layer": "\"HUD\"",
-														"image-point": "\"Item_Discovered\"",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "spawn-another-object",
-													"objectClass": "HUD_Grey",
-													"sid": 473464217405803,
-													"parameters": {
-														"object": "Item_Discovered_Text",
-														"layer": "\"HUD\"",
-														"image-point": "\"Item_Discovered\"",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "set-text",
-													"objectClass": "Item_Discovered_Text",
-													"sid": 935791945729861,
-													"parameters": {
-														"text": "\"YOU HAVE COMPLETED THE DEMO!\" & newline & \"You can keep mining if you want but get full game for alot more content!\""
-													}
-												},
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 732072373327308,
-													"parameters": {
-														"seconds": "10",
-														"use-timescale": true
-													}
-												},
-												{
-													"id": "destroy",
-													"objectClass": "Item_Discovered_Background",
-													"sid": 169092830498348
-												},
-												{
-													"id": "destroy",
-													"objectClass": "Item_Discovered_Text",
-													"sid": 541899899285275
-												},
-												{
-													"id": "set-text",
-													"objectClass": "Quest_Text",
-													"sid": 305680598388954,
-													"parameters": {
-														"text": "\"NO MORE QUESTS IN THIS DEMO\""
-													}
-												},
-												{
-													"id": "set-text",
-													"objectClass": "Reward_Text",
-													"sid": 943000260006652,
-													"parameters": {
-														"text": "\"$ 0\""
-													}
-												}
-											],
-											"sid": 351301986403892,
-											"disabled": true
+											"id": "spawn-another-object",
+											"objectClass": "HUD_Grey",
+											"sid": 117704901972975,
+											"parameters": {
+												"object": "Item_Discovered_Text",
+												"layer": "\"HUD\"",
+												"image-point": "\"Item_Discovered\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 129019925551926,
+											"parameters": {
+												"text": "\"YOU HAVE COMPLETED THE DEMO!\" & newline & \"You can keep mining if you want but get full game for alot more content!\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 668459961224316,
+											"parameters": {
+												"seconds": "10",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Background",
+											"sid": 400121715092239
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Item_Discovered_Text",
+											"sid": 166251635291845
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Quest_Text",
+											"sid": 686930334832596,
+											"parameters": {
+												"text": "\"NO MORE QUESTS IN THIS DEMO\""
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Reward_Text",
+											"sid": 907938733735866,
+											"parameters": {
+												"text": "\"$ 0\""
+											}
 										}
-									]
+									],
+									"sid": 823157287277149
 								}
 							]
 						}
