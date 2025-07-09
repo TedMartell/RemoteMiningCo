@@ -16,6 +16,16 @@
 			"sid": 921821974745407
 		},
 		{
+			"eventType": "variable",
+			"name": "Loading",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 689230219015255
+		},
+		{
 			"eventType": "comment",
 			"text": "General Variables"
 		},
@@ -558,6 +568,30 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 702574346066075
+		},
+		{
+			"eventType": "comment",
+			"text": "Test Recipe Loads"
+		},
+		{
+			"eventType": "variable",
+			"name": "Recipe_0",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 390430148387192
+		},
+		{
+			"eventType": "variable",
+			"name": "Recipe_1",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 137600389785033
 		},
 		{
 			"eventType": "group",
@@ -4308,6 +4342,22 @@
 											"parameters": {
 												"text": "\"Every Second: \" & newline &  newline &\n\n\"Coal Income: \" & Meta_Passive_Income_Object.Meta_Passive_Coal  & newline &\"Quartz Income: \" & Meta_Passive_Income_Object.Meta_Passive_Quartz & newline\n& \"Bauxite Income: \" & Meta_Passive_Income_Object.Meta_Passive_Bauxite & newline &\"Iron Income: \" & Meta_Passive_Income_Object.Meta_Passive_Iron  & newline &\"Chromium Income: \" & Meta_Passive_Income_Object.Meta_Passive_Chromium & newline &\"Copper Income: \" & Meta_Passive_Income_Object.Meta_Passive_Copper & newline\n&\"Lithium Income: \" & Meta_Passive_Income_Object.Meta_Passive_Lithium & newline\n&\"Silver Income: \" & Meta_Passive_Income_Object.Meta_Passive_Silver & newline\n&\"Nickel Income: \" & Meta_Passive_Income_Object.Meta_Passive_Nickel & newline\n&\"Zinc Income: \" & Meta_Passive_Income_Object.Meta_Passive_Zinc & newline\n"
 											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "TestText",
+											"sid": 773261354810159,
+											"parameters": {
+												"text": "Smelter_Furnace_1_Object.Crafting_Time"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "TestText2",
+											"sid": 965783099885891,
+											"parameters": {
+												"text": "Smelter_Furnace_1_Object.Crafting_Amount"
+											}
 										}
 									],
 									"sid": 589718581405285
@@ -4461,15 +4511,6 @@
 										"width-type": "no",
 										"height-type": "no",
 										"z": false
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "TestText",
-									"sid": 463095904653181,
-									"disabled": true,
-									"parameters": {
-										"text": "Volume_General"
 									}
 								}
 							],
@@ -39374,6 +39415,11 @@
 									}
 								},
 								{
+									"callFunction": "Save_Furnace_Objects",
+									"sid": 927537408709878,
+									"disabled": true
+								},
+								{
 									"id": "save",
 									"objectClass": "System",
 									"sid": 788610275640122,
@@ -39441,6 +39487,29 @@
 										}
 									],
 									"sid": 249254233914272
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-ordered",
+											"objectClass": "System",
+											"sid": 985791132357997,
+											"parameters": {
+												"object": "Smelter_Furnace_1_Object",
+												"expression": "0",
+												"order": "ascending"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "save-to-json",
+											"objectClass": "System",
+											"sid": 873964216294453
+										}
+									],
+									"sid": 828627699059648
 								}
 							]
 						},
@@ -53422,6 +53491,10 @@
 							"sid": 340828505323006,
 							"children": [
 								{
+									"eventType": "comment",
+									"text": "Set Recipe List"
+								},
+								{
 									"eventType": "variable",
 									"name": "selectedRecipe",
 									"type": "string",
@@ -53837,14 +53910,71 @@
 															"actions": [
 																{
 																	"callFunction": "smeltItem",
-																	"sid": 799095321480558,
+																	"sid": 226871204343827,
 																	"parameters": [
 																		"Smelter_recipe_List.SelectedText",
 																		"Smelter_Furnace_1_Object.ID"
 																	]
 																}
 															],
-															"sid": 125542849940248
+															"sid": 125542849940248,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-boolean-eventvar",
+																			"objectClass": "System",
+																			"sid": 606306062345095,
+																			"parameters": {
+																				"variable": "Loading"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 446762763634836,
+																	"disabled": true,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [],
+																			"actions": [
+																				{
+																					"callFunction": "smeltItem",
+																					"sid": 536468160822456,
+																					"parameters": [
+																						"Recipe_0",
+																						"0"
+																					]
+																				},
+																				{
+																					"callFunction": "smeltItem",
+																					"sid": 206931278251842,
+																					"parameters": [
+																						"Recipe_1",
+																						"1"
+																					]
+																				}
+																			],
+																			"sid": 403032421930575,
+																			"disabled": true
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 507419812216285
+																		}
+																	],
+																	"actions": [],
+																	"sid": 395104906034242,
+																	"disabled": true
+																}
+															]
 														},
 														{
 															"eventType": "block",
@@ -87205,6 +87335,1485 @@
 								}
 							],
 							"sid": 488755515048153
+						}
+					]
+				},
+				{
+					"functionName": "Save_Furnace_Objects",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 145158922716829,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 617318248036537,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 998006493403895,
+									"parameters": {
+										"key": "\"Max_Ammount_0\"",
+										"value": "Smelter_Furnace_1_Object.Max_Amount"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 199474976058428,
+									"parameters": {
+										"key": "\"Busy_0\"",
+										"value": "Smelter_Furnace_1_Object.Busy"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 339729865628780,
+									"parameters": {
+										"key": "\"Crafting_Amount_0\"",
+										"value": "Smelter_Furnace_1_Object.Crafting_Amount"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 461324462725731,
+									"parameters": {
+										"key": "\"Crafting_Time_0\"",
+										"value": "Smelter_Furnace_1_Object.Crafting_Time"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 821490104485760,
+									"parameters": {
+										"key": "\"Furnace_Active_0\"",
+										"value": "Smelter_Furnace_1_Object.Furnace_Active"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 103171990929418,
+									"parameters": {
+										"key": "\"ID_0\"",
+										"value": "Smelter_Furnace_1_Object.ID"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 170514907557203,
+									"parameters": {
+										"key": "\"Smelt_Next_Item_0\"",
+										"value": "Smelter_Furnace_1_Object.Smelt_Next_Item"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 681970871801048,
+									"parameters": {
+										"key": "\"Timer_Seconds_Has_Passed_0\"",
+										"value": "Smelter_Furnace_1_Object.Timer_Second_Has_Passed"
+									}
+								}
+							],
+							"sid": 981205310834351,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 484346836424429,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 465980147760131,
+									"parameters": {
+										"key": "\"Max_Ammount_1\"",
+										"value": "Smelter_Furnace_1_Object.Max_Amount"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 830943267399787,
+									"parameters": {
+										"key": "\"Busy_1\"",
+										"value": "Smelter_Furnace_1_Object.Busy"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 424080274896612,
+									"parameters": {
+										"key": "\"Crafting_Amount_1\"",
+										"value": "Smelter_Furnace_1_Object.Crafting_Amount"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 749041379933069,
+									"parameters": {
+										"key": "\"Crafting_Time_1\"",
+										"value": "Smelter_Furnace_1_Object.Crafting_Time"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 791929953746575,
+									"parameters": {
+										"key": "\"Furnace_Active_1\"",
+										"value": "Smelter_Furnace_1_Object.Furnace_Active"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 937318242902265,
+									"parameters": {
+										"key": "\"ID_1\"",
+										"value": "Smelter_Furnace_1_Object.ID"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 265464667629430,
+									"parameters": {
+										"key": "\"Smelt_Next_Item_1\"",
+										"value": "Smelter_Furnace_1_Object.Smelt_Next_Item"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 762963335720588,
+									"parameters": {
+										"key": "\"Timer_Seconds_Has_Passed_1\"",
+										"value": "Smelter_Furnace_1_Object.Timer_Second_Has_Passed"
+									}
+								}
+							],
+							"sid": 137616797083233,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 899046747501916,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 249844452271018,
+									"parameters": {
+										"key": "\"Recipe_0\"",
+										"value": "Smelter_recipe_List.SelectedText"
+									}
+								}
+							],
+							"sid": 494090896076924,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 422607969668074,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 680685782514690,
+									"parameters": {
+										"key": "\"Recipe_1\"",
+										"value": "Smelter_recipe_List.SelectedText"
+									}
+								}
+							],
+							"sid": 166077067631165,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"functionName": "Load_Furnace_Objects",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 814761542783013,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 598790661142015,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 546276628466867,
+									"parameters": {
+										"key": "\"Max_Amount_0\""
+									}
+								},
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 242830702280698,
+									"parameters": {
+										"key": "\"Busy_0\""
+									}
+								},
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 646012428999872,
+									"parameters": {
+										"key": "\"Crafting_Amount_0\""
+									}
+								},
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 961822143147062,
+									"parameters": {
+										"key": "\"Crafting_Time_0\""
+									}
+								},
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 308685706021981,
+									"parameters": {
+										"key": "\"Furnace_Active_0\""
+									}
+								},
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 454930508483060,
+									"parameters": {
+										"key": "\"ID_0\""
+									}
+								},
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 287963797067566,
+									"parameters": {
+										"key": "\"Smelt_Next_Item_0\""
+									}
+								},
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 188970307633203,
+									"parameters": {
+										"key": "\"Timer_Seconds_Has_Passed_0\""
+									}
+								}
+							],
+							"sid": 682771744375014,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 151439407240195,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 915343653981974,
+									"parameters": {
+										"key": "\"Max_Amount_1\""
+									}
+								},
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 641789719288617,
+									"parameters": {
+										"key": "\"Busy_1\""
+									}
+								},
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 989065685255865,
+									"parameters": {
+										"key": "\"Crafting_Amount_1\""
+									}
+								},
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 970336944751109,
+									"parameters": {
+										"key": "\"Crafting_Time_1\""
+									}
+								},
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 750101006169607,
+									"parameters": {
+										"key": "\"Furnace_Active_1\""
+									}
+								},
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 949364537922822,
+									"parameters": {
+										"key": "\"ID_1\""
+									}
+								},
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 240938997314213,
+									"parameters": {
+										"key": "\"Smelt_Next_Item_1\""
+									}
+								},
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 461112234008197,
+									"parameters": {
+										"key": "\"Timer_Seconds_Has_Passed_1\""
+									}
+								}
+							],
+							"sid": 535171490698202,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 485264543323739,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 387143982147892,
+									"parameters": {
+										"key": "\"Recipe_0\""
+									}
+								}
+							],
+							"sid": 785804655735906,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_recipe_List",
+									"sid": 548439233073557,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "get-item",
+									"objectClass": "LocalStorage",
+									"sid": 723947371452550,
+									"parameters": {
+										"key": "\"Recipe_1\""
+									}
+								}
+							],
+							"sid": 120065384513965,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Set Values on Load Smelter_0 "
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 132758789588062,
+							"parameters": {
+								"key": "\"Max_Amount_0\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 774079651005740,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 815422625363637,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 476583541748412,
+									"parameters": {
+										"instance-variable": "Max_Amount",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 434142214486472,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 630103488992861,
+							"parameters": {
+								"key": "\"Busy_0\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 629810029161068,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 711343619135297,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 321217172834144,
+									"parameters": {
+										"instance-variable": "Busy",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 459856044151926,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 414307115242946,
+							"parameters": {
+								"key": "\"Crafting_Amount_0\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 797434250864879,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 679138369807061,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 946653920953739,
+									"parameters": {
+										"instance-variable": "Crafting_Amount",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 413697526864741,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 523632836434331,
+							"parameters": {
+								"key": "\"Crafting_Time_0\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 850847839657000,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 197831808578290,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 366860199438982,
+									"parameters": {
+										"instance-variable": "Crafting_Time",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 885946901064254,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 800009614732967,
+							"parameters": {
+								"key": "\"Furnace_Active_0\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 528656318072313,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 198076691010297,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 179098290327415,
+									"parameters": {
+										"instance-variable": "Furnace_Active",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 577297137542269,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 106482151372372,
+							"parameters": {
+								"key": "\"ID_0\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 658713615026557,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 770280613673037,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 680434989945943,
+									"parameters": {
+										"instance-variable": "ID",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 936128501083881,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 723495714757352,
+							"parameters": {
+								"key": "\"Smelt_Next_Item_0\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 660883690363081,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 850027237559601,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 950129322219620,
+									"parameters": {
+										"instance-variable": "Smelt_Next_Item",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 372367265478168,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 996187928664655,
+							"parameters": {
+								"key": "\"Timer_Seconds_Has_Passed_0\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 861200926817256,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 355955193345867,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 959183725625854,
+									"parameters": {
+										"instance-variable": "Timer_Second_Has_Passed",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 104860384892602,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Set Values on Load Smelter_1"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 671997353032329,
+							"parameters": {
+								"key": "\"Max_Amount_1\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 938054332206370,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 996543131317889,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 254814782657235,
+									"parameters": {
+										"instance-variable": "Max_Amount",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 871135280412961,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 356194841381250,
+							"parameters": {
+								"key": "\"Busy_1\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 964940733763982,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 815050174188855,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 140163295801369,
+									"parameters": {
+										"instance-variable": "Busy",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 901007364545751,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 330310364574917,
+							"parameters": {
+								"key": "\"Crafting_Amount_1\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 969072714825695,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 246557748720406,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 787961988546553,
+									"parameters": {
+										"instance-variable": "Crafting_Amount",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 884619333202682,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 379982479634474,
+							"parameters": {
+								"key": "\"Crafting_Time_1\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 292027734374401,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 656585698506230,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 379283822560105,
+									"parameters": {
+										"instance-variable": "Crafting_Time",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 316891837456160,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 169185916142336,
+							"parameters": {
+								"key": "\"Furnace_Active_1\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 942386789107484,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 796620514189417,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 261750562535045,
+									"parameters": {
+										"instance-variable": "Furnace_Active",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 112407576324756,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 844735012608524,
+							"parameters": {
+								"key": "\"ID_1\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 588252518474053,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 805680767175232,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 657668993344996,
+									"parameters": {
+										"instance-variable": "ID",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 628938454133526,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 170175014055474,
+							"parameters": {
+								"key": "\"Smelt_Next_Item_1\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 541580300120386,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 489932553013072,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 113112342956307,
+									"parameters": {
+										"instance-variable": "Smelt_Next_Item",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 139539563667722,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 141688750367724,
+							"parameters": {
+								"key": "\"Timer_Seconds_Has_Passed_1\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 976047773214326,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 919369578056164,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 599806380471290,
+									"parameters": {
+										"instance-variable": "Timer_Second_Has_Passed",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 854382742590049,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"functionName": "smeltItem2",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "selectedRecipe",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 841893137256984
+						},
+						{
+							"name": "smelterId",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 158746844555069
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 264824161709433,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "localSmelterId",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 615609594795669
+						},
+						{
+							"eventType": "variable",
+							"name": "localSelectedRecipe",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 405867813075652
+						},
+						{
+							"eventType": "variable",
+							"name": "smeltingTimePerItem",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 964227421040557
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 332556134769207,
+									"parameters": {
+										"variable": "localSelectedRecipe",
+										"value": "selectedRecipe"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 907402896121215,
+									"parameters": {
+										"variable": "localSmelterId",
+										"value": "smelterId"
+									}
+								},
+								{
+									"type": "script",
+									"language": "javascript",
+									"script": [
+										"var smelterFurnaces = runtime.objects.Smelter_Furnace_1_Object.getAllInstances()",
+										"for (var i = 0; i < smelterFurnaces.length; i++) {",
+										"\tvar tmpSmelterFurnace = smelterFurnaces[i]",
+										"\tif (tmpSmelterFurnace.instVars.ID == localVars.localSmelterId) {",
+										"\t\tvar smelterFurnace = smelterFurnaces[i]",
+										"\t}",
+										"} ",
+										"",
+										"smelterFurnace.instVars.Smelt_Next_Item = 0",
+										"",
+										"// getting recipe",
+										"var recipe = smelterRecipes[localVars.localSelectedRecipe]",
+										"// setting smelting time per item",
+										"localVars.smeltingTimePerItem = recipe.smelting_time"
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 738069175669973,
+									"parameters": {
+										"seconds": "smeltingTimePerItem",
+										"use-timescale": true
+									}
+								},
+								{
+									"type": "script",
+									"language": "javascript",
+									"script": [
+										"var smelterFurnaces = runtime.objects.Smelter_Furnace_1_Object.getAllInstances()",
+										"for (var i = 0; i < smelterFurnaces.length; i++) {",
+										"\tvar tmpSmelterFurnace = smelterFurnaces[i]",
+										"\tif (tmpSmelterFurnace.instVars.ID == localVars.localSmelterId) {",
+										"\t\tvar smelterFurnace = smelterFurnaces[i]",
+										"\t}",
+										"}",
+										"",
+										"",
+										"smelterFurnace.instVars.Crafting_Amount -= 1",
+										"",
+										"// get the global inventoty",
+										"var globalInventory = runtime.objects.Global_Inventory_Object.getFirstInstance()",
+										"",
+										"// add a the output item to the global inventory",
+										"var recipe = smelterRecipes[localVars.localSelectedRecipe]",
+										"var outputList = Object.keys(recipe.output)",
+										"for (var i = 0; i < outputList.length; i++) {",
+										"\tglobalInventory.instVars[outputList[i]] += ",
+										"\t\trecipe.output[outputList[i]]",
+										"}",
+										"",
+										"if (smelterFurnace.instVars.Crafting_Amount == 0) {",
+										"\tsmelterFurnace.instVars.Furnace_Active = 0",
+										"\tsmelterFurnace.instVars.Smelt_Next_Item = 0",
+										"} else {",
+										"\tsmelterFurnace.instVars.Smelt_Next_Item = 1",
+										"}"
+									]
+								},
+								{
+									"type": "comment",
+									"text": "Play Sound for every created item"
+								},
+								{
+									"id": "play",
+									"objectClass": "SFX",
+									"sid": 627039478901734,
+									"parameters": {
+										"audio-file": "Crafted",
+										"loop": "not-looping",
+										"volume": "Volume_General",
+										"stereo-pan": "0",
+										"tag-optional": "\"Item_Crafted\""
+									}
+								}
+							],
+							"sid": 440375971445950,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 436302271227853,
+							"parameters": {
+								"variable": "Loading"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 583469730135863,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 882379999005245
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 824791883184008,
+									"parameters": {
+										"instance-variable": "Crafting_Amount",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 535476329384152,
+									"parameters": {
+										"instance-variable": "Crafting_Time",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Smelter_Furnace_1_Object",
+									"sid": 769460714930634,
+									"parameters": {
+										"instance-variable": "Smelt_Next_Item",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 734493285292778,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 130397550789620
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Load_Furnace_Objects",
+											"sid": 926915338551195
+										}
+									],
+									"sid": 332226632635130,
+									"disabled": true
+								}
+							]
 						}
 					]
 				}
