@@ -219,6 +219,24 @@
 					],
 					"actions": [
 						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 432728477248481,
+							"parameters": {
+								"layer": "\"Loading\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Loading_Screen",
+							"sid": 726475755069576,
+							"parameters": {
+								"animation": "\"Close\"",
+								"from": "beginning"
+							}
+						},
+						{
 							"id": "set-effect-enabled",
 							"objectClass": "Main_Yes_Button",
 							"sid": 453980513520432,
@@ -253,6 +271,30 @@
 								"variable": "Main_Menu_Buttons",
 								"value": "true"
 							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Main_Menu_Buttons",
+							"sid": 180677412860470,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Main_Menu_Are_Y_S",
+							"sid": 724408338114446,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Main_Are_You_Sure_Text",
+							"sid": 346636194601498,
+							"parameters": {
+								"visibility": "invisible"
+							}
 						}
 					],
 					"sid": 922998386191177,
@@ -271,20 +313,11 @@
 									}
 								},
 								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 444773921492560,
-									"parameters": {
-										"layer": "\"Loading\"",
-										"visibility": "visible"
-									}
-								},
-								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 566809954856982,
+									"sid": 487186327292639,
 									"parameters": {
-										"seconds": "1.0",
+										"seconds": "3",
 										"use-timescale": true
 									}
 								},
@@ -314,6 +347,30 @@
 										"db": "-100",
 										"duration": "3",
 										"ending": "stop"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Main_Menu_Buttons",
+									"sid": 224730650610731,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Main_Menu_Are_Y_S",
+									"sid": 777585029500718,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Main_Are_You_Sure_Text",
+									"sid": 205430550264225,
+									"parameters": {
+										"visibility": "visible"
 									}
 								}
 							],
@@ -480,14 +537,6 @@
 					}
 				},
 				{
-					"id": "load",
-					"objectClass": "System",
-					"sid": 268267227263335,
-					"parameters": {
-						"slot": "\"mysave\""
-					}
-				},
-				{
 					"id": "fade-volume",
 					"objectClass": "SFX",
 					"sid": 111744199889943,
@@ -499,7 +548,137 @@
 					}
 				}
 			],
-			"sid": 364654079250888
+			"sid": 364654079250888,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 292076252910184,
+							"parameters": {
+								"layer": "\"Loading\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Loading_Screen",
+							"sid": 627477400690562,
+							"parameters": {
+								"animation": "\"Close\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Main_Menu_Buttons",
+							"sid": 523901314530069,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Main_Menu_Are_Y_S",
+							"sid": 513939698664212,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Main_Are_You_Sure_Text",
+							"sid": 240309968960323,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 578297080679661,
+							"parameters": {
+								"seconds": "3",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "load",
+							"objectClass": "System",
+							"sid": 422581344190651,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						},
+						{
+							"callFunction": "Load_Furnace_Objects",
+							"sid": 220366306449724,
+							"disabled": true
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 609794883263060,
+							"disabled": true,
+							"parameters": {
+								"variable": "Loading",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 389022968235869,
+							"parameters": {
+								"layer": "\"Loading\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Main_Menu_Buttons",
+							"sid": 707288893422663,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Main_Menu_Are_Y_S",
+							"sid": 472394227935351,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Main_Are_You_Sure_Text",
+							"sid": 790045796487450,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 135658642370039,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "Load_Furnace_Objects",
+									"sid": 117555566510955,
+									"disabled": true
+								}
+							],
+							"sid": 398900505426736
+						}
+					]
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -1574,13 +1753,9 @@
 							"conditions": [],
 							"actions": [
 								{
-									"id": "set-window-size",
+									"id": "cancel-fullscreen",
 									"objectClass": "Browser",
-									"sid": 361193365978747,
-									"parameters": {
-										"width": "1920",
-										"height": "1080"
-									}
+									"sid": 752058600109098
 								}
 							],
 							"sid": 545274938742143
