@@ -9,7 +9,7 @@
 			"eventType": "variable",
 			"name": "Demo_Version",
 			"type": "boolean",
-			"initialValue": "true",
+			"initialValue": "false",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -24,6 +24,40 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 689230219015255
+		},
+		{
+			"eventType": "comment",
+			"text": "Enemy Spawns"
+		},
+		{
+			"eventType": "variable",
+			"name": "Moles_Spawned",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 421592532003223
+		},
+		{
+			"eventType": "variable",
+			"name": "Crabs_Spawned",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 567006493185856
+		},
+		{
+			"eventType": "variable",
+			"name": "Devil_Spawned",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 614306528519617
 		},
 		{
 			"eventType": "comment",
@@ -39418,18 +39452,55 @@
 									"callFunction": "Save_Furnace_Objects",
 									"sid": 927537408709878,
 									"disabled": true
-								},
-								{
-									"id": "save",
-									"objectClass": "System",
-									"sid": 788610275640122,
-									"parameters": {
-										"slot": "\"mysave\""
-									}
 								}
 							],
 							"sid": 328487081816593,
 							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 915023619433750,
+											"parameters": {
+												"variable": "Demo_Version"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "save",
+											"objectClass": "System",
+											"sid": 804594281546063,
+											"parameters": {
+												"slot": "\"my_demo_save\""
+											}
+										}
+									],
+									"sid": 481977256650963
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 648355843083570
+										}
+									],
+									"actions": [
+										{
+											"id": "save",
+											"objectClass": "System",
+											"sid": 559561724407095,
+											"parameters": {
+												"slot": "\"mysave\""
+											}
+										}
+									],
+									"sid": 553984888772516
+								},
 								{
 									"eventType": "block",
 									"conditions": [],
@@ -39509,7 +39580,8 @@
 											"sid": 873964216294453
 										}
 									],
-									"sid": 828627699059648
+									"sid": 828627699059648,
+									"disabled": true
 								}
 							]
 						},
@@ -55679,7 +55751,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "468",
+							"initialValue": "20",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -72906,16 +72978,35 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "on-start-of-layout",
+											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 712480654032331
+											"sid": 887538410537985,
+											"parameters": {
+												"variable": "Miner_Height",
+												"comparison": 2,
+												"value": "-150"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 356670140180703,
+											"parameters": {
+												"variable": "Moles_Spawned"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 375418153959435
 										}
 									],
 									"actions": [
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Background_First",
-											"sid": 254154467202977,
+											"sid": 912904821104715,
 											"parameters": {
 												"object": "Enemy_Body",
 												"layer": "\"Player\"",
@@ -72927,7 +73018,7 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Background_First",
-											"sid": 505588260225430,
+											"sid": 853377421026383,
 											"parameters": {
 												"object": "Enemy_Body2",
 												"layer": "\"Player\"",
@@ -72935,11 +73026,139 @@
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
+										}
+									],
+									"sid": 862794219332929,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy_Body",
+													"sid": 645859508474319,
+													"parameters": {
+														"object": "Enemy_Turret_1",
+														"layer": "\"Player\"",
+														"image-point": "\"Hand\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy_Body",
+													"sid": 587611447947864,
+													"parameters": {
+														"object": "Dust_Animation_MR_MOLE",
+														"layer": "\"Player\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "pin-to-object-properties",
+													"objectClass": "Dust_Animation_MR_MOLE",
+													"sid": 222385935780067,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "Enemy_Body",
+														"x": true,
+														"y": true,
+														"angle": true,
+														"width-type": "no",
+														"height-type": "no",
+														"z": false
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy_Body2",
+													"sid": 415522884923675,
+													"parameters": {
+														"object": "Enemy_Turret_2",
+														"layer": "\"Player\"",
+														"image-point": "\"Hand\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy_Body2",
+													"sid": 837749935880472,
+													"parameters": {
+														"object": "Dust_Animation_MRS_MOLE",
+														"layer": "\"Player\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "pin-to-object-properties",
+													"objectClass": "Dust_Animation_MRS_MOLE",
+													"sid": 493676704093875,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "Enemy_Body2",
+														"x": true,
+														"y": true,
+														"angle": true,
+														"width-type": "no",
+														"height-type": "no",
+														"z": false
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 630256989345211,
+													"parameters": {
+														"variable": "Moles_Spawned",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 487666206892764
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 495660508106478,
+											"parameters": {
+												"variable": "Miner_Height",
+												"comparison": 2,
+												"value": "-300"
+											}
 										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 458351368551416,
+											"parameters": {
+												"variable": "Crabs_Spawned"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 870512601347575
+										}
+									],
+									"actions": [
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Background_Second",
-											"sid": 352713354766045,
+											"sid": 493563520522927,
 											"parameters": {
 												"object": "Enemy_Body3",
 												"layer": "\"Player\"",
@@ -72951,7 +73170,7 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Enemy_Background_Second",
-											"sid": 677003681213065,
+											"sid": 435530832248026,
 											"parameters": {
 												"object": "Enemy_Body4",
 												"layer": "\"Player\"",
@@ -72959,7 +73178,163 @@
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
+										}
+									],
+									"sid": 601123034296747,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy_Body3",
+													"sid": 710864232218773,
+													"parameters": {
+														"object": "Enemy_Turret_3",
+														"layer": "\"Player\"",
+														"image-point": "\"Hand\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy_Body4",
+													"sid": 496682476758597,
+													"parameters": {
+														"object": "Enemy_Turret_4",
+														"layer": "\"Player\"",
+														"image-point": "\"Hand\"",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 357006820985178,
+													"parameters": {
+														"variable": "Crabs_Spawned",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 922329932836031
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 226466944695875,
+											"parameters": {
+												"variable": "Miner_Height",
+												"comparison": 2,
+												"value": "-400"
+											}
 										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 137081153331315,
+											"parameters": {
+												"variable": "Devil_Spawned"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 693136115470561
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Hell_Background",
+											"sid": 862501018515629,
+											"parameters": {
+												"object": "Devil_Boss_Sprite",
+												"layer": "\"Player\"",
+												"image-point": "\"Enemy1\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 912092203225022,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Devil_Boss_Sprite",
+													"sid": 832487312709149,
+													"parameters": {
+														"object": "Devil_Boss_Pentagram",
+														"layer": "\"Player\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Devil_Boss_Sprite",
+													"sid": 688898525617739,
+													"parameters": {
+														"object": "Devil_Fire_Ring",
+														"layer": "\"Player\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "pin-to-object-properties",
+													"objectClass": "Devil_Fire_Ring",
+													"sid": 402319125651891,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "Devil_Boss_Sprite",
+														"x": true,
+														"y": true,
+														"angle": true,
+														"width-type": "no",
+														"height-type": "no",
+														"z": false
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 767267053632372,
+													"parameters": {
+														"variable": "Devil_Spawned",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 979846271043516
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-start-of-layout",
+											"objectClass": "System",
+											"sid": 712480654032331
+										}
+									],
+									"actions": [
 										{
 											"id": "pin-to-object-properties",
 											"objectClass": "HUD_Enemy_1_HP_Bar",
@@ -73004,171 +73379,9 @@
 												"height-type": "no",
 												"z": false
 											}
-										},
-										{
-											"id": "spawn-another-object",
-											"objectClass": "Hell_Background",
-											"sid": 639770224937167,
-											"parameters": {
-												"object": "Devil_Boss_Sprite",
-												"layer": "\"Player\"",
-												"image-point": "\"Enemy1\"",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
 										}
 									],
-									"sid": 259702809313874,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "spawn-another-object",
-													"objectClass": "Enemy_Body",
-													"sid": 893768964724222,
-													"parameters": {
-														"object": "Enemy_Turret_1",
-														"layer": "\"Player\"",
-														"image-point": "\"Hand\"",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "spawn-another-object",
-													"objectClass": "Enemy_Body",
-													"sid": 672736328132698,
-													"parameters": {
-														"object": "Dust_Animation_MR_MOLE",
-														"layer": "\"Player\"",
-														"image-point": "0",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "pin-to-object-properties",
-													"objectClass": "Dust_Animation_MR_MOLE",
-													"sid": 842104392275379,
-													"behaviorType": "Pin",
-													"parameters": {
-														"pin-to": "Enemy_Body",
-														"x": true,
-														"y": true,
-														"angle": true,
-														"width-type": "no",
-														"height-type": "no",
-														"z": false
-													}
-												},
-												{
-													"id": "spawn-another-object",
-													"objectClass": "Enemy_Body2",
-													"sid": 256612677347861,
-													"parameters": {
-														"object": "Enemy_Turret_2",
-														"layer": "\"Player\"",
-														"image-point": "\"Hand\"",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "spawn-another-object",
-													"objectClass": "Enemy_Body2",
-													"sid": 651061325644077,
-													"parameters": {
-														"object": "Dust_Animation_MRS_MOLE",
-														"layer": "\"Player\"",
-														"image-point": "0",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "pin-to-object-properties",
-													"objectClass": "Dust_Animation_MRS_MOLE",
-													"sid": 909897761407515,
-													"behaviorType": "Pin",
-													"parameters": {
-														"pin-to": "Enemy_Body2",
-														"x": true,
-														"y": true,
-														"angle": true,
-														"width-type": "no",
-														"height-type": "no",
-														"z": false
-													}
-												},
-												{
-													"id": "spawn-another-object",
-													"objectClass": "Enemy_Body3",
-													"sid": 883930009889071,
-													"parameters": {
-														"object": "Enemy_Turret_3",
-														"layer": "\"Player\"",
-														"image-point": "\"Hand\"",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "spawn-another-object",
-													"objectClass": "Enemy_Body4",
-													"sid": 582210158169643,
-													"parameters": {
-														"object": "Enemy_Turret_4",
-														"layer": "\"Player\"",
-														"image-point": "\"Hand\"",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "spawn-another-object",
-													"objectClass": "Devil_Boss_Sprite",
-													"sid": 286083288251103,
-													"parameters": {
-														"object": "Devil_Boss_Pentagram",
-														"layer": "\"Player\"",
-														"image-point": "0",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "spawn-another-object",
-													"objectClass": "Devil_Boss_Sprite",
-													"sid": 328443821358586,
-													"parameters": {
-														"object": "Devil_Fire_Ring",
-														"layer": "\"Player\"",
-														"image-point": "0",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "pin-to-object-properties",
-													"objectClass": "Devil_Fire_Ring",
-													"sid": 968552326286576,
-													"behaviorType": "Pin",
-													"parameters": {
-														"pin-to": "Devil_Boss_Sprite",
-														"x": true,
-														"y": true,
-														"angle": true,
-														"width-type": "no",
-														"height-type": "no",
-														"z": false
-													}
-												}
-											],
-											"sid": 683042790011129
-										}
-									]
+									"sid": 259702809313874
 								},
 								{
 									"eventType": "block",
@@ -73199,6 +73412,103 @@
 									],
 									"sid": 730360103603304,
 									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "acquire-target",
+													"objectClass": "Enemy_Turret_1",
+													"sid": 193438103147021,
+													"behaviorType": "Turret",
+													"parameters": {
+														"target": "Miner_Box"
+													}
+												},
+												{
+													"id": "acquire-target",
+													"objectClass": "Enemy_Turret_2",
+													"sid": 968415862451045,
+													"behaviorType": "Turret",
+													"parameters": {
+														"target": "Miner_Box"
+													}
+												},
+												{
+													"id": "acquire-target",
+													"objectClass": "Enemy_Turret_3",
+													"sid": 429334237000259,
+													"behaviorType": "Turret",
+													"parameters": {
+														"target": "Miner_Box"
+													}
+												},
+												{
+													"id": "acquire-target",
+													"objectClass": "Enemy_Turret_4",
+													"sid": 566858761894491,
+													"behaviorType": "Turret",
+													"parameters": {
+														"target": "Miner_Box"
+													}
+												},
+												{
+													"id": "acquire-target",
+													"objectClass": "Devil_Boss_Pentagram",
+													"sid": 613777419606627,
+													"behaviorType": "Turret",
+													"parameters": {
+														"target": "Miner_Box"
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Enemy_Turret_1",
+													"sid": 420087183299836,
+													"parameters": {
+														"x": "Enemy_Body.X",
+														"y": "Enemy_Body.Y"
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Enemy_Turret_2",
+													"sid": 350867657454087,
+													"parameters": {
+														"x": "Enemy_Body2.X",
+														"y": "Enemy_Body2.Y"
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Enemy_Turret_3",
+													"sid": 423104928431875,
+													"parameters": {
+														"x": "Enemy_Body3.X ",
+														"y": "Enemy_Body3.Y-64"
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Enemy_Turret_4",
+													"sid": 473604041203163,
+													"parameters": {
+														"x": "Enemy_Body4.X",
+														"y": "Enemy_Body4.Y -64"
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Devil_Boss_Pentagram",
+													"sid": 976643641479475,
+													"parameters": {
+														"x": "Devil_Boss_Sprite.X",
+														"y": "Devil_Boss_Sprite.Y"
+													}
+												}
+											],
+											"sid": 783354707776763
+										},
 										{
 											"eventType": "block",
 											"conditions": [
@@ -73294,103 +73604,6 @@
 												}
 											],
 											"sid": 263787031722066
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "acquire-target",
-													"objectClass": "Enemy_Turret_1",
-													"sid": 322175413655832,
-													"behaviorType": "Turret",
-													"parameters": {
-														"target": "Miner_Box"
-													}
-												},
-												{
-													"id": "acquire-target",
-													"objectClass": "Enemy_Turret_2",
-													"sid": 443840801474373,
-													"behaviorType": "Turret",
-													"parameters": {
-														"target": "Miner_Box"
-													}
-												},
-												{
-													"id": "acquire-target",
-													"objectClass": "Enemy_Turret_3",
-													"sid": 223288339481164,
-													"behaviorType": "Turret",
-													"parameters": {
-														"target": "Miner_Box"
-													}
-												},
-												{
-													"id": "acquire-target",
-													"objectClass": "Enemy_Turret_4",
-													"sid": 764865313109748,
-													"behaviorType": "Turret",
-													"parameters": {
-														"target": "Miner_Box"
-													}
-												},
-												{
-													"id": "acquire-target",
-													"objectClass": "Devil_Boss_Pentagram",
-													"sid": 909526256305401,
-													"behaviorType": "Turret",
-													"parameters": {
-														"target": "Miner_Box"
-													}
-												},
-												{
-													"id": "set-position",
-													"objectClass": "Enemy_Turret_1",
-													"sid": 311341992481662,
-													"parameters": {
-														"x": "Enemy_Body.X",
-														"y": "Enemy_Body.Y"
-													}
-												},
-												{
-													"id": "set-position",
-													"objectClass": "Enemy_Turret_2",
-													"sid": 441942271366661,
-													"parameters": {
-														"x": "Enemy_Body2.X",
-														"y": "Enemy_Body2.Y"
-													}
-												},
-												{
-													"id": "set-position",
-													"objectClass": "Enemy_Turret_3",
-													"sid": 269352103746649,
-													"parameters": {
-														"x": "Enemy_Body3.X ",
-														"y": "Enemy_Body3.Y-64"
-													}
-												},
-												{
-													"id": "set-position",
-													"objectClass": "Enemy_Turret_4",
-													"sid": 763545817139239,
-													"parameters": {
-														"x": "Enemy_Body4.X",
-														"y": "Enemy_Body4.Y -64"
-													}
-												},
-												{
-													"id": "set-position",
-													"objectClass": "Devil_Boss_Pentagram",
-													"sid": 954517895241452,
-													"parameters": {
-														"x": "Devil_Boss_Sprite.X",
-														"y": "Devil_Boss_Sprite.Y"
-													}
-												}
-											],
-											"sid": 369924070479137
 										},
 										{
 											"eventType": "block",
