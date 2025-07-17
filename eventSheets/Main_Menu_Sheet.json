@@ -552,6 +552,51 @@
 			"children": [
 				{
 					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 695447075248028,
+							"parameters": {
+								"variable": "Demo_Version"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "System",
+							"sid": 522007362005408,
+							"parameters": {
+								"slot": "\"my_demo_save\""
+							}
+						}
+					],
+					"sid": 207893298026210
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 203091050333595
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "System",
+							"sid": 243057094016995,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						}
+					],
+					"sid": 790696551776722
+				},
+				{
+					"eventType": "block",
 					"conditions": [],
 					"actions": [
 						{
@@ -603,14 +648,6 @@
 							"parameters": {
 								"seconds": "3",
 								"use-timescale": true
-							}
-						},
-						{
-							"id": "load",
-							"objectClass": "System",
-							"sid": 422581344190651,
-							"parameters": {
-								"slot": "\"mysave\""
 							}
 						},
 						{
