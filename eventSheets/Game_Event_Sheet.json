@@ -9,7 +9,7 @@
 			"eventType": "variable",
 			"name": "Demo_Version",
 			"type": "boolean",
-			"initialValue": "false",
+			"initialValue": "true",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -37584,10 +37584,10 @@
 										{
 											"id": "set-volume",
 											"objectClass": "SFX",
-											"sid": 502848805668390,
+											"sid": 217231298850593,
 											"parameters": {
 												"tag": "\"Button\"",
-												"db": "Volume_General"
+												"db": "Volume_General -30"
 											}
 										},
 										{
@@ -39452,6 +39452,15 @@
 									"callFunction": "Save_Furnace_Objects",
 									"sid": 927537408709878,
 									"disabled": true
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 715340989293266,
+									"parameters": {
+										"variable": "No_Save_File",
+										"value": "false"
+									}
 								}
 							],
 							"sid": 328487081816593,
