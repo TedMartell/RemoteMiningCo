@@ -4364,9 +4364,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Meta_Stats_Text",
-											"sid": 655513198798010,
+											"sid": 707037178649190,
 											"parameters": {
-												"text": "\"Drill Damage: \" & Miner_Mining_DMG  & newline\n&\"Max Energy: \" & Miner_Box.Max_Energy & newline\n& \"Energy Consumption: \" & Miner_Energy_Efficiency & newline\n&\"Energy Regeneration: \" & Miner_Energy_Regeneration & newline\n&\"Heat Shield: \" & Miner_Box.Shield_Heat & newline\n&\"Impact Shield: \" & Miner_Box.Shield_Impact & newline\n&\"Vertical Speed Multiplier: \" & Vertical_Speed_Multiplier & newline\n&\"Decrease Weight Multiplier: \" & Engine_Efficiency_Multiplier & newline\n&\"Laser Gun Damage: \" & Laser_Gun.Laser_Gun_Charged_Damage & newline &\n\"Battery Recharge Effect: \" & Battery_Effectiveness & \"%\" &\nnewline & \n\"Repairt Kit Repair Effect: \" & Repair_Kit_Effectiveness & \"%\" & \nnewline &\n\"Battery Max Inventory: \" & Battery_Max_Ammount & newline &\n\"Repair Kit Max Inventory: \" & Repair_Kit_Max_Ammount & \nnewline"
+												"text": "\"Drill Damage: \" & Miner_Mining_DMG  & newline\n&\"Max Energy: \" & Miner_Box.Max_Energy & newline\n& \"Energy Consumption: \" & Miner_Energy_Efficiency & newline\n&\"Energy Regeneration: \" & Miner_Energy_Regeneration & newline\n&\"Heat Shield: \" & Miner_Box.Shield_Heat & newline\n&\"Impact Shield: \" & Miner_Box.Shield_Impact & newline\n&\"Vertical Speed Multiplier: \" & Vertical_Speed_Multiplier & newline\n&\"Decrease Weight Multiplier: \" & Engine_Efficiency_Multiplier & newline\n&\"Laser Gun Damage: \" & Laser_Gun.Laser_Gun_Charged_Damage & newline &\n\"Battery Recharge Effect: \" & Battery_Effectiveness & \"%\" &\nnewline & \n\"Repairt Kit Repair Effect: \" & Repair_Kit_Effectiveness & \"%\" & \nnewline &\n\"Battery Max Inventory: \" & Battery_Max_Ammount & newline &\n\"Repair Kit Max Inventory: \" & Repair_Kit_Max_Ammount & \nnewline &\r\n\"Dynamite Max Inventory: \" & Dynamite_Max_Ammount & \r\nnewline"
 											}
 										},
 										{
@@ -39410,6 +39410,25 @@
 							],
 							"actions": [
 								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 137358264572013,
+									"disabled": true,
+									"parameters": {
+										"variable": "No_Save_File",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 946115999468608,
+									"parameters": {
+										"variable": "Save_File_Exists",
+										"value": "1"
+									}
+								},
+								{
 									"id": "play",
 									"objectClass": "SFX",
 									"sid": 104858814146219,
@@ -39454,12 +39473,22 @@
 									"disabled": true
 								},
 								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 715340989293266,
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 381569441506760,
+									"disabled": true,
 									"parameters": {
-										"variable": "No_Save_File",
-										"value": "false"
+										"key": "\"Save_File\"",
+										"value": "No_Save_File"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 867851974085391,
+									"parameters": {
+										"key": "\"Save_File\"",
+										"value": "Save_File_Exists"
 									}
 								}
 							],
@@ -55671,7 +55700,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "468",
+							"initialValue": "215",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
