@@ -13,26 +13,6 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "No_Save_File",
-			"type": "boolean",
-			"initialValue": "true",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 324722660732513
-		},
-		{
-			"eventType": "variable",
-			"name": "Save_File_Exists",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 390197755307205
-		},
-		{
-			"eventType": "variable",
 			"name": "Fullscreen",
 			"type": "boolean",
 			"initialValue": "false",
@@ -105,25 +85,7 @@
 				}
 			],
 			"actions": [],
-			"sid": 212210693061189,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 547998427076562,
-							"parameters": {
-								"variable": "Save_File_Exists",
-								"value": "LocalStorage.ItemValue"
-							}
-						}
-					],
-					"sid": 216176460248698
-				}
-			]
+			"sid": 212210693061189
 		},
 		{
 			"eventType": "block",
@@ -224,27 +186,7 @@
 			"children": [
 				{
 					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 338738745572773,
-							"parameters": {
-								"variable": "Save_File_Exists",
-								"comparison": 0,
-								"value": "0"
-							}
-						},
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 613583548551546,
-							"disabled": true,
-							"parameters": {
-								"variable": "No_Save_File"
-							}
-						}
-					],
+					"conditions": [],
 					"actions": [],
 					"sid": 654729441308668,
 					"children": [
@@ -470,26 +412,6 @@
 					"id": "is-visible",
 					"objectClass": "Main_Menu_Are_Y_S",
 					"sid": 713337960400926
-				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 101040123319580,
-					"disabled": true,
-					"parameters": {
-						"variable": "No_Save_File"
-					},
-					"isInverted": true
-				},
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 791270091120601,
-					"parameters": {
-						"variable": "Save_File_Exists",
-						"comparison": 0,
-						"value": "1"
-					}
 				}
 			],
 			"actions": [],
@@ -850,6 +772,7 @@
 				}
 			],
 			"sid": 364654079250888,
+			"disabled": true,
 			"children": [
 				{
 					"eventType": "block",
@@ -873,7 +796,8 @@
 							}
 						}
 					],
-					"sid": 207893298026210
+					"sid": 207893298026210,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -894,7 +818,8 @@
 							}
 						}
 					],
-					"sid": 790696551776722
+					"sid": 790696551776722,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -1001,6 +926,7 @@
 						}
 					],
 					"sid": 135658642370039,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -1012,7 +938,8 @@
 									"disabled": true
 								}
 							],
-							"sid": 398900505426736
+							"sid": 398900505426736,
+							"disabled": true
 						}
 					]
 				}
@@ -1533,6 +1460,7 @@
 				}
 			],
 			"sid": 367256320192065,
+			"disabled": true,
 			"children": [
 				{
 					"eventType": "block",
@@ -1557,7 +1485,8 @@
 							}
 						}
 					],
-					"sid": 481907278268657
+					"sid": 481907278268657,
+					"disabled": true
 				}
 			]
 		},
@@ -1581,7 +1510,8 @@
 					}
 				}
 			],
-			"sid": 442588894501725
+			"sid": 442588894501725,
+			"disabled": true
 		},
 		{
 			"eventType": "block",
@@ -2568,56 +2498,6 @@
 				}
 			],
 			"sid": 808428053645330
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 147081974740541
-				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 351495434456528,
-					"disabled": true,
-					"parameters": {
-						"variable": "No_Save_File"
-					}
-				}
-			],
-			"actions": [],
-			"sid": 974214062911815,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 829596794111122,
-							"parameters": {
-								"variable": "Save_File_Exists",
-								"comparison": 0,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Menu_Continue_Button",
-							"sid": 357639166825448,
-							"parameters": {
-								"animation": "\"Passive\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 854394475942498
-				}
-			]
 		}
 	],
 	"sid": 554733571785019

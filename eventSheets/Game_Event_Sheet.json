@@ -39410,25 +39410,6 @@
 							],
 							"actions": [
 								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 137358264572013,
-									"disabled": true,
-									"parameters": {
-										"variable": "No_Save_File",
-										"value": "false"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 946115999468608,
-									"parameters": {
-										"variable": "Save_File_Exists",
-										"value": "1"
-									}
-								},
-								{
 									"id": "play",
 									"objectClass": "SFX",
 									"sid": 104858814146219,
@@ -39471,25 +39452,6 @@
 									"callFunction": "Save_Furnace_Objects",
 									"sid": 927537408709878,
 									"disabled": true
-								},
-								{
-									"id": "set-item",
-									"objectClass": "LocalStorage",
-									"sid": 381569441506760,
-									"disabled": true,
-									"parameters": {
-										"key": "\"Save_File\"",
-										"value": "No_Save_File"
-									}
-								},
-								{
-									"id": "set-item",
-									"objectClass": "LocalStorage",
-									"sid": 867851974085391,
-									"parameters": {
-										"key": "\"Save_File\"",
-										"value": "Save_File_Exists"
-									}
 								}
 							],
 							"sid": 328487081816593,
@@ -39516,7 +39478,8 @@
 											}
 										}
 									],
-									"sid": 481977256650963
+									"sid": 481977256650963,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -39537,7 +39500,8 @@
 											}
 										}
 									],
-									"sid": 553984888772516
+									"sid": 553984888772516,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -39570,9 +39534,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Item_Discovered_Text",
-											"sid": 655520453423759,
+											"sid": 421306896799232,
 											"parameters": {
-												"text": "\"GAME IS SAVED\""
+												"text": "\"Save is not yet available in Demo version\""
 											}
 										},
 										{
