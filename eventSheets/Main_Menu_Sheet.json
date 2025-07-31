@@ -13,16 +13,6 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "No_Save_File",
-			"type": "boolean",
-			"initialValue": "true",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 324722660732513
-		},
-		{
-			"eventType": "variable",
 			"name": "Fullscreen",
 			"type": "boolean",
 			"initialValue": "false",
@@ -160,209 +150,22 @@
 			"children": [
 				{
 					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 613583548551546,
-							"parameters": {
-								"variable": "No_Save_File"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 654729441308668,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 714357086874283,
-									"parameters": {
-										"layer": "\"Loading\"",
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Loading_Screen",
-									"sid": 138502020473877,
-									"parameters": {
-										"animation": "\"Close\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Main_Yes_Button",
-									"sid": 963724476974978,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 630288036983560,
-									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "Main_Yes_Button",
-									"sid": 175790958391932,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Darken\""
-									}
-								},
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 887878228430247,
-									"parameters": {
-										"variable": "Main_Menu_Buttons",
-										"value": "true"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Main_Menu_Buttons",
-									"sid": 700531175931406,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Main_Menu_Are_Y_S",
-									"sid": 104908177441213,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Main_Are_You_Sure_Text",
-									"sid": 215814488000262,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								}
-							],
-							"sid": 964992038221464,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 747104286316786,
-											"parameters": {
-												"variable": "New_Game",
-												"value": "false"
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 712065848770876,
-											"parameters": {
-												"seconds": "3",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "go-to-layout",
-											"objectClass": "System",
-											"sid": 785965649598432,
-											"parameters": {
-												"layout": "Game"
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 292400859203692,
-											"parameters": {
-												"layer": "\"Loading\"",
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "fade-volume",
-											"objectClass": "SFX",
-											"sid": 506814097940007,
-											"parameters": {
-												"tag": "\"Surface_Music\"",
-												"db": "-100",
-												"duration": "3",
-												"ending": "stop"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "Main_Menu_Buttons",
-											"sid": 888712446316329,
-											"parameters": {
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "Main_Menu_Are_Y_S",
-											"sid": 206723764896159,
-											"parameters": {
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "Main_Are_You_Sure_Text",
-											"sid": 760540868074449,
-											"parameters": {
-												"visibility": "visible"
-											}
-										}
-									],
-									"sid": 771021128961059
-								}
-							]
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 163131949444425
-						}
-					],
+					"conditions": [],
 					"actions": [
 						{
 							"id": "move-to-top",
 							"objectClass": "Main_Menu_Are_Y_S",
-							"sid": 163465165641615
+							"sid": 975311675102286
 						},
 						{
 							"id": "move-to-top",
 							"objectClass": "Main_Are_You_Sure_Text",
-							"sid": 837105547567744
+							"sid": 439731925462364
 						},
 						{
 							"id": "set-visible",
 							"objectClass": "Main_Menu_Are_Y_S",
-							"sid": 988389469124403,
+							"sid": 176734902683094,
 							"parameters": {
 								"visibility": "visible"
 							}
@@ -370,13 +173,13 @@
 						{
 							"id": "set-visible",
 							"objectClass": "Main_Are_You_Sure_Text",
-							"sid": 356409805248322,
+							"sid": 221072285240557,
 							"parameters": {
 								"visibility": "visible"
 							}
 						}
 					],
-					"sid": 359582986909298
+					"sid": 709503608041920
 				}
 			]
 		},
@@ -395,15 +198,6 @@
 					"id": "is-visible",
 					"objectClass": "Main_Menu_Are_Y_S",
 					"sid": 713337960400926
-				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 101040123319580,
-					"parameters": {
-						"variable": "No_Save_File"
-					},
-					"isInverted": true
 				}
 			],
 			"actions": [],
@@ -866,11 +660,6 @@
 							}
 						},
 						{
-							"callFunction": "Load_Furnace_Objects",
-							"sid": 220366306449724,
-							"disabled": true
-						},
-						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
 							"sid": 609794883263060,
@@ -914,21 +703,7 @@
 							}
 						}
 					],
-					"sid": 135658642370039,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"callFunction": "Load_Furnace_Objects",
-									"sid": 117555566510955,
-									"disabled": true
-								}
-							],
-							"sid": 398900505426736
-						}
-					]
+					"sid": 135658642370039
 				}
 			]
 		},
@@ -2482,36 +2257,6 @@
 				}
 			],
 			"sid": 808428053645330
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 147081974740541
-				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 351495434456528,
-					"parameters": {
-						"variable": "No_Save_File"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "Menu_Continue_Button",
-					"sid": 242969885953230,
-					"parameters": {
-						"animation": "\"Passive\"",
-						"from": "beginning"
-					}
-				}
-			],
-			"sid": 974214062911815
 		}
 	],
 	"sid": 554733571785019
