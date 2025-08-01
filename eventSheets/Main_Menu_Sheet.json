@@ -771,8 +771,8 @@
 					"conditions": [
 						{
 							"id": "is-visible",
-							"objectClass": "Movement_Menu_Background",
-							"sid": 740643074872758
+							"objectClass": "Movement_Menu_Text",
+							"sid": 892668484620818
 						}
 					],
 					"actions": [
@@ -823,6 +823,125 @@
 						}
 					],
 					"sid": 576955366592066
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 980766938485347,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Menu_Credits_Button"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 876313641553318,
+					"parameters": {
+						"variable": "Main_Menu_Buttons"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "Main_Are_You_Sure_Window",
+					"sid": 916655092709110,
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Menu_Credits_Button",
+					"sid": 619463653660671,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"Darken\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 164508860412570,
+					"parameters": {
+						"seconds": "0.1",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Menu_Credits_Button",
+					"sid": 456408154854489,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"Darken\""
+					}
+				}
+			],
+			"sid": 164368535839614,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "Credits_Menu_Text",
+							"sid": 610492076787243
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Movement_Menu_Background",
+							"sid": 558121393343902,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Credits_Menu_Text",
+							"sid": 398207799706364,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 141385421356055
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 352137589542482
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Movement_Menu_Background",
+							"sid": 224594689676386,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Credits_Menu_Text",
+							"sid": 561453792816675,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 396166020081606
 				}
 			]
 		},
@@ -1478,21 +1597,95 @@
 				{
 					"id": "else",
 					"objectClass": "System",
-					"sid": 189468250328830
+					"sid": 181556059480769
 				}
 			],
 			"actions": [
 				{
 					"id": "set-animation",
 					"objectClass": "Menu_Exit_Game_Button",
-					"sid": 360902927202698,
+					"sid": 485772564532528,
 					"parameters": {
 						"animation": "\"Not_Focused\"",
 						"from": "beginning"
 					}
 				}
 			],
-			"sid": 881010160407950
+			"sid": 201809932446446
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 913481246392675,
+					"parameters": {
+						"object": "Menu_Credits_Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Menu_Credits_Button",
+					"sid": 490340336983437,
+					"parameters": {
+						"animation": "\"Focused\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 339757667269131,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 120427433465414
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "SFX",
+							"sid": 758297276132002,
+							"parameters": {
+								"audio-file": "Button_short",
+								"loop": "not-looping",
+								"volume": "-30",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 324369400586099
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 503580254458910
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Menu_Credits_Button",
+					"sid": 832095211904796,
+					"parameters": {
+						"animation": "\"Not_Focused\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 292619851043782
 		},
 		{
 			"eventType": "block",
