@@ -487,110 +487,6 @@
 		},
 		{
 			"eventType": "comment",
-			"text": "Upgrades Tracker"
-		},
-		{
-			"eventType": "variable",
-			"name": "Tracker_Count",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 513575400137726
-		},
-		{
-			"eventType": "variable",
-			"name": "Tracker_Number_Inventory_1",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 461604763953991
-		},
-		{
-			"eventType": "variable",
-			"name": "Tracker_Number_Requirements_1",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 611877245028573
-		},
-		{
-			"eventType": "variable",
-			"name": "Tracker_Number_Inventory_2",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 935185933856188
-		},
-		{
-			"eventType": "variable",
-			"name": "Tracker_Number_Requirements_2",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 887698385078049
-		},
-		{
-			"eventType": "variable",
-			"name": "Tracker_Number_Inventory_3",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 535324766493547
-		},
-		{
-			"eventType": "variable",
-			"name": "Tracker_Number_Requirements_3",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 905348584541652
-		},
-		{
-			"eventType": "variable",
-			"name": "Tracker_Slot_1_Active",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 823276540779046
-		},
-		{
-			"eventType": "variable",
-			"name": "Tracker_Slot_2_Active",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 173831328517103
-		},
-		{
-			"eventType": "variable",
-			"name": "Tracker_Slot_3_Active",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 369415260028945
-		},
-		{
-			"eventType": "comment",
 			"text": "Map Reset check"
 		},
 		{
@@ -602,30 +498,6 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 702574346066075
-		},
-		{
-			"eventType": "comment",
-			"text": "Test Recipe Loads"
-		},
-		{
-			"eventType": "variable",
-			"name": "Recipe_0",
-			"type": "string",
-			"initialValue": "",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 390430148387192
-		},
-		{
-			"eventType": "variable",
-			"name": "Recipe_1",
-			"type": "string",
-			"initialValue": "",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 137600389785033
 		},
 		{
 			"eventType": "group",
@@ -4768,518 +4640,519 @@
 					"sid": 686414873303369
 				},
 				{
-					"eventType": "comment",
-					"text": "//Animation "
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 975108152676737
-						}
-					],
-					"actions": [
-						{
-							"type": "comment",
-							"text": "Should be disabled on live version"
-						},
-						{
-							"id": "set-silent",
-							"objectClass": "SFX",
-							"sid": 547617209315410,
-							"disabled": true,
-							"parameters": {
-								"mode": "silent"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "Are_You_Sure_Window",
-							"sid": 336735812750695,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "Main_Menu_Are_Y_S",
-							"sid": 508296956087647,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "Mute_Button",
-							"sid": 576142864524930,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "Game_Fullscreen_Button",
-							"sid": 910366723946029,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "spawn-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 631504762713703,
-							"parameters": {
-								"object": "Miner_Animations",
-								"layer": "\"Player\"",
-								"image-point": "0",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "pin-to-object-properties",
-							"objectClass": "Miner_Animations",
-							"sid": 658481509639199,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "Miner_Box",
-								"x": true,
-								"y": true,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						},
-						{
-							"id": "spawn-another-object",
-							"objectClass": "Miner_Box",
-							"sid": 760663111431486,
-							"parameters": {
-								"object": "Render_Object",
-								"layer": "\"Player\"",
-								"image-point": "\"Center\"",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "pin-to-object-properties",
-							"objectClass": "Render_Object",
-							"sid": 938956938869996,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "Miner_Box",
-								"x": true,
-								"y": true,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 459481090446565,
-							"parameters": {
-								"group-name": "\"Warehouse Inventory Management\"",
-								"state": "deactivated"
-							}
-						},
-						{
-							"id": "move-to-top",
-							"objectClass": "Game_Concrete_Block",
-							"sid": 499434072154022
-						},
-						{
-							"id": "pin-to-object-properties",
-							"objectClass": "Shop_Explainer_Text",
-							"sid": 398793227897418,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "Shop_Explainer_Background",
-								"x": true,
-								"y": true,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						},
-						{
-							"id": "pin-to-object-imagepoint",
-							"objectClass": "Laser_Gun",
-							"sid": 519270023912054,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "Miner_Animations",
-								"image-point": "\"Laser_Gun\"",
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						},
-						{
-							"id": "pin-to-object-properties",
-							"objectClass": "Achievements_Explainer_Text",
-							"sid": 561117621496966,
-							"behaviorType": "Pin",
-							"parameters": {
-								"pin-to": "Achievements_Explainer_Background",
-								"x": true,
-								"y": true,
-								"angle": true,
-								"width-type": "no",
-								"height-type": "no",
-								"z": false
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "Loading_Screen",
-							"sid": 558148975055600,
-							"parameters": {
-								"animation": "\"Open\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 215528164269866,
+					"eventType": "group",
+					"disabled": false,
+					"title": "Other",
+					"description": "",
+					"isActiveOnStart": true,
 					"children": [
 						{
 							"eventType": "comment",
-							"text": "Set Recipe List in Smelter"
+							"text": "//Animation "
 						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "add-item-at",
-									"objectClass": "Smelter_recipe_List",
-									"sid": 294802211588364,
-									"parameters": {
-										"index": "2",
-										"text": "\"Silicon\""
-									}
-								},
-								{
-									"id": "add-item-at",
-									"objectClass": "Smelter_recipe_List",
-									"sid": 268148992061859,
-									"parameters": {
-										"index": "3",
-										"text": "\"Aluminium Ingot\""
-									}
-								},
-								{
-									"id": "add-item-at",
-									"objectClass": "Smelter_recipe_List",
-									"sid": 826374253166837,
-									"parameters": {
-										"index": "4",
-										"text": "\"-\""
-									}
-								},
-								{
-									"id": "add-item-at",
-									"objectClass": "Smelter_recipe_List",
-									"sid": 897275453995232,
-									"parameters": {
-										"index": "5",
-										"text": "\"-\""
-									}
-								},
-								{
-									"id": "add-item-at",
-									"objectClass": "Smelter_recipe_List",
-									"sid": 167852296743593,
-									"parameters": {
-										"index": "6",
-										"text": "\"-\""
-									}
-								},
-								{
-									"id": "add-item-at",
-									"objectClass": "Smelter_recipe_List",
-									"sid": 499653327131846,
-									"parameters": {
-										"index": "7",
-										"text": "\"-\""
-									}
-								},
-								{
-									"id": "add-item-at",
-									"objectClass": "Smelter_recipe_List",
-									"sid": 653995673151529,
-									"parameters": {
-										"index": "8",
-										"text": "\"-\""
-									}
-								},
-								{
-									"id": "add-item-at",
-									"objectClass": "Smelter_recipe_List",
-									"sid": 665965557345260,
-									"parameters": {
-										"index": "9",
-										"text": "\"-\""
-									}
-								},
-								{
-									"id": "add-item-at",
-									"objectClass": "Smelter_recipe_List",
-									"sid": 961106182079170,
-									"parameters": {
-										"index": "10",
-										"text": "\"-\""
-									}
-								},
-								{
-									"id": "add-item-at",
-									"objectClass": "Smelter_recipe_List",
-									"sid": 206984925910891,
-									"parameters": {
-										"index": "11",
-										"text": "\"-\""
-									}
-								}
-							],
-							"sid": 729689098277988
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 486346003285505,
-									"parameters": {
-										"seconds": "2",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Loading_Screen",
-									"sid": 272911540871059,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								}
-							],
-							"sid": 356607977964954
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 752147574086178
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Miner_Animations",
-							"sid": 742589122020026,
-							"parameters": {
-								"animation": "Self.ANIM & \"_\" & Self.DIR",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "Laser_Gun",
-							"sid": 150370902888142,
-							"parameters": {
-								"animation": "Self.ANIM & \"_\" & Self.DIR",
-								"from": "beginning"
-							}
-						},
-						{
-							"type": "script",
-							"language": "javascript",
-							"script": [
-								"runtime.globalVars.minerInventoryValue = String(minerInventory.value);",
-								"runtime.globalVars.minerInventoryWeight = String(minerInventory.weight);",
-								""
-							]
-						},
-						{
-							"id": "set-text",
-							"objectClass": "Value_Weight_Text",
-							"sid": 527064616210856,
-							"parameters": {
-								"text": "\"Value: \" & minerInventoryValue & \" Weight: \" & minerInventoryWeight"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "Money_Text",
-							"sid": 719304926768198,
-							"parameters": {
-								"text": "\"$ \" & Miner_Box.Money "
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "HUD_Money_Text",
-							"sid": 561883554923644,
-							"parameters": {
-								"text": "\"$ \" & Miner_Box.Money  "
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "Shop_Money_Text",
-							"sid": 857604316142422,
-							"parameters": {
-								"text": "\"$ \" &Miner_Box.Money  "
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 643436820277605,
-							"parameters": {
-								"variable": "Miner_Height",
-								"value": "(round((Miner_Box.Y / 64)) -19) *-1"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 815654235084367,
-							"parameters": {
-								"variable": "Miner_Mining_DMG",
-								"value": "Miner_Box.DMG * Meta_Multiplier_Object.DMG_Multiplier_1"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 348885847450202,
-							"parameters": {
-								"variable": "Miner_Energy_Efficiency",
-								"value": "0.02 * Meta_Multiplier_Object.Energy_Effi_Multiplier_1"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 504163553642995,
-							"parameters": {
-								"variable": "Miner_Energy_Regeneration",
-								"value": "1 * Meta_Multiplier_Object.Energy_Regen_Multiplier"
-							}
-						},
-						{
-							"type": "comment",
-							"text": "Set vertical speed"
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 819630090772893,
-							"parameters": {
-								"variable": "Vector_Y_Speed_Up",
-								"value": "roundToDp((-200 *Vertical_Speed_Multiplier) +(Miner_Box.Weight -100) *Engine_Efficiency_Multiplier  , 2)"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 833310254617595,
-							"parameters": {
-								"variable": "Vector_Y_Speed_Down",
-								"value": "200 * Vertical_Speed_Multiplier"
-							}
-						},
-						{
-							"id": "set-acceleration",
-							"objectClass": "Miner_Box",
-							"sid": 703010974485735,
-							"behaviorType": "Platform",
-							"parameters": {
-								"acceleration": "(2500 + Engine_Effect_Acc_Add) - Miner_Box.Weight *Engine_Efficiency_Multiplier *10"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "Tracker_Count",
-							"sid": 785088173133911,
-							"parameters": {
-								"text": "\"Upgrades Tracked:\" & newline & \nTracker_Count & \" / 3\""
-							}
-						}
-					],
-					"sid": 557502173694722,
-					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 676259893989146
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Should be disabled on live version"
+								},
+								{
+									"id": "set-silent",
+									"objectClass": "SFX",
+									"sid": 125846211517676,
+									"parameters": {
+										"mode": "silent"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Are_You_Sure_Window",
+									"sid": 580005255371002,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Main_Menu_Are_Y_S",
+									"sid": 932762533993689,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Mute_Button",
+									"sid": 635815770531077,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Game_Fullscreen_Button",
+									"sid": 337857688881290,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 602233761237918,
+									"parameters": {
+										"object": "Miner_Animations",
+										"layer": "\"Player\"",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Miner_Animations",
+									"sid": 457216210431142,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Miner_Box",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Miner_Box",
+									"sid": 544784347666152,
+									"parameters": {
+										"object": "Render_Object",
+										"layer": "\"Player\"",
+										"image-point": "\"Center\"",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Render_Object",
+									"sid": 459639980956067,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Miner_Box",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 252659647460069,
+									"parameters": {
+										"group-name": "\"Warehouse Inventory Management\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "move-to-top",
+									"objectClass": "Game_Concrete_Block",
+									"sid": 106681206226808
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Shop_Explainer_Text",
+									"sid": 475507061292642,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Shop_Explainer_Background",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "pin-to-object-imagepoint",
+									"objectClass": "Laser_Gun",
+									"sid": 466868646079934,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Miner_Animations",
+										"image-point": "\"Laser_Gun\"",
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "Achievements_Explainer_Text",
+									"sid": 152924051285042,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Achievements_Explainer_Background",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Loading_Screen",
+									"sid": 768697820607167,
+									"parameters": {
+										"animation": "\"Open\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 658808850031547,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Set Recipe List in Smelter"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "add-item-at",
+											"objectClass": "Smelter_recipe_List",
+											"sid": 399693030984985,
+											"parameters": {
+												"index": "2",
+												"text": "\"Silicon\""
+											}
+										},
+										{
+											"id": "add-item-at",
+											"objectClass": "Smelter_recipe_List",
+											"sid": 565580018337620,
+											"parameters": {
+												"index": "3",
+												"text": "\"Aluminium Ingot\""
+											}
+										},
+										{
+											"id": "add-item-at",
+											"objectClass": "Smelter_recipe_List",
+											"sid": 739476670857455,
+											"parameters": {
+												"index": "4",
+												"text": "\"-\""
+											}
+										},
+										{
+											"id": "add-item-at",
+											"objectClass": "Smelter_recipe_List",
+											"sid": 620849713572410,
+											"parameters": {
+												"index": "5",
+												"text": "\"-\""
+											}
+										},
+										{
+											"id": "add-item-at",
+											"objectClass": "Smelter_recipe_List",
+											"sid": 803284902732101,
+											"parameters": {
+												"index": "6",
+												"text": "\"-\""
+											}
+										},
+										{
+											"id": "add-item-at",
+											"objectClass": "Smelter_recipe_List",
+											"sid": 542159501173462,
+											"parameters": {
+												"index": "7",
+												"text": "\"-\""
+											}
+										},
+										{
+											"id": "add-item-at",
+											"objectClass": "Smelter_recipe_List",
+											"sid": 795975169573022,
+											"parameters": {
+												"index": "8",
+												"text": "\"-\""
+											}
+										},
+										{
+											"id": "add-item-at",
+											"objectClass": "Smelter_recipe_List",
+											"sid": 814691244010299,
+											"parameters": {
+												"index": "9",
+												"text": "\"-\""
+											}
+										},
+										{
+											"id": "add-item-at",
+											"objectClass": "Smelter_recipe_List",
+											"sid": 316755873560755,
+											"parameters": {
+												"index": "10",
+												"text": "\"-\""
+											}
+										},
+										{
+											"id": "add-item-at",
+											"objectClass": "Smelter_recipe_List",
+											"sid": 176288495114336,
+											"parameters": {
+												"index": "11",
+												"text": "\"-\""
+											}
+										}
+									],
+									"sid": 348124102564662
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 881973031315374,
+											"parameters": {
+												"seconds": "2",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Loading_Screen",
+											"sid": 518886040235058,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 765601201769985
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 927539962761900
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Miner_Animations",
+									"sid": 764154764445712,
+									"parameters": {
+										"animation": "Self.ANIM & \"_\" & Self.DIR",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Laser_Gun",
+									"sid": 785360507825971,
+									"parameters": {
+										"animation": "Self.ANIM & \"_\" & Self.DIR",
+										"from": "beginning"
+									}
+								},
+								{
+									"type": "script",
+									"language": "javascript",
+									"script": [
+										"runtime.globalVars.minerInventoryValue = String(minerInventory.value);",
+										"runtime.globalVars.minerInventoryWeight = String(minerInventory.weight);",
+										""
+									]
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Value_Weight_Text",
+									"sid": 696237974332644,
+									"parameters": {
+										"text": "\"Value: \" & minerInventoryValue & \" Weight: \" & minerInventoryWeight"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Money_Text",
+									"sid": 403911578994763,
+									"parameters": {
+										"text": "\"$ \" & Miner_Box.Money "
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "HUD_Money_Text",
+									"sid": 307367823297688,
+									"parameters": {
+										"text": "\"$ \" & Miner_Box.Money  "
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Shop_Money_Text",
+									"sid": 276554161876293,
+									"parameters": {
+										"text": "\"$ \" &Miner_Box.Money  "
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 180195456050949,
+									"parameters": {
+										"variable": "Miner_Height",
+										"value": "(round((Miner_Box.Y / 64)) -19) *-1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 758207188174612,
+									"parameters": {
+										"variable": "Miner_Mining_DMG",
+										"value": "Miner_Box.DMG * Meta_Multiplier_Object.DMG_Multiplier_1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 919132463174888,
+									"parameters": {
+										"variable": "Miner_Energy_Efficiency",
+										"value": "0.02 * Meta_Multiplier_Object.Energy_Effi_Multiplier_1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 362296735151653,
+									"parameters": {
+										"variable": "Miner_Energy_Regeneration",
+										"value": "1 * Meta_Multiplier_Object.Energy_Regen_Multiplier"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "Set vertical speed"
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 792232171737256,
+									"parameters": {
+										"variable": "Vector_Y_Speed_Up",
+										"value": "roundToDp((-200 *Vertical_Speed_Multiplier) +(Miner_Box.Weight -100) *Engine_Efficiency_Multiplier  , 2)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 898214993182912,
+									"parameters": {
+										"variable": "Vector_Y_Speed_Down",
+										"value": "200 * Vertical_Speed_Multiplier"
+									}
+								},
+								{
+									"id": "set-acceleration",
+									"objectClass": "Miner_Box",
+									"sid": 823711365132213,
+									"behaviorType": "Platform",
+									"parameters": {
+										"acceleration": "(2500 + Engine_Effect_Acc_Add) - Miner_Box.Weight *Engine_Efficiency_Multiplier *10"
+									}
+								}
+							],
+							"sid": 330533532845919,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 842898446018575,
+											"parameters": {
+												"variable": "Muted"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Mute_Button",
+											"sid": 285951567145628,
+											"parameters": {
+												"animation": "\"On\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 200002347018647
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 824169286212538
+								},
+								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 955180684646891,
+									"sid": 514420731423069,
 									"parameters": {
-										"variable": "Muted"
+										"variable": "Fullscreen"
 									}
 								}
 							],
 							"actions": [
 								{
 									"id": "set-animation",
-									"objectClass": "Mute_Button",
-									"sid": 620788022548632,
+									"objectClass": "Game_Fullscreen_Button",
+									"sid": 391752822268491,
 									"parameters": {
 										"animation": "\"On\"",
 										"from": "beginning"
 									}
 								}
 							],
-							"sid": 271412099130637
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 595468947079342
-						},
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 781451931558353,
-							"parameters": {
-								"variable": "Fullscreen"
-							}
+							"sid": 102890721928573
 						}
 					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Game_Fullscreen_Button",
-							"sid": 752490777918839,
-							"parameters": {
-								"animation": "\"On\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 537823970777538
+					"sid": 878404892511474
 				}
 			],
 			"sid": 769195620327841
@@ -51825,7 +51698,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "468",
+							"initialValue": "50",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -65817,6 +65690,18 @@
 											}
 										},
 										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 376958944639729,
+											"parameters": {
+												"audio-file": "Minerdamage",
+												"loop": "not-looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Crash\""
+											}
+										},
+										{
 											"id": "subtract-from-instvar",
 											"objectClass": "Miner_Box",
 											"sid": 973172098514841,
@@ -65880,38 +65765,7 @@
 											}
 										}
 									],
-									"sid": 183415952722697,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 373527314766889,
-													"parameters": {
-														"variable": "Alerts_Muted"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"id": "play",
-													"objectClass": "SFX",
-													"sid": 221887498988944,
-													"parameters": {
-														"audio-file": "Minerdamage",
-														"loop": "not-looping",
-														"volume": "Volume_General",
-														"stereo-pan": "0",
-														"tag-optional": "\"Crash\""
-													}
-												}
-											],
-											"sid": 286939540384552
-										}
-									]
+									"sid": 183415952722697
 								},
 								{
 									"eventType": "block",
@@ -65943,6 +65797,18 @@
 												"magnitude": "20",
 												"duration": "0.4",
 												"mode": "reducing-magnitude"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "SFX",
+											"sid": 202532969611517,
+											"parameters": {
+												"audio-file": "Minerdamage",
+												"loop": "not-looping",
+												"volume": "Volume_General",
+												"stereo-pan": "0",
+												"tag-optional": "\"Crash\""
 											}
 										},
 										{
@@ -66009,38 +65875,7 @@
 											}
 										}
 									],
-									"sid": 107094387234714,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 599063243684684,
-													"parameters": {
-														"variable": "Alerts_Muted"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"id": "play",
-													"objectClass": "SFX",
-													"sid": 581654731916214,
-													"parameters": {
-														"audio-file": "Minerdamage",
-														"loop": "not-looping",
-														"volume": "Volume_General",
-														"stereo-pan": "0",
-														"tag-optional": "\"Crash\""
-													}
-												}
-											],
-											"sid": 121654766650291
-										}
-									]
+									"sid": 107094387234714
 								},
 								{
 									"eventType": "block",
