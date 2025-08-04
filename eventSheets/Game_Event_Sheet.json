@@ -48780,6 +48780,12 @@
 											]
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 274452757649948
 								}
 							]
 						},
@@ -48873,33 +48879,6 @@
 												"volume": "Volume_General",
 												"stereo-pan": "0",
 												"tag-optional": "\"Button\""
-											}
-										},
-										{
-											"id": "set-effect-enabled",
-											"objectClass": "Smelter_Crafting_Button",
-											"sid": 115135606125313,
-											"parameters": {
-												"mode": "enable",
-												"effect": "\"Darken\""
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 578806268895941,
-											"parameters": {
-												"seconds": "0.1",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "set-effect-enabled",
-											"objectClass": "Smelter_Crafting_Button",
-											"sid": 761444586471956,
-											"parameters": {
-												"mode": "disable",
-												"effect": "\"Darken\""
 											}
 										}
 									],
@@ -49028,6 +49007,52 @@
 											"sid": 277576001261768
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 820262833738285,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "Smelter_Crafting_Button.ID"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 304772215089780,
+											"parameters": {
+												"instance-variable": "Furnace_Active",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Smelter_Furnace_1_Object",
+											"sid": 457075180694998,
+											"parameters": {
+												"instance-variable": "Busy",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-selection",
+											"objectClass": "Smelter_recipe_List",
+											"sid": 319668342347411,
+											"parameters": {
+												"index": "0"
+											}
+										}
+									],
+									"sid": 269485245737698
 								}
 							]
 						},
