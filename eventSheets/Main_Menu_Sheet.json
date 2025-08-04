@@ -55,6 +55,71 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 270420082039475
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 312248835703133,
+					"parameters": {
+						"key": "\"GameSaved\""
+					}
+				}
+			],
+			"sid": 270700841859020
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 634824885007018,
+					"parameters": {
+						"key": "\"GameSaved\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 475809229242933,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 326142234390462,
+							"parameters": {
+								"first-value": "LocalStorage.ItemValue",
+								"comparison": 0,
+								"second-value": "\"1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Menu_Continue_Button",
+							"sid": 814565083672222,
+							"parameters": {
+								"instance-variable": "Enabled",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 936136263722260
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-object-clicked",
 					"objectClass": "Mouse",
 					"sid": 308970670013100,
@@ -496,13 +561,12 @@
 					"isInverted": true
 				},
 				{
-					"id": "is-animation-playing",
+					"id": "is-boolean-instance-variable-set",
 					"objectClass": "Menu_Continue_Button",
-					"sid": 829714373471248,
+					"sid": 471358370499022,
 					"parameters": {
-						"animation": "\"Passive\""
-					},
-					"isInverted": true
+						"instance-variable": "Enabled"
+					}
 				}
 			],
 			"actions": [
@@ -565,7 +629,7 @@
 						{
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 695447075248028,
+							"sid": 268670693916558,
 							"parameters": {
 								"variable": "Demo_Version"
 							}
@@ -575,13 +639,13 @@
 						{
 							"id": "load",
 							"objectClass": "System",
-							"sid": 522007362005408,
+							"sid": 965669104956472,
 							"parameters": {
 								"slot": "\"my_demo_save\""
 							}
 						}
 					],
-					"sid": 207893298026210
+					"sid": 895099208693955
 				},
 				{
 					"eventType": "block",
@@ -589,20 +653,20 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 203091050333595
+							"sid": 911785991339000
 						}
 					],
 					"actions": [
 						{
 							"id": "load",
 							"objectClass": "System",
-							"sid": 243057094016995,
+							"sid": 935321848775082,
 							"parameters": {
 								"slot": "\"mysave\""
 							}
 						}
 					],
-					"sid": 790696551776722
+					"sid": 423900864860184
 				},
 				{
 					"eventType": "block",
@@ -611,7 +675,7 @@
 						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 292076252910184,
+							"sid": 296334963143537,
 							"parameters": {
 								"layer": "\"Loading\"",
 								"visibility": "visible"
@@ -620,7 +684,7 @@
 						{
 							"id": "set-animation",
 							"objectClass": "Loading_Screen",
-							"sid": 627477400690562,
+							"sid": 849324900640394,
 							"parameters": {
 								"animation": "\"Close\"",
 								"from": "beginning"
@@ -629,7 +693,7 @@
 						{
 							"id": "set-visible",
 							"objectClass": "Main_Menu_Buttons",
-							"sid": 523901314530069,
+							"sid": 439242532148027,
 							"parameters": {
 								"visibility": "invisible"
 							}
@@ -637,7 +701,7 @@
 						{
 							"id": "set-visible",
 							"objectClass": "Main_Menu_Are_Y_S",
-							"sid": 513939698664212,
+							"sid": 379245246358317,
 							"parameters": {
 								"visibility": "invisible"
 							}
@@ -645,7 +709,7 @@
 						{
 							"id": "set-visible",
 							"objectClass": "Main_Are_You_Sure_Text",
-							"sid": 240309968960323,
+							"sid": 811037824238648,
 							"parameters": {
 								"visibility": "invisible"
 							}
@@ -653,7 +717,7 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 578297080679661,
+							"sid": 150106955855055,
 							"parameters": {
 								"seconds": "3",
 								"use-timescale": true
@@ -662,7 +726,7 @@
 						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 609794883263060,
+							"sid": 771285921040140,
 							"disabled": true,
 							"parameters": {
 								"variable": "Loading",
@@ -672,7 +736,7 @@
 						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 389022968235869,
+							"sid": 224015992633696,
 							"parameters": {
 								"layer": "\"Loading\"",
 								"visibility": "invisible"
@@ -681,7 +745,7 @@
 						{
 							"id": "set-visible",
 							"objectClass": "Main_Menu_Buttons",
-							"sid": 707288893422663,
+							"sid": 916135846615698,
 							"parameters": {
 								"visibility": "visible"
 							}
@@ -689,7 +753,7 @@
 						{
 							"id": "set-visible",
 							"objectClass": "Main_Menu_Are_Y_S",
-							"sid": 472394227935351,
+							"sid": 920100358271895,
 							"parameters": {
 								"visibility": "visible"
 							}
@@ -697,13 +761,18 @@
 						{
 							"id": "set-visible",
 							"objectClass": "Main_Are_You_Sure_Text",
-							"sid": 790045796487450,
+							"sid": 812993953266372,
 							"parameters": {
 								"visibility": "visible"
 							}
+						},
+						{
+							"id": "save-to-json",
+							"objectClass": "System",
+							"sid": 890518435745664
 						}
 					],
-					"sid": 135658642370039
+					"sid": 599667254476988
 				}
 			]
 		},

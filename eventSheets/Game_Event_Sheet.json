@@ -9,7 +9,7 @@
 			"eventType": "variable",
 			"name": "Demo_Version",
 			"type": "boolean",
-			"initialValue": "true",
+			"initialValue": "false",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -4668,6 +4668,7 @@
 									"id": "set-silent",
 									"objectClass": "SFX",
 									"sid": 125846211517676,
+									"disabled": true,
 									"parameters": {
 										"mode": "silent"
 									}
@@ -35536,6 +35537,15 @@
 											"parameters": {
 												"slot": "\"my_demo_save\""
 											}
+										},
+										{
+											"id": "set-item",
+											"objectClass": "LocalStorage",
+											"sid": 401117019261417,
+											"parameters": {
+												"key": "\"GameSaved\"",
+												"value": "\"1\""
+											}
 										}
 									],
 									"sid": 481977256650963
@@ -35556,6 +35566,15 @@
 											"sid": 559561724407095,
 											"parameters": {
 												"slot": "\"mysave\""
+											}
+										},
+										{
+											"id": "set-item",
+											"objectClass": "LocalStorage",
+											"sid": 593584649143572,
+											"parameters": {
+												"key": "\"GameSaved\"",
+												"value": "\"1\""
 											}
 										}
 									],
@@ -51723,7 +51742,7 @@
 							"eventType": "variable",
 							"name": "EndY",
 							"type": "number",
-							"initialValue": "50",
+							"initialValue": "468",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
