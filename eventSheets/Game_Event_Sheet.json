@@ -5774,6 +5774,64 @@
 												"height-type": "no",
 												"z": false
 											}
+										},
+										{
+											"type": "comment",
+											"text": "//Scroll Buttons Spawn"
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 247002451709296,
+											"parameters": {
+												"object": "Meta_Scroll_Down_Button",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Scroll_Down\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Scroll_Down_Button",
+											"sid": 614824915981436,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Meta_Upg_Background",
+											"sid": 790665802673222,
+											"parameters": {
+												"object": "Meta_Scroll_Up_Button",
+												"layer": "\"Meta_Upgrades\"",
+												"image-point": "\"Scroll_Up\"",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Meta_Scroll_Up_Button",
+											"sid": 248222443209459,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Meta_Upg_Background",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
 										}
 									],
 									"sid": 882954226124112
@@ -6880,6 +6938,59 @@
 									"eventType": "block",
 									"conditions": [
 										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 937830368365448,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Scroll_Up_Button"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 771033514170297,
+											"parameters": {
+												"y": "Meta_ScrollabeSprite.Y +50"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Scroll_Up_Button",
+											"sid": 467630747969940,
+											"parameters": {
+												"animation": "\"Focused\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 388310835948990,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Scroll_Up_Button",
+											"sid": 799204948585515,
+											"parameters": {
+												"animation": "\"Animation 1\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 810894865001900
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
 											"id": "on-mouse-wheel",
 											"objectClass": "Mouse",
 											"sid": 152454788890282,
@@ -6899,6 +7010,59 @@
 										}
 									],
 									"sid": 764216548441035
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 370400225655783,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Meta_Scroll_Down_Button"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "Meta_ScrollabeSprite",
+											"sid": 662499295981042,
+											"parameters": {
+												"y": "Meta_ScrollabeSprite.Y -50"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Scroll_Down_Button",
+											"sid": 191467304422811,
+											"parameters": {
+												"animation": "\"Focused\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 633739729186746,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Meta_Scroll_Down_Button",
+											"sid": 221327088275191,
+											"parameters": {
+												"animation": "\"Animation 1\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 407775144420974
 								}
 							],
 							"sid": 280120232455088
@@ -66253,9 +66417,9 @@
 										{
 											"id": "every-x-seconds",
 											"objectClass": "System",
-											"sid": 469643696025463,
+											"sid": 284087718331525,
 											"parameters": {
-												"interval-seconds": "0.25"
+												"interval-seconds": "0.15"
 											}
 										},
 										{
