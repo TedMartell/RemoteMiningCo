@@ -34,6 +34,8 @@ The game launches **August 9, 2025** on Steam!
 Play the full version or try the free demo:  
 👉 [Remote Mining Co. on Steam](https://store.steampowered.com/app/3787480/Remote_Miner_Co/)
 
+![Remote Mining Co. Miner](https://github.com/TedMartell/RemoteMiningCo/blob/main/images/miner_animations-drill_down-004.png)
+
 ---
 
 ## 📂 GitHub Repository
@@ -47,6 +49,8 @@ Explore the source code and development progress:
 
 Follow development updates and join the community:  
 - 💬 Discord: https://discord.gg/AaMkV5quYB
+
+![Remote Mining Co. Mitch](https://github.com/TedMartell/RemoteMiningCo/blob/main/images/mitch-talking-000.png)
 
 ---
 
