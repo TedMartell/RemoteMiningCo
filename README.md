@@ -1,4 +1,5 @@
 
+![Remote Mining Co. Banner](https://github.com/TedMartell/RemoteMiningCo/blob/main/images/steam_small_capsule.png)
 
 # 🪓 Remote Mining Co.
 
