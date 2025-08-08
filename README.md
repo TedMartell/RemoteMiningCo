@@ -7,7 +7,7 @@
 
 **Remote Mining Co.** is a 2D mining game built in **Construct 3 (JavaScript)**, blending semi-idle mechanics with deep crafting and upgrades. Designed for players who crave more depth in mining games, it offers a relaxing yet rewarding experience.
 
-> 💡 The goal: To become the most in-depth mining game on the market.
+> 💡 The goal: To have a solid relaxning mining game on the market for all ages.
 
 ---
 
