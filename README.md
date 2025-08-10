@@ -53,7 +53,8 @@ Follow development updates and join the community:
 ![Remote Mining Co. Mitch](https://github.com/TedMartell/RemoteMiningCo/blob/main/images/mitch-talking-000.png)
 
 ---
-
+## 🤝 Contributing
 Thanks for checking out Remote Mining Co. — feedback is always welcome!
+
  
 
